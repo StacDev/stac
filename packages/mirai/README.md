@@ -7,7 +7,7 @@
 
 Mirai is a Server-Driven UI (SDUI) library for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
 
-Developed with 💙 by [Securrency][securrency_link]
+Developed with 💙 by [Mirai](https://buildmirai.dev/)
 
 ## Installation 🚀
 
@@ -390,25 +390,22 @@ That's it with just few lines of code your SDUI app is up and running.
 
 ### More examples
 
-Check out the [Mirai Gallery](https://github.com/Securrency-OSS/mirai/tree/main/examples/mirai_gallery) app for more such examples.
+Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/main/examples/mirai_gallery) app for more such examples.
 
 ## Contributors ✨
 
-<a href="https://github.com/Securrency-OSS/mirai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Securrency-OSS/mirai" />
+<a href="https://github.com/BuildMirai/mirai/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=BuildMirai/mirai" />
 </a>
 
 ## Maintainers
 
 - [Divyanshu Bhargava][divyanshu_github]
-- [Aasim Khan][aasim_github]
 
 ---
 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.png
 [license_link]: https://opensource.org/licenses/MIT
-[mirai_banner]: https://github.com/Securrency-OSS/mirai/blob/main/assets/mirai_banner.png
-[securrency_link]: https://securrency.com
-[form_screen]: https://github.com/Securrency-OSS/mirai/blob/main/assets/form_screen_image.png
+[mirai_banner]: https://github.com/BuildMirai/mirai/blob/main/assets/mirai_banner.png
+[form_screen]: https://github.com/BuildMirai/mirai/blob/main/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
-[aasim_github]: https://github.com/i-asimkhan
