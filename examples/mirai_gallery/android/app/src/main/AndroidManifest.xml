@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.securrency.mirai_gallery">
+    package="com.mirai.mirai_gallery">
    <application
         android:label="mirai_gallery"
         android:name="${applicationName}"

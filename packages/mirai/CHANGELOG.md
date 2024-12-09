@@ -11,19 +11,19 @@
 
 ## 0.6.0
 
-* chore: update readme by @divyanshub024 in https://github.com/Securrency-OSS/mirai/pull/210
-* feat: Add Mirai Switch by @kushalmahapatro in https://github.com/Securrency-OSS/mirai/pull/207
-* :bug: fix: Failed assertion 'initialValue == null || controller == null': is not true in TextFormField by @loud-at-heart in https://github.com/Securrency-OSS/mirai/pull/227
-* Securrency-OSS/mirai#191 - :rocket: Added support for align widget by @loud-at-heart in https://github.com/Securrency-OSS/mirai/pull/226
-* feat: Added tabAlignment in mirai tab bar by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/235
-* fix: Added scroll physics export statement in utils.dart by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/236
-* fix: Added support for `flex` in expanded widget by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/240
-* feat: Added `PageView` widget parser in `mirai` widget parsers by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/239
-* Update banner by @divyanshub024 in https://github.com/Securrency-OSS/mirai/pull/247
-* feat: Use app theme colors in color property by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/246
-* feat: Added support for `textScaler` in Mirai Text Parser by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/245
-* feat: Add Mirai Network Widget by @divyanshub024 in https://github.com/Securrency-OSS/mirai/pull/248
-* feat: Added refresh-indicator to get a fresh `listView` json from the remote URL by @i-asimkhan in https://github.com/Securrency-OSS/mirai/pull/244
+* chore: update readme by @divyanshub024
+* feat: Add Mirai Switch by @kushalmahapatro
+* :bug: fix: Failed assertion 'initialValue == null || controller == null': is not true in TextFormField by @loud-at-heart
+* Added support for align widget by @loud-at-heart
+* feat: Added tabAlignment in mirai tab bar by @i-asimkhan
+* fix: Added scroll physics export statement in utils.dart by @i-asimkhan
+* fix: Added support for `flex` in expanded widget by @i-asimkhan
+* feat: Added `PageView` widget parser in `mirai` widget parsers by @i-asimkhan
+* Update banner by @divyanshub024
+* feat: Use app theme colors in color property by @i-asimkhan
+* feat: Added support for `textScaler` in Mirai Text Parser by @i-asimkhan
+* feat: Add Mirai Network Widget by @divyanshub024
+* feat: Added refresh-indicator to get a fresh `listView` json from the remote URL by @i-asimkhan
 
 ## 0.5.1
 

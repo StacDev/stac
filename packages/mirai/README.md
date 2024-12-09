@@ -5,7 +5,7 @@
 
 ---
 
-Mirai is a Server-Driven UI (SDUI) library for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
+Mirai is a Server-Driven UI (SDUI) framework for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
 
 Developed with 💙 by [Mirai](https://buildmirai.dev/)
 
