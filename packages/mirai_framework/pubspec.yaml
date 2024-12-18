@@ -1,6 +1,6 @@
 name: mirai_framework
 description: A local package containing Mirai framework files
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/buildMirai/mirai
 
 environment:

@@ -1,3 +1,7 @@
+## 0.7.2
+
+* update Readme
+
 ## 0.7.0
 
 * Added support for new widgets: CircleAvatar, GridView, Chip, Wrap & FilledButton
