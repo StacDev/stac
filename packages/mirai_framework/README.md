@@ -1,6 +1,6 @@
 # Mirai Framework
 
-The Mirai Framework package contains the framework files for [Mirai](https://github.com/Securrency-OSS/mirai), such as MiraiParser and MiraiActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Mirai. This can be useful for extending the functionality of Mirai or for implementing custom widgets and actions.
+The Mirai Framework package contains the framework files for [Mirai](https://github.com/buildMirai/mirai), such as MiraiParser and MiraiActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Mirai. This can be useful for extending the functionality of Mirai or for implementing custom widgets and actions.
 
 Here are some examples of how the Mirai Framework package can be used:
 

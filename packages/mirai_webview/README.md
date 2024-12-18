@@ -30,6 +30,6 @@ void main() async {
 ```JSON
 {
   "type": "webView",
-  "url": "https://github.com/Securrency-OSS/mirai"
+  "url": "https://github.com/buildMirai/mirai"
 }
 ```

@@ -60,4 +60,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-For more details check out [MiraiTheme](https://github.com/Securrency-OSS/mirai/blob/dev/packages/mirai/lib/src/parsers/mirai_theme/mirai_theme.dart) class.
+For more details check out [MiraiTheme](https://github.com/buildMirai/mirai/blob/dev/packages/mirai/lib/src/parsers/mirai_theme/mirai_theme.dart) class.
