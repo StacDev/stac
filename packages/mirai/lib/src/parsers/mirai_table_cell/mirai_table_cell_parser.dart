@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mirai/mirai.dart';
 import 'package:mirai/src/parsers/mirai_table_cell/mirai_table_cell.dart';
 import 'package:mirai/src/utils/widget_type.dart';
+import 'package:mirai_framework/mirai_framework.dart';
 
 class MiraiTableCellParser extends MiraiParser<MiraiTableCell> {
   const MiraiTableCellParser();
