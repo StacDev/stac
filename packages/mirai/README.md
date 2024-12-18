@@ -410,7 +410,7 @@ Check out the [Mirai Gallery](https://github.com/buildMirai/mirai/tree/main/exam
 [license_link]: https://opensource.org/licenses/MIT
 [mirai_banner]: https://github.com/buildMirai/mirai/blob/dev/assets/mirai_banner.png
 [mirai_link]: https://buildmirai.dev/
-[form_screen]: https://github.com/buildMirai/mirai/blob/main/assets/form_screen_image.png
+[form_screen]: https://github.com/buildMirai/mirai/blob/dev/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
 [aasim_github]: https://github.com/i-asimkhan
 [rahul_linkedIn]: https://www.linkedin.com/in/rahul--bisht/
