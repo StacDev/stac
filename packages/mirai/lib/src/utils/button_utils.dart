@@ -65,8 +65,6 @@ enum MiraiFloatingActionButtonLocation {
         return FloatingActionButtonLocation.endDocked;
       case MiraiFloatingActionButtonLocation.miniEndDocked:
         return FloatingActionButtonLocation.miniEndDocked;
-      default:
-        return FloatingActionButtonLocation.centerDocked;
     }
   }
 }

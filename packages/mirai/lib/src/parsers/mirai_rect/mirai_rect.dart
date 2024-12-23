@@ -66,8 +66,6 @@ extension MiraiRectParser on MiraiRect {
         return fromLTWH();
       case MiraiRectType.fromPoints:
         return fromPoints();
-      default:
-        return null;
     }
   }
 }

@@ -48,7 +48,6 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       case MiraiSwitchType.adaptive:
         return _buildAdaptiveSwitch(context, model);
       case MiraiSwitchType.material:
-      default:
         return _buildMaterialSwitch(context, model);
     }
   }

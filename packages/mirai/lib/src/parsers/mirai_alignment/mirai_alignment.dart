@@ -31,8 +31,6 @@ enum MiraiAlignment {
         return Alignment.bottomCenter;
       case MiraiAlignment.bottomRight:
         return Alignment.bottomRight;
-      default:
-        return Alignment.topLeft;
     }
   }
 }

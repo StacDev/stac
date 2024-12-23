@@ -1,11 +1,11 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mirai/src/parsers/mirai_image/mirai_image.dart';
 import 'package:mirai/src/utils/color_utils.dart';
 import 'package:mirai/src/utils/widget_type.dart';
 import 'package:mirai_framework/mirai_framework.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class MiraiImageParser extends MiraiParser<MiraiImage> {
   const MiraiImageParser();
@@ -25,9 +25,6 @@ class MiraiImageParser extends MiraiParser<MiraiImage> {
         return _fileImage(model, context);
       case MiraiImageType.asset:
         return _assetImage(model, context);
-
-      default:
-        return _networkImage(model, context);
     }
   }
 

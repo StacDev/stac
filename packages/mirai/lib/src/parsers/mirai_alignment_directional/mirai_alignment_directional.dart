@@ -31,8 +31,6 @@ enum MiraiAlignmentDirectional {
         return AlignmentDirectional.bottomCenter;
       case MiraiAlignmentDirectional.bottomEnd:
         return AlignmentDirectional.bottomEnd;
-      default:
-        return AlignmentDirectional.topStart;
     }
   }
 }
