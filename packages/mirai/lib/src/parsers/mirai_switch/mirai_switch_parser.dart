@@ -103,19 +103,19 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
           ? NetworkImage(model.inactiveThumbImage!)
           : null,
       materialTapTargetSize: model.materialTapTargetSize,
-      thumbColor: MaterialStateProperty.all(model.thumbColor?.parse(context)),
-      trackColor: MaterialStateProperty.all(model.trackColor?.parse(context)),
-      trackOutlineColor: MaterialStateProperty.all(
+      thumbColor: WidgetStateProperty.all(model.thumbColor?.parse(context)),
+      trackColor: WidgetStateProperty.all(model.trackColor?.parse(context)),
+      trackOutlineColor: WidgetStateProperty.all(
         model.trackOutlineColor?.parse(context),
       ),
-      trackOutlineWidth: MaterialStateProperty.all(model.trackOutlineWidth),
-      thumbIcon: MaterialStateProperty.all(
+      trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
+      thumbIcon: WidgetStateProperty.all(
         Mirai.fromJson(model.thumbIcon, context) as Icon?,
       ),
       dragStartBehavior: model.dragStartBehavior,
       focusColor: model.focusColor?.toColor(context),
       hoverColor: model.hoverColor?.toColor(context),
-      overlayColor: MaterialStateProperty.all(
+      overlayColor: WidgetStateProperty.all(
         model.overlayColor?.parse(context),
       ),
       splashRadius: model.splashRadius,
@@ -138,20 +138,20 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       inactiveThumbImage: model.inactiveThumbImage != null
           ? NetworkImage(model.inactiveThumbImage!)
           : null,
-      thumbColor: MaterialStateProperty.all(model.thumbColor?.parse(context)),
-      trackColor: MaterialStateProperty.all(model.trackColor?.parse(context)),
-      trackOutlineColor: MaterialStateProperty.all(
+      thumbColor: WidgetStateProperty.all(model.thumbColor?.parse(context)),
+      trackColor: WidgetStateProperty.all(model.trackColor?.parse(context)),
+      trackOutlineColor: WidgetStateProperty.all(
         model.trackOutlineColor?.parse(context),
       ),
-      trackOutlineWidth: MaterialStateProperty.all(model.trackOutlineWidth),
-      thumbIcon: MaterialStateProperty.all(
+      trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
+      thumbIcon: WidgetStateProperty.all(
         Mirai.fromJson(model.thumbIcon, context) as Icon?,
       ),
       materialTapTargetSize: model.materialTapTargetSize,
       dragStartBehavior: model.dragStartBehavior,
       focusColor: model.focusColor?.toColor(context),
       hoverColor: model.hoverColor?.toColor(context),
-      overlayColor: MaterialStateProperty.all(
+      overlayColor: WidgetStateProperty.all(
         model.overlayColor?.parse(context),
       ),
       splashRadius: model.splashRadius,
