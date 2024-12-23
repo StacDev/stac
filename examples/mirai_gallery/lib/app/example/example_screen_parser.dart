@@ -43,7 +43,7 @@ class ExampleScreenParser extends MiraiParser<ExampleScreen> {
                     activeColor: Theme.of(context).colorScheme.primary,
                     activeTrackColor: Theme.of(context).colorScheme.onSurface,
                     inactiveTrackColor:
-                        Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                        Theme.of(context).colorScheme.primary.withAlpha(80),
                     inactiveThumbColor: Theme.of(context).colorScheme.primary,
                     onChanged: (bool enable) {
                       context.read<AppThemeCubit>().enableDarkMode(enable);
@@ -62,7 +62,7 @@ class ExampleScreenParser extends MiraiParser<ExampleScreen> {
               borderRadius: const BorderRadius.all(Radius.circular(12)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withAlpha(128),
                   spreadRadius: 5,
                   blurRadius: 7,
                   offset: const Offset(0, 3),
