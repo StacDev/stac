@@ -39,15 +39,15 @@ extension ColorExt on String? {
       case ColorType.onErrorContainer:
         return Theme.of(context).colorScheme.onErrorContainer;
       case ColorType.background:
-        return Theme.of(context).colorScheme.background;
+        return Theme.of(context).colorScheme.surface;
       case ColorType.onBackground:
-        return Theme.of(context).colorScheme.onBackground;
+        return Theme.of(context).colorScheme.onSurface;
       case ColorType.surface:
         return Theme.of(context).colorScheme.surface;
       case ColorType.onSurface:
         return Theme.of(context).colorScheme.onSurface;
       case ColorType.surfaceVariant:
-        return Theme.of(context).colorScheme.surfaceVariant;
+        return Theme.of(context).colorScheme.surfaceContainerHighest;
       case ColorType.onSurfaceVariant:
         return Theme.of(context).colorScheme.onSurfaceVariant;
       case ColorType.outline:

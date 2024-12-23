@@ -76,8 +76,8 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
     return CupertinoSwitch(
       value: isSelected,
       onChanged: _onChanged,
-      activeColor: model.activeColor.toColor(context),
-      trackColor: model.trackColor?.parse(context),
+      activeTrackColor: model.activeColor.toColor(context),
+      inactiveTrackColor: model.trackColor?.parse(context),
       thumbColor: model.thumbColor?.parse(context),
       applyTheme: model.applyTheme,
       focusColor: model.focusColor?.toColor(context),
