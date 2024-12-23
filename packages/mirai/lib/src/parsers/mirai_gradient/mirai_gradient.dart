@@ -67,8 +67,6 @@ extension MiraiGradientParser on MiraiGradient {
         return radialGradient();
       case MiraiGradientType.sweep:
         return sweepGradient();
-      default:
-        return null;
     }
   }
 }

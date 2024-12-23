@@ -34,7 +34,7 @@ class MiraiChipParser extends MiraiParser<MiraiChip> {
       padding: model.padding.parse,
       shape: model.shape.parse(context),
       autofocus: model.autofocus,
-      color: MaterialStateProperty.all(model.color.toColor(context)),
+      color: WidgetStateProperty.all(model.color.toColor(context)),
       focusNode: focusNode,
       onDeleted: () {},
       clipBehavior: Clip.none,

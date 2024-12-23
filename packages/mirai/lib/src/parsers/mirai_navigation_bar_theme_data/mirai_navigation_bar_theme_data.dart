@@ -37,8 +37,8 @@ extension MiraiNavigationBarThemeDataParser on MiraiNavigationBarThemeData {
       surfaceTintColor: surfaceTintColor.toColor(context),
       indicatorColor: indicatorColor.toColor(context),
       indicatorShape: indicatorShape?.parse(context),
-      labelTextStyle: MaterialStateProperty.all(labelTextStyle?.parse(context)),
-      iconTheme: MaterialStateProperty.all(iconTheme?.parse(context)),
+      labelTextStyle: WidgetStateProperty.all(labelTextStyle?.parse(context)),
+      iconTheme: WidgetStateProperty.all(iconTheme?.parse(context)),
       labelBehavior: labelBehavior,
     );
   }

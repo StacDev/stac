@@ -39,7 +39,7 @@ extension MiraiTabBarThemeDataParser on MiraiTabBarThemeData {
       labelStyle: labelStyle?.parse(context),
       unselectedLabelColor: unselectedLabelColor.toColor(context),
       unselectedLabelStyle: unselectedLabelStyle?.parse(context),
-      overlayColor: MaterialStateProperty.all(overlayColor.toColor(context)),
+      overlayColor: WidgetStateProperty.all(overlayColor.toColor(context)),
     );
   }
 }

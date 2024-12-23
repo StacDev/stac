@@ -1,5 +1,3 @@
-library parsers;
-
 export 'package:mirai/src/parsers/mirai_alert_dialog/mirai_alert_dialog.dart';
 export 'package:mirai/src/parsers/mirai_align/mirai_align.dart';
 export 'package:mirai/src/parsers/mirai_alignment/mirai_alignment.dart';

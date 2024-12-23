@@ -41,6 +41,7 @@ extension MiraiThemeParser on MiraiMaterialColor {
     };
 
     return MaterialColor(
+      // ignore: deprecated_member_use
       (primary.toColor(context))!.value,
       color,
     );

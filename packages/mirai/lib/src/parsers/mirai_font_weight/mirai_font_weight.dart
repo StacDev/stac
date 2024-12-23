@@ -39,8 +39,6 @@ enum MiraiFontWeight {
 
       case MiraiFontWeight.w900:
         return FontWeight.w900;
-      default:
-        return FontWeight.normal;
     }
   }
 }

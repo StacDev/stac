@@ -58,13 +58,13 @@ class __MiraiCheckBoxWidgetState extends State<_MiraiCheckBoxWidget> {
         },
         activeColor: widget.model.activeColor.toColor(context),
         fillColor:
-            MaterialStateProperty.all(widget.model.fillColor?.parse(context)),
+            WidgetStateProperty.all(widget.model.fillColor?.parse(context)),
         checkColor: widget.model.checkColor.toColor(context),
         tristate: widget.model.tristate,
         focusColor: widget.model.focusColor.toColor(context),
         hoverColor: widget.model.hoverColor.toColor(context),
-        overlayColor: MaterialStateProperty.all(
-            widget.model.overlayColor?.parse(context)),
+        overlayColor:
+            WidgetStateProperty.all(widget.model.overlayColor?.parse(context)),
         splashRadius: widget.model.splashRadius,
         autofocus: widget.model.autofocus,
         isError: widget.model.isError);

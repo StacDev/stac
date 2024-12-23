@@ -13,8 +13,6 @@ enum MiraiTextAlignVertical {
         return TextAlignVertical.center;
       case MiraiTextAlignVertical.bottom:
         return TextAlignVertical.bottom;
-      default:
-        return TextAlignVertical.center;
     }
   }
 }
