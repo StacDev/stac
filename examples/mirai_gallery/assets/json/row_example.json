@@ -27,6 +27,7 @@
               "type": "row",
               "mainAxisAlignment": "center",
               "crossAxisAlignment": "center",
+              "spacing": 12,
               "children": [
                 {
                   "type": "image",
@@ -34,17 +35,9 @@
                   "width": 100
                 },
                 {
-                  "type": "sizedBox",
-                  "width": 12
-                },
-                {
                   "type": "image",
                   "src": "https://images.pexels.com/photos/121629/pexels-photo-121629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
                   "width": 100
-                },
-                {
-                  "type": "sizedBox",
-                  "width": 12
                 },
                 {
                   "type": "image",

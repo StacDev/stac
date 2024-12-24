@@ -22,7 +22,7 @@ _$MiraiRowImpl _$$MiraiRowImplFromJson(Map<String, dynamic> json) =>
       verticalDirection: $enumDecodeNullable(
               _$VerticalDirectionEnumMap, json['verticalDirection']) ??
           VerticalDirection.down,
-      spacing: (json['spacing'] as num?)?.toDouble(),
+      spacing: (json['spacing'] as num?)?.toDouble() ?? 0,
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??
