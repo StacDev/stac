@@ -51,4 +51,5 @@ enum WidgetType {
   autocomplete,
   table,
   tableCell,
+  carouselView,
 }

@@ -159,6 +159,37 @@
     "leading": {
       "type": "icon",
       "iconType": "material",
+      "icon": "view_carousel"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Carousel View",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "The CarouselView presents a scrollable list of items, each of which can dynamically change size based on the chosen layout.",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/carousel_view_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
       "icon": "format_align_center"
     },
     "title": {

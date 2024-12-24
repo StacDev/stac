@@ -1,0 +1,127 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {"type": "text", "data": "Carousel View"}
+  },
+  "body": {
+    "type": "listView",
+    "children": [
+      {
+        "type": "container",
+        "height": 400,
+        "child": {
+          "type": "carouselView",
+          "padding": 12,
+          "carouselType": "weighted",
+          "itemSnapping": true,
+          "flexWeights": [1, 7, 1],
+          "children": [
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png"
+            },
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png"
+            },
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png"
+            },
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_4.png"
+            },
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_5.png"
+            },
+            {
+              "type": "image",
+              "height": 400,
+              "fit": "cover",
+              "src":
+              "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_6.png"
+            }
+          ]
+        }
+      },
+      {
+        "type": "container",
+        "height": 200,
+        "child": {
+          "type": "carouselView",
+          "itemExtent": 300,
+          "shrinkExtent": 80,
+          "padding": 12,
+          "children": [
+            {
+              "type": "container",
+              "color": "#FFCDD2",
+              "child": {
+                "type": "center",
+                "child": {
+                  "type": "text",
+                  "data": "Show 0",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": 20,
+                    "fontWeight": "w400"
+                  }
+                }
+              }
+            },
+            {
+              "type": "container",
+              "color": "#C8E6C9",
+              "child": {
+                "type": "center",
+                "child": {
+                  "type": "text",
+                  "data": "Show 1",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": 20,
+                    "fontWeight": "w400"
+                  }
+                }
+              }
+            },
+            {
+              "type": "container",
+              "color": "#BBDEFB",
+              "child": {
+                "type": "center",
+                "child": {
+                  "type": "text",
+                  "data": "Show 2",
+                  "style": {
+                    "color": "#FFFFFF",
+                    "fontSize": 20,
+                    "fontWeight": "w400"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
