@@ -26,8 +26,12 @@ mixin _$MiraiFractionallySizedBox {
   double? get heightFactor => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFractionallySizedBox to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFractionallySizedBox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFractionallySizedBoxCopyWith<MiraiFractionallySizedBox> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$MiraiFractionallySizedBoxCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFractionallySizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,6 +117,8 @@ class __$$MiraiFractionallySizedBoxImplCopyWithImpl<$Res>
       $Res Function(_$MiraiFractionallySizedBoxImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFractionallySizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -188,12 +196,14 @@ class _$MiraiFractionallySizedBoxImpl implements _MiraiFractionallySizedBox {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, alignment, widthFactor,
       heightFactor, const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFractionallySizedBox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFractionallySizedBoxImplCopyWith<_$MiraiFractionallySizedBoxImpl>
@@ -226,8 +236,11 @@ abstract class _MiraiFractionallySizedBox implements MiraiFractionallySizedBox {
   double? get heightFactor;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiFractionallySizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFractionallySizedBoxImplCopyWith<_$MiraiFractionallySizedBoxImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

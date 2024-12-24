@@ -24,8 +24,12 @@ mixin _$MiraiCenter {
   double? get heightFactor => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiCenter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiCenter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiCenterCopyWith<MiraiCenter> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiCenterCopyWithImpl<$Res, $Val extends MiraiCenter>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiCenter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -94,6 +100,8 @@ class __$$MiraiCenterImplCopyWithImpl<$Res>
       _$MiraiCenterImpl _value, $Res Function(_$MiraiCenterImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiCenter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,12 +167,14 @@ class _$MiraiCenterImpl implements _MiraiCenter {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, widthFactor, heightFactor,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiCenter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiCenterImplCopyWith<_$MiraiCenterImpl> get copyWith =>
@@ -193,8 +203,11 @@ abstract class _MiraiCenter implements MiraiCenter {
   double? get heightFactor;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiCenter
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiCenterImplCopyWith<_$MiraiCenterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -46,8 +46,12 @@ mixin _$MiraiAlertDialog {
   Clip get clipBehavior => throw _privateConstructorUsedError;
   bool get scrollable => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAlertDialog to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAlertDialogCopyWith<MiraiAlertDialog> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -102,6 +106,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,6 +226,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get iconPadding {
@@ -232,6 +240,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get titlePadding {
@@ -244,6 +254,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get titleTextStyle {
@@ -256,6 +268,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get contentPadding {
@@ -268,6 +282,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get contentTextStyle {
@@ -280,6 +296,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get actionsPadding {
@@ -292,6 +310,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get buttonPadding {
@@ -304,6 +324,8 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     });
   }
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res> get insetPadding {
@@ -371,6 +393,8 @@ class __$$MiraiAlertDialogImplCopyWithImpl<$Res>
       $Res Function(_$MiraiAlertDialogImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -661,7 +685,7 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
                 other.scrollable == scrollable));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -689,7 +713,9 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
         scrollable
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAlertDialogImplCopyWith<_$MiraiAlertDialogImpl> get copyWith =>
@@ -776,8 +802,11 @@ abstract class _MiraiAlertDialog implements MiraiAlertDialog {
   Clip get clipBehavior;
   @override
   bool get scrollable;
+
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAlertDialogImplCopyWith<_$MiraiAlertDialogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

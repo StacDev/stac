@@ -35,8 +35,12 @@ mixin _$MiraiScaffold {
   bool get extendBody => throw _privateConstructorUsedError;
   bool get extendBodyBehindAppBar => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiScaffold to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiScaffold
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiScaffoldCopyWith<MiraiScaffold> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,6 +75,8 @@ class _$MiraiScaffoldCopyWithImpl<$Res, $Val extends MiraiScaffold>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiScaffold
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,6 +171,8 @@ class __$$MiraiScaffoldImplCopyWithImpl<$Res>
       _$MiraiScaffoldImpl _value, $Res Function(_$MiraiScaffoldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiScaffold
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -355,7 +363,7 @@ class _$MiraiScaffoldImpl implements _MiraiScaffold {
                 other.extendBodyBehindAppBar == extendBodyBehindAppBar));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -371,7 +379,9 @@ class _$MiraiScaffoldImpl implements _MiraiScaffold {
       extendBody,
       extendBodyBehindAppBar);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiScaffold
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiScaffoldImplCopyWith<_$MiraiScaffoldImpl> get copyWith =>
@@ -424,8 +434,11 @@ abstract class _MiraiScaffold implements MiraiScaffold {
   bool get extendBody;
   @override
   bool get extendBodyBehindAppBar;
+
+  /// Create a copy of MiraiScaffold
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiScaffoldImplCopyWith<_$MiraiScaffoldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

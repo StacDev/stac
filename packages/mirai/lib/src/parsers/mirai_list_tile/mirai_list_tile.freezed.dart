@@ -45,8 +45,12 @@ mixin _$MiraiListTile {
   double? get minVerticalPadding => throw _privateConstructorUsedError;
   double? get minLeadingWidth => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiListTile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiListTileCopyWith<MiraiListTile> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -96,6 +100,8 @@ class _$MiraiListTileCopyWithImpl<$Res, $Val extends MiraiListTile>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -224,6 +230,8 @@ class _$MiraiListTileCopyWithImpl<$Res, $Val extends MiraiListTile>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get contentPadding {
@@ -283,6 +291,8 @@ class __$$MiraiListTileImplCopyWithImpl<$Res>
       _$MiraiListTileImpl _value, $Res Function(_$MiraiListTileImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -603,7 +613,7 @@ class _$MiraiListTileImpl implements _MiraiListTile {
                 other.minLeadingWidth == minLeadingWidth));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -633,7 +643,9 @@ class _$MiraiListTileImpl implements _MiraiListTile {
         minLeadingWidth
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiListTileImplCopyWith<_$MiraiListTileImpl> get copyWith =>
@@ -725,8 +737,11 @@ abstract class _MiraiListTile implements MiraiListTile {
   double? get minVerticalPadding;
   @override
   double? get minLeadingWidth;
+
+  /// Create a copy of MiraiListTile
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiListTileImplCopyWith<_$MiraiListTileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

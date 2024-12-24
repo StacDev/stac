@@ -41,8 +41,12 @@ mixin _$MiraiTabBar {
   MiraiScrollPhysics? get physics => throw _privateConstructorUsedError;
   TabAlignment? get tabAlignment => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTabBar to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTabBarCopyWith<MiraiTabBar> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -90,6 +94,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -189,6 +195,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -201,6 +209,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
     });
   }
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get indicatorPadding {
@@ -213,6 +223,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
     });
   }
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get labelStyle {
@@ -225,6 +237,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
     });
   }
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get labelPadding {
@@ -237,6 +251,8 @@ class _$MiraiTabBarCopyWithImpl<$Res, $Val extends MiraiTabBar>
     });
   }
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get unselectedLabelStyle {
@@ -298,6 +314,8 @@ class __$$MiraiTabBarImplCopyWithImpl<$Res>
       _$MiraiTabBarImpl _value, $Res Function(_$MiraiTabBarImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -520,7 +538,7 @@ class _$MiraiTabBarImpl implements _MiraiTabBar {
                 other.tabAlignment == tabAlignment));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -543,7 +561,9 @@ class _$MiraiTabBarImpl implements _MiraiTabBar {
       physics,
       tabAlignment);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTabBarImplCopyWith<_$MiraiTabBarImpl> get copyWith =>
@@ -617,8 +637,11 @@ abstract class _MiraiTabBar implements MiraiTabBar {
   MiraiScrollPhysics? get physics;
   @override
   TabAlignment? get tabAlignment;
+
+  /// Create a copy of MiraiTabBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTabBarImplCopyWith<_$MiraiTabBarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

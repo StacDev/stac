@@ -24,8 +24,12 @@ mixin _$MiraiRoundedRectangleBorder {
   MiraiBorderSide? get side => throw _privateConstructorUsedError;
   MiraiBorderRadius? get borderRadius => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiRoundedRectangleBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiRoundedRectangleBorderCopyWith<MiraiRoundedRectangleBorder>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$MiraiRoundedRectangleBorderCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -73,6 +79,8 @@ class _$MiraiRoundedRectangleBorderCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get side {
@@ -85,6 +93,8 @@ class _$MiraiRoundedRectangleBorderCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderRadiusCopyWith<$Res>? get borderRadius {
@@ -125,6 +135,8 @@ class __$$MiraiRoundedRectangleBorderImplCopyWithImpl<$Res>
       $Res Function(_$MiraiRoundedRectangleBorderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,11 +186,13 @@ class _$MiraiRoundedRectangleBorderImpl
                 other.borderRadius == borderRadius));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, side, borderRadius);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiRoundedRectangleBorderImplCopyWith<_$MiraiRoundedRectangleBorderImpl>
@@ -207,8 +221,11 @@ abstract class _MiraiRoundedRectangleBorder
   MiraiBorderSide? get side;
   @override
   MiraiBorderRadius? get borderRadius;
+
+  /// Create a copy of MiraiRoundedRectangleBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiRoundedRectangleBorderImplCopyWith<_$MiraiRoundedRectangleBorderImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

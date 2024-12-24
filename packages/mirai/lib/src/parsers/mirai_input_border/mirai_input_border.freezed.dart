@@ -27,8 +27,12 @@ mixin _$MiraiInputBorder {
   String? get color => throw _privateConstructorUsedError;
   MiraiGradient? get gradient => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiInputBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiInputBorderCopyWith<MiraiInputBorder> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -61,6 +65,8 @@ class _$MiraiInputBorderCopyWithImpl<$Res, $Val extends MiraiInputBorder>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +105,8 @@ class _$MiraiInputBorderCopyWithImpl<$Res, $Val extends MiraiInputBorder>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderRadiusCopyWith<$Res>? get borderRadius {
@@ -111,6 +119,8 @@ class _$MiraiInputBorderCopyWithImpl<$Res, $Val extends MiraiInputBorder>
     });
   }
 
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiGradientCopyWith<$Res>? get gradient {
@@ -154,6 +164,8 @@ class __$$MiraiInputBorderImplCopyWithImpl<$Res>
       $Res Function(_$MiraiInputBorderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -244,12 +256,14 @@ class _$MiraiInputBorderImpl implements _MiraiInputBorder {
                 other.gradient == gradient));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, type, borderRadius, gapPadding, width, color, gradient);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiInputBorderImplCopyWith<_$MiraiInputBorderImpl> get copyWith =>
@@ -288,8 +302,11 @@ abstract class _MiraiInputBorder implements MiraiInputBorder {
   String? get color;
   @override
   MiraiGradient? get gradient;
+
+  /// Create a copy of MiraiInputBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiInputBorderImplCopyWith<_$MiraiInputBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

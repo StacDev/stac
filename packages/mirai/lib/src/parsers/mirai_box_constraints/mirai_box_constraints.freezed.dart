@@ -25,8 +25,12 @@ mixin _$MiraiBoxConstraints {
   double get minHeight => throw _privateConstructorUsedError;
   double get maxHeight => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBoxConstraints to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBoxConstraints
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBoxConstraintsCopyWith<MiraiBoxConstraints> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$MiraiBoxConstraintsCopyWithImpl<$Res, $Val extends MiraiBoxConstraints>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBoxConstraints
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class __$$MiraiBoxConstraintsImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBoxConstraintsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBoxConstraints
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -170,12 +178,14 @@ class _$MiraiBoxConstraintsImpl implements _MiraiBoxConstraints {
                 other.maxHeight == maxHeight));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, minWidth, maxWidth, minHeight, maxHeight);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBoxConstraints
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBoxConstraintsImplCopyWith<_$MiraiBoxConstraintsImpl> get copyWith =>
@@ -208,8 +218,11 @@ abstract class _MiraiBoxConstraints implements MiraiBoxConstraints {
   double get minHeight;
   @override
   double get maxHeight;
+
+  /// Create a copy of MiraiBoxConstraints
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBoxConstraintsImplCopyWith<_$MiraiBoxConstraintsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

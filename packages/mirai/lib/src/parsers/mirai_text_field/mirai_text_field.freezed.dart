@@ -49,8 +49,12 @@ mixin _$MiraiTextField {
   List<MiraiInputFormatter> get inputFormatters =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTextField to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextFieldCopyWith<MiraiTextField> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -102,6 +106,8 @@ class _$MiraiTextFieldCopyWithImpl<$Res, $Val extends MiraiTextField>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -235,6 +241,8 @@ class _$MiraiTextFieldCopyWithImpl<$Res, $Val extends MiraiTextField>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputDecorationCopyWith<$Res>? get decoration {
@@ -247,6 +255,8 @@ class _$MiraiTextFieldCopyWithImpl<$Res, $Val extends MiraiTextField>
     });
   }
 
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get style {
@@ -309,6 +319,8 @@ class __$$MiraiTextFieldImplCopyWithImpl<$Res>
       _$MiraiTextFieldImpl _value, $Res Function(_$MiraiTextFieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -600,7 +612,7 @@ class _$MiraiTextFieldImpl implements _MiraiTextField {
                 .equals(other._inputFormatters, _inputFormatters));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -631,7 +643,9 @@ class _$MiraiTextFieldImpl implements _MiraiTextField {
         const DeepCollectionEquality().hash(_inputFormatters)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextFieldImplCopyWith<_$MiraiTextFieldImpl> get copyWith =>
@@ -727,8 +741,11 @@ abstract class _MiraiTextField implements MiraiTextField {
   String? get hintText;
   @override
   List<MiraiInputFormatter> get inputFormatters;
+
+  /// Create a copy of MiraiTextField
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextFieldImplCopyWith<_$MiraiTextFieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

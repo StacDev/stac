@@ -23,8 +23,12 @@ mixin _$MiraiFormValidate {
   Map<String, dynamic>? get isValid => throw _privateConstructorUsedError;
   Map<String, dynamic>? get isNotValid => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFormValidate to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFormValidate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFormValidateCopyWith<MiraiFormValidate> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MiraiFormValidateCopyWithImpl<$Res, $Val extends MiraiFormValidate>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFormValidate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MiraiFormValidateImplCopyWithImpl<$Res>
       $Res Function(_$MiraiFormValidateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFormValidate
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,14 +160,16 @@ class _$MiraiFormValidateImpl implements _MiraiFormValidate {
                 .equals(other._isNotValid, _isNotValid));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_isValid),
       const DeepCollectionEquality().hash(_isNotValid));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFormValidate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFormValidateImplCopyWith<_$MiraiFormValidateImpl> get copyWith =>
@@ -186,8 +196,11 @@ abstract class _MiraiFormValidate implements MiraiFormValidate {
   Map<String, dynamic>? get isValid;
   @override
   Map<String, dynamic>? get isNotValid;
+
+  /// Create a copy of MiraiFormValidate
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFormValidateImplCopyWith<_$MiraiFormValidateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

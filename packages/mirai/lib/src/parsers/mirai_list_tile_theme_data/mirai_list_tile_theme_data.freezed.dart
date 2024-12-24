@@ -43,8 +43,12 @@ mixin _$MiraiListTileThemeData {
       throw _privateConstructorUsedError;
   List<MiraiShadow>? get shadows => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiListTileThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiListTileThemeDataCopyWith<MiraiListTileThemeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -95,6 +99,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -198,6 +204,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get shape {
@@ -210,6 +218,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get titleTextStyle {
@@ -222,6 +232,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get subtitleTextStyle {
@@ -234,6 +246,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get leadingAndTrailingTextStyle {
@@ -247,6 +261,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get contentPadding {
@@ -259,6 +275,8 @@ class _$MiraiListTileThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiVisualDensityCopyWith<$Res>? get visualDensity {
@@ -326,6 +344,8 @@ class __$$MiraiListTileThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiListTileThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -552,7 +572,7 @@ class _$MiraiListTileThemeDataImpl implements _MiraiListTileThemeData {
             const DeepCollectionEquality().equals(other._shadows, _shadows));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -577,7 +597,9 @@ class _$MiraiListTileThemeDataImpl implements _MiraiListTileThemeData {
         const DeepCollectionEquality().hash(_shadows)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiListTileThemeDataImplCopyWith<_$MiraiListTileThemeDataImpl>
@@ -655,8 +677,11 @@ abstract class _MiraiListTileThemeData implements MiraiListTileThemeData {
   ListTileTitleAlignment? get titleAlignment;
   @override
   List<MiraiShadow>? get shadows;
+
+  /// Create a copy of MiraiListTileThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiListTileThemeDataImplCopyWith<_$MiraiListTileThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

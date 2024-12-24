@@ -24,8 +24,12 @@ mixin _$MiraiAlignmentGeometry {
   double get dx => throw _privateConstructorUsedError;
   double get dy => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAlignmentGeometry to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAlignmentGeometry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAlignmentGeometryCopyWith<MiraiAlignmentGeometry> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiAlignmentGeometryCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAlignmentGeometry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$MiraiAlignmentGeometryImplCopyWithImpl<$Res>
       $Res Function(_$MiraiAlignmentGeometryImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAlignmentGeometry
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,11 +145,13 @@ class _$MiraiAlignmentGeometryImpl implements _MiraiAlignmentGeometry {
             (identical(other.dy, dy) || other.dy == dy));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, dx, dy);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAlignmentGeometry
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAlignmentGeometryImplCopyWith<_$MiraiAlignmentGeometryImpl>
@@ -168,8 +178,11 @@ abstract class _MiraiAlignmentGeometry implements MiraiAlignmentGeometry {
   double get dx;
   @override
   double get dy;
+
+  /// Create a copy of MiraiAlignmentGeometry
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAlignmentGeometryImplCopyWith<_$MiraiAlignmentGeometryImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

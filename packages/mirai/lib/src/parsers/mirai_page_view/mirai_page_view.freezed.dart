@@ -35,8 +35,12 @@ mixin _$MiraiPageView {
   double get viewportFraction => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiPageView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiPageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiPageViewCopyWith<MiraiPageView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -74,6 +78,8 @@ class _$MiraiPageViewCopyWithImpl<$Res, $Val extends MiraiPageView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiPageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -186,6 +192,8 @@ class __$$MiraiPageViewImplCopyWithImpl<$Res>
       _$MiraiPageViewImpl _value, $Res Function(_$MiraiPageViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiPageView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -374,7 +382,7 @@ class _$MiraiPageViewImpl implements _MiraiPageView {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -393,7 +401,9 @@ class _$MiraiPageViewImpl implements _MiraiPageView {
       viewportFraction,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiPageView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiPageViewImplCopyWith<_$MiraiPageViewImpl> get copyWith =>
@@ -455,8 +465,11 @@ abstract class _MiraiPageView implements MiraiPageView {
   double get viewportFraction;
   @override
   List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiPageView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiPageViewImplCopyWith<_$MiraiPageViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

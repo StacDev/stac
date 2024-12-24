@@ -30,8 +30,12 @@ mixin _$MiraiCard {
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
   bool get semanticContainer => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiCard to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiCardCopyWith<MiraiCard> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$MiraiCardCopyWithImpl<$Res, $Val extends MiraiCard>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,6 +124,8 @@ class _$MiraiCardCopyWithImpl<$Res, $Val extends MiraiCard>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get margin {
@@ -162,6 +170,8 @@ class __$$MiraiCardImplCopyWithImpl<$Res>
       _$MiraiCardImpl _value, $Res Function(_$MiraiCardImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -290,7 +300,7 @@ class _$MiraiCardImpl implements _MiraiCard {
                 other.semanticContainer == semanticContainer));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -304,7 +314,9 @@ class _$MiraiCardImpl implements _MiraiCard {
       const DeepCollectionEquality().hash(_child),
       semanticContainer);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiCardImplCopyWith<_$MiraiCardImpl> get copyWith =>
@@ -351,8 +363,11 @@ abstract class _MiraiCard implements MiraiCard {
   Map<String, dynamic>? get child;
   @override
   bool get semanticContainer;
+
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiCardImplCopyWith<_$MiraiCardImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

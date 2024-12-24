@@ -26,8 +26,12 @@ mixin _$MiraiOutlinedButton {
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiOutlinedButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiOutlinedButtonCopyWith<MiraiOutlinedButton> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$MiraiOutlinedButtonCopyWithImpl<$Res, $Val extends MiraiOutlinedButton>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class _$MiraiOutlinedButtonCopyWithImpl<$Res, $Val extends MiraiOutlinedButton>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get style {
@@ -131,6 +139,8 @@ class __$$MiraiOutlinedButtonImplCopyWithImpl<$Res>
       $Res Function(_$MiraiOutlinedButtonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -222,7 +232,7 @@ class _$MiraiOutlinedButtonImpl implements _MiraiOutlinedButton {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,7 +242,9 @@ class _$MiraiOutlinedButtonImpl implements _MiraiOutlinedButton {
       clipBehavior,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiOutlinedButtonImplCopyWith<_$MiraiOutlinedButtonImpl> get copyWith =>
@@ -268,8 +280,11 @@ abstract class _MiraiOutlinedButton implements MiraiOutlinedButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic> get child;
+
+  /// Create a copy of MiraiOutlinedButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiOutlinedButtonImplCopyWith<_$MiraiOutlinedButtonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

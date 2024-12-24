@@ -26,10 +26,15 @@ mixin _$MiraiRow {
   MainAxisSize get mainAxisSize => throw _privateConstructorUsedError;
   TextDirection? get textDirection => throw _privateConstructorUsedError;
   VerticalDirection get verticalDirection => throw _privateConstructorUsedError;
+  double? get spacing => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiRow to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiRow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiRowCopyWith<MiraiRow> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -45,6 +50,7 @@ abstract class $MiraiRowCopyWith<$Res> {
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
+      double? spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -58,6 +64,8 @@ class _$MiraiRowCopyWithImpl<$Res, $Val extends MiraiRow>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiRow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -66,6 +74,7 @@ class _$MiraiRowCopyWithImpl<$Res, $Val extends MiraiRow>
     Object? mainAxisSize = null,
     Object? textDirection = freezed,
     Object? verticalDirection = null,
+    Object? spacing = freezed,
     Object? children = null,
   }) {
     return _then(_value.copyWith(
@@ -89,6 +98,10 @@ class _$MiraiRowCopyWithImpl<$Res, $Val extends MiraiRow>
           ? _value.verticalDirection
           : verticalDirection // ignore: cast_nullable_to_non_nullable
               as VerticalDirection,
+      spacing: freezed == spacing
+          ? _value.spacing
+          : spacing // ignore: cast_nullable_to_non_nullable
+              as double?,
       children: null == children
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -111,6 +124,7 @@ abstract class _$$MiraiRowImplCopyWith<$Res>
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
+      double? spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -122,6 +136,8 @@ class __$$MiraiRowImplCopyWithImpl<$Res>
       _$MiraiRowImpl _value, $Res Function(_$MiraiRowImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiRow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +146,7 @@ class __$$MiraiRowImplCopyWithImpl<$Res>
     Object? mainAxisSize = null,
     Object? textDirection = freezed,
     Object? verticalDirection = null,
+    Object? spacing = freezed,
     Object? children = null,
   }) {
     return _then(_$MiraiRowImpl(
@@ -153,6 +170,10 @@ class __$$MiraiRowImplCopyWithImpl<$Res>
           ? _value.verticalDirection
           : verticalDirection // ignore: cast_nullable_to_non_nullable
               as VerticalDirection,
+      spacing: freezed == spacing
+          ? _value.spacing
+          : spacing // ignore: cast_nullable_to_non_nullable
+              as double?,
       children: null == children
           ? _value._children
           : children // ignore: cast_nullable_to_non_nullable
@@ -170,6 +191,7 @@ class _$MiraiRowImpl implements _MiraiRow {
       this.mainAxisSize = MainAxisSize.max,
       this.textDirection,
       this.verticalDirection = VerticalDirection.down,
+      this.spacing,
       final List<Map<String, dynamic>> children = const []})
       : _children = children;
 
@@ -190,6 +212,8 @@ class _$MiraiRowImpl implements _MiraiRow {
   @override
   @JsonKey()
   final VerticalDirection verticalDirection;
+  @override
+  final double? spacing;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -201,7 +225,7 @@ class _$MiraiRowImpl implements _MiraiRow {
 
   @override
   String toString() {
-    return 'MiraiRow(mainAxisAlignment: $mainAxisAlignment, crossAxisAlignment: $crossAxisAlignment, mainAxisSize: $mainAxisSize, textDirection: $textDirection, verticalDirection: $verticalDirection, children: $children)';
+    return 'MiraiRow(mainAxisAlignment: $mainAxisAlignment, crossAxisAlignment: $crossAxisAlignment, mainAxisSize: $mainAxisSize, textDirection: $textDirection, verticalDirection: $verticalDirection, spacing: $spacing, children: $children)';
   }
 
   @override
@@ -219,10 +243,11 @@ class _$MiraiRowImpl implements _MiraiRow {
                 other.textDirection == textDirection) &&
             (identical(other.verticalDirection, verticalDirection) ||
                 other.verticalDirection == verticalDirection) &&
+            (identical(other.spacing, spacing) || other.spacing == spacing) &&
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -231,9 +256,12 @@ class _$MiraiRowImpl implements _MiraiRow {
       mainAxisSize,
       textDirection,
       verticalDirection,
+      spacing,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiRow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiRowImplCopyWith<_$MiraiRowImpl> get copyWith =>
@@ -254,6 +282,7 @@ abstract class _MiraiRow implements MiraiRow {
       final MainAxisSize mainAxisSize,
       final TextDirection? textDirection,
       final VerticalDirection verticalDirection,
+      final double? spacing,
       final List<Map<String, dynamic>> children}) = _$MiraiRowImpl;
 
   factory _MiraiRow.fromJson(Map<String, dynamic> json) =
@@ -270,9 +299,14 @@ abstract class _MiraiRow implements MiraiRow {
   @override
   VerticalDirection get verticalDirection;
   @override
-  List<Map<String, dynamic>> get children;
+  double? get spacing;
   @override
-  @JsonKey(ignore: true)
+  List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiRow
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiRowImplCopyWith<_$MiraiRowImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,8 +28,12 @@ mixin _$MiraiBottomAppBarTheme {
   String? get shadowColor => throw _privateConstructorUsedError;
   MiraiEdgeInsets? get padding => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomAppBarTheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomAppBarThemeCopyWith<MiraiBottomAppBarTheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$MiraiBottomAppBarThemeCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class _$MiraiBottomAppBarThemeCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -144,6 +152,8 @@ class __$$MiraiBottomAppBarThemeImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomAppBarThemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -231,12 +241,14 @@ class _$MiraiBottomAppBarThemeImpl implements _MiraiBottomAppBarTheme {
             (identical(other.padding, padding) || other.padding == padding));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, color, elevation, height,
       surfaceTintColor, shadowColor, padding);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomAppBarThemeImplCopyWith<_$MiraiBottomAppBarThemeImpl>
@@ -275,8 +287,11 @@ abstract class _MiraiBottomAppBarTheme implements MiraiBottomAppBarTheme {
   String? get shadowColor;
   @override
   MiraiEdgeInsets? get padding;
+
+  /// Create a copy of MiraiBottomAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomAppBarThemeImplCopyWith<_$MiraiBottomAppBarThemeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

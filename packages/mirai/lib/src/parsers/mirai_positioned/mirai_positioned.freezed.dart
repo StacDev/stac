@@ -33,8 +33,12 @@ mixin _$MiraiPositioned {
   MiraiRect? get rect => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiPositioned to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiPositionedCopyWith<MiraiPositioned> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$MiraiPositionedCopyWithImpl<$Res, $Val extends MiraiPositioned>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,6 +146,8 @@ class _$MiraiPositionedCopyWithImpl<$Res, $Val extends MiraiPositioned>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiRectCopyWith<$Res>? get rect {
@@ -187,6 +195,8 @@ class __$$MiraiPositionedImplCopyWithImpl<$Res>
       _$MiraiPositionedImpl _value, $Res Function(_$MiraiPositionedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -336,7 +346,7 @@ class _$MiraiPositionedImpl implements _MiraiPositioned {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -353,7 +363,9 @@ class _$MiraiPositionedImpl implements _MiraiPositioned {
       rect,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiPositionedImplCopyWith<_$MiraiPositionedImpl> get copyWith =>
@@ -410,8 +422,11 @@ abstract class _MiraiPositioned implements MiraiPositioned {
   MiraiRect? get rect;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiPositioned
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiPositionedImplCopyWith<_$MiraiPositionedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -28,7 +28,7 @@ _$MiraiListViewImpl _$$MiraiListViewImplFromJson(Map<String, dynamic> json) =>
               .toList() ??
           const [],
       separator: json['separator'] as Map<String, dynamic>?,
-      semanticChildCount: json['semanticChildCount'] as int?,
+      semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
       dragStartBehavior: $enumDecodeNullable(
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
           DragStartBehavior.start,

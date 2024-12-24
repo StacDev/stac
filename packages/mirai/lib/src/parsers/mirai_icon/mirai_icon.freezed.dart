@@ -27,8 +27,12 @@ mixin _$MiraiIcon {
   String? get semanticLabel => throw _privateConstructorUsedError;
   TextDirection? get textDirection => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiIcon to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiIconCopyWith<MiraiIcon> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$MiraiIconCopyWithImpl<$Res, $Val extends MiraiIcon>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiIcon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,6 +127,8 @@ class __$$MiraiIconImplCopyWithImpl<$Res>
       _$MiraiIconImpl _value, $Res Function(_$MiraiIconImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiIcon
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -208,12 +216,14 @@ class _$MiraiIconImpl implements _MiraiIcon {
                 other.textDirection == textDirection));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, icon, iconType, size, color, semanticLabel, textDirection);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiIcon
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiIconImplCopyWith<_$MiraiIconImpl> get copyWith =>
@@ -251,8 +261,11 @@ abstract class _MiraiIcon implements MiraiIcon {
   String? get semanticLabel;
   @override
   TextDirection? get textDirection;
+
+  /// Create a copy of MiraiIcon
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiIconImplCopyWith<_$MiraiIconImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

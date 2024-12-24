@@ -10,7 +10,7 @@ _$MiraiDefaultTabControllerImpl _$$MiraiDefaultTabControllerImplFromJson(
         Map<String, dynamic> json) =>
     _$MiraiDefaultTabControllerImpl(
       child: json['child'] as Map<String, dynamic>,
-      length: json['length'] as int,
+      length: (json['length'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$MiraiDefaultTabControllerImplToJson(

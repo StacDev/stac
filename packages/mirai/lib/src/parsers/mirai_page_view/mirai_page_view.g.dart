@@ -24,7 +24,7 @@ _$MiraiPageViewImpl _$$MiraiPageViewImplFromJson(Map<String, dynamic> json) =>
       clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
           Clip.hardEdge,
       padEnds: json['padEnds'] as bool? ?? true,
-      initialPage: json['initialPage'] as int? ?? 0,
+      initialPage: (json['initialPage'] as num?)?.toInt() ?? 0,
       keepPage: json['keepPage'] ?? true,
       viewportFraction: (json['viewportFraction'] as num?)?.toDouble() ?? 1.0,
       children: (json['children'] as List<dynamic>?)

@@ -23,8 +23,12 @@ MiraiBottomNavigationView _$MiraiBottomNavigationViewFromJson(
 mixin _$MiraiBottomNavigationView {
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomNavigationView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomNavigationViewCopyWith<MiraiBottomNavigationView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MiraiBottomNavigationViewCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$MiraiBottomNavigationViewImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomNavigationViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,12 +139,14 @@ class _$MiraiBottomNavigationViewImpl implements _MiraiBottomNavigationView {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomNavigationViewImplCopyWith<_$MiraiBottomNavigationViewImpl>
@@ -161,8 +171,11 @@ abstract class _MiraiBottomNavigationView implements MiraiBottomNavigationView {
 
   @override
   List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomNavigationViewImplCopyWith<_$MiraiBottomNavigationViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

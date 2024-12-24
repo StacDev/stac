@@ -30,8 +30,12 @@ mixin _$MiraiDialogAction {
   TraversalEdgeBehavior? get traversalEdgeBehavior =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiDialogAction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiDialogActionCopyWith<MiraiDialogAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +69,8 @@ class _$MiraiDialogActionCopyWithImpl<$Res, $Val extends MiraiDialogAction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -113,6 +119,8 @@ class _$MiraiDialogActionCopyWithImpl<$Res, $Val extends MiraiDialogAction>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiNetworkRequestCopyWith<$Res>? get request {
@@ -156,6 +164,8 @@ class __$$MiraiDialogActionImplCopyWithImpl<$Res>
       $Res Function(_$MiraiDialogActionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -275,7 +285,7 @@ class _$MiraiDialogActionImpl implements _MiraiDialogAction {
                 other.traversalEdgeBehavior == traversalEdgeBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -288,7 +298,9 @@ class _$MiraiDialogActionImpl implements _MiraiDialogAction {
       useSafeArea,
       traversalEdgeBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiDialogActionImplCopyWith<_$MiraiDialogActionImpl> get copyWith =>
@@ -334,8 +346,11 @@ abstract class _MiraiDialogAction implements MiraiDialogAction {
   bool get useSafeArea;
   @override
   TraversalEdgeBehavior? get traversalEdgeBehavior;
+
+  /// Create a copy of MiraiDialogAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiDialogActionImplCopyWith<_$MiraiDialogActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

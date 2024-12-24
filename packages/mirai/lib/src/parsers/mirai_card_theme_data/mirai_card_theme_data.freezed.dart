@@ -28,8 +28,12 @@ mixin _$MiraiCardThemeData {
   MiraiEdgeInsets? get margin => throw _privateConstructorUsedError;
   MiraiBorder? get shape => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiCardThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiCardThemeDataCopyWith<MiraiCardThemeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -63,6 +67,8 @@ class _$MiraiCardThemeDataCopyWithImpl<$Res, $Val extends MiraiCardThemeData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class _$MiraiCardThemeDataCopyWithImpl<$Res, $Val extends MiraiCardThemeData>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get margin {
@@ -118,6 +126,8 @@ class _$MiraiCardThemeDataCopyWithImpl<$Res, $Val extends MiraiCardThemeData>
     });
   }
 
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get shape {
@@ -162,6 +172,8 @@ class __$$MiraiCardThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiCardThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -259,12 +271,14 @@ class _$MiraiCardThemeDataImpl implements _MiraiCardThemeData {
             (identical(other.shape, shape) || other.shape == shape));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, clipBehavior, color, shadowColor,
       surfaceTintColor, elevation, margin, shape);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiCardThemeDataImplCopyWith<_$MiraiCardThemeDataImpl> get copyWith =>
@@ -306,8 +320,11 @@ abstract class _MiraiCardThemeData implements MiraiCardThemeData {
   MiraiEdgeInsets? get margin;
   @override
   MiraiBorder? get shape;
+
+  /// Create a copy of MiraiCardThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiCardThemeDataImplCopyWith<_$MiraiCardThemeDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

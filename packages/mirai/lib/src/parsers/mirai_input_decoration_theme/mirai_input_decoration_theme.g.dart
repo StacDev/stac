@@ -18,14 +18,14 @@ _$MiraiInputDecorationThemeImpl _$$MiraiInputDecorationThemeImplFromJson(
       helperStyle: json['helperStyle'] == null
           ? null
           : MiraiTextStyle.fromJson(json['helperStyle']),
-      helperMaxLines: json['helperMaxLines'] as int?,
+      helperMaxLines: (json['helperMaxLines'] as num?)?.toInt(),
       hintStyle: json['hintStyle'] == null
           ? null
           : MiraiTextStyle.fromJson(json['hintStyle']),
       errorStyle: json['errorStyle'] == null
           ? null
           : MiraiTextStyle.fromJson(json['errorStyle']),
-      errorMaxLines: json['errorMaxLines'] as int?,
+      errorMaxLines: (json['errorMaxLines'] as num?)?.toInt(),
       floatingLabelBehavior: $enumDecodeNullable(
           _$FloatingLabelBehaviorEnumMap, json['floatingLabelBehavior']),
       floatingLabelAlignment: $enumDecodeNullable(

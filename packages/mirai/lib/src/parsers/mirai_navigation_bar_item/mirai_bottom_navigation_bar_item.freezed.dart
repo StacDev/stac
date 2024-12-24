@@ -27,8 +27,12 @@ mixin _$MiraiBottomNavigationBarItem {
   String? get backgroundColor => throw _privateConstructorUsedError;
   String? get tooltip => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomNavigationBarItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomNavigationBarItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomNavigationBarItemCopyWith<MiraiBottomNavigationBarItem>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$MiraiBottomNavigationBarItemCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomNavigationBarItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,6 +127,8 @@ class __$$MiraiBottomNavigationBarItemImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomNavigationBarItemImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomNavigationBarItem
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -216,7 +224,7 @@ class _$MiraiBottomNavigationBarItemImpl
             (identical(other.tooltip, tooltip) || other.tooltip == tooltip));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -226,7 +234,9 @@ class _$MiraiBottomNavigationBarItemImpl
       backgroundColor,
       tooltip);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomNavigationBarItem
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomNavigationBarItemImplCopyWith<
@@ -264,8 +274,11 @@ abstract class _MiraiBottomNavigationBarItem
   String? get backgroundColor;
   @override
   String? get tooltip;
+
+  /// Create a copy of MiraiBottomNavigationBarItem
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomNavigationBarItemImplCopyWith<
           _$MiraiBottomNavigationBarItemImpl>
       get copyWith => throw _privateConstructorUsedError;

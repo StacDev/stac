@@ -31,8 +31,12 @@ mixin _$MiraiDialogTheme {
   MiraiEdgeInsets? get actionsPadding => throw _privateConstructorUsedError;
   String? get iconColor => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiDialogTheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiDialogThemeCopyWith<MiraiDialogTheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get shape {
@@ -142,6 +150,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
     });
   }
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiAlignmentGeometryCopyWith<$Res>? get alignment {
@@ -154,6 +164,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
     });
   }
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get titleTextStyle {
@@ -166,6 +178,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
     });
   }
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get contentTextStyle {
@@ -178,6 +192,8 @@ class _$MiraiDialogThemeCopyWithImpl<$Res, $Val extends MiraiDialogTheme>
     });
   }
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get actionsPadding {
@@ -231,6 +247,8 @@ class __$$MiraiDialogThemeImplCopyWithImpl<$Res>
       $Res Function(_$MiraiDialogThemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -360,7 +378,7 @@ class _$MiraiDialogThemeImpl implements _MiraiDialogTheme {
                 other.iconColor == iconColor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -375,7 +393,9 @@ class _$MiraiDialogThemeImpl implements _MiraiDialogTheme {
       actionsPadding,
       iconColor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiDialogThemeImplCopyWith<_$MiraiDialogThemeImpl> get copyWith =>
@@ -426,8 +446,11 @@ abstract class _MiraiDialogTheme implements MiraiDialogTheme {
   MiraiEdgeInsets? get actionsPadding;
   @override
   String? get iconColor;
+
+  /// Create a copy of MiraiDialogTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiDialogThemeImplCopyWith<_$MiraiDialogThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

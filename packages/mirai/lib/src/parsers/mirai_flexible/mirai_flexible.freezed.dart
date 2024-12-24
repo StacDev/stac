@@ -24,8 +24,12 @@ mixin _$MiraiFlexible {
   int get flex => throw _privateConstructorUsedError;
   FlexFit get fit => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFlexible to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFlexible
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFlexibleCopyWith<MiraiFlexible> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MiraiFlexibleCopyWithImpl<$Res, $Val extends MiraiFlexible>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFlexible
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$MiraiFlexibleImplCopyWithImpl<$Res>
       _$MiraiFlexibleImpl _value, $Res Function(_$MiraiFlexibleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFlexible
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,12 +168,14 @@ class _$MiraiFlexibleImpl implements _MiraiFlexible {
             (identical(other.fit, fit) || other.fit == fit));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_child), flex, fit);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFlexible
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFlexibleImplCopyWith<_$MiraiFlexibleImpl> get copyWith =>
@@ -194,8 +204,11 @@ abstract class _MiraiFlexible implements MiraiFlexible {
   int get flex;
   @override
   FlexFit get fit;
+
+  /// Create a copy of MiraiFlexible
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFlexibleImplCopyWith<_$MiraiFlexibleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

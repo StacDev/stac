@@ -29,8 +29,12 @@ mixin _$MiraiBoxDecoration {
   MiraiDecorationImage? get image => throw _privateConstructorUsedError;
   MiraiGradient? get gradient => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBoxDecoration to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBoxDecorationCopyWith<MiraiBoxDecoration> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -67,6 +71,8 @@ class _$MiraiBoxDecorationCopyWithImpl<$Res, $Val extends MiraiBoxDecoration>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -115,6 +121,8 @@ class _$MiraiBoxDecorationCopyWithImpl<$Res, $Val extends MiraiBoxDecoration>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get border {
@@ -127,6 +135,8 @@ class _$MiraiBoxDecorationCopyWithImpl<$Res, $Val extends MiraiBoxDecoration>
     });
   }
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderRadiusCopyWith<$Res>? get borderRadius {
@@ -139,6 +149,8 @@ class _$MiraiBoxDecorationCopyWithImpl<$Res, $Val extends MiraiBoxDecoration>
     });
   }
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiDecorationImageCopyWith<$Res>? get image {
@@ -151,6 +163,8 @@ class _$MiraiBoxDecorationCopyWithImpl<$Res, $Val extends MiraiBoxDecoration>
     });
   }
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiGradientCopyWith<$Res>? get gradient {
@@ -200,6 +214,8 @@ class __$$MiraiBoxDecorationImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBoxDecorationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -316,7 +332,7 @@ class _$MiraiBoxDecorationImpl implements _MiraiBoxDecoration {
                 other.gradient == gradient));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -329,7 +345,9 @@ class _$MiraiBoxDecorationImpl implements _MiraiBoxDecoration {
       image,
       gradient);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBoxDecorationImplCopyWith<_$MiraiBoxDecorationImpl> get copyWith =>
@@ -374,8 +392,11 @@ abstract class _MiraiBoxDecoration implements MiraiBoxDecoration {
   MiraiDecorationImage? get image;
   @override
   MiraiGradient? get gradient;
+
+  /// Create a copy of MiraiBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBoxDecorationImplCopyWith<_$MiraiBoxDecorationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

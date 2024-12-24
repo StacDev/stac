@@ -28,8 +28,12 @@ mixin _$MiraiSafeArea {
   MiraiEdgeInsets get minimum => throw _privateConstructorUsedError;
   bool get maintainBottomViewPadding => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSafeArea to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSafeAreaCopyWith<MiraiSafeArea> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$MiraiSafeAreaCopyWithImpl<$Res, $Val extends MiraiSafeArea>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class _$MiraiSafeAreaCopyWithImpl<$Res, $Val extends MiraiSafeArea>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res> get minimum {
@@ -143,6 +151,8 @@ class __$$MiraiSafeAreaImplCopyWithImpl<$Res>
       _$MiraiSafeAreaImpl _value, $Res Function(_$MiraiSafeAreaImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -253,7 +263,7 @@ class _$MiraiSafeAreaImpl implements _MiraiSafeArea {
                 other.maintainBottomViewPadding == maintainBottomViewPadding));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -265,7 +275,9 @@ class _$MiraiSafeAreaImpl implements _MiraiSafeArea {
       minimum,
       maintainBottomViewPadding);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSafeAreaImplCopyWith<_$MiraiSafeAreaImpl> get copyWith =>
@@ -306,8 +318,11 @@ abstract class _MiraiSafeArea implements MiraiSafeArea {
   MiraiEdgeInsets get minimum;
   @override
   bool get maintainBottomViewPadding;
+
+  /// Create a copy of MiraiSafeArea
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSafeAreaImplCopyWith<_$MiraiSafeAreaImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

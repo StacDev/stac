@@ -52,8 +52,12 @@ mixin _$MiraiColorScheme {
   String? get inversePrimary => throw _privateConstructorUsedError;
   String? get surfaceTint => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiColorScheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiColorScheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiColorSchemeCopyWith<MiraiColorScheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -108,6 +112,8 @@ class _$MiraiColorSchemeCopyWithImpl<$Res, $Val extends MiraiColorScheme>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiColorScheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -322,6 +328,8 @@ class __$$MiraiColorSchemeImplCopyWithImpl<$Res>
       $Res Function(_$MiraiColorSchemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiColorScheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -655,7 +663,7 @@ class _$MiraiColorSchemeImpl implements _MiraiColorScheme {
                 other.surfaceTint == surfaceTint));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -692,7 +700,9 @@ class _$MiraiColorSchemeImpl implements _MiraiColorScheme {
         surfaceTint
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiColorScheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiColorSchemeImplCopyWith<_$MiraiColorSchemeImpl> get copyWith =>
@@ -806,8 +816,11 @@ abstract class _MiraiColorScheme implements MiraiColorScheme {
   String? get inversePrimary;
   @override
   String? get surfaceTint;
+
+  /// Create a copy of MiraiColorScheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiColorSchemeImplCopyWith<_$MiraiColorSchemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

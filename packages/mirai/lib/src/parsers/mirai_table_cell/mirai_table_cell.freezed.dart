@@ -24,8 +24,12 @@ mixin _$MiraiTableCell {
       throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTableCell to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTableCell
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTableCellCopyWith<MiraiTableCell> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$MiraiTableCellCopyWithImpl<$Res, $Val extends MiraiTableCell>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTableCell
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$MiraiTableCellImplCopyWithImpl<$Res>
       _$MiraiTableCellImpl _value, $Res Function(_$MiraiTableCellImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTableCell
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -147,12 +155,14 @@ class _$MiraiTableCellImpl implements _MiraiTableCell {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, verticalAlignment,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTableCell
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTableCellImplCopyWith<_$MiraiTableCellImpl> get copyWith =>
@@ -179,8 +189,11 @@ abstract class _MiraiTableCell implements MiraiTableCell {
   TableCellVerticalAlignment? get verticalAlignment;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiTableCell
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTableCellImplCopyWith<_$MiraiTableCellImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

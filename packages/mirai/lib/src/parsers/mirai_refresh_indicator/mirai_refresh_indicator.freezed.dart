@@ -33,8 +33,12 @@ mixin _$MiraiRefreshIndicator {
   RefreshIndicatorTriggerMode get triggerMode =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiRefreshIndicator to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiRefreshIndicator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiRefreshIndicatorCopyWith<MiraiRefreshIndicator> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -69,6 +73,8 @@ class _$MiraiRefreshIndicatorCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiRefreshIndicator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -159,6 +165,8 @@ class __$$MiraiRefreshIndicatorImplCopyWithImpl<$Res>
       $Res Function(_$MiraiRefreshIndicatorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiRefreshIndicator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -309,7 +317,7 @@ class _$MiraiRefreshIndicatorImpl implements _MiraiRefreshIndicator {
                 other.triggerMode == triggerMode));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -324,7 +332,9 @@ class _$MiraiRefreshIndicatorImpl implements _MiraiRefreshIndicator {
       strokeWidth,
       triggerMode);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiRefreshIndicator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiRefreshIndicatorImplCopyWith<_$MiraiRefreshIndicatorImpl>
@@ -376,8 +386,11 @@ abstract class _MiraiRefreshIndicator implements MiraiRefreshIndicator {
   double get strokeWidth;
   @override
   RefreshIndicatorTriggerMode get triggerMode;
+
+  /// Create a copy of MiraiRefreshIndicator
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiRefreshIndicatorImplCopyWith<_$MiraiRefreshIndicatorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

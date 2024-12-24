@@ -37,8 +37,12 @@ mixin _$MiraiFloatingActionButtonThemeData {
   MiraiEdgeInsets? get extendedPadding => throw _privateConstructorUsedError;
   MiraiTextStyle? get extendedTextStyle => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFloatingActionButtonThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFloatingActionButtonThemeDataCopyWith<
           MiraiFloatingActionButtonThemeData>
       get copyWith => throw _privateConstructorUsedError;
@@ -84,6 +88,8 @@ class _$MiraiFloatingActionButtonThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,6 +173,8 @@ class _$MiraiFloatingActionButtonThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get extendedPadding {
@@ -179,6 +187,8 @@ class _$MiraiFloatingActionButtonThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get extendedTextStyle {
@@ -234,6 +244,8 @@ class __$$MiraiFloatingActionButtonThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiFloatingActionButtonThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -417,7 +429,7 @@ class _$MiraiFloatingActionButtonThemeDataImpl
                 other.extendedTextStyle == extendedTextStyle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -437,7 +449,9 @@ class _$MiraiFloatingActionButtonThemeDataImpl
       extendedPadding,
       extendedTextStyle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFloatingActionButtonThemeDataImplCopyWith<
@@ -507,8 +521,11 @@ abstract class _MiraiFloatingActionButtonThemeData
   MiraiEdgeInsets? get extendedPadding;
   @override
   MiraiTextStyle? get extendedTextStyle;
+
+  /// Create a copy of MiraiFloatingActionButtonThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFloatingActionButtonThemeDataImplCopyWith<
           _$MiraiFloatingActionButtonThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;

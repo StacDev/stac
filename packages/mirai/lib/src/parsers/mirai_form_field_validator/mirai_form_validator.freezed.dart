@@ -24,8 +24,12 @@ mixin _$MiraiFormFieldValidator {
   String get rule => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFormFieldValidator to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFormFieldValidator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFormFieldValidatorCopyWith<MiraiFormFieldValidator> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiFormFieldValidatorCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFormFieldValidator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$MiraiFormFieldValidatorImplCopyWithImpl<$Res>
       $Res Function(_$MiraiFormFieldValidatorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFormFieldValidator
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -137,11 +145,13 @@ class _$MiraiFormFieldValidatorImpl implements _MiraiFormFieldValidator {
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rule, message);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFormFieldValidator
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFormFieldValidatorImplCopyWith<_$MiraiFormFieldValidatorImpl>
@@ -168,8 +178,11 @@ abstract class _MiraiFormFieldValidator implements MiraiFormFieldValidator {
   String get rule;
   @override
   String? get message;
+
+  /// Create a copy of MiraiFormFieldValidator
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFormFieldValidatorImplCopyWith<_$MiraiFormFieldValidatorImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

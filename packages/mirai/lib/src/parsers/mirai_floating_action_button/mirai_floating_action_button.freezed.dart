@@ -43,8 +43,12 @@ mixin _$MiraiFloatingActionButton {
   Object? get heroTag => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiFloatingActionButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFloatingActionButtonCopyWith<MiraiFloatingActionButton> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -93,6 +97,8 @@ class _$MiraiFloatingActionButtonCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -203,6 +209,8 @@ class _$MiraiFloatingActionButtonCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get textStyle {
@@ -215,6 +223,8 @@ class _$MiraiFloatingActionButtonCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get extendedTextStyle {
@@ -276,6 +286,8 @@ class __$$MiraiFloatingActionButtonImplCopyWithImpl<$Res>
       $Res Function(_$MiraiFloatingActionButtonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -536,7 +548,7 @@ class _$MiraiFloatingActionButtonImpl implements _MiraiFloatingActionButton {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -563,7 +575,9 @@ class _$MiraiFloatingActionButtonImpl implements _MiraiFloatingActionButton {
         const DeepCollectionEquality().hash(_child)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFloatingActionButtonImplCopyWith<_$MiraiFloatingActionButtonImpl>
@@ -648,8 +662,11 @@ abstract class _MiraiFloatingActionButton implements MiraiFloatingActionButton {
   Object? get heroTag;
   @override
   Map<String, dynamic> get child;
+
+  /// Create a copy of MiraiFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFloatingActionButtonImplCopyWith<_$MiraiFloatingActionButtonImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

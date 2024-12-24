@@ -23,8 +23,12 @@ mixin _$MiraiVisualDensity {
   double get horizontal => throw _privateConstructorUsedError;
   double get vertical => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiVisualDensity to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiVisualDensityCopyWith<MiraiVisualDensity> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MiraiVisualDensityCopyWithImpl<$Res, $Val extends MiraiVisualDensity>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MiraiVisualDensityImplCopyWithImpl<$Res>
       $Res Function(_$MiraiVisualDensityImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -135,11 +143,13 @@ class _$MiraiVisualDensityImpl implements _MiraiVisualDensity {
                 other.vertical == vertical));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, horizontal, vertical);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiVisualDensityImplCopyWith<_$MiraiVisualDensityImpl> get copyWith =>
@@ -166,8 +176,11 @@ abstract class _MiraiVisualDensity implements MiraiVisualDensity {
   double get horizontal;
   @override
   double get vertical;
+
+  /// Create a copy of MiraiVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiVisualDensityImplCopyWith<_$MiraiVisualDensityImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

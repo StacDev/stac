@@ -32,8 +32,12 @@ mixin _$MiraiRect {
   double? get bottom => throw _privateConstructorUsedError;
   double? get radius => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiRect to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiRectCopyWith<MiraiRect> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,6 +75,8 @@ class _$MiraiRectCopyWithImpl<$Res, $Val extends MiraiRect>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -134,6 +140,8 @@ class _$MiraiRectCopyWithImpl<$Res, $Val extends MiraiRect>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiOffsetCopyWith<$Res>? get center {
@@ -146,6 +154,8 @@ class _$MiraiRectCopyWithImpl<$Res, $Val extends MiraiRect>
     });
   }
 
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiOffsetCopyWith<$Res>? get a {
@@ -158,6 +168,8 @@ class _$MiraiRectCopyWithImpl<$Res, $Val extends MiraiRect>
     });
   }
 
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiOffsetCopyWith<$Res>? get b {
@@ -208,6 +220,8 @@ class __$$MiraiRectImplCopyWithImpl<$Res>
       _$MiraiRectImpl _value, $Res Function(_$MiraiRectImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -338,12 +352,14 @@ class _$MiraiRectImpl implements _MiraiRect {
             (identical(other.radius, radius) || other.radius == radius));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, rectType, center, a, b, width,
       height, left, top, right, bottom, radius);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiRectImplCopyWith<_$MiraiRectImpl> get copyWith =>
@@ -396,8 +412,11 @@ abstract class _MiraiRect implements MiraiRect {
   double? get bottom;
   @override
   double? get radius;
+
+  /// Create a copy of MiraiRect
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiRectImplCopyWith<_$MiraiRectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

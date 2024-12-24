@@ -10,8 +10,8 @@ _$MiraiDefaultBottomNavigationControllerImpl
     _$$MiraiDefaultBottomNavigationControllerImplFromJson(
             Map<String, dynamic> json) =>
         _$MiraiDefaultBottomNavigationControllerImpl(
-          length: json['length'] as int,
-          initialIndex: json['initialIndex'] as int?,
+          length: (json['length'] as num).toInt(),
+          initialIndex: (json['initialIndex'] as num?)?.toInt(),
           child: json['child'] as Map<String, dynamic>,
         );
 

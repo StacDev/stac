@@ -22,8 +22,12 @@ MiraiNetworkWidget _$MiraiNetworkWidgetFromJson(Map<String, dynamic> json) {
 mixin _$MiraiNetworkWidget {
   MiraiNetworkRequest get request => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiNetworkWidget to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiNetworkWidgetCopyWith<MiraiNetworkWidget> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MiraiNetworkWidgetCopyWithImpl<$Res, $Val extends MiraiNetworkWidget>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -62,6 +68,8 @@ class _$MiraiNetworkWidgetCopyWithImpl<$Res, $Val extends MiraiNetworkWidget>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiNetworkRequestCopyWith<$Res> get request {
@@ -93,6 +101,8 @@ class __$$MiraiNetworkWidgetImplCopyWithImpl<$Res>
       $Res Function(_$MiraiNetworkWidgetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +141,13 @@ class _$MiraiNetworkWidgetImpl implements _MiraiNetworkWidget {
             (identical(other.request, request) || other.request == request));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, request);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiNetworkWidgetImplCopyWith<_$MiraiNetworkWidgetImpl> get copyWith =>
@@ -159,8 +171,11 @@ abstract class _MiraiNetworkWidget implements MiraiNetworkWidget {
 
   @override
   MiraiNetworkRequest get request;
+
+  /// Create a copy of MiraiNetworkWidget
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiNetworkWidgetImplCopyWith<_$MiraiNetworkWidgetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

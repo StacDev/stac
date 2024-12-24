@@ -40,8 +40,12 @@ mixin _$MiraiChip {
   MaterialTapTargetSize? get materialTapTargetSize =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiChip to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiChipCopyWith<MiraiChip> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -89,6 +93,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -187,6 +193,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get labelStyle {
@@ -199,6 +207,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     });
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get labelPadding {
@@ -211,6 +221,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     });
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get side {
@@ -223,6 +235,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     });
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiRoundedRectangleBorderCopyWith<$Res>? get shape {
@@ -235,6 +249,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     });
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -247,6 +263,8 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
     });
   }
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme {
@@ -310,6 +328,8 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
       _$MiraiChipImpl _value, $Res Function(_$MiraiChipImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -543,7 +563,7 @@ class _$MiraiChipImpl extends _MiraiChip {
                 other.materialTapTargetSize == materialTapTargetSize));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -566,7 +586,9 @@ class _$MiraiChipImpl extends _MiraiChip {
       iconTheme,
       materialTapTargetSize);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiChipImplCopyWith<_$MiraiChipImpl> get copyWith =>
@@ -641,8 +663,11 @@ abstract class _MiraiChip extends MiraiChip {
   MiraiIconThemeData? get iconTheme;
   @override
   MaterialTapTargetSize? get materialTapTargetSize;
+
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiChipImplCopyWith<_$MiraiChipImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

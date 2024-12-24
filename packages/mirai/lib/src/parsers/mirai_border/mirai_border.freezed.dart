@@ -25,8 +25,12 @@ mixin _$MiraiBorder {
   double get width => throw _privateConstructorUsedError;
   double get strokeAlign => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBorderCopyWith<MiraiBorder> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$MiraiBorderCopyWithImpl<$Res, $Val extends MiraiBorder>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$MiraiBorderImplCopyWithImpl<$Res>
       _$MiraiBorderImpl _value, $Res Function(_$MiraiBorderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -177,12 +185,14 @@ class _$MiraiBorderImpl implements _MiraiBorder {
                 other.strokeAlign == strokeAlign));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, color, borderStyle, width, strokeAlign);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBorderImplCopyWith<_$MiraiBorderImpl> get copyWith =>
@@ -214,8 +224,11 @@ abstract class _MiraiBorder implements MiraiBorder {
   double get width;
   @override
   double get strokeAlign;
+
+  /// Create a copy of MiraiBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBorderImplCopyWith<_$MiraiBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

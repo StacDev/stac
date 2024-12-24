@@ -32,8 +32,12 @@ mixin _$MiraiMaterialColor {
   String get shade800 => throw _privateConstructorUsedError;
   String get shade900 => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiMaterialColor to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiMaterialColorCopyWith<MiraiMaterialColor> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,6 +72,8 @@ class _$MiraiMaterialColorCopyWithImpl<$Res, $Val extends MiraiMaterialColor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -162,6 +168,8 @@ class __$$MiraiMaterialColorImplCopyWithImpl<$Res>
       $Res Function(_$MiraiMaterialColorImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -300,7 +308,7 @@ class _$MiraiMaterialColorImpl implements _MiraiMaterialColor {
                 other.shade900 == shade900));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -316,7 +324,9 @@ class _$MiraiMaterialColorImpl implements _MiraiMaterialColor {
       shade800,
       shade900);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiMaterialColorImplCopyWith<_$MiraiMaterialColorImpl> get copyWith =>
@@ -370,8 +380,11 @@ abstract class _MiraiMaterialColor implements MiraiMaterialColor {
   String get shade800;
   @override
   String get shade900;
+
+  /// Create a copy of MiraiMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiMaterialColorImplCopyWith<_$MiraiMaterialColorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

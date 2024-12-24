@@ -33,8 +33,12 @@ mixin _$MiraiCheckBoxWidget {
   bool get autofocus => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiCheckBoxWidget to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiCheckBoxWidgetCopyWith<MiraiCheckBoxWidget> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -73,6 +77,8 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,6 +147,8 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get fillColor {
@@ -153,6 +161,8 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
     });
   }
 
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get overlayColor {
@@ -202,6 +212,8 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
       $Res Function(_$MiraiCheckBoxWidgetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -352,7 +364,7 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
             (identical(other.isError, isError) || other.isError == isError));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -369,7 +381,9 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
       autofocus,
       isError);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
@@ -426,8 +440,11 @@ abstract class _MiraiCheckBoxWidget implements MiraiCheckBoxWidget {
   bool get autofocus;
   @override
   bool get isError;
+
+  /// Create a copy of MiraiCheckBoxWidget
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

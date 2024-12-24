@@ -34,8 +34,12 @@ mixin _$MiraiTextStyle {
   TextBaseline? get textBaseline => throw _privateConstructorUsedError;
   double? get height => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTextStyle to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTextStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextStyleCopyWith<MiraiTextStyle> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$MiraiTextStyleCopyWithImpl<$Res, $Val extends MiraiTextStyle>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTextStyle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -178,6 +184,8 @@ class __$$MiraiTextStyleImplCopyWithImpl<$Res>
       _$MiraiTextStyleImpl _value, $Res Function(_$MiraiTextStyleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTextStyle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -346,7 +354,7 @@ class _$MiraiTextStyleImpl implements _MiraiTextStyle {
             (identical(other.height, height) || other.height == height));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -364,7 +372,9 @@ class _$MiraiTextStyleImpl implements _MiraiTextStyle {
       textBaseline,
       height);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTextStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextStyleImplCopyWith<_$MiraiTextStyleImpl> get copyWith =>
@@ -424,8 +434,11 @@ abstract class _MiraiTextStyle implements MiraiTextStyle {
   TextBaseline? get textBaseline;
   @override
   double? get height;
+
+  /// Create a copy of MiraiTextStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextStyleImplCopyWith<_$MiraiTextStyleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

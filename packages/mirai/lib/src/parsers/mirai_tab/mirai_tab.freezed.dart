@@ -26,8 +26,12 @@ mixin _$MiraiTab {
   double? get height => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTab to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTabCopyWith<MiraiTab> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$MiraiTabCopyWithImpl<$Res, $Val extends MiraiTab>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -90,6 +96,8 @@ class _$MiraiTabCopyWithImpl<$Res, $Val extends MiraiTab>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get iconMargin {
@@ -130,6 +138,8 @@ class __$$MiraiTabImplCopyWithImpl<$Res>
       _$MiraiTabImpl _value, $Res Function(_$MiraiTabImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -223,7 +233,7 @@ class _$MiraiTabImpl implements _MiraiTab {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -233,7 +243,9 @@ class _$MiraiTabImpl implements _MiraiTab {
       height,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTabImplCopyWith<_$MiraiTabImpl> get copyWith =>
@@ -268,8 +280,11 @@ abstract class _MiraiTab implements MiraiTab {
   double? get height;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiTab
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTabImplCopyWith<_$MiraiTabImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

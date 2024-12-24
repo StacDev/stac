@@ -74,8 +74,12 @@ mixin _$MiraiTheme {
       throw _privateConstructorUsedError;
   MiraiTabBarThemeData? get tabBarTheme => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiThemeCopyWith<MiraiTheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -163,6 +167,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -386,6 +392,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme {
@@ -399,6 +407,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiColorSchemeCopyWith<$Res>? get colorScheme {
@@ -411,6 +421,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get primarySwatch {
@@ -423,6 +435,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiAppBarThemeCopyWith<$Res>? get appBarTheme {
@@ -435,6 +449,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get elevatedButtonTheme {
@@ -448,6 +464,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get outlinedButtonTheme {
@@ -461,6 +479,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get iconButtonTheme {
@@ -473,6 +493,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme {
@@ -485,6 +507,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get primaryIconTheme {
@@ -497,6 +521,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiDialogThemeCopyWith<$Res>? get dialogTheme {
@@ -509,6 +535,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiFloatingActionButtonThemeDataCopyWith<$Res>?
@@ -523,6 +551,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get textButtonTheme {
@@ -535,6 +565,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme {
@@ -548,6 +580,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme {
@@ -561,6 +595,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme {
@@ -574,6 +610,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiCardThemeDataCopyWith<$Res>? get cardTheme {
@@ -586,6 +624,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiListTileThemeDataCopyWith<$Res>? get listTileTheme {
@@ -599,6 +639,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme {
@@ -612,6 +654,8 @@ class _$MiraiThemeCopyWithImpl<$Res, $Val extends MiraiTheme>
     });
   }
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTabBarThemeDataCopyWith<$Res>? get tabBarTheme {
@@ -727,6 +771,8 @@ class __$$MiraiThemeImplCopyWithImpl<$Res>
       _$MiraiThemeImpl _value, $Res Function(_$MiraiThemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1187,7 +1233,7 @@ class _$MiraiThemeImpl implements _MiraiTheme {
             (identical(other.tabBarTheme, tabBarTheme) || other.tabBarTheme == tabBarTheme));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1236,7 +1282,9 @@ class _$MiraiThemeImpl implements _MiraiTheme {
         tabBarTheme
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiThemeImplCopyWith<_$MiraiThemeImpl> get copyWith =>
@@ -1385,8 +1433,11 @@ abstract class _MiraiTheme implements MiraiTheme {
   MiraiNavigationBarThemeData? get navigationBarTheme;
   @override
   MiraiTabBarThemeData? get tabBarTheme;
+
+  /// Create a copy of MiraiTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiThemeImplCopyWith<_$MiraiThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

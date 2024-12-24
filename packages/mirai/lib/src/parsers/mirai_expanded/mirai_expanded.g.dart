@@ -8,7 +8,7 @@ part of 'mirai_expanded.dart';
 
 _$MiraiExpandedImpl _$$MiraiExpandedImplFromJson(Map<String, dynamic> json) =>
     _$MiraiExpandedImpl(
-      flex: json['flex'] as int? ?? 1,
+      flex: (json['flex'] as num?)?.toInt() ?? 1,
       child: json['child'] as Map<String, dynamic>?,
     );
 

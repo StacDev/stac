@@ -26,8 +26,12 @@ mixin _$MiraiDefaultBottomNavigationController {
   int? get initialIndex => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiDefaultBottomNavigationController to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiDefaultBottomNavigationController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiDefaultBottomNavigationControllerCopyWith<
           MiraiDefaultBottomNavigationController>
       get copyWith => throw _privateConstructorUsedError;
@@ -55,6 +59,8 @@ class _$MiraiDefaultBottomNavigationControllerCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiDefaultBottomNavigationController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -101,6 +107,8 @@ class __$$MiraiDefaultBottomNavigationControllerImplCopyWithImpl<$Res>
       $Res Function(_$MiraiDefaultBottomNavigationControllerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiDefaultBottomNavigationController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,12 +175,14 @@ class _$MiraiDefaultBottomNavigationControllerImpl
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, length, initialIndex,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiDefaultBottomNavigationController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiDefaultBottomNavigationControllerImplCopyWith<
@@ -207,8 +217,11 @@ abstract class _MiraiDefaultBottomNavigationController
   int? get initialIndex;
   @override
   Map<String, dynamic> get child;
+
+  /// Create a copy of MiraiDefaultBottomNavigationController
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiDefaultBottomNavigationControllerImplCopyWith<
           _$MiraiDefaultBottomNavigationControllerImpl>
       get copyWith => throw _privateConstructorUsedError;
