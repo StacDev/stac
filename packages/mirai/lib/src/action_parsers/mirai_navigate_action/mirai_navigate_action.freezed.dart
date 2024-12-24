@@ -28,8 +28,12 @@ mixin _$MiraiNavigateAction {
   Map<String, dynamic>? get result => throw _privateConstructorUsedError;
   Map<String, dynamic>? get arguments => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiNavigateAction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiNavigateActionCopyWith<MiraiNavigateAction> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$MiraiNavigateActionCopyWithImpl<$Res, $Val extends MiraiNavigateAction>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class _$MiraiNavigateActionCopyWithImpl<$Res, $Val extends MiraiNavigateAction>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiNetworkRequestCopyWith<$Res>? get request {
@@ -147,6 +155,8 @@ class __$$MiraiNavigateActionImplCopyWithImpl<$Res>
       $Res Function(_$MiraiNavigateActionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -272,7 +282,7 @@ class _$MiraiNavigateActionImpl extends _MiraiNavigateAction {
                 .equals(other._arguments, _arguments));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -284,7 +294,9 @@ class _$MiraiNavigateActionImpl extends _MiraiNavigateAction {
       const DeepCollectionEquality().hash(_result),
       const DeepCollectionEquality().hash(_arguments));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiNavigateActionImplCopyWith<_$MiraiNavigateActionImpl> get copyWith =>
@@ -327,8 +339,11 @@ abstract class _MiraiNavigateAction extends MiraiNavigateAction {
   Map<String, dynamic>? get result;
   @override
   Map<String, dynamic>? get arguments;
+
+  /// Create a copy of MiraiNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiNavigateActionImplCopyWith<_$MiraiNavigateActionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$MiraiExpanded {
   int get flex => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiExpanded to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiExpanded
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiExpandedCopyWith<MiraiExpanded> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MiraiExpandedCopyWithImpl<$Res, $Val extends MiraiExpanded>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiExpanded
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MiraiExpandedImplCopyWithImpl<$Res>
       _$MiraiExpandedImpl _value, $Res Function(_$MiraiExpandedImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiExpanded
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -141,12 +149,14 @@ class _$MiraiExpandedImpl implements _MiraiExpanded {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, flex, const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiExpanded
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiExpandedImplCopyWith<_$MiraiExpandedImpl> get copyWith =>
@@ -172,8 +182,11 @@ abstract class _MiraiExpanded implements MiraiExpanded {
   int get flex;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiExpanded
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiExpandedImplCopyWith<_$MiraiExpandedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

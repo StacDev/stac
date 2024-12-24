@@ -42,8 +42,12 @@ mixin _$MiraiBottomNavigationBar {
   BottomNavigationBarLandscapeLayout? get landscapeLayout =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomNavigationBar to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomNavigationBarCopyWith<MiraiBottomNavigationBar> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -87,6 +91,8 @@ class _$MiraiBottomNavigationBarCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -175,6 +181,8 @@ class _$MiraiBottomNavigationBarCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get selectedLabelStyle {
@@ -187,6 +195,8 @@ class _$MiraiBottomNavigationBarCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get unselectedLabelStyle {
@@ -243,6 +253,8 @@ class __$$MiraiBottomNavigationBarImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomNavigationBarImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -443,7 +455,7 @@ class _$MiraiBottomNavigationBarImpl implements _MiraiBottomNavigationBar {
                 other.landscapeLayout == landscapeLayout));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -464,7 +476,9 @@ class _$MiraiBottomNavigationBarImpl implements _MiraiBottomNavigationBar {
       enableFeedback,
       landscapeLayout);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomNavigationBarImplCopyWith<_$MiraiBottomNavigationBarImpl>
@@ -534,8 +548,11 @@ abstract class _MiraiBottomNavigationBar implements MiraiBottomNavigationBar {
   bool? get enableFeedback;
   @override
   BottomNavigationBarLandscapeLayout? get landscapeLayout;
+
+  /// Create a copy of MiraiBottomNavigationBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomNavigationBarImplCopyWith<_$MiraiBottomNavigationBarImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

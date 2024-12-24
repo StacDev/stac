@@ -33,8 +33,12 @@ mixin _$MiraiContainer {
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiContainer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiContainerCopyWith<MiraiContainer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -75,6 +79,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -138,6 +144,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -150,6 +158,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
     });
   }
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxDecorationCopyWith<$Res>? get decoration {
@@ -162,6 +172,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
     });
   }
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxDecorationCopyWith<$Res>? get foregroundDecoration {
@@ -175,6 +187,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
     });
   }
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxConstraintsCopyWith<$Res>? get constraints {
@@ -187,6 +201,8 @@ class _$MiraiContainerCopyWithImpl<$Res, $Val extends MiraiContainer>
     });
   }
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get margin {
@@ -241,6 +257,8 @@ class __$$MiraiContainerImplCopyWithImpl<$Res>
       _$MiraiContainerImpl _value, $Res Function(_$MiraiContainerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -385,7 +403,7 @@ class _$MiraiContainerImpl implements _MiraiContainer {
                 other.clipBehavior == clipBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -401,7 +419,9 @@ class _$MiraiContainerImpl implements _MiraiContainer {
       const DeepCollectionEquality().hash(_child),
       clipBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiContainerImplCopyWith<_$MiraiContainerImpl> get copyWith =>
@@ -455,8 +475,11 @@ abstract class _MiraiContainer implements MiraiContainer {
   Map<String, dynamic>? get child;
   @override
   Clip get clipBehavior;
+
+  /// Create a copy of MiraiContainer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiContainerImplCopyWith<_$MiraiContainerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,10 +26,15 @@ mixin _$MiraiColumn {
   MainAxisSize get mainAxisSize => throw _privateConstructorUsedError;
   TextDirection? get textDirection => throw _privateConstructorUsedError;
   VerticalDirection get verticalDirection => throw _privateConstructorUsedError;
+  double get spacing => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiColumn to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiColumn
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiColumnCopyWith<MiraiColumn> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -46,6 +51,7 @@ abstract class $MiraiColumnCopyWith<$Res> {
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
+      double spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -59,6 +65,8 @@ class _$MiraiColumnCopyWithImpl<$Res, $Val extends MiraiColumn>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiColumn
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -67,6 +75,7 @@ class _$MiraiColumnCopyWithImpl<$Res, $Val extends MiraiColumn>
     Object? mainAxisSize = null,
     Object? textDirection = freezed,
     Object? verticalDirection = null,
+    Object? spacing = null,
     Object? children = null,
   }) {
     return _then(_value.copyWith(
@@ -90,6 +99,10 @@ class _$MiraiColumnCopyWithImpl<$Res, $Val extends MiraiColumn>
           ? _value.verticalDirection
           : verticalDirection // ignore: cast_nullable_to_non_nullable
               as VerticalDirection,
+      spacing: null == spacing
+          ? _value.spacing
+          : spacing // ignore: cast_nullable_to_non_nullable
+              as double,
       children: null == children
           ? _value.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -112,6 +125,7 @@ abstract class _$$MiraiColumnImplCopyWith<$Res>
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
+      double spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -123,6 +137,8 @@ class __$$MiraiColumnImplCopyWithImpl<$Res>
       _$MiraiColumnImpl _value, $Res Function(_$MiraiColumnImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiColumn
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +147,7 @@ class __$$MiraiColumnImplCopyWithImpl<$Res>
     Object? mainAxisSize = null,
     Object? textDirection = freezed,
     Object? verticalDirection = null,
+    Object? spacing = null,
     Object? children = null,
   }) {
     return _then(_$MiraiColumnImpl(
@@ -154,6 +171,10 @@ class __$$MiraiColumnImplCopyWithImpl<$Res>
           ? _value.verticalDirection
           : verticalDirection // ignore: cast_nullable_to_non_nullable
               as VerticalDirection,
+      spacing: null == spacing
+          ? _value.spacing
+          : spacing // ignore: cast_nullable_to_non_nullable
+              as double,
       children: null == children
           ? _value._children
           : children // ignore: cast_nullable_to_non_nullable
@@ -171,6 +192,7 @@ class _$MiraiColumnImpl implements _MiraiColumn {
       this.mainAxisSize = MainAxisSize.max,
       this.textDirection,
       this.verticalDirection = VerticalDirection.down,
+      this.spacing = 0,
       final List<Map<String, dynamic>> children = const []})
       : _children = children;
 
@@ -191,6 +213,9 @@ class _$MiraiColumnImpl implements _MiraiColumn {
   @override
   @JsonKey()
   final VerticalDirection verticalDirection;
+  @override
+  @JsonKey()
+  final double spacing;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -202,7 +227,7 @@ class _$MiraiColumnImpl implements _MiraiColumn {
 
   @override
   String toString() {
-    return 'MiraiColumn(mainAxisAlignment: $mainAxisAlignment, crossAxisAlignment: $crossAxisAlignment, mainAxisSize: $mainAxisSize, textDirection: $textDirection, verticalDirection: $verticalDirection, children: $children)';
+    return 'MiraiColumn(mainAxisAlignment: $mainAxisAlignment, crossAxisAlignment: $crossAxisAlignment, mainAxisSize: $mainAxisSize, textDirection: $textDirection, verticalDirection: $verticalDirection, spacing: $spacing, children: $children)';
   }
 
   @override
@@ -220,10 +245,11 @@ class _$MiraiColumnImpl implements _MiraiColumn {
                 other.textDirection == textDirection) &&
             (identical(other.verticalDirection, verticalDirection) ||
                 other.verticalDirection == verticalDirection) &&
+            (identical(other.spacing, spacing) || other.spacing == spacing) &&
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,9 +258,12 @@ class _$MiraiColumnImpl implements _MiraiColumn {
       mainAxisSize,
       textDirection,
       verticalDirection,
+      spacing,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiColumn
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiColumnImplCopyWith<_$MiraiColumnImpl> get copyWith =>
@@ -255,6 +284,7 @@ abstract class _MiraiColumn implements MiraiColumn {
       final MainAxisSize mainAxisSize,
       final TextDirection? textDirection,
       final VerticalDirection verticalDirection,
+      final double spacing,
       final List<Map<String, dynamic>> children}) = _$MiraiColumnImpl;
 
   factory _MiraiColumn.fromJson(Map<String, dynamic> json) =
@@ -271,9 +301,14 @@ abstract class _MiraiColumn implements MiraiColumn {
   @override
   VerticalDirection get verticalDirection;
   @override
-  List<Map<String, dynamic>> get children;
+  double get spacing;
   @override
-  @JsonKey(ignore: true)
+  List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiColumn
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiColumnImplCopyWith<_$MiraiColumnImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

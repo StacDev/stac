@@ -29,8 +29,12 @@ mixin _$MiraiNetworkRequest {
   dynamic get body => throw _privateConstructorUsedError;
   List<MiraiNetworkResult> get results => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiNetworkRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiNetworkRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiNetworkRequestCopyWith<MiraiNetworkRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -61,6 +65,8 @@ class _$MiraiNetworkRequestCopyWithImpl<$Res, $Val extends MiraiNetworkRequest>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiNetworkRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +137,8 @@ class __$$MiraiNetworkRequestImplCopyWithImpl<$Res>
       $Res Function(_$MiraiNetworkRequestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiNetworkRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -252,7 +260,7 @@ class _$MiraiNetworkRequestImpl implements _MiraiNetworkRequest {
             const DeepCollectionEquality().equals(other._results, _results));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -264,7 +272,9 @@ class _$MiraiNetworkRequestImpl implements _MiraiNetworkRequest {
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(_results));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiNetworkRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiNetworkRequestImplCopyWith<_$MiraiNetworkRequestImpl> get copyWith =>
@@ -306,8 +316,11 @@ abstract class _MiraiNetworkRequest implements MiraiNetworkRequest {
   dynamic get body;
   @override
   List<MiraiNetworkResult> get results;
+
+  /// Create a copy of MiraiNetworkRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiNetworkRequestImplCopyWith<_$MiraiNetworkRequestImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -321,8 +334,12 @@ mixin _$MiraiNetworkResult {
   int get statusCode => throw _privateConstructorUsedError;
   Map<String, dynamic> get action => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiNetworkResult to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiNetworkResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiNetworkResultCopyWith<MiraiNetworkResult> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -346,6 +363,8 @@ class _$MiraiNetworkResultCopyWithImpl<$Res, $Val extends MiraiNetworkResult>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiNetworkResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -384,6 +403,8 @@ class __$$MiraiNetworkResultImplCopyWithImpl<$Res>
       $Res Function(_$MiraiNetworkResultImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiNetworkResult
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -438,12 +459,14 @@ class _$MiraiNetworkResultImpl implements _MiraiNetworkResult {
             const DeepCollectionEquality().equals(other._action, _action));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, statusCode, const DeepCollectionEquality().hash(_action));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiNetworkResult
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiNetworkResultImplCopyWith<_$MiraiNetworkResultImpl> get copyWith =>
@@ -470,8 +493,11 @@ abstract class _MiraiNetworkResult implements MiraiNetworkResult {
   int get statusCode;
   @override
   Map<String, dynamic> get action;
+
+  /// Create a copy of MiraiNetworkResult
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiNetworkResultImplCopyWith<_$MiraiNetworkResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

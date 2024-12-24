@@ -33,8 +33,12 @@ mixin _$MiraiNavigationBarThemeData {
   NavigationDestinationLabelBehavior? get labelBehavior =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiNavigationBarThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiNavigationBarThemeDataCopyWith<MiraiNavigationBarThemeData>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -75,6 +79,8 @@ class _$MiraiNavigationBarThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -133,6 +139,8 @@ class _$MiraiNavigationBarThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get indicatorShape {
@@ -145,6 +153,8 @@ class _$MiraiNavigationBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get labelTextStyle {
@@ -157,6 +167,8 @@ class _$MiraiNavigationBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme {
@@ -209,6 +221,8 @@ class __$$MiraiNavigationBarThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiNavigationBarThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -340,7 +354,7 @@ class _$MiraiNavigationBarThemeDataImpl
                 other.labelBehavior == labelBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -355,7 +369,9 @@ class _$MiraiNavigationBarThemeDataImpl
       iconTheme,
       labelBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiNavigationBarThemeDataImplCopyWith<_$MiraiNavigationBarThemeDataImpl>
@@ -408,8 +424,11 @@ abstract class _MiraiNavigationBarThemeData
   MiraiIconThemeData? get iconTheme;
   @override
   NavigationDestinationLabelBehavior? get labelBehavior;
+
+  /// Create a copy of MiraiNavigationBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiNavigationBarThemeDataImplCopyWith<_$MiraiNavigationBarThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -32,8 +32,12 @@ mixin _$MiraiWrap {
   Clip get clipBehavior => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiWrap to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiWrap
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiWrapCopyWith<MiraiWrap> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +70,8 @@ class _$MiraiWrapCopyWithImpl<$Res, $Val extends MiraiWrap>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiWrap
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -154,6 +160,8 @@ class __$$MiraiWrapImplCopyWithImpl<$Res>
       _$MiraiWrapImpl _value, $Res Function(_$MiraiWrapImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiWrap
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -297,7 +305,7 @@ class _$MiraiWrapImpl implements _MiraiWrap {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -312,7 +320,9 @@ class _$MiraiWrapImpl implements _MiraiWrap {
       clipBehavior,
       const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiWrap
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiWrapImplCopyWith<_$MiraiWrapImpl> get copyWith =>
@@ -362,8 +372,11 @@ abstract class _MiraiWrap implements MiraiWrap {
   Clip get clipBehavior;
   @override
   List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiWrap
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiWrapImplCopyWith<_$MiraiWrapImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

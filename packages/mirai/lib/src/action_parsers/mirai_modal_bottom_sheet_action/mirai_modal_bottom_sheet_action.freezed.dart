@@ -37,8 +37,12 @@ mixin _$MiraiModalBottomSheetAction {
   bool? get showDragHandle => throw _privateConstructorUsedError;
   bool get useSafeArea => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiModalBottomSheetAction to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiModalBottomSheetActionCopyWith<MiraiModalBottomSheetAction>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -84,6 +88,8 @@ class _$MiraiModalBottomSheetActionCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -167,6 +173,8 @@ class _$MiraiModalBottomSheetActionCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiNetworkRequestCopyWith<$Res>? get request {
@@ -179,6 +187,8 @@ class _$MiraiModalBottomSheetActionCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get shape {
@@ -191,6 +201,8 @@ class _$MiraiModalBottomSheetActionCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxConstraintsCopyWith<$Res>? get constraints {
@@ -248,6 +260,8 @@ class __$$MiraiModalBottomSheetActionImplCopyWithImpl<$Res>
       $Res Function(_$MiraiModalBottomSheetActionImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -441,7 +455,7 @@ class _$MiraiModalBottomSheetActionImpl
                 other.useSafeArea == useSafeArea));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -461,7 +475,9 @@ class _$MiraiModalBottomSheetActionImpl
       showDragHandle,
       useSafeArea);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiModalBottomSheetActionImplCopyWith<_$MiraiModalBottomSheetActionImpl>
@@ -528,8 +544,11 @@ abstract class _MiraiModalBottomSheetAction
   bool? get showDragHandle;
   @override
   bool get useSafeArea;
+
+  /// Create a copy of MiraiModalBottomSheetAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiModalBottomSheetActionImplCopyWith<_$MiraiModalBottomSheetActionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

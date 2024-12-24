@@ -39,8 +39,12 @@ mixin _$MiraiButtonStyle {
   bool? get enableFeedback => throw _privateConstructorUsedError;
   double? get iconSize => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiButtonStyle to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiButtonStyleCopyWith<MiraiButtonStyle> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -90,6 +94,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -188,6 +194,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get textStyle {
@@ -200,6 +208,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -212,6 +222,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiSizeCopyWith<$Res>? get minimumSize {
@@ -224,6 +236,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiSizeCopyWith<$Res>? get fixedSize {
@@ -236,6 +250,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiSizeCopyWith<$Res>? get maximumSize {
@@ -248,6 +264,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get side {
@@ -260,6 +278,8 @@ class _$MiraiButtonStyleCopyWithImpl<$Res, $Val extends MiraiButtonStyle>
     });
   }
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiRoundedRectangleBorderCopyWith<$Res>? get shape {
@@ -325,6 +345,8 @@ class __$$MiraiButtonStyleImplCopyWithImpl<$Res>
       $Res Function(_$MiraiButtonStyleImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -534,7 +556,7 @@ class _$MiraiButtonStyleImpl implements _MiraiButtonStyle {
                 other.iconSize == iconSize));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -557,7 +579,9 @@ class _$MiraiButtonStyleImpl implements _MiraiButtonStyle {
       enableFeedback,
       iconSize);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiButtonStyleImplCopyWith<_$MiraiButtonStyleImpl> get copyWith =>
@@ -632,8 +656,11 @@ abstract class _MiraiButtonStyle implements MiraiButtonStyle {
   bool? get enableFeedback;
   @override
   double? get iconSize;
+
+  /// Create a copy of MiraiButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiButtonStyleImplCopyWith<_$MiraiButtonStyleImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

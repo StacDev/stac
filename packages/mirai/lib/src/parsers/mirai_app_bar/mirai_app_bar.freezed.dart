@@ -40,8 +40,12 @@ mixin _$MiraiAppBar {
   double? get elevation => throw _privateConstructorUsedError;
   double? get scrolledUnderElevation => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAppBar to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAppBarCopyWith<MiraiAppBar> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -87,6 +91,8 @@ class _$MiraiAppBarCopyWithImpl<$Res, $Val extends MiraiAppBar>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -190,6 +196,8 @@ class _$MiraiAppBarCopyWithImpl<$Res, $Val extends MiraiAppBar>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get titleTextStyle {
@@ -202,6 +210,8 @@ class _$MiraiAppBarCopyWithImpl<$Res, $Val extends MiraiAppBar>
     });
   }
 
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get toolbarTextStyle {
@@ -258,6 +268,8 @@ class __$$MiraiAppBarImplCopyWithImpl<$Res>
       _$MiraiAppBarImpl _value, $Res Function(_$MiraiAppBarImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -511,7 +523,7 @@ class _$MiraiAppBarImpl implements _MiraiAppBar {
                 other.scrolledUnderElevation == scrolledUnderElevation));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -536,7 +548,9 @@ class _$MiraiAppBarImpl implements _MiraiAppBar {
         scrolledUnderElevation
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAppBarImplCopyWith<_$MiraiAppBarImpl> get copyWith =>
@@ -613,8 +627,11 @@ abstract class _MiraiAppBar implements MiraiAppBar {
   double? get elevation;
   @override
   double? get scrolledUnderElevation;
+
+  /// Create a copy of MiraiAppBar
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAppBarImplCopyWith<_$MiraiAppBarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

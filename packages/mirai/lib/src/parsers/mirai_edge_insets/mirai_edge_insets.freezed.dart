@@ -25,8 +25,12 @@ mixin _$MiraiEdgeInsets {
   double? get right => throw _privateConstructorUsedError;
   double? get bottom => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiEdgeInsets to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiEdgeInsetsCopyWith<MiraiEdgeInsets> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiEdgeInsetsCopyWithImpl<$Res, $Val extends MiraiEdgeInsets>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class __$$MiraiEdgeInsetsImplCopyWithImpl<$Res>
       _$MiraiEdgeInsetsImpl _value, $Res Function(_$MiraiEdgeInsetsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,11 +168,13 @@ class _$MiraiEdgeInsetsImpl implements _MiraiEdgeInsets {
             (identical(other.bottom, bottom) || other.bottom == bottom));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, left, top, right, bottom);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiEdgeInsetsImplCopyWith<_$MiraiEdgeInsetsImpl> get copyWith =>
@@ -197,8 +207,11 @@ abstract class _MiraiEdgeInsets implements MiraiEdgeInsets {
   double? get right;
   @override
   double? get bottom;
+
+  /// Create a copy of MiraiEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiEdgeInsetsImplCopyWith<_$MiraiEdgeInsetsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

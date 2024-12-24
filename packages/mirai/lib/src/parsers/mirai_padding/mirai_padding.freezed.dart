@@ -23,8 +23,12 @@ mixin _$MiraiPadding {
   MiraiEdgeInsets get padding => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiPadding to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiPaddingCopyWith<MiraiPadding> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiPaddingCopyWithImpl<$Res, $Val extends MiraiPadding>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -68,6 +74,8 @@ class _$MiraiPaddingCopyWithImpl<$Res, $Val extends MiraiPadding>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res> get padding {
@@ -99,6 +107,8 @@ class __$$MiraiPaddingImplCopyWithImpl<$Res>
       _$MiraiPaddingImpl _value, $Res Function(_$MiraiPaddingImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -154,12 +164,14 @@ class _$MiraiPaddingImpl implements _MiraiPadding {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, padding, const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiPaddingImplCopyWith<_$MiraiPaddingImpl> get copyWith =>
@@ -185,8 +197,11 @@ abstract class _MiraiPadding implements MiraiPadding {
   MiraiEdgeInsets get padding;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiPadding
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiPaddingImplCopyWith<_$MiraiPaddingImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

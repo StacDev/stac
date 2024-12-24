@@ -32,8 +32,12 @@ mixin _$MiraiTabBarThemeData {
       throw _privateConstructorUsedError;
   String? get overlayColor => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTabBarThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTabBarThemeDataCopyWith<MiraiTabBarThemeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -73,6 +77,8 @@ class _$MiraiTabBarThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,6 +137,8 @@ class _$MiraiTabBarThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxDecorationCopyWith<$Res>? get indicator {
@@ -143,6 +151,8 @@ class _$MiraiTabBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get labelPadding {
@@ -155,6 +165,8 @@ class _$MiraiTabBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get labelStyle {
@@ -167,6 +179,8 @@ class _$MiraiTabBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get unselectedLabelStyle {
@@ -218,6 +232,8 @@ class __$$MiraiTabBarThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiTabBarThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -348,7 +364,7 @@ class _$MiraiTabBarThemeDataImpl implements _MiraiTabBarThemeData {
                 other.overlayColor == overlayColor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -363,7 +379,9 @@ class _$MiraiTabBarThemeDataImpl implements _MiraiTabBarThemeData {
       unselectedLabelStyle,
       overlayColor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTabBarThemeDataImplCopyWith<_$MiraiTabBarThemeDataImpl>
@@ -415,8 +433,11 @@ abstract class _MiraiTabBarThemeData implements MiraiTabBarThemeData {
   MiraiTextStyle? get unselectedLabelStyle;
   @override
   String? get overlayColor;
+
+  /// Create a copy of MiraiTabBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTabBarThemeDataImplCopyWith<_$MiraiTabBarThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

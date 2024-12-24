@@ -24,8 +24,12 @@ mixin _$MiraiDefaultTabController {
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
   int get length => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiDefaultTabController to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiDefaultTabControllerCopyWith<MiraiDefaultTabController> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$MiraiDefaultTabControllerCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class __$$MiraiDefaultTabControllerImplCopyWithImpl<$Res>
       $Res Function(_$MiraiDefaultTabControllerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -145,12 +153,14 @@ class _$MiraiDefaultTabControllerImpl implements _MiraiDefaultTabController {
             (identical(other.length, length) || other.length == length));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_child), length);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiDefaultTabControllerImplCopyWith<_$MiraiDefaultTabControllerImpl>
@@ -177,8 +187,11 @@ abstract class _MiraiDefaultTabController implements MiraiDefaultTabController {
   Map<String, dynamic> get child;
   @override
   int get length;
+
+  /// Create a copy of MiraiDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiDefaultTabControllerImplCopyWith<_$MiraiDefaultTabControllerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

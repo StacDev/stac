@@ -63,8 +63,12 @@ mixin _$MiraiTextFormField {
   List<MiraiFormFieldValidator> get validatorRules =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTextFormField to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextFormFieldCopyWith<MiraiTextFormField> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -129,6 +133,8 @@ class _$MiraiTextFormFieldCopyWithImpl<$Res, $Val extends MiraiTextFormField>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -322,6 +328,8 @@ class _$MiraiTextFormFieldCopyWithImpl<$Res, $Val extends MiraiTextFormField>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputDecorationCopyWith<$Res>? get decoration {
@@ -334,6 +342,8 @@ class _$MiraiTextFormFieldCopyWithImpl<$Res, $Val extends MiraiTextFormField>
     });
   }
 
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get style {
@@ -346,6 +356,8 @@ class _$MiraiTextFormFieldCopyWithImpl<$Res, $Val extends MiraiTextFormField>
     });
   }
 
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res> get scrollPadding {
@@ -418,6 +430,8 @@ class __$$MiraiTextFormFieldImplCopyWithImpl<$Res>
       $Res Function(_$MiraiTextFormFieldImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -843,7 +857,7 @@ class _$MiraiTextFormFieldImpl implements _MiraiTextFormField {
                 .equals(other._validatorRules, _validatorRules));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -886,7 +900,9 @@ class _$MiraiTextFormFieldImpl implements _MiraiTextFormField {
         const DeepCollectionEquality().hash(_validatorRules)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextFormFieldImplCopyWith<_$MiraiTextFormFieldImpl> get copyWith =>
@@ -1019,8 +1035,11 @@ abstract class _MiraiTextFormField implements MiraiTextFormField {
   List<MiraiInputFormatter> get inputFormatters;
   @override
   List<MiraiFormFieldValidator> get validatorRules;
+
+  /// Create a copy of MiraiTextFormField
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextFormFieldImplCopyWith<_$MiraiTextFormFieldImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

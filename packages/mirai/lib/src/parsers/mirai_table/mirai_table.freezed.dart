@@ -31,8 +31,12 @@ mixin _$MiraiTable {
       throw _privateConstructorUsedError;
   TextBaseline? get textBaseline => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTable to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTableCopyWith<MiraiTable> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -66,6 +70,8 @@ class _$MiraiTableCopyWithImpl<$Res, $Val extends MiraiTable>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -109,6 +115,8 @@ class _$MiraiTableCopyWithImpl<$Res, $Val extends MiraiTable>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTableColumnWidthCopyWith<$Res>? get defaultColumnWidth {
@@ -122,6 +130,8 @@ class _$MiraiTableCopyWithImpl<$Res, $Val extends MiraiTable>
     });
   }
 
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTableBorderCopyWith<$Res>? get border {
@@ -166,6 +176,8 @@ class __$$MiraiTableImplCopyWithImpl<$Res>
       _$MiraiTableImpl _value, $Res Function(_$MiraiTableImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -283,7 +295,7 @@ class _$MiraiTableImpl implements _MiraiTable {
                 other.textBaseline == textBaseline));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -295,7 +307,9 @@ class _$MiraiTableImpl implements _MiraiTable {
       defaultVerticalAlignment,
       textBaseline);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTableImplCopyWith<_$MiraiTableImpl> get copyWith =>
@@ -336,8 +350,11 @@ abstract class _MiraiTable implements MiraiTable {
   TableCellVerticalAlignment get defaultVerticalAlignment;
   @override
   TextBaseline? get textBaseline;
+
+  /// Create a copy of MiraiTable
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTableImplCopyWith<_$MiraiTableImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -351,8 +368,12 @@ mixin _$MiraiTableRow {
   MiraiBoxDecoration? get decoration => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTableRow to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTableRowCopyWith<MiraiTableRow> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -379,6 +400,8 @@ class _$MiraiTableRowCopyWithImpl<$Res, $Val extends MiraiTableRow>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -397,6 +420,8 @@ class _$MiraiTableRowCopyWithImpl<$Res, $Val extends MiraiTableRow>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxDecorationCopyWith<$Res>? get decoration {
@@ -433,6 +458,8 @@ class __$$MiraiTableRowImplCopyWithImpl<$Res>
       _$MiraiTableRowImpl _value, $Res Function(_$MiraiTableRowImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -488,12 +515,14 @@ class _$MiraiTableRowImpl implements _MiraiTableRow {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, decoration, const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTableRowImplCopyWith<_$MiraiTableRowImpl> get copyWith =>
@@ -519,8 +548,11 @@ abstract class _MiraiTableRow implements MiraiTableRow {
   MiraiBoxDecoration? get decoration;
   @override
   List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiTableRow
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTableRowImplCopyWith<_$MiraiTableRowImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -539,8 +571,12 @@ mixin _$MiraiTableBorder {
   MiraiBorderSide? get verticalInside => throw _privateConstructorUsedError;
   MiraiBorderRadius? get borderRadius => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTableBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTableBorderCopyWith<MiraiTableBorder> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -579,6 +615,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -622,6 +660,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get top {
@@ -634,6 +674,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get right {
@@ -646,6 +688,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get bottom {
@@ -658,6 +702,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get left {
@@ -670,6 +716,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get horizontalInside {
@@ -682,6 +730,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get verticalInside {
@@ -694,6 +744,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
     });
   }
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderRadiusCopyWith<$Res>? get borderRadius {
@@ -748,6 +800,8 @@ class __$$MiraiTableBorderImplCopyWithImpl<$Res>
       $Res Function(_$MiraiTableBorderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -844,12 +898,14 @@ class _$MiraiTableBorderImpl implements _MiraiTableBorder {
                 other.borderRadius == borderRadius));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, top, right, bottom, left,
       horizontalInside, verticalInside, borderRadius);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTableBorderImplCopyWith<_$MiraiTableBorderImpl> get copyWith =>
@@ -891,8 +947,11 @@ abstract class _MiraiTableBorder implements MiraiTableBorder {
   MiraiBorderSide? get verticalInside;
   @override
   MiraiBorderRadius? get borderRadius;
+
+  /// Create a copy of MiraiTableBorder
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTableBorderImplCopyWith<_$MiraiTableBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -907,8 +966,12 @@ mixin _$MiraiTableColumnWidth {
   MiraiTableColumnWidthType get type => throw _privateConstructorUsedError;
   double? get value => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTableColumnWidth to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTableColumnWidth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTableColumnWidthCopyWith<MiraiTableColumnWidth> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -933,6 +996,8 @@ class _$MiraiTableColumnWidthCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTableColumnWidth
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -973,6 +1038,8 @@ class __$$MiraiTableColumnWidthImplCopyWithImpl<$Res>
       $Res Function(_$MiraiTableColumnWidthImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTableColumnWidth
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1021,11 +1088,13 @@ class _$MiraiTableColumnWidthImpl implements _MiraiTableColumnWidth {
             (identical(other.value, value) || other.value == value));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTableColumnWidth
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTableColumnWidthImplCopyWith<_$MiraiTableColumnWidthImpl>
@@ -1052,8 +1121,11 @@ abstract class _MiraiTableColumnWidth implements MiraiTableColumnWidth {
   MiraiTableColumnWidthType get type;
   @override
   double? get value;
+
+  /// Create a copy of MiraiTableColumnWidth
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTableColumnWidthImplCopyWith<_$MiraiTableColumnWidthImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

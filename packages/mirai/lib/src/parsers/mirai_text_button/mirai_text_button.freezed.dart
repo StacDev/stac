@@ -26,8 +26,12 @@ mixin _$MiraiTextButton {
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTextButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextButtonCopyWith<MiraiTextButton> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$MiraiTextButtonCopyWithImpl<$Res, $Val extends MiraiTextButton>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class _$MiraiTextButtonCopyWithImpl<$Res, $Val extends MiraiTextButton>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get style {
@@ -131,6 +139,8 @@ class __$$MiraiTextButtonImplCopyWithImpl<$Res>
       _$MiraiTextButtonImpl _value, $Res Function(_$MiraiTextButtonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -222,7 +232,7 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,7 +242,9 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
       clipBehavior,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextButtonImplCopyWith<_$MiraiTextButtonImpl> get copyWith =>
@@ -268,8 +280,11 @@ abstract class _MiraiTextButton implements MiraiTextButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic> get child;
+
+  /// Create a copy of MiraiTextButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextButtonImplCopyWith<_$MiraiTextButtonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -26,8 +26,12 @@ mixin _$MiraiStack {
   TextDirection? get textDirection => throw _privateConstructorUsedError;
   List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiStack to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiStack
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiStackCopyWith<MiraiStack> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$MiraiStackCopyWithImpl<$Res, $Val extends MiraiStack>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiStack
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$MiraiStackImplCopyWithImpl<$Res>
       _$MiraiStackImpl _value, $Res Function(_$MiraiStackImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiStack
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -202,12 +210,14 @@ class _$MiraiStackImpl implements _MiraiStack {
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, alignment, clipBehavior, fit,
       textDirection, const DeepCollectionEquality().hash(_children));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiStack
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiStackImplCopyWith<_$MiraiStackImpl> get copyWith =>
@@ -242,8 +252,11 @@ abstract class _MiraiStack implements MiraiStack {
   TextDirection? get textDirection;
   @override
   List<Map<String, dynamic>> get children;
+
+  /// Create a copy of MiraiStack
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiStackImplCopyWith<_$MiraiStackImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -21,6 +21,7 @@ class MiraiColumnParser extends MiraiParser<MiraiColumn> {
       mainAxisSize: model.mainAxisSize,
       textDirection: model.textDirection,
       verticalDirection: model.verticalDirection,
+      spacing: model.spacing,
       children: model.children
           .map(
             (value) => Mirai.fromJson(value, context) ?? const SizedBox(),

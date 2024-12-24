@@ -24,8 +24,12 @@ mixin _$MiraiSizedBox {
   double? get height => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSizedBox to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSizedBox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSizedBoxCopyWith<MiraiSizedBox> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +53,8 @@ class _$MiraiSizedBoxCopyWithImpl<$Res, $Val extends MiraiSizedBox>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +98,8 @@ class __$$MiraiSizedBoxImplCopyWithImpl<$Res>
       _$MiraiSizedBoxImpl _value, $Res Function(_$MiraiSizedBoxImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -155,12 +163,14 @@ class _$MiraiSizedBoxImpl implements _MiraiSizedBox {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, width, height, const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSizedBox
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSizedBoxImplCopyWith<_$MiraiSizedBoxImpl> get copyWith =>
@@ -189,8 +199,11 @@ abstract class _MiraiSizedBox implements MiraiSizedBox {
   double? get height;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiSizedBox
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSizedBoxImplCopyWith<_$MiraiSizedBoxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -27,8 +27,12 @@ mixin _$MiraiTabBarView {
   double get viewportFraction => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTabBarView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTabBarView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTabBarViewCopyWith<MiraiTabBarView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$MiraiTabBarViewCopyWithImpl<$Res, $Val extends MiraiTabBarView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTabBarView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +128,8 @@ class __$$MiraiTabBarViewImplCopyWithImpl<$Res>
       _$MiraiTabBarViewImpl _value, $Res Function(_$MiraiTabBarViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTabBarView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -221,7 +229,7 @@ class _$MiraiTabBarViewImpl implements _MiraiTabBarView {
                 other.clipBehavior == clipBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -232,7 +240,9 @@ class _$MiraiTabBarViewImpl implements _MiraiTabBarView {
       viewportFraction,
       clipBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTabBarView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTabBarViewImplCopyWith<_$MiraiTabBarViewImpl> get copyWith =>
@@ -271,8 +281,11 @@ abstract class _MiraiTabBarView implements MiraiTabBarView {
   double get viewportFraction;
   @override
   Clip get clipBehavior;
+
+  /// Create a copy of MiraiTabBarView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTabBarViewImplCopyWith<_$MiraiTabBarViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

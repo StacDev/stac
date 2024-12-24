@@ -45,7 +45,7 @@ const _$MethodEnumMap = {
 _$MiraiNetworkResultImpl _$$MiraiNetworkResultImplFromJson(
         Map<String, dynamic> json) =>
     _$MiraiNetworkResultImpl(
-      statusCode: json['statusCode'] as int,
+      statusCode: (json['statusCode'] as num).toInt(),
       action: json['action'] as Map<String, dynamic>,
     );
 

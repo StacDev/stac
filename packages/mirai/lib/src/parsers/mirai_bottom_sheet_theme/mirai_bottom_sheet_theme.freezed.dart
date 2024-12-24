@@ -35,8 +35,12 @@ mixin _$MiraiBottomSheetThemeData {
   Clip? get clipBehavior => throw _privateConstructorUsedError;
   MiraiBoxConstraints? get constraints => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomSheetThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomSheetThemeDataCopyWith<MiraiBottomSheetThemeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -78,6 +82,8 @@ class _$MiraiBottomSheetThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,6 +157,8 @@ class _$MiraiBottomSheetThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderCopyWith<$Res>? get shape {
@@ -163,6 +171,8 @@ class _$MiraiBottomSheetThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiSizeCopyWith<$Res>? get dragHandleSize {
@@ -175,6 +185,8 @@ class _$MiraiBottomSheetThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxConstraintsCopyWith<$Res>? get constraints {
@@ -230,6 +242,8 @@ class __$$MiraiBottomSheetThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomSheetThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -389,7 +403,7 @@ class _$MiraiBottomSheetThemeDataImpl implements _MiraiBottomSheetThemeData {
                 other.constraints == constraints));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -407,7 +421,9 @@ class _$MiraiBottomSheetThemeDataImpl implements _MiraiBottomSheetThemeData {
       clipBehavior,
       constraints);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomSheetThemeDataImplCopyWith<_$MiraiBottomSheetThemeDataImpl>
@@ -468,8 +484,11 @@ abstract class _MiraiBottomSheetThemeData implements MiraiBottomSheetThemeData {
   Clip? get clipBehavior;
   @override
   MiraiBoxConstraints? get constraints;
+
+  /// Create a copy of MiraiBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomSheetThemeDataImplCopyWith<_$MiraiBottomSheetThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

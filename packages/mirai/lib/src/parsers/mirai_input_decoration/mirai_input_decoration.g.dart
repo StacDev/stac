@@ -27,15 +27,15 @@ _$MiraiInputDecorationImpl _$$MiraiInputDecorationImplFromJson(
       hintStyle: json['hintStyle'] == null
           ? null
           : MiraiTextStyle.fromJson(json['hintStyle']),
-      helperMaxLines: json['helperMaxLines'] as int?,
+      helperMaxLines: (json['helperMaxLines'] as num?)?.toInt(),
       hintTextDirection: $enumDecodeNullable(
           _$TextDirectionEnumMap, json['hintTextDirection']),
-      hintMaxLines: json['hintMaxLines'] as int?,
+      hintMaxLines: (json['hintMaxLines'] as num?)?.toInt(),
       errorText: json['errorText'] as String?,
       errorStyle: json['errorStyle'] == null
           ? null
           : MiraiTextStyle.fromJson(json['errorStyle']),
-      errorMaxLines: json['errorMaxLines'] as int?,
+      errorMaxLines: (json['errorMaxLines'] as num?)?.toInt(),
       floatingLabelBehavior: $enumDecodeNullable(
           _$FloatingLabelBehaviorEnumMap, json['floatingLabelBehavior']),
       floatingLabelAlignment: $enumDecodeNullable(

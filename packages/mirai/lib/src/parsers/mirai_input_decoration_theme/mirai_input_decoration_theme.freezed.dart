@@ -58,8 +58,12 @@ mixin _$MiraiInputDecorationTheme {
   bool get alignLabelWithHint => throw _privateConstructorUsedError;
   MiraiBoxConstraints? get constraints => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiInputDecorationTheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiInputDecorationThemeCopyWith<MiraiInputDecorationTheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -135,6 +139,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -303,6 +309,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get labelStyle {
@@ -315,6 +323,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get floatingLabelStyle {
@@ -327,6 +337,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get helperStyle {
@@ -339,6 +351,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get hintStyle {
@@ -351,6 +365,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get errorStyle {
@@ -363,6 +379,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get contentPadding {
@@ -375,6 +393,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get prefixStyle {
@@ -387,6 +407,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get suffixStyle {
@@ -399,6 +421,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get counterStyle {
@@ -411,6 +435,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get activeIndicatorBorder {
@@ -424,6 +450,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBorderSideCopyWith<$Res>? get outlineBorder {
@@ -436,6 +464,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get errorBorder {
@@ -448,6 +478,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get focusedBorder {
@@ -460,6 +492,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get focusedErrorBorder {
@@ -472,6 +506,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get disabledBorder {
@@ -484,6 +520,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get enabledBorder {
@@ -496,6 +534,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiInputBorderCopyWith<$Res>? get border {
@@ -508,6 +548,8 @@ class _$MiraiInputDecorationThemeCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxConstraintsCopyWith<$Res>? get constraints {
@@ -612,6 +654,8 @@ class __$$MiraiInputDecorationThemeImplCopyWithImpl<$Res>
       $Res Function(_$MiraiInputDecorationThemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -963,7 +1007,7 @@ class _$MiraiInputDecorationThemeImpl implements _MiraiInputDecorationTheme {
                 other.constraints == constraints));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -1001,7 +1045,9 @@ class _$MiraiInputDecorationThemeImpl implements _MiraiInputDecorationTheme {
         constraints
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiInputDecorationThemeImplCopyWith<_$MiraiInputDecorationThemeImpl>
@@ -1119,8 +1165,11 @@ abstract class _MiraiInputDecorationTheme implements MiraiInputDecorationTheme {
   bool get alignLabelWithHint;
   @override
   MiraiBoxConstraints? get constraints;
+
+  /// Create a copy of MiraiInputDecorationTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiInputDecorationThemeImplCopyWith<_$MiraiInputDecorationThemeImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -39,8 +39,12 @@ mixin _$MiraiListView {
   String? get restorationId => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiListView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiListViewCopyWith<MiraiListView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -83,6 +87,8 @@ class _$MiraiListViewCopyWithImpl<$Res, $Val extends MiraiListView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,6 +182,8 @@ class _$MiraiListViewCopyWithImpl<$Res, $Val extends MiraiListView>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -228,6 +236,8 @@ class __$$MiraiListViewImplCopyWithImpl<$Res>
       _$MiraiListViewImpl _value, $Res Function(_$MiraiListViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -450,7 +460,7 @@ class _$MiraiListViewImpl implements _MiraiListView {
                 other.clipBehavior == clipBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -472,7 +482,9 @@ class _$MiraiListViewImpl implements _MiraiListView {
       restorationId,
       clipBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiListViewImplCopyWith<_$MiraiListViewImpl> get copyWith =>
@@ -543,8 +555,11 @@ abstract class _MiraiListView implements MiraiListView {
   String? get restorationId;
   @override
   Clip get clipBehavior;
+
+  /// Create a copy of MiraiListView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiListViewImplCopyWith<_$MiraiListViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

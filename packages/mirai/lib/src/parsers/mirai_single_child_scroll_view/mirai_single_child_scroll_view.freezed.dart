@@ -33,8 +33,12 @@ mixin _$MiraiSingleChildScrollView {
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSingleChildScrollView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSingleChildScrollViewCopyWith<MiraiSingleChildScrollView>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$MiraiSingleChildScrollViewCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class _$MiraiSingleChildScrollViewCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -178,6 +186,8 @@ class __$$MiraiSingleChildScrollViewImplCopyWithImpl<$Res>
       $Res Function(_$MiraiSingleChildScrollViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -319,7 +329,7 @@ class _$MiraiSingleChildScrollViewImpl implements _MiraiSingleChildScrollView {
                 other.keyboardDismissBehavior == keyboardDismissBehavior));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -334,7 +344,9 @@ class _$MiraiSingleChildScrollViewImpl implements _MiraiSingleChildScrollView {
       restorationId,
       keyboardDismissBehavior);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSingleChildScrollViewImplCopyWith<_$MiraiSingleChildScrollViewImpl>
@@ -387,8 +399,11 @@ abstract class _MiraiSingleChildScrollView
   String? get restorationId;
   @override
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
+
+  /// Create a copy of MiraiSingleChildScrollView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSingleChildScrollViewImplCopyWith<_$MiraiSingleChildScrollViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

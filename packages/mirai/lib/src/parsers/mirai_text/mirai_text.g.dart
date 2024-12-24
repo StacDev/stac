@@ -21,7 +21,7 @@ _$MiraiTextImpl _$$MiraiTextImplFromJson(Map<String, dynamic> json) =>
       softWrap: json['softWrap'] as bool?,
       overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
       textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble(),
-      maxLines: json['maxLines'] as int?,
+      maxLines: (json['maxLines'] as num?)?.toInt(),
       semanticsLabel: json['semanticsLabel'] as String?,
       textWidthBasis:
           $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis']),

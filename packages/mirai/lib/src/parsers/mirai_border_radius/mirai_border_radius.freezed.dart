@@ -25,8 +25,12 @@ mixin _$MiraiBorderRadius {
   double get bottomLeft => throw _privateConstructorUsedError;
   double get bottomRight => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBorderRadius to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBorderRadiusCopyWith<MiraiBorderRadius> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -51,6 +55,8 @@ class _$MiraiBorderRadiusCopyWithImpl<$Res, $Val extends MiraiBorderRadius>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -100,6 +106,8 @@ class __$$MiraiBorderImplCopyWithImpl<$Res>
       _$MiraiBorderImpl _value, $Res Function(_$MiraiBorderImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -173,12 +181,14 @@ class _$MiraiBorderImpl implements _MiraiBorder {
                 other.bottomRight == bottomRight));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, topLeft, topRight, bottomLeft, bottomRight);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBorderImplCopyWith<_$MiraiBorderImpl> get copyWith =>
@@ -210,8 +220,11 @@ abstract class _MiraiBorder implements MiraiBorderRadius {
   double get bottomLeft;
   @override
   double get bottomRight;
+
+  /// Create a copy of MiraiBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBorderImplCopyWith<_$MiraiBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -14,6 +14,7 @@ class MiraiRow with _$MiraiRow {
     @Default(MainAxisSize.max) MainAxisSize mainAxisSize,
     TextDirection? textDirection,
     @Default(VerticalDirection.down) VerticalDirection verticalDirection,
+    @Default(0) double spacing,
     @Default([]) List<Map<String, dynamic>> children,
   }) = _MiraiRow;
 

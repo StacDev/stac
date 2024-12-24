@@ -37,8 +37,12 @@ mixin _$MiraiAppBarTheme {
   MiraiSystemUIOverlayStyle? get systemOverlayStyle =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAppBarTheme to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAppBarThemeCopyWith<MiraiAppBarTheme> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -82,6 +86,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -160,6 +166,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme {
@@ -172,6 +180,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
     });
   }
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get actionsIconTheme {
@@ -184,6 +194,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
     });
   }
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get toolbarTextStyle {
@@ -196,6 +208,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
     });
   }
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get titleTextStyle {
@@ -208,6 +222,8 @@ class _$MiraiAppBarThemeCopyWithImpl<$Res, $Val extends MiraiAppBarTheme>
     });
   }
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiSystemUIOverlayStyleCopyWith<$Res>? get systemOverlayStyle {
@@ -266,6 +282,8 @@ class __$$MiraiAppBarThemeImplCopyWithImpl<$Res>
       $Res Function(_$MiraiAppBarThemeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -436,7 +454,7 @@ class _$MiraiAppBarThemeImpl implements _MiraiAppBarTheme {
                 other.systemOverlayStyle == systemOverlayStyle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -455,7 +473,9 @@ class _$MiraiAppBarThemeImpl implements _MiraiAppBarTheme {
       titleTextStyle,
       systemOverlayStyle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAppBarThemeImplCopyWith<_$MiraiAppBarThemeImpl> get copyWith =>
@@ -519,8 +539,11 @@ abstract class _MiraiAppBarTheme implements MiraiAppBarTheme {
   MiraiTextStyle? get titleTextStyle;
   @override
   MiraiSystemUIOverlayStyle? get systemOverlayStyle;
+
+  /// Create a copy of MiraiAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAppBarThemeImplCopyWith<_$MiraiAppBarThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

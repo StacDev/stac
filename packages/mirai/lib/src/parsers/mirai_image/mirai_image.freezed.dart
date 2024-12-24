@@ -28,8 +28,12 @@ mixin _$MiraiImage {
   double? get height => throw _privateConstructorUsedError;
   BoxFit? get fit => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiImage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiImage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiImageCopyWith<MiraiImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -60,6 +64,8 @@ class _$MiraiImageCopyWithImpl<$Res, $Val extends MiraiImage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiImage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -130,6 +136,8 @@ class __$$MiraiImageImplCopyWithImpl<$Res>
       _$MiraiImageImpl _value, $Res Function(_$MiraiImageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiImage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -227,12 +235,14 @@ class _$MiraiImageImpl implements _MiraiImage {
             (identical(other.fit, fit) || other.fit == fit));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, src, alignment, imageType, color, width, height, fit);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiImage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiImageImplCopyWith<_$MiraiImageImpl> get copyWith =>
@@ -273,8 +283,11 @@ abstract class _MiraiImage implements MiraiImage {
   double? get height;
   @override
   BoxFit? get fit;
+
+  /// Create a copy of MiraiImage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiImageImplCopyWith<_$MiraiImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

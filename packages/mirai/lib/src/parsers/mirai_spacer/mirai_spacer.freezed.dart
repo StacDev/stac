@@ -22,8 +22,12 @@ MiraiSpacer _$MiraiSpacerFromJson(Map<String, dynamic> json) {
 mixin _$MiraiSpacer {
   int get flex => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSpacer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSpacer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSpacerCopyWith<MiraiSpacer> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$MiraiSpacerCopyWithImpl<$Res, $Val extends MiraiSpacer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSpacer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$MiraiSpacerImplCopyWithImpl<$Res>
       _$MiraiSpacerImpl _value, $Res Function(_$MiraiSpacerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSpacer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,11 +127,13 @@ class _$MiraiSpacerImpl implements _MiraiSpacer {
             (identical(other.flex, flex) || other.flex == flex));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, flex);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSpacer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSpacerImplCopyWith<_$MiraiSpacerImpl> get copyWith =>
@@ -145,8 +155,11 @@ abstract class _MiraiSpacer implements MiraiSpacer {
 
   @override
   int get flex;
+
+  /// Create a copy of MiraiSpacer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSpacerImplCopyWith<_$MiraiSpacerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

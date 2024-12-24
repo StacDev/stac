@@ -25,8 +25,12 @@ mixin _$MiraiAlign {
   double? get heightFactor => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAlign to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAlign
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAlignCopyWith<MiraiAlign> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$MiraiAlignCopyWithImpl<$Res, $Val extends MiraiAlign>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAlign
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$MiraiAlignImplCopyWithImpl<$Res>
       _$MiraiAlignImpl _value, $Res Function(_$MiraiAlignImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAlign
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -184,12 +192,14 @@ class _$MiraiAlignImpl implements _MiraiAlign {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, alignment, widthFactor,
       heightFactor, const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAlign
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAlignImplCopyWith<_$MiraiAlignImpl> get copyWith =>
@@ -221,8 +231,11 @@ abstract class _MiraiAlign implements MiraiAlign {
   double? get heightFactor;
   @override
   Map<String, dynamic>? get child;
+
+  /// Create a copy of MiraiAlign
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAlignImplCopyWith<_$MiraiAlignImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,8 +23,12 @@ mixin _$MiraiSize {
   double get width => throw _privateConstructorUsedError;
   double get height => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSize to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSize
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSizeCopyWith<MiraiSize> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$MiraiSizeCopyWithImpl<$Res, $Val extends MiraiSize>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSize
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$MiraiSizeImplCopyWithImpl<$Res>
       _$MiraiSizeImpl _value, $Res Function(_$MiraiSizeImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSize
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -131,11 +139,13 @@ class _$MiraiSizeImpl implements _MiraiSize {
             (identical(other.height, height) || other.height == height));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, width, height);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSize
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSizeImplCopyWith<_$MiraiSizeImpl> get copyWith =>
@@ -161,8 +171,11 @@ abstract class _MiraiSize implements MiraiSize {
   double get width;
   @override
   double get height;
+
+  /// Create a copy of MiraiSize
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSizeImplCopyWith<_$MiraiSizeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

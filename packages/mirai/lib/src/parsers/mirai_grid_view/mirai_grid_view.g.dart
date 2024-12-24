@@ -19,7 +19,7 @@ _$MiraiGridViewImpl _$$MiraiGridViewImplFromJson(Map<String, dynamic> json) =>
       padding: json['padding'] == null
           ? null
           : MiraiEdgeInsets.fromJson(json['padding']),
-      crossAxisCount: json['crossAxisCount'] as int?,
+      crossAxisCount: (json['crossAxisCount'] as num?)?.toInt(),
       mainAxisSpacing: (json['mainAxisSpacing'] as num?)?.toDouble() ?? 0.0,
       crossAxisSpacing: (json['crossAxisSpacing'] as num?)?.toDouble() ?? 0.0,
       childAspectRatio: (json['childAspectRatio'] as num?)?.toDouble() ?? 1.0,
@@ -32,7 +32,7 @@ _$MiraiGridViewImpl _$$MiraiGridViewImplFromJson(Map<String, dynamic> json) =>
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??
           const [],
-      semanticChildCount: json['semanticChildCount'] as int?,
+      semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
       dragStartBehavior: $enumDecodeNullable(
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
           DragStartBehavior.start,

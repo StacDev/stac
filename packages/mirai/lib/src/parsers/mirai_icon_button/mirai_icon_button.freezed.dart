@@ -40,8 +40,12 @@ mixin _$MiraiIconButton {
   Map<String, dynamic>? get selectedIcon => throw _privateConstructorUsedError;
   Map<String, dynamic>? get icon => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiIconButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiIconButtonCopyWith<MiraiIconButton> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -88,6 +92,8 @@ class _$MiraiIconButtonCopyWithImpl<$Res, $Val extends MiraiIconButton>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -191,6 +197,8 @@ class _$MiraiIconButtonCopyWithImpl<$Res, $Val extends MiraiIconButton>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiEdgeInsetsCopyWith<$Res>? get padding {
@@ -203,6 +211,8 @@ class _$MiraiIconButtonCopyWithImpl<$Res, $Val extends MiraiIconButton>
     });
   }
 
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiBoxConstraintsCopyWith<$Res>? get constraints {
@@ -215,6 +225,8 @@ class _$MiraiIconButtonCopyWithImpl<$Res, $Val extends MiraiIconButton>
     });
   }
 
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiButtonStyleCopyWith<$Res>? get style {
@@ -273,6 +285,8 @@ class __$$MiraiIconButtonImplCopyWithImpl<$Res>
       _$MiraiIconButtonImpl _value, $Res Function(_$MiraiIconButtonImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -515,7 +529,7 @@ class _$MiraiIconButtonImpl implements _MiraiIconButton {
             const DeepCollectionEquality().equals(other._icon, _icon));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -540,7 +554,9 @@ class _$MiraiIconButtonImpl implements _MiraiIconButton {
         const DeepCollectionEquality().hash(_icon)
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiIconButtonImplCopyWith<_$MiraiIconButtonImpl> get copyWith =>
@@ -618,8 +634,11 @@ abstract class _MiraiIconButton implements MiraiIconButton {
   Map<String, dynamic>? get selectedIcon;
   @override
   Map<String, dynamic>? get icon;
+
+  /// Create a copy of MiraiIconButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiIconButtonImplCopyWith<_$MiraiIconButtonImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

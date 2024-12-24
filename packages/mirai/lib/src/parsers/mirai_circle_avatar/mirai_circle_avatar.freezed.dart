@@ -33,8 +33,12 @@ mixin _$MiraiCircleAvatar {
   double? get minRadius => throw _privateConstructorUsedError;
   double? get maxRadius => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiCircleAvatar to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiCircleAvatarCopyWith<MiraiCircleAvatar> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,6 +72,8 @@ class _$MiraiCircleAvatarCopyWithImpl<$Res, $Val extends MiraiCircleAvatar>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -156,6 +162,8 @@ class __$$MiraiCircleAvatarImplCopyWithImpl<$Res>
       $Res Function(_$MiraiCircleAvatarImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -313,7 +321,7 @@ class _$MiraiCircleAvatarImpl implements _MiraiCircleAvatar {
                 other.maxRadius == maxRadius));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -328,7 +336,9 @@ class _$MiraiCircleAvatarImpl implements _MiraiCircleAvatar {
       minRadius,
       maxRadius);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiCircleAvatarImplCopyWith<_$MiraiCircleAvatarImpl> get copyWith =>
@@ -379,8 +389,11 @@ abstract class _MiraiCircleAvatar implements MiraiCircleAvatar {
   double? get minRadius;
   @override
   double? get maxRadius;
+
+  /// Create a copy of MiraiCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiCircleAvatarImplCopyWith<_$MiraiCircleAvatarImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

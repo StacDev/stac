@@ -29,8 +29,12 @@ mixin _$MiraiIconThemeData {
   double? get opacity => throw _privateConstructorUsedError;
   List<MiraiShadow>? get shadows => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiIconThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiIconThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiIconThemeDataCopyWith<MiraiIconThemeData> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -62,6 +66,8 @@ class _$MiraiIconThemeDataCopyWithImpl<$Res, $Val extends MiraiIconThemeData>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiIconThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -138,6 +144,8 @@ class __$$MiraiIconThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiIconThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiIconThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -249,7 +257,7 @@ class _$MiraiIconThemeDataImpl implements _MiraiIconThemeData {
             const DeepCollectionEquality().equals(other._shadows, _shadows));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -262,7 +270,9 @@ class _$MiraiIconThemeDataImpl implements _MiraiIconThemeData {
       opacity,
       const DeepCollectionEquality().hash(_shadows));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiIconThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiIconThemeDataImplCopyWith<_$MiraiIconThemeDataImpl> get copyWith =>
@@ -307,8 +317,11 @@ abstract class _MiraiIconThemeData implements MiraiIconThemeData {
   double? get opacity;
   @override
   List<MiraiShadow>? get shadows;
+
+  /// Create a copy of MiraiIconThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiIconThemeDataImplCopyWith<_$MiraiIconThemeDataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

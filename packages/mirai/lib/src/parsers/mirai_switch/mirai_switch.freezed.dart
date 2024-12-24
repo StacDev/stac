@@ -48,8 +48,12 @@ mixin _$MiraiSwitch {
   bool? get applyTheme => throw _privateConstructorUsedError;
   bool? get applyCupertinoTheme => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiSwitch to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiSwitchCopyWith<MiraiSwitch> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -103,6 +107,8 @@ class _$MiraiSwitchCopyWithImpl<$Res, $Val extends MiraiSwitch>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -236,6 +242,8 @@ class _$MiraiSwitchCopyWithImpl<$Res, $Val extends MiraiSwitch>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get overlayColor {
@@ -248,6 +256,8 @@ class _$MiraiSwitchCopyWithImpl<$Res, $Val extends MiraiSwitch>
     });
   }
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get thumbColor {
@@ -260,6 +270,8 @@ class _$MiraiSwitchCopyWithImpl<$Res, $Val extends MiraiSwitch>
     });
   }
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get trackColor {
@@ -272,6 +284,8 @@ class _$MiraiSwitchCopyWithImpl<$Res, $Val extends MiraiSwitch>
     });
   }
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiMaterialColorCopyWith<$Res>? get trackOutlineColor {
@@ -339,6 +353,8 @@ class __$$MiraiSwitchImplCopyWithImpl<$Res>
       _$MiraiSwitchImpl _value, $Res Function(_$MiraiSwitchImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -637,7 +653,7 @@ class _$MiraiSwitchImpl implements _MiraiSwitch {
                 other.applyCupertinoTheme == applyCupertinoTheme));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
@@ -668,7 +684,9 @@ class _$MiraiSwitchImpl implements _MiraiSwitch {
         applyCupertinoTheme
       ]);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiSwitchImplCopyWith<_$MiraiSwitchImpl> get copyWith =>
@@ -763,8 +781,11 @@ abstract class _MiraiSwitch implements MiraiSwitch {
   bool? get applyTheme;
   @override
   bool? get applyCupertinoTheme;
+
+  /// Create a copy of MiraiSwitch
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiSwitchImplCopyWith<_$MiraiSwitchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

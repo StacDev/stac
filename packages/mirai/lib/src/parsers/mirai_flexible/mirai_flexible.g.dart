@@ -9,7 +9,7 @@ part of 'mirai_flexible.dart';
 _$MiraiFlexibleImpl _$$MiraiFlexibleImplFromJson(Map<String, dynamic> json) =>
     _$MiraiFlexibleImpl(
       child: json['child'] as Map<String, dynamic>?,
-      flex: json['flex'] as int? ?? 1,
+      flex: (json['flex'] as num?)?.toInt() ?? 1,
       fit: $enumDecodeNullable(_$FlexFitEnumMap, json['fit']) ?? FlexFit.loose,
     );
 

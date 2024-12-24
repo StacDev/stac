@@ -28,8 +28,12 @@ mixin _$MiraiAutoComplete {
       throw _privateConstructorUsedError;
   String? get initialValue => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiAutoComplete to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiAutoComplete
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiAutoCompleteCopyWith<MiraiAutoComplete> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$MiraiAutoCompleteCopyWithImpl<$Res, $Val extends MiraiAutoComplete>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiAutoComplete
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -116,6 +122,8 @@ class __$$MiraiAutoCompleteImplCopyWithImpl<$Res>
       $Res Function(_$MiraiAutoCompleteImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiAutoComplete
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -215,7 +223,7 @@ class _$MiraiAutoCompleteImpl implements _MiraiAutoComplete {
                 other.initialValue == initialValue));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -225,7 +233,9 @@ class _$MiraiAutoCompleteImpl implements _MiraiAutoComplete {
       optionsViewOpenDirection,
       initialValue);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiAutoComplete
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiAutoCompleteImplCopyWith<_$MiraiAutoCompleteImpl> get copyWith =>
@@ -256,13 +266,16 @@ abstract class _MiraiAutoComplete implements MiraiAutoComplete {
   @override
   Map<String, dynamic>? get onSelected;
   @override
-  double get optionsMaxHeight;
-  @override // optionsViewBuilder,
+  double get optionsMaxHeight; // optionsViewBuilder,
+  @override
   OptionsViewOpenDirection get optionsViewOpenDirection;
   @override
   String? get initialValue;
+
+  /// Create a copy of MiraiAutoComplete
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiAutoCompleteImplCopyWith<_$MiraiAutoCompleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

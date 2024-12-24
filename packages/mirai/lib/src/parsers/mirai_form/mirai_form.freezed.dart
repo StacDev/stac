@@ -23,8 +23,12 @@ mixin _$MiraiForm {
   AutovalidateMode? get autovalidateMode => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiForm to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiForm
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiFormCopyWith<MiraiForm> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$MiraiFormCopyWithImpl<$Res, $Val extends MiraiForm>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiForm
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -85,6 +91,8 @@ class __$$MiraiFormImplCopyWithImpl<$Res>
       _$MiraiFormImpl _value, $Res Function(_$MiraiFormImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiForm
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,12 +147,14 @@ class _$MiraiFormImpl implements _MiraiForm {
             const DeepCollectionEquality().equals(other._child, _child));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, autovalidateMode,
       const DeepCollectionEquality().hash(_child));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiForm
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiFormImplCopyWith<_$MiraiFormImpl> get copyWith =>
@@ -170,8 +180,11 @@ abstract class _MiraiForm implements MiraiForm {
   AutovalidateMode? get autovalidateMode;
   @override
   Map<String, dynamic> get child;
+
+  /// Create a copy of MiraiForm
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiFormImplCopyWith<_$MiraiFormImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

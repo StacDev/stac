@@ -33,8 +33,12 @@ mixin _$MiraiText {
   TextWidthBasis? get textWidthBasis => throw _privateConstructorUsedError;
   String? get selectionColor => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiText to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextCopyWith<MiraiText> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -71,6 +75,8 @@ class _$MiraiTextCopyWithImpl<$Res, $Val extends MiraiText>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -139,6 +145,8 @@ class _$MiraiTextCopyWithImpl<$Res, $Val extends MiraiText>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get style {
@@ -186,6 +194,8 @@ class __$$MiraiTextImplCopyWithImpl<$Res>
       _$MiraiTextImpl _value, $Res Function(_$MiraiTextImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -341,7 +351,7 @@ class _$MiraiTextImpl implements _MiraiText {
                 other.selectionColor == selectionColor));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -358,7 +368,9 @@ class _$MiraiTextImpl implements _MiraiText {
       textWidthBasis,
       selectionColor);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextImplCopyWith<_$MiraiTextImpl> get copyWith =>
@@ -414,8 +426,11 @@ abstract class _MiraiText implements MiraiText {
   TextWidthBasis? get textWidthBasis;
   @override
   String? get selectionColor;
+
+  /// Create a copy of MiraiText
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextImplCopyWith<_$MiraiTextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -430,8 +445,12 @@ mixin _$MiraiTextSpan {
   MiraiTextStyle? get style => throw _privateConstructorUsedError;
   Map<String, dynamic>? get onTap => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiTextSpan to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiTextSpanCopyWith<MiraiTextSpan> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -457,6 +476,8 @@ class _$MiraiTextSpanCopyWithImpl<$Res, $Val extends MiraiTextSpan>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -480,6 +501,8 @@ class _$MiraiTextSpanCopyWithImpl<$Res, $Val extends MiraiTextSpan>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get style {
@@ -515,6 +538,8 @@ class __$$MiraiTextSpanImplCopyWithImpl<$Res>
       _$MiraiTextSpanImpl _value, $Res Function(_$MiraiTextSpanImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -578,12 +603,14 @@ class _$MiraiTextSpanImpl implements _MiraiTextSpan {
             const DeepCollectionEquality().equals(other._onTap, _onTap));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, data, style, const DeepCollectionEquality().hash(_onTap));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiTextSpanImplCopyWith<_$MiraiTextSpanImpl> get copyWith =>
@@ -612,8 +639,11 @@ abstract class _MiraiTextSpan implements MiraiTextSpan {
   MiraiTextStyle? get style;
   @override
   Map<String, dynamic>? get onTap;
+
+  /// Create a copy of MiraiTextSpan
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiTextSpanImplCopyWith<_$MiraiTextSpanImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

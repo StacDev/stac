@@ -12,7 +12,7 @@ _$MiraiTabBarViewImpl _$$MiraiTabBarViewImplFromJson(
       children: (json['children'] as List<dynamic>)
           .map((e) => e as Map<String, dynamic>)
           .toList(),
-      initialIndex: json['initialIndex'] as int? ?? 0,
+      initialIndex: (json['initialIndex'] as num?)?.toInt() ?? 0,
       dragStartBehavior: $enumDecodeNullable(
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
           DragStartBehavior.start,

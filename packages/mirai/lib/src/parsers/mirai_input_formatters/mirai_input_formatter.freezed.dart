@@ -23,8 +23,12 @@ mixin _$MiraiInputFormatter {
   InputFormatterType get type => throw _privateConstructorUsedError;
   String? get rule => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiInputFormatter to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiInputFormatter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiInputFormatterCopyWith<MiraiInputFormatter> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MiraiInputFormatterCopyWithImpl<$Res, $Val extends MiraiInputFormatter>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiInputFormatter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MiraiInputFormatterImplCopyWithImpl<$Res>
       $Res Function(_$MiraiInputFormatterImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiInputFormatter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$MiraiInputFormatterImpl implements _MiraiInputFormatter {
             (identical(other.rule, rule) || other.rule == rule));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, rule);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiInputFormatter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiInputFormatterImplCopyWith<_$MiraiInputFormatterImpl> get copyWith =>
@@ -163,8 +173,11 @@ abstract class _MiraiInputFormatter implements MiraiInputFormatter {
   InputFormatterType get type;
   @override
   String? get rule;
+
+  /// Create a copy of MiraiInputFormatter
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiInputFormatterImplCopyWith<_$MiraiInputFormatterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

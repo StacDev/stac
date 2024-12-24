@@ -35,9 +35,9 @@ _$MiraiTextFormFieldImpl _$$MiraiTextFormFieldImplFromJson(
       showCursor: json['showCursor'] as bool?,
       autofocus: json['autofocus'] as bool? ?? false,
       obscuringCharacter: json['obscuringCharacter'] as String? ?? '•',
-      maxLines: json['maxLines'] as int?,
-      minLines: json['minLines'] as int?,
-      maxLength: json['maxLength'] as int?,
+      maxLines: (json['maxLines'] as num?)?.toInt(),
+      minLines: (json['minLines'] as num?)?.toInt(),
+      maxLength: (json['maxLength'] as num?)?.toInt(),
       obscureText: json['obscureText'] as bool?,
       autocorrect: json['autocorrect'] as bool? ?? true,
       smartDashesType: $enumDecodeNullable(
@@ -203,4 +203,5 @@ const _$AutovalidateModeEnumMap = {
   AutovalidateMode.disabled: 'disabled',
   AutovalidateMode.always: 'always',
   AutovalidateMode.onUserInteraction: 'onUserInteraction',
+  AutovalidateMode.onUnfocus: 'onUnfocus',
 };

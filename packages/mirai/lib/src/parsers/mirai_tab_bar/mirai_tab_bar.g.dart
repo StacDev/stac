@@ -11,7 +11,7 @@ _$MiraiTabBarImpl _$$MiraiTabBarImplFromJson(Map<String, dynamic> json) =>
       tabs: (json['tabs'] as List<dynamic>)
           .map((e) => e as Map<String, dynamic>)
           .toList(),
-      initialIndex: json['initialIndex'] as int? ?? 0,
+      initialIndex: (json['initialIndex'] as num?)?.toInt() ?? 0,
       isScrollable: json['isScrollable'] as bool? ?? false,
       padding: json['padding'] == null
           ? null

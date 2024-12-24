@@ -33,8 +33,12 @@ mixin _$MiraiGradient {
   double get startAngle => throw _privateConstructorUsedError;
   double get endAngle => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiGradient to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiGradientCopyWith<MiraiGradient> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -72,6 +76,8 @@ class _$MiraiGradientCopyWithImpl<$Res, $Val extends MiraiGradient>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,6 +146,8 @@ class _$MiraiGradientCopyWithImpl<$Res, $Val extends MiraiGradient>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiAlignmentGeometryCopyWith<$Res>? get focal {
@@ -187,6 +195,8 @@ class __$$MiraiGradientImplCopyWithImpl<$Res>
       _$MiraiGradientImpl _value, $Res Function(_$MiraiGradientImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -355,7 +365,7 @@ class _$MiraiGradientImpl implements _MiraiGradient {
                 other.endAngle == endAngle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -372,7 +382,9 @@ class _$MiraiGradientImpl implements _MiraiGradient {
       startAngle,
       endAngle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiGradientImplCopyWith<_$MiraiGradientImpl> get copyWith =>
@@ -428,8 +440,11 @@ abstract class _MiraiGradient implements MiraiGradient {
   double get startAngle;
   @override
   double get endAngle;
+
+  /// Create a copy of MiraiGradient
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiGradientImplCopyWith<_$MiraiGradientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

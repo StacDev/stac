@@ -26,8 +26,12 @@ mixin _$MiraiBoxShadow {
   double? get spreadRadius => throw _privateConstructorUsedError;
   BlurStyle? get blurStyle => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBoxShadow to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBoxShadowCopyWith<MiraiBoxShadow> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -58,6 +62,8 @@ class _$MiraiBoxShadowCopyWithImpl<$Res, $Val extends MiraiBoxShadow>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -91,6 +97,8 @@ class _$MiraiBoxShadowCopyWithImpl<$Res, $Val extends MiraiBoxShadow>
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiOffsetCopyWith<$Res> get offset {
@@ -127,6 +135,8 @@ class __$$MiraiBoxShadowImplCopyWithImpl<$Res>
       _$MiraiBoxShadowImpl _value, $Res Function(_$MiraiBoxShadowImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -209,12 +219,14 @@ class _$MiraiBoxShadowImpl implements _MiraiBoxShadow {
                 other.blurStyle == blurStyle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, color, blurRadius, offset, spreadRadius, blurStyle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBoxShadowImplCopyWith<_$MiraiBoxShadowImpl> get copyWith =>
@@ -250,8 +262,11 @@ abstract class _MiraiBoxShadow implements MiraiBoxShadow {
   double? get spreadRadius;
   @override
   BlurStyle? get blurStyle;
+
+  /// Create a copy of MiraiBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBoxShadowImplCopyWith<_$MiraiBoxShadowImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

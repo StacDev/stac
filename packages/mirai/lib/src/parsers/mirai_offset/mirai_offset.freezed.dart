@@ -23,8 +23,12 @@ mixin _$MiraiOffset {
   double get dx => throw _privateConstructorUsedError;
   double get dy => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiOffset to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiOffset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiOffsetCopyWith<MiraiOffset> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -48,6 +52,8 @@ class _$MiraiOffsetCopyWithImpl<$Res, $Val extends MiraiOffset>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiOffset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -86,6 +92,8 @@ class __$$MiraiOffsetImplCopyWithImpl<$Res>
       _$MiraiOffsetImpl _value, $Res Function(_$MiraiOffsetImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiOffset
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -132,11 +140,13 @@ class _$MiraiOffsetImpl implements _MiraiOffset {
             (identical(other.dy, dy) || other.dy == dy));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, dx, dy);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiOffset
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiOffsetImplCopyWith<_$MiraiOffsetImpl> get copyWith =>
@@ -161,8 +171,11 @@ abstract class _MiraiOffset implements MiraiOffset {
   double get dx;
   @override
   double get dy;
+
+  /// Create a copy of MiraiOffset
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiOffsetImplCopyWith<_$MiraiOffsetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -39,8 +39,12 @@ mixin _$MiraiBottomNavBarThemeData {
   BottomNavigationBarLandscapeLayout? get landscapeLayout =>
       throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBottomNavBarThemeData to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBottomNavBarThemeDataCopyWith<MiraiBottomNavBarThemeData>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -84,6 +88,8 @@ class _$MiraiBottomNavBarThemeDataCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -157,6 +163,8 @@ class _$MiraiBottomNavBarThemeDataCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get selectedIconTheme {
@@ -170,6 +178,8 @@ class _$MiraiBottomNavBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get unselectedIconTheme {
@@ -183,6 +193,8 @@ class _$MiraiBottomNavBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get selectedLabelStyle {
@@ -195,6 +207,8 @@ class _$MiraiBottomNavBarThemeDataCopyWithImpl<$Res,
     });
   }
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MiraiTextStyleCopyWith<$Res>? get unselectedLabelStyle {
@@ -252,6 +266,8 @@ class __$$MiraiBottomNavBarThemeDataImplCopyWithImpl<$Res>
       $Res Function(_$MiraiBottomNavBarThemeDataImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -412,7 +428,7 @@ class _$MiraiBottomNavBarThemeDataImpl implements _MiraiBottomNavBarThemeData {
                 other.landscapeLayout == landscapeLayout));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -430,7 +446,9 @@ class _$MiraiBottomNavBarThemeDataImpl implements _MiraiBottomNavBarThemeData {
       enableFeedback,
       landscapeLayout);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBottomNavBarThemeDataImplCopyWith<_$MiraiBottomNavBarThemeDataImpl>
@@ -492,8 +510,11 @@ abstract class _MiraiBottomNavBarThemeData
   bool? get enableFeedback;
   @override
   BottomNavigationBarLandscapeLayout? get landscapeLayout;
+
+  /// Create a copy of MiraiBottomNavBarThemeData
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBottomNavBarThemeDataImplCopyWith<_$MiraiBottomNavBarThemeDataImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

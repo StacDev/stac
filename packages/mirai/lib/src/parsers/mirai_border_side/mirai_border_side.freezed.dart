@@ -25,8 +25,12 @@ mixin _$MiraiBorderSide {
   double get strokeAlign => throw _privateConstructorUsedError;
   BorderStyle get borderStyle => throw _privateConstructorUsedError;
 
+  /// Serializes this MiraiBorderSide to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiBorderSide
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiBorderSideCopyWith<MiraiBorderSide> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -54,6 +58,8 @@ class _$MiraiBorderSideCopyWithImpl<$Res, $Val extends MiraiBorderSide>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiBorderSide
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +112,8 @@ class __$$MiraiBorderSideImplCopyWithImpl<$Res>
       _$MiraiBorderSideImpl _value, $Res Function(_$MiraiBorderSideImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiBorderSide
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -177,12 +185,14 @@ class _$MiraiBorderSideImpl implements _MiraiBorderSide {
                 other.borderStyle == borderStyle));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, color, width, strokeAlign, borderStyle);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiBorderSide
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiBorderSideImplCopyWith<_$MiraiBorderSideImpl> get copyWith =>
@@ -215,8 +225,11 @@ abstract class _MiraiBorderSide implements MiraiBorderSide {
   double get strokeAlign;
   @override
   BorderStyle get borderStyle;
+
+  /// Create a copy of MiraiBorderSide
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiBorderSideImplCopyWith<_$MiraiBorderSideImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
