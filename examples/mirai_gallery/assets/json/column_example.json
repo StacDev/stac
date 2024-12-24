@@ -8,218 +8,62 @@
     }
   },
   "body": {
-    "type": "column",
-    "mainAxisAlignment": "start",
-    "crossAxisAlignment": "start",
-    "children": [
-      {
-        "type": "sizedBox",
-        "height": 12
-      },
-      {
-        "type": "card",
-        "elevation": 20,
-        "borderOnForeground": true,
-        "margin": {
-          "top": 12,
-          "bottom": 12,
-          "right": 8,
-          "left": 8
-        },
-        "child": {
-          "type": "listTile",
-          "leading": {
-            "type": "image",
-            "src": "https://images.pexels.com/photos/2115367/pexels-photo-2115367.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          },
-          "title": {
-            "type": "padding",
-            "padding": {
-              "top": 10
-            },
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "crossAxisAlignment": "center",
+      "spacing": 12,
+      "children": [
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#FFCDD2",
+          "child": {
+            "type": "center",
             "child": {
               "type": "text",
-              "data": "BURJ KHALIFA",
+              "data": "Red Container",
               "style": {
-                "fontSize": 18
+                "color": "#B71C1C"
               }
             }
-          },
-          "subtitle": {
-            "type": "padding",
-            "padding": {
-              "top": 10,
-              "bottom": 10
-            },
+          }
+        },
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#C8E6C9",
+          "child": {
+            "type": "center",
             "child": {
-              "type": "column",
-              "children": [
-                {
-                  "type": "text",
-                  "data": "Get a chance to go on the top of Burj Khalifa.",
-                  "align": "center",
-                  "style": {
-                    "fontSize": 12
-                  }
-                },
-                {
-                  "type": "row",
-                  "children": [
-                    {
-                      "type": "outlinedButton",
-                      "style": {
-                        "padding": {
-                          "top": 8,
-                          "left": 12,
-                          "right": 12,
-                          "bottom": 8
-                        }
-                      },
-                      "onPressed": {},
-                      "child": {
-                        "type": "text",
-                        "data": "Explore",
-                        "align": "left",
-                        "style": {
-                          "fontSize": 12
-                        }
-                      }
-                    },
-                    {
-                      "type": "sizedBox",
-                      "width": 8
-                    },
-                    {
-                      "type": "outlinedButton",
-                      "style": {
-                        "padding": {
-                          "top": 8,
-                          "left": 12,
-                          "right": 12,
-                          "bottom": 8
-                        }
-                      },
-                      "onPressed": {},
-                      "child": {
-                        "type": "text",
-                        "data": "Share",
-                        "align": "center",
-                        "style": {
-                          "fontSize": 12
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
+              "type": "text",
+              "data": "Green Container",
+              "style": {
+                "color": "#1B5E20"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#BBDEFB",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Blue Container",
+              "style": {
+                "color": "#0D47A1"
+              }
             }
           }
         }
-      },
-      {
-        "type": "sizedBox",
-        "height": 12
-      },
-      {
-        "type": "card",
-        "elevation": 20,
-        "borderOnForeground": true,
-        "margin": {
-          "top": 12,
-          "bottom": 12,
-          "right": 8,
-          "left": 8
-        },
-        "child": {
-          "type": "listTile",
-          "leading": {
-            "type": "image",
-            "src": "https://images.pexels.com/photos/7199830/pexels-photo-7199830.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-          },
-          "title": {
-            "type": "padding",
-            "padding": {
-              "top": 10
-            },
-            "child": {
-              "type": "text",
-              "data": "MUSEUM OF FUTURE",
-              "style": {
-                "fontSize": 18
-              }
-            }
-          },
-          "subtitle": {
-            "type": "padding",
-            "padding": {
-              "top": 10,
-              "bottom": 10
-            },
-            "child": {
-              "type": "column",
-              "children": [
-                {
-                  "type": "text",
-                  "data": "Museum Of Future is open now.",
-                  "align": "center",
-                  "style": {
-                    "fontSize": 12
-                  }
-                },
-                {
-                  "type": "row",
-                  "children": [
-                    {
-                      "type": "outlinedButton",
-                      "style": {
-                        "padding": {
-                          "top": 8,
-                          "left": 12,
-                          "right": 12,
-                          "bottom": 8
-                        }
-                      },
-                      "onPressed": {},
-                      "child": {
-                        "type": "text",
-                        "data": "Explore",
-                        "align": "left",
-                        "style": {
-                          "fontSize": 12
-                        }
-                      }
-                    },
-                    {
-                      "type": "sizedBox",
-                      "width": 8
-                    },
-                    {
-                      "type": "outlinedButton",
-                      "style": {
-                        "padding": {
-                          "top": 8,
-                          "left": 12,
-                          "right": 12,
-                          "bottom": 8
-                        }
-                      },
-                      "onPressed": {},
-                      "child": {
-                        "type": "text",
-                        "data": "Share",
-                        "align": "center",
-                        "style": {
-                          "fontSize": 12
-                        }
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      }
-    ]
+      ]
+    }
   }
 }

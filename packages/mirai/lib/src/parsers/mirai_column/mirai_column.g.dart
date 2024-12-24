@@ -22,6 +22,7 @@ _$MiraiColumnImpl _$$MiraiColumnImplFromJson(Map<String, dynamic> json) =>
       verticalDirection: $enumDecodeNullable(
               _$VerticalDirectionEnumMap, json['verticalDirection']) ??
           VerticalDirection.down,
+      spacing: (json['spacing'] as num?)?.toDouble() ?? 0,
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??
@@ -38,6 +39,7 @@ Map<String, dynamic> _$$MiraiColumnImplToJson(_$MiraiColumnImpl instance) =>
       'textDirection': _$TextDirectionEnumMap[instance.textDirection],
       'verticalDirection':
           _$VerticalDirectionEnumMap[instance.verticalDirection]!,
+      'spacing': instance.spacing,
       'children': instance.children,
     };
 
