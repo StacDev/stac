@@ -52,4 +52,5 @@ enum WidgetType {
   table,
   tableCell,
   carouselView,
+  coloredBox,
 }

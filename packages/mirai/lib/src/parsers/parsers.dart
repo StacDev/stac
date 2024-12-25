@@ -22,6 +22,7 @@ export 'package:mirai/src/parsers/mirai_center/mirai_center.dart';
 export 'package:mirai/src/parsers/mirai_check_box_widget/mirai_check_box_widget.dart';
 export 'package:mirai/src/parsers/mirai_chip/mirai_chip.dart';
 export 'package:mirai/src/parsers/mirai_circle_avatar/mirai_circle_avatar.dart';
+export 'package:mirai/src/parsers/mirai_colored_box/mirai_colored_box.dart';
 export 'package:mirai/src/parsers/mirai_column/mirai_column.dart';
 export 'package:mirai/src/parsers/mirai_container/mirai_container.dart';
 export 'package:mirai/src/parsers/mirai_default_bottom_navigation_controller/mirai_default_bottom_navigation_controller.dart';
