@@ -15,7 +15,6 @@ dependencies:
   logger: ^2.5.0
   dio: ^5.7.0
   mirai_framework: ^0.0.1
-  cached_network_image: ^3.4.1
 
 dev_dependencies:
   flutter_test:
