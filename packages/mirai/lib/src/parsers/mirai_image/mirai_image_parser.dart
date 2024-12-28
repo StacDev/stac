@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:mirai/src/parsers/mirai_image/mirai_image.dart';
 import 'package:mirai/src/utils/color_utils.dart';
@@ -28,17 +27,13 @@ class MiraiImageParser extends MiraiParser<MiraiImage> {
     }
   }
 
-  Widget _networkImage(MiraiImage model, BuildContext context) =>
-      CachedNetworkImage(
-        imageUrl: model.src,
+  Widget _networkImage(MiraiImage model, BuildContext context) => Image.network(
+        model.src,
         alignment: model.alignment.value,
         color: model.color?.toColor(context),
         width: model.width,
         height: model.height,
         fit: model.fit,
-        errorWidget: (context, error, stackTrace) {
-          return const SizedBox();
-        },
       );
   Widget _fileImage(MiraiImage model, BuildContext context) => Image.file(
         File(model.src),
