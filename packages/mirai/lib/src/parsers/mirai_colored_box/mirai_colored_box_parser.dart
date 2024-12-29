@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:mirai/mirai.dart';
+import 'package:mirai/src/framework/framework.dart';
 import 'package:mirai/src/parsers/mirai_colored_box/mirai_colored_box.dart';
+import 'package:mirai/src/utils/color_utils.dart';
 import 'package:mirai/src/utils/widget_type.dart';
+import 'package:mirai_framework/mirai_framework.dart';
 
 class MiraiColoredBoxParser extends MiraiParser<MiraiColoredBox> {
   const MiraiColoredBoxParser();
