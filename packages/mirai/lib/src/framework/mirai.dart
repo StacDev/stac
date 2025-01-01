@@ -82,6 +82,7 @@ class Mirai {
     const MiraiTableCellParser(),
     const MiraiCarouselViewParser(),
     const MiraiColoredBoxParser(),
+    const MiraiBuilderParser(),
   ];
 
   static final _actionParsers = <MiraiActionParser>[

@@ -128,6 +128,37 @@
     "leading": {
       "type": "icon",
       "iconType": "material",
+      "icon": "navigation"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Builder",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai Builder example",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/builder_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
       "icon": "wallet_giftcard"
     },
     "title": {
@@ -1324,4 +1355,3 @@
     "height": 24.0
   }
 ]
-    

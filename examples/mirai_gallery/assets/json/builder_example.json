@@ -1,0 +1,24 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Builder"
+    }
+  },
+  "body": {
+    "type": "builder",
+    "builder": {
+      "type": "center",
+      "child": {
+        "type": "text",
+        "data": "Builder Widget",
+        "style": {
+          "fontSize": 23,
+          "fontWeight": "w600"
+        }
+      }
+    }
+  }
+}
