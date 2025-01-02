@@ -53,4 +53,5 @@ enum WidgetType {
   tableCell,
   carouselView,
   coloredBox,
+  divider
 }

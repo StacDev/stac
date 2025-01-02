@@ -5,3 +5,6 @@ environment:
 
 dev_dependencies:
   melos: ^4.1.0
+  build_runner: ^2.4.14
+dependencies:
+  mirai: ^0.7.2
