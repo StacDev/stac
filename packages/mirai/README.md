@@ -3,6 +3,7 @@
 [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)
 [![License: MIT][license_badge]][license_link]
 [![GitHub Stars](https://img.shields.io/github/stars/buildMirai/mirai)](https://github.com/buildMirai/mirai/stargazers)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/buildmirai/deploys)
 
 ---
 
