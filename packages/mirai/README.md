@@ -394,7 +394,7 @@ That's it with just few lines of code your SDUI app is up and running.
 
 ### More examples
 
-Check out the [Mirai Gallery](https://github.com/buildMirai/mirai/tree/main/examples/mirai_gallery) app for more such examples.
+Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examples/mirai_gallery) app for more such examples.
 
 ## Contributors ✨
 
