@@ -11,5 +11,6 @@ class MiraiDivider with _$MiraiDivider {
     String? color,
   }) = _MiraiDivider;
 
-  factory MiraiDivider.fromJson(Map<String, dynamic> json) => _$MiraiDividerFromJson(json);
+  factory MiraiDivider.fromJson(Map<String, dynamic> json) =>
+      _$MiraiDividerFromJson(json);
 }

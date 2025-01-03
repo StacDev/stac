@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mirai/mirai.dart';
 import 'package:mirai/src/utils/widget_type.dart';
 
