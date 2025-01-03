@@ -28,6 +28,7 @@ export 'package:mirai/src/parsers/mirai_container/mirai_container.dart';
 export 'package:mirai/src/parsers/mirai_default_bottom_navigation_controller/mirai_default_bottom_navigation_controller.dart';
 export 'package:mirai/src/parsers/mirai_default_tab_controller/mirai_default_tab_controller.dart';
 export 'package:mirai/src/parsers/mirai_dialog_theme/mirai_dialog_theme.dart';
+export 'package:mirai/src/parsers/mirai_divider/mirai_divider.dart';
 export 'package:mirai/src/parsers/mirai_edge_insets/mirai_edge_insets.dart';
 export 'package:mirai/src/parsers/mirai_elevated_button/mirai_elevated_button.dart';
 export 'package:mirai/src/parsers/mirai_expanded/mirai_expanded.dart';
@@ -77,4 +78,3 @@ export 'package:mirai/src/parsers/mirai_text_form_field/mirai_text_form_field.da
 export 'package:mirai/src/parsers/mirai_text_style/mirai_text_style.dart';
 export 'package:mirai/src/parsers/mirai_theme/mirai_theme.dart';
 export 'package:mirai/src/parsers/mirai_wrap/mirai_wrap.dart';
-export 'package:mirai/src/parsers/mirai_divider/mirai_divider.dart';
