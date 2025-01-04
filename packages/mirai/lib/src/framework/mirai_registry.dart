@@ -16,24 +16,14 @@ class MiraiRegistry {
 
   bool register(MiraiParser parser) {
     final String type = parser.type;
-    if (_miraiParsers.containsKey(type)) {
-      Log.w('Widget $type is already registered');
-      return false;
-    } else {
-      _miraiParsers[type] = parser;
-      return true;
-    }
+    _miraiParsers[type] = parser;
+    return true;
   }
 
   bool registerAction(MiraiActionParser parser) {
     final String type = parser.actionType;
-    if (_miraiActionParsers.containsKey(type)) {
-      Log.w('Action $type is already registered');
-      return false;
-    } else {
-      _miraiActionParsers[type] = parser;
-      return true;
-    }
+    _miraiActionParsers[type] = parser;
+    return true;
   }
 
   Future<dynamic> registerAll(List<MiraiParser> parsers) {
