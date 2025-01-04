@@ -1,64 +1,89 @@
-![Mirai][mirai_banner]
-
-[![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)
-[![License: MIT][license_badge]][license_link]
-[![GitHub Stars](https://img.shields.io/github/stars/buildMirai/mirai)](https://github.com/buildMirai/mirai/stargazers)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/buildmirai/deploys)
-
+---
+slug: /
+sidebar_position: 1
 ---
 
-Mirai is a Server-Driven UI (SDUI) framework for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
+# Get Started 🚀
 
-Try out the [Mirai Playground](https://playground.buildmirai.dev/): A sandbox environment for experimenting with the Mirai SDUI.
+Welcome to **Mirai**, a Server-Driven UI (SDUI) framework for Flutter. Mirai empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
 
-Developed with 💙 by [Mirai][mirai_link]
+## Packages
 
-## Installation 🚀
+The Miraiverse consists of the following packages:
 
-First, we need to add Mirai to our pubspec.yaml file.
+| Package | Description | Link                                                                                               |
+|---------|-------------|----------------------------------------------------------------------------------------------------|
+| [mirai](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)           |
+| [mirai_framework](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_framework.svg)](https://pub.dev/packages/mirai_framework) |
+| [mirai_webview](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_webview.svg)](https://pub.dev/packages/mirai_webview)   |
 
-Install the plugin by running the following command from the project root:
+
+## Installation
+
+To get started with Mirai, follow the installation instructions below:
+
+1. Add the Mirai dependency to your `pubspec.yaml` file:
+
+Run this command:
 
 ```bash
 flutter pub add mirai
 ```
+This will add mirai into your package's pubspec.yaml (and run an implicit flutter pub get):
 
-## Usage 🧑‍💻
+Alternatively, you can manually add the dependency to your app from within your pubspec.yaml:
 
-Now that we have successfully installed Mirai, we can import Mirai in main.dart.
+```yaml
+dependencies:
+  mirai: ^<latest-version>
+```
+:::note
+Please replace `<latest-version>` with the latest version of Mirai. You can find the latest version on the [Mirai pub.dev page](https://pub.dev/packages/mirai).
+:::
+
+2. Run the following command in your terminal to install the package:
+
+```bash
+flutter pub get
+```
+
+3. Import the Mirai package in your Dart file:
 
 ```dart
 import 'package:mirai/mirai.dart';
 ```
 
-Next, within main function initialize Mirai.
+Now, you're ready to start using Mirai in your Flutter project.
 
+## How to use Mirai?
+
+Now that you have successfully installed Mirai, let's dive into how you can use it to build dynamic, server-driven UIs in your Flutter project.
+
+## 1. Import the Mirai package
+
+To start using Mirai, you need to import the package in your Dart file. Add the following import statement to your `main.dart`:
+
+```dart
+import 'package:mirai/mirai.dart';
+```
+
+This import allows you to access all the classes and functions provided by Mirai.
+
+## 2. Initialize Mirai
+
+In the `main` function, initialize Mirai to set up the necessary configurations and prepare your app for rendering UI from JSON.
+
+### Basic Initialization
 ```dart
 void main() async {
   await Mirai.initialize();
-
   runApp(const MyApp());
 }
 ```
 
-You can also specify your custom Parsers in `Mirai.initialize` and `Dio` instance.
+## 3. Use Mirai to Render UI
 
-```dart
-void main() async {
-  final dio = Dio();
-
-  await Mirai.initialize(
-    parsers: const [
-      ExampleScreenParser(),
-    ],
-    dio: dio,
-  );
-
-  runApp(const MyApp());
-}
-```
-
-Finally, replace your MaterialApp with MiraiApp. And call your json with Mirai.fromJson(json, context).
+You can use `Mirai.fromJson` to load and render the UI from a JSON object. Here’s how you can integrate it into your Flutter app:
 
 ```dart
 import 'package:flutter/material.dart';
@@ -66,7 +91,6 @@ import 'package:mirai/mirai.dart';
 
 void main() async {
   await Mirai.initialize();
-
   runApp(const MyApp());
 }
 
@@ -75,20 +99,63 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MiraiApp(
-      title: 'Mirai Demo',
-      homeBuilder: (context) => Mirai.fromJson(json, context),
+    return MaterialApp(
+      title: 'MiraiDemo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Mirai.fromJson(json, context),
     );
   }
 }
-
 ```
 
-## Example
+### Rendering UI from JSON File in Assets
 
-Here is an example of a basic form screen build with Mirai.
+You can also use `Mirai.fromAssets` to load and render the UI from a JSON file stored in the assets folder:
 
-### Server
+```dart
+  @override
+  Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'MiraiDemo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: Mirai.fromAsset('assets/ui.json', context),
+  );
+}
+```
+
+### Rendering UI from Network
+
+Alternatively, use the `Mirai.fromNetwork` method to load and render the UI from a JSON file stored on a server:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'MiraiDemo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: Mirai.fromNetwork(
+      request: MiraiNetworkRequest(
+        url: 'https://example.com/ui.json',
+      ), 
+      context: context,
+    ),
+  );
+}
+```
+
+By following these steps, you can effectively integrate Mirai into your Flutter project and start building dynamic, server-driven UIs.
+
+## Example: Mirai Form Screen
+
+Here's an example of how you can use Mirai to render a form screen in your Flutter app:
+
+### JSON Data
 
 ```json
 {
@@ -352,8 +419,7 @@ Here is an example of a basic form screen build with Mirai.
   }
 }
 ```
-
-### Flutter
+### Flutter Code
 
 ```dart
 import 'package:flutter/material.dart';
@@ -384,34 +450,10 @@ class MyApp extends StatelessWidget {
 }
 ```
 
->Note:
->
->Mirai provides multiple methods to parse JSONs into Flutter widgets. You can use `Mirai.fromNetwork()`,  `Mirai.fromJson()` & `Mirai.fromAsset()`
-
 That's it with just few lines of code your SDUI app is up and running.
 
-![Form Screen][form_screen]
+<img src="/img/form_screen_image.png" alt="Form screen example"/>
 
-### More examples
+For more detailed examples and advanced usage, refer to the [Mirai Gallery App](https://github.com/buildMirai/mirai/tree/dev/examples/mirai_gallery).
 
-Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examples/mirai_gallery) app for more such examples.
 
-## Contributors ✨
-
-<a href="https://github.com/buildMirai/mirai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=buildMirai/mirai" />
-</a>
-
-## Maintainers
-
-- [Divyanshu Bhargava][divyanshu_github]
-
----
-[github_stars]: https://img.shields.io/github/stars/buildMirai/mirai
-[github_stars_link]: https://github.com/buildMirai/mirai/stargazers 
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.png
-[license_link]: https://opensource.org/licenses/MIT
-[mirai_banner]: https://github.com/buildMirai/mirai/blob/dev/assets/mirai_banner.png
-[mirai_link]: https://buildmirai.dev/
-[form_screen]: https://github.com/buildMirai/mirai/blob/dev/assets/form_screen_image.png
-[divyanshu_github]: https://github.com/divyanshub024

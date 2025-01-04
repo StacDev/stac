@@ -1,0 +1,39 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Divider"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "children": [{
+      "type": "divider",
+      "thickness": 5,
+      "height": 5,
+      "color": "#672BFF"
+    },
+      {
+        "type": "sizedBox",
+        "height": 20
+      },
+      {
+        "type": "divider",
+        "thickness": 3,
+        "height": 3,
+        "color": "#FC5632"
+      },
+      {
+        "type": "sizedBox",
+        "height": 20
+      },
+      {
+        "type": "divider",
+        "thickness": 2,
+        "height": 2,
+        "color": "#32FC88"
+      }]
+  }
+}
