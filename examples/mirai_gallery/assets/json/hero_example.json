@@ -1,0 +1,91 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Hero Example"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "children": [
+        {
+          "type": "hero",
+          "tag": "hero-icon",
+          "createRectTween": {
+            "type": "materialRectArcTween"
+          },
+          "child": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "flight_takeoff",
+            "size": 150.0
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 24.0
+        },
+        {
+          "type": "textButton",
+          "child": {
+            "type": "text",
+            "data": "Tap to see Hero Animation"
+          },
+          "onPressed": {
+            "actionType": "navigate",
+            "navigationStyle": "push",
+            "widgetJson": {
+              "type": "scaffold",
+              "appBar": {
+                "type": "appBar",
+                "title": {
+                  "type": "text",
+                  "data": "Flight Details"
+                }
+              },
+              "body": {
+                "type": "center",
+                "child": {
+                  "type": "column",
+                  "mainAxisAlignment": "center",
+                  "children": [
+                    {
+                      "type": "hero",
+                      "tag": "hero-icon",
+                      "createRectTween": {
+                        "type": "materialRectArcTween"
+                      },
+                      "child": {
+                        "type": "icon",
+                        "iconType": "material",
+                        "icon": "flight_takeoff",
+                        "size": 50.0
+                      }
+                    },
+                    {
+                      "type": "sizedBox",
+                      "height": 16.0
+                    },
+                    {
+                      "type": "text",
+                      "data": "Flight AB123",
+                      "style": {
+                        "fontSize": 24.0,
+                        "fontWeight": "w500"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
