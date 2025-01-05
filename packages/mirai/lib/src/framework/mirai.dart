@@ -102,8 +102,8 @@ class Mirai {
   }) async {
     _parsers.addAll(parsers);
     _actionParsers.addAll(actionParsers);
-    MiraiRegistry.instance.registerAll(_parsers,override);
-    MiraiRegistry.instance.registerAllActions(_actionParsers,override);
+    MiraiRegistry.instance.registerAll(_parsers, override);
+    MiraiRegistry.instance.registerAllActions(_actionParsers, override);
     MiraiNetworkService.initialize(dio ?? Dio());
   }
 
