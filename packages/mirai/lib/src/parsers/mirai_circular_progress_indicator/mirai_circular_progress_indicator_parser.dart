@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mirai/mirai.dart';
 import 'package:mirai/src/utils/widget_type.dart';
 
-class MiraiCircularProgressIndicatorParser extends MiraiParser<MiraiCircularProgressIndicator> {
+class MiraiCircularProgressIndicatorParser
+    extends MiraiParser<MiraiCircularProgressIndicator> {
   const MiraiCircularProgressIndicatorParser();
 
   @override
