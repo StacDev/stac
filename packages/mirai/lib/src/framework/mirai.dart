@@ -100,11 +100,12 @@ class Mirai {
     List<MiraiParser> parsers = const [],
     List<MiraiActionParser> actionParsers = const [],
     Dio? dio,
+    bool override = false,
   }) async {
     _parsers.addAll(parsers);
     _actionParsers.addAll(actionParsers);
-    MiraiRegistry.instance.registerAll(_parsers);
-    MiraiRegistry.instance.registerAllActions(_actionParsers);
+    MiraiRegistry.instance.registerAll(_parsers, override);
+    MiraiRegistry.instance.registerAllActions(_actionParsers, override);
     MiraiNetworkService.initialize(dio ?? Dio());
   }
 
