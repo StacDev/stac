@@ -17,7 +17,7 @@ class MiraiRegistry {
   bool register(MiraiParser parser, [bool override = false]) {
     final String type = parser.type;
     if (_miraiParsers.containsKey(type)) {
-      if(override) {
+      if (override) {
         Log.w('Widget $type is being overridden');
         _miraiParsers[type] = parser;
         return true;
@@ -34,7 +34,7 @@ class MiraiRegistry {
   bool registerAction(MiraiActionParser parser, [bool override = false]) {
     final String type = parser.actionType;
     if (_miraiActionParsers.containsKey(type)) {
-      if(override) {
+      if (override) {
         Log.w('Action $type is being overridden');
         _miraiActionParsers[type] = parser;
         return true;
@@ -48,16 +48,18 @@ class MiraiRegistry {
     }
   }
 
-  Future<dynamic> registerAll(List<MiraiParser> parsers, [bool override = false]) {
+  Future<dynamic> registerAll(List<MiraiParser> parsers,
+      [bool override = false]) {
     return Future.forEach(
       parsers,
       (MiraiParser parser) {
-        return register(parser,override);
+        return register(parser, override);
       },
     );
   }
 
-  Future<dynamic> registerAllActions(List<MiraiActionParser> parsers, [bool override = false]) {
+  Future<dynamic> registerAllActions(List<MiraiActionParser> parsers,
+      [bool override = false]) {
     return Future.forEach(
       parsers,
       (MiraiActionParser parser) {
