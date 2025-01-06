@@ -18,7 +18,6 @@ To know more about the wrap widget in Flutter, refer to the [official documentat
 | clipBehavior | `Clip` | The content will be clipped (or not) according to this option. | 
 | children | `List<Map<String, dynamic>>` | The widgets below this widget in the tree. |
 
-
 ## Example JSON
 
 ```json
@@ -93,7 +92,6 @@ To know more about the wrap widget in Flutter, refer to the [official documentat
         },
       ]
     }
-  }
 ```
 
 
