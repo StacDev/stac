@@ -17,7 +17,25 @@
           "type": "hero",
           "tag": "hero-icon",
           "createRectTween": {
-            "type": "materialRectArcTween"
+            "type": "materialRectArcTween",
+            "begin": {
+              "rectType": "fromCenter",
+              "center": {
+                "dx": 120.0,
+                "dy": 140.0
+              },
+              "width": 100.0,
+              "height": 100.0
+            },
+            "end": {
+              "rectType": "fromCenter",
+              "center": {
+                "dx": 200.0,
+                "dy": 200.0
+              },
+              "width": 50.0,
+              "height": 50.0
+            }
           },
           "child": {
             "type": "icon",
@@ -58,7 +76,25 @@
                       "type": "hero",
                       "tag": "hero-icon",
                       "createRectTween": {
-                        "type": "materialRectArcTween"
+                        "type": "materialRectArcTween",
+                        "begin": {
+                          "rectType": "fromCenter",
+                          "center": {
+                            "dx": 120.0,
+                            "dy": 140.0
+                          },
+                          "width": 100.0,
+                          "height": 100.0
+                        },
+                        "end": {
+                          "rectType": "fromCenter",
+                          "center": {
+                            "dx": 200.0,
+                            "dy": 200.0
+                          },
+                          "width": 50.0,
+                          "height": 50.0
+                        }
                       },
                       "child": {
                         "type": "icon",

@@ -54,5 +54,5 @@ enum WidgetType {
   carouselView,
   coloredBox,
   divider,
-  hero
+  hero,
 }

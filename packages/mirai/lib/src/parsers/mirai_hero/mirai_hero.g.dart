@@ -10,7 +10,10 @@ _$MiraiHeroImpl _$$MiraiHeroImplFromJson(Map<String, dynamic> json) =>
     _$MiraiHeroImpl(
       tag: json['tag'] as Object,
       child: json['child'] as Map<String, dynamic>,
-      createRectTween: json['createRectTween'] as Map<String, dynamic>?,
+      createRectTween: json['createRectTween'] == null
+          ? null
+          : MiraiRectTween.fromJson(
+              json['createRectTween'] as Map<String, dynamic>),
       flightShuttleBuilder:
           json['flightShuttleBuilder'] as Map<String, dynamic>?,
       placeholderBuilder: json['placeholderBuilder'] as Map<String, dynamic>?,

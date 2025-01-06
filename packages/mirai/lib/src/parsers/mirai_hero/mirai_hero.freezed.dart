@@ -22,8 +22,7 @@ MiraiHero _$MiraiHeroFromJson(Map<String, dynamic> json) {
 mixin _$MiraiHero {
   Object get tag => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get createRectTween =>
-      throw _privateConstructorUsedError;
+  MiraiRectTween? get createRectTween => throw _privateConstructorUsedError;
   Map<String, dynamic>? get flightShuttleBuilder =>
       throw _privateConstructorUsedError;
   Map<String, dynamic>? get placeholderBuilder =>
@@ -48,10 +47,12 @@ abstract class $MiraiHeroCopyWith<$Res> {
   $Res call(
       {Object tag,
       Map<String, dynamic> child,
-      Map<String, dynamic>? createRectTween,
+      MiraiRectTween? createRectTween,
       Map<String, dynamic>? flightShuttleBuilder,
       Map<String, dynamic>? placeholderBuilder,
       bool transitionOnUserGestures});
+
+  $MiraiRectTweenCopyWith<$Res>? get createRectTween;
 }
 
 /// @nodoc
@@ -85,7 +86,7 @@ class _$MiraiHeroCopyWithImpl<$Res, $Val extends MiraiHero>
       createRectTween: freezed == createRectTween
           ? _value.createRectTween
           : createRectTween // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as MiraiRectTween?,
       flightShuttleBuilder: freezed == flightShuttleBuilder
           ? _value.flightShuttleBuilder
           : flightShuttleBuilder // ignore: cast_nullable_to_non_nullable
@@ -100,6 +101,20 @@ class _$MiraiHeroCopyWithImpl<$Res, $Val extends MiraiHero>
               as bool,
     ) as $Val);
   }
+
+  /// Create a copy of MiraiHero
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiRectTweenCopyWith<$Res>? get createRectTween {
+    if (_value.createRectTween == null) {
+      return null;
+    }
+
+    return $MiraiRectTweenCopyWith<$Res>(_value.createRectTween!, (value) {
+      return _then(_value.copyWith(createRectTween: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -113,10 +128,13 @@ abstract class _$$MiraiHeroImplCopyWith<$Res>
   $Res call(
       {Object tag,
       Map<String, dynamic> child,
-      Map<String, dynamic>? createRectTween,
+      MiraiRectTween? createRectTween,
       Map<String, dynamic>? flightShuttleBuilder,
       Map<String, dynamic>? placeholderBuilder,
       bool transitionOnUserGestures});
+
+  @override
+  $MiraiRectTweenCopyWith<$Res>? get createRectTween;
 }
 
 /// @nodoc
@@ -146,9 +164,9 @@ class __$$MiraiHeroImplCopyWithImpl<$Res>
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       createRectTween: freezed == createRectTween
-          ? _value._createRectTween
+          ? _value.createRectTween
           : createRectTween // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as MiraiRectTween?,
       flightShuttleBuilder: freezed == flightShuttleBuilder
           ? _value._flightShuttleBuilder
           : flightShuttleBuilder // ignore: cast_nullable_to_non_nullable
@@ -171,12 +189,11 @@ class _$MiraiHeroImpl implements _MiraiHero {
   const _$MiraiHeroImpl(
       {required this.tag,
       required final Map<String, dynamic> child,
-      final Map<String, dynamic>? createRectTween,
+      this.createRectTween,
       final Map<String, dynamic>? flightShuttleBuilder,
       final Map<String, dynamic>? placeholderBuilder,
       this.transitionOnUserGestures = false})
       : _child = child,
-        _createRectTween = createRectTween,
         _flightShuttleBuilder = flightShuttleBuilder,
         _placeholderBuilder = placeholderBuilder;
 
@@ -193,16 +210,8 @@ class _$MiraiHeroImpl implements _MiraiHero {
     return EqualUnmodifiableMapView(_child);
   }
 
-  final Map<String, dynamic>? _createRectTween;
   @override
-  Map<String, dynamic>? get createRectTween {
-    final value = _createRectTween;
-    if (value == null) return null;
-    if (_createRectTween is EqualUnmodifiableMapView) return _createRectTween;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
+  final MiraiRectTween? createRectTween;
   final Map<String, dynamic>? _flightShuttleBuilder;
   @override
   Map<String, dynamic>? get flightShuttleBuilder {
@@ -241,8 +250,8 @@ class _$MiraiHeroImpl implements _MiraiHero {
             other is _$MiraiHeroImpl &&
             const DeepCollectionEquality().equals(other.tag, tag) &&
             const DeepCollectionEquality().equals(other._child, _child) &&
-            const DeepCollectionEquality()
-                .equals(other._createRectTween, _createRectTween) &&
+            (identical(other.createRectTween, createRectTween) ||
+                other.createRectTween == createRectTween) &&
             const DeepCollectionEquality()
                 .equals(other._flightShuttleBuilder, _flightShuttleBuilder) &&
             const DeepCollectionEquality()
@@ -258,7 +267,7 @@ class _$MiraiHeroImpl implements _MiraiHero {
       runtimeType,
       const DeepCollectionEquality().hash(tag),
       const DeepCollectionEquality().hash(_child),
-      const DeepCollectionEquality().hash(_createRectTween),
+      createRectTween,
       const DeepCollectionEquality().hash(_flightShuttleBuilder),
       const DeepCollectionEquality().hash(_placeholderBuilder),
       transitionOnUserGestures);
@@ -283,7 +292,7 @@ abstract class _MiraiHero implements MiraiHero {
   const factory _MiraiHero(
       {required final Object tag,
       required final Map<String, dynamic> child,
-      final Map<String, dynamic>? createRectTween,
+      final MiraiRectTween? createRectTween,
       final Map<String, dynamic>? flightShuttleBuilder,
       final Map<String, dynamic>? placeholderBuilder,
       final bool transitionOnUserGestures}) = _$MiraiHeroImpl;
@@ -296,7 +305,7 @@ abstract class _MiraiHero implements MiraiHero {
   @override
   Map<String, dynamic> get child;
   @override
-  Map<String, dynamic>? get createRectTween;
+  MiraiRectTween? get createRectTween;
   @override
   Map<String, dynamic>? get flightShuttleBuilder;
   @override
