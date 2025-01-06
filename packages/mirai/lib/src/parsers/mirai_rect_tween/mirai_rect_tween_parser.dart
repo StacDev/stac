@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirai/src/parsers/mirai_rect_tween/mirai_rect_tween.dart';
 import 'package:mirai/src/parsers/mirai_rect/mirai_rect.dart';
-import 'package:mirai_framework/mirai_framework.dart';
 
 class MiraiRectTweenParser {
   const MiraiRectTweenParser();
