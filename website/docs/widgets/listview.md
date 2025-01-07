@@ -12,7 +12,7 @@ To know more about the listview widget in Flutter, refer to the [official docume
 | primary | `bool` | Whether this is the primary scroll view. |
 | physics | `MiraiScrollPhysics` | How the scroll view should respond to user input. |
 | shrinkWrap | `bool` | Whether the extent of the scroll view in the scrollDirection should be determined by the contents being viewed. |
-| padding | `MiraiPadding` | The amount of space by which to inset the children. |
+| padding | `MiraiEdgeInsets` | The amount of space by which to inset the children. |
 | addAutomaticKeepAlives | `bool` | Determines whether the children should be automatically kept alive (cached) when they are no longer visible, preserving their state. |
 | addRepaintBoundaries | `bool` | Determines whether each child widget is wrapped in a RepaintBoundary to optimize rendering by reducing unnecessary repaints. |
 | addSemanticIndexes | `bool` | Determines whether semantic indexes are assigned to the children, enabling accessibility tools to understand the order and structure of the list items. |
