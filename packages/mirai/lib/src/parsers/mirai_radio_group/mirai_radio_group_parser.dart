@@ -48,6 +48,12 @@ class __RadioGroupWidgetState extends State<_RadioGroupWidget> {
     _saveValueInFormData();
   }
 
+  @override
+  void dispose() {
+    groupValue.dispose();
+    super.dispose();
+  }
+
   void _updateGroupValue(dynamic value) {
     groupValue.value = value;
     _saveValueInFormData();
