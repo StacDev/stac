@@ -1358,6 +1358,74 @@
     "leading": {
       "type": "icon",
       "iconType": "material",
+      "icon": "star"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Circular Progress Indicator",
+      "align": "center",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Circular Progress Indicator widget",
+      "align": "center",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": false,
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/circular_progress_indicator_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "star"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Linear Progress Indicator",
+      "align": "center",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Linear Progress Indicator widget",
+      "align": "center",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": false,
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/linear_progress_indicator_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
       "icon": "radio"
     },
     "title": {

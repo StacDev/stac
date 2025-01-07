@@ -54,6 +54,8 @@ enum WidgetType {
   carouselView,
   coloredBox,
   divider,
+  circularProgressIndicator,
+  linearProgressIndicator,
   radio,
   radioGroup,
 }
