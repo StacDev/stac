@@ -1,11 +1,9 @@
 import 'package:flutter/widgets.dart';
 import 'package:mirai/mirai.dart';
 import 'package:mirai/src/utils/widget_type.dart';
-import 'package:mirai/src/parsers/mirai_rect_tween/mirai_rect_tween_parser.dart';
 
 class MiraiHeroParser extends MiraiParser<MiraiHero> {
   const MiraiHeroParser();
-  final _rectTweenParser = const MiraiRectTweenParser();
 
   @override
   String get type => WidgetType.hero.name;
@@ -18,7 +16,7 @@ class MiraiHeroParser extends MiraiParser<MiraiHero> {
     return Hero(
       tag: model.tag,
       createRectTween: model.createRectTween != null
-          ? (_, __) => _rectTweenParser.parse(context, model.createRectTween!)
+          ? (_, __) => model.createRectTween!.parse(context)
           : null,
       flightShuttleBuilder: model.flightShuttleBuilder != null
           ? (flightContext, animation, flightDirection, fromHeroContext,

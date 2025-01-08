@@ -1,7 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mirai/src/parsers/mirai_rect/mirai_rect.dart';
-
-export 'package:mirai/src/parsers/mirai_rect_tween/mirai_rect_tween_parser.dart';
 
 part 'mirai_rect_tween.freezed.dart';
 part 'mirai_rect_tween.g.dart';
@@ -16,4 +15,20 @@ class MiraiRectTween with _$MiraiRectTween {
 
   factory MiraiRectTween.fromJson(Map<String, dynamic> json) =>
       _$MiraiRectTweenFromJson(json);
+}
+
+extension MiraiRectTweenParser on MiraiRectTween {
+  RectTween parse(BuildContext context) {
+    final begin = this.begin?.parse;
+    final end = this.end?.parse;
+
+    switch (type) {
+      case 'materialRectArcTween':
+        return MaterialRectArcTween(begin: begin, end: end);
+      case 'materialRectCenterArcTween':
+        return MaterialRectCenterArcTween(begin: begin, end: end);
+      default:
+        return RectTween(begin: begin, end: end);
+    }
+  }
 }
