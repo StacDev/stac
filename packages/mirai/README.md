@@ -6,12 +6,21 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/buildmirai/deploys)
 
 ---
+# 🚀 Mirai – Server-Driven UI Framework for Flutter
 
-Mirai is a Server-Driven UI (SDUI) framework for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
+[Mirai][mirai_website] is a powerful Server-Driven UI (SDUI) framework for Flutter, enabling you to build beautiful, cross-platform applications dynamically using JSON in real time.
 
-Try out the [Mirai Playground](https://playground.buildmirai.dev/): A sandbox environment for experimenting with the Mirai SDUI.
+Whether you’re building apps for mobile, web, or desktop, Mirai simplifies UI delivery and enhances flexibility without requiring redeployment for every design change.
 
-Developed with 💙 by [Mirai][mirai_link]
+- 🛠️ Build Dynamic UIs: Update your app’s UI instantly with JSON configurations.
+- 🌍 Cross-Platform: Write once, render anywhere – Flutter does the rest.
+- ⚡ Fast Iterations: Make changes on the server and see them live in your app.
+
+### 🌟 Explore Mirai in Action
+- 🧪 [Try Mirai Playground](https://playground.buildmirai.dev/) – A sandbox environment for experimenting with Mirai Dynamic UI.
+- 📚 [Read the Documentation](https://docs.buildmirai.dev/) – Get started with detailed guides and examples.
+
+Developed with 💙 by [Mirai][mirai_website]
 
 ## Installation 🚀
 
@@ -399,19 +408,18 @@ Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examp
 ## Contributors ✨
 
 <a href="https://github.com/buildMirai/mirai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=buildMirai/mirai" />
+  <img src="https://contrib.rocks/image?repo=buildMirai/mirai" alt="Mirai Contributors"/>
 </a>
 
 ## Maintainers
 
 - [Divyanshu Bhargava][divyanshu_github]
 
----
 [github_stars]: https://img.shields.io/github/stars/buildMirai/mirai
 [github_stars_link]: https://github.com/buildMirai/mirai/stargazers 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.png
 [license_link]: https://opensource.org/licenses/MIT
 [mirai_banner]: https://github.com/buildMirai/mirai/blob/dev/assets/mirai_banner.png
-[mirai_link]: https://buildmirai.dev/
 [form_screen]: https://github.com/buildMirai/mirai/blob/dev/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
+[mirai_website]: https://buildmirai.dev/
