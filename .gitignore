@@ -35,3 +35,6 @@ mason-lock.json
 
 *.flutter-plugins-dependencies
 *.flutter-plugins
+
+# Local Netlify folder
+.netlify

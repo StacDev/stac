@@ -1,3 +1,14 @@
+## 0.8.0
+
+* chore] Code Refactoring :) by @divyanshub024
+* feat: Add Row and Column Spacing by @divyanshub024
+* feat: Add Mirai carousel view with example by @divyanshub024
+* feat: Add Mirai colored box parser by @divyanshub024
+* fix: Replace cache network image with the Image.network. by @divyanshub024
+* feat: Add support for the Divider widget by @bhattkrutij
+* feat: added ability to override mirai parsers and action_parsers. by @khanjasir90
+* feat: Added support for mirai progress indicators by @ishanvaghani
+
 ## 0.7.2
 
 * update Readme
