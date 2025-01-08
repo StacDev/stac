@@ -408,7 +408,7 @@ Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examp
 ## Contributors ✨
 
 <a href="https://github.com/buildMirai/mirai/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=buildMirai/mirai" />
+  <img src="https://contrib.rocks/image?repo=buildMirai/mirai" alt="Mirai Contributors"/>
 </a>
 
 ## Maintainers
