@@ -61,7 +61,7 @@ class __RadioGroupWidgetState extends State<_RadioGroupWidget> {
 
   void _saveValueInFormData() {
     if (widget.model.id != null) {
-      widget.formScope?.formData[widget.model.id!] = groupValue;
+      widget.formScope?.formData[widget.model.id!] = groupValue.value;
     }
   }
 
