@@ -1422,6 +1422,40 @@
     }
   },
   {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "flight_takeoff"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Hero",
+      "align": "center",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Hero Widget",
+      "align": "center",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/hero_example.json"
+      }
+    }
+  },
+  {
     "type": "sizedBox",
     "height": 24.0
   }

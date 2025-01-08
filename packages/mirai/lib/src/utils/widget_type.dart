@@ -55,5 +55,6 @@ enum WidgetType {
   coloredBox,
   divider,
   circularProgressIndicator,
-  linearProgressIndicator
+  linearProgressIndicator,
+  hero,
 }
