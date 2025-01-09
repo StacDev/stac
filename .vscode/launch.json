@@ -1,0 +1,25 @@
+{
+    "configurations": [
+        {
+            "name": "mirai_gallery",
+            "cwd": "examples/mirai_gallery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "mirai_gallery (profile mode)",
+            "cwd": "examples/mirai_gallery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "mirai_gallery (release mode)",
+            "cwd": "examples/mirai_gallery",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}

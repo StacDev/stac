@@ -1,7 +1,7 @@
 # CircularProgressIndicator
 
 Mirai circularProgressIndicator allows you to build the Flutter CircularProgressIndicator widget using JSON. 
-To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html).
+To know more about the CircularProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html).
 
 ## Properties
 

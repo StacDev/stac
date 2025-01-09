@@ -59,4 +59,5 @@ enum WidgetType {
   hero,
   radio,
   radioGroup,
+  slider,
 }
