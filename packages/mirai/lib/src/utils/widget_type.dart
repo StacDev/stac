@@ -57,4 +57,6 @@ enum WidgetType {
   circularProgressIndicator,
   linearProgressIndicator,
   hero,
+  radio,
+  radioGroup,
 }

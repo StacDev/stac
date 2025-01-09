@@ -87,6 +87,8 @@ class Mirai {
     const MiraiCircularProgressIndicatorParser(),
     const MiraiLinearProgressIndicatorParser(),
     const MiraiHeroParser(),
+    const MiraiRadioParser(),
+    const MiraiRadioGroupParser(),
   ];
 
   static final _actionParsers = <MiraiActionParser>[
