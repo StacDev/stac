@@ -86,6 +86,7 @@ class Mirai {
     const MiraiDividerParser(),
     const MiraiCircularProgressIndicatorParser(),
     const MiraiLinearProgressIndicatorParser(),
+    const MiraiHeroParser(),
     const MiraiRadioParser(),
     const MiraiRadioGroupParser(),
   ];

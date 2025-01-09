@@ -56,6 +56,7 @@ enum WidgetType {
   divider,
   circularProgressIndicator,
   linearProgressIndicator,
+  hero,
   radio,
   radioGroup,
 }

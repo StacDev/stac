@@ -438,7 +438,7 @@ packages:
       path: "../../packages/mirai"
       relative: true
     source: path
-    version: "0.7.2"
+    version: "0.8.0"
   mirai_framework:
     dependency: "direct overridden"
     description:
