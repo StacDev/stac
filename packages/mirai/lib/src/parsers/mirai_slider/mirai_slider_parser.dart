@@ -9,10 +9,10 @@ class MiraiSliderParser extends MiraiParser<MiraiSlider> {
   const MiraiSliderParser();
 
   @override
-  MiraiSlider getModel(Map<String, dynamic> json) => MiraiSlider.fromJson(json);
+  String get type => WidgetType.slider.name;
 
   @override
-  String get type => WidgetType.slider.name;
+  MiraiSlider getModel(Map<String, dynamic> json) => MiraiSlider.fromJson(json);
 
   @override
   Widget parse(BuildContext context, MiraiSlider model) {

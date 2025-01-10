@@ -56,4 +56,3 @@ To know more about the Slider widget in Flutter, refer to the [official document
     }
 }
 ```
-
