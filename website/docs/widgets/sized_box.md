@@ -1,6 +1,6 @@
 # SizedBox
 
-Mirai sizedBox allows you to build the Flutter sizedBox widget using JSON
+Mirai sizedBox allows you to build the Flutter sizedBox widget using JSON.
 To know more about the sizedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/SizedBox-class.html).
 
 ## Properties
