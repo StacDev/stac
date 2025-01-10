@@ -27,7 +27,6 @@ To know more about the Slider widget in Flutter, refer to the [official document
 | autofocus | `bool` | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
 | allowedInteraction | `SliderInteraction` | Allowed way for the user to interact with the slider. |
 
-
 ## Example JSON
 
 ```json
