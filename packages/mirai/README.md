@@ -1,4 +1,6 @@
-![Mirai][mirai_banner]
+<p align="center">
+  <img src="https://github.com/buildMirai/mirai/blob/dev/assets/mirai_banner.png" width="100%" alt="Mirai: Server-Driven UI Framework for Flutter" />
+</p>
 
 [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)
 [![License: MIT][license_badge]][license_link]
