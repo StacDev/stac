@@ -1,7 +1,7 @@
 # LinearProgressIndicator
 
 Mirai linearProgressIndicator allows you to build the Flutter LinearProgressIndicator widget using JSON. 
-To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html).
+To know more about the LinearProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html).
 
 ## Properties
 

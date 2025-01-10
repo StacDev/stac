@@ -1,7 +1,7 @@
 # RadioGroup
 
 Mirai radioGroup allows you to build the Flutter Radio widgets using JSON. 
-To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Radio-class.html).
+To know more about the Radio widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Radio-class.html).
 
 ## RadioGroup Properties
 
