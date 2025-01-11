@@ -7,8 +7,8 @@ To know more about the padding widget in Flutter, refer to the [official documen
 
 | Property | Type              | Description                                       |
 | --- |-------------------|---------------------------------------------------|
-| padding | `MiraiEdgeInsets` | The amount of space by which to inset the child. |
-| child | `Map<String,dynamic>` | The widget below this widget in the tree. |
+| padding | `MiraiEdgeInsets` | The amount of space by which to inset the child. Examples: `"padding": 12` for uniform padding, `"padding": {"left": 0, "right": 0}` for specific sides, or `{"padding": [8, 12, 8, 12]}` for left, top, right, bottom. |
+| child   | `Map<String,dynamic>` | The widget below this widget in the tree. |
 
 ## Example JSON
 
