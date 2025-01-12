@@ -1,0 +1,25 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Opacity"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "opacity",
+      "opacity": 0.5,
+      "child": {
+        "type": "text",
+        "data": "Opacity Widget",
+        "style": {
+          "fontSize": 23,
+          "fontWeight": "w600"
+        }
+      }
+    }
+  }
+}

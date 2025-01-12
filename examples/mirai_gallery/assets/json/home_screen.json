@@ -1524,8 +1524,39 @@
     }
   },
   {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "navigation"
+    },
+
+    "title": {
+      "type": "text",
+      "data": "Mirai Opacity",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai Opacity widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/opacity_example.json"
+      }
+    }
+  },
+  {
     "type": "sizedBox",
     "height": 24.0
   }
 ]
-    
