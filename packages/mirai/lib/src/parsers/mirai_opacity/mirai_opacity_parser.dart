@@ -9,7 +9,7 @@ class MiraiOpacityParser extends MiraiParser<MiraiOpacity> {
 
   @override
   String get type => WidgetType.opacity.name;
-  
+
   @override
   MiraiOpacity getModel(Map<String, dynamic> json) =>
       MiraiOpacity.fromJson(json);
