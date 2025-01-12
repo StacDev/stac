@@ -173,7 +173,7 @@ class __$$MiraiIconImplCopyWithImpl<$Res>
 class _$MiraiIconImpl implements _MiraiIcon {
   const _$MiraiIconImpl(
       {required this.icon,
-      required this.iconType,
+      this.iconType = IconType.material,
       this.size,
       this.color,
       this.semanticLabel,
@@ -185,6 +185,7 @@ class _$MiraiIconImpl implements _MiraiIcon {
   @override
   final String icon;
   @override
+  @JsonKey()
   final IconType iconType;
   @override
   final double? size;
@@ -240,7 +241,7 @@ class _$MiraiIconImpl implements _MiraiIcon {
 abstract class _MiraiIcon implements MiraiIcon {
   const factory _MiraiIcon(
       {required final String icon,
-      required final IconType iconType,
+      final IconType iconType,
       final double? size,
       final String? color,
       final String? semanticLabel,
