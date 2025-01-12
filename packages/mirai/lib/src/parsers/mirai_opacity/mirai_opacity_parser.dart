@@ -8,11 +8,11 @@ class MiraiOpacityParser extends MiraiParser<MiraiOpacity> {
   const MiraiOpacityParser();
 
   @override
+  String get type => WidgetType.opacity.name;
+  
+  @override
   MiraiOpacity getModel(Map<String, dynamic> json) =>
       MiraiOpacity.fromJson(json);
-
-  @override
-  String get type => WidgetType.opacity.name;
 
   @override
   Widget parse(BuildContext context, MiraiOpacity model) {
