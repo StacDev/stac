@@ -9,7 +9,8 @@ part of 'mirai_icon.dart';
 _$MiraiIconImpl _$$MiraiIconImplFromJson(Map<String, dynamic> json) =>
     _$MiraiIconImpl(
       icon: json['icon'] as String,
-      iconType: $enumDecode(_$IconTypeEnumMap, json['iconType']),
+      iconType: $enumDecodeNullable(_$IconTypeEnumMap, json['iconType']) ??
+          IconType.material,
       size: (json['size'] as num?)?.toDouble(),
       color: json['color'] as String?,
       semanticLabel: json['semanticLabel'] as String?,

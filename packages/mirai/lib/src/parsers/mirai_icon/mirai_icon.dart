@@ -13,7 +13,7 @@ part 'mirai_icon.g.dart';
 class MiraiIcon with _$MiraiIcon {
   const factory MiraiIcon({
     required String icon,
-    required IconType iconType,
+    @Default(IconType.material) IconType iconType,
     double? size,
     String? color,
     String? semanticLabel,

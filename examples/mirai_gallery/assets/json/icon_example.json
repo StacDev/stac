@@ -53,7 +53,7 @@
                 "type": "container",
                 "child": {
                   "type": "icon",
-                  "iconType": "material",
+                  "iconType": "cupertino",
                   "icon": "add",
                   "size": 32
                 }
@@ -66,8 +66,8 @@
                 "type": "container",
                 "child": {
                   "type": "icon",
-                  "iconType": "material",
-                  "icon": "remove",
+                  "iconType": "cupertino",
+                  "icon": "minus",
                   "size": 32
                 }
               }
