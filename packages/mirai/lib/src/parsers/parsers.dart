@@ -85,3 +85,4 @@ export 'package:mirai/src/parsers/mirai_rect_tween/mirai_rect_tween.dart';
 export 'package:mirai/src/parsers/mirai_radio/mirai_radio.dart';
 export 'package:mirai/src/parsers/mirai_radio_group/mirai_radio_group.dart';
 export 'package:mirai/src/parsers/mirai_slider/mirai_slider.dart';
+export 'package:mirai/src/parsers/mirai_opacity/mirai_opacity.dart';

@@ -60,4 +60,5 @@ enum WidgetType {
   radio,
   radioGroup,
   slider,
+  opacity,
 }
