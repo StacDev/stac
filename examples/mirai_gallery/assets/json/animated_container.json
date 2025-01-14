@@ -1,0 +1,52 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Container"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "physics": "never",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 52
+      },
+      {
+        "type": "animatedContainer",
+        "duration": 1736886463,
+        "color": "#672BFF",
+        "height": 250,
+        "width": 200
+      },
+      {
+        "type": "sizedBox",
+        "height": 52
+      },
+      {
+        "type": "animatedContainer",
+        "duration": 1736886463,
+        "color": "#FC5632",
+        "height": 250,
+        "width": 200,
+        "child": {
+          "type": "align",
+          "alignment": "bottomCenter",
+          "child": {
+            "type": "text",
+            "data": "Flutter",
+            "align": "center",
+            "style": {
+              "fontSize": 23,
+              "fontWeight": "w600"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

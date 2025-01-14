@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:mirai/src/action_parsers/action_parsers.dart';
 import 'package:mirai/src/action_parsers/mirai_network_request/mirai_network_request_parser.dart';
 import 'package:mirai/src/framework/mirai_registry.dart';
+import 'package:mirai/src/parsers/mirai_animated_container/mirai_animated_animated_container_parser.dart';
 import 'package:mirai/src/parsers/mirai_divider/mirai_divider_parser.dart';
 import 'package:mirai/src/parsers/parsers.dart';
 import 'package:mirai/src/services/mirai_network_service.dart';
@@ -91,6 +92,7 @@ class Mirai {
     const MiraiRadioGroupParser(),
     const MiraiSliderParser(),
     const MiraiOpacityParser(),
+    const MiraiAnimatedContainerParser(),
   ];
 
   static final _actionParsers = <MiraiActionParser>[

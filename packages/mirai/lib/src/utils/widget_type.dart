@@ -9,6 +9,7 @@ enum WidgetType {
   stack,
   positioned,
   container,
+  animatedContainer,
   image,
   icon,
   iconButton,
