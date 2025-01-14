@@ -1,0 +1,43 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Text"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "top": 12,
+      "left": 12,
+      "right": 12
+    },
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "start",
+      "crossAxisAlignment": "start",
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 12
+        },
+        {
+          "type": "strokeText",
+          "data": "Flutter",
+          "align": "center",
+          "style": {
+            "fontSize": 23,
+            "fontWeight": "w600",
+            "color": "#EBE9F0FF"
+
+          },
+          "strokeColor": "#6750A4",
+          "strokeWidth": 4
+
+        }
+      ]
+    }
+  }
+}

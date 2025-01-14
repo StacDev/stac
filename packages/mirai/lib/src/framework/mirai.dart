@@ -91,6 +91,7 @@ class Mirai {
     const MiraiRadioGroupParser(),
     const MiraiSliderParser(),
     const MiraiOpacityParser(),
+    const MiraiStrokeTextParser(),
   ];
 
   static final _actionParsers = <MiraiActionParser>[

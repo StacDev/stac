@@ -61,4 +61,5 @@ enum WidgetType {
   radioGroup,
   slider,
   opacity,
+  strokeText,
 }
