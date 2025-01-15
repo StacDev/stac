@@ -13,9 +13,9 @@ The Miraiverse consists of the following packages:
 
 | Package | Description | Link                                                                                               |
 |---------|-------------|----------------------------------------------------------------------------------------------------|
-| [mirai](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)           |
-| [mirai_framework](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_framework.svg)](https://pub.dev/packages/mirai_framework) |
-| [mirai_webview](https://github.com/Securrency-OSS/mirai/tree/dev/packages/mirai_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_webview.svg)](https://pub.dev/packages/mirai_webview)   |
+| [mirai](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)           |
+| [mirai_framework](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_framework.svg)](https://pub.dev/packages/mirai_framework) |
+| [mirai_webview](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_webview.svg)](https://pub.dev/packages/mirai_webview)   |
 
 
 ## Installation
