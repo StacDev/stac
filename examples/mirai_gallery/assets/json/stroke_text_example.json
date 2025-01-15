@@ -4,7 +4,7 @@
     "type": "appBar",
     "title": {
       "type": "text",
-      "data": "Text"
+      "data": "Stroke Text"
     }
   },
   "body": {
@@ -25,10 +25,10 @@
         },
         {
           "type": "strokeText",
-          "data": "Flutter",
+          "data": "Stroke Text",
           "align": "center",
           "style": {
-            "fontSize": 23,
+            "fontSize": 30,
             "fontWeight": "w600",
             "color": "#EBE9F0FF"
 
