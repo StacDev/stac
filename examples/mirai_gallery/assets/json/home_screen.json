@@ -1555,6 +1555,40 @@
       }
     }
   },
+
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "cupertino",
+      "icon": "text_quote"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai Stroke Text",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A run of text with borders",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/stroke_text_example.json"
+      }
+    }
+  },
+
+  
   {
     "type": "sizedBox",
     "height": 24.0
