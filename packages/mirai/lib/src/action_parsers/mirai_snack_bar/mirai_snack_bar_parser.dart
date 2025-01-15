@@ -24,7 +24,7 @@ class MiraiSnackBarParser extends MiraiActionParser<MiraiSnackBar> {
 
     scaffoldMessenger.showSnackBar(
       SnackBar(
-        content: Mirai.fromJson(model.content, context) ?? SizedBox(),
+        content: Mirai.fromJson(model.content, context) ?? SizedBox.shrink(),
         backgroundColor: model.backgroundColor?.toColor(context),
         elevation: model.elevation,
         margin: model.margin?.parse,

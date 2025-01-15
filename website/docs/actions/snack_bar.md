@@ -1,6 +1,6 @@
 # SnackBar
 
-Mirai snakBar allows you to show the Flutter SnackBar using JSON. 
+Mirai snackBar allows you to show the Flutter SnackBar using JSON. 
 To know more about the SnackBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/SnackBar-class.html).
 
 ## SnackBar Properties
