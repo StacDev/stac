@@ -413,6 +413,16 @@ Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examp
   <img src="https://contrib.rocks/image?repo=buildMirai/mirai" alt="Mirai Contributors"/>
 </a>
 
+## Companies/Products using Mirai ✨
+
+<a href="https://jobhunt.work/">
+  <img src="https://github.com/buildMirai/mirai/blob/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
+</a>
+
+<a href="https://bettrdo.com/">
+  <img src="https://github.com/buildMirai/mirai/blob/dev/assets/companies/bettrdo.jpg" alt="Job Hunt" height="100"/>
+</a>
+
 ## Maintainers
 
 - [Divyanshu Bhargava][divyanshu_github]
