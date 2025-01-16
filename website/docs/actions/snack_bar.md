@@ -13,7 +13,7 @@ To know more about the SnackBar widget in Flutter, refer to the [official docume
 | margin | `MiraiEdgeInsets` | Empty space to surround the snack bar. |
 | padding | `MiraiEdgeInsets` | The amount of padding to apply to the snack bar's content and optional action. |
 | width | `double` | The width of the snack bar. |
-| shape | `MiralShapeBorder` | The shape of the snack bar. |
+| shape | `MiraiShapeBorder` | The shape of the snack bar. |
 | hitTestBehavior | `HitTestBehavior` | Defines how the snack bar area, including margin, will behave during hit testing. |
 | behavior | `SnackBarBehavior` | This defines the behavior and location of the snack bar. |
 | action | `MiraiSnackBarAction` | An action that the user can take based on the snack bar. |

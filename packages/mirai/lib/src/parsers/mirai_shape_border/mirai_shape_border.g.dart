@@ -6,16 +6,16 @@ part of 'mirai_shape_border.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MiralShapeBorderImpl _$$MiralShapeBorderImplFromJson(
+_$MiraiShapeBorderImpl _$$MiraiShapeBorderImplFromJson(
         Map<String, dynamic> json) =>
-    _$MiralShapeBorderImpl(
+    _$MiraiShapeBorderImpl(
       borderType:
           $enumDecode(_$MiraiShapeBorderTypeEnumMap, json['borderType']),
       data: json['data'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$MiralShapeBorderImplToJson(
-        _$MiralShapeBorderImpl instance) =>
+Map<String, dynamic> _$$MiraiShapeBorderImplToJson(
+        _$MiraiShapeBorderImpl instance) =>
     <String, dynamic>{
       'borderType': _$MiraiShapeBorderTypeEnumMap[instance.borderType]!,
       'data': instance.data,

@@ -14,45 +14,45 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MiralShapeBorder _$MiralShapeBorderFromJson(Map<String, dynamic> json) {
-  return _MiralShapeBorder.fromJson(json);
+MiraiShapeBorder _$MiraiShapeBorderFromJson(Map<String, dynamic> json) {
+  return _MiraiShapeBorder.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MiralShapeBorder {
+mixin _$MiraiShapeBorder {
   MiraiShapeBorderType get borderType => throw _privateConstructorUsedError;
   Map<String, dynamic> get data => throw _privateConstructorUsedError;
 
-  /// Serializes this MiralShapeBorder to a JSON map.
+  /// Serializes this MiraiShapeBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of MiralShapeBorder
+  /// Create a copy of MiraiShapeBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MiralShapeBorderCopyWith<MiralShapeBorder> get copyWith =>
+  $MiraiShapeBorderCopyWith<MiraiShapeBorder> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MiralShapeBorderCopyWith<$Res> {
-  factory $MiralShapeBorderCopyWith(
-          MiralShapeBorder value, $Res Function(MiralShapeBorder) then) =
-      _$MiralShapeBorderCopyWithImpl<$Res, MiralShapeBorder>;
+abstract class $MiraiShapeBorderCopyWith<$Res> {
+  factory $MiraiShapeBorderCopyWith(
+          MiraiShapeBorder value, $Res Function(MiraiShapeBorder) then) =
+      _$MiraiShapeBorderCopyWithImpl<$Res, MiraiShapeBorder>;
   @useResult
   $Res call({MiraiShapeBorderType borderType, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class _$MiralShapeBorderCopyWithImpl<$Res, $Val extends MiralShapeBorder>
-    implements $MiralShapeBorderCopyWith<$Res> {
-  _$MiralShapeBorderCopyWithImpl(this._value, this._then);
+class _$MiraiShapeBorderCopyWithImpl<$Res, $Val extends MiraiShapeBorder>
+    implements $MiraiShapeBorderCopyWith<$Res> {
+  _$MiraiShapeBorderCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MiralShapeBorder
+  /// Create a copy of MiraiShapeBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -74,25 +74,25 @@ class _$MiralShapeBorderCopyWithImpl<$Res, $Val extends MiralShapeBorder>
 }
 
 /// @nodoc
-abstract class _$$MiralShapeBorderImplCopyWith<$Res>
-    implements $MiralShapeBorderCopyWith<$Res> {
-  factory _$$MiralShapeBorderImplCopyWith(_$MiralShapeBorderImpl value,
-          $Res Function(_$MiralShapeBorderImpl) then) =
-      __$$MiralShapeBorderImplCopyWithImpl<$Res>;
+abstract class _$$MiraiShapeBorderImplCopyWith<$Res>
+    implements $MiraiShapeBorderCopyWith<$Res> {
+  factory _$$MiraiShapeBorderImplCopyWith(_$MiraiShapeBorderImpl value,
+          $Res Function(_$MiraiShapeBorderImpl) then) =
+      __$$MiraiShapeBorderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({MiraiShapeBorderType borderType, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$MiralShapeBorderImplCopyWithImpl<$Res>
-    extends _$MiralShapeBorderCopyWithImpl<$Res, _$MiralShapeBorderImpl>
-    implements _$$MiralShapeBorderImplCopyWith<$Res> {
-  __$$MiralShapeBorderImplCopyWithImpl(_$MiralShapeBorderImpl _value,
-      $Res Function(_$MiralShapeBorderImpl) _then)
+class __$$MiraiShapeBorderImplCopyWithImpl<$Res>
+    extends _$MiraiShapeBorderCopyWithImpl<$Res, _$MiraiShapeBorderImpl>
+    implements _$$MiraiShapeBorderImplCopyWith<$Res> {
+  __$$MiraiShapeBorderImplCopyWithImpl(_$MiraiShapeBorderImpl _value,
+      $Res Function(_$MiraiShapeBorderImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MiralShapeBorder
+  /// Create a copy of MiraiShapeBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -100,7 +100,7 @@ class __$$MiralShapeBorderImplCopyWithImpl<$Res>
     Object? borderType = null,
     Object? data = null,
   }) {
-    return _then(_$MiralShapeBorderImpl(
+    return _then(_$MiraiShapeBorderImpl(
       borderType: null == borderType
           ? _value.borderType
           : borderType // ignore: cast_nullable_to_non_nullable
@@ -115,13 +115,13 @@ class __$$MiralShapeBorderImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MiralShapeBorderImpl implements _MiralShapeBorder {
-  const _$MiralShapeBorderImpl(
+class _$MiraiShapeBorderImpl implements _MiraiShapeBorder {
+  const _$MiraiShapeBorderImpl(
       {required this.borderType, required final Map<String, dynamic> data})
       : _data = data;
 
-  factory _$MiralShapeBorderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MiralShapeBorderImplFromJson(json);
+  factory _$MiraiShapeBorderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MiraiShapeBorderImplFromJson(json);
 
   @override
   final MiraiShapeBorderType borderType;
@@ -135,14 +135,14 @@ class _$MiralShapeBorderImpl implements _MiralShapeBorder {
 
   @override
   String toString() {
-    return 'MiralShapeBorder(borderType: $borderType, data: $data)';
+    return 'MiraiShapeBorder(borderType: $borderType, data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiralShapeBorderImpl &&
+            other is _$MiraiShapeBorderImpl &&
             (identical(other.borderType, borderType) ||
                 other.borderType == borderType) &&
             const DeepCollectionEquality().equals(other._data, _data));
@@ -153,40 +153,40 @@ class _$MiralShapeBorderImpl implements _MiralShapeBorder {
   int get hashCode => Object.hash(
       runtimeType, borderType, const DeepCollectionEquality().hash(_data));
 
-  /// Create a copy of MiralShapeBorder
+  /// Create a copy of MiraiShapeBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiralShapeBorderImplCopyWith<_$MiralShapeBorderImpl> get copyWith =>
-      __$$MiralShapeBorderImplCopyWithImpl<_$MiralShapeBorderImpl>(
+  _$$MiraiShapeBorderImplCopyWith<_$MiraiShapeBorderImpl> get copyWith =>
+      __$$MiraiShapeBorderImplCopyWithImpl<_$MiraiShapeBorderImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiralShapeBorderImplToJson(
+    return _$$MiraiShapeBorderImplToJson(
       this,
     );
   }
 }
 
-abstract class _MiralShapeBorder implements MiralShapeBorder {
-  const factory _MiralShapeBorder(
+abstract class _MiraiShapeBorder implements MiraiShapeBorder {
+  const factory _MiraiShapeBorder(
       {required final MiraiShapeBorderType borderType,
-      required final Map<String, dynamic> data}) = _$MiralShapeBorderImpl;
+      required final Map<String, dynamic> data}) = _$MiraiShapeBorderImpl;
 
-  factory _MiralShapeBorder.fromJson(Map<String, dynamic> json) =
-      _$MiralShapeBorderImpl.fromJson;
+  factory _MiraiShapeBorder.fromJson(Map<String, dynamic> json) =
+      _$MiraiShapeBorderImpl.fromJson;
 
   @override
   MiraiShapeBorderType get borderType;
   @override
   Map<String, dynamic> get data;
 
-  /// Create a copy of MiralShapeBorder
+  /// Create a copy of MiraiShapeBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiralShapeBorderImplCopyWith<_$MiralShapeBorderImpl> get copyWith =>
+  _$$MiraiShapeBorderImplCopyWith<_$MiraiShapeBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

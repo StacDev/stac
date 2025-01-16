@@ -6,17 +6,17 @@ part 'mirai_beveled_rectangle_border.freezed.dart';
 part 'mirai_beveled_rectangle_border.g.dart';
 
 @freezed
-class MiralBeveledRectangleBorder with _$MiralBeveledRectangleBorder {
-  const factory MiralBeveledRectangleBorder({
+class MiraiBeveledRectangleBorder with _$MiraiBeveledRectangleBorder {
+  const factory MiraiBeveledRectangleBorder({
     @Default(MiraiBorderSide.none()) MiraiBorderSide side,
     @Default(MiraiBorderRadius()) MiraiBorderRadius borderRadius,
-  }) = _MiralBeveledRectangleBorder;
+  }) = _MiraiBeveledRectangleBorder;
 
-  factory MiralBeveledRectangleBorder.fromJson(Map<String, dynamic> json) =>
-      _$MiralBeveledRectangleBorderFromJson(json);
+  factory MiraiBeveledRectangleBorder.fromJson(Map<String, dynamic> json) =>
+      _$MiraiBeveledRectangleBorderFromJson(json);
 }
 
-extension MiralBeveledRactangleBorderParser on MiralBeveledRectangleBorder {
+extension MiralBeveledRactangleBorderParser on MiraiBeveledRectangleBorder {
   ShapeBorder parse(BuildContext context) {
     return BeveledRectangleBorder(
       side: side.parse(context),

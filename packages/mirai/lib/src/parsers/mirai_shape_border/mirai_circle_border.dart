@@ -6,17 +6,17 @@ part 'mirai_circle_border.freezed.dart';
 part 'mirai_circle_border.g.dart';
 
 @freezed
-class MiralCircleBorder with _$MiralCircleBorder {
-  const factory MiralCircleBorder({
+class MiraiCircleBorder with _$MiraiCircleBorder {
+  const factory MiraiCircleBorder({
     @Default(MiraiBorderSide.none()) MiraiBorderSide side,
     @Default(0.0) double eccentricity,
-  }) = _MiralCircleBorder;
+  }) = _MiraiCircleBorder;
 
-  factory MiralCircleBorder.fromJson(Map<String, dynamic> json) =>
-      _$MiralCircleBorderFromJson(json);
+  factory MiraiCircleBorder.fromJson(Map<String, dynamic> json) =>
+      _$MiraiCircleBorderFromJson(json);
 }
 
-extension MiraiCircleBorderParser on MiralCircleBorder {
+extension MiraiCircleBorderParser on MiraiCircleBorder {
   ShapeBorder parse(BuildContext context) {
     return CircleBorder(
       side: side.parse(context),

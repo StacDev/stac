@@ -20,7 +20,7 @@ _$MiraiSnackBarImpl _$$MiraiSnackBarImplFromJson(Map<String, dynamic> json) =>
       width: (json['width'] as num?)?.toDouble(),
       shape: json['shape'] == null
           ? null
-          : MiralShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+          : MiraiShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       hitTestBehavior: $enumDecodeNullable(
           _$HitTestBehaviorEnumMap, json['hitTestBehavior']),
       behavior:

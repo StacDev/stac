@@ -6,17 +6,17 @@ part 'mirai_rounded_rectangle_border.freezed.dart';
 part 'mirai_rounded_rectangle_border.g.dart';
 
 @freezed
-class MiralRoundedRactangleBorder with _$MiralRoundedRactangleBorder {
-  const factory MiralRoundedRactangleBorder({
+class MiraiRoundedRactangleBorder with _$MiraiRoundedRactangleBorder {
+  const factory MiraiRoundedRactangleBorder({
     @Default(MiraiBorderSide.none()) MiraiBorderSide side,
     @Default(MiraiBorderRadius()) MiraiBorderRadius borderRadius,
-  }) = _MiralRoundedRactangleBorder;
+  }) = _MiraiRoundedRactangleBorder;
 
-  factory MiralRoundedRactangleBorder.fromJson(Map<String, dynamic> json) =>
-      _$MiralRoundedRactangleBorderFromJson(json);
+  factory MiraiRoundedRactangleBorder.fromJson(Map<String, dynamic> json) =>
+      _$MiraiRoundedRactangleBorderFromJson(json);
 }
 
-extension MiralRoundedRactangleBorderParser on MiralRoundedRactangleBorder {
+extension MiralRoundedRactangleBorderParser on MiraiRoundedRactangleBorder {
   ShapeBorder parse(BuildContext context) {
     return RoundedRectangleBorder(
       side: side.parse(context),

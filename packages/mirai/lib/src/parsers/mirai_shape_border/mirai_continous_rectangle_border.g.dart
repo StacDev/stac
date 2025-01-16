@@ -6,9 +6,9 @@ part of 'mirai_continous_rectangle_border.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MiralContinousRectangleBorderImpl
-    _$$MiralContinousRectangleBorderImplFromJson(Map<String, dynamic> json) =>
-        _$MiralContinousRectangleBorderImpl(
+_$MiraiContinousRectangleBorderImpl
+    _$$MiraiContinousRectangleBorderImplFromJson(Map<String, dynamic> json) =>
+        _$MiraiContinousRectangleBorderImpl(
           side: json['side'] == null
               ? const MiraiBorderSide.none()
               : MiraiBorderSide.fromJson(json['side'] as Map<String, dynamic>),
@@ -17,8 +17,8 @@ _$MiralContinousRectangleBorderImpl
               : MiraiBorderRadius.fromJson(json['borderRadius']),
         );
 
-Map<String, dynamic> _$$MiralContinousRectangleBorderImplToJson(
-        _$MiralContinousRectangleBorderImpl instance) =>
+Map<String, dynamic> _$$MiraiContinousRectangleBorderImplToJson(
+        _$MiraiContinousRectangleBorderImpl instance) =>
     <String, dynamic>{
       'side': instance.side,
       'borderRadius': instance.borderRadius,

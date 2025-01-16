@@ -14,33 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MiralBeveledRectangleBorder _$MiralBeveledRectangleBorderFromJson(
+MiraiBeveledRectangleBorder _$MiraiBeveledRectangleBorderFromJson(
     Map<String, dynamic> json) {
-  return _MiralBeveledRectangleBorder.fromJson(json);
+  return _MiraiBeveledRectangleBorder.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MiralBeveledRectangleBorder {
+mixin _$MiraiBeveledRectangleBorder {
   MiraiBorderSide get side => throw _privateConstructorUsedError;
   MiraiBorderRadius get borderRadius => throw _privateConstructorUsedError;
 
-  /// Serializes this MiralBeveledRectangleBorder to a JSON map.
+  /// Serializes this MiraiBeveledRectangleBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MiralBeveledRectangleBorderCopyWith<MiralBeveledRectangleBorder>
+  $MiraiBeveledRectangleBorderCopyWith<MiraiBeveledRectangleBorder>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MiralBeveledRectangleBorderCopyWith<$Res> {
-  factory $MiralBeveledRectangleBorderCopyWith(
-          MiralBeveledRectangleBorder value,
-          $Res Function(MiralBeveledRectangleBorder) then) =
-      _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
-          MiralBeveledRectangleBorder>;
+abstract class $MiraiBeveledRectangleBorderCopyWith<$Res> {
+  factory $MiraiBeveledRectangleBorderCopyWith(
+          MiraiBeveledRectangleBorder value,
+          $Res Function(MiraiBeveledRectangleBorder) then) =
+      _$MiraiBeveledRectangleBorderCopyWithImpl<$Res,
+          MiraiBeveledRectangleBorder>;
   @useResult
   $Res call({MiraiBorderSide side, MiraiBorderRadius borderRadius});
 
@@ -49,17 +49,17 @@ abstract class $MiralBeveledRectangleBorderCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
-        $Val extends MiralBeveledRectangleBorder>
-    implements $MiralBeveledRectangleBorderCopyWith<$Res> {
-  _$MiralBeveledRectangleBorderCopyWithImpl(this._value, this._then);
+class _$MiraiBeveledRectangleBorderCopyWithImpl<$Res,
+        $Val extends MiraiBeveledRectangleBorder>
+    implements $MiraiBeveledRectangleBorderCopyWith<$Res> {
+  _$MiraiBeveledRectangleBorderCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -79,7 +79,7 @@ class _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
     ) as $Val);
   }
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
     });
   }
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -101,12 +101,12 @@ class _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$MiralBeveledRectangleBorderImplCopyWith<$Res>
-    implements $MiralBeveledRectangleBorderCopyWith<$Res> {
-  factory _$$MiralBeveledRectangleBorderImplCopyWith(
-          _$MiralBeveledRectangleBorderImpl value,
-          $Res Function(_$MiralBeveledRectangleBorderImpl) then) =
-      __$$MiralBeveledRectangleBorderImplCopyWithImpl<$Res>;
+abstract class _$$MiraiBeveledRectangleBorderImplCopyWith<$Res>
+    implements $MiraiBeveledRectangleBorderCopyWith<$Res> {
+  factory _$$MiraiBeveledRectangleBorderImplCopyWith(
+          _$MiraiBeveledRectangleBorderImpl value,
+          $Res Function(_$MiraiBeveledRectangleBorderImpl) then) =
+      __$$MiraiBeveledRectangleBorderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({MiraiBorderSide side, MiraiBorderRadius borderRadius});
@@ -118,16 +118,16 @@ abstract class _$$MiralBeveledRectangleBorderImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MiralBeveledRectangleBorderImplCopyWithImpl<$Res>
-    extends _$MiralBeveledRectangleBorderCopyWithImpl<$Res,
-        _$MiralBeveledRectangleBorderImpl>
-    implements _$$MiralBeveledRectangleBorderImplCopyWith<$Res> {
-  __$$MiralBeveledRectangleBorderImplCopyWithImpl(
-      _$MiralBeveledRectangleBorderImpl _value,
-      $Res Function(_$MiralBeveledRectangleBorderImpl) _then)
+class __$$MiraiBeveledRectangleBorderImplCopyWithImpl<$Res>
+    extends _$MiraiBeveledRectangleBorderCopyWithImpl<$Res,
+        _$MiraiBeveledRectangleBorderImpl>
+    implements _$$MiraiBeveledRectangleBorderImplCopyWith<$Res> {
+  __$$MiraiBeveledRectangleBorderImplCopyWithImpl(
+      _$MiraiBeveledRectangleBorderImpl _value,
+      $Res Function(_$MiraiBeveledRectangleBorderImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -135,7 +135,7 @@ class __$$MiralBeveledRectangleBorderImplCopyWithImpl<$Res>
     Object? side = null,
     Object? borderRadius = null,
   }) {
-    return _then(_$MiralBeveledRectangleBorderImpl(
+    return _then(_$MiraiBeveledRectangleBorderImpl(
       side: null == side
           ? _value.side
           : side // ignore: cast_nullable_to_non_nullable
@@ -150,15 +150,15 @@ class __$$MiralBeveledRectangleBorderImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MiralBeveledRectangleBorderImpl
-    implements _MiralBeveledRectangleBorder {
-  const _$MiralBeveledRectangleBorderImpl(
+class _$MiraiBeveledRectangleBorderImpl
+    implements _MiraiBeveledRectangleBorder {
+  const _$MiraiBeveledRectangleBorderImpl(
       {this.side = const MiraiBorderSide.none(),
       this.borderRadius = const MiraiBorderRadius()});
 
-  factory _$MiralBeveledRectangleBorderImpl.fromJson(
+  factory _$MiraiBeveledRectangleBorderImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$MiralBeveledRectangleBorderImplFromJson(json);
+      _$$MiraiBeveledRectangleBorderImplFromJson(json);
 
   @override
   @JsonKey()
@@ -169,14 +169,14 @@ class _$MiralBeveledRectangleBorderImpl
 
   @override
   String toString() {
-    return 'MiralBeveledRectangleBorder(side: $side, borderRadius: $borderRadius)';
+    return 'MiraiBeveledRectangleBorder(side: $side, borderRadius: $borderRadius)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiralBeveledRectangleBorderImpl &&
+            other is _$MiraiBeveledRectangleBorderImpl &&
             (identical(other.side, side) || other.side == side) &&
             (identical(other.borderRadius, borderRadius) ||
                 other.borderRadius == borderRadius));
@@ -186,41 +186,41 @@ class _$MiralBeveledRectangleBorderImpl
   @override
   int get hashCode => Object.hash(runtimeType, side, borderRadius);
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiralBeveledRectangleBorderImplCopyWith<_$MiralBeveledRectangleBorderImpl>
-      get copyWith => __$$MiralBeveledRectangleBorderImplCopyWithImpl<
-          _$MiralBeveledRectangleBorderImpl>(this, _$identity);
+  _$$MiraiBeveledRectangleBorderImplCopyWith<_$MiraiBeveledRectangleBorderImpl>
+      get copyWith => __$$MiraiBeveledRectangleBorderImplCopyWithImpl<
+          _$MiraiBeveledRectangleBorderImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiralBeveledRectangleBorderImplToJson(
+    return _$$MiraiBeveledRectangleBorderImplToJson(
       this,
     );
   }
 }
 
-abstract class _MiralBeveledRectangleBorder
-    implements MiralBeveledRectangleBorder {
-  const factory _MiralBeveledRectangleBorder(
+abstract class _MiraiBeveledRectangleBorder
+    implements MiraiBeveledRectangleBorder {
+  const factory _MiraiBeveledRectangleBorder(
           {final MiraiBorderSide side, final MiraiBorderRadius borderRadius}) =
-      _$MiralBeveledRectangleBorderImpl;
+      _$MiraiBeveledRectangleBorderImpl;
 
-  factory _MiralBeveledRectangleBorder.fromJson(Map<String, dynamic> json) =
-      _$MiralBeveledRectangleBorderImpl.fromJson;
+  factory _MiraiBeveledRectangleBorder.fromJson(Map<String, dynamic> json) =
+      _$MiraiBeveledRectangleBorderImpl.fromJson;
 
   @override
   MiraiBorderSide get side;
   @override
   MiraiBorderRadius get borderRadius;
 
-  /// Create a copy of MiralBeveledRectangleBorder
+  /// Create a copy of MiraiBeveledRectangleBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiralBeveledRectangleBorderImplCopyWith<_$MiralBeveledRectangleBorderImpl>
+  _$$MiraiBeveledRectangleBorderImplCopyWith<_$MiraiBeveledRectangleBorderImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

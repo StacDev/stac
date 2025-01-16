@@ -6,17 +6,17 @@ part 'mirai_continous_rectangle_border.freezed.dart';
 part 'mirai_continous_rectangle_border.g.dart';
 
 @freezed
-class MiralContinousRectangleBorder with _$MiralContinousRectangleBorder {
-  const factory MiralContinousRectangleBorder({
+class MiraiContinousRectangleBorder with _$MiraiContinousRectangleBorder {
+  const factory MiraiContinousRectangleBorder({
     @Default(MiraiBorderSide.none()) MiraiBorderSide side,
     @Default(MiraiBorderRadius()) MiraiBorderRadius borderRadius,
-  }) = _MiralContinousRectangleBorder;
+  }) = _MiraiContinousRectangleBorder;
 
-  factory MiralContinousRectangleBorder.fromJson(Map<String, dynamic> json) =>
-      _$MiralContinousRectangleBorderFromJson(json);
+  factory MiraiContinousRectangleBorder.fromJson(Map<String, dynamic> json) =>
+      _$MiraiContinousRectangleBorderFromJson(json);
 }
 
-extension MiralContinousRectangleBorderParser on MiralContinousRectangleBorder {
+extension MiralContinousRectangleBorderParser on MiraiContinousRectangleBorder {
   ShapeBorder parse(BuildContext context) {
     return ContinuousRectangleBorder(
       side: side.parse(context),

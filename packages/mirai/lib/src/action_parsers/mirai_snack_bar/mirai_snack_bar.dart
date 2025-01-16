@@ -19,7 +19,7 @@ class MiraiSnackBar with _$MiraiSnackBar {
     MiraiEdgeInsets? margin,
     MiraiEdgeInsets? padding,
     double? width,
-    MiralShapeBorder? shape,
+    MiraiShapeBorder? shape,
     HitTestBehavior? hitTestBehavior,
     SnackBarBehavior? behavior,
     MiraiSnackBarAction? action,

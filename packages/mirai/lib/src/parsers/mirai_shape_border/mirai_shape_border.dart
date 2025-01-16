@@ -17,27 +17,27 @@ enum MiraiShapeBorderType {
 }
 
 @freezed
-class MiralShapeBorder with _$MiralShapeBorder {
-  const factory MiralShapeBorder({
+class MiraiShapeBorder with _$MiraiShapeBorder {
+  const factory MiraiShapeBorder({
     required MiraiShapeBorderType borderType,
     required Map<String, dynamic> data,
-  }) = _MiralShapeBorder;
+  }) = _MiraiShapeBorder;
 
-  factory MiralShapeBorder.fromJson(Map<String, dynamic> json) =>
-      _$MiralShapeBorderFromJson(json);
+  factory MiraiShapeBorder.fromJson(Map<String, dynamic> json) =>
+      _$MiraiShapeBorderFromJson(json);
 }
 
-extension MiralShapeBorderParser on MiralShapeBorder {
+extension MiralShapeBorderParser on MiraiShapeBorder {
   ShapeBorder parse(BuildContext context) {
     switch (borderType) {
       case MiraiShapeBorderType.circleBorder:
-        return MiralCircleBorder.fromJson(data).parse(context);
+        return MiraiCircleBorder.fromJson(data).parse(context);
       case MiraiShapeBorderType.roundedRectangleBorder:
-        return MiralRoundedRactangleBorder.fromJson(data).parse(context);
+        return MiraiRoundedRactangleBorder.fromJson(data).parse(context);
       case MiraiShapeBorderType.continuousRectangleBorder:
-        return MiralContinousRectangleBorder.fromJson(data).parse(context);
+        return MiraiContinousRectangleBorder.fromJson(data).parse(context);
       case MiraiShapeBorderType.beveledRectangleBorder:
-        return MiralBeveledRectangleBorder.fromJson(data).parse(context);
+        return MiraiBeveledRectangleBorder.fromJson(data).parse(context);
     }
   }
 }

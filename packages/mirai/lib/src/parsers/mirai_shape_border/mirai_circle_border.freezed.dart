@@ -14,30 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MiralCircleBorder _$MiralCircleBorderFromJson(Map<String, dynamic> json) {
-  return _MiralCircleBorder.fromJson(json);
+MiraiCircleBorder _$MiraiCircleBorderFromJson(Map<String, dynamic> json) {
+  return _MiraiCircleBorder.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MiralCircleBorder {
+mixin _$MiraiCircleBorder {
   MiraiBorderSide get side => throw _privateConstructorUsedError;
   double get eccentricity => throw _privateConstructorUsedError;
 
-  /// Serializes this MiralCircleBorder to a JSON map.
+  /// Serializes this MiraiCircleBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MiralCircleBorderCopyWith<MiralCircleBorder> get copyWith =>
+  $MiraiCircleBorderCopyWith<MiraiCircleBorder> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MiralCircleBorderCopyWith<$Res> {
-  factory $MiralCircleBorderCopyWith(
-          MiralCircleBorder value, $Res Function(MiralCircleBorder) then) =
-      _$MiralCircleBorderCopyWithImpl<$Res, MiralCircleBorder>;
+abstract class $MiraiCircleBorderCopyWith<$Res> {
+  factory $MiraiCircleBorderCopyWith(
+          MiraiCircleBorder value, $Res Function(MiraiCircleBorder) then) =
+      _$MiraiCircleBorderCopyWithImpl<$Res, MiraiCircleBorder>;
   @useResult
   $Res call({MiraiBorderSide side, double eccentricity});
 
@@ -45,16 +45,16 @@ abstract class $MiralCircleBorderCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MiralCircleBorderCopyWithImpl<$Res, $Val extends MiralCircleBorder>
-    implements $MiralCircleBorderCopyWith<$Res> {
-  _$MiralCircleBorderCopyWithImpl(this._value, this._then);
+class _$MiraiCircleBorderCopyWithImpl<$Res, $Val extends MiraiCircleBorder>
+    implements $MiraiCircleBorderCopyWith<$Res> {
+  _$MiraiCircleBorderCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -74,7 +74,7 @@ class _$MiralCircleBorderCopyWithImpl<$Res, $Val extends MiralCircleBorder>
     ) as $Val);
   }
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -86,11 +86,11 @@ class _$MiralCircleBorderCopyWithImpl<$Res, $Val extends MiralCircleBorder>
 }
 
 /// @nodoc
-abstract class _$$MiralCircleBorderImplCopyWith<$Res>
-    implements $MiralCircleBorderCopyWith<$Res> {
-  factory _$$MiralCircleBorderImplCopyWith(_$MiralCircleBorderImpl value,
-          $Res Function(_$MiralCircleBorderImpl) then) =
-      __$$MiralCircleBorderImplCopyWithImpl<$Res>;
+abstract class _$$MiraiCircleBorderImplCopyWith<$Res>
+    implements $MiraiCircleBorderCopyWith<$Res> {
+  factory _$$MiraiCircleBorderImplCopyWith(_$MiraiCircleBorderImpl value,
+          $Res Function(_$MiraiCircleBorderImpl) then) =
+      __$$MiraiCircleBorderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({MiraiBorderSide side, double eccentricity});
@@ -100,14 +100,14 @@ abstract class _$$MiralCircleBorderImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MiralCircleBorderImplCopyWithImpl<$Res>
-    extends _$MiralCircleBorderCopyWithImpl<$Res, _$MiralCircleBorderImpl>
-    implements _$$MiralCircleBorderImplCopyWith<$Res> {
-  __$$MiralCircleBorderImplCopyWithImpl(_$MiralCircleBorderImpl _value,
-      $Res Function(_$MiralCircleBorderImpl) _then)
+class __$$MiraiCircleBorderImplCopyWithImpl<$Res>
+    extends _$MiraiCircleBorderCopyWithImpl<$Res, _$MiraiCircleBorderImpl>
+    implements _$$MiraiCircleBorderImplCopyWith<$Res> {
+  __$$MiraiCircleBorderImplCopyWithImpl(_$MiraiCircleBorderImpl _value,
+      $Res Function(_$MiraiCircleBorderImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -115,7 +115,7 @@ class __$$MiralCircleBorderImplCopyWithImpl<$Res>
     Object? side = null,
     Object? eccentricity = null,
   }) {
-    return _then(_$MiralCircleBorderImpl(
+    return _then(_$MiraiCircleBorderImpl(
       side: null == side
           ? _value.side
           : side // ignore: cast_nullable_to_non_nullable
@@ -130,12 +130,12 @@ class __$$MiralCircleBorderImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MiralCircleBorderImpl implements _MiralCircleBorder {
-  const _$MiralCircleBorderImpl(
+class _$MiraiCircleBorderImpl implements _MiraiCircleBorder {
+  const _$MiraiCircleBorderImpl(
       {this.side = const MiraiBorderSide.none(), this.eccentricity = 0.0});
 
-  factory _$MiralCircleBorderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MiralCircleBorderImplFromJson(json);
+  factory _$MiraiCircleBorderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MiraiCircleBorderImplFromJson(json);
 
   @override
   @JsonKey()
@@ -146,14 +146,14 @@ class _$MiralCircleBorderImpl implements _MiralCircleBorder {
 
   @override
   String toString() {
-    return 'MiralCircleBorder(side: $side, eccentricity: $eccentricity)';
+    return 'MiraiCircleBorder(side: $side, eccentricity: $eccentricity)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiralCircleBorderImpl &&
+            other is _$MiraiCircleBorderImpl &&
             (identical(other.side, side) || other.side == side) &&
             (identical(other.eccentricity, eccentricity) ||
                 other.eccentricity == eccentricity));
@@ -163,40 +163,40 @@ class _$MiralCircleBorderImpl implements _MiralCircleBorder {
   @override
   int get hashCode => Object.hash(runtimeType, side, eccentricity);
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiralCircleBorderImplCopyWith<_$MiralCircleBorderImpl> get copyWith =>
-      __$$MiralCircleBorderImplCopyWithImpl<_$MiralCircleBorderImpl>(
+  _$$MiraiCircleBorderImplCopyWith<_$MiraiCircleBorderImpl> get copyWith =>
+      __$$MiraiCircleBorderImplCopyWithImpl<_$MiraiCircleBorderImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiralCircleBorderImplToJson(
+    return _$$MiraiCircleBorderImplToJson(
       this,
     );
   }
 }
 
-abstract class _MiralCircleBorder implements MiralCircleBorder {
-  const factory _MiralCircleBorder(
+abstract class _MiraiCircleBorder implements MiraiCircleBorder {
+  const factory _MiraiCircleBorder(
       {final MiraiBorderSide side,
-      final double eccentricity}) = _$MiralCircleBorderImpl;
+      final double eccentricity}) = _$MiraiCircleBorderImpl;
 
-  factory _MiralCircleBorder.fromJson(Map<String, dynamic> json) =
-      _$MiralCircleBorderImpl.fromJson;
+  factory _MiraiCircleBorder.fromJson(Map<String, dynamic> json) =
+      _$MiraiCircleBorderImpl.fromJson;
 
   @override
   MiraiBorderSide get side;
   @override
   double get eccentricity;
 
-  /// Create a copy of MiralCircleBorder
+  /// Create a copy of MiraiCircleBorder
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiralCircleBorderImplCopyWith<_$MiralCircleBorderImpl> get copyWith =>
+  _$$MiraiCircleBorderImplCopyWith<_$MiraiCircleBorderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

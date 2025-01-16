@@ -26,7 +26,7 @@ mixin _$MiraiSnackBar {
   MiraiEdgeInsets? get margin => throw _privateConstructorUsedError;
   MiraiEdgeInsets? get padding => throw _privateConstructorUsedError;
   double? get width => throw _privateConstructorUsedError;
-  MiralShapeBorder? get shape => throw _privateConstructorUsedError;
+  MiraiShapeBorder? get shape => throw _privateConstructorUsedError;
   HitTestBehavior? get hitTestBehavior => throw _privateConstructorUsedError;
   SnackBarBehavior? get behavior => throw _privateConstructorUsedError;
   MiraiSnackBarAction? get action => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $MiraiSnackBarCopyWith<$Res> {
       MiraiEdgeInsets? margin,
       MiraiEdgeInsets? padding,
       double? width,
-      MiralShapeBorder? shape,
+      MiraiShapeBorder? shape,
       HitTestBehavior? hitTestBehavior,
       SnackBarBehavior? behavior,
       MiraiSnackBarAction? action,
@@ -75,7 +75,7 @@ abstract class $MiraiSnackBarCopyWith<$Res> {
 
   $MiraiEdgeInsetsCopyWith<$Res>? get margin;
   $MiraiEdgeInsetsCopyWith<$Res>? get padding;
-  $MiralShapeBorderCopyWith<$Res>? get shape;
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
   $MiraiSnackBarActionCopyWith<$Res>? get action;
   $MiraiDurationCopyWith<$Res> get duration;
 }
@@ -141,7 +141,7 @@ class _$MiraiSnackBarCopyWithImpl<$Res, $Val extends MiraiSnackBar>
       shape: freezed == shape
           ? _value.shape
           : shape // ignore: cast_nullable_to_non_nullable
-              as MiralShapeBorder?,
+              as MiraiShapeBorder?,
       hitTestBehavior: freezed == hitTestBehavior
           ? _value.hitTestBehavior
           : hitTestBehavior // ignore: cast_nullable_to_non_nullable
@@ -217,12 +217,12 @@ class _$MiraiSnackBarCopyWithImpl<$Res, $Val extends MiraiSnackBar>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MiralShapeBorderCopyWith<$Res>? get shape {
+  $MiraiShapeBorderCopyWith<$Res>? get shape {
     if (_value.shape == null) {
       return null;
     }
 
-    return $MiralShapeBorderCopyWith<$Res>(_value.shape!, (value) {
+    return $MiraiShapeBorderCopyWith<$Res>(_value.shape!, (value) {
       return _then(_value.copyWith(shape: value) as $Val);
     });
   }
@@ -267,7 +267,7 @@ abstract class _$$MiraiSnackBarImplCopyWith<$Res>
       MiraiEdgeInsets? margin,
       MiraiEdgeInsets? padding,
       double? width,
-      MiralShapeBorder? shape,
+      MiraiShapeBorder? shape,
       HitTestBehavior? hitTestBehavior,
       SnackBarBehavior? behavior,
       MiraiSnackBarAction? action,
@@ -284,7 +284,7 @@ abstract class _$$MiraiSnackBarImplCopyWith<$Res>
   @override
   $MiraiEdgeInsetsCopyWith<$Res>? get padding;
   @override
-  $MiralShapeBorderCopyWith<$Res>? get shape;
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
   @override
   $MiraiSnackBarActionCopyWith<$Res>? get action;
   @override
@@ -350,7 +350,7 @@ class __$$MiraiSnackBarImplCopyWithImpl<$Res>
       shape: freezed == shape
           ? _value.shape
           : shape // ignore: cast_nullable_to_non_nullable
-              as MiralShapeBorder?,
+              as MiraiShapeBorder?,
       hitTestBehavior: freezed == hitTestBehavior
           ? _value.hitTestBehavior
           : hitTestBehavior // ignore: cast_nullable_to_non_nullable
@@ -441,7 +441,7 @@ class _$MiraiSnackBarImpl implements _MiraiSnackBar {
   @override
   final double? width;
   @override
-  final MiralShapeBorder? shape;
+  final MiraiShapeBorder? shape;
   @override
   final HitTestBehavior? hitTestBehavior;
   @override
@@ -560,7 +560,7 @@ abstract class _MiraiSnackBar implements MiraiSnackBar {
       final MiraiEdgeInsets? margin,
       final MiraiEdgeInsets? padding,
       final double? width,
-      final MiralShapeBorder? shape,
+      final MiraiShapeBorder? shape,
       final HitTestBehavior? hitTestBehavior,
       final SnackBarBehavior? behavior,
       final MiraiSnackBarAction? action,
@@ -588,7 +588,7 @@ abstract class _MiraiSnackBar implements MiraiSnackBar {
   @override
   double? get width;
   @override
-  MiralShapeBorder? get shape;
+  MiraiShapeBorder? get shape;
   @override
   HitTestBehavior? get hitTestBehavior;
   @override
