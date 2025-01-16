@@ -9,11 +9,11 @@ class MiraiPlaceholderParser extends MiraiParser<MiraiPlaceholder> {
   const MiraiPlaceholderParser();
 
   @override
-  MiraiPlaceholder getModel(Map<String, dynamic> json) =>
-      MiraiPlaceholder.fromJson(json);
+  String get type => WidgetType.placeholder.name;
 
   @override
-  String get type => WidgetType.placeholder.name;
+  MiraiPlaceholder getModel(Map<String, dynamic> json) =>
+      MiraiPlaceholder.fromJson(json);
 
   @override
   Widget parse(BuildContext context, MiraiPlaceholder model) {
