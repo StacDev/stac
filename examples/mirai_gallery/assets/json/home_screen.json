@@ -1556,6 +1556,45 @@
     }
   },
   {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "message"
+    },
+    "title": {
+      "type": "text",
+      "data": "Mirai SnackBar",
+      "align": "center",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design SnackBar widget",
+      "align": "center",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "style": "list",
+    "onTap": {
+      "actionType": "showSnackBar",
+      "content": {
+        "type": "text",
+        "data": "This is a Snackbar"
+      },
+      "action": {
+        "label": "Done",
+        "textColor": "#73C2FB",
+        "onPressed": {}
+      },
+      "behavior": "floating"
+    }
+  },
+  {
     "type": "sizedBox",
     "height": 24.0
   }

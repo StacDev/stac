@@ -101,6 +101,7 @@ class Mirai {
     const MiraiDialogActionParser(),
     const MiraiGetFormValueParser(),
     const MiraiFormValidateParser(),
+    const MiraiSnackBarParser(),
   ];
 
   static Future<void> initialize({
