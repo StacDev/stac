@@ -18,10 +18,10 @@ class MiraiPlaceholderParser extends MiraiParser<MiraiPlaceholder> {
   @override
   Widget parse(BuildContext context, MiraiPlaceholder model) {
     return Placeholder(
-      fallbackWidth: model.fallbackWidth ?? 400.0,
-      fallbackHeight: model.fallbackHeight ?? 400.0,
-      strokeWidth: model.strokeWidth ?? 2.0,
-      color: model.color?.toColor(context) ?? const Color(0xFF455A64),
+      fallbackWidth: model.fallbackWidth,
+      fallbackHeight: model.fallbackHeight,
+      strokeWidth: model.strokeWidth,
+      color: model.color.toColor(context) ?? Color(0xFF455A64),
       child: Mirai.fromJson(model.child, context),
     );
   }

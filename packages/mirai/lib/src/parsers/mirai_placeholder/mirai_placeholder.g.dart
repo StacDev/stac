@@ -9,10 +9,10 @@ part of 'mirai_placeholder.dart';
 _$MiraiPlaceholderImpl _$$MiraiPlaceholderImplFromJson(
         Map<String, dynamic> json) =>
     _$MiraiPlaceholderImpl(
-      fallbackWidth: (json['fallbackWidth'] as num?)?.toDouble(),
-      fallbackHeight: (json['fallbackHeight'] as num?)?.toDouble(),
-      strokeWidth: (json['strokeWidth'] as num?)?.toDouble(),
-      color: json['color'] as String?,
+      fallbackWidth: (json['fallbackWidth'] as num?)?.toDouble() ?? 2.0,
+      fallbackHeight: (json['fallbackHeight'] as num?)?.toDouble() ?? 400.0,
+      strokeWidth: (json['strokeWidth'] as num?)?.toDouble() ?? 400.0,
+      color: json['color'] as String? ?? '#455A64',
       child: json['child'] as Map<String, dynamic>?,
     );
 

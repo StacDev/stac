@@ -20,10 +20,10 @@ MiraiPlaceholder _$MiraiPlaceholderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MiraiPlaceholder {
-  double? get fallbackWidth => throw _privateConstructorUsedError;
-  double? get fallbackHeight => throw _privateConstructorUsedError;
-  double? get strokeWidth => throw _privateConstructorUsedError;
-  String? get color => throw _privateConstructorUsedError;
+  double get fallbackWidth => throw _privateConstructorUsedError;
+  double get fallbackHeight => throw _privateConstructorUsedError;
+  double get strokeWidth => throw _privateConstructorUsedError;
+  String get color => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiPlaceholder to a JSON map.
@@ -43,10 +43,10 @@ abstract class $MiraiPlaceholderCopyWith<$Res> {
       _$MiraiPlaceholderCopyWithImpl<$Res, MiraiPlaceholder>;
   @useResult
   $Res call(
-      {double? fallbackWidth,
-      double? fallbackHeight,
-      double? strokeWidth,
-      String? color,
+      {double fallbackWidth,
+      double fallbackHeight,
+      double strokeWidth,
+      String color,
       Map<String, dynamic>? child});
 }
 
@@ -65,29 +65,29 @@ class _$MiraiPlaceholderCopyWithImpl<$Res, $Val extends MiraiPlaceholder>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fallbackWidth = freezed,
-    Object? fallbackHeight = freezed,
-    Object? strokeWidth = freezed,
-    Object? color = freezed,
+    Object? fallbackWidth = null,
+    Object? fallbackHeight = null,
+    Object? strokeWidth = null,
+    Object? color = null,
     Object? child = freezed,
   }) {
     return _then(_value.copyWith(
-      fallbackWidth: freezed == fallbackWidth
+      fallbackWidth: null == fallbackWidth
           ? _value.fallbackWidth
           : fallbackWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
-      fallbackHeight: freezed == fallbackHeight
+              as double,
+      fallbackHeight: null == fallbackHeight
           ? _value.fallbackHeight
           : fallbackHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
-      strokeWidth: freezed == strokeWidth
+              as double,
+      strokeWidth: null == strokeWidth
           ? _value.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
-      color: freezed == color
+              as double,
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       child: freezed == child
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -105,10 +105,10 @@ abstract class _$$MiraiPlaceholderImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? fallbackWidth,
-      double? fallbackHeight,
-      double? strokeWidth,
-      String? color,
+      {double fallbackWidth,
+      double fallbackHeight,
+      double strokeWidth,
+      String color,
       Map<String, dynamic>? child});
 }
 
@@ -125,29 +125,29 @@ class __$$MiraiPlaceholderImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fallbackWidth = freezed,
-    Object? fallbackHeight = freezed,
-    Object? strokeWidth = freezed,
-    Object? color = freezed,
+    Object? fallbackWidth = null,
+    Object? fallbackHeight = null,
+    Object? strokeWidth = null,
+    Object? color = null,
     Object? child = freezed,
   }) {
     return _then(_$MiraiPlaceholderImpl(
-      fallbackWidth: freezed == fallbackWidth
+      fallbackWidth: null == fallbackWidth
           ? _value.fallbackWidth
           : fallbackWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
-      fallbackHeight: freezed == fallbackHeight
+              as double,
+      fallbackHeight: null == fallbackHeight
           ? _value.fallbackHeight
           : fallbackHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
-      strokeWidth: freezed == strokeWidth
+              as double,
+      strokeWidth: null == strokeWidth
           ? _value.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
-      color: freezed == color
+              as double,
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       child: freezed == child
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
@@ -160,10 +160,10 @@ class __$$MiraiPlaceholderImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MiraiPlaceholderImpl implements _MiraiPlaceholder {
   const _$MiraiPlaceholderImpl(
-      {this.fallbackWidth,
-      this.fallbackHeight,
-      this.strokeWidth,
-      this.color,
+      {this.fallbackWidth = 2.0,
+      this.fallbackHeight = 400.0,
+      this.strokeWidth = 400.0,
+      this.color = '#455A64',
       final Map<String, dynamic>? child})
       : _child = child;
 
@@ -171,13 +171,17 @@ class _$MiraiPlaceholderImpl implements _MiraiPlaceholder {
       _$$MiraiPlaceholderImplFromJson(json);
 
   @override
-  final double? fallbackWidth;
+  @JsonKey()
+  final double fallbackWidth;
   @override
-  final double? fallbackHeight;
+  @JsonKey()
+  final double fallbackHeight;
   @override
-  final double? strokeWidth;
+  @JsonKey()
+  final double strokeWidth;
   @override
-  final String? color;
+  @JsonKey()
+  final String color;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -232,23 +236,23 @@ class _$MiraiPlaceholderImpl implements _MiraiPlaceholder {
 
 abstract class _MiraiPlaceholder implements MiraiPlaceholder {
   const factory _MiraiPlaceholder(
-      {final double? fallbackWidth,
-      final double? fallbackHeight,
-      final double? strokeWidth,
-      final String? color,
+      {final double fallbackWidth,
+      final double fallbackHeight,
+      final double strokeWidth,
+      final String color,
       final Map<String, dynamic>? child}) = _$MiraiPlaceholderImpl;
 
   factory _MiraiPlaceholder.fromJson(Map<String, dynamic> json) =
       _$MiraiPlaceholderImpl.fromJson;
 
   @override
-  double? get fallbackWidth;
+  double get fallbackWidth;
   @override
-  double? get fallbackHeight;
+  double get fallbackHeight;
   @override
-  double? get strokeWidth;
+  double get strokeWidth;
   @override
-  String? get color;
+  String get color;
   @override
   Map<String, dynamic>? get child;
 

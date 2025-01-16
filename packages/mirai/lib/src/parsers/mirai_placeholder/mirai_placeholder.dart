@@ -8,10 +8,10 @@ part 'mirai_placeholder.g.dart';
 @freezed
 class MiraiPlaceholder with _$MiraiPlaceholder {
   const factory MiraiPlaceholder({
-    double? fallbackWidth,
-    double? fallbackHeight,
-    double? strokeWidth,
-    String? color,
+    @Default(2.0) double fallbackWidth,
+    @Default(400.0) double fallbackHeight,
+    @Default(400.0) double strokeWidth,
+    @Default('#455A64') String color,
     Map<String, dynamic>? child,
   }) = _MiraiPlaceholder;
 
