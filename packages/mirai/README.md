@@ -416,7 +416,7 @@ Check out the [Mirai Gallery](https://github.com/BuildMirai/mirai/tree/dev/examp
 ## Companies/Products using Mirai ✨
 
 <a href="https://jobhunt.work/">
-  <img src="https://github.com/BuildMirai/mirai/tree/dv/companies/assets/companies/jobhunt.png" alt="Job Hunt" height="100"/>
+  <img src="https://github.com/BuildMirai/mirai/blob/dv/companies/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
 </a>
 
 ## Maintainers
