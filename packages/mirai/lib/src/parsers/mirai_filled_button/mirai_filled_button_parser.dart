@@ -15,8 +15,12 @@ class MiraiFilledButtonParser extends MiraiParser<MiraiFilledButton> {
   @override
   Widget parse(BuildContext context, MiraiFilledButton model) {
     return FilledButton(
-      onPressed: model.onPressed == null ? null : () => model.onPressed,
-      onLongPress: model.onLongPress == null ? null : () => model.onLongPress,
+      onPressed: model.onPressed == null
+          ? null
+          : () => Mirai.onCallFromJson(model.onPressed, context),
+      onLongPress: model.onLongPress == null
+          ? null
+          : () => Mirai.onCallFromJson(model.onLongPress, context),
       onHover: (bool value) => value == false ? null : model.onHover,
       onFocusChange: (bool value) =>
           value == false ? null : model.onFocusChange,
