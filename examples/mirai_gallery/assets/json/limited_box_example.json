@@ -1,0 +1,40 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "LimitedBox"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+
+      {
+        "type": "limitedBox",
+        "child": {
+          "type": "container",
+          "height": 100,
+          "color": "#FF0000",
+          "child": {
+            "type": "text",
+            "data": "Hello, World! from Limited Box",
+            "style": {
+              "fontSize": 16,
+              "color": "#000000"
+            }
+          }
+
+        }
+      }
+
+      
+    ]
+  }
+}

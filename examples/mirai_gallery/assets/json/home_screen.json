@@ -1640,7 +1640,7 @@
 
     "title": {
       "type": "text",
-      "data": "AspectRatio",
+      "data": "Mirai AspectRatio",
       "style": {
         "fontSize": 21
       }
@@ -1673,7 +1673,7 @@
 
     "title": {
       "type": "text",
-      "data": "FittedBox",
+      "data": "Mirai FittedBox",
       "style": {
         "fontSize": 21
       }
@@ -1695,6 +1695,40 @@
       }
     }
   },
+
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "apartment"
+    },
+
+    "title": {
+      "type": "text",
+      "data": "Mirai LimitedBox",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai LimitedBox widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/limited_box_example.json"
+      }
+    }
+  },
+  
 
   {
     "type": "sizedBox",
