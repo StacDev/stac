@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-export 'package:mirai/src/parsers/mirai_Visibility/mirai_Visibility_parser.dart';
+export 'package:mirai/src/parsers/mirai_visibility/mirai_visibility_parser.dart';
 
 part 'mirai_visibility.freezed.dart';
 part 'mirai_visibility.g.dart';
