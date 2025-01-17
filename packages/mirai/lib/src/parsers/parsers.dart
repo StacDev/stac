@@ -90,3 +90,4 @@ export 'package:mirai/src/parsers/mirai_placeholder/mirai_placeholder.dart';
 export 'package:mirai/src/parsers/mirai_aspect_ratio/mirai_aspect_ratio.dart';
 export 'package:mirai/src/parsers/mirai_fitted_box/mirai_fitted_box.dart';
 export 'package:mirai/src/parsers/mirai_limited_box/mirai_limited_box.dart';
+export 'package:mirai/src/parsers/mirai_visibility/mirai_visibility.dart';
