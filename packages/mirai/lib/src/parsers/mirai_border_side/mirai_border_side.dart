@@ -16,6 +16,13 @@ class MiraiBorderSide with _$MiraiBorderSide {
 
   factory MiraiBorderSide.fromJson(Map<String, dynamic> json) =>
       _$MiraiBorderSideFromJson(json);
+
+  const factory MiraiBorderSide.none({
+    @Default("000000") String color,
+    @Default(0.0) double width,
+    @Default(-1.0) double strokeAlign,
+    @Default(BorderStyle.none) BorderStyle borderStyle,
+  }) = _MiraiBorderSideNone;
 }
 
 extension MiraiBorderSideParser on MiraiBorderSide? {
