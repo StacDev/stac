@@ -1,6 +1,6 @@
 # Table
 
-Mirai table allows you to build the Flutter align widget using JSON.
+Mirai table allows you to build the Flutter Table widget using JSON.
 To know more about the Table widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Table-class.html).
 
 ## Properties
