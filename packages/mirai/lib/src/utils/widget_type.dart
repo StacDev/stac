@@ -64,4 +64,5 @@ enum WidgetType {
   placeholder,
   aspectRatio,
   fittedBox,
+  limitedBox,
 }
