@@ -92,6 +92,8 @@ class Mirai {
     const MiraiSliderParser(),
     const MiraiOpacityParser(),
     const MiraiPlaceholderParser(),
+    const MiraiAspectRatioParser(),
+    const MiraiFittedBoxParser(),
   ];
 
   static final _actionParsers = <MiraiActionParser>[
