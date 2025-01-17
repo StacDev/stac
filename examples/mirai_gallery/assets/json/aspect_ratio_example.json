@@ -1,0 +1,39 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "AspectRatio"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "top": 12,
+      "left": 12,
+      "right": 12
+    },
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "start",
+      "crossAxisAlignment": "start",
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 12
+        },
+        {
+          "type": "aspectRatio",
+          "aspectRatio": 1.33,
+          "child": {
+            "type": "container",
+            "color": "#FF5733",
+            "width": 100,
+            "height": 100
+          }
+        }
+      ]
+    }
+  }
+}

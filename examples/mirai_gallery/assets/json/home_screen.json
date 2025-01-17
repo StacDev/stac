@@ -1629,6 +1629,73 @@
       "behavior": "floating"
     }
   },
+
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "apartment"
+    },
+
+    "title": {
+      "type": "text",
+      "data": "AspectRatio",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai AspectRatio widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/aspect_ratio_example.json"
+      }
+    }
+  },
+
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "apartment"
+    },
+
+    "title": {
+      "type": "text",
+      "data": "FittedBox",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai FittedBox widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/fitted_box_example.json"
+      }
+    }
+  },
+
   {
     "type": "sizedBox",
     "height": 24.0
