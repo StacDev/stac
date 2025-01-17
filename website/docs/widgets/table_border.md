@@ -7,12 +7,12 @@ To know more about the TableBorder class in Flutter, refer to the [official docu
 
 | Property         | Type              | Description                                                                                   |
 | ---------------- | ----------------- | --------------------------------------------------------------------------------------------- |
-| top              | `MiraiBorderSide` | Defines the top border of the table. See [`MiraiBorderSide`](./border_side.md)                |
-| right            | `MiraiBorderSide` | Defines the right border of the table. See  [`MiraiBorderSide`](./border_side.md)             |
-| bottom           | `MiraiBorderSide` | Defines the bottom border of the table. See  [`MiraiBorderSide`](./border_side.md)            |
-| left             | `MiraiBorderSide` | Defines the left border of the table. See  [`MiraiBorderSide`](./border_side.md)              |
-| horizontalInside | `MiraiBorderSide` | Defines the inner horizontal borders of the table. See  [`MiraiBorderSide`](./border_side.md) |
-| verticalInside   | `MiraiBorderSide` | Defines the inner vertical borders of the table. See  [`MiraiBorderSide`](./border_side.md)   |
+| top              | `MiraiBorderSide` | Defines the top border of the table. See [`MiraiBorderSide`](./border_side)                |
+| right            | `MiraiBorderSide` | Defines the right border of the table. See  [`MiraiBorderSide`](./border_side)             |
+| bottom           | `MiraiBorderSide` | Defines the bottom border of the table. See  [`MiraiBorderSide`](./border_side)            |
+| left             | `MiraiBorderSide` | Defines the left border of the table. See  [`MiraiBorderSide`](./border_side)              |
+| horizontalInside | `MiraiBorderSide` | Defines the inner horizontal borders of the table. See  [`MiraiBorderSide`](./border_side) |
+| verticalInside   | `MiraiBorderSide` | Defines the inner vertical borders of the table. See  [`MiraiBorderSide`](./border_side)   |
 | borderRadius     | `int`             | Defines the border radius to be used while rendering table corners.                           |
 
 ## Example
