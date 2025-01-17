@@ -1,0 +1,46 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Visibility"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+      {
+        "type": "visibility",
+        "child": {
+          "type": "text",
+          "data": "I am visible!"
+        },
+        "visible": true
+      },
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+      {
+        "type": "visibility",
+        "child": {
+          "type": "text",
+          "data": "I am hidden!"
+        },
+        "replacement": {
+          "type": "container",
+          "color": "#FF5733",
+          "width": 50,
+          "height": 50
+        },
+        "visible": false
+      }
+    ]
+  }
+}
