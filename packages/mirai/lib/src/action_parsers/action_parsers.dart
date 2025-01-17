@@ -5,3 +5,4 @@ export 'package:mirai/src/action_parsers/mirai_modal_bottom_sheet_action/mirai_m
 export 'package:mirai/src/action_parsers/mirai_navigate_action/mirai_navigate_action_parser.dart';
 export 'package:mirai/src/action_parsers/mirai_network_request/mirai_network_request.dart';
 export 'package:mirai/src/action_parsers/mirai_none_action/mirai_none_action_parser.dart';
+export 'package:mirai/src/action_parsers/mirai_snack_bar/mirai_snack_bar.dart';
