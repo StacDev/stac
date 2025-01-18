@@ -19,7 +19,7 @@ To know more about the aspectRatio widget in Flutter, refer to the [official doc
 ```json
 {
   "type": "aspectRatio",
-  "aspectRatio": 4 / 3,
+  "aspectRatio": 1.33,
   "child": {
     "type": "container",
     "color": "#FF5733",
