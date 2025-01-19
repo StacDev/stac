@@ -65,5 +65,4 @@ enum WidgetType {
   aspectRatio,
   fittedBox,
   limitedBox,
-  visibility,
 }
