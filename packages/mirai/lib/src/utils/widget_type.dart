@@ -62,4 +62,7 @@ enum WidgetType {
   slider,
   opacity,
   placeholder,
+  aspectRatio,
+  fittedBox,
+  limitedBox,
 }
