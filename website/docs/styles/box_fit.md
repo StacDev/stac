@@ -1,4 +1,4 @@
-### BoxFit
+# BoxFit
 
 The `fit` property supports the following values:
 
@@ -12,22 +12,11 @@ The `fit` property supports the following values:
 | `none`      | Positions the child without scaling, potentially allowing it to overflow the box.   |
 | `scaleDown` | Scales the child down to fit within the box only if it is larger than the box.      |
 
----
-
 ## Example JSON
 
 ```json
 {
   "type": "fittedBox",
-  "fit": "contain",
-  "alignment": "center",
-  "child": {
-    "type": "text",
-    "data": "Hello, World!",
-    "style": {
-      "fontSize": 20,
-      "color": "#000000"
-    }
-  }
+  "fit": "contain"
 }
 ```
