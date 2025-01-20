@@ -5,7 +5,7 @@ To know more about the TableCell widget in Flutter, refer to the [official docum
 ## Properties 
 | Property          | Type                         | Description                                                                                                                                   |
 | ----------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| verticalAlignment | `TableCellVerticalAlignment` | Defines the verticalAlignment for the table cell. Can be `top`, `middle`, `bottom`, `baseline`, `fill` & `intrinsicHeight` Defaults to `top`. |
+| verticalAlignment | `TableCellVerticalAlignment?` | Defines the verticalAlignment for the table cell. Can be `top`, `middle`, `bottom`, `baseline`, `fill` & `intrinsicHeight` Defaults to `top`. |
 | child             | `Map<String, dynamic>`       | The child widget of the table cell.                                                                                                           |
 
 ## Example
