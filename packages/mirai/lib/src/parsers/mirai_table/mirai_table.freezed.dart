@@ -563,13 +563,10 @@ MiraiTableBorder _$MiraiTableBorderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MiraiTableBorder {
-  MiraiBorderSide? get top => throw _privateConstructorUsedError;
-  MiraiBorderSide? get right => throw _privateConstructorUsedError;
-  MiraiBorderSide? get bottom => throw _privateConstructorUsedError;
-  MiraiBorderSide? get left => throw _privateConstructorUsedError;
-  MiraiBorderSide? get horizontalInside => throw _privateConstructorUsedError;
-  MiraiBorderSide? get verticalInside => throw _privateConstructorUsedError;
-  MiraiBorderRadius? get borderRadius => throw _privateConstructorUsedError;
+  String get color => throw _privateConstructorUsedError;
+  double get width => throw _privateConstructorUsedError;
+  BorderStyle get style => throw _privateConstructorUsedError;
+  MiraiBorderRadius get borderRadius => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiTableBorder to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -588,21 +585,12 @@ abstract class $MiraiTableBorderCopyWith<$Res> {
       _$MiraiTableBorderCopyWithImpl<$Res, MiraiTableBorder>;
   @useResult
   $Res call(
-      {MiraiBorderSide? top,
-      MiraiBorderSide? right,
-      MiraiBorderSide? bottom,
-      MiraiBorderSide? left,
-      MiraiBorderSide? horizontalInside,
-      MiraiBorderSide? verticalInside,
-      MiraiBorderRadius? borderRadius});
+      {String color,
+      double width,
+      BorderStyle style,
+      MiraiBorderRadius borderRadius});
 
-  $MiraiBorderSideCopyWith<$Res>? get top;
-  $MiraiBorderSideCopyWith<$Res>? get right;
-  $MiraiBorderSideCopyWith<$Res>? get bottom;
-  $MiraiBorderSideCopyWith<$Res>? get left;
-  $MiraiBorderSideCopyWith<$Res>? get horizontalInside;
-  $MiraiBorderSideCopyWith<$Res>? get verticalInside;
-  $MiraiBorderRadiusCopyWith<$Res>? get borderRadius;
+  $MiraiBorderRadiusCopyWith<$Res> get borderRadius;
 }
 
 /// @nodoc
@@ -620,43 +608,28 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? top = freezed,
-    Object? right = freezed,
-    Object? bottom = freezed,
-    Object? left = freezed,
-    Object? horizontalInside = freezed,
-    Object? verticalInside = freezed,
-    Object? borderRadius = freezed,
+    Object? color = null,
+    Object? width = null,
+    Object? style = null,
+    Object? borderRadius = null,
   }) {
     return _then(_value.copyWith(
-      top: freezed == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      right: freezed == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      bottom: freezed == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      left: freezed == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      horizontalInside: freezed == horizontalInside
-          ? _value.horizontalInside
-          : horizontalInside // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      verticalInside: freezed == verticalInside
-          ? _value.verticalInside
-          : verticalInside // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      borderRadius: freezed == borderRadius
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      style: null == style
+          ? _value.style
+          : style // ignore: cast_nullable_to_non_nullable
+              as BorderStyle,
+      borderRadius: null == borderRadius
           ? _value.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderRadius?,
+              as MiraiBorderRadius,
     ) as $Val);
   }
 
@@ -664,96 +637,8 @@ class _$MiraiTableBorderCopyWithImpl<$Res, $Val extends MiraiTableBorder>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get top {
-    if (_value.top == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.top!, (value) {
-      return _then(_value.copyWith(top: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get right {
-    if (_value.right == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.right!, (value) {
-      return _then(_value.copyWith(right: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get bottom {
-    if (_value.bottom == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.bottom!, (value) {
-      return _then(_value.copyWith(bottom: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get left {
-    if (_value.left == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.left!, (value) {
-      return _then(_value.copyWith(left: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get horizontalInside {
-    if (_value.horizontalInside == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.horizontalInside!, (value) {
-      return _then(_value.copyWith(horizontalInside: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderSideCopyWith<$Res>? get verticalInside {
-    if (_value.verticalInside == null) {
-      return null;
-    }
-
-    return $MiraiBorderSideCopyWith<$Res>(_value.verticalInside!, (value) {
-      return _then(_value.copyWith(verticalInside: value) as $Val);
-    });
-  }
-
-  /// Create a copy of MiraiTableBorder
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $MiraiBorderRadiusCopyWith<$Res>? get borderRadius {
-    if (_value.borderRadius == null) {
-      return null;
-    }
-
-    return $MiraiBorderRadiusCopyWith<$Res>(_value.borderRadius!, (value) {
+  $MiraiBorderRadiusCopyWith<$Res> get borderRadius {
+    return $MiraiBorderRadiusCopyWith<$Res>(_value.borderRadius, (value) {
       return _then(_value.copyWith(borderRadius: value) as $Val);
     });
   }
@@ -768,28 +653,13 @@ abstract class _$$MiraiTableBorderImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {MiraiBorderSide? top,
-      MiraiBorderSide? right,
-      MiraiBorderSide? bottom,
-      MiraiBorderSide? left,
-      MiraiBorderSide? horizontalInside,
-      MiraiBorderSide? verticalInside,
-      MiraiBorderRadius? borderRadius});
+      {String color,
+      double width,
+      BorderStyle style,
+      MiraiBorderRadius borderRadius});
 
   @override
-  $MiraiBorderSideCopyWith<$Res>? get top;
-  @override
-  $MiraiBorderSideCopyWith<$Res>? get right;
-  @override
-  $MiraiBorderSideCopyWith<$Res>? get bottom;
-  @override
-  $MiraiBorderSideCopyWith<$Res>? get left;
-  @override
-  $MiraiBorderSideCopyWith<$Res>? get horizontalInside;
-  @override
-  $MiraiBorderSideCopyWith<$Res>? get verticalInside;
-  @override
-  $MiraiBorderRadiusCopyWith<$Res>? get borderRadius;
+  $MiraiBorderRadiusCopyWith<$Res> get borderRadius;
 }
 
 /// @nodoc
@@ -805,43 +675,28 @@ class __$$MiraiTableBorderImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? top = freezed,
-    Object? right = freezed,
-    Object? bottom = freezed,
-    Object? left = freezed,
-    Object? horizontalInside = freezed,
-    Object? verticalInside = freezed,
-    Object? borderRadius = freezed,
+    Object? color = null,
+    Object? width = null,
+    Object? style = null,
+    Object? borderRadius = null,
   }) {
     return _then(_$MiraiTableBorderImpl(
-      top: freezed == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      right: freezed == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      bottom: freezed == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      left: freezed == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      horizontalInside: freezed == horizontalInside
-          ? _value.horizontalInside
-          : horizontalInside // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      verticalInside: freezed == verticalInside
-          ? _value.verticalInside
-          : verticalInside // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderSide?,
-      borderRadius: freezed == borderRadius
+      color: null == color
+          ? _value.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String,
+      width: null == width
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      style: null == style
+          ? _value.style
+          : style // ignore: cast_nullable_to_non_nullable
+              as BorderStyle,
+      borderRadius: null == borderRadius
           ? _value.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable
-              as MiraiBorderRadius?,
+              as MiraiBorderRadius,
     ));
   }
 }
@@ -850,35 +705,30 @@ class __$$MiraiTableBorderImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MiraiTableBorderImpl implements _MiraiTableBorder {
   const _$MiraiTableBorderImpl(
-      {this.top,
-      this.right,
-      this.bottom,
-      this.left,
-      this.horizontalInside,
-      this.verticalInside,
-      this.borderRadius});
+      {this.color = '#000000',
+      this.width = 1.0,
+      this.style = BorderStyle.solid,
+      this.borderRadius = const MiraiBorderRadius()});
 
   factory _$MiraiTableBorderImpl.fromJson(Map<String, dynamic> json) =>
       _$$MiraiTableBorderImplFromJson(json);
 
   @override
-  final MiraiBorderSide? top;
+  @JsonKey()
+  final String color;
   @override
-  final MiraiBorderSide? right;
+  @JsonKey()
+  final double width;
   @override
-  final MiraiBorderSide? bottom;
+  @JsonKey()
+  final BorderStyle style;
   @override
-  final MiraiBorderSide? left;
-  @override
-  final MiraiBorderSide? horizontalInside;
-  @override
-  final MiraiBorderSide? verticalInside;
-  @override
-  final MiraiBorderRadius? borderRadius;
+  @JsonKey()
+  final MiraiBorderRadius borderRadius;
 
   @override
   String toString() {
-    return 'MiraiTableBorder(top: $top, right: $right, bottom: $bottom, left: $left, horizontalInside: $horizontalInside, verticalInside: $verticalInside, borderRadius: $borderRadius)';
+    return 'MiraiTableBorder(color: $color, width: $width, style: $style, borderRadius: $borderRadius)';
   }
 
   @override
@@ -886,22 +736,17 @@ class _$MiraiTableBorderImpl implements _MiraiTableBorder {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MiraiTableBorderImpl &&
-            (identical(other.top, top) || other.top == top) &&
-            (identical(other.right, right) || other.right == right) &&
-            (identical(other.bottom, bottom) || other.bottom == bottom) &&
-            (identical(other.left, left) || other.left == left) &&
-            (identical(other.horizontalInside, horizontalInside) ||
-                other.horizontalInside == horizontalInside) &&
-            (identical(other.verticalInside, verticalInside) ||
-                other.verticalInside == verticalInside) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.style, style) || other.style == style) &&
             (identical(other.borderRadius, borderRadius) ||
                 other.borderRadius == borderRadius));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, top, right, bottom, left,
-      horizontalInside, verticalInside, borderRadius);
+  int get hashCode =>
+      Object.hash(runtimeType, color, width, style, borderRadius);
 
   /// Create a copy of MiraiTableBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -922,31 +767,22 @@ class _$MiraiTableBorderImpl implements _MiraiTableBorder {
 
 abstract class _MiraiTableBorder implements MiraiTableBorder {
   const factory _MiraiTableBorder(
-      {final MiraiBorderSide? top,
-      final MiraiBorderSide? right,
-      final MiraiBorderSide? bottom,
-      final MiraiBorderSide? left,
-      final MiraiBorderSide? horizontalInside,
-      final MiraiBorderSide? verticalInside,
-      final MiraiBorderRadius? borderRadius}) = _$MiraiTableBorderImpl;
+      {final String color,
+      final double width,
+      final BorderStyle style,
+      final MiraiBorderRadius borderRadius}) = _$MiraiTableBorderImpl;
 
   factory _MiraiTableBorder.fromJson(Map<String, dynamic> json) =
       _$MiraiTableBorderImpl.fromJson;
 
   @override
-  MiraiBorderSide? get top;
+  String get color;
   @override
-  MiraiBorderSide? get right;
+  double get width;
   @override
-  MiraiBorderSide? get bottom;
+  BorderStyle get style;
   @override
-  MiraiBorderSide? get left;
-  @override
-  MiraiBorderSide? get horizontalInside;
-  @override
-  MiraiBorderSide? get verticalInside;
-  @override
-  MiraiBorderRadius? get borderRadius;
+  MiraiBorderRadius get borderRadius;
 
   /// Create a copy of MiraiTableBorder
   /// with the given fields replaced by the non-null parameter values.

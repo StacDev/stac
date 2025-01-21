@@ -17,11 +17,8 @@
         "value": 1
       },
       "border": {
-        "type": "tableBorder",
-        "borderSide": {
-          "color": "#000000",
-          "width": 1.0
-        }
+        "color": "#000000",
+        "width": 1.0
       },
       "children": [
         {

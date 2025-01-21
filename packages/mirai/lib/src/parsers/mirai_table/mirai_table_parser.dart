@@ -41,13 +41,10 @@ extension MiraiTableRowParser on MiraiTableRow {
 
 extension MiraiTableBorderParser on MiraiTableBorder {
   TableBorder parse(BuildContext context) {
-    return TableBorder(
-      top: top.parse(context),
-      right: right.parse(context),
-      bottom: bottom.parse(context),
-      left: left.parse(context),
-      horizontalInside: horizontalInside.parse(context),
-      verticalInside: verticalInside.parse(context),
+    return TableBorder.all(
+      color: color.toColor(context) ?? Colors.black,
+      width: width,
+      style: style,
       borderRadius: borderRadius.parse,
     );
   }
