@@ -1,6 +1,6 @@
 name: mirai_webview
 description: A WebView Parser for Mirai. A wrapper of `webview_flutter` package for Mirai.
-version: 0.0.4
+version: 0.1.0
 homepage: https://github.com/buildMirai/mirai
 
 environment:
