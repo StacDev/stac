@@ -86,42 +86,28 @@ Map<String, dynamic> _$$MiraiTableRowImplToJson(_$MiraiTableRowImpl instance) =>
 _$MiraiTableBorderImpl _$$MiraiTableBorderImplFromJson(
         Map<String, dynamic> json) =>
     _$MiraiTableBorderImpl(
-      top: json['top'] == null
-          ? null
-          : MiraiBorderSide.fromJson(json['top'] as Map<String, dynamic>),
-      right: json['right'] == null
-          ? null
-          : MiraiBorderSide.fromJson(json['right'] as Map<String, dynamic>),
-      bottom: json['bottom'] == null
-          ? null
-          : MiraiBorderSide.fromJson(json['bottom'] as Map<String, dynamic>),
-      left: json['left'] == null
-          ? null
-          : MiraiBorderSide.fromJson(json['left'] as Map<String, dynamic>),
-      horizontalInside: json['horizontalInside'] == null
-          ? null
-          : MiraiBorderSide.fromJson(
-              json['horizontalInside'] as Map<String, dynamic>),
-      verticalInside: json['verticalInside'] == null
-          ? null
-          : MiraiBorderSide.fromJson(
-              json['verticalInside'] as Map<String, dynamic>),
+      color: json['color'] as String? ?? '#000000',
+      width: (json['width'] as num?)?.toDouble() ?? 1.0,
+      style: $enumDecodeNullable(_$BorderStyleEnumMap, json['style']) ??
+          BorderStyle.solid,
       borderRadius: json['borderRadius'] == null
-          ? null
+          ? const MiraiBorderRadius()
           : MiraiBorderRadius.fromJson(json['borderRadius']),
     );
 
 Map<String, dynamic> _$$MiraiTableBorderImplToJson(
         _$MiraiTableBorderImpl instance) =>
     <String, dynamic>{
-      'top': instance.top,
-      'right': instance.right,
-      'bottom': instance.bottom,
-      'left': instance.left,
-      'horizontalInside': instance.horizontalInside,
-      'verticalInside': instance.verticalInside,
+      'color': instance.color,
+      'width': instance.width,
+      'style': _$BorderStyleEnumMap[instance.style]!,
       'borderRadius': instance.borderRadius,
     };
+
+const _$BorderStyleEnumMap = {
+  BorderStyle.none: 'none',
+  BorderStyle.solid: 'solid',
+};
 
 _$MiraiTableColumnWidthImpl _$$MiraiTableColumnWidthImplFromJson(
         Map<String, dynamic> json) =>

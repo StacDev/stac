@@ -45,13 +45,10 @@ class MiraiTableRow with _$MiraiTableRow {
 @freezed
 class MiraiTableBorder with _$MiraiTableBorder {
   const factory MiraiTableBorder({
-    MiraiBorderSide? top,
-    MiraiBorderSide? right,
-    MiraiBorderSide? bottom,
-    MiraiBorderSide? left,
-    MiraiBorderSide? horizontalInside,
-    MiraiBorderSide? verticalInside,
-    MiraiBorderRadius? borderRadius,
+    @Default('#000000') String color,
+    @Default(1.0) double width,
+    @Default(BorderStyle.solid) BorderStyle style,
+    @Default(MiraiBorderRadius()) MiraiBorderRadius borderRadius,
   }) = _MiraiTableBorder;
 
   factory MiraiTableBorder.fromJson(Map<String, dynamic> json) =>

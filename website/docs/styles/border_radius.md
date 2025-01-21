@@ -19,13 +19,14 @@ Above three properties defined are optional. i.e. `MiraiBorderRadius` can be def
 
 ## Example
 
-```json
 // Generic Declaration
+```json
 {
     "borderRadius": 16.0
 }
-
+```
 // Explicit Declaration
+```json
 {
     "borderRadius": {
         "topLeft": 16.0,
@@ -34,14 +35,16 @@ Above three properties defined are optional. i.e. `MiraiBorderRadius` can be def
         "bottomRight": 16.0
     }
 }
+```
 
 // Explicit Declaration (List)
+```json
 {
     "borderRadius": [
-    16.0, //topLeft
-    16.0, //topRight
-    16.0, //bottomLeft
-    16.0, //bottomRight
+    16.0, 
+    16.0, 
+    16.0, 
+    16.0
     ]
 }
 ```

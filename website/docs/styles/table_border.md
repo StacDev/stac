@@ -5,44 +5,28 @@ To know more about the TableBorder class in Flutter, refer to the [official docu
 
 ## Properties
 
-| Property         | Type                 | Description                                                                                                                             |
-| ---------------- | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| top              | `MiraiBorderSide?`   | Defines the top border of the table. See [`MiraiBorderSide`](./../styles_and_attributes/border_side).                                   |
-| right            | `MiraiBorderSide?`   | Defines the right border of the table. See  [`MiraiBorderSide`](./../styles_and_attributes/border_side).                                |
-| bottom           | `MiraiBorderSide?`   | Defines the bottom border of the table. See  [`MiraiBorderSide`](./../styles_and_attributes/border_side).                               |
-| left             | `MiraiBorderSide?`   | Defines the left border of the table. See  [`MiraiBorderSide`](./../styles_and_attributes/border_side).                                 |
-| horizontalInside | `MiraiBorderSide?`   | Defines the inner horizontal borders of the table. See  [`MiraiBorderSide`](./../styles_and_attributes/border_side).                    |
-| verticalInside   | `MiraiBorderSide?`   | Defines the inner vertical borders of the table. See  [`MiraiBorderSide`](./../styles_and_attributes/border_side).                      |
-| borderRadius     | `MiraiBorderRadius?` | Defines the border radius to be used while rendering table corners. See [`MiraiBorderRadius`](./../styles_and_attributes/border_radius) |
+| Property     | Type                | Description                                    |
+|--------------|---------------------|------------------------------------------------|
+| color        | `String`            | Defines the color of the table border.         |
+| width        | `double`            | Defines the width of the table border.         |
+| style        | `BorderStyle`       | Defines the style of the table border.         |
+| borderRadius | `MiraiBorderRadius` | Defines the border radius of the table border. |
+
 
 ## Example
 
 ```json
 {
-  "border": {
-    "type": "tableBorder",
-    "top": {
-      "color": "#428AF5",
-      "width": 1.0
-    },
-    "right": {
-      "color": "#428AF5",
-      "width": 1.0
-    },
-    "bottom": {
-      "color": "#428AF5",
-      "width": 1.0
-    },
-    "left": {
-      "color": "#428AF5",
-      "width": 1.0
-    },
-    "borderRadius": {
-      "topLeft": 16,
-      "topRight": 16,
-      "bottomLeft": 16,
-      "bottomRight": 16,
+    "tableBorder": {
+        "color": "#000000",
+        "width": 1.0,
+        "style": "solid",
+        "borderRadius": {
+            "topLeft": 16.0,
+            "topRight": 16.0,
+            "bottomLeft": 16.0,
+            "bottomRight": 16.0
+        }
     }
-  },
 }
 ```
