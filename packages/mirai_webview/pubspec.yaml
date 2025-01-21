@@ -10,10 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter: ^4.2.4
-  freezed_annotation: ^2.2.0
-  json_annotation: ^4.8.1
-  mirai_framework: ^0.0.1
+  webview_flutter: ^4.10.0
+  freezed_annotation: ^2.4.4
+  json_annotation: ^4.9.0
+  mirai_framework: ^0.0.3
 
 dev_dependencies:
   flutter_test:
