@@ -20,14 +20,38 @@ MiraiWebView _$MiraiWebViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MiraiWebView {
+  /// The URL to load in the `WebView`.
   String get url => throw _privateConstructorUsedError;
+
+  /// Sets whether JavaScript execution is enabled.
+  ///
+  /// Default value is `JavaScriptMode.unrestricted`.
   JavaScriptMode get javaScriptMode => throw _privateConstructorUsedError;
+
+  /// Background color of the `WebView`.
+  ///
+  /// Default value is `#FFFFFF`.
   String get backgroundColor => throw _privateConstructorUsedError;
+
+  /// The user agent for the `WebView`.
   String? get userAgent => throw _privateConstructorUsedError;
+
+  /// Sets whether zoom is enabled for the `WebView`.
+  ///
+  /// Default value is `false`.
   bool get enableZoom => throw _privateConstructorUsedError;
 
+  /// The layout direction for the `WebView`.
+  ///
+  /// Default value is `TextDirection.ltr`.
+  TextDirection get layoutDirection => throw _privateConstructorUsedError;
+
+  /// Serializes this MiraiWebView to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of MiraiWebView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $MiraiWebViewCopyWith<MiraiWebView> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -43,7 +67,8 @@ abstract class $MiraiWebViewCopyWith<$Res> {
       JavaScriptMode javaScriptMode,
       String backgroundColor,
       String? userAgent,
-      bool enableZoom});
+      bool enableZoom,
+      TextDirection layoutDirection});
 }
 
 /// @nodoc
@@ -56,6 +81,8 @@ class _$MiraiWebViewCopyWithImpl<$Res, $Val extends MiraiWebView>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of MiraiWebView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -64,6 +91,7 @@ class _$MiraiWebViewCopyWithImpl<$Res, $Val extends MiraiWebView>
     Object? backgroundColor = null,
     Object? userAgent = freezed,
     Object? enableZoom = null,
+    Object? layoutDirection = null,
   }) {
     return _then(_value.copyWith(
       url: null == url
@@ -86,6 +114,10 @@ class _$MiraiWebViewCopyWithImpl<$Res, $Val extends MiraiWebView>
           ? _value.enableZoom
           : enableZoom // ignore: cast_nullable_to_non_nullable
               as bool,
+      layoutDirection: null == layoutDirection
+          ? _value.layoutDirection
+          : layoutDirection // ignore: cast_nullable_to_non_nullable
+              as TextDirection,
     ) as $Val);
   }
 }
@@ -103,7 +135,8 @@ abstract class _$$MiraiWebViewImplCopyWith<$Res>
       JavaScriptMode javaScriptMode,
       String backgroundColor,
       String? userAgent,
-      bool enableZoom});
+      bool enableZoom,
+      TextDirection layoutDirection});
 }
 
 /// @nodoc
@@ -114,6 +147,8 @@ class __$$MiraiWebViewImplCopyWithImpl<$Res>
       _$MiraiWebViewImpl _value, $Res Function(_$MiraiWebViewImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of MiraiWebView
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,6 +157,7 @@ class __$$MiraiWebViewImplCopyWithImpl<$Res>
     Object? backgroundColor = null,
     Object? userAgent = freezed,
     Object? enableZoom = null,
+    Object? layoutDirection = null,
   }) {
     return _then(_$MiraiWebViewImpl(
       url: null == url
@@ -144,6 +180,10 @@ class __$$MiraiWebViewImplCopyWithImpl<$Res>
           ? _value.enableZoom
           : enableZoom // ignore: cast_nullable_to_non_nullable
               as bool,
+      layoutDirection: null == layoutDirection
+          ? _value.layoutDirection
+          : layoutDirection // ignore: cast_nullable_to_non_nullable
+              as TextDirection,
     ));
   }
 }
@@ -154,30 +194,53 @@ class _$MiraiWebViewImpl implements _MiraiWebView {
   const _$MiraiWebViewImpl(
       {required this.url,
       this.javaScriptMode = JavaScriptMode.unrestricted,
-      this.backgroundColor = "#000000",
+      this.backgroundColor = "#FFFFFF",
       this.userAgent,
-      this.enableZoom = false});
+      this.enableZoom = false,
+      this.layoutDirection = TextDirection.ltr});
 
   factory _$MiraiWebViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$MiraiWebViewImplFromJson(json);
 
+  /// The URL to load in the `WebView`.
   @override
   final String url;
+
+  /// Sets whether JavaScript execution is enabled.
+  ///
+  /// Default value is `JavaScriptMode.unrestricted`.
   @override
   @JsonKey()
   final JavaScriptMode javaScriptMode;
+
+  /// Background color of the `WebView`.
+  ///
+  /// Default value is `#FFFFFF`.
   @override
   @JsonKey()
   final String backgroundColor;
+
+  /// The user agent for the `WebView`.
   @override
   final String? userAgent;
+
+  /// Sets whether zoom is enabled for the `WebView`.
+  ///
+  /// Default value is `false`.
   @override
   @JsonKey()
   final bool enableZoom;
 
+  /// The layout direction for the `WebView`.
+  ///
+  /// Default value is `TextDirection.ltr`.
+  @override
+  @JsonKey()
+  final TextDirection layoutDirection;
+
   @override
   String toString() {
-    return 'MiraiWebView(url: $url, javaScriptMode: $javaScriptMode, backgroundColor: $backgroundColor, userAgent: $userAgent, enableZoom: $enableZoom)';
+    return 'MiraiWebView(url: $url, javaScriptMode: $javaScriptMode, backgroundColor: $backgroundColor, userAgent: $userAgent, enableZoom: $enableZoom, layoutDirection: $layoutDirection)';
   }
 
   @override
@@ -193,15 +256,19 @@ class _$MiraiWebViewImpl implements _MiraiWebView {
             (identical(other.userAgent, userAgent) ||
                 other.userAgent == userAgent) &&
             (identical(other.enableZoom, enableZoom) ||
-                other.enableZoom == enableZoom));
+                other.enableZoom == enableZoom) &&
+            (identical(other.layoutDirection, layoutDirection) ||
+                other.layoutDirection == layoutDirection));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, url, javaScriptMode, backgroundColor, userAgent, enableZoom);
+  int get hashCode => Object.hash(runtimeType, url, javaScriptMode,
+      backgroundColor, userAgent, enableZoom, layoutDirection);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of MiraiWebView
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$MiraiWebViewImplCopyWith<_$MiraiWebViewImpl> get copyWith =>
@@ -221,23 +288,48 @@ abstract class _MiraiWebView implements MiraiWebView {
       final JavaScriptMode javaScriptMode,
       final String backgroundColor,
       final String? userAgent,
-      final bool enableZoom}) = _$MiraiWebViewImpl;
+      final bool enableZoom,
+      final TextDirection layoutDirection}) = _$MiraiWebViewImpl;
 
   factory _MiraiWebView.fromJson(Map<String, dynamic> json) =
       _$MiraiWebViewImpl.fromJson;
 
+  /// The URL to load in the `WebView`.
   @override
   String get url;
+
+  /// Sets whether JavaScript execution is enabled.
+  ///
+  /// Default value is `JavaScriptMode.unrestricted`.
   @override
   JavaScriptMode get javaScriptMode;
+
+  /// Background color of the `WebView`.
+  ///
+  /// Default value is `#FFFFFF`.
   @override
   String get backgroundColor;
+
+  /// The user agent for the `WebView`.
   @override
   String? get userAgent;
+
+  /// Sets whether zoom is enabled for the `WebView`.
+  ///
+  /// Default value is `false`.
   @override
   bool get enableZoom;
+
+  /// The layout direction for the `WebView`.
+  ///
+  /// Default value is `TextDirection.ltr`.
   @override
-  @JsonKey(ignore: true)
+  TextDirection get layoutDirection;
+
+  /// Create a copy of MiraiWebView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MiraiWebViewImplCopyWith<_$MiraiWebViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

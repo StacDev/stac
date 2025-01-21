@@ -452,7 +452,7 @@ packages:
       path: "../../packages/mirai_webview"
       relative: true
     source: path
-    version: "0.0.3"
+    version: "0.0.4"
   nested:
     dependency: transitive
     description:

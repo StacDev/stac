@@ -1,10 +1,18 @@
 # Mirai Web View
 
-A webView support for Mirai.
+A webView support for [Mirai](https://pub.dev/packages/mirai).
 
 ## Usage
 
 1. Add `mirai_webview` as a dependency in your pubspec.yaml file.
+
+Install the plugin by running the following command from the project root:
+
+```bash
+flutter pub add mirai_webview
+```
+
+or add it manually in your `pubspec.yaml` file:
 
 ```yaml
   dependencies:
