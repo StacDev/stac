@@ -7,7 +7,7 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 ## Properties
 
 | Property    | Type             | Description                                                                                               |
-| ----------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+|-------------|------------------|-----------------------------------------------------------------------------------------------------------|
 | `src`       | `String`         | The source of the image. For example, a URL for network images, file path for file images, or asset path. |
 | `alignment` | `MiraiAlignment` | The alignment of the image within its container. Defaults to `MiraiAlignment.center`.                     |
 | `imageType` | `MiraiImageType` | The type of the image source: `file`, `network`, or `asset`. Defaults to `MiraiImageType.network`.        |
@@ -19,7 +19,7 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 ## Enum: MiraiImageType
 
 | Value     | Description                                 |
-| --------- | ------------------------------------------- |
+|-----------|---------------------------------------------|
 | `file`    | Load the image from a local file.           |
 | `network` | Load the image from a network URL.          |
 | `asset`   | Load the image from Flutter's asset bundle. |

@@ -5,15 +5,15 @@ To know more about the Table widget in Flutter, refer to the [official documenta
 
 ## Properties
 
-| Property                 | Type                              | Description                                                                                                                                                                                                     |
-| ------------------------ | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Property                 | Type                               | Description                                                                                                                                                                                                     |
+|--------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | columnWidths             | `Map<int, MiraiTableColumnWidth>?` | Determines the column width on a column by column basis, if a particular column entry has null width `defaultColumnWidth` is used. See [`MiraiTableColumnWidth`](./../styles_and_attributes/table_column_width) |
-| defaultColumnWidth       | `MiraiTableColumnWidth?`          | Determines the  default column width. Defaults to `flexColumnWidth`. See [`MiraiTableColumnWidth`](./../styles_and_attributes/table_column_width)                                                               |
+| defaultColumnWidth       | `MiraiTableColumnWidth?`           | Determines the  default column width. Defaults to `flexColumnWidth`. See [`MiraiTableColumnWidth`](./../styles_and_attributes/table_column_width)                                                               |
 | textDirection            | `TextDirection?`                   | Determines the direction in which the columns are ordered. Can be `rtl` or `ltr`. Defaults to `rtl`.                                                                                                            |
 | border                   | `MiraiTableBorder?`                | Defines the border style for `MiraiTable`. See [`MiraiTableBorder`](./../styles_and_attributes/table_border).                                                                                                   |
 | defaultVerticalAlignment | `TableCellVerticalAlignment?`      | Defines the verticalAlignment for the cells that don't specify a verticalAlignment. Can be `top`, `middle`, `bottom`, `baseline`, `fill` & `intrinsicHeight` Defaults to `top`.                                 |
 | textBaseLine             | `TextBaseline?`                    | Defines the text baseline to use when verticalAlignment is `baseline`. Can be `alphabetic` or `ideographic`. There is no default value.                                                                         |
-| children                 | `List<MiraiTableRow>`             | Rows that will be populated in the table. See [`MiraiTableRow`](./table_row).                                                                                                                                   |
+| children                 | `List<MiraiTableRow>`              | Rows that will be populated in the table. See [`MiraiTableRow`](./table_row).                                                                                                                                   |
 
 ## Example
 

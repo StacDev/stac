@@ -5,14 +5,14 @@ To know more about the row widget in Flutter, refer to the [official documentati
 
 ## Properties
 
-| Property | Type                    | Description                          |
-| -------- | ----------------------- | ------------------------------------ |
-| mainAxisAlignment | `MainAxisAlignment` | How the children should be placed along the main axis. |
-| crossAxisAlignment | `CrossAxisAlignment` | How the children should be placed along the cross axis. |
-| mainAxisSize | `MainAxisSize` | How much space should be occupied in the main axis. |
-| textDirection | `TextDirection` | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
-| spacing | `double` | How much space to place between children in the main axis. |
-| children | `List<Map<String,dynamic>>` | The widgets below this widget in the tree. |
+| Property           | Type                        | Description                                                                                                           |
+|--------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| mainAxisAlignment  | `MainAxisAlignment`         | How the children should be placed along the main axis.                                                                |
+| crossAxisAlignment | `CrossAxisAlignment`        | How the children should be placed along the cross axis.                                                               |
+| mainAxisSize       | `MainAxisSize`              | How much space should be occupied in the main axis.                                                                   |
+| textDirection      | `TextDirection`             | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
+| spacing            | `double`                    | How much space to place between children in the main axis.                                                            |
+| children           | `List<Map<String,dynamic>>` | The widgets below this widget in the tree.                                                                            |
 
 ## Example JSON
 

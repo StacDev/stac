@@ -8,7 +8,7 @@ To know more about the Visibility widget in Flutter, refer to the [official docu
 ## Properties
 
 | Property                | Type                    | Description                                                                                       |
-| ----------------------- | ----------------------- | ------------------------------------------------------------------------------------------------- |
+|-------------------------|-------------------------|---------------------------------------------------------------------------------------------------|
 | `child`                 | `Map<String, dynamic>`  | The widget to be displayed when `visible` is `true`.                                              |
 | `replacement`           | `Map<String, dynamic>?` | The widget to display when `visible` is `false`. Defaults to an empty widget (`SizedBox.shrink`). |
 | `visible`               | `bool`                  | Whether the child is visible. Defaults to `true`.                                                 |
