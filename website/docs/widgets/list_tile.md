@@ -1,36 +1,36 @@
-# ListTile
+# List Tile
 
 Mirai list tile allows you to build the Flutter list tile widget using JSON.
 To know more about the list tile widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/ListTile-class.html).
 
 ## Properties
 
-| Property | Type              | Description                                       |
-| --- |-------------------|---------------------------------------------------|
-| onTap | `Map<String,dynamic>` | Called when the user taps this list tile. |
-| onLongPress | `Map<String,dynamic>` | Called when the user long-presses on this list tile. |
-| leading | `Map<String,dynamic>` | A widget to display before the title. |
-| title | `Map<String,dynamic>` | The primary content of the list tile. |
-| subtitle | `Map<String,dynamic>` | Additional content displayed below the title. |
-| trailing | `Map<String,dynamic>` | A widget to display after the title. |
-| isThreeLine | `bool` | Whether this list tile is intended to display three lines of text. |
-| dense |  `bool` | Whether this list tile is part of a vertically dense list. |
-| style | `ListTileStyle` | Defines the font used for the title. |
-| selectedColor | `String` | Defines the color used for icons and text when the list tile is selected. |
-| iconColor | `String` | Defines the default color for leading and trailing icons. |
-| textColor | `String` | Defines the text color for the title, subtitle, leading, and trailing. |
-| contentPadding | `MiraiEdgeInsets` | The tile's internal padding. |
-| enabled | `bool` | Whether this list tile is interactive. |
-| selected | `bool` | If this tile is also enabled then icons and text are rendered with the same color. |
-| focusColor | `String` | The color for the tile's Material when it has the input focus. |
-| hoverColor | `String` | The color for the tile's Material when a pointer is hovering over it. |
-| autoFocus | `String` | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
-| tileColor | `String` | Defines the background color of ListTile when selected is false. |
-| selectedTileColor | `String` | Defines the background color of ListTile when selected is true. |
-| enableFeedback | `bool` | Whether detected gestures should provide acoustic and/or haptic feedback. |
-| horizontalTitleGap | `double` | The horizontal gap between the titles and the leading/trailing widgets. |
-| minVerticalPadding | `double` | The minimum padding on the top and bottom of the title and subtitle widgets. |
-| minLeadingWidth | `double` | The minimum width allocated for the ListTile.leading widget. |
+| Property           | Type                  | Description                                                                                                     |
+|--------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------|
+| onTap              | `Map<String,dynamic>` | Called when the user taps this list tile.                                                                       |
+| onLongPress        | `Map<String,dynamic>` | Called when the user long-presses on this list tile.                                                            |
+| leading            | `Map<String,dynamic>` | A widget to display before the title.                                                                           |
+| title              | `Map<String,dynamic>` | The primary content of the list tile.                                                                           |
+| subtitle           | `Map<String,dynamic>` | Additional content displayed below the title.                                                                   |
+| trailing           | `Map<String,dynamic>` | A widget to display after the title.                                                                            |
+| isThreeLine        | `bool`                | Whether this list tile is intended to display three lines of text.                                              |
+| dense              | `bool`                | Whether this list tile is part of a vertically dense list.                                                      |
+| style              | `ListTileStyle`       | Defines the font used for the title.                                                                            |
+| selectedColor      | `String`              | Defines the color used for icons and text when the list tile is selected.                                       |
+| iconColor          | `String`              | Defines the default color for leading and trailing icons.                                                       |
+| textColor          | `String`              | Defines the text color for the title, subtitle, leading, and trailing.                                          |
+| contentPadding     | `MiraiEdgeInsets`     | The tile's internal padding.                                                                                    |
+| enabled            | `bool`                | Whether this list tile is interactive.                                                                          |
+| selected           | `bool`                | If this tile is also enabled then icons and text are rendered with the same color.                              |
+| focusColor         | `String`              | The color for the tile's Material when it has the input focus.                                                  |
+| hoverColor         | `String`              | The color for the tile's Material when a pointer is hovering over it.                                           |
+| autoFocus          | `String`              | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
+| tileColor          | `String`              | Defines the background color of ListTile when selected is false.                                                |
+| selectedTileColor  | `String`              | Defines the background color of ListTile when selected is true.                                                 |
+| enableFeedback     | `bool`                | Whether detected gestures should provide acoustic and/or haptic feedback.                                       |
+| horizontalTitleGap | `double`              | The horizontal gap between the titles and the leading/trailing widgets.                                         |
+| minVerticalPadding | `double`              | The minimum padding on the top and bottom of the title and subtitle widgets.                                    |
+| minLeadingWidth    | `double`              | The minimum width allocated for the ListTile.leading widget.                                                    |
 
 ## Example JSON
 

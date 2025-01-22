@@ -5,18 +5,18 @@ To know more about the wrap widget in Flutter, refer to the [official documentat
 
 ## Properties
 
-| Property | Type              | Description                                       |
-| --- |-------------------|---------------------------------------------------|
-| Axis | `Axis`  | The direction to use as the main axis.  |
-| alignment | `WrapAlignment` | How the children within a run should be placed in the main axis. |
-| spacing | `double` | How much space to place between children in a run in the main axis. |
-| runAlignment | `WrapAlignment` |How the runs themselves should be placed in the cross axis. |
-| runSpacing | `double` | How much space to place between the runs themselves in the cross axis. |
-| crossAxisAlignment | `WrapCrossAxisAlignment` | How the children within a run should be aligned relative to each other in the cross axis. |
-| textDirection | `TextDirection` | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
-| verticalDirection | `VerticalDirection` | Determines the order to lay children out vertically and how to interpret start and end in the vertical direction. |
-| clipBehavior | `Clip` | The content will be clipped (or not) according to this option. | 
-| children | `List<Map<String, dynamic>>` | The widgets below this widget in the tree. |
+| Property           | Type                         | Description                                                                                                           |
+|--------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------|
+| Axis               | `Axis`                       | The direction to use as the main axis.                                                                                |
+| alignment          | `WrapAlignment`              | How the children within a run should be placed in the main axis.                                                      |
+| spacing            | `double`                     | How much space to place between children in a run in the main axis.                                                   |
+| runAlignment       | `WrapAlignment`              | How the runs themselves should be placed in the cross axis.                                                           |
+| runSpacing         | `double`                     | How much space to place between the runs themselves in the cross axis.                                                |
+| crossAxisAlignment | `WrapCrossAxisAlignment`     | How the children within a run should be aligned relative to each other in the cross axis.                             |
+| textDirection      | `TextDirection`              | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
+| verticalDirection  | `VerticalDirection`          | Determines the order to lay children out vertically and how to interpret start and end in the vertical direction.     |
+| clipBehavior       | `Clip`                       | The content will be clipped (or not) according to this option.                                                        | 
+| children           | `List<Map<String, dynamic>>` | The widgets below this widget in the tree.                                                                            |
 
 ## Example JSON
 

@@ -1,4 +1,4 @@
-# LimitedBox
+# Limited Box
 
 Mirai LimitedBox allows you to build the Flutter LimitedBox widget using JSON.
 To know more about the LimitedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/LimitedBox-class.html).
@@ -6,7 +6,7 @@ To know more about the LimitedBox widget in Flutter, refer to the [official docu
 ## Properties
 
 | Property    | Type                    | Description                                                                                          |
-| ----------- | ----------------------- | ---------------------------------------------------------------------------------------------------- |
+|-------------|-------------------------|------------------------------------------------------------------------------------------------------|
 | `maxHeight` | `double`                | The maximum height for the child if the parent's height is unbounded. Defaults to `double.infinity`. |
 | `maxWidth`  | `double`                | The maximum width for the child if the parent's width is unbounded. Defaults to `double.infinity`.   |
 | `child`     | `Map<String, dynamic>?` | The child widget represented as a JSON object.                                                       |

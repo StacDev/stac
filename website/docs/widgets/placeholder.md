@@ -10,7 +10,7 @@ To learn more about the `Placeholder` widget, refer to the [official Flutter doc
 ## Properties
 
 | Property         | Type                    | Description                                                                                             |
-| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------------------- |
+|------------------|-------------------------|---------------------------------------------------------------------------------------------------------|
 | `color`          | `String?`               | The hex color to paint behind the child. Defaults to `#455A64` (Blue Grey 700).                         |
 | `strokeWidth`    | `double?`               | The width of the lines used to draw the placeholder box. Defaults to `2.0`.                             |
 | `fallbackWidth`  | `double?`               | The width to use when the placeholder is in a situation with an unbounded width. Defaults to `400.0`.   |
