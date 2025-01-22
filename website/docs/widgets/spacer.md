@@ -5,8 +5,8 @@ To know more about the spacer widget in Flutter, refer to the [official document
 
 ## Properties
 
-| Property | Type  | Description                                      |
-|----------|-------|--------------------------------------------------|
+| Property | Type  | Description                                             |
+|----------|--chore-----|---------------------------------------------------------|
 | flex     | `int` | The flex factor to use for the spacer. Defaults to `1`. |
 
 ## Example JSON
