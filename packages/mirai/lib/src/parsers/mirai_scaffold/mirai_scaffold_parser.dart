@@ -22,13 +22,23 @@ class MiraiScaffoldParser extends MiraiParser<MiraiScaffold> {
       body: Mirai.fromJson(model.body, context),
       floatingActionButton: Mirai.fromJson(model.floatingActionButton, context),
       floatingActionButtonLocation: model.floatingActionButtonLocation?.value,
+      persistentFooterButtons: model.persistentFooterButtons
+          ?.map((e) => Mirai.fromJson(e, context) ?? SizedBox())
+          .toList(),
+      drawer: Mirai.fromJson(model.drawer, context),
+      endDrawer: Mirai.fromJson(model.endDrawer, context),
       bottomNavigationBar: Mirai.fromJson(model.bottomNavigationBar, context),
       bottomSheet: Mirai.fromJson(model.bottomSheet, context),
       backgroundColor: model.backgroundColor.toColor(context),
       resizeToAvoidBottomInset: model.resizeToAvoidBottomInset,
       primary: model.primary,
+      drawerDragStartBehavior: model.drawerDragStartBehavior,
       extendBody: model.extendBody,
       extendBodyBehindAppBar: model.extendBodyBehindAppBar,
+      drawerScrimColor: model.drawerScrimColor.toColor(context),
+      drawerEdgeDragWidth: model.drawerEdgeDragWidth,
+      drawerEnableOpenDragGesture: model.drawerEnableOpenDragGesture,
+      endDrawerEnableOpenDragGesture: model.endDrawerEnableOpenDragGesture,
     );
   }
 }
