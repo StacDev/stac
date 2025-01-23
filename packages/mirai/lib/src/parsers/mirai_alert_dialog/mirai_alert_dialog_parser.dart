@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mirai/src/framework/framework.dart';
 import 'package:mirai/src/parsers/mirai_alert_dialog/mirai_alert_dialog.dart';
+import 'package:mirai/src/parsers/mirai_alignment_geometry/mirai_alignment_geometry.dart';
 import 'package:mirai/src/parsers/mirai_edge_insets/mirai_edge_insets.dart';
+import 'package:mirai/src/parsers/mirai_shape_border/mirai_shape_border.dart';
 import 'package:mirai/src/parsers/mirai_text_style/mirai_text_style.dart';
 import 'package:mirai/src/utils/color_utils.dart';
 import 'package:mirai/src/utils/widget_type.dart';
@@ -40,9 +42,13 @@ class MiraiAlertDialogParser extends MiraiParser<MiraiAlertDialog> {
       buttonPadding: model.buttonPadding.parse,
       backgroundColor: model.backgroundColor.toColor(context),
       elevation: model.elevation,
+      shadowColor: model.shadowColor.toColor(context),
+      surfaceTintColor: model.surfaceTintColor.toColor(context),
       semanticLabel: model.semanticLabel,
       insetPadding: model.insetPadding.parse,
       clipBehavior: model.clipBehavior,
+      shape: model.shape?.parse(context),
+      alignment: model.alignment?.parse,
       scrollable: model.scrollable,
     );
   }

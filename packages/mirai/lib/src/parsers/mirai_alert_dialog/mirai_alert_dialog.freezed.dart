@@ -41,9 +41,13 @@ mixin _$MiraiAlertDialog {
   MiraiEdgeInsets? get buttonPadding => throw _privateConstructorUsedError;
   String? get backgroundColor => throw _privateConstructorUsedError;
   double? get elevation => throw _privateConstructorUsedError;
+  String? get shadowColor => throw _privateConstructorUsedError;
+  String? get surfaceTintColor => throw _privateConstructorUsedError;
   String? get semanticLabel => throw _privateConstructorUsedError;
   MiraiEdgeInsets get insetPadding => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
+  MiraiShapeBorder? get shape => throw _privateConstructorUsedError;
+  MiraiAlignmentGeometry? get alignment => throw _privateConstructorUsedError;
   bool get scrollable => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiAlertDialog to a JSON map.
@@ -81,9 +85,13 @@ abstract class $MiraiAlertDialogCopyWith<$Res> {
       MiraiEdgeInsets? buttonPadding,
       String? backgroundColor,
       double? elevation,
+      String? shadowColor,
+      String? surfaceTintColor,
       String? semanticLabel,
       MiraiEdgeInsets insetPadding,
       Clip clipBehavior,
+      MiraiShapeBorder? shape,
+      MiraiAlignmentGeometry? alignment,
       bool scrollable});
 
   $MiraiEdgeInsetsCopyWith<$Res>? get iconPadding;
@@ -94,6 +102,8 @@ abstract class $MiraiAlertDialogCopyWith<$Res> {
   $MiraiEdgeInsetsCopyWith<$Res>? get actionsPadding;
   $MiraiEdgeInsetsCopyWith<$Res>? get buttonPadding;
   $MiraiEdgeInsetsCopyWith<$Res> get insetPadding;
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
+  $MiraiAlignmentGeometryCopyWith<$Res>? get alignment;
 }
 
 /// @nodoc
@@ -129,9 +139,13 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
     Object? buttonPadding = freezed,
     Object? backgroundColor = freezed,
     Object? elevation = freezed,
+    Object? shadowColor = freezed,
+    Object? surfaceTintColor = freezed,
     Object? semanticLabel = freezed,
     Object? insetPadding = null,
     Object? clipBehavior = null,
+    Object? shape = freezed,
+    Object? alignment = freezed,
     Object? scrollable = null,
   }) {
     return _then(_value.copyWith(
@@ -207,6 +221,14 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      shadowColor: freezed == shadowColor
+          ? _value.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceTintColor: freezed == surfaceTintColor
+          ? _value.surfaceTintColor
+          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
       semanticLabel: freezed == semanticLabel
           ? _value.semanticLabel
           : semanticLabel // ignore: cast_nullable_to_non_nullable
@@ -219,6 +241,14 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as MiraiShapeBorder?,
+      alignment: freezed == alignment
+          ? _value.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as MiraiAlignmentGeometry?,
       scrollable: null == scrollable
           ? _value.scrollable
           : scrollable // ignore: cast_nullable_to_non_nullable
@@ -333,6 +363,34 @@ class _$MiraiAlertDialogCopyWithImpl<$Res, $Val extends MiraiAlertDialog>
       return _then(_value.copyWith(insetPadding: value) as $Val);
     });
   }
+
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiShapeBorderCopyWith<$Res>? get shape {
+    if (_value.shape == null) {
+      return null;
+    }
+
+    return $MiraiShapeBorderCopyWith<$Res>(_value.shape!, (value) {
+      return _then(_value.copyWith(shape: value) as $Val);
+    });
+  }
+
+  /// Create a copy of MiraiAlertDialog
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiAlignmentGeometryCopyWith<$Res>? get alignment {
+    if (_value.alignment == null) {
+      return null;
+    }
+
+    return $MiraiAlignmentGeometryCopyWith<$Res>(_value.alignment!, (value) {
+      return _then(_value.copyWith(alignment: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -362,9 +420,13 @@ abstract class _$$MiraiAlertDialogImplCopyWith<$Res>
       MiraiEdgeInsets? buttonPadding,
       String? backgroundColor,
       double? elevation,
+      String? shadowColor,
+      String? surfaceTintColor,
       String? semanticLabel,
       MiraiEdgeInsets insetPadding,
       Clip clipBehavior,
+      MiraiShapeBorder? shape,
+      MiraiAlignmentGeometry? alignment,
       bool scrollable});
 
   @override
@@ -383,6 +445,10 @@ abstract class _$$MiraiAlertDialogImplCopyWith<$Res>
   $MiraiEdgeInsetsCopyWith<$Res>? get buttonPadding;
   @override
   $MiraiEdgeInsetsCopyWith<$Res> get insetPadding;
+  @override
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
+  @override
+  $MiraiAlignmentGeometryCopyWith<$Res>? get alignment;
 }
 
 /// @nodoc
@@ -416,9 +482,13 @@ class __$$MiraiAlertDialogImplCopyWithImpl<$Res>
     Object? buttonPadding = freezed,
     Object? backgroundColor = freezed,
     Object? elevation = freezed,
+    Object? shadowColor = freezed,
+    Object? surfaceTintColor = freezed,
     Object? semanticLabel = freezed,
     Object? insetPadding = null,
     Object? clipBehavior = null,
+    Object? shape = freezed,
+    Object? alignment = freezed,
     Object? scrollable = null,
   }) {
     return _then(_$MiraiAlertDialogImpl(
@@ -494,6 +564,14 @@ class __$$MiraiAlertDialogImplCopyWithImpl<$Res>
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      shadowColor: freezed == shadowColor
+          ? _value.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceTintColor: freezed == surfaceTintColor
+          ? _value.surfaceTintColor
+          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
       semanticLabel: freezed == semanticLabel
           ? _value.semanticLabel
           : semanticLabel // ignore: cast_nullable_to_non_nullable
@@ -506,6 +584,14 @@ class __$$MiraiAlertDialogImplCopyWithImpl<$Res>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as MiraiShapeBorder?,
+      alignment: freezed == alignment
+          ? _value.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as MiraiAlignmentGeometry?,
       scrollable: null == scrollable
           ? _value.scrollable
           : scrollable // ignore: cast_nullable_to_non_nullable
@@ -536,10 +622,14 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
       this.buttonPadding,
       this.backgroundColor,
       this.elevation,
+      this.shadowColor,
+      this.surfaceTintColor,
       this.semanticLabel,
       this.insetPadding =
           const MiraiEdgeInsets(left: 40, right: 40, top: 24, bottom: 24),
       this.clipBehavior = Clip.none,
+      this.shape,
+      this.alignment,
       this.scrollable = false})
       : _icon = icon,
         _title = title,
@@ -618,6 +708,10 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
   @override
   final double? elevation;
   @override
+  final String? shadowColor;
+  @override
+  final String? surfaceTintColor;
+  @override
   final String? semanticLabel;
   @override
   @JsonKey()
@@ -626,12 +720,16 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
   @JsonKey()
   final Clip clipBehavior;
   @override
+  final MiraiShapeBorder? shape;
+  @override
+  final MiraiAlignmentGeometry? alignment;
+  @override
   @JsonKey()
   final bool scrollable;
 
   @override
   String toString() {
-    return 'MiraiAlertDialog(icon: $icon, iconPadding: $iconPadding, iconColor: $iconColor, title: $title, titlePadding: $titlePadding, titleTextStyle: $titleTextStyle, content: $content, contentPadding: $contentPadding, contentTextStyle: $contentTextStyle, actions: $actions, actionsPadding: $actionsPadding, actionsAlignment: $actionsAlignment, actionsOverflowAlignment: $actionsOverflowAlignment, actionsOverflowDirection: $actionsOverflowDirection, actionsOverflowButtonSpacing: $actionsOverflowButtonSpacing, buttonPadding: $buttonPadding, backgroundColor: $backgroundColor, elevation: $elevation, semanticLabel: $semanticLabel, insetPadding: $insetPadding, clipBehavior: $clipBehavior, scrollable: $scrollable)';
+    return 'MiraiAlertDialog(icon: $icon, iconPadding: $iconPadding, iconColor: $iconColor, title: $title, titlePadding: $titlePadding, titleTextStyle: $titleTextStyle, content: $content, contentPadding: $contentPadding, contentTextStyle: $contentTextStyle, actions: $actions, actionsPadding: $actionsPadding, actionsAlignment: $actionsAlignment, actionsOverflowAlignment: $actionsOverflowAlignment, actionsOverflowDirection: $actionsOverflowDirection, actionsOverflowButtonSpacing: $actionsOverflowButtonSpacing, buttonPadding: $buttonPadding, backgroundColor: $backgroundColor, elevation: $elevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, semanticLabel: $semanticLabel, insetPadding: $insetPadding, clipBehavior: $clipBehavior, shape: $shape, alignment: $alignment, scrollable: $scrollable)';
   }
 
   @override
@@ -675,12 +773,19 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
                 other.backgroundColor == backgroundColor) &&
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
+            (identical(other.shadowColor, shadowColor) ||
+                other.shadowColor == shadowColor) &&
+            (identical(other.surfaceTintColor, surfaceTintColor) ||
+                other.surfaceTintColor == surfaceTintColor) &&
             (identical(other.semanticLabel, semanticLabel) ||
                 other.semanticLabel == semanticLabel) &&
             (identical(other.insetPadding, insetPadding) ||
                 other.insetPadding == insetPadding) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.alignment, alignment) ||
+                other.alignment == alignment) &&
             (identical(other.scrollable, scrollable) ||
                 other.scrollable == scrollable));
   }
@@ -707,9 +812,13 @@ class _$MiraiAlertDialogImpl implements _MiraiAlertDialog {
         buttonPadding,
         backgroundColor,
         elevation,
+        shadowColor,
+        surfaceTintColor,
         semanticLabel,
         insetPadding,
         clipBehavior,
+        shape,
+        alignment,
         scrollable
       ]);
 
@@ -750,9 +859,13 @@ abstract class _MiraiAlertDialog implements MiraiAlertDialog {
       final MiraiEdgeInsets? buttonPadding,
       final String? backgroundColor,
       final double? elevation,
+      final String? shadowColor,
+      final String? surfaceTintColor,
       final String? semanticLabel,
       final MiraiEdgeInsets insetPadding,
       final Clip clipBehavior,
+      final MiraiShapeBorder? shape,
+      final MiraiAlignmentGeometry? alignment,
       final bool scrollable}) = _$MiraiAlertDialogImpl;
 
   factory _MiraiAlertDialog.fromJson(Map<String, dynamic> json) =
@@ -795,11 +908,19 @@ abstract class _MiraiAlertDialog implements MiraiAlertDialog {
   @override
   double? get elevation;
   @override
+  String? get shadowColor;
+  @override
+  String? get surfaceTintColor;
+  @override
   String? get semanticLabel;
   @override
   MiraiEdgeInsets get insetPadding;
   @override
   Clip get clipBehavior;
+  @override
+  MiraiShapeBorder? get shape;
+  @override
+  MiraiAlignmentGeometry? get alignment;
   @override
   bool get scrollable;
 

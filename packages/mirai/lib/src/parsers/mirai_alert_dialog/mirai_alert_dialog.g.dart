@@ -47,12 +47,21 @@ _$MiraiAlertDialogImpl _$$MiraiAlertDialogImplFromJson(
           : MiraiEdgeInsets.fromJson(json['buttonPadding']),
       backgroundColor: json['backgroundColor'] as String?,
       elevation: (json['elevation'] as num?)?.toDouble(),
+      shadowColor: json['shadowColor'] as String?,
+      surfaceTintColor: json['surfaceTintColor'] as String?,
       semanticLabel: json['semanticLabel'] as String?,
       insetPadding: json['insetPadding'] == null
           ? const MiraiEdgeInsets(left: 40, right: 40, top: 24, bottom: 24)
           : MiraiEdgeInsets.fromJson(json['insetPadding']),
       clipBehavior:
           $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
+      shape: json['shape'] == null
+          ? null
+          : MiraiShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      alignment: json['alignment'] == null
+          ? null
+          : MiraiAlignmentGeometry.fromJson(
+              json['alignment'] as Map<String, dynamic>),
       scrollable: json['scrollable'] as bool? ?? false,
     );
 
@@ -79,9 +88,13 @@ Map<String, dynamic> _$$MiraiAlertDialogImplToJson(
       'buttonPadding': instance.buttonPadding,
       'backgroundColor': instance.backgroundColor,
       'elevation': instance.elevation,
+      'shadowColor': instance.shadowColor,
+      'surfaceTintColor': instance.surfaceTintColor,
       'semanticLabel': instance.semanticLabel,
       'insetPadding': instance.insetPadding,
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
+      'shape': instance.shape,
+      'alignment': instance.alignment,
       'scrollable': instance.scrollable,
     };
 
