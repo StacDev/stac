@@ -18,11 +18,9 @@ The Hex colors will allows to define custom hex value. It could be 6 digit Hex c
 
 ### Name colors
 
-The Name colors will allows to provide color by using color names and shades or opacity.
+The Name colors will allows to provide color by using color names and opacity for black and white colors.
 
 These are the name colors [`amber`, `amberAccent`, `black`, `blue`, `blueAccent`, `blueGrey`, `brown`, `cyan`, `cyanAccent`, `deepOrange`, `deepOrangeAccent`, `deepPurple`, `deepPurpleAccent`, `green`, `greenAccent`, `grey`, `indigo`, `indigoAccent`, `lightBlue`, `lightBlueAccent`, `lightGreen`, `lightGreenAccent`, `lime`, `limeAccent`, `orange`, `orangeAccent`, `pink`, `pinkAccent`, `purple`, `purpleAccent`, `red`, `redAccent`, `teal`, `tealAccent`, `transparent`, `white`, `yellow`, `yellowAccent`].
-
-These are the color shades for all the colors except white and black [`50`, `100`, `200`, `300`, `400`, `500`, `600`, `700`, `800`, `900`].
 
 These are the opacities for white color [`10`, `12`, `24`, `30`, `38`, `54`, `60`, `70`].
 
@@ -58,7 +56,7 @@ These are the opacities for black color [`12`, `26`, `38`, `45`, `54`, `87`].
   "type": "text",
   "data": "Hello World!",
   "style": {
-    "color": "red100"
+    "color": "black45"
   }
 }
 ```

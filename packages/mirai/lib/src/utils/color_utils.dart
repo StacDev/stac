@@ -106,23 +106,22 @@ Color _parseHexColor(String color) {
 }
 
 Color? _parseNameColor(String colorString) {
-  // 3 digits shade - Ex: yellow200
-  String color = colorString.substring(0, colorString.length - 3);
-  String shade = colorString.substring(
-    colorString.length - 3,
-    colorString.length,
-  );
-  int? shadeInt = int.tryParse(shade);
-  if (shadeInt == null) {
-    // 2 digits shade - Ex: yellow50
+  String color;
+  int? opacity;
+  if (colorString.startsWith(MiraiColors.white.name) ||
+      colorString.startsWith(MiraiColors.black.name)) {
+    // Ex: black54
     color = colorString.substring(0, colorString.length - 2);
-    shade = colorString.substring(colorString.length - 2, colorString.length);
-    shadeInt = int.tryParse(shade);
-  }
-  if (shadeInt == null) {
-    // no shade - Ex: yellow
+    opacity = int.tryParse(
+      colorString.substring(colorString.length - 2, colorString.length),
+    );
+    if (opacity == null) {
+      // Ex: black
+      color = colorString;
+    }
+  } else {
+    // Ex: red
     color = colorString;
-    shadeInt = 500;
   }
 
   MiraiColors miraiColor = MiraiColors.values.firstWhere(
@@ -132,11 +131,11 @@ Color? _parseNameColor(String colorString) {
 
   switch (miraiColor) {
     case MiraiColors.amber:
-      return Colors.amber[shadeInt];
+      return Colors.amber;
     case MiraiColors.amberAccent:
-      return Colors.amberAccent[shadeInt];
+      return Colors.amberAccent;
     case MiraiColors.black:
-      switch (shadeInt) {
+      switch (opacity) {
         case 12:
           return Colors.black12;
         case 26:
@@ -153,71 +152,71 @@ Color? _parseNameColor(String colorString) {
           return Colors.black;
       }
     case MiraiColors.blue:
-      return Colors.blue[shadeInt];
+      return Colors.blue;
     case MiraiColors.blueAccent:
-      return Colors.blueAccent[shadeInt];
+      return Colors.blueAccent;
     case MiraiColors.blueGrey:
-      return Colors.blueGrey[shadeInt];
+      return Colors.blueGrey;
     case MiraiColors.brown:
-      return Colors.brown[shadeInt];
+      return Colors.brown;
     case MiraiColors.cyan:
-      return Colors.cyan[shadeInt];
+      return Colors.cyan;
     case MiraiColors.cyanAccent:
-      return Colors.cyanAccent[shadeInt];
+      return Colors.cyanAccent;
     case MiraiColors.deepOrange:
-      return Colors.deepOrange[shadeInt];
+      return Colors.deepOrange;
     case MiraiColors.deepOrangeAccent:
-      return Colors.deepOrangeAccent[shadeInt];
+      return Colors.deepOrangeAccent;
     case MiraiColors.deepPurple:
-      return Colors.deepPurple[shadeInt];
+      return Colors.deepPurple;
     case MiraiColors.deepPurpleAccent:
-      return Colors.deepPurpleAccent[shadeInt];
+      return Colors.deepPurpleAccent;
     case MiraiColors.green:
-      return Colors.green[shadeInt];
+      return Colors.green;
     case MiraiColors.greenAccent:
-      return Colors.greenAccent[shadeInt];
+      return Colors.greenAccent;
     case MiraiColors.grey:
-      return Colors.grey[shadeInt];
+      return Colors.grey;
     case MiraiColors.indigo:
-      return Colors.indigo[shadeInt];
+      return Colors.indigo;
     case MiraiColors.indigoAccent:
-      return Colors.indigoAccent[shadeInt];
+      return Colors.indigoAccent;
     case MiraiColors.lightBlue:
-      return Colors.lightBlue[shadeInt];
+      return Colors.lightBlue;
     case MiraiColors.lightBlueAccent:
-      return Colors.lightBlueAccent[shadeInt];
+      return Colors.lightBlueAccent;
     case MiraiColors.lightGreen:
-      return Colors.lightGreen[shadeInt];
+      return Colors.lightGreen;
     case MiraiColors.lightGreenAccent:
-      return Colors.lightGreenAccent[shadeInt];
+      return Colors.lightGreenAccent;
     case MiraiColors.lime:
-      return Colors.lime[shadeInt];
+      return Colors.lime;
     case MiraiColors.limeAccent:
-      return Colors.limeAccent[shadeInt];
+      return Colors.limeAccent;
     case MiraiColors.orange:
-      return Colors.orange[shadeInt];
+      return Colors.orange;
     case MiraiColors.orangeAccent:
-      return Colors.orangeAccent[shadeInt];
+      return Colors.orangeAccent;
     case MiraiColors.pink:
-      return Colors.pink[shadeInt];
+      return Colors.pink;
     case MiraiColors.pinkAccent:
-      return Colors.pinkAccent[shadeInt];
+      return Colors.pinkAccent;
     case MiraiColors.purple:
-      return Colors.purple[shadeInt];
+      return Colors.purple;
     case MiraiColors.purpleAccent:
-      return Colors.purpleAccent[shadeInt];
+      return Colors.purpleAccent;
     case MiraiColors.red:
-      return Colors.red[shadeInt];
+      return Colors.red;
     case MiraiColors.redAccent:
-      return Colors.redAccent[shadeInt];
+      return Colors.redAccent;
     case MiraiColors.teal:
-      return Colors.teal[shadeInt];
+      return Colors.teal;
     case MiraiColors.tealAccent:
-      return Colors.tealAccent[shadeInt];
+      return Colors.tealAccent;
     case MiraiColors.transparent:
       return Colors.transparent;
     case MiraiColors.white:
-      switch (shadeInt) {
+      switch (opacity) {
         case 10:
           return Colors.white10;
         case 12:
@@ -238,8 +237,8 @@ Color? _parseNameColor(String colorString) {
           return Colors.white;
       }
     case MiraiColors.yellow:
-      return Colors.yellow[shadeInt];
+      return Colors.yellow;
     case MiraiColors.yellowAccent:
-      return Colors.yellowAccent[shadeInt];
+      return Colors.yellowAccent;
   }
 }
