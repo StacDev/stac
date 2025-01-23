@@ -15,13 +15,29 @@ _$MiraiScaffoldImpl _$$MiraiScaffoldImplFromJson(Map<String, dynamic> json) =>
       floatingActionButtonLocation: $enumDecodeNullable(
           _$MiraiFloatingActionButtonLocationEnumMap,
           json['floatingActionButtonLocation']),
+      persistentFooterButtons:
+          (json['persistentFooterButtons'] as List<dynamic>?)
+              ?.map((e) => e as Map<String, dynamic>)
+              .toList(),
+      drawer: json['drawer'] as Map<String, dynamic>?,
+      endDrawer: json['endDrawer'] as Map<String, dynamic>?,
       bottomNavigationBar: json['bottomNavigationBar'] as Map<String, dynamic>?,
       bottomSheet: json['bottomSheet'] as Map<String, dynamic>?,
       backgroundColor: json['backgroundColor'] as String?,
       resizeToAvoidBottomInset: json['resizeToAvoidBottomInset'] as bool?,
       primary: json['primary'] as bool? ?? true,
+      drawerDragStartBehavior: $enumDecodeNullable(
+              _$DragStartBehaviorEnumMap, json['drawerDragStartBehavior']) ??
+          DragStartBehavior.start,
       extendBody: json['extendBody'] as bool? ?? false,
       extendBodyBehindAppBar: json['extendBodyBehindAppBar'] as bool? ?? false,
+      drawerScrimColor: json['drawerScrimColor'] as String?,
+      drawerEdgeDragWidth: (json['drawerEdgeDragWidth'] as num?)?.toDouble(),
+      drawerEnableOpenDragGesture:
+          json['drawerEnableOpenDragGesture'] as bool? ?? true,
+      endDrawerEnableOpenDragGesture:
+          json['endDrawerEnableOpenDragGesture'] as bool? ?? true,
+      restorationId: json['restorationId'] as String?,
     );
 
 Map<String, dynamic> _$$MiraiScaffoldImplToJson(_$MiraiScaffoldImpl instance) =>
@@ -32,13 +48,23 @@ Map<String, dynamic> _$$MiraiScaffoldImplToJson(_$MiraiScaffoldImpl instance) =>
       'floatingActionButtonLocation':
           _$MiraiFloatingActionButtonLocationEnumMap[
               instance.floatingActionButtonLocation],
+      'persistentFooterButtons': instance.persistentFooterButtons,
+      'drawer': instance.drawer,
+      'endDrawer': instance.endDrawer,
       'bottomNavigationBar': instance.bottomNavigationBar,
       'bottomSheet': instance.bottomSheet,
       'backgroundColor': instance.backgroundColor,
       'resizeToAvoidBottomInset': instance.resizeToAvoidBottomInset,
       'primary': instance.primary,
+      'drawerDragStartBehavior':
+          _$DragStartBehaviorEnumMap[instance.drawerDragStartBehavior]!,
       'extendBody': instance.extendBody,
       'extendBodyBehindAppBar': instance.extendBodyBehindAppBar,
+      'drawerScrimColor': instance.drawerScrimColor,
+      'drawerEdgeDragWidth': instance.drawerEdgeDragWidth,
+      'drawerEnableOpenDragGesture': instance.drawerEnableOpenDragGesture,
+      'endDrawerEnableOpenDragGesture': instance.endDrawerEnableOpenDragGesture,
+      'restorationId': instance.restorationId,
     };
 
 const _$MiraiFloatingActionButtonLocationEnumMap = {
@@ -60,4 +86,9 @@ const _$MiraiFloatingActionButtonLocationEnumMap = {
   MiraiFloatingActionButtonLocation.miniCenterDocked: 'miniCenterDocked',
   MiraiFloatingActionButtonLocation.endDocked: 'endDocked',
   MiraiFloatingActionButtonLocation.miniEndDocked: 'miniEndDocked',
+};
+
+const _$DragStartBehaviorEnumMap = {
+  DragStartBehavior.down: 'down',
+  DragStartBehavior.start: 'start',
 };
