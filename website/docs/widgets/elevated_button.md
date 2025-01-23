@@ -1,4 +1,4 @@
-# Elevated Button
+# ElevatedButton
 
 The Mirai Elevated Button allows you to build a Flutter elevated button widget using JSON.
 To know more about the elevated button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/ElevatedButton-class.html).

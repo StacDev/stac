@@ -1,4 +1,4 @@
-# Text Button
+# TextButton
 
 The Mirai Text Button allows you to build a Flutter text button widget using JSON.
 To know more about the text button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TextButton-class.html).

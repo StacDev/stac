@@ -1,4 +1,4 @@
-# List Tile
+# ListTile
 
 Mirai list tile allows you to build the Flutter list tile widget using JSON.
 To know more about the list tile widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/ListTile-class.html).

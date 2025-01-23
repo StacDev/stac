@@ -1,4 +1,4 @@
-# Fitted Box
+# FittedBox
 
 Mirai FittedBox allows you to build the Flutter FittedBox widget using JSON.
 To know more about the FittedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/FittedBox-class.html).

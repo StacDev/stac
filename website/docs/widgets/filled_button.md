@@ -1,4 +1,4 @@
-# Filled Button
+# FilledButton
 
 The Mirai Filled Button allows you to build a Flutter filled button widget using JSON.
 To know more about the filled button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/FilledButton-class.html).

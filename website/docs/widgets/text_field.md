@@ -1,4 +1,4 @@
-# Text Field
+# TextField
 
 The Mirai TextField allows you to build a Flutter text field widget using JSON. To know more about the text field widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TextField-class.html).
 

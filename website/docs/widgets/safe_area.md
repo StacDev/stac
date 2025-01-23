@@ -1,4 +1,4 @@
-# Container
+# SafeArea
 
 Mirai `SafeArea` allows you to build the Flutter SafeArea widget using JSON. 
 To know more about the SafeArea widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/SafeArea-class.html).
