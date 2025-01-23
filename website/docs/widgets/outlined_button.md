@@ -1,4 +1,4 @@
-# Outlined Button
+# OutlinedButton
 
 The Mirai Outlined Button allows you to build a Flutter outlined button widget using JSON.
 To know more about the outlined button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/OutlinedButton-class.html).

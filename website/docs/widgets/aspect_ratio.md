@@ -1,4 +1,4 @@
-# Aspect Ratio
+# AspectRatio
 
 Mirai aspectRatio allows you to build the Flutter AspectRatio widget using JSON.
 To know more about the aspectRatio widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/AspectRatio-class.html).

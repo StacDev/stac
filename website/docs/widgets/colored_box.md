@@ -1,4 +1,4 @@
-# Colored Box
+# ColoredBox
 
 The Mirai Colored Box allows you to build a Flutter colored box widget using JSON.
 To know more about the colored box widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html).

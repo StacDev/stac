@@ -1,4 +1,4 @@
-# Table Row
+# TableRow
 
 MiraiTableRow allows you to define the Flutter TableRow widget using JSON.
 To know more about the TableRow widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/TableRow-class.html).

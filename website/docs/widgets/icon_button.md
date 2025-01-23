@@ -1,4 +1,4 @@
-# Icon Button
+# IconButton
 
 The Mirai Icon Button allows you to build a Flutter icon button widget using JSON.
 To know more about the icon button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/IconButton-class.html).

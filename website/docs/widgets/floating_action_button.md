@@ -1,4 +1,4 @@
-# Floating Action Button
+# FloatingActionButton
 
 The Mirai Floating Action Button allows you to build a Flutter floating action button widget using JSON.
 To know more about the floating action button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html).
