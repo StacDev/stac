@@ -11,10 +11,14 @@ part 'mirai_outlined_button.g.dart';
 class MiraiOutlinedButton with _$MiraiOutlinedButton {
   const factory MiraiOutlinedButton({
     Map<String, dynamic>? onPressed,
+    Map<String, dynamic>? onLongPress,
+    Map<String, dynamic>? onHover,
+    Map<String, dynamic>? onFocusChange,
     MiraiButtonStyle? style,
     @Default(false) autofocus,
     @Default(Clip.none) Clip clipBehavior,
     required Map<String, dynamic> child,
+    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _MiraiOutlinedButton;
 
   factory MiraiOutlinedButton.fromJson(Map<String, dynamic> json) =>

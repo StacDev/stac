@@ -20,9 +20,17 @@ class MiraiTextButtonParser extends MiraiParser<MiraiTextButton> {
       onPressed: model.onPressed == null
           ? null
           : () => Mirai.onCallFromJson(model.onPressed, context),
+      onLongPress: model.onLongPress == null
+          ? null
+          : () => Mirai.onCallFromJson(model.onLongPress, context),
+      onHover: (bool value) => value == false ? null : model.onHover,
+      onFocusChange: (bool value) =>
+          value == false ? null : model.onFocusChange,
       style: model.style?.parseText(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
+      iconAlignment: model.iconAlignment,
+      isSemanticButton: model.isSemanticButton,
       child: Mirai.fromJson(model.child, context) ?? const SizedBox(),
     );
   }

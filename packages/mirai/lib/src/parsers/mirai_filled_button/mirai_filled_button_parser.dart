@@ -27,6 +27,7 @@ class MiraiFilledButtonParser extends MiraiParser<MiraiFilledButton> {
       style: model.style?.parseFilledButton(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
+      iconAlignment: model.iconAlignment,
       child: Mirai.fromJson(model.child, context),
     );
   }

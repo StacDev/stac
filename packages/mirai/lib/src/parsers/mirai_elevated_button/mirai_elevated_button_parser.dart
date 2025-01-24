@@ -20,9 +20,16 @@ class MiraiElevatedButtonParser extends MiraiParser<MiraiElevatedButton> {
       onPressed: model.onPressed == null
           ? null
           : () => Mirai.onCallFromJson(model.onPressed, context),
+      onLongPress: model.onLongPress == null
+          ? null
+          : () => Mirai.onCallFromJson(model.onLongPress, context),
+      onHover: (bool value) => value == false ? null : model.onHover,
+      onFocusChange: (bool value) =>
+          value == false ? null : model.onFocusChange,
       autofocus: model.autofocus,
       style: model.style?.parseElevated(context),
       clipBehavior: model.clipBehavior,
+      iconAlignment: model.iconAlignment,
       child: Mirai.fromJson(model.child, context),
     );
   }

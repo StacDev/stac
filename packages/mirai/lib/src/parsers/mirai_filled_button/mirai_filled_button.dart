@@ -18,6 +18,7 @@ class MiraiFilledButton with _$MiraiFilledButton {
     @Default(false) bool autofocus,
     @Default(Clip.none) Clip clipBehavior,
     Map<String, dynamic>? child,
+    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _MiraiFilledButton;
 
   factory MiraiFilledButton.fromJson(Map<String, dynamic> json) =>

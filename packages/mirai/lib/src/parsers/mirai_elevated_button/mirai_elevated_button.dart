@@ -11,10 +11,14 @@ part 'mirai_elevated_button.g.dart';
 class MiraiElevatedButton with _$MiraiElevatedButton {
   const factory MiraiElevatedButton({
     Map<String, dynamic>? onPressed,
+    Map<String, dynamic>? onLongPress,
+    Map<String, dynamic>? onHover,
+    Map<String, dynamic>? onFocusChange,
     MiraiButtonStyle? style,
     @Default(false) bool autofocus,
     @Default(Clip.none) Clip clipBehavior,
     required Map<String, dynamic> child,
+    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _MiraiElevatedButton;
 
   factory MiraiElevatedButton.fromJson(Map<String, dynamic> json) =>
