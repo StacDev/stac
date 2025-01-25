@@ -21,10 +21,15 @@ MiraiTextButton _$MiraiTextButtonFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MiraiTextButton {
   Map<String, dynamic>? get onPressed => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onLongPress => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onHover => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onFocusChange => throw _privateConstructorUsedError;
   MiraiButtonStyle? get style => throw _privateConstructorUsedError;
   dynamic get autofocus => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
+  bool get isSemanticButton => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
+  IconAlignment get iconAlignment => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiTextButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,10 +49,15 @@ abstract class $MiraiTextButtonCopyWith<$Res> {
   @useResult
   $Res call(
       {Map<String, dynamic>? onPressed,
+      Map<String, dynamic>? onLongPress,
+      Map<String, dynamic>? onHover,
+      Map<String, dynamic>? onFocusChange,
       MiraiButtonStyle? style,
       dynamic autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child});
+      bool isSemanticButton,
+      Map<String, dynamic> child,
+      IconAlignment iconAlignment});
 
   $MiraiButtonStyleCopyWith<$Res>? get style;
 }
@@ -68,15 +78,32 @@ class _$MiraiTextButtonCopyWithImpl<$Res, $Val extends MiraiTextButton>
   @override
   $Res call({
     Object? onPressed = freezed,
+    Object? onLongPress = freezed,
+    Object? onHover = freezed,
+    Object? onFocusChange = freezed,
     Object? style = freezed,
     Object? autofocus = freezed,
     Object? clipBehavior = null,
+    Object? isSemanticButton = null,
     Object? child = null,
+    Object? iconAlignment = null,
   }) {
     return _then(_value.copyWith(
       onPressed: freezed == onPressed
           ? _value.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onLongPress: freezed == onLongPress
+          ? _value.onLongPress
+          : onLongPress // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onHover: freezed == onHover
+          ? _value.onHover
+          : onHover // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onFocusChange: freezed == onFocusChange
+          ? _value.onFocusChange
+          : onFocusChange // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       style: freezed == style
           ? _value.style
@@ -90,10 +117,18 @@ class _$MiraiTextButtonCopyWithImpl<$Res, $Val extends MiraiTextButton>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      isSemanticButton: null == isSemanticButton
+          ? _value.isSemanticButton
+          : isSemanticButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       child: null == child
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      iconAlignment: null == iconAlignment
+          ? _value.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment,
     ) as $Val);
   }
 
@@ -122,10 +157,15 @@ abstract class _$$MiraiTextButtonImplCopyWith<$Res>
   @useResult
   $Res call(
       {Map<String, dynamic>? onPressed,
+      Map<String, dynamic>? onLongPress,
+      Map<String, dynamic>? onHover,
+      Map<String, dynamic>? onFocusChange,
       MiraiButtonStyle? style,
       dynamic autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child});
+      bool isSemanticButton,
+      Map<String, dynamic> child,
+      IconAlignment iconAlignment});
 
   @override
   $MiraiButtonStyleCopyWith<$Res>? get style;
@@ -145,15 +185,32 @@ class __$$MiraiTextButtonImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? onPressed = freezed,
+    Object? onLongPress = freezed,
+    Object? onHover = freezed,
+    Object? onFocusChange = freezed,
     Object? style = freezed,
     Object? autofocus = freezed,
     Object? clipBehavior = null,
+    Object? isSemanticButton = null,
     Object? child = null,
+    Object? iconAlignment = null,
   }) {
     return _then(_$MiraiTextButtonImpl(
       onPressed: freezed == onPressed
           ? _value._onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onLongPress: freezed == onLongPress
+          ? _value._onLongPress
+          : onLongPress // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onHover: freezed == onHover
+          ? _value._onHover
+          : onHover // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onFocusChange: freezed == onFocusChange
+          ? _value._onFocusChange
+          : onFocusChange // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       style: freezed == style
           ? _value.style
@@ -164,10 +221,18 @@ class __$$MiraiTextButtonImplCopyWithImpl<$Res>
           ? _value.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
+      isSemanticButton: null == isSemanticButton
+          ? _value.isSemanticButton
+          : isSemanticButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       child: null == child
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      iconAlignment: null == iconAlignment
+          ? _value.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment,
     ));
   }
 }
@@ -177,11 +242,19 @@ class __$$MiraiTextButtonImplCopyWithImpl<$Res>
 class _$MiraiTextButtonImpl implements _MiraiTextButton {
   const _$MiraiTextButtonImpl(
       {final Map<String, dynamic>? onPressed,
+      final Map<String, dynamic>? onLongPress,
+      final Map<String, dynamic>? onHover,
+      final Map<String, dynamic>? onFocusChange,
       this.style,
       this.autofocus = false,
       this.clipBehavior = Clip.none,
-      required final Map<String, dynamic> child})
+      this.isSemanticButton = true,
+      required final Map<String, dynamic> child,
+      this.iconAlignment = IconAlignment.start})
       : _onPressed = onPressed,
+        _onLongPress = onLongPress,
+        _onHover = onHover,
+        _onFocusChange = onFocusChange,
         _child = child;
 
   factory _$MiraiTextButtonImpl.fromJson(Map<String, dynamic> json) =>
@@ -197,6 +270,36 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
     return EqualUnmodifiableMapView(value);
   }
 
+  final Map<String, dynamic>? _onLongPress;
+  @override
+  Map<String, dynamic>? get onLongPress {
+    final value = _onLongPress;
+    if (value == null) return null;
+    if (_onLongPress is EqualUnmodifiableMapView) return _onLongPress;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _onHover;
+  @override
+  Map<String, dynamic>? get onHover {
+    final value = _onHover;
+    if (value == null) return null;
+    if (_onHover is EqualUnmodifiableMapView) return _onHover;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic>? _onFocusChange;
+  @override
+  Map<String, dynamic>? get onFocusChange {
+    final value = _onFocusChange;
+    if (value == null) return null;
+    if (_onFocusChange is EqualUnmodifiableMapView) return _onFocusChange;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final MiraiButtonStyle? style;
   @override
@@ -205,6 +308,9 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
   @override
   @JsonKey()
   final Clip clipBehavior;
+  @override
+  @JsonKey()
+  final bool isSemanticButton;
   final Map<String, dynamic> _child;
   @override
   Map<String, dynamic> get child {
@@ -214,8 +320,12 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
   }
 
   @override
+  @JsonKey()
+  final IconAlignment iconAlignment;
+
+  @override
   String toString() {
-    return 'MiraiTextButton(onPressed: $onPressed, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child)';
+    return 'MiraiTextButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, isSemanticButton: $isSemanticButton, child: $child, iconAlignment: $iconAlignment)';
   }
 
   @override
@@ -225,11 +335,20 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
             other is _$MiraiTextButtonImpl &&
             const DeepCollectionEquality()
                 .equals(other._onPressed, _onPressed) &&
+            const DeepCollectionEquality()
+                .equals(other._onLongPress, _onLongPress) &&
+            const DeepCollectionEquality().equals(other._onHover, _onHover) &&
+            const DeepCollectionEquality()
+                .equals(other._onFocusChange, _onFocusChange) &&
             (identical(other.style, style) || other.style == style) &&
             const DeepCollectionEquality().equals(other.autofocus, autofocus) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
-            const DeepCollectionEquality().equals(other._child, _child));
+            (identical(other.isSemanticButton, isSemanticButton) ||
+                other.isSemanticButton == isSemanticButton) &&
+            const DeepCollectionEquality().equals(other._child, _child) &&
+            (identical(other.iconAlignment, iconAlignment) ||
+                other.iconAlignment == iconAlignment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -237,10 +356,15 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_onPressed),
+      const DeepCollectionEquality().hash(_onLongPress),
+      const DeepCollectionEquality().hash(_onHover),
+      const DeepCollectionEquality().hash(_onFocusChange),
       style,
       const DeepCollectionEquality().hash(autofocus),
       clipBehavior,
-      const DeepCollectionEquality().hash(_child));
+      isSemanticButton,
+      const DeepCollectionEquality().hash(_child),
+      iconAlignment);
 
   /// Create a copy of MiraiTextButton
   /// with the given fields replaced by the non-null parameter values.
@@ -262,10 +386,15 @@ class _$MiraiTextButtonImpl implements _MiraiTextButton {
 abstract class _MiraiTextButton implements MiraiTextButton {
   const factory _MiraiTextButton(
       {final Map<String, dynamic>? onPressed,
+      final Map<String, dynamic>? onLongPress,
+      final Map<String, dynamic>? onHover,
+      final Map<String, dynamic>? onFocusChange,
       final MiraiButtonStyle? style,
       final dynamic autofocus,
       final Clip clipBehavior,
-      required final Map<String, dynamic> child}) = _$MiraiTextButtonImpl;
+      final bool isSemanticButton,
+      required final Map<String, dynamic> child,
+      final IconAlignment iconAlignment}) = _$MiraiTextButtonImpl;
 
   factory _MiraiTextButton.fromJson(Map<String, dynamic> json) =
       _$MiraiTextButtonImpl.fromJson;
@@ -273,13 +402,23 @@ abstract class _MiraiTextButton implements MiraiTextButton {
   @override
   Map<String, dynamic>? get onPressed;
   @override
+  Map<String, dynamic>? get onLongPress;
+  @override
+  Map<String, dynamic>? get onHover;
+  @override
+  Map<String, dynamic>? get onFocusChange;
+  @override
   MiraiButtonStyle? get style;
   @override
   dynamic get autofocus;
   @override
   Clip get clipBehavior;
   @override
+  bool get isSemanticButton;
+  @override
   Map<String, dynamic> get child;
+  @override
+  IconAlignment get iconAlignment;
 
   /// Create a copy of MiraiTextButton
   /// with the given fields replaced by the non-null parameter values.

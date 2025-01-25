@@ -11,10 +11,15 @@ part 'mirai_text_button.g.dart';
 class MiraiTextButton with _$MiraiTextButton {
   const factory MiraiTextButton({
     Map<String, dynamic>? onPressed,
+    Map<String, dynamic>? onLongPress,
+    Map<String, dynamic>? onHover,
+    Map<String, dynamic>? onFocusChange,
     MiraiButtonStyle? style,
     @Default(false) autofocus,
     @Default(Clip.none) Clip clipBehavior,
+    @Default(true) bool isSemanticButton,
     required Map<String, dynamic> child,
+    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _MiraiTextButton;
 
   factory MiraiTextButton.fromJson(Map<String, dynamic> json) =>

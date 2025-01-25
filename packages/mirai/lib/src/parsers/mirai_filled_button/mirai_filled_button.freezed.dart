@@ -28,6 +28,7 @@ mixin _$MiraiFilledButton {
   bool get autofocus => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
+  IconAlignment get iconAlignment => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiFilledButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -53,7 +54,8 @@ abstract class $MiraiFilledButtonCopyWith<$Res> {
       MiraiButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic>? child});
+      Map<String, dynamic>? child,
+      IconAlignment iconAlignment});
 
   $MiraiButtonStyleCopyWith<$Res>? get style;
 }
@@ -81,6 +83,7 @@ class _$MiraiFilledButtonCopyWithImpl<$Res, $Val extends MiraiFilledButton>
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = freezed,
+    Object? iconAlignment = null,
   }) {
     return _then(_value.copyWith(
       onPressed: freezed == onPressed
@@ -115,6 +118,10 @@ class _$MiraiFilledButtonCopyWithImpl<$Res, $Val extends MiraiFilledButton>
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      iconAlignment: null == iconAlignment
+          ? _value.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment,
     ) as $Val);
   }
 
@@ -149,7 +156,8 @@ abstract class _$$MiraiFilledButtonImplCopyWith<$Res>
       MiraiButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic>? child});
+      Map<String, dynamic>? child,
+      IconAlignment iconAlignment});
 
   @override
   $MiraiButtonStyleCopyWith<$Res>? get style;
@@ -176,6 +184,7 @@ class __$$MiraiFilledButtonImplCopyWithImpl<$Res>
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = freezed,
+    Object? iconAlignment = null,
   }) {
     return _then(_$MiraiFilledButtonImpl(
       onPressed: freezed == onPressed
@@ -210,6 +219,10 @@ class __$$MiraiFilledButtonImplCopyWithImpl<$Res>
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      iconAlignment: null == iconAlignment
+          ? _value.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment,
     ));
   }
 }
@@ -225,7 +238,8 @@ class _$MiraiFilledButtonImpl implements _MiraiFilledButton {
       this.style,
       this.autofocus = false,
       this.clipBehavior = Clip.none,
-      final Map<String, dynamic>? child})
+      final Map<String, dynamic>? child,
+      this.iconAlignment = IconAlignment.start})
       : _onPressed = onPressed,
         _onLongPress = onLongPress,
         _onHover = onHover,
@@ -294,8 +308,12 @@ class _$MiraiFilledButtonImpl implements _MiraiFilledButton {
   }
 
   @override
+  @JsonKey()
+  final IconAlignment iconAlignment;
+
+  @override
   String toString() {
-    return 'MiraiFilledButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child)';
+    return 'MiraiFilledButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child, iconAlignment: $iconAlignment)';
   }
 
   @override
@@ -315,7 +333,9 @@ class _$MiraiFilledButtonImpl implements _MiraiFilledButton {
                 other.autofocus == autofocus) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
-            const DeepCollectionEquality().equals(other._child, _child));
+            const DeepCollectionEquality().equals(other._child, _child) &&
+            (identical(other.iconAlignment, iconAlignment) ||
+                other.iconAlignment == iconAlignment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -329,7 +349,8 @@ class _$MiraiFilledButtonImpl implements _MiraiFilledButton {
       style,
       autofocus,
       clipBehavior,
-      const DeepCollectionEquality().hash(_child));
+      const DeepCollectionEquality().hash(_child),
+      iconAlignment);
 
   /// Create a copy of MiraiFilledButton
   /// with the given fields replaced by the non-null parameter values.
@@ -357,7 +378,8 @@ abstract class _MiraiFilledButton implements MiraiFilledButton {
       final MiraiButtonStyle? style,
       final bool autofocus,
       final Clip clipBehavior,
-      final Map<String, dynamic>? child}) = _$MiraiFilledButtonImpl;
+      final Map<String, dynamic>? child,
+      final IconAlignment iconAlignment}) = _$MiraiFilledButtonImpl;
 
   factory _MiraiFilledButton.fromJson(Map<String, dynamic> json) =
       _$MiraiFilledButtonImpl.fromJson;
@@ -378,6 +400,8 @@ abstract class _MiraiFilledButton implements MiraiFilledButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic>? get child;
+  @override
+  IconAlignment get iconAlignment;
 
   /// Create a copy of MiraiFilledButton
   /// with the given fields replaced by the non-null parameter values.
