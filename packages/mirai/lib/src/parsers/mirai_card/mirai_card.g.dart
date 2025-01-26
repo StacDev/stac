@@ -12,6 +12,9 @@ _$MiraiCardImpl _$$MiraiCardImplFromJson(Map<String, dynamic> json) =>
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
       elevation: (json['elevation'] as num?)?.toDouble(),
+      shape: json['shape'] == null
+          ? null
+          : MiraiShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       borderOnForeground: json['borderOnForeground'] as bool? ?? true,
       margin: json['margin'] == null
           ? null
@@ -27,6 +30,7 @@ Map<String, dynamic> _$$MiraiCardImplToJson(_$MiraiCardImpl instance) =>
       'shadowColor': instance.shadowColor,
       'surfaceTintColor': instance.surfaceTintColor,
       'elevation': instance.elevation,
+      'shape': instance.shape,
       'borderOnForeground': instance.borderOnForeground,
       'margin': instance.margin,
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior],

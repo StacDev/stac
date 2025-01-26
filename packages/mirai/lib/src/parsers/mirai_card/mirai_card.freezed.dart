@@ -24,6 +24,7 @@ mixin _$MiraiCard {
   String? get shadowColor => throw _privateConstructorUsedError;
   String? get surfaceTintColor => throw _privateConstructorUsedError;
   double? get elevation => throw _privateConstructorUsedError;
+  MiraiShapeBorder? get shape => throw _privateConstructorUsedError;
   bool get borderOnForeground => throw _privateConstructorUsedError;
   MiraiEdgeInsets? get margin => throw _privateConstructorUsedError;
   Clip? get clipBehavior => throw _privateConstructorUsedError;
@@ -50,12 +51,14 @@ abstract class $MiraiCardCopyWith<$Res> {
       String? shadowColor,
       String? surfaceTintColor,
       double? elevation,
+      MiraiShapeBorder? shape,
       bool borderOnForeground,
       MiraiEdgeInsets? margin,
       Clip? clipBehavior,
       Map<String, dynamic>? child,
       bool semanticContainer});
 
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
   $MiraiEdgeInsetsCopyWith<$Res>? get margin;
 }
 
@@ -78,6 +81,7 @@ class _$MiraiCardCopyWithImpl<$Res, $Val extends MiraiCard>
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? elevation = freezed,
+    Object? shape = freezed,
     Object? borderOnForeground = null,
     Object? margin = freezed,
     Object? clipBehavior = freezed,
@@ -101,6 +105,10 @@ class _$MiraiCardCopyWithImpl<$Res, $Val extends MiraiCard>
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as MiraiShapeBorder?,
       borderOnForeground: null == borderOnForeground
           ? _value.borderOnForeground
           : borderOnForeground // ignore: cast_nullable_to_non_nullable
@@ -122,6 +130,20 @@ class _$MiraiCardCopyWithImpl<$Res, $Val extends MiraiCard>
           : semanticContainer // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  /// Create a copy of MiraiCard
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiShapeBorderCopyWith<$Res>? get shape {
+    if (_value.shape == null) {
+      return null;
+    }
+
+    return $MiraiShapeBorderCopyWith<$Res>(_value.shape!, (value) {
+      return _then(_value.copyWith(shape: value) as $Val);
+    });
   }
 
   /// Create a copy of MiraiCard
@@ -152,12 +174,15 @@ abstract class _$$MiraiCardImplCopyWith<$Res>
       String? shadowColor,
       String? surfaceTintColor,
       double? elevation,
+      MiraiShapeBorder? shape,
       bool borderOnForeground,
       MiraiEdgeInsets? margin,
       Clip? clipBehavior,
       Map<String, dynamic>? child,
       bool semanticContainer});
 
+  @override
+  $MiraiShapeBorderCopyWith<$Res>? get shape;
   @override
   $MiraiEdgeInsetsCopyWith<$Res>? get margin;
 }
@@ -179,6 +204,7 @@ class __$$MiraiCardImplCopyWithImpl<$Res>
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? elevation = freezed,
+    Object? shape = freezed,
     Object? borderOnForeground = null,
     Object? margin = freezed,
     Object? clipBehavior = freezed,
@@ -202,6 +228,10 @@ class __$$MiraiCardImplCopyWithImpl<$Res>
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
               as double?,
+      shape: freezed == shape
+          ? _value.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as MiraiShapeBorder?,
       borderOnForeground: null == borderOnForeground
           ? _value.borderOnForeground
           : borderOnForeground // ignore: cast_nullable_to_non_nullable
@@ -234,6 +264,7 @@ class _$MiraiCardImpl implements _MiraiCard {
       this.shadowColor,
       this.surfaceTintColor,
       this.elevation,
+      this.shape,
       this.borderOnForeground = true,
       this.margin,
       this.clipBehavior,
@@ -252,6 +283,8 @@ class _$MiraiCardImpl implements _MiraiCard {
   final String? surfaceTintColor;
   @override
   final double? elevation;
+  @override
+  final MiraiShapeBorder? shape;
   @override
   @JsonKey()
   final bool borderOnForeground;
@@ -275,7 +308,7 @@ class _$MiraiCardImpl implements _MiraiCard {
 
   @override
   String toString() {
-    return 'MiraiCard(color: $color, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, elevation: $elevation, borderOnForeground: $borderOnForeground, margin: $margin, clipBehavior: $clipBehavior, child: $child, semanticContainer: $semanticContainer)';
+    return 'MiraiCard(color: $color, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, elevation: $elevation, shape: $shape, borderOnForeground: $borderOnForeground, margin: $margin, clipBehavior: $clipBehavior, child: $child, semanticContainer: $semanticContainer)';
   }
 
   @override
@@ -290,6 +323,7 @@ class _$MiraiCardImpl implements _MiraiCard {
                 other.surfaceTintColor == surfaceTintColor) &&
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
             (identical(other.borderOnForeground, borderOnForeground) ||
                 other.borderOnForeground == borderOnForeground) &&
             (identical(other.margin, margin) || other.margin == margin) &&
@@ -308,6 +342,7 @@ class _$MiraiCardImpl implements _MiraiCard {
       shadowColor,
       surfaceTintColor,
       elevation,
+      shape,
       borderOnForeground,
       margin,
       clipBehavior,
@@ -336,6 +371,7 @@ abstract class _MiraiCard implements MiraiCard {
       final String? shadowColor,
       final String? surfaceTintColor,
       final double? elevation,
+      final MiraiShapeBorder? shape,
       final bool borderOnForeground,
       final MiraiEdgeInsets? margin,
       final Clip? clipBehavior,
@@ -353,6 +389,8 @@ abstract class _MiraiCard implements MiraiCard {
   String? get surfaceTintColor;
   @override
   double? get elevation;
+  @override
+  MiraiShapeBorder? get shape;
   @override
   bool get borderOnForeground;
   @override
