@@ -52,6 +52,16 @@ To know more about the BottomNavigationBarItem widget in Flutter, refer to the [
 | backgroundColor | `String?`               | The background color of the bottom navigation bar item.                     |
 | tooltip         | `String?`               | The tooltip text to display when the item is long-pressed.                  |
 
+# BottomNavigationView
+
+A page view that displays the widget which corresponds to the currently selected bottom navigation item.
+
+## Properties
+
+| Property | Type                          | Description                                      |
+|----------|-------------------------------|--------------------------------------------------|
+| children | `List<Map<String, dynamic>>`  | The widgets below this widget in the tree.       |
+
 
 ## Example
 
