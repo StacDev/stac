@@ -9,13 +9,15 @@ part of 'mirai_default_tab_controller.dart';
 _$MiraiDefaultTabControllerImpl _$$MiraiDefaultTabControllerImplFromJson(
         Map<String, dynamic> json) =>
     _$MiraiDefaultTabControllerImpl(
-      child: json['child'] as Map<String, dynamic>,
       length: (json['length'] as num).toInt(),
+      initialIndex: (json['initialIndex'] as num?)?.toInt() ?? 0,
+      child: json['child'] as Map<String, dynamic>,
     );
 
 Map<String, dynamic> _$$MiraiDefaultTabControllerImplToJson(
         _$MiraiDefaultTabControllerImpl instance) =>
     <String, dynamic>{
-      'child': instance.child,
       'length': instance.length,
+      'initialIndex': instance.initialIndex,
+      'child': instance.child,
     };

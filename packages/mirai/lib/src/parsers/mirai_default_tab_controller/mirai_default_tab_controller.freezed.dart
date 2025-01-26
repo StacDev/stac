@@ -21,8 +21,9 @@ MiraiDefaultTabController _$MiraiDefaultTabControllerFromJson(
 
 /// @nodoc
 mixin _$MiraiDefaultTabController {
-  Map<String, dynamic> get child => throw _privateConstructorUsedError;
   int get length => throw _privateConstructorUsedError;
+  int get initialIndex => throw _privateConstructorUsedError;
+  Map<String, dynamic> get child => throw _privateConstructorUsedError;
 
   /// Serializes this MiraiDefaultTabController to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $MiraiDefaultTabControllerCopyWith<$Res> {
           $Res Function(MiraiDefaultTabController) then) =
       _$MiraiDefaultTabControllerCopyWithImpl<$Res, MiraiDefaultTabController>;
   @useResult
-  $Res call({Map<String, dynamic> child, int length});
+  $Res call({int length, int initialIndex, Map<String, dynamic> child});
 }
 
 /// @nodoc
@@ -59,18 +60,23 @@ class _$MiraiDefaultTabControllerCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? child = null,
     Object? length = null,
+    Object? initialIndex = null,
+    Object? child = null,
   }) {
     return _then(_value.copyWith(
-      child: null == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
       length: null == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int,
+      initialIndex: null == initialIndex
+          ? _value.initialIndex
+          : initialIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      child: null == child
+          ? _value.child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -84,7 +90,7 @@ abstract class _$$MiraiDefaultTabControllerImplCopyWith<$Res>
       __$$MiraiDefaultTabControllerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic> child, int length});
+  $Res call({int length, int initialIndex, Map<String, dynamic> child});
 }
 
 /// @nodoc
@@ -102,18 +108,23 @@ class __$$MiraiDefaultTabControllerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? child = null,
     Object? length = null,
+    Object? initialIndex = null,
+    Object? child = null,
   }) {
     return _then(_$MiraiDefaultTabControllerImpl(
-      child: null == child
-          ? _value._child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
       length: null == length
           ? _value.length
           : length // ignore: cast_nullable_to_non_nullable
               as int,
+      initialIndex: null == initialIndex
+          ? _value.initialIndex
+          : initialIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      child: null == child
+          ? _value._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -122,12 +133,19 @@ class __$$MiraiDefaultTabControllerImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MiraiDefaultTabControllerImpl implements _MiraiDefaultTabController {
   const _$MiraiDefaultTabControllerImpl(
-      {required final Map<String, dynamic> child, required this.length})
+      {required this.length,
+      this.initialIndex = 0,
+      required final Map<String, dynamic> child})
       : _child = child;
 
   factory _$MiraiDefaultTabControllerImpl.fromJson(Map<String, dynamic> json) =>
       _$$MiraiDefaultTabControllerImplFromJson(json);
 
+  @override
+  final int length;
+  @override
+  @JsonKey()
+  final int initialIndex;
   final Map<String, dynamic> _child;
   @override
   Map<String, dynamic> get child {
@@ -137,11 +155,8 @@ class _$MiraiDefaultTabControllerImpl implements _MiraiDefaultTabController {
   }
 
   @override
-  final int length;
-
-  @override
   String toString() {
-    return 'MiraiDefaultTabController(child: $child, length: $length)';
+    return 'MiraiDefaultTabController(length: $length, initialIndex: $initialIndex, child: $child)';
   }
 
   @override
@@ -149,14 +164,16 @@ class _$MiraiDefaultTabControllerImpl implements _MiraiDefaultTabController {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MiraiDefaultTabControllerImpl &&
-            const DeepCollectionEquality().equals(other._child, _child) &&
-            (identical(other.length, length) || other.length == length));
+            (identical(other.length, length) || other.length == length) &&
+            (identical(other.initialIndex, initialIndex) ||
+                other.initialIndex == initialIndex) &&
+            const DeepCollectionEquality().equals(other._child, _child));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_child), length);
+  int get hashCode => Object.hash(runtimeType, length, initialIndex,
+      const DeepCollectionEquality().hash(_child));
 
   /// Create a copy of MiraiDefaultTabController
   /// with the given fields replaced by the non-null parameter values.
@@ -177,16 +194,20 @@ class _$MiraiDefaultTabControllerImpl implements _MiraiDefaultTabController {
 
 abstract class _MiraiDefaultTabController implements MiraiDefaultTabController {
   const factory _MiraiDefaultTabController(
-      {required final Map<String, dynamic> child,
-      required final int length}) = _$MiraiDefaultTabControllerImpl;
+          {required final int length,
+          final int initialIndex,
+          required final Map<String, dynamic> child}) =
+      _$MiraiDefaultTabControllerImpl;
 
   factory _MiraiDefaultTabController.fromJson(Map<String, dynamic> json) =
       _$MiraiDefaultTabControllerImpl.fromJson;
 
   @override
-  Map<String, dynamic> get child;
-  @override
   int get length;
+  @override
+  int get initialIndex;
+  @override
+  Map<String, dynamic> get child;
 
   /// Create a copy of MiraiDefaultTabController
   /// with the given fields replaced by the non-null parameter values.
