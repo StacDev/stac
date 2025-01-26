@@ -12,7 +12,6 @@ class MiraiAutoComplete with _$MiraiAutoComplete {
     required List<String> options,
     Map<String, dynamic>? onSelected,
     @Default(200) double optionsMaxHeight,
-    // optionsViewBuilder,
     @Default(OptionsViewOpenDirection.down)
     OptionsViewOpenDirection optionsViewOpenDirection,
     String? initialValue,
