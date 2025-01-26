@@ -1,14 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mirai/src/parsers/mirai_material_color/mirai_material_color.dart';
 
-export 'package:mirai/src/parsers/mirai_check_box_widget/mirai_check_box_widget_parser.dart';
+export 'package:mirai/src/parsers/mirai_check_box/mirai_check_box_parser.dart';
 
-part 'mirai_check_box_widget.freezed.dart';
-part 'mirai_check_box_widget.g.dart';
+part 'mirai_check_box.freezed.dart';
+part 'mirai_check_box.g.dart';
 
 @freezed
-class MiraiCheckBoxWidget with _$MiraiCheckBoxWidget {
-  const factory MiraiCheckBoxWidget({
+class MiraiCheckBox with _$MiraiCheckBox {
+  const factory MiraiCheckBox({
     String? id,
     bool? value,
     String? activeColor,
@@ -23,6 +23,6 @@ class MiraiCheckBoxWidget with _$MiraiCheckBoxWidget {
     @Default(false) bool isError,
   }) = _MiraiCheckBoxWidget;
 
-  factory MiraiCheckBoxWidget.fromJson(Map<String, dynamic> json) =>
-      _$MiraiCheckBoxWidgetFromJson(json);
+  factory MiraiCheckBox.fromJson(Map<String, dynamic> json) =>
+      _$MiraiCheckBoxFromJson(json);
 }

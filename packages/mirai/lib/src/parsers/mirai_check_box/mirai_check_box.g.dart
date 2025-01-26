@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'mirai_check_box_widget.dart';
+part of 'mirai_check_box.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

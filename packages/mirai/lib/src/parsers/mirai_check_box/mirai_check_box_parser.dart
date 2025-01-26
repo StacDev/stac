@@ -1,38 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:mirai/src/parsers/mirai_check_box_widget/mirai_check_box_widget.dart';
+import 'package:mirai/src/parsers/mirai_check_box/mirai_check_box.dart';
 import 'package:mirai/src/parsers/mirai_form/mirai_form_scope.dart';
 import 'package:mirai/src/parsers/mirai_material_color/mirai_material_color.dart';
 import 'package:mirai/src/utils/color_utils.dart';
 import 'package:mirai/src/utils/widget_type.dart';
 import 'package:mirai_framework/mirai_framework.dart';
 
-class MiraiCheckBoxWidgetParser extends MiraiParser<MiraiCheckBoxWidget> {
-  const MiraiCheckBoxWidgetParser();
+class MiraiCheckBoxParser extends MiraiParser<MiraiCheckBox> {
+  const MiraiCheckBoxParser();
 
   @override
-  MiraiCheckBoxWidget getModel(Map<String, dynamic> json) =>
-      MiraiCheckBoxWidget.fromJson(json);
+  MiraiCheckBox getModel(Map<String, dynamic> json) =>
+      MiraiCheckBox.fromJson(json);
 
   @override
   String get type => WidgetType.checkBox.name;
 
   @override
-  Widget parse(BuildContext context, MiraiCheckBoxWidget model) {
-    return _MiraiCheckBoxWidget(model, MiraiFormScope.of(context));
+  Widget parse(BuildContext context, MiraiCheckBox model) {
+    return _MiraiCheckBox(model, MiraiFormScope.of(context));
   }
 }
 
-class _MiraiCheckBoxWidget extends StatefulWidget {
-  const _MiraiCheckBoxWidget(this.model, this.formScope);
+class _MiraiCheckBox extends StatefulWidget {
+  const _MiraiCheckBox(this.model, this.formScope);
 
-  final MiraiCheckBoxWidget model;
+  final MiraiCheckBox model;
   final MiraiFormScope? formScope;
 
   @override
-  State<_MiraiCheckBoxWidget> createState() => __MiraiCheckBoxWidgetState();
+  State<_MiraiCheckBox> createState() => _MiraiCheckBoxState();
 }
 
-class __MiraiCheckBoxWidgetState extends State<_MiraiCheckBoxWidget> {
+class _MiraiCheckBoxState extends State<_MiraiCheckBox> {
   bool isMarkChecked = false;
 
   @override
