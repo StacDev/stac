@@ -47,26 +47,29 @@ class _MiraiCheckBoxState extends State<_MiraiCheckBox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-        value: isMarkChecked,
-        onChanged: (value) {
-          setState(() {
-            isMarkChecked = !isMarkChecked;
-          });
-          if (widget.model.id != null) {
-            widget.formScope?.formData[widget.model.id!] = value;
-          }
-        },
-        activeColor: widget.model.activeColor.toColor(context),
-        fillColor:
-            WidgetStateProperty.all(widget.model.fillColor?.parse(context)),
-        checkColor: widget.model.checkColor.toColor(context),
-        tristate: widget.model.tristate,
-        focusColor: widget.model.focusColor.toColor(context),
-        hoverColor: widget.model.hoverColor.toColor(context),
-        overlayColor:
-            WidgetStateProperty.all(widget.model.overlayColor?.parse(context)),
-        splashRadius: widget.model.splashRadius,
-        autofocus: widget.model.autofocus,
-        isError: widget.model.isError);
+      value: isMarkChecked,
+      tristate: widget.model.tristate,
+      onChanged: (value) {
+        setState(() {
+          isMarkChecked = !isMarkChecked;
+        });
+        if (widget.model.id != null) {
+          widget.formScope?.formData[widget.model.id!] = value;
+        }
+      },
+      mouseCursor: widget.model.mouseCursor?.value,
+      activeColor: widget.model.activeColor.toColor(context),
+      fillColor:
+          WidgetStateProperty.all(widget.model.fillColor?.parse(context)),
+      checkColor: widget.model.checkColor.toColor(context),
+      focusColor: widget.model.focusColor.toColor(context),
+      hoverColor: widget.model.hoverColor.toColor(context),
+      overlayColor:
+          WidgetStateProperty.all(widget.model.overlayColor?.parse(context)),
+      splashRadius: widget.model.splashRadius,
+      materialTapTargetSize: widget.model.materialTapTargetSize,
+      autofocus: widget.model.autofocus,
+      isError: widget.model.isError,
+    );
   }
 }
