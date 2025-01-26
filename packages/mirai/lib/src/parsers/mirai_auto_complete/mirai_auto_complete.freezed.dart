@@ -22,8 +22,7 @@ MiraiAutoComplete _$MiraiAutoCompleteFromJson(Map<String, dynamic> json) {
 mixin _$MiraiAutoComplete {
   List<String> get options => throw _privateConstructorUsedError;
   Map<String, dynamic>? get onSelected => throw _privateConstructorUsedError;
-  double get optionsMaxHeight =>
-      throw _privateConstructorUsedError; // optionsViewBuilder,
+  double get optionsMaxHeight => throw _privateConstructorUsedError;
   OptionsViewOpenDirection get optionsViewOpenDirection =>
       throw _privateConstructorUsedError;
   String? get initialValue => throw _privateConstructorUsedError;
@@ -194,7 +193,6 @@ class _$MiraiAutoCompleteImpl implements _MiraiAutoComplete {
   @override
   @JsonKey()
   final double optionsMaxHeight;
-// optionsViewBuilder,
   @override
   @JsonKey()
   final OptionsViewOpenDirection optionsViewOpenDirection;
@@ -266,7 +264,7 @@ abstract class _MiraiAutoComplete implements MiraiAutoComplete {
   @override
   Map<String, dynamic>? get onSelected;
   @override
-  double get optionsMaxHeight; // optionsViewBuilder,
+  double get optionsMaxHeight;
   @override
   OptionsViewOpenDirection get optionsViewOpenDirection;
   @override

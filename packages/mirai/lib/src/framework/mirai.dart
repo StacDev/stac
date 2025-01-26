@@ -61,7 +61,7 @@ class Mirai {
     const MiraiAlertDialogParser(),
     const MiraiTabParser(),
     const MiraiFormParser(),
-    const MiraiCheckBoxWidgetParser(),
+    const MiraiCheckBoxParser(),
     const MiraiExpandedParser(),
     const MiraiFlexibleParser(),
     const MiraiSpacerParser(),

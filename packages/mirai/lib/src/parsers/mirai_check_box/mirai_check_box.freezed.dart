@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'mirai_check_box_widget.dart';
+part of 'mirai_check_box.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,52 +14,59 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-MiraiCheckBoxWidget _$MiraiCheckBoxWidgetFromJson(Map<String, dynamic> json) {
-  return _MiraiCheckBoxWidget.fromJson(json);
+MiraiCheckBox _$MiraiCheckBoxFromJson(Map<String, dynamic> json) {
+  return _MiraiCheckBox.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MiraiCheckBoxWidget {
+mixin _$MiraiCheckBox {
   String? get id => throw _privateConstructorUsedError;
   bool? get value => throw _privateConstructorUsedError;
+  bool get tristate => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onChanged => throw _privateConstructorUsedError;
+  MiraiMouseCursor? get mouseCursor => throw _privateConstructorUsedError;
   String? get activeColor => throw _privateConstructorUsedError;
   MiraiMaterialColor? get fillColor => throw _privateConstructorUsedError;
   String? get checkColor => throw _privateConstructorUsedError;
-  bool get tristate => throw _privateConstructorUsedError;
   String? get focusColor => throw _privateConstructorUsedError;
   String? get hoverColor => throw _privateConstructorUsedError;
   MiraiMaterialColor? get overlayColor => throw _privateConstructorUsedError;
   double? get splashRadius => throw _privateConstructorUsedError;
+  MaterialTapTargetSize? get materialTapTargetSize =>
+      throw _privateConstructorUsedError;
   bool get autofocus => throw _privateConstructorUsedError;
   bool get isError => throw _privateConstructorUsedError;
 
-  /// Serializes this MiraiCheckBoxWidget to a JSON map.
+  /// Serializes this MiraiCheckBox to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $MiraiCheckBoxWidgetCopyWith<MiraiCheckBoxWidget> get copyWith =>
+  $MiraiCheckBoxCopyWith<MiraiCheckBox> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MiraiCheckBoxWidgetCopyWith<$Res> {
-  factory $MiraiCheckBoxWidgetCopyWith(
-          MiraiCheckBoxWidget value, $Res Function(MiraiCheckBoxWidget) then) =
-      _$MiraiCheckBoxWidgetCopyWithImpl<$Res, MiraiCheckBoxWidget>;
+abstract class $MiraiCheckBoxCopyWith<$Res> {
+  factory $MiraiCheckBoxCopyWith(
+          MiraiCheckBox value, $Res Function(MiraiCheckBox) then) =
+      _$MiraiCheckBoxCopyWithImpl<$Res, MiraiCheckBox>;
   @useResult
   $Res call(
       {String? id,
       bool? value,
+      bool tristate,
+      Map<String, dynamic>? onChanged,
+      MiraiMouseCursor? mouseCursor,
       String? activeColor,
       MiraiMaterialColor? fillColor,
       String? checkColor,
-      bool tristate,
       String? focusColor,
       String? hoverColor,
       MiraiMaterialColor? overlayColor,
       double? splashRadius,
+      MaterialTapTargetSize? materialTapTargetSize,
       bool autofocus,
       bool isError});
 
@@ -68,30 +75,33 @@ abstract class $MiraiCheckBoxWidgetCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
-    implements $MiraiCheckBoxWidgetCopyWith<$Res> {
-  _$MiraiCheckBoxWidgetCopyWithImpl(this._value, this._then);
+class _$MiraiCheckBoxCopyWithImpl<$Res, $Val extends MiraiCheckBox>
+    implements $MiraiCheckBoxCopyWith<$Res> {
+  _$MiraiCheckBoxCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
+    Object? tristate = null,
+    Object? onChanged = freezed,
+    Object? mouseCursor = freezed,
     Object? activeColor = freezed,
     Object? fillColor = freezed,
     Object? checkColor = freezed,
-    Object? tristate = null,
     Object? focusColor = freezed,
     Object? hoverColor = freezed,
     Object? overlayColor = freezed,
     Object? splashRadius = freezed,
+    Object? materialTapTargetSize = freezed,
     Object? autofocus = null,
     Object? isError = null,
   }) {
@@ -104,6 +114,18 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool?,
+      tristate: null == tristate
+          ? _value.tristate
+          : tristate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      onChanged: freezed == onChanged
+          ? _value.onChanged
+          : onChanged // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      mouseCursor: freezed == mouseCursor
+          ? _value.mouseCursor
+          : mouseCursor // ignore: cast_nullable_to_non_nullable
+              as MiraiMouseCursor?,
       activeColor: freezed == activeColor
           ? _value.activeColor
           : activeColor // ignore: cast_nullable_to_non_nullable
@@ -116,10 +138,6 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
           ? _value.checkColor
           : checkColor // ignore: cast_nullable_to_non_nullable
               as String?,
-      tristate: null == tristate
-          ? _value.tristate
-          : tristate // ignore: cast_nullable_to_non_nullable
-              as bool,
       focusColor: freezed == focusColor
           ? _value.focusColor
           : focusColor // ignore: cast_nullable_to_non_nullable
@@ -136,6 +154,10 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
           ? _value.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
               as double?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _value.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -147,7 +169,7 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
     ) as $Val);
   }
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -161,7 +183,7 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
     });
   }
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -177,24 +199,27 @@ class _$MiraiCheckBoxWidgetCopyWithImpl<$Res, $Val extends MiraiCheckBoxWidget>
 }
 
 /// @nodoc
-abstract class _$$MiraiCheckBoxWidgetImplCopyWith<$Res>
-    implements $MiraiCheckBoxWidgetCopyWith<$Res> {
-  factory _$$MiraiCheckBoxWidgetImplCopyWith(_$MiraiCheckBoxWidgetImpl value,
-          $Res Function(_$MiraiCheckBoxWidgetImpl) then) =
-      __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>;
+abstract class _$$MiraiCheckBoxImplCopyWith<$Res>
+    implements $MiraiCheckBoxCopyWith<$Res> {
+  factory _$$MiraiCheckBoxImplCopyWith(
+          _$MiraiCheckBoxImpl value, $Res Function(_$MiraiCheckBoxImpl) then) =
+      __$$MiraiCheckBoxImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String? id,
       bool? value,
+      bool tristate,
+      Map<String, dynamic>? onChanged,
+      MiraiMouseCursor? mouseCursor,
       String? activeColor,
       MiraiMaterialColor? fillColor,
       String? checkColor,
-      bool tristate,
       String? focusColor,
       String? hoverColor,
       MiraiMaterialColor? overlayColor,
       double? splashRadius,
+      MaterialTapTargetSize? materialTapTargetSize,
       bool autofocus,
       bool isError});
 
@@ -205,32 +230,35 @@ abstract class _$$MiraiCheckBoxWidgetImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
-    extends _$MiraiCheckBoxWidgetCopyWithImpl<$Res, _$MiraiCheckBoxWidgetImpl>
-    implements _$$MiraiCheckBoxWidgetImplCopyWith<$Res> {
-  __$$MiraiCheckBoxWidgetImplCopyWithImpl(_$MiraiCheckBoxWidgetImpl _value,
-      $Res Function(_$MiraiCheckBoxWidgetImpl) _then)
+class __$$MiraiCheckBoxImplCopyWithImpl<$Res>
+    extends _$MiraiCheckBoxCopyWithImpl<$Res, _$MiraiCheckBoxImpl>
+    implements _$$MiraiCheckBoxImplCopyWith<$Res> {
+  __$$MiraiCheckBoxImplCopyWithImpl(
+      _$MiraiCheckBoxImpl _value, $Res Function(_$MiraiCheckBoxImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? id = freezed,
     Object? value = freezed,
+    Object? tristate = null,
+    Object? onChanged = freezed,
+    Object? mouseCursor = freezed,
     Object? activeColor = freezed,
     Object? fillColor = freezed,
     Object? checkColor = freezed,
-    Object? tristate = null,
     Object? focusColor = freezed,
     Object? hoverColor = freezed,
     Object? overlayColor = freezed,
     Object? splashRadius = freezed,
+    Object? materialTapTargetSize = freezed,
     Object? autofocus = null,
     Object? isError = null,
   }) {
-    return _then(_$MiraiCheckBoxWidgetImpl(
+    return _then(_$MiraiCheckBoxImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -239,6 +267,18 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as bool?,
+      tristate: null == tristate
+          ? _value.tristate
+          : tristate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      onChanged: freezed == onChanged
+          ? _value._onChanged
+          : onChanged // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      mouseCursor: freezed == mouseCursor
+          ? _value.mouseCursor
+          : mouseCursor // ignore: cast_nullable_to_non_nullable
+              as MiraiMouseCursor?,
       activeColor: freezed == activeColor
           ? _value.activeColor
           : activeColor // ignore: cast_nullable_to_non_nullable
@@ -251,10 +291,6 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
           ? _value.checkColor
           : checkColor // ignore: cast_nullable_to_non_nullable
               as String?,
-      tristate: null == tristate
-          ? _value.tristate
-          : tristate // ignore: cast_nullable_to_non_nullable
-              as bool,
       focusColor: freezed == focusColor
           ? _value.focusColor
           : focusColor // ignore: cast_nullable_to_non_nullable
@@ -271,6 +307,10 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
           ? _value.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
               as double?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _value.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -285,37 +325,53 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
-  const _$MiraiCheckBoxWidgetImpl(
+class _$MiraiCheckBoxImpl implements _MiraiCheckBox {
+  const _$MiraiCheckBoxImpl(
       {this.id,
       this.value,
+      this.tristate = false,
+      final Map<String, dynamic>? onChanged,
+      this.mouseCursor,
       this.activeColor,
       this.fillColor,
       this.checkColor,
-      this.tristate = false,
       this.focusColor,
       this.hoverColor,
       this.overlayColor,
       this.splashRadius,
+      this.materialTapTargetSize,
       this.autofocus = false,
-      this.isError = false});
+      this.isError = false})
+      : _onChanged = onChanged;
 
-  factory _$MiraiCheckBoxWidgetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MiraiCheckBoxWidgetImplFromJson(json);
+  factory _$MiraiCheckBoxImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MiraiCheckBoxImplFromJson(json);
 
   @override
   final String? id;
   @override
   final bool? value;
   @override
+  @JsonKey()
+  final bool tristate;
+  final Map<String, dynamic>? _onChanged;
+  @override
+  Map<String, dynamic>? get onChanged {
+    final value = _onChanged;
+    if (value == null) return null;
+    if (_onChanged is EqualUnmodifiableMapView) return _onChanged;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  @override
+  final MiraiMouseCursor? mouseCursor;
+  @override
   final String? activeColor;
   @override
   final MiraiMaterialColor? fillColor;
   @override
   final String? checkColor;
-  @override
-  @JsonKey()
-  final bool tristate;
   @override
   final String? focusColor;
   @override
@@ -325,6 +381,8 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
   @override
   final double? splashRadius;
   @override
+  final MaterialTapTargetSize? materialTapTargetSize;
+  @override
   @JsonKey()
   final bool autofocus;
   @override
@@ -333,24 +391,28 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
 
   @override
   String toString() {
-    return 'MiraiCheckBoxWidget(id: $id, value: $value, activeColor: $activeColor, fillColor: $fillColor, checkColor: $checkColor, tristate: $tristate, focusColor: $focusColor, hoverColor: $hoverColor, overlayColor: $overlayColor, splashRadius: $splashRadius, autofocus: $autofocus, isError: $isError)';
+    return 'MiraiCheckBox(id: $id, value: $value, tristate: $tristate, onChanged: $onChanged, mouseCursor: $mouseCursor, activeColor: $activeColor, fillColor: $fillColor, checkColor: $checkColor, focusColor: $focusColor, hoverColor: $hoverColor, overlayColor: $overlayColor, splashRadius: $splashRadius, materialTapTargetSize: $materialTapTargetSize, autofocus: $autofocus, isError: $isError)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiraiCheckBoxWidgetImpl &&
+            other is _$MiraiCheckBoxImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.value, value) || other.value == value) &&
+            (identical(other.tristate, tristate) ||
+                other.tristate == tristate) &&
+            const DeepCollectionEquality()
+                .equals(other._onChanged, _onChanged) &&
+            (identical(other.mouseCursor, mouseCursor) ||
+                other.mouseCursor == mouseCursor) &&
             (identical(other.activeColor, activeColor) ||
                 other.activeColor == activeColor) &&
             (identical(other.fillColor, fillColor) ||
                 other.fillColor == fillColor) &&
             (identical(other.checkColor, checkColor) ||
                 other.checkColor == checkColor) &&
-            (identical(other.tristate, tristate) ||
-                other.tristate == tristate) &&
             (identical(other.focusColor, focusColor) ||
                 other.focusColor == focusColor) &&
             (identical(other.hoverColor, hoverColor) ||
@@ -359,6 +421,8 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
                 other.overlayColor == overlayColor) &&
             (identical(other.splashRadius, splashRadius) ||
                 other.splashRadius == splashRadius) &&
+            (identical(other.materialTapTargetSize, materialTapTargetSize) ||
+                other.materialTapTargetSize == materialTapTargetSize) &&
             (identical(other.autofocus, autofocus) ||
                 other.autofocus == autofocus) &&
             (identical(other.isError, isError) || other.isError == isError));
@@ -370,64 +434,73 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
       runtimeType,
       id,
       value,
+      tristate,
+      const DeepCollectionEquality().hash(_onChanged),
+      mouseCursor,
       activeColor,
       fillColor,
       checkColor,
-      tristate,
       focusColor,
       hoverColor,
       overlayColor,
       splashRadius,
+      materialTapTargetSize,
       autofocus,
       isError);
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
-      __$$MiraiCheckBoxWidgetImplCopyWithImpl<_$MiraiCheckBoxWidgetImpl>(
-          this, _$identity);
+  _$$MiraiCheckBoxImplCopyWith<_$MiraiCheckBoxImpl> get copyWith =>
+      __$$MiraiCheckBoxImplCopyWithImpl<_$MiraiCheckBoxImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiraiCheckBoxWidgetImplToJson(
+    return _$$MiraiCheckBoxImplToJson(
       this,
     );
   }
 }
 
-abstract class _MiraiCheckBoxWidget implements MiraiCheckBoxWidget {
-  const factory _MiraiCheckBoxWidget(
+abstract class _MiraiCheckBox implements MiraiCheckBox {
+  const factory _MiraiCheckBox(
       {final String? id,
       final bool? value,
+      final bool tristate,
+      final Map<String, dynamic>? onChanged,
+      final MiraiMouseCursor? mouseCursor,
       final String? activeColor,
       final MiraiMaterialColor? fillColor,
       final String? checkColor,
-      final bool tristate,
       final String? focusColor,
       final String? hoverColor,
       final MiraiMaterialColor? overlayColor,
       final double? splashRadius,
+      final MaterialTapTargetSize? materialTapTargetSize,
       final bool autofocus,
-      final bool isError}) = _$MiraiCheckBoxWidgetImpl;
+      final bool isError}) = _$MiraiCheckBoxImpl;
 
-  factory _MiraiCheckBoxWidget.fromJson(Map<String, dynamic> json) =
-      _$MiraiCheckBoxWidgetImpl.fromJson;
+  factory _MiraiCheckBox.fromJson(Map<String, dynamic> json) =
+      _$MiraiCheckBoxImpl.fromJson;
 
   @override
   String? get id;
   @override
   bool? get value;
   @override
+  bool get tristate;
+  @override
+  Map<String, dynamic>? get onChanged;
+  @override
+  MiraiMouseCursor? get mouseCursor;
+  @override
   String? get activeColor;
   @override
   MiraiMaterialColor? get fillColor;
   @override
   String? get checkColor;
-  @override
-  bool get tristate;
   @override
   String? get focusColor;
   @override
@@ -437,14 +510,16 @@ abstract class _MiraiCheckBoxWidget implements MiraiCheckBoxWidget {
   @override
   double? get splashRadius;
   @override
+  MaterialTapTargetSize? get materialTapTargetSize;
+  @override
   bool get autofocus;
   @override
   bool get isError;
 
-  /// Create a copy of MiraiCheckBoxWidget
+  /// Create a copy of MiraiCheckBox
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
+  _$$MiraiCheckBoxImplCopyWith<_$MiraiCheckBoxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
