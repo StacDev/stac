@@ -19,6 +19,7 @@ class MiraiDefaultTabControllerParser
   Widget parse(BuildContext context, MiraiDefaultTabController model) {
     return DefaultTabController(
       length: model.length,
+      initialIndex: model.initialIndex,
       child: Mirai.fromJson(model.child, context) ?? const SizedBox(),
     );
   }
