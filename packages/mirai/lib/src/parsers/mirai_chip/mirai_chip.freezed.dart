@@ -20,24 +20,31 @@ MiraiChip _$MiraiChipFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MiraiChip {
-  Map<String, dynamic> get label => throw _privateConstructorUsedError;
   Map<String, dynamic>? get avatar => throw _privateConstructorUsedError;
+  Map<String, dynamic> get label => throw _privateConstructorUsedError;
   MiraiTextStyle? get labelStyle => throw _privateConstructorUsedError;
   MiraiEdgeInsets? get labelPadding => throw _privateConstructorUsedError;
   Map<String, dynamic>? get deleteIcon => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onDeleted => throw _privateConstructorUsedError;
   String? get deleteIconColor => throw _privateConstructorUsedError;
   String? get deleteButtonTooltipMessage => throw _privateConstructorUsedError;
   MiraiBorderSide? get side => throw _privateConstructorUsedError;
   MiraiRoundedRectangleBorder? get shape => throw _privateConstructorUsedError;
+  Clip get clipBehavior => throw _privateConstructorUsedError;
   bool get autofocus => throw _privateConstructorUsedError;
   String? get color => throw _privateConstructorUsedError;
   String? get backgroundColor => throw _privateConstructorUsedError;
   MiraiEdgeInsets? get padding => throw _privateConstructorUsedError;
+  MiraiVisualDensity? get visualDensity => throw _privateConstructorUsedError;
+  MaterialTapTargetSize? get materialTapTargetSize =>
+      throw _privateConstructorUsedError;
   double? get elevation => throw _privateConstructorUsedError;
   String? get shadowColor => throw _privateConstructorUsedError;
   String? get surfaceTintColor => throw _privateConstructorUsedError;
   MiraiIconThemeData? get iconTheme => throw _privateConstructorUsedError;
-  MaterialTapTargetSize? get materialTapTargetSize =>
+  MiraiBoxConstraints? get avatarBoxConstraints =>
+      throw _privateConstructorUsedError;
+  MiraiBoxConstraints? get deleteIconBoxConstraints =>
       throw _privateConstructorUsedError;
 
   /// Serializes this MiraiChip to a JSON map.
@@ -56,31 +63,39 @@ abstract class $MiraiChipCopyWith<$Res> {
       _$MiraiChipCopyWithImpl<$Res, MiraiChip>;
   @useResult
   $Res call(
-      {Map<String, dynamic> label,
-      Map<String, dynamic>? avatar,
+      {Map<String, dynamic>? avatar,
+      Map<String, dynamic> label,
       MiraiTextStyle? labelStyle,
       MiraiEdgeInsets? labelPadding,
       Map<String, dynamic>? deleteIcon,
+      Map<String, dynamic>? onDeleted,
       String? deleteIconColor,
       String? deleteButtonTooltipMessage,
       MiraiBorderSide? side,
       MiraiRoundedRectangleBorder? shape,
+      Clip clipBehavior,
       bool autofocus,
       String? color,
       String? backgroundColor,
       MiraiEdgeInsets? padding,
+      MiraiVisualDensity? visualDensity,
+      MaterialTapTargetSize? materialTapTargetSize,
       double? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       MiraiIconThemeData? iconTheme,
-      MaterialTapTargetSize? materialTapTargetSize});
+      MiraiBoxConstraints? avatarBoxConstraints,
+      MiraiBoxConstraints? deleteIconBoxConstraints});
 
   $MiraiTextStyleCopyWith<$Res>? get labelStyle;
   $MiraiEdgeInsetsCopyWith<$Res>? get labelPadding;
   $MiraiBorderSideCopyWith<$Res>? get side;
   $MiraiRoundedRectangleBorderCopyWith<$Res>? get shape;
   $MiraiEdgeInsetsCopyWith<$Res>? get padding;
+  $MiraiVisualDensityCopyWith<$Res>? get visualDensity;
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme;
+  $MiraiBoxConstraintsCopyWith<$Res>? get avatarBoxConstraints;
+  $MiraiBoxConstraintsCopyWith<$Res>? get deleteIconBoxConstraints;
 }
 
 /// @nodoc
@@ -98,34 +113,39 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? label = null,
     Object? avatar = freezed,
+    Object? label = null,
     Object? labelStyle = freezed,
     Object? labelPadding = freezed,
     Object? deleteIcon = freezed,
+    Object? onDeleted = freezed,
     Object? deleteIconColor = freezed,
     Object? deleteButtonTooltipMessage = freezed,
     Object? side = freezed,
     Object? shape = freezed,
+    Object? clipBehavior = null,
     Object? autofocus = null,
     Object? color = freezed,
     Object? backgroundColor = freezed,
     Object? padding = freezed,
+    Object? visualDensity = freezed,
+    Object? materialTapTargetSize = freezed,
     Object? elevation = freezed,
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? iconTheme = freezed,
-    Object? materialTapTargetSize = freezed,
+    Object? avatarBoxConstraints = freezed,
+    Object? deleteIconBoxConstraints = freezed,
   }) {
     return _then(_value.copyWith(
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      label: null == label
+          ? _value.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       labelStyle: freezed == labelStyle
           ? _value.labelStyle
           : labelStyle // ignore: cast_nullable_to_non_nullable
@@ -137,6 +157,10 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
       deleteIcon: freezed == deleteIcon
           ? _value.deleteIcon
           : deleteIcon // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onDeleted: freezed == onDeleted
+          ? _value.onDeleted
+          : onDeleted // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       deleteIconColor: freezed == deleteIconColor
           ? _value.deleteIconColor
@@ -154,6 +178,10 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
           ? _value.shape
           : shape // ignore: cast_nullable_to_non_nullable
               as MiraiRoundedRectangleBorder?,
+      clipBehavior: null == clipBehavior
+          ? _value.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -170,6 +198,14 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
           ? _value.padding
           : padding // ignore: cast_nullable_to_non_nullable
               as MiraiEdgeInsets?,
+      visualDensity: freezed == visualDensity
+          ? _value.visualDensity
+          : visualDensity // ignore: cast_nullable_to_non_nullable
+              as MiraiVisualDensity?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _value.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
       elevation: freezed == elevation
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
@@ -186,10 +222,14 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
           ? _value.iconTheme
           : iconTheme // ignore: cast_nullable_to_non_nullable
               as MiraiIconThemeData?,
-      materialTapTargetSize: freezed == materialTapTargetSize
-          ? _value.materialTapTargetSize
-          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
-              as MaterialTapTargetSize?,
+      avatarBoxConstraints: freezed == avatarBoxConstraints
+          ? _value.avatarBoxConstraints
+          : avatarBoxConstraints // ignore: cast_nullable_to_non_nullable
+              as MiraiBoxConstraints?,
+      deleteIconBoxConstraints: freezed == deleteIconBoxConstraints
+          ? _value.deleteIconBoxConstraints
+          : deleteIconBoxConstraints // ignore: cast_nullable_to_non_nullable
+              as MiraiBoxConstraints?,
     ) as $Val);
   }
 
@@ -267,6 +307,20 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $MiraiVisualDensityCopyWith<$Res>? get visualDensity {
+    if (_value.visualDensity == null) {
+      return null;
+    }
+
+    return $MiraiVisualDensityCopyWith<$Res>(_value.visualDensity!, (value) {
+      return _then(_value.copyWith(visualDensity: value) as $Val);
+    });
+  }
+
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme {
     if (_value.iconTheme == null) {
       return null;
@@ -274,6 +328,36 @@ class _$MiraiChipCopyWithImpl<$Res, $Val extends MiraiChip>
 
     return $MiraiIconThemeDataCopyWith<$Res>(_value.iconTheme!, (value) {
       return _then(_value.copyWith(iconTheme: value) as $Val);
+    });
+  }
+
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiBoxConstraintsCopyWith<$Res>? get avatarBoxConstraints {
+    if (_value.avatarBoxConstraints == null) {
+      return null;
+    }
+
+    return $MiraiBoxConstraintsCopyWith<$Res>(_value.avatarBoxConstraints!,
+        (value) {
+      return _then(_value.copyWith(avatarBoxConstraints: value) as $Val);
+    });
+  }
+
+  /// Create a copy of MiraiChip
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MiraiBoxConstraintsCopyWith<$Res>? get deleteIconBoxConstraints {
+    if (_value.deleteIconBoxConstraints == null) {
+      return null;
+    }
+
+    return $MiraiBoxConstraintsCopyWith<$Res>(_value.deleteIconBoxConstraints!,
+        (value) {
+      return _then(_value.copyWith(deleteIconBoxConstraints: value) as $Val);
     });
   }
 }
@@ -287,24 +371,29 @@ abstract class _$$MiraiChipImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Map<String, dynamic> label,
-      Map<String, dynamic>? avatar,
+      {Map<String, dynamic>? avatar,
+      Map<String, dynamic> label,
       MiraiTextStyle? labelStyle,
       MiraiEdgeInsets? labelPadding,
       Map<String, dynamic>? deleteIcon,
+      Map<String, dynamic>? onDeleted,
       String? deleteIconColor,
       String? deleteButtonTooltipMessage,
       MiraiBorderSide? side,
       MiraiRoundedRectangleBorder? shape,
+      Clip clipBehavior,
       bool autofocus,
       String? color,
       String? backgroundColor,
       MiraiEdgeInsets? padding,
+      MiraiVisualDensity? visualDensity,
+      MaterialTapTargetSize? materialTapTargetSize,
       double? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       MiraiIconThemeData? iconTheme,
-      MaterialTapTargetSize? materialTapTargetSize});
+      MiraiBoxConstraints? avatarBoxConstraints,
+      MiraiBoxConstraints? deleteIconBoxConstraints});
 
   @override
   $MiraiTextStyleCopyWith<$Res>? get labelStyle;
@@ -317,7 +406,13 @@ abstract class _$$MiraiChipImplCopyWith<$Res>
   @override
   $MiraiEdgeInsetsCopyWith<$Res>? get padding;
   @override
+  $MiraiVisualDensityCopyWith<$Res>? get visualDensity;
+  @override
   $MiraiIconThemeDataCopyWith<$Res>? get iconTheme;
+  @override
+  $MiraiBoxConstraintsCopyWith<$Res>? get avatarBoxConstraints;
+  @override
+  $MiraiBoxConstraintsCopyWith<$Res>? get deleteIconBoxConstraints;
 }
 
 /// @nodoc
@@ -333,34 +428,39 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? label = null,
     Object? avatar = freezed,
+    Object? label = null,
     Object? labelStyle = freezed,
     Object? labelPadding = freezed,
     Object? deleteIcon = freezed,
+    Object? onDeleted = freezed,
     Object? deleteIconColor = freezed,
     Object? deleteButtonTooltipMessage = freezed,
     Object? side = freezed,
     Object? shape = freezed,
+    Object? clipBehavior = null,
     Object? autofocus = null,
     Object? color = freezed,
     Object? backgroundColor = freezed,
     Object? padding = freezed,
+    Object? visualDensity = freezed,
+    Object? materialTapTargetSize = freezed,
     Object? elevation = freezed,
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? iconTheme = freezed,
-    Object? materialTapTargetSize = freezed,
+    Object? avatarBoxConstraints = freezed,
+    Object? deleteIconBoxConstraints = freezed,
   }) {
     return _then(_$MiraiChipImpl(
-      label: null == label
-          ? _value._label
-          : label // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
       avatar: freezed == avatar
           ? _value._avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      label: null == label
+          ? _value._label
+          : label // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       labelStyle: freezed == labelStyle
           ? _value.labelStyle
           : labelStyle // ignore: cast_nullable_to_non_nullable
@@ -372,6 +472,10 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
       deleteIcon: freezed == deleteIcon
           ? _value._deleteIcon
           : deleteIcon // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onDeleted: freezed == onDeleted
+          ? _value._onDeleted
+          : onDeleted // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       deleteIconColor: freezed == deleteIconColor
           ? _value.deleteIconColor
@@ -389,6 +493,10 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
           ? _value.shape
           : shape // ignore: cast_nullable_to_non_nullable
               as MiraiRoundedRectangleBorder?,
+      clipBehavior: null == clipBehavior
+          ? _value.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
       autofocus: null == autofocus
           ? _value.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
@@ -405,6 +513,14 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
           ? _value.padding
           : padding // ignore: cast_nullable_to_non_nullable
               as MiraiEdgeInsets?,
+      visualDensity: freezed == visualDensity
+          ? _value.visualDensity
+          : visualDensity // ignore: cast_nullable_to_non_nullable
+              as MiraiVisualDensity?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _value.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
       elevation: freezed == elevation
           ? _value.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
@@ -421,51 +537,52 @@ class __$$MiraiChipImplCopyWithImpl<$Res>
           ? _value.iconTheme
           : iconTheme // ignore: cast_nullable_to_non_nullable
               as MiraiIconThemeData?,
-      materialTapTargetSize: freezed == materialTapTargetSize
-          ? _value.materialTapTargetSize
-          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
-              as MaterialTapTargetSize?,
+      avatarBoxConstraints: freezed == avatarBoxConstraints
+          ? _value.avatarBoxConstraints
+          : avatarBoxConstraints // ignore: cast_nullable_to_non_nullable
+              as MiraiBoxConstraints?,
+      deleteIconBoxConstraints: freezed == deleteIconBoxConstraints
+          ? _value.deleteIconBoxConstraints
+          : deleteIconBoxConstraints // ignore: cast_nullable_to_non_nullable
+              as MiraiBoxConstraints?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$MiraiChipImpl extends _MiraiChip {
+class _$MiraiChipImpl implements _MiraiChip {
   const _$MiraiChipImpl(
-      {required final Map<String, dynamic> label,
-      final Map<String, dynamic>? avatar,
+      {final Map<String, dynamic>? avatar,
+      required final Map<String, dynamic> label,
       this.labelStyle,
       this.labelPadding,
       final Map<String, dynamic>? deleteIcon,
+      final Map<String, dynamic>? onDeleted,
       this.deleteIconColor,
       this.deleteButtonTooltipMessage,
       this.side,
       this.shape,
+      this.clipBehavior = Clip.none,
       this.autofocus = false,
       this.color,
       this.backgroundColor,
       this.padding,
+      this.visualDensity,
+      this.materialTapTargetSize,
       this.elevation,
       this.shadowColor,
       this.surfaceTintColor,
       this.iconTheme,
-      this.materialTapTargetSize})
-      : _label = label,
-        _avatar = avatar,
+      this.avatarBoxConstraints,
+      this.deleteIconBoxConstraints})
+      : _avatar = avatar,
+        _label = label,
         _deleteIcon = deleteIcon,
-        super._();
+        _onDeleted = onDeleted;
 
   factory _$MiraiChipImpl.fromJson(Map<String, dynamic> json) =>
       _$$MiraiChipImplFromJson(json);
-
-  final Map<String, dynamic> _label;
-  @override
-  Map<String, dynamic> get label {
-    if (_label is EqualUnmodifiableMapView) return _label;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_label);
-  }
 
   final Map<String, dynamic>? _avatar;
   @override
@@ -475,6 +592,14 @@ class _$MiraiChipImpl extends _MiraiChip {
     if (_avatar is EqualUnmodifiableMapView) return _avatar;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(value);
+  }
+
+  final Map<String, dynamic> _label;
+  @override
+  Map<String, dynamic> get label {
+    if (_label is EqualUnmodifiableMapView) return _label;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_label);
   }
 
   @override
@@ -491,6 +616,16 @@ class _$MiraiChipImpl extends _MiraiChip {
     return EqualUnmodifiableMapView(value);
   }
 
+  final Map<String, dynamic>? _onDeleted;
+  @override
+  Map<String, dynamic>? get onDeleted {
+    final value = _onDeleted;
+    if (value == null) return null;
+    if (_onDeleted is EqualUnmodifiableMapView) return _onDeleted;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   @override
   final String? deleteIconColor;
   @override
@@ -501,6 +636,9 @@ class _$MiraiChipImpl extends _MiraiChip {
   final MiraiRoundedRectangleBorder? shape;
   @override
   @JsonKey()
+  final Clip clipBehavior;
+  @override
+  @JsonKey()
   final bool autofocus;
   @override
   final String? color;
@@ -508,6 +646,10 @@ class _$MiraiChipImpl extends _MiraiChip {
   final String? backgroundColor;
   @override
   final MiraiEdgeInsets? padding;
+  @override
+  final MiraiVisualDensity? visualDensity;
+  @override
+  final MaterialTapTargetSize? materialTapTargetSize;
   @override
   final double? elevation;
   @override
@@ -517,11 +659,13 @@ class _$MiraiChipImpl extends _MiraiChip {
   @override
   final MiraiIconThemeData? iconTheme;
   @override
-  final MaterialTapTargetSize? materialTapTargetSize;
+  final MiraiBoxConstraints? avatarBoxConstraints;
+  @override
+  final MiraiBoxConstraints? deleteIconBoxConstraints;
 
   @override
   String toString() {
-    return 'MiraiChip(label: $label, avatar: $avatar, labelStyle: $labelStyle, labelPadding: $labelPadding, deleteIcon: $deleteIcon, deleteIconColor: $deleteIconColor, deleteButtonTooltipMessage: $deleteButtonTooltipMessage, side: $side, shape: $shape, autofocus: $autofocus, color: $color, backgroundColor: $backgroundColor, padding: $padding, elevation: $elevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconTheme: $iconTheme, materialTapTargetSize: $materialTapTargetSize)';
+    return 'MiraiChip(avatar: $avatar, label: $label, labelStyle: $labelStyle, labelPadding: $labelPadding, deleteIcon: $deleteIcon, onDeleted: $onDeleted, deleteIconColor: $deleteIconColor, deleteButtonTooltipMessage: $deleteButtonTooltipMessage, side: $side, shape: $shape, clipBehavior: $clipBehavior, autofocus: $autofocus, color: $color, backgroundColor: $backgroundColor, padding: $padding, visualDensity: $visualDensity, materialTapTargetSize: $materialTapTargetSize, elevation: $elevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconTheme: $iconTheme, avatarBoxConstraints: $avatarBoxConstraints, deleteIconBoxConstraints: $deleteIconBoxConstraints)';
   }
 
   @override
@@ -529,14 +673,16 @@ class _$MiraiChipImpl extends _MiraiChip {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MiraiChipImpl &&
-            const DeepCollectionEquality().equals(other._label, _label) &&
             const DeepCollectionEquality().equals(other._avatar, _avatar) &&
+            const DeepCollectionEquality().equals(other._label, _label) &&
             (identical(other.labelStyle, labelStyle) ||
                 other.labelStyle == labelStyle) &&
             (identical(other.labelPadding, labelPadding) ||
                 other.labelPadding == labelPadding) &&
             const DeepCollectionEquality()
                 .equals(other._deleteIcon, _deleteIcon) &&
+            const DeepCollectionEquality()
+                .equals(other._onDeleted, _onDeleted) &&
             (identical(other.deleteIconColor, deleteIconColor) ||
                 other.deleteIconColor == deleteIconColor) &&
             (identical(other.deleteButtonTooltipMessage,
@@ -545,12 +691,18 @@ class _$MiraiChipImpl extends _MiraiChip {
                     deleteButtonTooltipMessage) &&
             (identical(other.side, side) || other.side == side) &&
             (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
             (identical(other.autofocus, autofocus) ||
                 other.autofocus == autofocus) &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.padding, padding) || other.padding == padding) &&
+            (identical(other.visualDensity, visualDensity) ||
+                other.visualDensity == visualDensity) &&
+            (identical(other.materialTapTargetSize, materialTapTargetSize) ||
+                other.materialTapTargetSize == materialTapTargetSize) &&
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
             (identical(other.shadowColor, shadowColor) ||
@@ -559,32 +711,41 @@ class _$MiraiChipImpl extends _MiraiChip {
                 other.surfaceTintColor == surfaceTintColor) &&
             (identical(other.iconTheme, iconTheme) ||
                 other.iconTheme == iconTheme) &&
-            (identical(other.materialTapTargetSize, materialTapTargetSize) ||
-                other.materialTapTargetSize == materialTapTargetSize));
+            (identical(other.avatarBoxConstraints, avatarBoxConstraints) ||
+                other.avatarBoxConstraints == avatarBoxConstraints) &&
+            (identical(
+                    other.deleteIconBoxConstraints, deleteIconBoxConstraints) ||
+                other.deleteIconBoxConstraints == deleteIconBoxConstraints));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_label),
-      const DeepCollectionEquality().hash(_avatar),
-      labelStyle,
-      labelPadding,
-      const DeepCollectionEquality().hash(_deleteIcon),
-      deleteIconColor,
-      deleteButtonTooltipMessage,
-      side,
-      shape,
-      autofocus,
-      color,
-      backgroundColor,
-      padding,
-      elevation,
-      shadowColor,
-      surfaceTintColor,
-      iconTheme,
-      materialTapTargetSize);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(_avatar),
+        const DeepCollectionEquality().hash(_label),
+        labelStyle,
+        labelPadding,
+        const DeepCollectionEquality().hash(_deleteIcon),
+        const DeepCollectionEquality().hash(_onDeleted),
+        deleteIconColor,
+        deleteButtonTooltipMessage,
+        side,
+        shape,
+        clipBehavior,
+        autofocus,
+        color,
+        backgroundColor,
+        padding,
+        visualDensity,
+        materialTapTargetSize,
+        elevation,
+        shadowColor,
+        surfaceTintColor,
+        iconTheme,
+        avatarBoxConstraints,
+        deleteIconBoxConstraints
+      ]);
 
   /// Create a copy of MiraiChip
   /// with the given fields replaced by the non-null parameter values.
@@ -602,41 +763,47 @@ class _$MiraiChipImpl extends _MiraiChip {
   }
 }
 
-abstract class _MiraiChip extends MiraiChip {
+abstract class _MiraiChip implements MiraiChip {
   const factory _MiraiChip(
-      {required final Map<String, dynamic> label,
-      final Map<String, dynamic>? avatar,
+      {final Map<String, dynamic>? avatar,
+      required final Map<String, dynamic> label,
       final MiraiTextStyle? labelStyle,
       final MiraiEdgeInsets? labelPadding,
       final Map<String, dynamic>? deleteIcon,
+      final Map<String, dynamic>? onDeleted,
       final String? deleteIconColor,
       final String? deleteButtonTooltipMessage,
       final MiraiBorderSide? side,
       final MiraiRoundedRectangleBorder? shape,
+      final Clip clipBehavior,
       final bool autofocus,
       final String? color,
       final String? backgroundColor,
       final MiraiEdgeInsets? padding,
+      final MiraiVisualDensity? visualDensity,
+      final MaterialTapTargetSize? materialTapTargetSize,
       final double? elevation,
       final String? shadowColor,
       final String? surfaceTintColor,
       final MiraiIconThemeData? iconTheme,
-      final MaterialTapTargetSize? materialTapTargetSize}) = _$MiraiChipImpl;
-  const _MiraiChip._() : super._();
+      final MiraiBoxConstraints? avatarBoxConstraints,
+      final MiraiBoxConstraints? deleteIconBoxConstraints}) = _$MiraiChipImpl;
 
   factory _MiraiChip.fromJson(Map<String, dynamic> json) =
       _$MiraiChipImpl.fromJson;
 
   @override
-  Map<String, dynamic> get label;
-  @override
   Map<String, dynamic>? get avatar;
+  @override
+  Map<String, dynamic> get label;
   @override
   MiraiTextStyle? get labelStyle;
   @override
   MiraiEdgeInsets? get labelPadding;
   @override
   Map<String, dynamic>? get deleteIcon;
+  @override
+  Map<String, dynamic>? get onDeleted;
   @override
   String? get deleteIconColor;
   @override
@@ -646,6 +813,8 @@ abstract class _MiraiChip extends MiraiChip {
   @override
   MiraiRoundedRectangleBorder? get shape;
   @override
+  Clip get clipBehavior;
+  @override
   bool get autofocus;
   @override
   String? get color;
@@ -653,6 +822,10 @@ abstract class _MiraiChip extends MiraiChip {
   String? get backgroundColor;
   @override
   MiraiEdgeInsets? get padding;
+  @override
+  MiraiVisualDensity? get visualDensity;
+  @override
+  MaterialTapTargetSize? get materialTapTargetSize;
   @override
   double? get elevation;
   @override
@@ -662,7 +835,9 @@ abstract class _MiraiChip extends MiraiChip {
   @override
   MiraiIconThemeData? get iconTheme;
   @override
-  MaterialTapTargetSize? get materialTapTargetSize;
+  MiraiBoxConstraints? get avatarBoxConstraints;
+  @override
+  MiraiBoxConstraints? get deleteIconBoxConstraints;
 
   /// Create a copy of MiraiChip
   /// with the given fields replaced by the non-null parameter values.
