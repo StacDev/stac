@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MiraiCheckBox _$MiraiCheckBoxFromJson(Map<String, dynamic> json) {
-  return _MiraiCheckBoxWidget.fromJson(json);
+  return _MiraiCheckBox.fromJson(json);
 }
 
 /// @nodoc
@@ -199,11 +199,11 @@ class _$MiraiCheckBoxCopyWithImpl<$Res, $Val extends MiraiCheckBox>
 }
 
 /// @nodoc
-abstract class _$$MiraiCheckBoxWidgetImplCopyWith<$Res>
+abstract class _$$MiraiCheckBoxImplCopyWith<$Res>
     implements $MiraiCheckBoxCopyWith<$Res> {
-  factory _$$MiraiCheckBoxWidgetImplCopyWith(_$MiraiCheckBoxWidgetImpl value,
-          $Res Function(_$MiraiCheckBoxWidgetImpl) then) =
-      __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>;
+  factory _$$MiraiCheckBoxImplCopyWith(
+          _$MiraiCheckBoxImpl value, $Res Function(_$MiraiCheckBoxImpl) then) =
+      __$$MiraiCheckBoxImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -230,11 +230,11 @@ abstract class _$$MiraiCheckBoxWidgetImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
-    extends _$MiraiCheckBoxCopyWithImpl<$Res, _$MiraiCheckBoxWidgetImpl>
-    implements _$$MiraiCheckBoxWidgetImplCopyWith<$Res> {
-  __$$MiraiCheckBoxWidgetImplCopyWithImpl(_$MiraiCheckBoxWidgetImpl _value,
-      $Res Function(_$MiraiCheckBoxWidgetImpl) _then)
+class __$$MiraiCheckBoxImplCopyWithImpl<$Res>
+    extends _$MiraiCheckBoxCopyWithImpl<$Res, _$MiraiCheckBoxImpl>
+    implements _$$MiraiCheckBoxImplCopyWith<$Res> {
+  __$$MiraiCheckBoxImplCopyWithImpl(
+      _$MiraiCheckBoxImpl _value, $Res Function(_$MiraiCheckBoxImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MiraiCheckBox
@@ -258,7 +258,7 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
     Object? autofocus = null,
     Object? isError = null,
   }) {
-    return _then(_$MiraiCheckBoxWidgetImpl(
+    return _then(_$MiraiCheckBoxImpl(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -325,8 +325,8 @@ class __$$MiraiCheckBoxWidgetImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
-  const _$MiraiCheckBoxWidgetImpl(
+class _$MiraiCheckBoxImpl implements _MiraiCheckBox {
+  const _$MiraiCheckBoxImpl(
       {this.id,
       this.value,
       this.tristate = false,
@@ -344,8 +344,8 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
       this.isError = false})
       : _onChanged = onChanged;
 
-  factory _$MiraiCheckBoxWidgetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MiraiCheckBoxWidgetImplFromJson(json);
+  factory _$MiraiCheckBoxImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MiraiCheckBoxImplFromJson(json);
 
   @override
   final String? id;
@@ -398,7 +398,7 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MiraiCheckBoxWidgetImpl &&
+            other is _$MiraiCheckBoxImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.tristate, tristate) ||
@@ -453,20 +453,19 @@ class _$MiraiCheckBoxWidgetImpl implements _MiraiCheckBoxWidget {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
-      __$$MiraiCheckBoxWidgetImplCopyWithImpl<_$MiraiCheckBoxWidgetImpl>(
-          this, _$identity);
+  _$$MiraiCheckBoxImplCopyWith<_$MiraiCheckBoxImpl> get copyWith =>
+      __$$MiraiCheckBoxImplCopyWithImpl<_$MiraiCheckBoxImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MiraiCheckBoxWidgetImplToJson(
+    return _$$MiraiCheckBoxImplToJson(
       this,
     );
   }
 }
 
-abstract class _MiraiCheckBoxWidget implements MiraiCheckBox {
-  const factory _MiraiCheckBoxWidget(
+abstract class _MiraiCheckBox implements MiraiCheckBox {
+  const factory _MiraiCheckBox(
       {final String? id,
       final bool? value,
       final bool tristate,
@@ -481,10 +480,10 @@ abstract class _MiraiCheckBoxWidget implements MiraiCheckBox {
       final double? splashRadius,
       final MaterialTapTargetSize? materialTapTargetSize,
       final bool autofocus,
-      final bool isError}) = _$MiraiCheckBoxWidgetImpl;
+      final bool isError}) = _$MiraiCheckBoxImpl;
 
-  factory _MiraiCheckBoxWidget.fromJson(Map<String, dynamic> json) =
-      _$MiraiCheckBoxWidgetImpl.fromJson;
+  factory _MiraiCheckBox.fromJson(Map<String, dynamic> json) =
+      _$MiraiCheckBoxImpl.fromJson;
 
   @override
   String? get id;
@@ -521,6 +520,6 @@ abstract class _MiraiCheckBoxWidget implements MiraiCheckBox {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MiraiCheckBoxWidgetImplCopyWith<_$MiraiCheckBoxWidgetImpl> get copyWith =>
+  _$$MiraiCheckBoxImplCopyWith<_$MiraiCheckBoxImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

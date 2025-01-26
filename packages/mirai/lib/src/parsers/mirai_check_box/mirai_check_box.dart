@@ -26,7 +26,7 @@ class MiraiCheckBox with _$MiraiCheckBox {
     MaterialTapTargetSize? materialTapTargetSize,
     @Default(false) bool autofocus,
     @Default(false) bool isError,
-  }) = _MiraiCheckBoxWidget;
+  }) = _MiraiCheckBox;
 
   factory MiraiCheckBox.fromJson(Map<String, dynamic> json) =>
       _$MiraiCheckBoxFromJson(json);
