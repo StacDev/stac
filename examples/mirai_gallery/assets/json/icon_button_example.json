@@ -24,7 +24,7 @@
             "children": [
               {
                 "type": "iconButton",
-                "child": {
+                "icon": {
                   "type": "icon",
                   "iconType": "material",
                   "icon": "add"
@@ -37,7 +37,7 @@
               },
               {
                 "type": "iconButton",
-                "child": {
+                "icon": {
                   "type": "icon",
                   "iconType": "material",
                   "icon": "remove"
@@ -57,7 +57,7 @@
             "children": [
               {
                 "type": "iconButton",
-                "child": {
+                "icon": {
                   "type": "icon",
                   "iconType": "material",
                   "icon": "add"
@@ -69,7 +69,7 @@
               },
               {
                 "type": "iconButton",
-                "child": {
+                "icon": {
                   "type": "icon",
                   "iconType": "material",
                   "icon": "remove"
