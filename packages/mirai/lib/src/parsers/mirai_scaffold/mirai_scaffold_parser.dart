@@ -5,6 +5,8 @@ import 'package:mirai/src/utils/color_utils.dart';
 import 'package:mirai/src/utils/widget_type.dart';
 import 'package:mirai_framework/mirai_framework.dart';
 
+final miraiScaffoldKey = GlobalKey<ScaffoldState>();
+
 class MiraiScaffoldParser extends MiraiParser<MiraiScaffold> {
   const MiraiScaffoldParser();
 
@@ -18,6 +20,7 @@ class MiraiScaffoldParser extends MiraiParser<MiraiScaffold> {
   @override
   Widget parse(BuildContext context, MiraiScaffold model) {
     return Scaffold(
+      key: miraiScaffoldKey,
       appBar: Mirai.fromJson(model.appBar, context).toPreferredSizeWidget,
       body: Mirai.fromJson(model.body, context),
       floatingActionButton: Mirai.fromJson(model.floatingActionButton, context),

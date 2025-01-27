@@ -6,3 +6,4 @@ export 'package:mirai/src/action_parsers/mirai_navigate_action/mirai_navigate_ac
 export 'package:mirai/src/action_parsers/mirai_network_request/mirai_network_request.dart';
 export 'package:mirai/src/action_parsers/mirai_none_action/mirai_none_action_parser.dart';
 export 'package:mirai/src/action_parsers/mirai_snack_bar/mirai_snack_bar.dart';
+export 'package:mirai/src/action_parsers/mirai_drawer_action/mirai_drawer_action_parser.dart';
