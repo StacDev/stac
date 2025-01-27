@@ -1,6 +1,7 @@
-import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import lightTheme from './theme/lightTheme';
+import darkTheme from './theme/darkTheme';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -52,6 +53,9 @@ const config: Config = {
   themeConfig: {
     // Replace with your project's social card
     image: 'img/framework.png',
+    colorMode: {
+      defaultMode: 'dark',
+    },
     navbar: {
       title: 'Mirai',
       logo: {
@@ -119,8 +123,9 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Mirai`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['dart'],
+      theme: lightTheme,
+      darkTheme: darkTheme,
     },
   } satisfies Preset.ThemeConfig,
 };
