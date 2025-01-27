@@ -1,0 +1,160 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Appbar"
+    }
+  },
+  "drawer": {
+    "type": "drawer",
+    "child": {
+      "type": "listView",
+      "shrinkWrap": true,
+      "separator": {
+        "type": "container",
+        "height": 10
+      },
+      "children": [
+        {
+          "type": "listTile",
+          "leading": {
+            "type": "container",
+            "height": 50,
+            "width": 50,
+            "color": "#165FC7",
+            "child": {
+              "type": "column",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "data": "1",
+                  "style": {
+                    "fontSize": 21,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          },
+          "title": {
+            "type": "padding",
+            "padding": {
+              "top": 10
+            },
+            "child": {
+              "type": "text",
+              "data": "Item 1",
+              "style": {
+                "fontSize": 18
+              }
+            }
+          },
+          "subtitle": {
+            "type": "padding",
+            "padding": {
+              "top": 10
+            },
+            "child": {
+              "type": "text",
+              "data": "Item description",
+              "style": {
+                "fontSize": 14
+              }
+            }
+          },
+          "trailing": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "more_vert",
+            "size": 24
+          }
+        },
+        {
+          "type": "listTile",
+          "onPressed": {
+            "actionType": "navigate",
+            "navigationStyle": "pop"
+          },
+          "leading": {
+            "type": "container",
+            "height": 50,
+            "width": 50,
+            "color": "#165FC7",
+            "child": {
+              "type": "column",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "data": "2",
+                  "style": {
+                    "fontSize": 21,
+                    "color": "#FFFFFF"
+                  }
+                }
+              ]
+            }
+          },
+          "title": {
+            "type": "padding",
+            "padding": {
+              "top": 10
+            },
+            "child": {
+              "type": "text",
+              "data": "Item 2",
+              "style": {
+                "fontSize": 18
+              }
+            }
+          },
+          "subtitle": {
+            "type": "padding",
+            "padding": {
+              "top": 10
+            },
+            "child": {
+              "type": "text",
+              "data": "Item description",
+              "style": {
+                "fontSize": 14
+              }
+            }
+          },
+          "trailing": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "more_vert",
+            "size": 24
+          }
+        }
+      ]
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "elevatedButton",
+      "child": {
+        "type": "text",
+        "data": "Open Drawer"
+      },
+      "style": {
+        "padding": {
+          "top": 8,
+          "left": 12,
+          "right": 12,
+          "bottom": 8
+        }
+      },
+      "onPressed": {
+        "actionType": "openDrawer"
+      }
+    }
+  }
+}

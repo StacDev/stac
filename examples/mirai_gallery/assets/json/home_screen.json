@@ -1588,8 +1588,6 @@
       }
     }
   },
-  
-
   {
     "type": "listTile",
     "leading": {
@@ -1695,7 +1693,38 @@
       }
     }
   },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "navigation"
+    },
 
+    "title": {
+      "type": "text",
+      "data": "Mirai Drawer",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Mirai Drawer widget",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/drawer_example.json"
+      }
+    }
+  },
   {
     "type": "listTile",
     "leading": {
@@ -1728,7 +1757,6 @@
       }
     }
   },
-  
 
   {
     "type": "sizedBox",
