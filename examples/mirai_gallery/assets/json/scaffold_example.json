@@ -8,7 +8,7 @@
     },
     "leading": {
       "type": "iconButton",
-      "child": {
+      "icon": {
         "type": "icon",
         "iconType": "material",
         "icon": "menu"
@@ -18,7 +18,7 @@
     "actions": [
       {
         "type": "iconButton",
-        "child": {
+        "icon": {
           "type": "icon",
           "iconType": "cupertino",
           "icon": "heart_solid"
@@ -27,7 +27,7 @@
       },
       {
         "type": "iconButton",
-        "child": {
+        "icon": {
           "type": "icon",
           "iconType": "material",
           "icon": "search"
@@ -36,7 +36,7 @@
       },
       {
         "type": "iconButton",
-        "child": {
+        "icon": {
           "type": "icon",
           "iconType": "material",
           "icon": "more_horiz"
