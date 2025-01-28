@@ -39,7 +39,7 @@ flutter pub add mirai_framework
     a. Let's say we are initializing a widget parser.
 
     ```dart
-    class MiraiWidgetPraser extends MiraiParser<MyCustomWidget> { 
+    class MiraiWidgetParser extends MiraiParser<MyCustomWidget> { 
         ... 
     }
     ```
@@ -47,7 +47,7 @@ flutter pub add mirai_framework
     b. Let's say we are initializing an action parser.
 
     ```dart
-    class MiraiActionPraser  extends MiraiActionParser<dynamic> {
+    class MiraiActionParser  extends MiraiActionParser<dynamic> {
         ...
     }
     ```
