@@ -440,11 +440,12 @@ packages:
     source: path
     version: "0.8.0"
   mirai_framework:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../../packages/mirai_framework"
-      relative: true
-    source: path
+      name: mirai_framework
+      sha256: "5f6590af8a9221c326590e0c29513d7032a3b94bfe7ae3820bd4c5b144083335"
+      url: "https://pub.dev"
+    source: hosted
     version: "0.0.3"
   mirai_webview:
     dependency: "direct main"

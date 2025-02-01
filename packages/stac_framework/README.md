@@ -1,33 +1,33 @@
-# Mirai Framework
+# Stac Framework
 
-The Mirai Framework package contains the framework files for [Mirai](https://github.com/buildMirai/mirai), such as MiraiParser and MiraiActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Mirai. This can be useful for extending the functionality of Mirai or for implementing custom widgets and actions.
+The Stac Framework package contains the framework files for [Stac](https://github.com/stac/stac), such as StacParser and StacActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Stac. This can be useful for extending the functionality of Stac or for implementing custom widgets and actions.
 
-Here are some examples of how the Mirai Framework package can be used:
+Here are some examples of how the Stac Framework package can be used:
 
-- Create a custom parser for a new widget that is not supported by Mirai out of the box.
+- Create a custom parser for a new widget that is not supported by Stac out of the box.
 - Create a custom parser for a widget that has additional functionality, such as the ability to handle user input.
 - Create a custom action parser to handle a new type of action, such as sending a message to a remote server.
 - Create a custom action parser to handle an existing action in a different way, such as logging the action before it is executed.
 
 ## Installation 🚀
 
-First, we need to add Mirai Framework to our pubspec.yaml file.
+First, we need to add Stac Framework to our pubspec.yaml file.
 
 Install the plugin by running the following command from the project root:
 
 ```bash
-flutter pub add mirai_framework
+flutter pub add stac_framework
 ```
 
 ## Usage
 
-1. Import `mirai_framework.dart` at the top of your parser file.
+1. Import `stac_framework.dart` at the top of your parser file.
 
 ```dart
- import 'package:mirai_framework/mirai_framework.dart';
+ import 'package:stac_framework/stac_framework.dart';
 ```
 
-2. Initialize your custom parser for a widget or an action and extend it from `MiraiParser` or `MiraiActionParser` like this.
+2. Initialize your custom parser for a widget or an action and extend it from `StacParser` or `StacActionParser` like this.
 
     ```dart
         // define `MyCustomWidget`
@@ -39,7 +39,7 @@ flutter pub add mirai_framework
     a. Let's say we are initializing a widget parser.
 
     ```dart
-    class MiraiWidgetParser extends MiraiParser<MyCustomWidget> { 
+    class StacWidgetParser extends StacParser<MyCustomWidget> { 
         ... 
     }
     ```
@@ -47,7 +47,7 @@ flutter pub add mirai_framework
     b. Let's say we are initializing an action parser.
 
     ```dart
-    class MiraiActionParser  extends MiraiActionParser<dynamic> {
+    class StacActionParser  extends StacActionParser<dynamic> {
         ...
     }
     ```
@@ -57,7 +57,7 @@ flutter pub add mirai_framework
     a. Let's say we are building a widget parser.
 
     ```dart
-    class MiraiWidgetParser  extends MiraiParser<MyCustomWidget> {
+    class StacWidgetParser  extends StacParser<MyCustomWidget> {
         @override
         MyCustomWidget getModel(Map<String, dynamic> json) {
             // TODO: implement getModel
@@ -81,7 +81,7 @@ flutter pub add mirai_framework
      b. Let's say we are building an action parser.
 
     ```dart
-    class MiraiActionPraser  extends MiraiActionParser<dynamic> {
+    class StacActionParser  extends StacActionParser<dynamic> {
         @override
         // TODO: implement actionType
         String get actionType => throw UnimplementedError();

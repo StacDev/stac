@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 
-abstract class MiraiActionParser<T> {
-  const MiraiActionParser();
+abstract class StacActionParser<T> {
+  const StacActionParser();
 
   String get actionType;
 

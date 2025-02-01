@@ -1,12 +1,12 @@
 ## Example
 
-1. Import `mirai_framework.dart` at the top of your parser file.
+1. Import `stac_framework.dart` at the top of your parser file.
 
 ```dart
- import 'package:mirai_framework/mirai_framework.dart';
+ import 'package:stac_framework/stac_framework.dart';
 ```
 
-2. Initialize your custom parser for a widget or an action and extend it from `MiraiParser` or `MiraiActionParser` like this.
+2. Initialize your custom parser for a widget or an action and extend it from `StacParser` or `StacActionParser` like this.
 
     ```dart
         // define `MyCustomWidget`
@@ -18,7 +18,7 @@
    a. Let's say we are initializing a widget parser.
 
     ```dart
-    class MiraiWidgetPraser extends MiraiParser<MyCustomWidget> { 
+    class StacWidgetPraser extends Parser<MyCustomWidget> { 
         ... 
     }
     ```
@@ -26,7 +26,7 @@
    b. Let's say we are initializing an action parser.
 
     ```dart
-    class MiraiActionPraser  extends MiraiActionParser<dynamic> {
+    class StacActionPraser  extends StacActionParser<dynamic> {
         ...
     }
     ```
@@ -36,7 +36,7 @@
    a. Let's say we are building a widget parser.
 
     ```dart
-    class MiraiWidgetParser  extends MiraiParser<MyCustomWidget> {
+    class StacWidgetParser  extends StacParser<MyCustomWidget> {
         @override
         MyCustomWidget getModel(Map<String, dynamic> json) {
             // TODO: implement getModel
@@ -60,7 +60,7 @@
    b. Let's say we are building an action parser.
 
     ```dart
-    class MiraiActionPraser  extends MiraiActionParser<dynamic> {
+    class StacActionPraser  extends StacActionParser<dynamic> {
         @override
         // TODO: implement actionType
         String get actionType => throw UnimplementedError();

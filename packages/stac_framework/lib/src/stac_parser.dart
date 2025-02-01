@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 
-abstract class MiraiParser<T> {
-  const MiraiParser();
+abstract class StacParser<T> {
+  const StacParser();
 
   String get type;
 
