@@ -1,3 +1,7 @@
+## 0.1.1
+
+* minor changes
+
 ## 0.1.0
 
 * Update webview_flutter to 4.10.0
