@@ -1,6 +1,6 @@
 # FilledButton
 
-The Mirai Filled Button allows you to build a Flutter filled button widget using JSON.
+The Stac Filled Button allows you to build a Flutter filled button widget using JSON.
 To know more about the filled button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/FilledButton-class.html).
 
 ## Properties
@@ -11,7 +11,7 @@ To know more about the filled button widget in Flutter, refer to the [official d
 | onLongPress    | `Map<String, dynamic>?` | The callback that is called when the button is long-pressed.                                |
 | onHover        | `Map<String, dynamic>?` | The callback that is called when the button is hovered over.                                |
 | onFocusChange  | `Map<String, dynamic>?` | The callback that is called when the button's focus changes.                                |
-| style          | `MiraiButtonStyle?`     | The style to apply to the button.                                                           |
+| style          | `StacButtonStyle?`     | The style to apply to the button.                                                           |
 | autofocus      | `bool`                  | Whether the button should be focused when the page is loaded. Defaults to `false`.          |
 | clipBehavior   | `Clip`                  | Determines how the content should be clipped. Defaults to `Clip.none`.                      |
 | iconAlignment  | `IconAlignment`         | Determines the alignment of the icon within the widgets. Defaults to `IconAlignment.start`. |

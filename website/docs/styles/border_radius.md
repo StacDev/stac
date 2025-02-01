@@ -1,6 +1,6 @@
 # Border Radius
 
-MiraiBorderRadius allows you to build the Flutter BorderRadius class using JSON.
+StacBorderRadius allows you to build the Flutter BorderRadius class using JSON.
 To know more about the BorderRadius class in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/painting/BorderRadius-class.html).
 
 ## Properties
@@ -13,7 +13,7 @@ To know more about the BorderRadius class in Flutter, refer to the [official doc
 
 :::note
 
-Above three properties defined are optional. i.e. `MiraiBorderRadius` can be defined using one of the above 3 methods.
+Above three properties defined are optional. i.e. `StacBorderRadius` can be defined using one of the above 3 methods.
 
 :::
 

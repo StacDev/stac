@@ -1,6 +1,6 @@
 # IconButton
 
-The Mirai Icon Button allows you to build a Flutter icon button widget using JSON.
+The Stac Icon Button allows you to build a Flutter icon button widget using JSON.
 To know more about the icon button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/IconButton-class.html).
 
 ## Properties
@@ -8,8 +8,8 @@ To know more about the icon button widget in Flutter, refer to the [official doc
 | Property       | Type                    | Description                                                                        |
 |----------------|-------------------------|------------------------------------------------------------------------------------|
 | iconSize       | `double?`               | The size of the icon inside the button.                                            |
-| padding        | `MiraiEdgeInsets?`      | The padding inside the button.                                                     |
-| alignment      | `MiraiAlignment?`       | How the icon should be aligned within the button.                                  |
+| padding        | `StacEdgeInsets?`      | The padding inside the button.                                                     |
+| alignment      | `StacAlignment?`       | How the icon should be aligned within the button.                                  |
 | splashRadius   | `double?`               | The radius of the splash effect.                                                   |
 | color          | `String?`               | The color to paint the icon.                                                       |
 | focusColor     | `String?`               | The color to paint the button when it has the input focus.                         |
@@ -21,8 +21,8 @@ To know more about the icon button widget in Flutter, refer to the [official doc
 | autofocus      | `bool`                  | Whether the button should be focused when the page is loaded. Defaults to `false`. |
 | tooltip        | `String?`               | The text to display when the user long-presses the button.                         |
 | enableFeedback | `bool?`                 | Whether to provide acoustic and/or haptic feedback.                                |
-| constraints    | `MiraiBoxConstraints?`  | The constraints for the button.                                                    |
-| style          | `MiraiButtonStyle?`     | The style to apply to the button.                                                  |
+| constraints    | `StacBoxConstraints?`  | The constraints for the button.                                                    |
+| style          | `StacButtonStyle?`     | The style to apply to the button.                                                  |
 | isSelected     | `bool?`                 | Whether the button is selected.                                                    |
 | selectedIcon   | `Map<String, dynamic>?` | The icon to display when the button is selected.                                   |
 | icon           | `Map<String, dynamic>?` | The icon to display inside the button.                                             |

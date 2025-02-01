@@ -1,6 +1,6 @@
 # LinearProgressIndicator
 
-Mirai linearProgressIndicator allows you to build the Flutter LinearProgressIndicator widget using JSON. 
+Stac linearProgressIndicator allows you to build the Flutter LinearProgressIndicator widget using JSON. 
 To know more about the LinearProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html).
 
 ## Properties
@@ -13,7 +13,7 @@ To know more about the LinearProgressIndicator widget in Flutter, refer to the [
 | minHeight       | `double`            | The height of the progress indicator.                              |
 | semanticsLabel  | `String`            | Provides a textual description of the widget.                      |
 | semanticsValue  | `String`            | Provides a textual description of the widget.                      |
-| borderRadius    | `MiraiBorderRadius` | The border radius for progress indicator.                          |
+| borderRadius    | `StacBorderRadius` | The border radius for progress indicator.                          |
 
 
 ## Example JSON

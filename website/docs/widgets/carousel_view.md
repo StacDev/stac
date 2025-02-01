@@ -1,14 +1,14 @@
 # CarouselView
 
-The Mirai CarouselView allows you to build a Flutter CarouselView widget using JSON.
+The Stac CarouselView allows you to build a Flutter CarouselView widget using JSON.
 To know more about the CarouselView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Carousel-class.html).
 
 ## Properties
 
 | Property         | Type                          | Description                                                                 |
 |------------------|-------------------------------|-----------------------------------------------------------------------------|
-| carouselType     | `MiraiCarouselViewType`       | The type of the carousel. Defaults to `MiraiCarouselViewType.regular`.      |
-| padding          | `MiraiEdgeInsets?`            | The amount of space by which to inset the carousel.                         |
+| carouselType     | `StacCarouselViewType`       | The type of the carousel. Defaults to `StacCarouselViewType.regular`.      |
+| padding          | `StacEdgeInsets?`            | The amount of space by which to inset the carousel.                         |
 | backgroundColor  | `String?`                     | The background color of the carousel.                                       |
 | elevation        | `double?`                     | The z-coordinate at which to place this carousel.                           |
 | overlayColor     | `String?`                     | The color of the carousel's overlay.                                        |

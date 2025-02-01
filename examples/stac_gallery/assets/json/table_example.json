@@ -1,0 +1,218 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Stac Table Example"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": 16.0,
+    "child": {
+      "type": "table",
+      "defaultColumnWidth": {
+        "type": "flexColumnWidth",
+        "value": 1
+      },
+      "border": {
+        "color": "#000000",
+        "width": 1.0
+      },
+      "children": [
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "container",
+                "color": "#40000000",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Header 1"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "container",
+                "color": "#40000000",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Header 2"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "container",
+                "color": "#40000000",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Header 3"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 1, Cell 1"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 1, Cell 2"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 1, Cell 3"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 2, Cell 1"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 2, Cell 2"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 2, Cell 3"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "tableRow",
+          "children": [
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 3, Cell 1"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 3, Cell 2"
+                  }
+                }
+              }
+            },
+            {
+              "type": "tableCell",
+              "child": {
+                "type": "sizedBox",
+                "height": 50.0,
+                "child": {
+                  "type": "center",
+                  "child": {
+                    "type": "text",
+                    "data": "Row 3, Cell 3"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

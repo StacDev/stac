@@ -1,6 +1,6 @@
 # ListTile
 
-Mirai list tile allows you to build the Flutter list tile widget using JSON.
+Stac list tile allows you to build the Flutter list tile widget using JSON.
 To know more about the list tile widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/ListTile-class.html).
 
 ## Properties
@@ -19,7 +19,7 @@ To know more about the list tile widget in Flutter, refer to the [official docum
 | selectedColor      | `String`              | Defines the color used for icons and text when the list tile is selected.                                       |
 | iconColor          | `String`              | Defines the default color for leading and trailing icons.                                                       |
 | textColor          | `String`              | Defines the text color for the title, subtitle, leading, and trailing.                                          |
-| contentPadding     | `MiraiEdgeInsets`     | The tile's internal padding.                                                                                    |
+| contentPadding     | `StacEdgeInsets`     | The tile's internal padding.                                                                                    |
 | enabled            | `bool`                | Whether this list tile is interactive.                                                                          |
 | selected           | `bool`                | If this tile is also enabled then icons and text are rendered with the same color.                              |
 | focusColor         | `String`              | The color for the tile's Material when it has the input focus.                                                  |

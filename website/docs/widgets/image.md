@@ -9,14 +9,14 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 | Property    | Type             | Description                                                                                               |
 |-------------|------------------|-----------------------------------------------------------------------------------------------------------|
 | `src`       | `String`         | The source of the image. For example, a URL for network images, file path for file images, or asset path. |
-| `alignment` | `MiraiAlignment` | The alignment of the image within its container. Defaults to `MiraiAlignment.center`.                     |
-| `imageType` | `MiraiImageType` | The type of the image source: `file`, `network`, or `asset`. Defaults to `MiraiImageType.network`.        |
+| `alignment` | `StacAlignment` | The alignment of the image within its container. Defaults to `StacAlignment.center`.                     |
+| `imageType` | `StacImageType` | The type of the image source: `file`, `network`, or `asset`. Defaults to `StacImageType.network`.        |
 | `color`     | `String?`        | The color to blend with the image, provided in hex format (e.g., `#FF0000` for red).                      |
 | `width`     | `double?`        | The width of the image in logical pixels.                                                                 |
 | `height`    | `double?`        | The height of the image in logical pixels.                                                                |
 | `fit`       | `BoxFit?`        | How the image should be inscribed into the space allocated during layout.                                 |
 
-## Enum: MiraiImageType
+## Enum: StacImageType
 
 | Value     | Description                                 |
 |-----------|---------------------------------------------|

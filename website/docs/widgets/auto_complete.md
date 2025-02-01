@@ -1,6 +1,6 @@
 # AutoComplete
 
-The Mirai AutoComplete allows you to build a Flutter AutoComplete widget using JSON.
+The Stac AutoComplete allows you to build a Flutter AutoComplete widget using JSON.
 To know more about the AutoComplete widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Autocomplete-class.html).
 
 ## Properties

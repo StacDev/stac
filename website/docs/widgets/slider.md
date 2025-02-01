@@ -1,6 +1,6 @@
 # Slider
 
-Mirai slider allows you to build the Flutter Slider widget using JSON. 
+Stac slider allows you to build the Flutter Slider widget using JSON. 
 To know more about the Slider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Slider-class.html).
 
 ## Properties
@@ -8,8 +8,8 @@ To know more about the Slider widget in Flutter, refer to the [official document
 | Property             | Type                   | Description                                                                                                     |
 |----------------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
 | id                   | `String`               | The id will be used to save the selected value of slider.                                                       |
-| sliderType           | `MiraiSliderType`      | The type of slider.                                                                                             |
-| value                | `MiraiSliderType`      | The currently selected value for this slider.                                                                   |
+| sliderType           | `StacSliderType`      | The type of slider.                                                                                             |
+| value                | `StacSliderType`      | The currently selected value for this slider.                                                                   |
 | secondaryTrackValue  | `double`               | The secondary track used to draw progress between the thumb and this value, over the inactive track.            |
 | onChanged            | `Map<String, dynamic>` | Called during a drag when the user is selecting a new value for the slider.                                     |
 | onChangeStart        | `Map<String, dynamic>` | Called when the user starts selecting a new value for the slider.                                               |
@@ -23,7 +23,7 @@ To know more about the Slider widget in Flutter, refer to the [official document
 | secondaryActiveColor | `String`               | The color to use for the portion of the slider track between the thumb and secondaryTrackValue                  |
 | thumbColor           | `String`               | The color of the thumb.                                                                                         |
 | overlayColor         | `String`               | The highlight color that's typically used to indicate that the slider thumb is focused, hovered, or dragged.    |
-| mouseCursor          | `MiraiMouseCursor`     | The cursor for a mouse pointer when it enters or is hovering over the widget.                                   |
+| mouseCursor          | `StacMouseCursor`     | The cursor for a mouse pointer when it enters or is hovering over the widget.                                   |
 | autofocus            | `bool`                 | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
 | allowedInteraction   | `SliderInteraction`    | Allowed way for the user to interact with the slider.                                                           |
 
@@ -36,7 +36,7 @@ To know more about the Slider widget in Flutter, refer to the [official document
         "type": "appBar",
         "title": {
             "type": "text",
-            "data": "Mirai Slider"
+            "data": "Stac Slider"
         }
     },
     "body": {

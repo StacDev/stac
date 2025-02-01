@@ -11,7 +11,7 @@ jobs:
   publish:
     defaults:
       run:
-        working-directory: ./packages/mirai
+        working-directory: ./packages/stac
     permissions:
       id-token: write # Required for authentication using OIDC
     runs-on: ubuntu-latest

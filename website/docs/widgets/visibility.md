@@ -1,6 +1,6 @@
 # Visibility
 
-Mirai Visibility allows you to build the Flutter Visibility widget using JSON.
+Stac Visibility allows you to build the Flutter Visibility widget using JSON.
 To know more about the Visibility widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Visibility-class.html).
 
 ---

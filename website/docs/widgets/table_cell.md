@@ -1,5 +1,5 @@
 # TableCell
-MiraiTableCell allows you to define the Flutter TableCell widget using JSON.
+StacTableCell allows you to define the Flutter TableCell widget using JSON.
 To know more about the TableCell widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/TableCell-class.html).
 
 ## Properties 

@@ -1,19 +1,19 @@
 # Modal Bottom Sheet Action
 
-The `MiraiModalBottomSheetAction` class is used to display a modal bottom sheet in Mirai applications.
+The `StacModalBottomSheetAction` class is used to display a modal bottom sheet in Stac applications.
 
 ## Properties
 
 | Property            | Type                          | Description                                                                 |
 |---------------------|-------------------------------|-----------------------------------------------------------------------------|
 | widget              | `Map<String, dynamic>?`       | The widget to display inside the modal bottom sheet.                        |
-| request             | `MiraiNetworkRequest?`        | The network request to perform before displaying the modal bottom sheet.    |
+| request             | `StacNetworkRequest?`        | The network request to perform before displaying the modal bottom sheet.    |
 | assetPath           | `String?`                     | The asset path of the widget to display inside the modal bottom sheet.      |
 | backgroundColor     | `String?`                     | The background color of the modal bottom sheet.                             |
 | barrierLabel        | `String?`                     | The semantic label for the modal barrier.                                   |
 | elevation           | `double?`                     | The elevation of the modal bottom sheet.                                    |
-| shape               | `MiraiBorder?`                | The shape of the modal bottom sheet.                                        |
-| constraints         | `MiraiBoxConstraints?`        | The constraints for the modal bottom sheet.                                 |
+| shape               | `StacBorder?`                | The shape of the modal bottom sheet.                                        |
+| constraints         | `StacBoxConstraints?`        | The constraints for the modal bottom sheet.                                 |
 | barrierColor        | `String?`                     | The color of the modal barrier.                                             |
 | isScrollControlled  | `bool`                        | Whether the modal bottom sheet is scroll controlled. Defaults to `false`.   |
 | useRootNavigator    | `bool`                        | Whether to use the root navigator. Defaults to `false`.                     |

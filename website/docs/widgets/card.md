@@ -1,6 +1,6 @@
 # Card
 
-The Mirai Card allows you to build a Flutter Card widget using JSON.
+The Stac Card allows you to build a Flutter Card widget using JSON.
 To know more about the Card widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Card-class.html).
 
 ## Properties
@@ -11,9 +11,9 @@ To know more about the Card widget in Flutter, refer to the [official documentat
 | shadowColor        | `String?`               | The color of the card's shadow.                                             |
 | surfaceTintColor   | `String?`               | The color of the card's surface tint.                                       |
 | elevation          | `double?`               | The z-coordinate at which to place this card.                               |
-| shape              | `MiraiShapeBorder?`     | The shape of the card's border.                                             |
+| shape              | `StacShapeBorder?`     | The shape of the card's border.                                             |
 | borderOnForeground | `bool`                  | Whether to paint the border in front of the child. Defaults to `true`.      |
-| margin             | `MiraiEdgeInsets?`      | The empty space that surrounds the card.                                    |
+| margin             | `StacEdgeInsets?`      | The empty space that surrounds the card.                                    |
 | clipBehavior       | `Clip?`                 | The content will be clipped (or not) according to this option.              |
 | child              | `Map<String, dynamic>?` | The widget below this widget in the tree.                                   |
 | semanticContainer  | `bool`                  | Whether this card is a semantic container. Defaults to `true`.              |

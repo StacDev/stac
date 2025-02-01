@@ -1,31 +1,31 @@
 # WebView
 
-The Mirai WebView allows you to display WebView widget using JSON in your app. It is based on the [webview_flutter](https://pub.dev/packages/webview_flutter) plugin.
+The Stac WebView allows you to display WebView widget using JSON in your app. It is based on the [webview_flutter](https://pub.dev/packages/webview_flutter) plugin.
 
 ## Usage
 
-1. Add `mirai_webview` as a dependency in your pubspec.yaml file.
+1. Add `stac_webview` as a dependency in your pubspec.yaml file.
 
 Install the plugin by running the following command from the project root:
 
 ```bash
-flutter pub add mirai_webview
+flutter pub add stac_webview
 ```
 
 or add it manually in your `pubspec.yaml` file:
 
 ```yaml
   dependencies:
-    mirai_webview:
+    stac_webview:
 ```
 
-2. Add `MiraiWebViewParser` in Mirai initialize.
+2. Add `StacWebViewParser` in Stac initialize.
 
 ```dart
 void main() async {
-  await Mirai.initialize(
+  await Stac.initialize(
     parsers: const [
-      MiraiWebViewParser(),
+      StacWebViewParser(),
     ],
   );
 
@@ -48,6 +48,6 @@ void main() async {
 ```json
 {
   "type": "webView",
-  "url": "https://github.com/buildMirai/mirai"
+  "url": "https://github.com/buildStac/stac"
 }
 ```

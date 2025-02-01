@@ -1,6 +1,6 @@
 # Network Request Action
 
-The `NetworkRequestAction` class is used to make network requests in Mirai applications.
+The `NetworkRequestAction` class is used to make network requests in Stac applications.
 
 ## Properties
 
@@ -12,11 +12,11 @@ The `NetworkRequestAction` class is used to make network requests in Mirai appli
 | headers         | `Map<String, dynamic>?`    | The headers to include in the request.                                           |
 | contentType     | `String?`                  | The content type of the request.                                                 |
 | body            | `dynamic`                  | The body of the request.                                                         |
-| results         | `List<MiraiNetworkResult>` | The list of results to handle different status codes. Defaults to an empty list. |
+| results         | `List<StacNetworkResult>` | The list of results to handle different status codes. Defaults to an empty list. |
 
 ### Method
 
-The `Method` enum defines the different HTTP methods that can be used in the Mirai Network Request Action.
+The `Method` enum defines the different HTTP methods that can be used in the Stac Network Request Action.
 
 | Value    | Description             |
 |----------|-------------------------|
@@ -25,9 +25,9 @@ The `Method` enum defines the different HTTP methods that can be used in the Mir
 | `put`    | Sends a PUT request.    |
 | `delete` | Sends a DELETE request. |
 
-### MiraiNetworkResult
+### StacNetworkResult
 
-The `MiraiNetworkResult` class is used to handle different status codes in the Mirai Network Request Action.
+The `StacNetworkResult` class is used to handle different status codes in the Stac Network Request Action.
 
 | Property   | Type     | Description                                             |
 |------------|----------|---------------------------------------------------------|

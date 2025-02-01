@@ -1,6 +1,6 @@
 # FittedBox
 
-Mirai FittedBox allows you to build the Flutter FittedBox widget using JSON.
+Stac FittedBox allows you to build the Flutter FittedBox widget using JSON.
 To know more about the FittedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/FittedBox-class.html).
 
 ---
@@ -10,7 +10,7 @@ To know more about the FittedBox widget in Flutter, refer to the [official docum
 | Property       | Type                        | Description                                                                          |
 |----------------|-----------------------------|--------------------------------------------------------------------------------------|
 | `fit`          | `BoxFit`                    | Defines how the child should be fitted within the box. Defaults to `BoxFit.contain`. |
-| `alignment`    | `MiraiAlignmentDirectional` | Aligns the child within the box. Defaults to `MiraiAlignmentDirectional.center`.     |
+| `alignment`    | `StacAlignmentDirectional` | Aligns the child within the box. Defaults to `StacAlignmentDirectional.center`.     |
 | `clipBehavior` | `Clip`                      | Specifies whether and how the content should be clipped. Defaults to `Clip.none`.    |
 | `child`        | `Map<String, dynamic>?`     | The child widget, represented as a JSON object, to be positioned and scaled.         |
 

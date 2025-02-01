@@ -1,6 +1,6 @@
 # TextFormField
 
-The Mirai TextFormField allows you to build a Flutter TextFormField widget using JSON.
+The Stac TextFormField allows you to build a Flutter TextFormField widget using JSON.
 To know more about the TextFormField widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TextFormField-class.html).
 
 ## Properties
@@ -9,14 +9,14 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 |-------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | id                            | `String?`                       | The identifier for the text form field.                                                                                                            |
 | compareId                     | `String?`                       | The identifier to compare with another text form field.                                                                                            |
-| decoration                    | `MiraiInputDecoration?`         | The decoration to show around the text form field.                                                                                                 |
+| decoration                    | `StacInputDecoration?`         | The decoration to show around the text form field.                                                                                                 |
 | initialValue                  | `String?`                       | The initial value of the text form field.                                                                                                          |
-| keyboardType                  | `MiraiTextInputType?`           | The type of keyboard to use for editing the text.                                                                                                  |
+| keyboardType                  | `StacTextInputType?`           | The type of keyboard to use for editing the text.                                                                                                  |
 | textInputAction               | `TextInputAction?`              | The action button to use for the keyboard.                                                                                                         |
 | textCapitalization            | `TextCapitalization`            | How the text should be capitalized. Defaults to `TextCapitalization.none`.                                                                         |
-| style                         | `MiraiTextStyle?`               | The style to use for the text.                                                                                                                     |
+| style                         | `StacTextStyle?`               | The style to use for the text.                                                                                                                     |
 | textAlign                     | `TextAlign`                     | How the text should be aligned. Defaults to `TextAlign.start`.                                                                                     |
-| textAlignVertical             | `MiraiTextAlignVertical?`       | How the text should be aligned vertically.                                                                                                         |
+| textAlignVertical             | `StacTextAlignVertical?`       | How the text should be aligned vertically.                                                                                                         |
 | textDirection                 | `TextDirection?`                | The direction of the text.                                                                                                                         |
 | readOnly                      | `bool`                          | Whether the text form field is read-only. Defaults to `false`.                                                                                     |
 | showCursor                    | `bool?`                         | Whether to show the cursor.                                                                                                                        |
@@ -32,7 +32,7 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 | maxLengthEnforcement          | `MaxLengthEnforcement?`         | How the max length limit should be enforced.                                                                                                       |
 | expands                       | `bool`                          | Whether the text form field should expand to fill its parent. Defaults to `false`.                                                                 |
 | keyboardAppearance            | `Brightness?`                   | The appearance of the keyboard.                                                                                                                    |
-| scrollPadding                 | `MiraiEdgeInsets`               | The amount of space by which to inset the text form field when scrolling. Defaults to `MiraiEdgeInsets(bottom: 20, top: 20, left: 20, right: 20)`. |
+| scrollPadding                 | `StacEdgeInsets`               | The amount of space by which to inset the text form field when scrolling. Defaults to `StacEdgeInsets(bottom: 20, top: 20, left: 20, right: 20)`. |
 | restorationId                 | `String?`                       | The restoration ID to save and restore the text form field's state.                                                                                |
 | enableIMEPersonalizedLearning | `bool`                          | Whether to enable personalized learning in the IME. Defaults to `true`.                                                                            |
 | enableSuggestions             | `bool`                          | Whether to enable suggestions. Defaults to `true`.                                                                                                 |
@@ -42,8 +42,8 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 | cursorColor                   | `String?`                       | The color of the cursor.                                                                                                                           |
 | hintText                      | `String?`                       | The hint text to display.                                                                                                                          |
 | autovalidateMode              | `AutovalidateMode?`             | The mode to use for autovalidation.                                                                                                                |
-| inputFormatters               | `List<MiraiInputFormatter>`     | The list of input formatters to apply to the text. Defaults to an empty list.                                                                      |
-| validatorRules                | `List<MiraiFormFieldValidator>` | The list of validator rules to apply to the text. Defaults to an empty list.                                                                       |
+| inputFormatters               | `List<StacInputFormatter>`     | The list of input formatters to apply to the text. Defaults to an empty list.                                                                      |
+| validatorRules                | `List<StacFormFieldValidator>` | The list of validator rules to apply to the text. Defaults to an empty list.                                                                       |
 
 ## Example JSON
 

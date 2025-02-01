@@ -1,6 +1,6 @@
 # Limited Box
 
-Mirai LimitedBox allows you to build the Flutter LimitedBox widget using JSON.
+Stac LimitedBox allows you to build the Flutter LimitedBox widget using JSON.
 To know more about the LimitedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/LimitedBox-class.html).
 
 ## Properties

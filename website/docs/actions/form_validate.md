@@ -1,6 +1,6 @@
 # Form Validate Action
 
-The `MiraiFormValidateAction` class is used to validate a form in Mirai applications.
+The `StacFormValidateAction` class is used to validate a form in Stac applications.
 
 ## Properties
 

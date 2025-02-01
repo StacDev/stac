@@ -1,6 +1,6 @@
 # Icon
 
-The Mirai Icon allows you to build a Flutter icon widget using JSON.
+The Stac Icon allows you to build a Flutter icon widget using JSON.
 To know more about the icon widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Icon-class.html).
 
 ## Properties
@@ -14,7 +14,7 @@ To know more about the icon widget in Flutter, refer to the [official documentat
 | semanticLabel | `String?`        | The semantic label for the icon.                                    |
 | textDirection | `TextDirection?` | The text direction for the icon.                                    |
 
-> Note: To check the available icons, refer to  [Icon utils](https://github.com/BuildMirai/mirai/blob/dev/packages/mirai/lib/src/utils/icon_utils.dart).
+> Note: To check the available icons, refer to  [Icon utils](https://github.com/BuildStac/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart).
 
 ## Example JSON
 

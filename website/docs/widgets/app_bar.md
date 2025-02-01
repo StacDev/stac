@@ -1,6 +1,6 @@
 # AppBar
 
-The Mirai AppBar allows you to build a Flutter app bar widget using JSON.
+The Stac AppBar allows you to build a Flutter app bar widget using JSON.
 To know more about the app bar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/AppBar-class.html).
 
 ## Properties
@@ -9,8 +9,8 @@ To know more about the app bar widget in Flutter, refer to the [official documen
 |------------------------|------------------------------|-------------------------------------------------------------------------------------|
 | leading                | `Map<String, dynamic>?`      | The leading widget before the title.                                                |
 | title                  | `Map<String, dynamic>?`      | The title widget.                                                                   |
-| titleTextStyle         | `MiraiTextStyle?`            | The text style for the title.                                                       |
-| toolbarTextStyle       | `MiraiTextStyle?`            | The text style for the toolbar.                                                     |
+| titleTextStyle         | `StacTextStyle?`            | The text style for the title.                                                       |
+| toolbarTextStyle       | `StacTextStyle?`            | The text style for the toolbar.                                                     |
 | shadowColor            | `String?`                    | The color of the shadow below the app bar.                                          |
 | backgroundColor        | `String?`                    | The background color of the app bar.                                                |
 | foregroundColor        | `String?`                    | The color of the app bar's foreground elements.                                     |

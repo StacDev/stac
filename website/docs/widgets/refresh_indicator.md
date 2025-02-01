@@ -1,6 +1,6 @@
 # RefreshIndicator
 
-The Mirai RefreshIndicator allows you to build a Flutter RefreshIndicator widget using JSON.
+The Stac RefreshIndicator allows you to build a Flutter RefreshIndicator widget using JSON.
 To know more about the RefreshIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/RefreshIndicator-class.html).
 
 ## Properties
@@ -25,7 +25,7 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
   "type": "refreshIndicator",
   "onRefresh": {
     "actionType": "request",
-    "url": "https://raw.githubusercontent.com/buildMirai/mirai/main/examples/mirai_gallery/assets/json/list_view_example.json",
+    "url": "https://raw.githubusercontent.com/buildStac/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
     "method": "get",
     "contentType": "application/json"
   }

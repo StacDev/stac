@@ -1,6 +1,6 @@
 # Border Side
 
-MiraiBorderSide allows you to define the Flutter BorderSide class using JSON.
+StacBorderSide allows you to define the Flutter BorderSide class using JSON.
 To know more about the BorderSide class in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/painting/BorderSide-class.html).
 
 ## Properties

@@ -1,6 +1,6 @@
 # FloatingActionButton
 
-The Mirai Floating Action Button allows you to build a Flutter floating action button widget using JSON.
+The Stac Floating Action Button allows you to build a Flutter floating action button widget using JSON.
 To know more about the floating action button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html).
 
 ## Properties
@@ -8,7 +8,7 @@ To know more about the floating action button widget in Flutter, refer to the [o
 | Property                 | Type                       | Description                                                                           |
 |--------------------------|----------------------------|---------------------------------------------------------------------------------------|
 | onPressed                | `Map<String, dynamic>?`    | The callback that is called when the button is tapped.                                |
-| textStyle                | `MiraiTextStyle?`          | The text style to apply to the button's label.                                        |
+| textStyle                | `StacTextStyle?`          | The text style to apply to the button's label.                                        |
 | buttonType               | `FloatingActionButtonType` | The type of the floating action button. Defaults to `FloatingActionButtonType.small`. |
 | autofocus                | `bool`                     | Whether the button should be focused when the page is loaded. Defaults to `false`.    |
 | icon                     | `Map<String, dynamic>?`    | The icon to display inside the button.                                                |
@@ -17,7 +17,7 @@ To know more about the floating action button widget in Flutter, refer to the [o
 | focusColor               | `String?`                  | The color to paint the button when it has the input focus.                            |
 | hoverColor               | `String?`                  | The color to paint the button when a pointer is hovering over it.                     |
 | splashColor              | `String?`                  | The color to paint the splash effect when the button is pressed.                      |
-| extendedTextStyle        | `MiraiTextStyle?`          | The text style to apply to the extended button's label.                               |
+| extendedTextStyle        | `StacTextStyle?`          | The text style to apply to the extended button's label.                               |
 | elevation                | `double?`                  | The elevation of the button.                                                          |
 | focusElevation           | `double?`                  | The elevation of the button when it has the input focus.                              |
 | hoverElevation           | `double?`                  | The elevation of the button when a pointer is hovering over it.                       |

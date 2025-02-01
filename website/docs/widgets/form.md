@@ -1,6 +1,6 @@
 # Form
 
-The Mirai Form allows you to build a Flutter form widget using JSON.
+The Stac Form allows you to build a Flutter form widget using JSON.
 To know more about the form widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Form-class.html).
 
 ## Properties
