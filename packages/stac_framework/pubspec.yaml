@@ -1,6 +1,6 @@
 name: stac_framework
-description: The Stac Framework package provides a straightforward way to create custom parsers for widgets and actions in Stac. It is useful for extending Stac's functionality or implementing custom widgets and actions.
-version: 0.2.0
+description: The Stac Framework enables easy creation of parsers for widgets and actions, enhancing Stac's functionality and supporting custom implementations.
+version: 0.2.1
 homepage: https://github.com/stac/stac
 
 environment:
