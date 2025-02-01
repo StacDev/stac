@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:mirai_framework/mirai_framework.dart';
-import 'package:mirai_webview/parsers/mirai_webview/mirai_webview.dart';
+import 'package:stac_framework/stac_framework.dart';
+import 'package:stac_webview/parsers/stac_webview/stac_webview.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-/// [MiraiWebViewParser] is a class that parses the `webView` widget from JSON.
-class MiraiWebViewParser extends MiraiParser<MiraiWebView> {
-  const MiraiWebViewParser();
+/// [StacWebViewParser] is a class that parses the `webView` widget from JSON.
+class StacWebViewParser extends StacParser<StacWebView> {
+  const StacWebViewParser();
 
-  /// [webView] is the type defined for MiraiWebViewParser.
+  /// [webView] is the type defined for StacWebViewParser.
   @override
   String get type => 'webView';
 
-  /// [getModel] method parses the JSON data and returns a [MiraiWebView] object.
+  /// [getModel] method parses the JSON data and returns a [StacWebView] object.
   ///
   /// {@macro getModel}
   @override
-  MiraiWebView getModel(Map<String, dynamic> json) =>
-      MiraiWebView.fromJson(json);
+  StacWebView getModel(Map<String, dynamic> json) => StacWebView.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, MiraiWebView model) {
+  Widget parse(BuildContext context, StacWebView model) {
     return _WebView(model: model);
   }
 }
@@ -30,7 +29,7 @@ class _WebView extends StatefulWidget {
   const _WebView({required this.model});
 
   /// `model` is the data that will be used to configure the webview.
-  final MiraiWebView model;
+  final StacWebView model;
 
   /// [createState] method creates the state for the [_WebView] widget.
   @override

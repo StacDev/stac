@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-export 'mirai_webview_parser.dart';
+export 'stac_webview_parser.dart';
 
-part 'mirai_webview.freezed.dart';
-part 'mirai_webview.g.dart';
+part 'stac_webview.freezed.dart';
+part 'stac_webview.g.dart';
 
-/// `MiraiWebView` is a widget that renders a web page within a flutter application.
+/// `StacWebView` is a widget that renders a web page within a flutter application.
 @freezed
-class MiraiWebView with _$MiraiWebView {
-  /// `MiraiWebView` constructor.
-  const factory MiraiWebView({
+class StacWebView with _$StacWebView {
+  /// `StacWebView` constructor.
+  const factory StacWebView({
     /// The URL to load in the `WebView`.
     required String url,
 
@@ -37,8 +37,8 @@ class MiraiWebView with _$MiraiWebView {
     ///
     /// Default value is `TextDirection.ltr`.
     @Default(TextDirection.ltr) TextDirection layoutDirection,
-  }) = _MiraiWebView;
+  }) = _StacWebView;
 
-  factory MiraiWebView.fromJson(Map<String, dynamic> json) =>
-      _$MiraiWebViewFromJson(json);
+  factory StacWebView.fromJson(Map<String, dynamic> json) =>
+      _$StacWebViewFromJson(json);
 }

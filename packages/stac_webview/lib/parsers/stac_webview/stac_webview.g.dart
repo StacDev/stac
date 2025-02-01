@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'mirai_webview.dart';
+part of 'stac_webview.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MiraiWebViewImpl _$$MiraiWebViewImplFromJson(Map<String, dynamic> json) =>
-    _$MiraiWebViewImpl(
+_$StacWebViewImpl _$$StacWebViewImplFromJson(Map<String, dynamic> json) =>
+    _$StacWebViewImpl(
       url: json['url'] as String,
       javaScriptMode: $enumDecodeNullable(
               _$JavaScriptModeEnumMap, json['javaScriptMode']) ??
@@ -20,7 +20,7 @@ _$MiraiWebViewImpl _$$MiraiWebViewImplFromJson(Map<String, dynamic> json) =>
           TextDirection.ltr,
     );
 
-Map<String, dynamic> _$$MiraiWebViewImplToJson(_$MiraiWebViewImpl instance) =>
+Map<String, dynamic> _$$StacWebViewImplToJson(_$StacWebViewImpl instance) =>
     <String, dynamic>{
       'url': instance.url,
       'javaScriptMode': _$JavaScriptModeEnumMap[instance.javaScriptMode]!,

@@ -450,10 +450,11 @@ packages:
   mirai_webview:
     dependency: "direct main"
     description:
-      path: "../../packages/mirai_webview"
-      relative: true
-    source: path
-    version: "0.1.0"
+      name: mirai_webview
+      sha256: b6aa4f8c3b975d480da83628f957dc6ab82abb43caa9f3994b57189dbe21d518
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   nested:
     dependency: transitive
     description:

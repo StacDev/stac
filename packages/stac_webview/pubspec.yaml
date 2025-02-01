@@ -1,7 +1,7 @@
-name: mirai_webview
-description: A WebView Parser for Mirai. A wrapper of `webview_flutter` package for Mirai.
+name: stac_webview
+description: A comprehensive WebView parser for Stac, serving as a wrapper for the `webview_flutter` package to seamlessly integrate web content within Stac applications.
 version: 0.1.0
-homepage: https://github.com/buildMirai/mirai
+homepage: https://github.com/stac/stac
 
 environment:
   sdk: '>=3.1.0 <4.0.0'
@@ -13,7 +13,7 @@ dependencies:
   webview_flutter: ^4.10.0
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
-  mirai_framework: ^0.0.3
+  stac_framework: ^0.2.0
 
 dev_dependencies:
   flutter_test:
