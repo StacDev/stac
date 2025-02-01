@@ -1,7 +1,3 @@
-## 0.0.3
+# 0.1.0
 
-* update Readme
-
-## 0.0.1
-
-* Init Framework package
+* Init Stac Framework package
