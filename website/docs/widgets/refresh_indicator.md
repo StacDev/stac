@@ -25,7 +25,7 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
   "type": "refreshIndicator",
   "onRefresh": {
     "actionType": "request",
-    "url": "https://raw.githubusercontent.com/buildStac/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
+    "url": "https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
     "method": "get",
     "contentType": "application/json"
   }

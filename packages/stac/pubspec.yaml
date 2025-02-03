@@ -1,7 +1,7 @@
 name: stac
-description: Stac is a Server-Driven UI (SDUI) framework for Flutter. Mirai allows you to build beautiful cross-platform applications with JSON in real time.
+description: Stac is a Server-Driven UI (SDUI) framework for Flutter. Stac allows you to build beautiful cross-platform applications with JSON in real time.
 version: 0.8.0
-homepage: https://github.com/stac/stac
+homepage: https://github.com/StacDev/stac
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

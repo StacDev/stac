@@ -14,7 +14,7 @@ To know more about the icon widget in Flutter, refer to the [official documentat
 | semanticLabel | `String?`        | The semantic label for the icon.                                    |
 | textDirection | `TextDirection?` | The text direction for the icon.                                    |
 
-> Note: To check the available icons, refer to  [Icon utils](https://github.com/BuildStac/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart).
+> Note: To check the available icons, refer to  [Icon utils](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart).
 
 ## Example JSON
 

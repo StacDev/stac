@@ -48,6 +48,6 @@ void main() async {
 ```json
 {
   "type": "webView",
-  "url": "https://github.com/buildStac/stac"
+  "url": "https://github.com/StacDev/stac"
 }
 ```

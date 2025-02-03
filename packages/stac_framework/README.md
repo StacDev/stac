@@ -1,6 +1,6 @@
 # Stac Framework
 
-The Stac Framework package contains the framework files for [Stac](https://github.com/stac/stac), such as StacParser and StacActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Stac. This can be useful for extending the functionality of Stac or for implementing custom widgets and actions.
+The Stac Framework package contains the framework files for [Stac](https://github.com/StacDev/stac), such as StacParser and StacActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Stac. This can be useful for extending the functionality of Stac or for implementing custom widgets and actions.
 
 Here are some examples of how the Stac Framework package can be used:
 

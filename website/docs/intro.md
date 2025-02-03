@@ -13,9 +13,9 @@ The Stacverse consists of the following packages:
 
 | Package | Description | Link                                                                                               |
 |---------|-------------|----------------------------------------------------------------------------------------------------|
-| [stac](https://github.com/BuildStac/stac/tree/dev/packages/stac) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)           |
-| [stac_framework](https://github.com/BuildStac/stac/tree/dev/packages/stac_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_framework.svg)](https://pub.dev/packages/stac_framework) |
-| [stac_webview](https://github.com/BuildStac/stac/tree/dev/packages/stac_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_webview.svg)](https://pub.dev/packages/stac_webview)   |
+| [stac](https://github.com/StacDev/stac/tree/dev/packages/stac) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)           |
+| [stac_framework](https://github.com/StacDev/stac/tree/dev/packages/stac_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_framework.svg)](https://pub.dev/packages/stac_framework) |
+| [stac_webview](https://github.com/StacDev/stac/tree/dev/packages/stac_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_webview.svg)](https://pub.dev/packages/stac_webview)   |
 
 
 ## Installation
@@ -454,6 +454,6 @@ That's it with just few lines of code your SDUI app is up and running.
 
 <img src="/img/form_screen_image.png" alt="Form screen example"/>
 
-For more detailed examples and advanced usage, refer to the [Stac Gallery App](https://github.com/buildStac/stac/tree/dev/examples/stac_gallery).
+For more detailed examples and advanced usage, refer to the [Stac Gallery App](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery).
 
 

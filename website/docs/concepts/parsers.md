@@ -10,7 +10,7 @@ This guide will walk you through the basics of creating and using parsers in Sta
 
 ## What is a Stac Parser?
 
-A [StacParser](https://github.com/BuildStac/stac/blob/dev/packages/stac_framework/lib/src/stac_parser.dart) is a custom class that interprets specific JSON objects and converts them into Flutter widgets. 
+A [StacParser](https://github.com/StacDev/stac/blob/dev/packages/stac_framework/lib/src/stac_parser.dart) is a custom class that interprets specific JSON objects and converts them into Flutter widgets. 
 This allows for highly flexible and customizable UI components, tailored to the specific needs of your application.
 
 ## Creating a Custom Widget Parser

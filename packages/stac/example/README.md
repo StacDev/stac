@@ -308,8 +308,8 @@ That's it with just few lines of code your SDUI app is up and running.
 
 ### More examples
 
-Check out the [Stac Gallery](https://github.com/stac/stac/tree/main/examples/stac_gallery) app for more such examples.
+Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/main/examples/stac_gallery) app for more such examples.
 
 
-[form_screen]: https://github.com/stac/stac/blob/main/assets/form_screen_image.png
+[form_screen]: https://github.com/StacDev/stac/blob/main/assets/form_screen_image.png
 

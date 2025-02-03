@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://github.com/stac/stac/blob/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
+  <img src="https://github.com/StacDev/stac/blob/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
 </p>
 
 [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)
 [![License: MIT][license_badge]][license_link]
-[![GitHub Stars](https://img.shields.io/github/stars/stac/stac)](https://github.com/stac/stac/stargazers)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/buildstac/deploys)
+[![GitHub Stars](https://img.shields.io/github/stars/StacDev/stac)](https://github.com/StacDev/stac/stargazers)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/StacDev/deploys)
 [![Discord](https://img.shields.io/discord/1326481685579173888.svg?logo=discord&color=blue)](https://discord.com/invite/vTGsVRK86V)
 
 ---
@@ -20,8 +20,8 @@ Whether you’re building apps for mobile, web, or desktop, Stac simplifies UI d
 - ⚡ Fast Iterations: Make changes on the server and see them live in your app.
 
 ### 🌟 Explore Stac in Action
-- 🧪 [Try Stac Playground](https://playground.buildstac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI.
-- 📚 [Read the Documentation](https://docs.buildstac.dev/) – Get started with detailed guides and examples.
+- 🧪 [Try Stac Playground](https://playground.stac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI.
+- 📚 [Read the Documentation](https://docs.stac.dev/) – Get started with detailed guides and examples.
 
 Developed with 💙 by [Stac][stac_website]
 
@@ -406,33 +406,33 @@ That's it with just few lines of code your SDUI app is up and running.
 
 ### More examples
 
-Check out the [Stac Gallery](https://github.com/stac/stac/tree/dev/examples/stac_gallery) app for more such examples.
+Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery) app for more such examples.
 
 ## Contributors ✨
 
-<a href="https://github.com/stac/stac/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=stac/stac" alt="Stac Contributors"/>
+<a href="https://github.com/StacDev/stac/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=StacDev/stac" alt="Stac Contributors"/>
 </a>
 
 ## Companies/Products using Stac ✨
 
 <a href="https://jobhunt.work/">
-  <img src="https://github.com/stac/stac/blob/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
+  <img src="https://github.com/StacDev/stac/blob/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
 </a>
 
 <a href="https://bettrdo.com/">
-  <img src="https://github.com/stac/stac/blob/dev/assets/companies/bettrdo.jpg" alt="Job Hunt" height="100"/>
+  <img src="https://github.com/StacDev/StacDev/blob/dev/assets/companies/bettrdo.jpg" alt="Job Hunt" height="100"/>
 </a>
 
 ## Maintainers
 
 - [Divyanshu Bhargava][divyanshu_github]
 
-[github_stars]: https://img.shields.io/github/stars/stac/stac
-[github_stars_link]: https://github.com/stac/stac/stargazers 
+[github_stars]: https://img.shields.io/github/stars/StacDev/stac
+[github_stars_link]: https://github.com/StacDev/stac/stargazers 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.png
 [license_link]: https://opensource.org/licenses/MIT
-[stac_banner]: https://github.com/stac/stac/blob/dev/assets/stac_banner.png
-[form_screen]: https://github.com/stac/stac/blob/dev/assets/form_screen_image.png
+[stac_banner]: https://github.com/StacDev/stac/blob/dev/assets/stac_banner.png
+[form_screen]: https://github.com/StacDev/stac/blob/dev/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
 [stac_website]: https://stac.dev/

@@ -10,14 +10,14 @@ const config: Config = {
   tagline: 'Server-Driven UI for Flutter',
   favicon: 'img/favicon.ico',
   // Set the production url of your site here
-  url: 'https://buildStac.netlify.app',
+  url: 'https://stac.netlify.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'buildStac', // Usually your GitHub org/user name.
+  organizationName: 'StacDev', // Usually your GitHub org/user name.
   projectName: 'stac', // Usually your repo name.
 
   onBrokenLinks: 'warn',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/BuildStac/stac',
+            'https://github.com/StacDev/stac',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -70,12 +70,12 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: 'https://playground.buildstac.dev/',
+          to: 'https://playground.stac.dev/',
           label: 'Playground',
           position: 'right',
         },
         {
-          to: 'https://github.com/BuildStac/stac',
+          to: 'https://github.com/StacDev/stac',
           label: 'GitHub',
           position: 'right',
         },
@@ -98,15 +98,15 @@ const config: Config = {
           items: [
             {
               label: 'Website',
-              to: 'https://buildstac.dev/',
+              to: 'https://stac.dev/',
             },
             {
               label: 'LinkedIn',
-              to: 'https://www.linkedin.com/company/buildstac',
+              to: 'https://www.linkedin.com/company/stac',
             },
             {
               label: 'X',
-              to: 'https://x.com/buildStac',
+              to: 'https://x.com/stac',
             },
           ],
         },
@@ -115,7 +115,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/BuildStac/stac',
+              href: 'https://github.com/StacDev/stac',
             },
           ],
         },

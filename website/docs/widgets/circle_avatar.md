@@ -25,7 +25,7 @@ To know more about the circle avatar widget in Flutter, refer to the [official d
   "type": "circleAvatar",
   "backgroundColor": "#FF0000",
   "foregroundColor": "#FFFFFF",
-  "backgroundImage": "https://raw.githubusercontent.com/BuildStac/stac/refs/heads/dev/assets/companies/bettrdo.jpg",
+  "backgroundImage": "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg",
   "radius": 50,
   "child": {
     "type": "text",

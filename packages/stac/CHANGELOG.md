@@ -1,9 +1,9 @@
 ## 0.8.0
 
-* chore] Code Refactoring :) by @divyanshub024
+* chore: Code Refactoring :) by @divyanshub024
 * feat: Add Row and Column Spacing by @divyanshub024
-* feat: Add Mirai carousel view with example by @divyanshub024
-* feat: Add Mirai colored box parser by @divyanshub024
+* feat: Add Stac carousel view with example by @divyanshub024
+* feat: Add Stac colored box parser by @divyanshub024
 * fix: Replace cache network image with the Image.network. by @divyanshub024
 * feat: Add support for the Divider widget by @bhattkrutij
 * feat: added ability to override stac parsers and action_parsers. by @khanjasir90
@@ -18,8 +18,8 @@
 * Added support for new widgets: CircleAvatar, GridView, Chip, Wrap & FilledButton
 * Rename scrollView to SingleChildScrollView
 * Added defaultBottomNavigationController & bottomNavigationView
-* A new and better way to define Mirai Network Request & Network Result
-* Revamp Mirai Form to add form validation, getting form values and submitting Form
+* A new and better way to define Stac Network Request & Network Result
+* Revamp Stac Form to add form validation, getting form values and submitting Form
 * Use app text theme in text styles 
 * A new way to declare EdgeInsets & BorderRadius
 * A lot of enhancement, refactoring and bug fixes
@@ -27,7 +27,7 @@
 ## 0.6.0
 
 * chore: update readme by @divyanshub024
-* feat: Add Mirai Switch by @kushalmahapatro
+* feat: Add Stac Switch by @kushalmahapatro
 * :bug: fix: Failed assertion 'initialValue == null || controller == null': is not true in TextFormField by @loud-at-heart
 * :rocket: Added support for align widget by @loud-at-heart
 * feat: Added tabAlignment in stac tab bar by @i-asimkhan
