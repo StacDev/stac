@@ -421,7 +421,7 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
 </a>
 
 <a href="https://bettrdo.com/">
-  <img src="https://github.com/StacDev/StacDev/blob/dev/assets/companies/bettrdo.jpg" alt="Job Hunt" height="100"/>
+  <img src="https://github.com/StacDev/stac/blob/dev/assets/companies/bettrdo.jpg" alt="BettrDo" height="100"/>
 </a>
 
 ## Maintainers
