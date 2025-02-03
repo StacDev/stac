@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="https://github.com/StacDev/stac/blob/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
+<p>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
 </p>
 
 [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)
@@ -417,11 +417,11 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
 ## Companies/Products using Stac ✨
 
 <a href="https://jobhunt.work/">
-  <img src="https://github.com/StacDev/stac/blob/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
 </a>
 
 <a href="https://bettrdo.com/">
-  <img src="https://github.com/StacDev/stac/blob/dev/assets/companies/bettrdo.jpg" alt="BettrDo" height="100"/>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg" alt="BettrDo" height="100"/>
 </a>
 
 ## Maintainers
@@ -432,7 +432,7 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
 [github_stars_link]: https://github.com/StacDev/stac/stargazers 
 [license_badge]: https://img.shields.io/badge/license-MIT-blue.png
 [license_link]: https://opensource.org/licenses/MIT
-[stac_banner]: https://github.com/StacDev/stac/blob/dev/assets/stac_banner.png
-[form_screen]: https://github.com/StacDev/stac/blob/dev/assets/form_screen_image.png
+[stac_banner]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png
+[form_screen]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
 [stac_website]: https://stac.dev/

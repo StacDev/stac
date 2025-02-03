@@ -1,6 +1,6 @@
 name: stac
 description: Stac is a Server-Driven UI (SDUI) framework for Flutter. Stac allows you to build beautiful cross-platform applications with JSON in real time.
-version: 0.8.0
+version: 0.8.3
 homepage: https://github.com/StacDev/stac
 
 environment:

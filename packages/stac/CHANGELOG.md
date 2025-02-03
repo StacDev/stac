@@ -1,3 +1,8 @@
+## 0.8.3
+
+* chore: Rename from Mirai to Stac
+* chore: update readme
+
 ## 0.8.0
 
 * chore: Code Refactoring :) by @divyanshub024
