@@ -13,8 +13,7 @@ enum StacInputBorderType { none, underlineInputBorder, outlineInputBorder }
 @freezed
 class StacInputBorder with _$StacInputBorder {
   const factory StacInputBorder({
-    @Default(StacInputBorderType.underlineInputBorder)
-    StacInputBorderType type,
+    @Default(StacInputBorderType.underlineInputBorder) StacInputBorderType type,
     StacBorderRadius? borderRadius,
     @Default(4.0) double gapPadding,
     @Default(0.0) double width,
