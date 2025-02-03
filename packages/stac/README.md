@@ -11,7 +11,7 @@
 ---
 # 🚀 Stac – Server-Driven UI Framework for Flutter
 
-[Stac][stac_website] is a powerful Server-Driven UI (SDUI) framework for Flutter, enabling you to build beautiful, cross-platform applications dynamically using JSON in real time.
+[Stac][stac_website] (formerly Mirai) is a powerful Server-Driven UI (SDUI) framework for Flutter, enabling you to build beautiful, cross-platform applications dynamically using JSON in real time.
 
 Whether you’re building apps for mobile, web, or desktop, Stac simplifies UI delivery and enhances flexibility without requiring redeployment for every design change.
 

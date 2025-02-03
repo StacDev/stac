@@ -5,11 +5,11 @@ sidebar_position: 1
 
 # Get Started 🚀
 
-Welcome to **Stac**, a Server-Driven UI (SDUI) framework for Flutter. Stac empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
+Welcome to **Stac** (formerly Mirai), a Server-Driven UI (SDUI) framework for Flutter. Stac empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
 
 ## Packages
 
-The Stacverse consists of the following packages:
+The Stac ecosystem consists of the following packages:
 
 | Package | Description | Link                                                                                               |
 |---------|-------------|----------------------------------------------------------------------------------------------------|
