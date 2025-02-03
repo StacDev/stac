@@ -1,1 +1,1 @@
-packages/mirai/README.md
+packages/stac/README.md
