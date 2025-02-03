@@ -1,13 +1,13 @@
 # Switch
 
-The Mirai `Switch` widget allows you to build the Flutter Switch widget using JSON.
+The Stac `Switch` widget allows you to build the Flutter Switch widget using JSON.
 To know more about the Switch widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Switch-class.html).
 
 ## Properties
 
 | Property              | Type                    | Description                                                                                                     |
 |-----------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
-| switchType            | `MiraiSwitchType`       | The type of the Switch.                                                                                         |
+| switchType            | `StacSwitchType`       | The type of the Switch.                                                                                         |
 | value                 | `bool`                  | Whether this switch is on or off.                                                                               |
 | onChanged             | `Map<String, dynamic>`  | Called when the user toggles the switch on or off.                                                              |
 | autofocus             | `bool`                  | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
@@ -21,11 +21,11 @@ To know more about the Switch widget in Flutter, refer to the [official document
 | offLabelColor         | `String`                | The color to use for the accessibility label when the switch is off.                                            |
 | splashRadius          | `double`                | The splash radius of the circular ink response.                                                                 |
 | dragStartBehavior     | `DragStartBehavior`     | Determines the way that drag start behavior is handled.                                                         |
-| overlayColor          | `MiraiMaterialColor`    | The color for the switch.                                                                                       |
-| thumbColor            | `MiraiMaterialColor`    | The color of this Switch's thumb.                                                                               |
-| trackColor            | `MiraiMaterialColor`    | TThe color of this Switch's track.                                                                              |
+| overlayColor          | `StacMaterialColor`    | The color for the switch.                                                                                       |
+| thumbColor            | `StacMaterialColor`    | The color of this Switch's thumb.                                                                               |
+| trackColor            | `StacMaterialColor`    | TThe color of this Switch's track.                                                                              |
 | materialTapTargetSize | `MaterialTapTargetSize` | Configures the minimum size of the tap target.                                                                  |
-| trackOutlineColor     | `MiraiMaterialColor`    | The outline color of this Switch's track.                                                                       |
+| trackOutlineColor     | `StacMaterialColor`    | The outline color of this Switch's track.                                                                       |
 | thumbIcon             | `Map<String, dynamic>`  | The icon to use on the thumb of this switch.                                                                    |
 | inactiveThumbImage    | `String`                | An image to use on the thumb of this switch when the switch is off.                                             |
 | activeThumbImage      | `String`                | An image to use on the thumb of this switch when the switch is on.                                              |

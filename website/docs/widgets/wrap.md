@@ -1,6 +1,6 @@
 # Wrap
 
-Mirai wrap allows you to build the Flutter wrap widget using JSON
+Stac wrap allows you to build the Flutter wrap widget using JSON
 To know more about the wrap widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Wrap-class.html).
 
 ## Properties

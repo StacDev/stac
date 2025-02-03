@@ -1,6 +1,6 @@
 # Placeholder
 
-The Mirai `Placeholder` widget allows you to build the Flutter Placeholder widget using JSON.
+The Stac `Placeholder` widget allows you to build the Flutter Placeholder widget using JSON.
 is used to draw a box that serves as a placeholder in your Flutter UI. It is typically used to represent areas where widgets are yet to be added or for debugging layout constraints.
 
 To learn more about the `Placeholder` widget, refer to the [official Flutter documentation](https://api.flutter.dev/flutter/widgets/Placeholder-class.html).

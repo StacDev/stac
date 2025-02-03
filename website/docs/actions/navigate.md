@@ -1,13 +1,13 @@
 # Navigate Action
 
-The Mirai Navigate Action allows you to perform navigation actions in a Flutter application using JSON.
+The Stac Navigate Action allows you to perform navigation actions in a Flutter application using JSON.
 To know more about navigation in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Navigator-class.html).
 
 ## Properties
 
 | Property         | Type                    | Description                                                                 |
 |------------------|-------------------------|-----------------------------------------------------------------------------|
-| request          | `MiraiNetworkRequest?`  | The network request to perform before navigation.                           |
+| request          | `StacNetworkRequest?`  | The network request to perform before navigation.                           |
 | widgetJson       | `Map<String, dynamic>?` | The JSON representation of the widget to navigate to.                       |
 | assetPath        | `String?`               | The asset path of the widget to navigate to.                                |
 | routeName        | `String?`               | The name of the route to navigate to.                                       |
@@ -18,7 +18,7 @@ To know more about navigation in Flutter, refer to the [official documentation](
 
 ### NavigationStyle
 
-The `NavigationStyle` enum defines the different styles of navigation that can be used in the Mirai Navigate Action.
+The `NavigationStyle` enum defines the different styles of navigation that can be used in the Stac Navigate Action.
 
 | Value                   | Description                                               |
 |-------------------------|-----------------------------------------------------------|

@@ -1,6 +1,6 @@
 # CircleAvatar
 
-The Mirai CircleAvatar allows you to build a Flutter circle avatar widget using JSON.
+The Stac CircleAvatar allows you to build a Flutter circle avatar widget using JSON.
 To know more about the circle avatar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircleAvatar-class.html).
 
 ## Properties
@@ -25,7 +25,7 @@ To know more about the circle avatar widget in Flutter, refer to the [official d
   "type": "circleAvatar",
   "backgroundColor": "#FF0000",
   "foregroundColor": "#FFFFFF",
-  "backgroundImage": "https://raw.githubusercontent.com/BuildMirai/mirai/refs/heads/dev/assets/companies/bettrdo.jpg",
+  "backgroundImage": "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg",
   "radius": 50,
   "child": {
     "type": "text",

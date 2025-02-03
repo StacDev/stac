@@ -1,8 +1,8 @@
 {
-  "label": "Mirai Actions",
+  "label": "Stac Actions",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "Learn about the various actions provided by Mirai"
+    "description": "Learn about the various actions provided by Stac"
   }
 }

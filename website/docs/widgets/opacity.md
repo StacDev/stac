@@ -1,6 +1,6 @@
 # Opacity
 
-Mirai opacity allows you to build the Flutter Opacity widget using JSON.
+Stac opacity allows you to build the Flutter Opacity widget using JSON.
 To know more about the Slider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Opacity-class.html).
 
 ## Properties

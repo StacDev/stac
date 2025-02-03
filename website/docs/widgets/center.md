@@ -1,6 +1,6 @@
 # Center
 
-The Mirai Center allows you to build a Flutter center widget using JSON.
+The Stac Center allows you to build a Flutter center widget using JSON.
 To know more about the center widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Center-class.html).
 
 ## Properties

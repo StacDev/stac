@@ -1,6 +1,6 @@
 # Column
 
-The Mirai Column allows you to build a Flutter column widget using JSON.
+The Stac Column allows you to build a Flutter column widget using JSON.
 To know more about the column widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Column-class.html).
 
 ## Properties

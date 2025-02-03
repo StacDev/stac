@@ -1,0 +1,58 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Stac Switch"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "switch",
+                "switchType": "cupertino",
+                "value": true
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "switch",
+                "switchType": "adaptive",
+                "value": true
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "switch",
+                "switchType": "material",
+                "value": false
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 12
+          }
+        ]
+      }
+    ]
+  }
+}

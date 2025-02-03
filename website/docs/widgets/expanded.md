@@ -1,6 +1,6 @@
 # Expanded
 
-The Mirai Expanded allows you to build a Flutter expanded widget using JSON.
+The Stac Expanded allows you to build a Flutter expanded widget using JSON.
 To know more about the expanded widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Expanded-class.html).
 
 ## Properties

@@ -1,0 +1,19 @@
+name: stac_parser
+description: A new Stac Parser
+repository: https://github.com/StacDev/stac/
+# The following defines the version and build number for your brick.
+# A version number is three numbers separated by dots, like 1.2.34
+# followed by an optional build number (separated by a +).
+version: 0.1.0+1
+
+# The following defines the environment for the current brick.
+# It includes the version of mason that the brick requires.
+environment:
+  mason: ">=0.1.0-dev.40 <0.1.0"
+
+vars:
+  name:
+    type: string
+    description: Stac Parser name
+    default: Dash
+    prompt: What is the Stac Parser name?

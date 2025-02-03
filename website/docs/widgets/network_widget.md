@@ -1,12 +1,12 @@
 # NetworkWidget
 
-The Mirai NetworkWidget allows you to build a widget that makes a network request and renders a widget based on the response using JSON.
+The Stac NetworkWidget allows you to build a widget that makes a network request and renders a widget based on the response using JSON.
 
 ## Properties
 
 | Property | Type                  | Description                          |
 |----------|-----------------------|--------------------------------------|
-| request  | `MiraiNetworkRequest` | The network request configuration.   |
+| request  | `StacNetworkRequest` | The network request configuration.   |
 
 ## Example JSON
 

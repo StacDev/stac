@@ -4,23 +4,23 @@ sidebar_position: 3
 
 # Theming
 
-Theming is an essential part of any application, ensuring a consistent look and feel across the entire app. Mirai offers a powerful way to update the theme of your application dynamically using JSON.
+Theming is an essential part of any application, ensuring a consistent look and feel across the entire app. Stac offers a powerful way to update the theme of your application dynamically using JSON.
 
-Mirai theming functions similarly to Flutter's built-in theming. You define the theme in JSON and apply it to your application using the MiraiTheme widget. This allows for a centralized and easily maintainable approach to managing your app's visual style.
+Stac theming functions similarly to Flutter's built-in theming. You define the theme in JSON and apply it to your application using the StacTheme widget. This allows for a centralized and easily maintainable approach to managing your app's visual style.
 
-## Implementing Mirai Theming
+## Implementing Stac Theming
 
-To implement theming in Mirai, follow these steps:
+To implement theming in Stac, follow these steps:
 
-1. **Replace MaterialApp with MiraiApp**: Start by replacing your `MaterialApp` with `MiraiApp`
-2. **Pass the MiraiTheme to MiraiApp**: Apply the theme by passing the `MiraiTheme` widget to the `MiraiApp`. The MiraiTheme widget takes a `MiraiTheme` object as a parameter, which is constructed from your JSON theme definition.
+1. **Replace MaterialApp with StacApp**: Start by replacing your `MaterialApp` with `StacApp`
+2. **Pass the StacTheme to StacApp**: Apply the theme by passing the `StacTheme` widget to the `StacApp`. The StacTheme widget takes a `StacTheme` object as a parameter, which is constructed from your JSON theme definition.
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:mirai/mirai.dart';
+import 'package:stac/stac.dart';
 
 void main() async {
-  await Mirai.initialize();
+  await Stac.initialize();
   runApp(const MyApp());
 }
 
@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MiraiApp(
-      theme: MiraiTheme.fromJson(themeJson),
+    return StacApp(
+      theme: StacTheme.fromJson(themeJson),
       homeBuilder: (context) => const HomeScreen(),
     );
   }
@@ -60,4 +60,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-For more details check out [MiraiTheme](https://github.com/buildMirai/mirai/blob/dev/packages/mirai/lib/src/parsers/mirai_theme/mirai_theme.dart) class.
+For more details check out [StacTheme](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/parsers/stac_theme/stac_theme.dart) class.

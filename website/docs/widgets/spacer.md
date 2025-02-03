@@ -1,6 +1,6 @@
 # Spacer
 
-The Mirai Spacer allows you to build a Flutter spacer widget using JSON.
+The Stac Spacer allows you to build a Flutter spacer widget using JSON.
 To know more about the spacer widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Spacer-class.html).
 
 ## Properties

@@ -1,6 +1,6 @@
 # GridView
 
-The Mirai GridView allows you to build a Flutter GridView widget using JSON.
+The Stac GridView allows you to build a Flutter GridView widget using JSON.
 To know more about the GridView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/GridView-class.html).
 
 ## Properties
@@ -10,9 +10,9 @@ To know more about the GridView widget in Flutter, refer to the [official docume
 | scrollDirection         | `Axis`                              | The axis along which the grid scrolls. Defaults to `Axis.vertical`.                                                                  |
 | reverse                 | `bool`                              | Whether the grid scrolls in the reverse direction. Defaults to `false`.                                                              |
 | primary                 | `bool`                              | Whether this is the primary scroll view. Defaults to `false`.                                                                        |
-| physics                 | `MiraiScrollPhysics?`               | The physics for the scroll view.                                                                                                     |
+| physics                 | `StacScrollPhysics?`               | The physics for the scroll view.                                                                                                     |
 | shrinkWrap              | `bool`                              | Whether the extent of the scroll view in the scrollDirection should be determined by the contents being viewed. Defaults to `false`. |
-| padding                 | `MiraiEdgeInsets?`                  | The amount of space by which to inset the grid.                                                                                      |
+| padding                 | `StacEdgeInsets?`                  | The amount of space by which to inset the grid.                                                                                      |
 | crossAxisCount          | `int?`                              | The number of children in the cross axis.                                                                                            |
 | mainAxisSpacing         | `double`                            | The amount of space between the children in the main axis. Defaults to `0.0`.                                                        |
 | crossAxisSpacing        | `double`                            | The amount of space between the children in the cross axis. Defaults to `0.0`.                                                       |

@@ -6,19 +6,19 @@ import darkTheme from './theme/darkTheme';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Mirai',
+  title: 'Stac',
   tagline: 'Server-Driven UI for Flutter',
   favicon: 'img/favicon.ico',
   // Set the production url of your site here
-  url: 'https://buildMirai.netlify.app',
+  url: 'https://stac.netlify.app',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'buildMirai', // Usually your GitHub org/user name.
-  projectName: 'mirai', // Usually your repo name.
+  organizationName: 'StacDev', // Usually your GitHub org/user name.
+  projectName: 'stac', // Usually your repo name.
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -41,7 +41,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/BuildMirai/mirai',
+            'https://github.com/StacDev/stac',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -57,9 +57,9 @@ const config: Config = {
       defaultMode: 'dark',
     },
     navbar: {
-      title: 'Mirai',
+      title: 'Stac',
       logo: {
-        alt: 'Mirai Logo',
+        alt: 'Stac Logo',
         src: 'img/logo.png',
       },
       items: [
@@ -70,12 +70,12 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: 'https://playground.buildmirai.dev/',
+          to: 'https://playground.stac.dev/',
           label: 'Playground',
           position: 'right',
         },
         {
-          to: 'https://github.com/BuildMirai/mirai',
+          to: 'https://github.com/StacDev/stac',
           label: 'GitHub',
           position: 'right',
         },
@@ -98,15 +98,15 @@ const config: Config = {
           items: [
             {
               label: 'Website',
-              to: 'https://buildmirai.dev/',
+              to: 'https://stac.dev/',
             },
             {
               label: 'LinkedIn',
-              to: 'https://www.linkedin.com/company/buildmirai',
+              to: 'https://www.linkedin.com/company/stac',
             },
             {
               label: 'X',
-              to: 'https://x.com/buildMirai',
+              to: 'https://x.com/stac',
             },
           ],
         },
@@ -115,12 +115,12 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/BuildMirai/mirai',
+              href: 'https://github.com/StacDev/stac',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Mirai`,
+      copyright: `Copyright © ${new Date().getFullYear()} Stac`,
     },
     prism: {
       additionalLanguages: ['dart'],

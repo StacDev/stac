@@ -1,6 +1,6 @@
 # SingleChildScrollView
 
-The Mirai SingleChildScrollView allows you to build a Flutter SingleChildScrollView widget using JSON.
+The Stac SingleChildScrollView allows you to build a Flutter SingleChildScrollView widget using JSON.
 To know more about the SingleChildScrollView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html).
 
 ## Properties
@@ -9,9 +9,9 @@ To know more about the SingleChildScrollView widget in Flutter, refer to the [of
 |-------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | scrollDirection         | `Axis`                              | The axis along which the scroll view scrolls. Defaults to `Axis.vertical`.                                          |
 | reverse                 | `bool`                              | Whether the scroll view scrolls in the reverse direction. Defaults to `false`.                                      |
-| padding                 | `MiraiEdgeInsets?`                  | The amount of space by which to inset the child.                                                                    |
+| padding                 | `StacEdgeInsets?`                  | The amount of space by which to inset the child.                                                                    |
 | primary                 | `bool?`                             | Whether this is the primary scroll view associated with the parent.                                                 |
-| physics                 | `MiraiScrollPhysics?`               | How the scroll view should respond to user input.                                                                   |
+| physics                 | `StacScrollPhysics?`               | How the scroll view should respond to user input.                                                                   |
 | child                   | `Map<String, dynamic>?`             | The widget below this widget in the tree.                                                                           |
 | dragStartBehavior       | `DragStartBehavior`                 | Determines the way that drag start behavior is handled. Defaults to `DragStartBehavior.start`.                      |
 | clipBehavior            | `Clip`                              | The content will be clipped (or not) according to this option. Defaults to `Clip.hardEdge`.                         |

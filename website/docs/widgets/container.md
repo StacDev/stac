@@ -1,21 +1,21 @@
 # Container
 
-Mirai container allows you to build the Flutter container widget using JSON. 
+Stac container allows you to build the Flutter container widget using JSON. 
 To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Container-class.html).
 
 ## Properties
 
 | Property             | Type                   | Description                                       |
 |----------------------|------------------------|---------------------------------------------------|
-| alignment            | `MiraiAlignment`       | The alignment of the child within the container.  |
-| padding              | `MiraiEdgeInsets`      | The padding to apply around the child.            |
-| decoration           | `MiraiBoxDecoration`   | The decoration to paint behind the child.         |
-| foregroundDecoration | `MiraiBoxDecoration`   | The decoration to paint in front of the child.    |
+| alignment            | `StacAlignment`       | The alignment of the child within the container.  |
+| padding              | `StacEdgeInsets`      | The padding to apply around the child.            |
+| decoration           | `StacBoxDecoration`   | The decoration to paint behind the child.         |
+| foregroundDecoration | `StacBoxDecoration`   | The decoration to paint in front of the child.    |
 | color                | `String`               | The hex color to paint behind the child.          |
 | width                | `double`               | The width of the container.                       |
 | height               | `double`               | The height of the container.                      |
-| constraints          | `MiraiBoxConstraints`  | Additional constraints to apply to the container. |
-| margin               | `MiraiEdgeInsets`      | The margin to apply around the container.         |
+| constraints          | `StacBoxConstraints`  | Additional constraints to apply to the container. |
+| margin               | `StacEdgeInsets`      | The margin to apply around the container.         |
 | child                | `Map<String, dynamic>` | The child widget of the container.                |
 | clipBehavior         | `Clip`                 | The clip behavior of the container.               |
 

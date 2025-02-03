@@ -1,6 +1,6 @@
 # List View
 
-Mirai listview allows you to build the Flutter listview widget using JSON.
+Stac listview allows you to build the Flutter listview widget using JSON.
 To know more about the listview widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/ListView-class.html).
 
 ## Properties
@@ -10,9 +10,9 @@ To know more about the listview widget in Flutter, refer to the [official docume
 | scrollDirection         | `Axis`                              | The Axis along which the scroll view's offset increases.                                                                                                |
 | reverse                 | `bool`                              | Whether the scroll view scrolls in the reading direction.                                                                                               |
 | primary                 | `bool`                              | Whether this is the primary scroll view.                                                                                                                |
-| physics                 | `MiraiScrollPhysics`                | How the scroll view should respond to user input.                                                                                                       |
+| physics                 | `StacScrollPhysics`                | How the scroll view should respond to user input.                                                                                                       |
 | shrinkWrap              | `bool`                              | Whether the extent of the scroll view in the scrollDirection should be determined by the contents being viewed.                                         |
-| padding                 | `MiraiEdgeInsets`                   | The amount of space by which to inset the children.                                                                                                     |
+| padding                 | `StacEdgeInsets`                   | The amount of space by which to inset the children.                                                                                                     |
 | addAutomaticKeepAlives  | `bool`                              | Determines whether the children should be automatically kept alive (cached) when they are no longer visible, preserving their state.                    |
 | addRepaintBoundaries    | `bool`                              | Determines whether each child widget is wrapped in a RepaintBoundary to optimize rendering by reducing unnecessary repaints.                            |
 | addSemanticIndexes      | `bool`                              | Determines whether semantic indexes are assigned to the children, enabling accessibility tools to understand the order and structure of the list items. |

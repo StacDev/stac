@@ -1,6 +1,6 @@
 # Get Form Value Action
 
-The `MiraiGetFormValueAction` class is used to retrieve a form value in Mirai applications.
+The `StacGetFormValueAction` class is used to retrieve a form value in Stac applications.
 
 ## Properties
 

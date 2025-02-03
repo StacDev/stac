@@ -1,6 +1,6 @@
 # PageView
 
-The Mirai PageView allows you to build a Flutter PageView widget using JSON.
+The Stac PageView allows you to build a Flutter PageView widget using JSON.
 To know more about the PageView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/PageView-class.html).
 
 ## Properties
@@ -9,7 +9,7 @@ To know more about the PageView widget in Flutter, refer to the [official docume
 |------------------------|------------------------------|-------------------------------------------------------------------------------|
 | scrollDirection        | `Axis`                       | The axis along which the page view scrolls. Defaults to `Axis.horizontal`.    |
 | reverse                | `bool`                       | Whether the page view scrolls in the reverse direction. Defaults to `false`.  |
-| physics                | `MiraiScrollPhysics?`        | The physics for the scroll view.                                              |
+| physics                | `StacScrollPhysics?`        | The physics for the scroll view.                                              |
 | pageSnapping           | `bool`                       | Whether the page view should snap to page boundaries. Defaults to `true`.     |
 | onPageChanged          | `Map<String, dynamic>?`      | The callback that is called when the page changes.                            |
 | dragStartBehavior      | `DragStartBehavior`          | The drag start behavior. Defaults to `DragStartBehavior.start`.               |

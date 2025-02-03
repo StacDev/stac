@@ -1,6 +1,6 @@
 # Scaffold
 
-The Mirai Scaffold allows you to build a Flutter scaffold widget using JSON.
+The Stac Scaffold allows you to build a Flutter scaffold widget using JSON.
 To know more about the scaffold widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Scaffold-class.html).
 
 ## Properties
@@ -10,7 +10,7 @@ To know more about the scaffold widget in Flutter, refer to the [official docume
 | appBar                         | `Map<String, dynamic>?`              | The app bar widget of the scaffold.                                                     |
 | body                           | `Map<String, dynamic>?`              | The body widget of the scaffold.                                                        |
 | floatingActionButton           | `Map<String, dynamic>?`              | The floating action button widget of the scaffold.                                      |
-| floatingActionButtonLocation   | `MiraiFloatingActionButtonLocation?` | The location of the floating action button.                                             |
+| floatingActionButtonLocation   | `StacFloatingActionButtonLocation?` | The location of the floating action button.                                             |
 | persistentFooterButtons        | `List<Map<String, dynamic>>?`        | The persistent footer buttons of the scaffold.                                          |
 | drawer                         | `Map<String, dynamic>?`              | The drawer widget of the scaffold.                                                      |
 | endDrawer                      | `Map<String, dynamic>?`              | The end drawer widget of the scaffold.                                                  |

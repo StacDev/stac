@@ -2,15 +2,15 @@
 sidebar_position: 1
 ---
 
-# Mirai Parsers
+# Stac Parsers
 
-Mirai has wide variety of built-in parsers to handle different types of widgets.
-However, you can also create custom parsers to handle custom widgets or widgets that are not supported by Mirai out of the box.
-This guide will walk you through the basics of creating and using parsers in Mirai.
+Stac has wide variety of built-in parsers to handle different types of widgets.
+However, you can also create custom parsers to handle custom widgets or widgets that are not supported by Stac out of the box.
+This guide will walk you through the basics of creating and using parsers in Stac.
 
-## What is a Mirai Parser?
+## What is a Stac Parser?
 
-A [MiraiParser](https://github.com/BuildMirai/mirai/blob/dev/packages/mirai_framework/lib/src/mirai_parser.dart) is a custom class that interprets specific JSON objects and converts them into Flutter widgets. 
+A [StacParser](https://github.com/StacDev/stac/blob/dev/packages/stac_framework/lib/src/stac_parser.dart) is a custom class that interprets specific JSON objects and converts them into Flutter widgets. 
 This allows for highly flexible and customizable UI components, tailored to the specific needs of your application.
 
 ## Creating a Custom Widget Parser
@@ -18,8 +18,8 @@ This allows for highly flexible and customizable UI components, tailored to the 
 To create a custom parser, you need to follow these steps:
 
 1. **Define the JSON Structure**: Define the structure of the JSON object that your parser will interpret. This structure should be well-documented and easy to understand.
-2. **Create the Parser Class**: Create a new Dart class that extends the `MiraiParser` class provided by Mirai. This class will contain the logic to interpret the JSON object and generate the corresponding Flutter widget.
-3. **Register the Parser**: Register the custom parser with Mirai so that it can be used to interpret JSON objects.
+2. **Create the Parser Class**: Create a new Dart class that extends the `StacParser` class provided by Stac. This class will contain the logic to interpret the JSON object and generate the corresponding Flutter widget.
+3. **Register the Parser**: Register the custom parser with Stac so that it can be used to interpret JSON objects.
 
 ## Example Parser
 
@@ -59,16 +59,16 @@ class CustomButton with _$CustomButton {
 
 ### Step 2: Create the Parser Class
 
-Next, we create a new Dart class that extends the `MiraiParser` class.
+Next, we create a new Dart class that extends the `StacParser` class.
 
-MiraiParser gives you 3 methods to implement:
+StacParser gives you 3 methods to implement:
 
 1. `type`: This method should return the type of the widget. The `type` is a unique identifier for the widget that will be used to determine which parser to use.
 2. `getModel`: This method extracts and returns the model object from the provided JSON. The model object contains the properties and data required to render the widget.
 3. `parse`: This is where you build the Flutter widget using the model object. This method should return the widget that corresponds to the JSON object.
 
 ```dart
-class CustomButtonParser extends MiraiParser<CustomButton> {
+class CustomButtonParser extends StacParser<CustomButton> {
   const CustomButtonParser();
   
   @override
@@ -93,15 +93,15 @@ class CustomButtonParser extends MiraiParser<CustomButton> {
 
 ### Step 3: Register the Parser
 
-Finally, you need to register the custom parser with Mirai so that it can be used to interpret JSON objects.
+Finally, you need to register the custom parser with Stac so that it can be used to interpret JSON objects.
 
 There are 2 ways to register a parser:
 
-1. **Register in `Mirai.initialize`**: You can register the parser when initializing Mirai by passing it in the `parsers` parameter.
+1. **Register in `Stac.initialize`**: You can register the parser when initializing Stac by passing it in the `parsers` parameter.
 
 ```dart
 void main() async {
-  await Mirai.initialize(
+  await Stac.initialize(
     parsers: const [
       CustomButtonParser(),
     ],
@@ -111,28 +111,28 @@ void main() async {
 }
 ```
 
-When you register the parser in `Mirai.initialize`, the parser will be available throughout the app.
+When you register the parser in `Stac.initialize`, the parser will be available throughout the app.
 
-2. **Register through MiraiRegistry**: You can also register the parser anywhere using the `MiraiRegistry` class.
+2. **Register through StacRegistry**: You can also register the parser anywhere using the `StacRegistry` class.
 
-`MiraiRegistry` provides you with two method to register the widget parser.
+`StacRegistry` provides you with two method to register the widget parser.
 
 1. Register a single parser
 
 ```dart
-MiraiRegistry.instance.register(CustomButtonParser());
+StacRegistry.instance.register(CustomButtonParser());
 ```
 
 2. Register multiple parsers
 
 ```dart
-MiraiRegistry.instance.registerAll([
-    MiraiTextParser(),
-    MiraiButtonParser(),
+StacRegistry.instance.registerAll([
+    StacTextParser(),
+    StacButtonParser(),
 ]);
 ```
 
 ## Conclusion
 
-Creating custom parsers in Mirai not only allows you to extend the functionality of the library and build highly customizable UI components, but it also enables you to integrate third-party packages into your application. By defining custom parsers for the widgets or components provided by these packages, you can leverage their functionality within the server-driven UI paradigm that Mirai offers. This means you can use any Flutter package in your project and render its widgets from a server-side JSON response, further enhancing the flexibility and power of your application.
+Creating custom parsers in Stac not only allows you to extend the functionality of the library and build highly customizable UI components, but it also enables you to integrate third-party packages into your application. By defining custom parsers for the widgets or components provided by these packages, you can leverage their functionality within the server-driven UI paradigm that Stac offers. This means you can use any Flutter package in your project and render its widgets from a server-side JSON response, further enhancing the flexibility and power of your application.
 

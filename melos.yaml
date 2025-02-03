@@ -1,4 +1,4 @@
-name: mirai
+name: stac
 
 packages:
   - packages/*
@@ -14,8 +14,8 @@ scripts:
   build:
     exec: dart run build_runner build --delete-conflicting-outputs
     packageFilters:
-      ignore: mirai_framework
+      ignore: stac_framework
   watch:
     exec: dart run build_runner watch --delete-conflicting-outputs
     packageFilters:
-      ignore: mirai_framework
+      ignore: stac_framework

@@ -1,6 +1,6 @@
 # Flexible
 
-The Mirai Flexible allows you to build a Flutter flexible widget using JSON.
+The Stac Flexible allows you to build a Flutter flexible widget using JSON.
 To know more about the flexible widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Flexible-class.html).
 
 ## Properties

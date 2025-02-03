@@ -1,0 +1,17 @@
+name: stac_framework
+description: The Stac Framework enables easy creation of parsers for widgets and actions, enhancing Stac's functionality and supporting custom implementations.
+version: 0.2.1
+homepage: https://github.com/StacDev/stac
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0

@@ -1,4 +1,4 @@
-name: mirai_workspace
+name: stac_workspace
 
 environment:
   sdk: '>=3.1.0 <4.0.0'

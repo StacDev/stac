@@ -5,40 +5,40 @@ sidebar_position: 1
 
 # Get Started 🚀
 
-Welcome to **Mirai**, a Server-Driven UI (SDUI) framework for Flutter. Mirai empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
+Welcome to **Stac** (formerly Mirai), a Server-Driven UI (SDUI) framework for Flutter. Stac empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
 
 ## Packages
 
-The Miraiverse consists of the following packages:
+The Stac ecosystem consists of the following packages:
 
 | Package | Description | Link                                                                                               |
 |---------|-------------|----------------------------------------------------------------------------------------------------|
-| [mirai](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/mirai.svg)](https://pub.dev/packages/mirai)           |
-| [mirai_framework](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_framework.svg)](https://pub.dev/packages/mirai_framework) |
-| [mirai_webview](https://github.com/BuildMirai/mirai/tree/dev/packages/mirai_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/mirai_webview.svg)](https://pub.dev/packages/mirai_webview)   |
+| [stac](https://github.com/StacDev/stac/tree/dev/packages/stac) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)           |
+| [stac_framework](https://github.com/StacDev/stac/tree/dev/packages/stac_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_framework.svg)](https://pub.dev/packages/stac_framework) |
+| [stac_webview](https://github.com/StacDev/stac/tree/dev/packages/stac_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_webview.svg)](https://pub.dev/packages/stac_webview)   |
 
 
 ## Installation
 
-To get started with Mirai, follow the installation instructions below:
+To get started with Stac, follow the installation instructions below:
 
-1. Add the Mirai dependency to your `pubspec.yaml` file:
+1. Add the Stac dependency to your `pubspec.yaml` file:
 
 Run this command:
 
 ```bash
-flutter pub add mirai
+flutter pub add stac
 ```
-This will add mirai into your package's pubspec.yaml (and run an implicit flutter pub get):
+This will add stac into your package's pubspec.yaml (and run an implicit flutter pub get):
 
 Alternatively, you can manually add the dependency to your app from within your pubspec.yaml:
 
 ```yaml
 dependencies:
-  mirai: ^<latest-version>
+  stac: ^<latest-version>
 ```
 :::note
-Please replace `<latest-version>` with the latest version of Mirai. You can find the latest version on the [Mirai pub.dev page](https://pub.dev/packages/mirai).
+Please replace `<latest-version>` with the latest version of Stac. You can find the latest version on the [Stac pub.dev page](https://pub.dev/packages/stac).
 :::
 
 2. Run the following command in your terminal to install the package:
@@ -47,50 +47,50 @@ Please replace `<latest-version>` with the latest version of Mirai. You can find
 flutter pub get
 ```
 
-3. Import the Mirai package in your Dart file:
+3. Import the Stac package in your Dart file:
 
 ```dart
-import 'package:mirai/mirai.dart';
+import 'package:stac/stac.dart';
 ```
 
-Now, you're ready to start using Mirai in your Flutter project.
+Now, you're ready to start using Stac in your Flutter project.
 
-## How to use Mirai?
+## How to use Stac?
 
-Now that you have successfully installed Mirai, let's dive into how you can use it to build dynamic, server-driven UIs in your Flutter project.
+Now that you have successfully installed Stac, let's dive into how you can use it to build dynamic, server-driven UIs in your Flutter project.
 
-## 1. Import the Mirai package
+## 1. Import the Stac package
 
-To start using Mirai, you need to import the package in your Dart file. Add the following import statement to your `main.dart`:
+To start using Stac, you need to import the package in your Dart file. Add the following import statement to your `main.dart`:
 
 ```dart
-import 'package:mirai/mirai.dart';
+import 'package:stac/stac.dart';
 ```
 
-This import allows you to access all the classes and functions provided by Mirai.
+This import allows you to access all the classes and functions provided by Stac.
 
-## 2. Initialize Mirai
+## 2. Initialize Stac
 
-In the `main` function, initialize Mirai to set up the necessary configurations and prepare your app for rendering UI from JSON.
+In the `main` function, initialize Stac to set up the necessary configurations and prepare your app for rendering UI from JSON.
 
 ### Basic Initialization
 ```dart
 void main() async {
-  await Mirai.initialize();
+  await Stac.initialize();
   runApp(const MyApp());
 }
 ```
 
-## 3. Use Mirai to Render UI
+## 3. Use Stac to Render UI
 
-You can use `Mirai.fromJson` to load and render the UI from a JSON object. Here’s how you can integrate it into your Flutter app:
+You can use `Stac.fromJson` to load and render the UI from a JSON object. Here’s how you can integrate it into your Flutter app:
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:mirai/mirai.dart';
+import 'package:stac/stac.dart';
 
 void main() async {
-  await Mirai.initialize();
+  await Stac.initialize();
   runApp(const MyApp());
 }
 
@@ -100,11 +100,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MiraiDemo',
+      title: 'StacDemo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Mirai.fromJson(json, context),
+      home: Stac.fromJson(json, context),
     );
   }
 }
@@ -112,35 +112,35 @@ class MyApp extends StatelessWidget {
 
 ### Rendering UI from JSON File in Assets
 
-You can also use `Mirai.fromAssets` to load and render the UI from a JSON file stored in the assets folder:
+You can also use `Stac.fromAssets` to load and render the UI from a JSON file stored in the assets folder:
 
 ```dart
   @override
   Widget build(BuildContext context) {
   return MaterialApp(
-    title: 'MiraiDemo',
+    title: 'StacDemo',
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: Mirai.fromAsset('assets/ui.json', context),
+    home: Stac.fromAsset('assets/ui.json', context),
   );
 }
 ```
 
 ### Rendering UI from Network
 
-Alternatively, use the `Mirai.fromNetwork` method to load and render the UI from a JSON file stored on a server:
+Alternatively, use the `Stac.fromNetwork` method to load and render the UI from a JSON file stored on a server:
 
 ```dart
   @override
   Widget build(BuildContext context) {
   return MaterialApp(
-    title: 'MiraiDemo',
+    title: 'StacDemo',
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
-    home: Mirai.fromNetwork(
-      request: MiraiNetworkRequest(
+    home: Stac.fromNetwork(
+      request: StacNetworkRequest(
         url: 'https://example.com/ui.json',
       ), 
       context: context,
@@ -149,11 +149,11 @@ Alternatively, use the `Mirai.fromNetwork` method to load and render the UI from
 }
 ```
 
-By following these steps, you can effectively integrate Mirai into your Flutter project and start building dynamic, server-driven UIs.
+By following these steps, you can effectively integrate Stac into your Flutter project and start building dynamic, server-driven UIs.
 
-## Example: Mirai Form Screen
+## Example: Stac Form Screen
 
-Here's an example of how you can use Mirai to render a form screen in your Flutter app:
+Here's an example of how you can use Stac to render a form screen in your Flutter app:
 
 ### JSON Data
 
@@ -423,7 +423,7 @@ Here's an example of how you can use Mirai to render a form screen in your Flutt
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:mirai/mirai.dart';
+import 'package:stac/stac.dart';
 
 void main() {
   runApp(const MyApp());
@@ -434,13 +434,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MiraiApp(
-      title: 'Mirai Demo',
+    return StacApp(
+      title: 'Stac Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Mirai.fromNetwork(
-        MiraiRequest(
+      home: Stac.fromNetwork(
+        StacRequest(
           url: _url,
           method: Method.get,
         ),
@@ -454,6 +454,6 @@ That's it with just few lines of code your SDUI app is up and running.
 
 <img src="/img/form_screen_image.png" alt="Form screen example"/>
 
-For more detailed examples and advanced usage, refer to the [Mirai Gallery App](https://github.com/buildMirai/mirai/tree/dev/examples/mirai_gallery).
+For more detailed examples and advanced usage, refer to the [Stac Gallery App](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery).
 
 

@@ -1,15 +1,15 @@
 # Contribution Guidelines
 
-Thank you for your interest in contributing to **Mirai**! We value your time and effort in helping us make Mirai better for everyone. By contributing, you help create a framework that is more robust, feature-rich, and accessible for developers worldwide. This document outlines the process for contributing to Mirai.
+Thank you for your interest in contributing to **Stac**! We value your time and effort in helping us make Stac better for everyone. By contributing, you help create a framework that is more robust, feature-rich, and accessible for developers worldwide. This document outlines the process for contributing to Stac.
 
 ---
 
 ## Getting Started
 
-### 1. **Understand Mirai**
-If you are new to Mirai, we recommend you:
+### 1. **Understand Stac**
+If you are new to Stac, we recommend you:
 - Check out the [README](./README.md) for an overview of the framework.
-- Explore the [documentation](https://docs.buildmirai.dev/).
+- Explore the [documentation](https://docs.stac.dev/).
 - Familiarize yourself with the codebase by browsing the repository.
 
 ### 2. **Code of Conduct**
@@ -22,7 +22,7 @@ All contributors are expected to adhere to our [Code of Conduct](./CODE_OF_CONDU
 ### 1. **Reporting Issues**
 If you encounter a bug or have a feature request, you can:
 - **Search existing issues** to avoid duplicates.
-- Open a [new issue](https://github.com/BuildMirai/mirai/issues) with a detailed description.
+- Open a [new issue](https://github.com/StacDev/stac/issues) with a detailed description.
 
 When reporting bugs, include:
 - Steps to reproduce the issue.
@@ -30,7 +30,7 @@ When reporting bugs, include:
 - Relevant screenshots or code snippets, if applicable.
 
 ### 2. **Suggesting Enhancements**
-Have ideas to improve Mirai? Submit a feature request via the [issues page](https://github.com/BuildMirai/mirai/issues). Be as descriptive as possible about the problem your suggestion solves.
+Have ideas to improve Stac? Submit a feature request via the [issues page](https://github.com/StacDev/stac/issues). Be as descriptive as possible about the problem your suggestion solves.
 
 ### 3. **Contributing Code**
 
@@ -38,8 +38,8 @@ Have ideas to improve Mirai? Submit a feature request via the [issues page](http
 - Click the **Fork** button on the repository to create your own copy.
 - Clone your fork locally:
   ```bash
-  git clone https://github.com/<your-username>/mirai.git
-  cd mirai
+  git clone https://github.com/<your-username>/stac.git
+  cd stac
   ```
 
 #### Step 2: Create a Branch
@@ -110,11 +110,11 @@ Have ideas to improve Mirai? Submit a feature request via the [issues page](http
 ## Community Support
 
 If you have questions or need guidance:
-- Join our [community discussions](https://github.com/BuildMirai/mirai/discussions).
+- Join our [community discussions](https://github.com/StacDev/stac/discussions).
 - Reach out to us on our Slack/Discord channel (link provided in the repository).
 
 ---
 
 ## Thank You!
 
-Your contributions help make Mirai a better framework for developers worldwide. Thank you for being a part of the community!
+Your contributions help make Stac a better framework for developers worldwide. Thank you for being a part of the community!

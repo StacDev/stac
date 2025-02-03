@@ -1,13 +1,13 @@
 # Positioned
 
-The Mirai Positioned allows you to build a Flutter positioned widget using JSON.
+The Stac Positioned allows you to build a Flutter positioned widget using JSON.
 To know more about the positioned widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Positioned-class.html).
 
 ## Properties
 
 | Property       | Type                    | Description                                                                                 |
 |----------------|-------------------------|---------------------------------------------------------------------------------------------|
-| positionedType | `MiraiPositionedType?`  | The type of positioned widget. Can be `directional`, `fill`, or `fromRect`.                 |
+| positionedType | `StacPositionedType?`  | The type of positioned widget. Can be `directional`, `fill`, or `fromRect`.                 |
 | left           | `double?`               | The distance from the left edge of the parent.                                              |
 | top            | `double?`               | The distance from the top edge of the parent.                                               |
 | right          | `double?`               | The distance from the right edge of the parent.                                             |
@@ -17,7 +17,7 @@ To know more about the positioned widget in Flutter, refer to the [official docu
 | start          | `double?`               | The distance from the start edge of the parent (for `directional` type).                    |
 | end            | `double?`               | The distance from the end edge of the parent (for `directional` type).                      |
 | textDirection  | `TextDirection`         | The text direction to use for resolving `start` and `end`. Defaults to `TextDirection.ltr`. |
-| rect           | `MiraiRect?`            | The rectangle to position the child (for `fromRect` type).                                  |
+| rect           | `StacRect?`            | The rectangle to position the child (for `fromRect` type).                                  |
 | child          | `Map<String, dynamic>?` | The widget to display inside the positioned widget.                                         |
 
 ## Example JSON

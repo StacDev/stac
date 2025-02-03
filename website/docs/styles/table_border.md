@@ -1,6 +1,6 @@
 # Table Border
 
-MiraiTableBorder allows you to define the Flutter TableBorder class using JSON.
+StacTableBorder allows you to define the Flutter TableBorder class using JSON.
 To know more about the TableBorder class in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/rendering/TableBorder-class.html).
 
 ## Properties
@@ -10,7 +10,7 @@ To know more about the TableBorder class in Flutter, refer to the [official docu
 | color        | `String`            | Defines the color of the table border.         |
 | width        | `double`            | Defines the width of the table border.         |
 | style        | `BorderStyle`       | Defines the style of the table border.         |
-| borderRadius | `MiraiBorderRadius` | Defines the border radius of the table border. |
+| borderRadius | `StacBorderRadius` | Defines the border radius of the table border. |
 
 
 ## Example

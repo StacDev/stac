@@ -1,13 +1,13 @@
 # BottomNavigationBar
 
-The Mirai BottomNavigationBar allows you to build a Flutter BottomNavigationBar widget using JSON.
+The Stac BottomNavigationBar allows you to build a Flutter BottomNavigationBar widget using JSON.
 To know more about the BottomNavigationBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html).
 
 ## Properties
 
 | Property                | Type                                  | Description                                                                    |
 |-------------------------|---------------------------------------|--------------------------------------------------------------------------------|
-| items                   | `List<MiraiBottomNavigationBarItem>`  | The items to be displayed in the bottom navigation bar.                        |
+| items                   | `List<StacBottomNavigationBarItem>`  | The items to be displayed in the bottom navigation bar.                        |
 | elevation               | `double?`                             | The z-coordinate at which to place this bottom navigation bar.                 |
 | bottomNavigationBarType | `BottomNavigationBarType?`            | The type of the bottom navigation bar.                                         |
 | fixedColor              | `String?`                             | The color of the selected item when `type` is `BottomNavigationBarType.fixed`. |
@@ -17,8 +17,8 @@ To know more about the BottomNavigationBar widget in Flutter, refer to the [offi
 | unselectedItemColor     | `String?`                             | The color of the unselected items.                                             |
 | selectedFontSize        | `double`                              | The font size of the selected item. Defaults to `14.0`.                        |
 | unselectedFontSize      | `double`                              | The font size of the unselected items. Defaults to `12.0`.                     |
-| selectedLabelStyle      | `MiraiTextStyle?`                     | The text style of the selected item label.                                     |
-| unselectedLabelStyle    | `MiraiTextStyle?`                     | The text style of the unselected item labels.                                  |
+| selectedLabelStyle      | `StacTextStyle?`                     | The text style of the selected item label.                                     |
+| unselectedLabelStyle    | `StacTextStyle?`                     | The text style of the unselected item labels.                                  |
 | showSelectedLabels      | `bool?`                               | Whether to show labels for selected items.                                     |
 | showUnselectedLabels    | `bool?`                               | Whether to show labels for unselected items.                                   |
 | enableFeedback          | `bool?`                               | Whether to enable feedback for taps.                                           |
@@ -39,7 +39,7 @@ DefaultBottomNavigationController is an inherited widget that is used to share a
 
 # BottomNavigationBarItem
 
-The Mirai BottomNavigationBarItem allows you to build a Flutter BottomNavigationBarItem using JSON.
+The Stac BottomNavigationBarItem allows you to build a Flutter BottomNavigationBarItem using JSON.
 To know more about the BottomNavigationBarItem widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/BottomNavigationBarItem-class.html).
 
 ## Properties

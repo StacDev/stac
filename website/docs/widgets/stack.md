@@ -1,13 +1,13 @@
 # Stack
 
-The Mirai Stack allows you to build a Flutter stack widget using JSON.
+The Stac Stack allows you to build a Flutter stack widget using JSON.
 To know more about the stack widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Stack-class.html).
 
 ## Properties
 
 | Property      | Type                         | Description                                                                                                          |
 |---------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| alignment     | `MiraiAlignmentDirectional`  | How to align the non-positioned and partially-positioned children. Defaults to `MiraiAlignmentDirectional.topStart`. |
+| alignment     | `StacAlignmentDirectional`  | How to align the non-positioned and partially-positioned children. Defaults to `StacAlignmentDirectional.topStart`. |
 | clipBehavior  | `Clip`                       | How to clip the content. Defaults to `Clip.hardEdge`.                                                                |
 | fit           | `StackFit`                   | How to size the non-positioned children. Defaults to `StackFit.loose`.                                               |
 | textDirection | `TextDirection?`             | The text direction to use for resolving alignment.                                                                   |

@@ -1,6 +1,6 @@
 # Row
 
-Mirai row allows you to build the Flutter row widget using JSON.
+Stac row allows you to build the Flutter row widget using JSON.
 To know more about the row widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Row-class.html).
 
 ## Properties
