@@ -23,7 +23,7 @@ Whether you’re building apps for mobile, web, or desktop, Stac simplifies UI d
 - 🧪 [Try Stac Playground](https://playground.stac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI.
 - 📚 [Read the Documentation](https://docs.stac.dev/) – Get started with detailed guides and examples.
 
-Developed with 💙 by [Stac][stac_website]
+Developed with 💙 by Stac.
 
 ## Installation 🚀
 
