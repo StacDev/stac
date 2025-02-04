@@ -1,3 +1,25 @@
+## 0.9.2
+
+* chore: update readme
+
+## 0.9.0
+
+* feat: Add Stac parser for hero widget by @Yash-Khattar
+* feat: Added support for radio widget by @ishanvaghani
+* feat: Added support for slider widget by @ishanvaghani
+* feat: Add support for Opacity widget by @vinothvino42
+* feat: Add material as default icon type and update icon example by @vinothvino42
+* fix: filledButton onPressed and onLongPress Functionality by @ShalmonAnandas
+* feat: Added support for snackbar by @ishanvaghani
+* feat: Adding Support Placeholder by @MohamedAbd0
+* feat : Adding AspectRatio, FittedBox, LimitedBox Widgets by @MohamedAbd0
+* feat: Update Stac webview @divyanshub024
+* fix: Simplify table border configuration by @divyanshub024
+* feat: Added support for name colors by @ishanvaghani
+* feat: standardize parameters in buttons by @ishanvaghani
+* feat: Update Chip widget params by @divyanshub024
+* fix: change all icon button widget property from child to icon by @vinothvino42
+
 ## 0.8.3
 
 * chore: Rename from Mirai to Stac
