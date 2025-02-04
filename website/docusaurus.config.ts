@@ -10,7 +10,7 @@ const config: Config = {
   tagline: 'Server-Driven UI for Flutter',
   favicon: 'img/favicon.ico',
   // Set the production url of your site here
-  url: 'https://stacdev.netlify.app',
+  url: 'https://docs.stac.dev',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -55,9 +55,8 @@ const config: Config = {
     image: 'img/framework.png',
     metadata: [
         {name: 'keywords', content: 'stac, flutter, server-driven-ui, sdui'},
-        {name: 'og:title', content: 'img/framework.png'},
+        {name: 'og:image', content: 'img/framework.png'},
         {name: 'twitter:card', content: 'summary_large_image'},
-        {name: 'twitter:card', content: 'img/framework.png'},
     ],
     colorMode: {
       defaultMode: 'dark',
