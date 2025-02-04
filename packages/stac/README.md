@@ -5,7 +5,7 @@
 [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)
 [![License: MIT][license_badge]][license_link]
 [![GitHub Stars](https://img.shields.io/github/stars/StacDev/stac)](https://github.com/StacDev/stac/stargazers)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a376dbd3-c928-4d0f-8cfd-6a2ca2dfae5b/deploy-status)](https://app.netlify.com/sites/StacDev/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/54a1efe2-9061-440b-b1b7-1f80f57a3e6a/deploy-status)](https://app.netlify.com/sites/stacdev/deploys)
 [![Discord](https://img.shields.io/discord/1326481685579173888.svg?logo=discord&color=blue)](https://discord.com/invite/vTGsVRK86V)
 
 ---
