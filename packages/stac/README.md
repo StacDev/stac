@@ -6,6 +6,8 @@
 [![License: MIT][license_badge]][license_link]
 [![GitHub Stars](https://img.shields.io/github/stars/StacDev/stac)](https://github.com/StacDev/stac/stargazers)
 [![Discord](https://img.shields.io/discord/1326481685579173888.svg?logo=discord&color=blue)](https://discord.com/invite/vTGsVRK86V)
+[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
+
 
 ---
 # 🚀 Stac – Server-Driven UI Framework for Flutter
