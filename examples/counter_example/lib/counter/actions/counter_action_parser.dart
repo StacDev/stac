@@ -8,6 +8,8 @@ import 'package:stac/stac.dart';
 import 'counter_action.dart';
 
 class CounterActionParser extends StacActionParser<CounterAction> {
+  const CounterActionParser();
+
   @override
   String get actionType => 'counterAction';
 
