@@ -536,18 +536,16 @@ packages:
   stac:
     dependency: "direct main"
     description:
-      name: stac
-      sha256: "2fc3aabd871e164e618a3d31a8bc1dafccc0cbd2fa7e57fa72e334e1b813e830"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../packages/stac"
+      relative: true
+    source: path
     version: "0.9.2"
   stac_framework:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: stac_framework
-      sha256: "287d2505eeed0b87bb7367e16a7b24532fcb901ae0d4b89d493d18f0792f81ab"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../packages/stac_framework"
+      relative: true
+    source: path
     version: "0.2.1"
   stack_trace:
     dependency: transitive
