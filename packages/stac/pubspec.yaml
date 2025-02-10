@@ -7,6 +7,12 @@ environment:
   sdk: ">=3.0.0 <4.0.0"
   flutter: ">=1.17.0"
 
+topics:
+  - ui
+  - widget
+  - server-driven-ui
+  - dynamic-widgets
+
 dependencies:
   flutter:
     sdk: flutter
