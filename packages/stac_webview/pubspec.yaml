@@ -8,10 +8,10 @@ environment:
   flutter: ">=1.17.0"
 
 topics:
-  - UI
-  - widgets
-  - Server-Driven-UI
-  - Dynamic-widgets
+  - ui
+  - widget
+  - server-driven-ui
+  - dynamic-widgets
   - webview-flutter
 
 dependencies:
