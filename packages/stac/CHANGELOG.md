@@ -1,3 +1,7 @@
+## 0.9.3
+
+* Add pub.dev topics 
+
 ## 0.9.2
 
 * chore: update readme

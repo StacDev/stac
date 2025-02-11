@@ -1,3 +1,7 @@
+# 0.2.2
+
+* Add pub.dev topics
+
 # 0.2.1
 
 * minor changes
