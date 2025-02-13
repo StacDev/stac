@@ -29,7 +29,6 @@ mixin _$StacTextButton {
   Clip get clipBehavior => throw _privateConstructorUsedError;
   bool get isSemanticButton => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
-  IconAlignment get iconAlignment => throw _privateConstructorUsedError;
 
   /// Serializes this StacTextButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,8 +55,7 @@ abstract class $StacTextButtonCopyWith<$Res> {
       dynamic autofocus,
       Clip clipBehavior,
       bool isSemanticButton,
-      Map<String, dynamic> child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic> child});
 
   $StacButtonStyleCopyWith<$Res>? get style;
 }
@@ -86,7 +84,6 @@ class _$StacTextButtonCopyWithImpl<$Res, $Val extends StacTextButton>
     Object? clipBehavior = null,
     Object? isSemanticButton = null,
     Object? child = null,
-    Object? iconAlignment = null,
   }) {
     return _then(_value.copyWith(
       onPressed: freezed == onPressed
@@ -125,10 +122,6 @@ class _$StacTextButtonCopyWithImpl<$Res, $Val extends StacTextButton>
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ) as $Val);
   }
 
@@ -164,8 +157,7 @@ abstract class _$$StacTextButtonImplCopyWith<$Res>
       dynamic autofocus,
       Clip clipBehavior,
       bool isSemanticButton,
-      Map<String, dynamic> child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic> child});
 
   @override
   $StacButtonStyleCopyWith<$Res>? get style;
@@ -193,7 +185,6 @@ class __$$StacTextButtonImplCopyWithImpl<$Res>
     Object? clipBehavior = null,
     Object? isSemanticButton = null,
     Object? child = null,
-    Object? iconAlignment = null,
   }) {
     return _then(_$StacTextButtonImpl(
       onPressed: freezed == onPressed
@@ -229,10 +220,6 @@ class __$$StacTextButtonImplCopyWithImpl<$Res>
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ));
   }
 }
@@ -249,8 +236,7 @@ class _$StacTextButtonImpl implements _StacTextButton {
       this.autofocus = false,
       this.clipBehavior = Clip.none,
       this.isSemanticButton = true,
-      required final Map<String, dynamic> child,
-      this.iconAlignment = IconAlignment.start})
+      required final Map<String, dynamic> child})
       : _onPressed = onPressed,
         _onLongPress = onLongPress,
         _onHover = onHover,
@@ -320,12 +306,8 @@ class _$StacTextButtonImpl implements _StacTextButton {
   }
 
   @override
-  @JsonKey()
-  final IconAlignment iconAlignment;
-
-  @override
   String toString() {
-    return 'StacTextButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, isSemanticButton: $isSemanticButton, child: $child, iconAlignment: $iconAlignment)';
+    return 'StacTextButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, isSemanticButton: $isSemanticButton, child: $child)';
   }
 
   @override
@@ -346,9 +328,7 @@ class _$StacTextButtonImpl implements _StacTextButton {
                 other.clipBehavior == clipBehavior) &&
             (identical(other.isSemanticButton, isSemanticButton) ||
                 other.isSemanticButton == isSemanticButton) &&
-            const DeepCollectionEquality().equals(other._child, _child) &&
-            (identical(other.iconAlignment, iconAlignment) ||
-                other.iconAlignment == iconAlignment));
+            const DeepCollectionEquality().equals(other._child, _child));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -363,8 +343,7 @@ class _$StacTextButtonImpl implements _StacTextButton {
       const DeepCollectionEquality().hash(autofocus),
       clipBehavior,
       isSemanticButton,
-      const DeepCollectionEquality().hash(_child),
-      iconAlignment);
+      const DeepCollectionEquality().hash(_child));
 
   /// Create a copy of StacTextButton
   /// with the given fields replaced by the non-null parameter values.
@@ -393,8 +372,7 @@ abstract class _StacTextButton implements StacTextButton {
       final dynamic autofocus,
       final Clip clipBehavior,
       final bool isSemanticButton,
-      required final Map<String, dynamic> child,
-      final IconAlignment iconAlignment}) = _$StacTextButtonImpl;
+      required final Map<String, dynamic> child}) = _$StacTextButtonImpl;
 
   factory _StacTextButton.fromJson(Map<String, dynamic> json) =
       _$StacTextButtonImpl.fromJson;
@@ -417,8 +395,6 @@ abstract class _StacTextButton implements StacTextButton {
   bool get isSemanticButton;
   @override
   Map<String, dynamic> get child;
-  @override
-  IconAlignment get iconAlignment;
 
   /// Create a copy of StacTextButton
   /// with the given fields replaced by the non-null parameter values.
