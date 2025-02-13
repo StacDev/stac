@@ -19,7 +19,6 @@ class StacTextButton with _$StacTextButton {
     @Default(Clip.none) Clip clipBehavior,
     @Default(true) bool isSemanticButton,
     required Map<String, dynamic> child,
-    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _StacTextButton;
 
   factory StacTextButton.fromJson(Map<String, dynamic> json) =>

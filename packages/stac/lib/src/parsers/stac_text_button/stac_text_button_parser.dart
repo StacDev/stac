@@ -29,7 +29,6 @@ class StacTextButtonParser extends StacParser<StacTextButton> {
       style: model.style?.parseText(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
-      iconAlignment: model.iconAlignment,
       isSemanticButton: model.isSemanticButton,
       child: Stac.fromJson(model.child, context) ?? const SizedBox(),
     );

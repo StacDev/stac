@@ -20,9 +20,6 @@ _$StacOutlinedButtonImpl _$$StacOutlinedButtonImplFromJson(
       clipBehavior:
           $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
       child: json['child'] as Map<String, dynamic>,
-      iconAlignment:
-          $enumDecodeNullable(_$IconAlignmentEnumMap, json['iconAlignment']) ??
-              IconAlignment.start,
     );
 
 Map<String, dynamic> _$$StacOutlinedButtonImplToJson(
@@ -36,7 +33,6 @@ Map<String, dynamic> _$$StacOutlinedButtonImplToJson(
       'autofocus': instance.autofocus,
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
       'child': instance.child,
-      'iconAlignment': _$IconAlignmentEnumMap[instance.iconAlignment]!,
     };
 
 const _$ClipEnumMap = {
@@ -44,9 +40,4 @@ const _$ClipEnumMap = {
   Clip.hardEdge: 'hardEdge',
   Clip.antiAlias: 'antiAlias',
   Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
-};
-
-const _$IconAlignmentEnumMap = {
-  IconAlignment.start: 'start',
-  IconAlignment.end: 'end',
 };

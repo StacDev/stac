@@ -20,9 +20,6 @@ _$StacTextButtonImpl _$$StacTextButtonImplFromJson(Map<String, dynamic> json) =>
           $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,
       isSemanticButton: json['isSemanticButton'] as bool? ?? true,
       child: json['child'] as Map<String, dynamic>,
-      iconAlignment:
-          $enumDecodeNullable(_$IconAlignmentEnumMap, json['iconAlignment']) ??
-              IconAlignment.start,
     );
 
 Map<String, dynamic> _$$StacTextButtonImplToJson(
@@ -37,7 +34,6 @@ Map<String, dynamic> _$$StacTextButtonImplToJson(
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,
       'isSemanticButton': instance.isSemanticButton,
       'child': instance.child,
-      'iconAlignment': _$IconAlignmentEnumMap[instance.iconAlignment]!,
     };
 
 const _$ClipEnumMap = {
@@ -45,9 +41,4 @@ const _$ClipEnumMap = {
   Clip.hardEdge: 'hardEdge',
   Clip.antiAlias: 'antiAlias',
   Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
-};
-
-const _$IconAlignmentEnumMap = {
-  IconAlignment.start: 'start',
-  IconAlignment.end: 'end',
 };

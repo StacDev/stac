@@ -29,7 +29,6 @@ class StacOutlinedButtonParser extends StacParser<StacOutlinedButton> {
       style: model.style?.parseOutlined(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
-      iconAlignment: model.iconAlignment,
       child: Stac.fromJson(model.child, context),
     );
   }

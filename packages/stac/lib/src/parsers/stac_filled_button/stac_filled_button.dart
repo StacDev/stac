@@ -18,7 +18,6 @@ class StacFilledButton with _$StacFilledButton {
     @Default(false) bool autofocus,
     @Default(Clip.none) Clip clipBehavior,
     Map<String, dynamic>? child,
-    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _StacFilledButton;
 
   factory StacFilledButton.fromJson(Map<String, dynamic> json) =>

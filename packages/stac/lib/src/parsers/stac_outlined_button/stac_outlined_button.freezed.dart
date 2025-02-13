@@ -28,7 +28,6 @@ mixin _$StacOutlinedButton {
   dynamic get autofocus => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic> get child => throw _privateConstructorUsedError;
-  IconAlignment get iconAlignment => throw _privateConstructorUsedError;
 
   /// Serializes this StacOutlinedButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,8 +53,7 @@ abstract class $StacOutlinedButtonCopyWith<$Res> {
       StacButtonStyle? style,
       dynamic autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic> child});
 
   $StacButtonStyleCopyWith<$Res>? get style;
 }
@@ -83,7 +81,6 @@ class _$StacOutlinedButtonCopyWithImpl<$Res, $Val extends StacOutlinedButton>
     Object? autofocus = freezed,
     Object? clipBehavior = null,
     Object? child = null,
-    Object? iconAlignment = null,
   }) {
     return _then(_value.copyWith(
       onPressed: freezed == onPressed
@@ -118,10 +115,6 @@ class _$StacOutlinedButtonCopyWithImpl<$Res, $Val extends StacOutlinedButton>
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ) as $Val);
   }
 
@@ -156,8 +149,7 @@ abstract class _$$StacOutlinedButtonImplCopyWith<$Res>
       StacButtonStyle? style,
       dynamic autofocus,
       Clip clipBehavior,
-      Map<String, dynamic> child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic> child});
 
   @override
   $StacButtonStyleCopyWith<$Res>? get style;
@@ -184,7 +176,6 @@ class __$$StacOutlinedButtonImplCopyWithImpl<$Res>
     Object? autofocus = freezed,
     Object? clipBehavior = null,
     Object? child = null,
-    Object? iconAlignment = null,
   }) {
     return _then(_$StacOutlinedButtonImpl(
       onPressed: freezed == onPressed
@@ -216,10 +207,6 @@ class __$$StacOutlinedButtonImplCopyWithImpl<$Res>
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ));
   }
 }
@@ -235,8 +222,7 @@ class _$StacOutlinedButtonImpl implements _StacOutlinedButton {
       this.style,
       this.autofocus = false,
       this.clipBehavior = Clip.none,
-      required final Map<String, dynamic> child,
-      this.iconAlignment = IconAlignment.start})
+      required final Map<String, dynamic> child})
       : _onPressed = onPressed,
         _onLongPress = onLongPress,
         _onHover = onHover,
@@ -303,12 +289,8 @@ class _$StacOutlinedButtonImpl implements _StacOutlinedButton {
   }
 
   @override
-  @JsonKey()
-  final IconAlignment iconAlignment;
-
-  @override
   String toString() {
-    return 'StacOutlinedButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child, iconAlignment: $iconAlignment)';
+    return 'StacOutlinedButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child)';
   }
 
   @override
@@ -327,9 +309,7 @@ class _$StacOutlinedButtonImpl implements _StacOutlinedButton {
             const DeepCollectionEquality().equals(other.autofocus, autofocus) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
-            const DeepCollectionEquality().equals(other._child, _child) &&
-            (identical(other.iconAlignment, iconAlignment) ||
-                other.iconAlignment == iconAlignment));
+            const DeepCollectionEquality().equals(other._child, _child));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -343,8 +323,7 @@ class _$StacOutlinedButtonImpl implements _StacOutlinedButton {
       style,
       const DeepCollectionEquality().hash(autofocus),
       clipBehavior,
-      const DeepCollectionEquality().hash(_child),
-      iconAlignment);
+      const DeepCollectionEquality().hash(_child));
 
   /// Create a copy of StacOutlinedButton
   /// with the given fields replaced by the non-null parameter values.
@@ -372,8 +351,7 @@ abstract class _StacOutlinedButton implements StacOutlinedButton {
       final StacButtonStyle? style,
       final dynamic autofocus,
       final Clip clipBehavior,
-      required final Map<String, dynamic> child,
-      final IconAlignment iconAlignment}) = _$StacOutlinedButtonImpl;
+      required final Map<String, dynamic> child}) = _$StacOutlinedButtonImpl;
 
   factory _StacOutlinedButton.fromJson(Map<String, dynamic> json) =
       _$StacOutlinedButtonImpl.fromJson;
@@ -394,8 +372,6 @@ abstract class _StacOutlinedButton implements StacOutlinedButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic> get child;
-  @override
-  IconAlignment get iconAlignment;
 
   /// Create a copy of StacOutlinedButton
   /// with the given fields replaced by the non-null parameter values.
