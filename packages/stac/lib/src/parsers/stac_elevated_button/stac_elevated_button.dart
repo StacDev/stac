@@ -18,7 +18,6 @@ class StacElevatedButton with _$StacElevatedButton {
     @Default(false) bool autofocus,
     @Default(Clip.none) Clip clipBehavior,
     required Map<String, dynamic> child,
-    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _StacElevatedButton;
 
   factory StacElevatedButton.fromJson(Map<String, dynamic> json) =>

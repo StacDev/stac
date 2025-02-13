@@ -18,7 +18,6 @@ class StacOutlinedButton with _$StacOutlinedButton {
     @Default(false) autofocus,
     @Default(Clip.none) Clip clipBehavior,
     required Map<String, dynamic> child,
-    @Default(IconAlignment.start) IconAlignment iconAlignment,
   }) = _StacOutlinedButton;
 
   factory StacOutlinedButton.fromJson(Map<String, dynamic> json) =>

@@ -26,10 +26,9 @@ class StacElevatedButtonParser extends StacParser<StacElevatedButton> {
       onHover: (bool value) => value == false ? null : model.onHover,
       onFocusChange: (bool value) =>
           value == false ? null : model.onFocusChange,
-      autofocus: model.autofocus,
       style: model.style?.parseElevated(context),
+      autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
-      iconAlignment: model.iconAlignment,
       child: Stac.fromJson(model.child, context),
     );
   }

@@ -28,7 +28,6 @@ mixin _$StacFilledButton {
   bool get autofocus => throw _privateConstructorUsedError;
   Clip get clipBehavior => throw _privateConstructorUsedError;
   Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-  IconAlignment get iconAlignment => throw _privateConstructorUsedError;
 
   /// Serializes this StacFilledButton to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -54,8 +53,7 @@ abstract class $StacFilledButtonCopyWith<$Res> {
       StacButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic>? child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic>? child});
 
   $StacButtonStyleCopyWith<$Res>? get style;
 }
@@ -83,7 +81,6 @@ class _$StacFilledButtonCopyWithImpl<$Res, $Val extends StacFilledButton>
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = freezed,
-    Object? iconAlignment = null,
   }) {
     return _then(_value.copyWith(
       onPressed: freezed == onPressed
@@ -118,10 +115,6 @@ class _$StacFilledButtonCopyWithImpl<$Res, $Val extends StacFilledButton>
           ? _value.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ) as $Val);
   }
 
@@ -156,8 +149,7 @@ abstract class _$$StacFilledButtonImplCopyWith<$Res>
       StacButtonStyle? style,
       bool autofocus,
       Clip clipBehavior,
-      Map<String, dynamic>? child,
-      IconAlignment iconAlignment});
+      Map<String, dynamic>? child});
 
   @override
   $StacButtonStyleCopyWith<$Res>? get style;
@@ -184,7 +176,6 @@ class __$$StacFilledButtonImplCopyWithImpl<$Res>
     Object? autofocus = null,
     Object? clipBehavior = null,
     Object? child = freezed,
-    Object? iconAlignment = null,
   }) {
     return _then(_$StacFilledButtonImpl(
       onPressed: freezed == onPressed
@@ -219,10 +210,6 @@ class __$$StacFilledButtonImplCopyWithImpl<$Res>
           ? _value._child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      iconAlignment: null == iconAlignment
-          ? _value.iconAlignment
-          : iconAlignment // ignore: cast_nullable_to_non_nullable
-              as IconAlignment,
     ));
   }
 }
@@ -238,8 +225,7 @@ class _$StacFilledButtonImpl implements _StacFilledButton {
       this.style,
       this.autofocus = false,
       this.clipBehavior = Clip.none,
-      final Map<String, dynamic>? child,
-      this.iconAlignment = IconAlignment.start})
+      final Map<String, dynamic>? child})
       : _onPressed = onPressed,
         _onLongPress = onLongPress,
         _onHover = onHover,
@@ -308,12 +294,8 @@ class _$StacFilledButtonImpl implements _StacFilledButton {
   }
 
   @override
-  @JsonKey()
-  final IconAlignment iconAlignment;
-
-  @override
   String toString() {
-    return 'StacFilledButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child, iconAlignment: $iconAlignment)';
+    return 'StacFilledButton(onPressed: $onPressed, onLongPress: $onLongPress, onHover: $onHover, onFocusChange: $onFocusChange, style: $style, autofocus: $autofocus, clipBehavior: $clipBehavior, child: $child)';
   }
 
   @override
@@ -333,9 +315,7 @@ class _$StacFilledButtonImpl implements _StacFilledButton {
                 other.autofocus == autofocus) &&
             (identical(other.clipBehavior, clipBehavior) ||
                 other.clipBehavior == clipBehavior) &&
-            const DeepCollectionEquality().equals(other._child, _child) &&
-            (identical(other.iconAlignment, iconAlignment) ||
-                other.iconAlignment == iconAlignment));
+            const DeepCollectionEquality().equals(other._child, _child));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -349,8 +329,7 @@ class _$StacFilledButtonImpl implements _StacFilledButton {
       style,
       autofocus,
       clipBehavior,
-      const DeepCollectionEquality().hash(_child),
-      iconAlignment);
+      const DeepCollectionEquality().hash(_child));
 
   /// Create a copy of StacFilledButton
   /// with the given fields replaced by the non-null parameter values.
@@ -378,8 +357,7 @@ abstract class _StacFilledButton implements StacFilledButton {
       final StacButtonStyle? style,
       final bool autofocus,
       final Clip clipBehavior,
-      final Map<String, dynamic>? child,
-      final IconAlignment iconAlignment}) = _$StacFilledButtonImpl;
+      final Map<String, dynamic>? child}) = _$StacFilledButtonImpl;
 
   factory _StacFilledButton.fromJson(Map<String, dynamic> json) =
       _$StacFilledButtonImpl.fromJson;
@@ -400,8 +378,6 @@ abstract class _StacFilledButton implements StacFilledButton {
   Clip get clipBehavior;
   @override
   Map<String, dynamic>? get child;
-  @override
-  IconAlignment get iconAlignment;
 
   /// Create a copy of StacFilledButton
   /// with the given fields replaced by the non-null parameter values.

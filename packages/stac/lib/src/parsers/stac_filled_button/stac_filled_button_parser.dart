@@ -27,7 +27,6 @@ class StacFilledButtonParser extends StacParser<StacFilledButton> {
       style: model.style?.parseFilledButton(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
-      iconAlignment: model.iconAlignment,
       child: Stac.fromJson(model.child, context),
     );
   }
