@@ -1,3 +1,8 @@
+## 0.10.0
+
+* Migrate to Flutter 3.29
+* feat: Remove IconAlignment from button widgets by @divyanshub024
+
 ## 0.9.3
 
 * Add pub.dev topics 
