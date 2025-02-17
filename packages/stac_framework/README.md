@@ -52,7 +52,7 @@ flutter pub add stac_framework
     }
     ```
 
-3. Now implement the required methods in your custom parser.
+3. Now you can implement the required methods in your custom parser.
 
     a. Let's say we are building a widget parser.
 
