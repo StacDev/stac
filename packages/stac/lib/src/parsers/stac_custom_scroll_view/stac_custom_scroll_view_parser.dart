@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../stac.dart';
 import '../../utils/widget_type.dart';
-import 'stac_custom_scroll_view.dart';
 
 class StacCustomScrollViewParser extends StacParser<StacCustomScrollView> {
   const StacCustomScrollViewParser({this.controller});
