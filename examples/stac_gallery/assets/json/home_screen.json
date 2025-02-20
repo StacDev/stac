@@ -1527,6 +1527,40 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver App Bar",
+      "align": "center",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Sliver App Bar widget",
+      "align": "center",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_app_bar_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "iconType": "material",
       "icon": "navigation"
     },

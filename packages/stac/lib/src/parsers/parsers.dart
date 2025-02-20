@@ -27,6 +27,7 @@ export 'package:stac/src/parsers/stac_circular_progress_indicator/stac_circular_
 export 'package:stac/src/parsers/stac_colored_box/stac_colored_box.dart';
 export 'package:stac/src/parsers/stac_column/stac_column.dart';
 export 'package:stac/src/parsers/stac_container/stac_container.dart';
+export 'package:stac/src/parsers/stac_custom_scroll_view/stac_custom_scroll_view.dart';
 export 'package:stac/src/parsers/stac_default_bottom_navigation_controller/stac_default_bottom_navigation_controller.dart';
 export 'package:stac/src/parsers/stac_default_tab_controller/stac_default_tab_controller.dart';
 export 'package:stac/src/parsers/stac_dialog_theme/stac_dialog_theme.dart';
@@ -74,6 +75,7 @@ export 'package:stac/src/parsers/stac_single_child_scroll_view/stac_single_child
 export 'package:stac/src/parsers/stac_size/stac_size.dart';
 export 'package:stac/src/parsers/stac_sized_box/stac_sized_box.dart';
 export 'package:stac/src/parsers/stac_slider/stac_slider.dart';
+export 'package:stac/src/parsers/stac_sliver_app_bar/stac_sliver_app_bar.dart';
 export 'package:stac/src/parsers/stac_spacer/stac_spacer.dart';
 export 'package:stac/src/parsers/stac_stack/stac_stack.dart';
 export 'package:stac/src/parsers/stac_switch/stac_switch.dart';
