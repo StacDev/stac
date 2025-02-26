@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/stac_shape_border/stac_shape_border.dart';
 import 'package:stac/src/parsers/stac_system_ui_olverlay_style/stac_system_ui_overlay_style.dart';
-
-import '../../../stac.dart';
-import '../../utils/widget_type.dart';
+import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac/stac.dart';
 
 class StacSliverAppBarParser extends StacParser<StacSliverAppBar> {
   const StacSliverAppBarParser();
