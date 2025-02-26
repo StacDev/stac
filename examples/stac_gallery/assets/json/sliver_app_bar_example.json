@@ -1,0 +1,54 @@
+{
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverAppBar",
+        "title": {
+          "type": "text",
+          "data": "SliverAppBar"
+        },
+        "leading": {
+          "type": "iconButton",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "menu"
+          },
+          "onPressed": {}
+        },
+        "backgroundColor": "primary",
+        "actions": [
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "icon",
+              "iconType": "cupertino",
+              "icon": "heart_solid"
+            },
+            "onPressed": {}
+          },
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "search"
+            },
+            "onPressed": {}
+          },
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "more_horiz"
+            },
+            "onPressed": {}
+          }
+        ]
+      }
+    ]
+  }
+}
