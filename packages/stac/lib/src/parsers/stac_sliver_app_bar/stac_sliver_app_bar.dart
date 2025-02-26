@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/stac_shape_border/stac_shape_border.dart';
-
-import '../../../stac.dart';
-import '../stac_system_ui_olverlay_style/stac_system_ui_overlay_style.dart';
+import 'package:stac/src/parsers/stac_system_ui_olverlay_style/stac_system_ui_overlay_style.dart';
+import 'package:stac/stac.dart';
 
 part 'stac_sliver_app_bar.freezed.dart';
 part 'stac_sliver_app_bar.g.dart';
