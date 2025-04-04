@@ -1,0 +1,34 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Product Catalog"
+    }
+  },
+  "body": {
+    "type": "dynamicView",
+    "request": {
+      "url": "https://dummyjson.com/products/1",
+      "method": "get"
+    },
+    "template": {
+      "type": "column",
+      "children": [
+        {
+          "type": "container",
+          "padding": 16,
+          "child": {
+            "type": "text",
+            "style": {
+              "fontSize": 20,
+              "fontWeight": "w700"
+            },
+            "data": "Available Products {{title}}"
+          }
+        }
+      ]
+    }
+  }
+}

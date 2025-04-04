@@ -1768,4 +1768,36 @@
     "type": "sizedBox",
     "height": 24.0
   }
+  ,
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "api"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac API Data",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Fetch data from APIs and render it using templates",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/api_data_example.json"
+      }
+    }
+  }
 ]
