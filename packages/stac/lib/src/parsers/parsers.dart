@@ -92,3 +92,4 @@ export 'package:stac/src/parsers/stac_text_form_field/stac_text_form_field.dart'
 export 'package:stac/src/parsers/stac_text_style/stac_text_style.dart';
 export 'package:stac/src/parsers/stac_theme/stac_theme.dart';
 export 'package:stac/src/parsers/stac_wrap/stac_wrap.dart';
+export 'package:stac/src/parsers/stac_dynamic_view/stac_dynamic_view.dart';
