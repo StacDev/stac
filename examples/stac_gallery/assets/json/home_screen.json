@@ -1564,7 +1564,6 @@
       "iconType": "material",
       "icon": "navigation"
     },
-
     "title": {
       "type": "text",
       "data": "Stac Opacity",
@@ -1589,7 +1588,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1597,7 +1595,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Placeholder",
@@ -1622,8 +1619,6 @@
       }
     }
   },
-  
-
   {
     "type": "listTile",
     "leading": {
@@ -1663,7 +1658,6 @@
       "behavior": "floating"
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1671,7 +1665,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac AspectRatio",
@@ -1696,7 +1689,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1704,7 +1696,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac FittedBox",
@@ -1729,7 +1720,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1737,7 +1727,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac LimitedBox",
@@ -1762,13 +1751,10 @@
       }
     }
   },
-  
-
   {
     "type": "sizedBox",
     "height": 24.0
-  }
-  ,
+  },
   {
     "type": "listTile",
     "leading": {
@@ -1778,7 +1764,7 @@
     },
     "title": {
       "type": "text",
-      "data": "Stac API Data",
+      "data": "Stac Dynamic View",
       "style": {
         "fontSize": 21
       }
@@ -1796,7 +1782,7 @@
       "navigationStyle": "push",
       "widgetJson": {
         "type": "exampleScreen",
-        "assetPath": "assets/json/api_data_example.json"
+        "assetPath": "assets/json/dynamic_view_example.json"
       }
     }
   }
