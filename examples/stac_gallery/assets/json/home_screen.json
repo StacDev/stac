@@ -1752,10 +1752,6 @@
     }
   },
   {
-    "type": "sizedBox",
-    "height": 24.0
-  },
-  {
     "type": "listTile",
     "leading": {
       "type": "icon",
