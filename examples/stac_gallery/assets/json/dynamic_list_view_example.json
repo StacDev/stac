@@ -1,0 +1,36 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Users List"
+    }
+  },
+  "body": {
+    "type": "dynamicView",
+    "request": {
+      "url": "https://dummyjson.com/users",
+      "method": "get"
+    },
+    "targetPath": "users",
+    "template": {
+      "type": "listView",
+      "ItemTemplate": {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "{{firstName}} {{lastName}}"
+        },
+        "subtitle": {
+          "type": "text",
+          "data": "{{email}}"
+        },
+        "leading": {
+          "type": "circleAvatar",
+          "backgroundImage": "{{image}}"
+        }
+      }
+    }
+  }
+}

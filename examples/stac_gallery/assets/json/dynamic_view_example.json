@@ -1,0 +1,74 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "User Profile"
+    }
+  },
+  "body": {
+    "type": "dynamicView",
+    "request": {
+      "url": "https://dummyjson.com/users/1",
+      "method": "get"
+    },
+    "template": {
+      "type": "column",
+      "children": [
+        {
+          "type": "container",
+          "padding": 16,
+          "child": {
+            "type": "column",
+            "crossAxisAlignment": "start",
+            "children": [
+              {
+                "type": "image",
+                "src": "{{image}}",
+                "width": 100,
+                "height": 100
+              },
+              {
+                "type": "text",
+                "style": {
+                  "fontSize": 24,
+                  "fontWeight": "w700"
+                },
+                "data": "{{firstName}} {{lastName}}"
+              },
+              {
+                "type": "sizedBox",
+                "height": 8
+              },
+              {
+                "type": "text",
+                "style": {
+                  "fontSize": 16,
+                  "color": "#666666"
+                },
+                "data": "Email: {{email}}"
+              },
+              {
+                "type": "text",
+                "style": {
+                  "fontSize": 16,
+                  "color": "#666666"
+                },
+                "data": "Phone: {{phone}}"
+              },
+              {
+                "type": "text",
+                "style": {
+                  "fontSize": 16,
+                  "color": "#666666"
+                },
+                "data": "Age: {{age}}"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

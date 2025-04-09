@@ -1564,7 +1564,6 @@
       "iconType": "material",
       "icon": "navigation"
     },
-
     "title": {
       "type": "text",
       "data": "Stac Opacity",
@@ -1589,7 +1588,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1597,7 +1595,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Placeholder",
@@ -1622,8 +1619,6 @@
       }
     }
   },
-  
-
   {
     "type": "listTile",
     "leading": {
@@ -1663,7 +1658,6 @@
       "behavior": "floating"
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1671,7 +1665,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac AspectRatio",
@@ -1696,7 +1689,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1704,7 +1696,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac FittedBox",
@@ -1729,7 +1720,6 @@
       }
     }
   },
-
   {
     "type": "listTile",
     "leading": {
@@ -1737,7 +1727,6 @@
       "iconType": "material",
       "icon": "apartment"
     },
-
     "title": {
       "type": "text",
       "data": "Stac LimitedBox",
@@ -1762,10 +1751,66 @@
       }
     }
   },
-  
-
   {
-    "type": "sizedBox",
-    "height": 24.0
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "api"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Dynamic View",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Fetch data from APIs and render it using templates",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/dynamic_view_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "api"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Dynamic List View",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Fetch data from APIs and render it using templates",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/dynamic_list_view_example.json"
+      }
+    }
   }
 ]
