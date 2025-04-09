@@ -102,7 +102,51 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
   ) {
     Map<String, dynamic> result = {};
 
-    if (data is Map) {
+    if (data is List) {
+      // Check if the template contains an ItemTemplate key
+      Log.d('data: ${data.length}');
+      if (template.containsKey('ItemTemplate')) {
+        // Create a list of widgets using the ItemTemplate
+        final itemTemplate = template['ItemTemplate'] as Map<String, dynamic>;
+
+        // Process each item in the list
+        final items = <Map<String, dynamic>>[];
+        for (final item in data) {
+          if (item is Map) {
+            // Apply the template to each item
+            Log.d('item: $item');
+            final processedItem = _applyDataToItem(itemTemplate, item);
+            Log.d('processedItem: ${processedItem}');
+            items.add(processedItem);
+          }
+        }
+
+        // Create the result with the processed items
+        result = Map<String, dynamic>.from(template);
+        result.remove('ItemTemplate'); // Remove the template
+
+        // If the template doesn't have a children key, create it
+        if (!result.containsKey('children')) {
+          result['children'] = [];
+        }
+
+        // Add the processed items as children
+        if (result['children'] is List) {
+          // Add to existing children if it's already a list
+          (result['children'] as List).addAll(items);
+        } else {
+          // Replace with new list otherwise
+          result['children'] = items;
+        }
+
+        // Add debugging log
+        Log.d('Processed ${items.length} items for list template');
+      } else {
+        // If no ItemTemplate is found, pass through the template
+        result = template;
+        Log.d('No ItemTemplate found for list data');
+      }
+    } else if (data is Map) {
       // If data is a single object, apply it directly to the template
       result = _applyDataToItem(template, data);
     } else {
@@ -117,7 +161,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     Map<String, dynamic> template,
     Map<dynamic, dynamic> item,
   ) {
-    final result = Map<String, dynamic>.from(template);
+    final result = jsonDecode(jsonEncode(template)) as Map<String, dynamic>;
 
     // Process each key in the template
     _processTemplateRecursively(result, item);
