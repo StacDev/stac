@@ -63,10 +63,3 @@ flutter:
   assets:
     - assets/images/
     - assets/json/
-  
-  fonts:
-    - family: Handjet
-      fonts:
-        - asset: assets/fonts/Handjet/Handjet-Bold.ttf
-        - asset: assets/fonts/Handjet/Handjet-Medium.ttf
-        - asset: assets/fonts/Handjet/Handjet-Regular.ttf
