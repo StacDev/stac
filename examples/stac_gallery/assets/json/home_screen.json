@@ -1781,5 +1781,36 @@
         "assetPath": "assets/json/dynamic_view_example.json"
       }
     }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "api"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Dynamic List View",
+      "style": {
+        "fontSize": 21
+      }
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Fetch data from APIs and render it using templates",
+      "style": {
+        "fontSize": 12
+      }
+    },
+    "isThreeLine": true,
+    "onTap": {
+      "actionType": "navigate",
+      "navigationStyle": "push",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/dynamic_list_view_example.json"
+      }
+    }
   }
 ]
