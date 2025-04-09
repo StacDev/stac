@@ -104,7 +104,6 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
     if (data is List) {
       // Check if the template contains an ItemTemplate key
-      Log.d('data: ${data.length}');
       if (template.containsKey('ItemTemplate')) {
         // Create a list of widgets using the ItemTemplate
         final itemTemplate = template['ItemTemplate'] as Map<String, dynamic>;
@@ -114,9 +113,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
         for (final item in data) {
           if (item is Map) {
             // Apply the template to each item
-            Log.d('item: $item');
             final processedItem = _applyDataToItem(itemTemplate, item);
-            Log.d('processedItem: ${processedItem}');
             items.add(processedItem);
           }
         }
@@ -138,13 +135,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           // Replace with new list otherwise
           result['children'] = items;
         }
-
-        // Add debugging log
-        Log.d('Processed ${items.length} items for list template');
       } else {
         // If no ItemTemplate is found, pass through the template
         result = template;
-        Log.d('No ItemTemplate found for list data');
       }
     } else if (data is Map) {
       // If data is a single object, apply it directly to the template
