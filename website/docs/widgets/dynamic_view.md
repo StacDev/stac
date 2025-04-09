@@ -156,12 +156,6 @@ Add custom headers to your API requests:
 3. Keep templates modular and reusable when possible
 4. Use appropriate error handling in your UI design for cases when the API request fails
 
-## Implementation Details
-
-The `dynamicView` widget uses the `StacDynamicViewParser` to fetch data from APIs and apply it to templates. The parser handles different response data types and supports nested data extraction via the `targetPath` property.
-
-When processing list data, each item in the list gets its own independent copy of the template, ensuring that placeholders are correctly replaced with the corresponding data for each item.
-
 ## Limitations
 
 - API endpoints must return JSON data
