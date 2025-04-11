@@ -6,8 +6,7 @@ part of 'stac_border.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacBorderImpl _$$StacBorderImplFromJson(Map<String, dynamic> json) =>
-    _$StacBorderImpl(
+_StacBorder _$StacBorderFromJson(Map<String, dynamic> json) => _StacBorder(
       color: json['color'] as String?,
       borderStyle:
           $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle']) ??
@@ -17,7 +16,7 @@ _$StacBorderImpl _$$StacBorderImplFromJson(Map<String, dynamic> json) =>
           BorderSide.strokeAlignInside,
     );
 
-Map<String, dynamic> _$$StacBorderImplToJson(_$StacBorderImpl instance) =>
+Map<String, dynamic> _$StacBorderToJson(_StacBorder instance) =>
     <String, dynamic>{
       'color': instance.color,
       'borderStyle': _$BorderStyleEnumMap[instance.borderStyle]!,

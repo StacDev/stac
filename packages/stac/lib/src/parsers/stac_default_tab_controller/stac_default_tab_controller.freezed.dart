@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,99 +10,64 @@ part of 'stac_default_tab_controller.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacDefaultTabController _$StacDefaultTabControllerFromJson(
-    Map<String, dynamic> json) {
-  return _StacDefaultTabController.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacDefaultTabController {
-  int get length => throw _privateConstructorUsedError;
-  int get initialIndex => throw _privateConstructorUsedError;
-  Map<String, dynamic> get child => throw _privateConstructorUsedError;
-
-  /// Serializes this StacDefaultTabController to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get length;
+  int get initialIndex;
+  Map<String, dynamic> get child;
 
   /// Create a copy of StacDefaultTabController
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacDefaultTabControllerCopyWith<StacDefaultTabController> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacDefaultTabControllerCopyWith<$Res> {
-  factory $StacDefaultTabControllerCopyWith(StacDefaultTabController value,
-          $Res Function(StacDefaultTabController) then) =
-      _$StacDefaultTabControllerCopyWithImpl<$Res, StacDefaultTabController>;
-  @useResult
-  $Res call({int length, int initialIndex, Map<String, dynamic> child});
-}
-
-/// @nodoc
-class _$StacDefaultTabControllerCopyWithImpl<$Res,
-        $Val extends StacDefaultTabController>
-    implements $StacDefaultTabControllerCopyWith<$Res> {
-  _$StacDefaultTabControllerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacDefaultTabController
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacDefaultTabControllerCopyWith<StacDefaultTabController> get copyWith =>
+      _$StacDefaultTabControllerCopyWithImpl<StacDefaultTabController>(
+          this as StacDefaultTabController, _$identity);
+
+  /// Serializes this StacDefaultTabController to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? length = null,
-    Object? initialIndex = null,
-    Object? child = null,
-  }) {
-    return _then(_value.copyWith(
-      length: null == length
-          ? _value.length
-          : length // ignore: cast_nullable_to_non_nullable
-              as int,
-      initialIndex: null == initialIndex
-          ? _value.initialIndex
-          : initialIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      child: null == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacDefaultTabController &&
+            (identical(other.length, length) || other.length == length) &&
+            (identical(other.initialIndex, initialIndex) ||
+                other.initialIndex == initialIndex) &&
+            const DeepCollectionEquality().equals(other.child, child));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, length, initialIndex,
+      const DeepCollectionEquality().hash(child));
+
+  @override
+  String toString() {
+    return 'StacDefaultTabController(length: $length, initialIndex: $initialIndex, child: $child)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacDefaultTabControllerImplCopyWith<$Res>
-    implements $StacDefaultTabControllerCopyWith<$Res> {
-  factory _$$StacDefaultTabControllerImplCopyWith(
-          _$StacDefaultTabControllerImpl value,
-          $Res Function(_$StacDefaultTabControllerImpl) then) =
-      __$$StacDefaultTabControllerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacDefaultTabControllerCopyWith<$Res> {
+  factory $StacDefaultTabControllerCopyWith(StacDefaultTabController value,
+          $Res Function(StacDefaultTabController) _then) =
+      _$StacDefaultTabControllerCopyWithImpl;
   @useResult
   $Res call({int length, int initialIndex, Map<String, dynamic> child});
 }
 
 /// @nodoc
-class __$$StacDefaultTabControllerImplCopyWithImpl<$Res>
-    extends _$StacDefaultTabControllerCopyWithImpl<$Res,
-        _$StacDefaultTabControllerImpl>
-    implements _$$StacDefaultTabControllerImplCopyWith<$Res> {
-  __$$StacDefaultTabControllerImplCopyWithImpl(
-      _$StacDefaultTabControllerImpl _value,
-      $Res Function(_$StacDefaultTabControllerImpl) _then)
-      : super(_value, _then);
+class _$StacDefaultTabControllerCopyWithImpl<$Res>
+    implements $StacDefaultTabControllerCopyWith<$Res> {
+  _$StacDefaultTabControllerCopyWithImpl(this._self, this._then);
+
+  final StacDefaultTabController _self;
+  final $Res Function(StacDefaultTabController) _then;
 
   /// Create a copy of StacDefaultTabController
   /// with the given fields replaced by the non-null parameter values.
@@ -112,17 +78,17 @@ class __$$StacDefaultTabControllerImplCopyWithImpl<$Res>
     Object? initialIndex = null,
     Object? child = null,
   }) {
-    return _then(_$StacDefaultTabControllerImpl(
+    return _then(_self.copyWith(
       length: null == length
-          ? _value.length
+          ? _self.length
           : length // ignore: cast_nullable_to_non_nullable
               as int,
       initialIndex: null == initialIndex
-          ? _value.initialIndex
+          ? _self.initialIndex
           : initialIndex // ignore: cast_nullable_to_non_nullable
               as int,
       child: null == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -131,15 +97,14 @@ class __$$StacDefaultTabControllerImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacDefaultTabControllerImpl implements _StacDefaultTabController {
-  const _$StacDefaultTabControllerImpl(
+class _StacDefaultTabController implements StacDefaultTabController {
+  const _StacDefaultTabController(
       {required this.length,
       this.initialIndex = 0,
       required final Map<String, dynamic> child})
       : _child = child;
-
-  factory _$StacDefaultTabControllerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacDefaultTabControllerImplFromJson(json);
+  factory _StacDefaultTabController.fromJson(Map<String, dynamic> json) =>
+      _$StacDefaultTabControllerFromJson(json);
 
   @override
   final int length;
@@ -154,16 +119,27 @@ class _$StacDefaultTabControllerImpl implements _StacDefaultTabController {
     return EqualUnmodifiableMapView(_child);
   }
 
+  /// Create a copy of StacDefaultTabController
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacDefaultTabController(length: $length, initialIndex: $initialIndex, child: $child)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacDefaultTabControllerCopyWith<_StacDefaultTabController> get copyWith =>
+      __$StacDefaultTabControllerCopyWithImpl<_StacDefaultTabController>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacDefaultTabControllerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacDefaultTabControllerImpl &&
+            other is _StacDefaultTabController &&
             (identical(other.length, length) || other.length == length) &&
             (identical(other.initialIndex, initialIndex) ||
                 other.initialIndex == initialIndex) &&
@@ -175,44 +151,55 @@ class _$StacDefaultTabControllerImpl implements _StacDefaultTabController {
   int get hashCode => Object.hash(runtimeType, length, initialIndex,
       const DeepCollectionEquality().hash(_child));
 
-  /// Create a copy of StacDefaultTabController
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacDefaultTabControllerImplCopyWith<_$StacDefaultTabControllerImpl>
-      get copyWith => __$$StacDefaultTabControllerImplCopyWithImpl<
-          _$StacDefaultTabControllerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacDefaultTabControllerImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacDefaultTabController(length: $length, initialIndex: $initialIndex, child: $child)';
   }
 }
 
-abstract class _StacDefaultTabController implements StacDefaultTabController {
-  const factory _StacDefaultTabController(
-          {required final int length,
-          final int initialIndex,
-          required final Map<String, dynamic> child}) =
-      _$StacDefaultTabControllerImpl;
+/// @nodoc
+abstract mixin class _$StacDefaultTabControllerCopyWith<$Res>
+    implements $StacDefaultTabControllerCopyWith<$Res> {
+  factory _$StacDefaultTabControllerCopyWith(_StacDefaultTabController value,
+          $Res Function(_StacDefaultTabController) _then) =
+      __$StacDefaultTabControllerCopyWithImpl;
+  @override
+  @useResult
+  $Res call({int length, int initialIndex, Map<String, dynamic> child});
+}
 
-  factory _StacDefaultTabController.fromJson(Map<String, dynamic> json) =
-      _$StacDefaultTabControllerImpl.fromJson;
+/// @nodoc
+class __$StacDefaultTabControllerCopyWithImpl<$Res>
+    implements _$StacDefaultTabControllerCopyWith<$Res> {
+  __$StacDefaultTabControllerCopyWithImpl(this._self, this._then);
 
-  @override
-  int get length;
-  @override
-  int get initialIndex;
-  @override
-  Map<String, dynamic> get child;
+  final _StacDefaultTabController _self;
+  final $Res Function(_StacDefaultTabController) _then;
 
   /// Create a copy of StacDefaultTabController
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacDefaultTabControllerImplCopyWith<_$StacDefaultTabControllerImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? length = null,
+    Object? initialIndex = null,
+    Object? child = null,
+  }) {
+    return _then(_StacDefaultTabController(
+      length: null == length
+          ? _self.length
+          : length // ignore: cast_nullable_to_non_nullable
+              as int,
+      initialIndex: null == initialIndex
+          ? _self.initialIndex
+          : initialIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      child: null == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

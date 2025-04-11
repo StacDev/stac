@@ -12,7 +12,7 @@ part 'stac_input_decoration.freezed.dart';
 part 'stac_input_decoration.g.dart';
 
 @freezed
-class StacInputDecoration with _$StacInputDecoration {
+abstract class StacInputDecoration with _$StacInputDecoration {
   const factory StacInputDecoration({
     Map<String, dynamic>? icon,
     String? iconColor,

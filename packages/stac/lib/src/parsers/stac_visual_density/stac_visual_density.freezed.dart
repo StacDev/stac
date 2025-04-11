@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,134 +10,30 @@ part of 'stac_visual_density.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacVisualDensity _$StacVisualDensityFromJson(Map<String, dynamic> json) {
-  return _StacVisualDensity.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacVisualDensity {
-  double get horizontal => throw _privateConstructorUsedError;
-  double get vertical => throw _privateConstructorUsedError;
-
-  /// Serializes this StacVisualDensity to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  double get horizontal;
+  double get vertical;
 
   /// Create a copy of StacVisualDensity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacVisualDensityCopyWith<StacVisualDensity> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacVisualDensityCopyWithImpl<StacVisualDensity>(
+          this as StacVisualDensity, _$identity);
 
-/// @nodoc
-abstract class $StacVisualDensityCopyWith<$Res> {
-  factory $StacVisualDensityCopyWith(
-          StacVisualDensity value, $Res Function(StacVisualDensity) then) =
-      _$StacVisualDensityCopyWithImpl<$Res, StacVisualDensity>;
-  @useResult
-  $Res call({double horizontal, double vertical});
-}
-
-/// @nodoc
-class _$StacVisualDensityCopyWithImpl<$Res, $Val extends StacVisualDensity>
-    implements $StacVisualDensityCopyWith<$Res> {
-  _$StacVisualDensityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacVisualDensity
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? horizontal = null,
-    Object? vertical = null,
-  }) {
-    return _then(_value.copyWith(
-      horizontal: null == horizontal
-          ? _value.horizontal
-          : horizontal // ignore: cast_nullable_to_non_nullable
-              as double,
-      vertical: null == vertical
-          ? _value.vertical
-          : vertical // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$StacVisualDensityImplCopyWith<$Res>
-    implements $StacVisualDensityCopyWith<$Res> {
-  factory _$$StacVisualDensityImplCopyWith(_$StacVisualDensityImpl value,
-          $Res Function(_$StacVisualDensityImpl) then) =
-      __$$StacVisualDensityImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double horizontal, double vertical});
-}
-
-/// @nodoc
-class __$$StacVisualDensityImplCopyWithImpl<$Res>
-    extends _$StacVisualDensityCopyWithImpl<$Res, _$StacVisualDensityImpl>
-    implements _$$StacVisualDensityImplCopyWith<$Res> {
-  __$$StacVisualDensityImplCopyWithImpl(_$StacVisualDensityImpl _value,
-      $Res Function(_$StacVisualDensityImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacVisualDensity
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? horizontal = null,
-    Object? vertical = null,
-  }) {
-    return _then(_$StacVisualDensityImpl(
-      horizontal: null == horizontal
-          ? _value.horizontal
-          : horizontal // ignore: cast_nullable_to_non_nullable
-              as double,
-      vertical: null == vertical
-          ? _value.vertical
-          : vertical // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacVisualDensityImpl implements _StacVisualDensity {
-  const _$StacVisualDensityImpl(
-      {required this.horizontal, required this.vertical});
-
-  factory _$StacVisualDensityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacVisualDensityImplFromJson(json);
-
-  @override
-  final double horizontal;
-  @override
-  final double vertical;
-
-  @override
-  String toString() {
-    return 'StacVisualDensity(horizontal: $horizontal, vertical: $vertical)';
-  }
+  /// Serializes this StacVisualDensity to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacVisualDensityImpl &&
+            other is StacVisualDensity &&
             (identical(other.horizontal, horizontal) ||
                 other.horizontal == horizontal) &&
             (identical(other.vertical, vertical) ||
@@ -147,40 +44,136 @@ class _$StacVisualDensityImpl implements _StacVisualDensity {
   @override
   int get hashCode => Object.hash(runtimeType, horizontal, vertical);
 
-  /// Create a copy of StacVisualDensity
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacVisualDensityImplCopyWith<_$StacVisualDensityImpl> get copyWith =>
-      __$$StacVisualDensityImplCopyWithImpl<_$StacVisualDensityImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacVisualDensityImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacVisualDensity(horizontal: $horizontal, vertical: $vertical)';
   }
 }
 
-abstract class _StacVisualDensity implements StacVisualDensity {
-  const factory _StacVisualDensity(
-      {required final double horizontal,
-      required final double vertical}) = _$StacVisualDensityImpl;
+/// @nodoc
+abstract mixin class $StacVisualDensityCopyWith<$Res> {
+  factory $StacVisualDensityCopyWith(
+          StacVisualDensity value, $Res Function(StacVisualDensity) _then) =
+      _$StacVisualDensityCopyWithImpl;
+  @useResult
+  $Res call({double horizontal, double vertical});
+}
 
-  factory _StacVisualDensity.fromJson(Map<String, dynamic> json) =
-      _$StacVisualDensityImpl.fromJson;
+/// @nodoc
+class _$StacVisualDensityCopyWithImpl<$Res>
+    implements $StacVisualDensityCopyWith<$Res> {
+  _$StacVisualDensityCopyWithImpl(this._self, this._then);
+
+  final StacVisualDensity _self;
+  final $Res Function(StacVisualDensity) _then;
+
+  /// Create a copy of StacVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? horizontal = null,
+    Object? vertical = null,
+  }) {
+    return _then(_self.copyWith(
+      horizontal: null == horizontal
+          ? _self.horizontal
+          : horizontal // ignore: cast_nullable_to_non_nullable
+              as double,
+      vertical: null == vertical
+          ? _self.vertical
+          : vertical // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacVisualDensity implements StacVisualDensity {
+  const _StacVisualDensity({required this.horizontal, required this.vertical});
+  factory _StacVisualDensity.fromJson(Map<String, dynamic> json) =>
+      _$StacVisualDensityFromJson(json);
 
   @override
-  double get horizontal;
+  final double horizontal;
   @override
-  double get vertical;
+  final double vertical;
 
   /// Create a copy of StacVisualDensity
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacVisualDensityImplCopyWith<_$StacVisualDensityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacVisualDensityCopyWith<_StacVisualDensity> get copyWith =>
+      __$StacVisualDensityCopyWithImpl<_StacVisualDensity>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacVisualDensityToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacVisualDensity &&
+            (identical(other.horizontal, horizontal) ||
+                other.horizontal == horizontal) &&
+            (identical(other.vertical, vertical) ||
+                other.vertical == vertical));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, horizontal, vertical);
+
+  @override
+  String toString() {
+    return 'StacVisualDensity(horizontal: $horizontal, vertical: $vertical)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacVisualDensityCopyWith<$Res>
+    implements $StacVisualDensityCopyWith<$Res> {
+  factory _$StacVisualDensityCopyWith(
+          _StacVisualDensity value, $Res Function(_StacVisualDensity) _then) =
+      __$StacVisualDensityCopyWithImpl;
+  @override
+  @useResult
+  $Res call({double horizontal, double vertical});
+}
+
+/// @nodoc
+class __$StacVisualDensityCopyWithImpl<$Res>
+    implements _$StacVisualDensityCopyWith<$Res> {
+  __$StacVisualDensityCopyWithImpl(this._self, this._then);
+
+  final _StacVisualDensity _self;
+  final $Res Function(_StacVisualDensity) _then;
+
+  /// Create a copy of StacVisualDensity
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? horizontal = null,
+    Object? vertical = null,
+  }) {
+    return _then(_StacVisualDensity(
+      horizontal: null == horizontal
+          ? _self.horizontal
+          : horizontal // ignore: cast_nullable_to_non_nullable
+              as double,
+      vertical: null == vertical
+          ? _self.vertical
+          : vertical // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+// dart format on

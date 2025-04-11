@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,159 +10,32 @@ part of 'stac_edge_insets.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacEdgeInsets _$StacEdgeInsetsFromJson(Map<String, dynamic> json) {
-  return _StacEdgeInsets.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacEdgeInsets {
-  double? get left => throw _privateConstructorUsedError;
-  double? get top => throw _privateConstructorUsedError;
-  double? get right => throw _privateConstructorUsedError;
-  double? get bottom => throw _privateConstructorUsedError;
-
-  /// Serializes this StacEdgeInsets to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  double? get left;
+  double? get top;
+  double? get right;
+  double? get bottom;
 
   /// Create a copy of StacEdgeInsets
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacEdgeInsetsCopyWith<StacEdgeInsets> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacEdgeInsetsCopyWithImpl<StacEdgeInsets>(
+          this as StacEdgeInsets, _$identity);
 
-/// @nodoc
-abstract class $StacEdgeInsetsCopyWith<$Res> {
-  factory $StacEdgeInsetsCopyWith(
-          StacEdgeInsets value, $Res Function(StacEdgeInsets) then) =
-      _$StacEdgeInsetsCopyWithImpl<$Res, StacEdgeInsets>;
-  @useResult
-  $Res call({double? left, double? top, double? right, double? bottom});
-}
-
-/// @nodoc
-class _$StacEdgeInsetsCopyWithImpl<$Res, $Val extends StacEdgeInsets>
-    implements $StacEdgeInsetsCopyWith<$Res> {
-  _$StacEdgeInsetsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacEdgeInsets
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? left = freezed,
-    Object? top = freezed,
-    Object? right = freezed,
-    Object? bottom = freezed,
-  }) {
-    return _then(_value.copyWith(
-      left: freezed == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as double?,
-      top: freezed == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as double?,
-      right: freezed == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as double?,
-      bottom: freezed == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$StacEdgeInsetsImplCopyWith<$Res>
-    implements $StacEdgeInsetsCopyWith<$Res> {
-  factory _$$StacEdgeInsetsImplCopyWith(_$StacEdgeInsetsImpl value,
-          $Res Function(_$StacEdgeInsetsImpl) then) =
-      __$$StacEdgeInsetsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double? left, double? top, double? right, double? bottom});
-}
-
-/// @nodoc
-class __$$StacEdgeInsetsImplCopyWithImpl<$Res>
-    extends _$StacEdgeInsetsCopyWithImpl<$Res, _$StacEdgeInsetsImpl>
-    implements _$$StacEdgeInsetsImplCopyWith<$Res> {
-  __$$StacEdgeInsetsImplCopyWithImpl(
-      _$StacEdgeInsetsImpl _value, $Res Function(_$StacEdgeInsetsImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacEdgeInsets
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? left = freezed,
-    Object? top = freezed,
-    Object? right = freezed,
-    Object? bottom = freezed,
-  }) {
-    return _then(_$StacEdgeInsetsImpl(
-      left: freezed == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as double?,
-      top: freezed == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as double?,
-      right: freezed == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as double?,
-      bottom: freezed == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacEdgeInsetsImpl implements _StacEdgeInsets {
-  const _$StacEdgeInsetsImpl({this.left, this.top, this.right, this.bottom});
-
-  factory _$StacEdgeInsetsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacEdgeInsetsImplFromJson(json);
-
-  @override
-  final double? left;
-  @override
-  final double? top;
-  @override
-  final double? right;
-  @override
-  final double? bottom;
-
-  @override
-  String toString() {
-    return 'StacEdgeInsets(left: $left, top: $top, right: $right, bottom: $bottom)';
-  }
+  /// Serializes this StacEdgeInsets to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacEdgeInsetsImpl &&
+            other is StacEdgeInsets &&
             (identical(other.left, left) || other.left == left) &&
             (identical(other.top, top) || other.top == top) &&
             (identical(other.right, right) || other.right == right) &&
@@ -172,46 +46,160 @@ class _$StacEdgeInsetsImpl implements _StacEdgeInsets {
   @override
   int get hashCode => Object.hash(runtimeType, left, top, right, bottom);
 
-  /// Create a copy of StacEdgeInsets
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacEdgeInsetsImplCopyWith<_$StacEdgeInsetsImpl> get copyWith =>
-      __$$StacEdgeInsetsImplCopyWithImpl<_$StacEdgeInsetsImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacEdgeInsetsImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacEdgeInsets(left: $left, top: $top, right: $right, bottom: $bottom)';
   }
 }
 
-abstract class _StacEdgeInsets implements StacEdgeInsets {
-  const factory _StacEdgeInsets(
-      {final double? left,
-      final double? top,
-      final double? right,
-      final double? bottom}) = _$StacEdgeInsetsImpl;
+/// @nodoc
+abstract mixin class $StacEdgeInsetsCopyWith<$Res> {
+  factory $StacEdgeInsetsCopyWith(
+          StacEdgeInsets value, $Res Function(StacEdgeInsets) _then) =
+      _$StacEdgeInsetsCopyWithImpl;
+  @useResult
+  $Res call({double? left, double? top, double? right, double? bottom});
+}
 
-  factory _StacEdgeInsets.fromJson(Map<String, dynamic> json) =
-      _$StacEdgeInsetsImpl.fromJson;
+/// @nodoc
+class _$StacEdgeInsetsCopyWithImpl<$Res>
+    implements $StacEdgeInsetsCopyWith<$Res> {
+  _$StacEdgeInsetsCopyWithImpl(this._self, this._then);
+
+  final StacEdgeInsets _self;
+  final $Res Function(StacEdgeInsets) _then;
+
+  /// Create a copy of StacEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? left = freezed,
+    Object? top = freezed,
+    Object? right = freezed,
+    Object? bottom = freezed,
+  }) {
+    return _then(_self.copyWith(
+      left: freezed == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as double?,
+      top: freezed == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as double?,
+      right: freezed == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as double?,
+      bottom: freezed == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacEdgeInsets implements StacEdgeInsets {
+  const _StacEdgeInsets({this.left, this.top, this.right, this.bottom});
+  factory _StacEdgeInsets.fromJson(Map<String, dynamic> json) =>
+      _$StacEdgeInsetsFromJson(json);
 
   @override
-  double? get left;
+  final double? left;
   @override
-  double? get top;
+  final double? top;
   @override
-  double? get right;
+  final double? right;
   @override
-  double? get bottom;
+  final double? bottom;
 
   /// Create a copy of StacEdgeInsets
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacEdgeInsetsImplCopyWith<_$StacEdgeInsetsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacEdgeInsetsCopyWith<_StacEdgeInsets> get copyWith =>
+      __$StacEdgeInsetsCopyWithImpl<_StacEdgeInsets>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacEdgeInsetsToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacEdgeInsets &&
+            (identical(other.left, left) || other.left == left) &&
+            (identical(other.top, top) || other.top == top) &&
+            (identical(other.right, right) || other.right == right) &&
+            (identical(other.bottom, bottom) || other.bottom == bottom));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, left, top, right, bottom);
+
+  @override
+  String toString() {
+    return 'StacEdgeInsets(left: $left, top: $top, right: $right, bottom: $bottom)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacEdgeInsetsCopyWith<$Res>
+    implements $StacEdgeInsetsCopyWith<$Res> {
+  factory _$StacEdgeInsetsCopyWith(
+          _StacEdgeInsets value, $Res Function(_StacEdgeInsets) _then) =
+      __$StacEdgeInsetsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({double? left, double? top, double? right, double? bottom});
+}
+
+/// @nodoc
+class __$StacEdgeInsetsCopyWithImpl<$Res>
+    implements _$StacEdgeInsetsCopyWith<$Res> {
+  __$StacEdgeInsetsCopyWithImpl(this._self, this._then);
+
+  final _StacEdgeInsets _self;
+  final $Res Function(_StacEdgeInsets) _then;
+
+  /// Create a copy of StacEdgeInsets
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? left = freezed,
+    Object? top = freezed,
+    Object? right = freezed,
+    Object? bottom = freezed,
+  }) {
+    return _then(_StacEdgeInsets(
+      left: freezed == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as double?,
+      top: freezed == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as double?,
+      right: freezed == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as double?,
+      bottom: freezed == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+}
+
+// dart format on

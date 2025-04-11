@@ -7,7 +7,7 @@ part 'stac_linear_progress_indicator.freezed.dart';
 part 'stac_linear_progress_indicator.g.dart';
 
 @freezed
-class StacLinearProgressIndicator with _$StacLinearProgressIndicator {
+abstract class StacLinearProgressIndicator with _$StacLinearProgressIndicator {
   const factory StacLinearProgressIndicator({
     double? value,
     String? backgroundColor,

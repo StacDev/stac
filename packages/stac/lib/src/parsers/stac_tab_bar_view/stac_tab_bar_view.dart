@@ -9,7 +9,7 @@ part 'stac_tab_bar_view.freezed.dart';
 part 'stac_tab_bar_view.g.dart';
 
 @freezed
-class StacTabBarView with _$StacTabBarView {
+abstract class StacTabBarView with _$StacTabBarView {
   const factory StacTabBarView({
     required List<Map<String, dynamic>> children,
     @Default(0) int initialIndex,

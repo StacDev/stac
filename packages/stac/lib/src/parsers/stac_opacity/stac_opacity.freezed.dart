@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,59 @@ part of 'stac_opacity.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacOpacity _$StacOpacityFromJson(Map<String, dynamic> json) {
-  return _StacOpacity.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacOpacity {
-  double get opacity => throw _privateConstructorUsedError;
-  Map<String, dynamic> get child => throw _privateConstructorUsedError;
-
-  /// Serializes this StacOpacity to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  double get opacity;
+  Map<String, dynamic> get child;
 
   /// Create a copy of StacOpacity
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacOpacityCopyWith<StacOpacity> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacOpacityCopyWith<$Res> {
-  factory $StacOpacityCopyWith(
-          StacOpacity value, $Res Function(StacOpacity) then) =
-      _$StacOpacityCopyWithImpl<$Res, StacOpacity>;
-  @useResult
-  $Res call({double opacity, Map<String, dynamic> child});
-}
-
-/// @nodoc
-class _$StacOpacityCopyWithImpl<$Res, $Val extends StacOpacity>
-    implements $StacOpacityCopyWith<$Res> {
-  _$StacOpacityCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacOpacity
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacOpacityCopyWith<StacOpacity> get copyWith =>
+      _$StacOpacityCopyWithImpl<StacOpacity>(this as StacOpacity, _$identity);
+
+  /// Serializes this StacOpacity to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? opacity = null,
-    Object? child = null,
-  }) {
-    return _then(_value.copyWith(
-      opacity: null == opacity
-          ? _value.opacity
-          : opacity // ignore: cast_nullable_to_non_nullable
-              as double,
-      child: null == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacOpacity &&
+            (identical(other.opacity, opacity) || other.opacity == opacity) &&
+            const DeepCollectionEquality().equals(other.child, child));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, opacity, const DeepCollectionEquality().hash(child));
+
+  @override
+  String toString() {
+    return 'StacOpacity(opacity: $opacity, child: $child)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacOpacityImplCopyWith<$Res>
-    implements $StacOpacityCopyWith<$Res> {
-  factory _$$StacOpacityImplCopyWith(
-          _$StacOpacityImpl value, $Res Function(_$StacOpacityImpl) then) =
-      __$$StacOpacityImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacOpacityCopyWith<$Res> {
+  factory $StacOpacityCopyWith(
+          StacOpacity value, $Res Function(StacOpacity) _then) =
+      _$StacOpacityCopyWithImpl;
   @useResult
   $Res call({double opacity, Map<String, dynamic> child});
 }
 
 /// @nodoc
-class __$$StacOpacityImplCopyWithImpl<$Res>
-    extends _$StacOpacityCopyWithImpl<$Res, _$StacOpacityImpl>
-    implements _$$StacOpacityImplCopyWith<$Res> {
-  __$$StacOpacityImplCopyWithImpl(
-      _$StacOpacityImpl _value, $Res Function(_$StacOpacityImpl) _then)
-      : super(_value, _then);
+class _$StacOpacityCopyWithImpl<$Res> implements $StacOpacityCopyWith<$Res> {
+  _$StacOpacityCopyWithImpl(this._self, this._then);
+
+  final StacOpacity _self;
+  final $Res Function(StacOpacity) _then;
 
   /// Create a copy of StacOpacity
   /// with the given fields replaced by the non-null parameter values.
@@ -100,13 +72,13 @@ class __$$StacOpacityImplCopyWithImpl<$Res>
     Object? opacity = null,
     Object? child = null,
   }) {
-    return _then(_$StacOpacityImpl(
+    return _then(_self.copyWith(
       opacity: null == opacity
-          ? _value.opacity
+          ? _self.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
               as double,
       child: null == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -115,13 +87,12 @@ class __$$StacOpacityImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacOpacityImpl implements _StacOpacity {
-  const _$StacOpacityImpl(
+class _StacOpacity implements StacOpacity {
+  const _StacOpacity(
       {required this.opacity, required final Map<String, dynamic> child})
       : _child = child;
-
-  factory _$StacOpacityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacOpacityImplFromJson(json);
+  factory _StacOpacity.fromJson(Map<String, dynamic> json) =>
+      _$StacOpacityFromJson(json);
 
   @override
   final double opacity;
@@ -133,16 +104,26 @@ class _$StacOpacityImpl implements _StacOpacity {
     return EqualUnmodifiableMapView(_child);
   }
 
+  /// Create a copy of StacOpacity
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacOpacity(opacity: $opacity, child: $child)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacOpacityCopyWith<_StacOpacity> get copyWith =>
+      __$StacOpacityCopyWithImpl<_StacOpacity>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacOpacityToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacOpacityImpl &&
+            other is _StacOpacity &&
             (identical(other.opacity, opacity) || other.opacity == opacity) &&
             const DeepCollectionEquality().equals(other._child, _child));
   }
@@ -152,39 +133,49 @@ class _$StacOpacityImpl implements _StacOpacity {
   int get hashCode => Object.hash(
       runtimeType, opacity, const DeepCollectionEquality().hash(_child));
 
-  /// Create a copy of StacOpacity
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacOpacityImplCopyWith<_$StacOpacityImpl> get copyWith =>
-      __$$StacOpacityImplCopyWithImpl<_$StacOpacityImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacOpacityImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacOpacity(opacity: $opacity, child: $child)';
   }
 }
 
-abstract class _StacOpacity implements StacOpacity {
-  const factory _StacOpacity(
-      {required final double opacity,
-      required final Map<String, dynamic> child}) = _$StacOpacityImpl;
-
-  factory _StacOpacity.fromJson(Map<String, dynamic> json) =
-      _$StacOpacityImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$StacOpacityCopyWith<$Res>
+    implements $StacOpacityCopyWith<$Res> {
+  factory _$StacOpacityCopyWith(
+          _StacOpacity value, $Res Function(_StacOpacity) _then) =
+      __$StacOpacityCopyWithImpl;
   @override
-  double get opacity;
-  @override
-  Map<String, dynamic> get child;
+  @useResult
+  $Res call({double opacity, Map<String, dynamic> child});
+}
+
+/// @nodoc
+class __$StacOpacityCopyWithImpl<$Res> implements _$StacOpacityCopyWith<$Res> {
+  __$StacOpacityCopyWithImpl(this._self, this._then);
+
+  final _StacOpacity _self;
+  final $Res Function(_StacOpacity) _then;
 
   /// Create a copy of StacOpacity
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacOpacityImplCopyWith<_$StacOpacityImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? opacity = null,
+    Object? child = null,
+  }) {
+    return _then(_StacOpacity(
+      opacity: null == opacity
+          ? _self.opacity
+          : opacity // ignore: cast_nullable_to_non_nullable
+              as double,
+      child: null == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

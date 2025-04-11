@@ -6,8 +6,8 @@ part of 'stac_text_field.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacTextFieldImpl _$$StacTextFieldImplFromJson(Map<String, dynamic> json) =>
-    _$StacTextFieldImpl(
+_StacTextField _$StacTextFieldFromJson(Map<String, dynamic> json) =>
+    _StacTextField(
       decoration: json['decoration'] == null
           ? null
           : StacInputDecoration.fromJson(
@@ -50,7 +50,7 @@ _$StacTextFieldImpl _$$StacTextFieldImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$StacTextFieldImplToJson(_$StacTextFieldImpl instance) =>
+Map<String, dynamic> _$StacTextFieldToJson(_StacTextField instance) =>
     <String, dynamic>{
       'decoration': instance.decoration,
       'initialValue': instance.initialValue,

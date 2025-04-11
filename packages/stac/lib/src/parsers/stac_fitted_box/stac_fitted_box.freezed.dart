@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,93 +10,56 @@ part of 'stac_fitted_box.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacFittedBox _$StacFittedBoxFromJson(Map<String, dynamic> json) {
-  return _StacFittedBox.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacFittedBox {
-  BoxFit get fit => throw _privateConstructorUsedError;
-  StacAlignmentDirectional get alignment => throw _privateConstructorUsedError;
-  Clip get clipBehavior => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-
-  /// Serializes this StacFittedBox to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  BoxFit get fit;
+  StacAlignmentDirectional get alignment;
+  Clip get clipBehavior;
+  Map<String, dynamic>? get child;
 
   /// Create a copy of StacFittedBox
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacFittedBoxCopyWith<StacFittedBox> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacFittedBoxCopyWith<$Res> {
-  factory $StacFittedBoxCopyWith(
-          StacFittedBox value, $Res Function(StacFittedBox) then) =
-      _$StacFittedBoxCopyWithImpl<$Res, StacFittedBox>;
-  @useResult
-  $Res call(
-      {BoxFit fit,
-      StacAlignmentDirectional alignment,
-      Clip clipBehavior,
-      Map<String, dynamic>? child});
-}
-
-/// @nodoc
-class _$StacFittedBoxCopyWithImpl<$Res, $Val extends StacFittedBox>
-    implements $StacFittedBoxCopyWith<$Res> {
-  _$StacFittedBoxCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacFittedBox
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacFittedBoxCopyWith<StacFittedBox> get copyWith =>
+      _$StacFittedBoxCopyWithImpl<StacFittedBox>(
+          this as StacFittedBox, _$identity);
+
+  /// Serializes this StacFittedBox to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? fit = null,
-    Object? alignment = null,
-    Object? clipBehavior = null,
-    Object? child = freezed,
-  }) {
-    return _then(_value.copyWith(
-      fit: null == fit
-          ? _value.fit
-          : fit // ignore: cast_nullable_to_non_nullable
-              as BoxFit,
-      alignment: null == alignment
-          ? _value.alignment
-          : alignment // ignore: cast_nullable_to_non_nullable
-              as StacAlignmentDirectional,
-      clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
-          : clipBehavior // ignore: cast_nullable_to_non_nullable
-              as Clip,
-      child: freezed == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacFittedBox &&
+            (identical(other.fit, fit) || other.fit == fit) &&
+            (identical(other.alignment, alignment) ||
+                other.alignment == alignment) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
+            const DeepCollectionEquality().equals(other.child, child));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, fit, alignment, clipBehavior,
+      const DeepCollectionEquality().hash(child));
+
+  @override
+  String toString() {
+    return 'StacFittedBox(fit: $fit, alignment: $alignment, clipBehavior: $clipBehavior, child: $child)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacFittedBoxImplCopyWith<$Res>
-    implements $StacFittedBoxCopyWith<$Res> {
-  factory _$$StacFittedBoxImplCopyWith(
-          _$StacFittedBoxImpl value, $Res Function(_$StacFittedBoxImpl) then) =
-      __$$StacFittedBoxImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacFittedBoxCopyWith<$Res> {
+  factory $StacFittedBoxCopyWith(
+          StacFittedBox value, $Res Function(StacFittedBox) _then) =
+      _$StacFittedBoxCopyWithImpl;
   @useResult
   $Res call(
       {BoxFit fit,
@@ -105,12 +69,12 @@ abstract class _$$StacFittedBoxImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StacFittedBoxImplCopyWithImpl<$Res>
-    extends _$StacFittedBoxCopyWithImpl<$Res, _$StacFittedBoxImpl>
-    implements _$$StacFittedBoxImplCopyWith<$Res> {
-  __$$StacFittedBoxImplCopyWithImpl(
-      _$StacFittedBoxImpl _value, $Res Function(_$StacFittedBoxImpl) _then)
-      : super(_value, _then);
+class _$StacFittedBoxCopyWithImpl<$Res>
+    implements $StacFittedBoxCopyWith<$Res> {
+  _$StacFittedBoxCopyWithImpl(this._self, this._then);
+
+  final StacFittedBox _self;
+  final $Res Function(StacFittedBox) _then;
 
   /// Create a copy of StacFittedBox
   /// with the given fields replaced by the non-null parameter values.
@@ -122,21 +86,21 @@ class __$$StacFittedBoxImplCopyWithImpl<$Res>
     Object? clipBehavior = null,
     Object? child = freezed,
   }) {
-    return _then(_$StacFittedBoxImpl(
+    return _then(_self.copyWith(
       fit: null == fit
-          ? _value.fit
+          ? _self.fit
           : fit // ignore: cast_nullable_to_non_nullable
               as BoxFit,
       alignment: null == alignment
-          ? _value.alignment
+          ? _self.alignment
           : alignment // ignore: cast_nullable_to_non_nullable
               as StacAlignmentDirectional,
       clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
+          ? _self.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
       child: freezed == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -145,16 +109,15 @@ class __$$StacFittedBoxImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacFittedBoxImpl implements _StacFittedBox {
-  const _$StacFittedBoxImpl(
+class _StacFittedBox implements StacFittedBox {
+  const _StacFittedBox(
       {this.fit = BoxFit.contain,
       this.alignment = StacAlignmentDirectional.center,
       this.clipBehavior = Clip.none,
       final Map<String, dynamic>? child})
       : _child = child;
-
-  factory _$StacFittedBoxImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacFittedBoxImplFromJson(json);
+  factory _StacFittedBox.fromJson(Map<String, dynamic> json) =>
+      _$StacFittedBoxFromJson(json);
 
   @override
   @JsonKey()
@@ -175,16 +138,26 @@ class _$StacFittedBoxImpl implements _StacFittedBox {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of StacFittedBox
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacFittedBox(fit: $fit, alignment: $alignment, clipBehavior: $clipBehavior, child: $child)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacFittedBoxCopyWith<_StacFittedBox> get copyWith =>
+      __$StacFittedBoxCopyWithImpl<_StacFittedBox>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacFittedBoxToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacFittedBoxImpl &&
+            other is _StacFittedBox &&
             (identical(other.fit, fit) || other.fit == fit) &&
             (identical(other.alignment, alignment) ||
                 other.alignment == alignment) &&
@@ -198,45 +171,64 @@ class _$StacFittedBoxImpl implements _StacFittedBox {
   int get hashCode => Object.hash(runtimeType, fit, alignment, clipBehavior,
       const DeepCollectionEquality().hash(_child));
 
-  /// Create a copy of StacFittedBox
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacFittedBoxImplCopyWith<_$StacFittedBoxImpl> get copyWith =>
-      __$$StacFittedBoxImplCopyWithImpl<_$StacFittedBoxImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacFittedBoxImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacFittedBox(fit: $fit, alignment: $alignment, clipBehavior: $clipBehavior, child: $child)';
   }
 }
 
-abstract class _StacFittedBox implements StacFittedBox {
-  const factory _StacFittedBox(
-      {final BoxFit fit,
-      final StacAlignmentDirectional alignment,
-      final Clip clipBehavior,
-      final Map<String, dynamic>? child}) = _$StacFittedBoxImpl;
+/// @nodoc
+abstract mixin class _$StacFittedBoxCopyWith<$Res>
+    implements $StacFittedBoxCopyWith<$Res> {
+  factory _$StacFittedBoxCopyWith(
+          _StacFittedBox value, $Res Function(_StacFittedBox) _then) =
+      __$StacFittedBoxCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {BoxFit fit,
+      StacAlignmentDirectional alignment,
+      Clip clipBehavior,
+      Map<String, dynamic>? child});
+}
 
-  factory _StacFittedBox.fromJson(Map<String, dynamic> json) =
-      _$StacFittedBoxImpl.fromJson;
+/// @nodoc
+class __$StacFittedBoxCopyWithImpl<$Res>
+    implements _$StacFittedBoxCopyWith<$Res> {
+  __$StacFittedBoxCopyWithImpl(this._self, this._then);
 
-  @override
-  BoxFit get fit;
-  @override
-  StacAlignmentDirectional get alignment;
-  @override
-  Clip get clipBehavior;
-  @override
-  Map<String, dynamic>? get child;
+  final _StacFittedBox _self;
+  final $Res Function(_StacFittedBox) _then;
 
   /// Create a copy of StacFittedBox
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacFittedBoxImplCopyWith<_$StacFittedBoxImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? fit = null,
+    Object? alignment = null,
+    Object? clipBehavior = null,
+    Object? child = freezed,
+  }) {
+    return _then(_StacFittedBox(
+      fit: null == fit
+          ? _self.fit
+          : fit // ignore: cast_nullable_to_non_nullable
+              as BoxFit,
+      alignment: null == alignment
+          ? _self.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as StacAlignmentDirectional,
+      clipBehavior: null == clipBehavior
+          ? _self.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
+      child: freezed == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

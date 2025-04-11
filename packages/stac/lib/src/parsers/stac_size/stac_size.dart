@@ -6,7 +6,7 @@ part 'stac_size.freezed.dart';
 part 'stac_size.g.dart';
 
 @freezed
-class StacSize with _$StacSize {
+abstract class StacSize with _$StacSize {
   const factory StacSize({
     required double width,
     required double height,

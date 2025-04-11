@@ -7,7 +7,7 @@ part 'stac_form.freezed.dart';
 part 'stac_form.g.dart';
 
 @freezed
-class StacForm with _$StacForm {
+abstract class StacForm with _$StacForm {
   const factory StacForm({
     AutovalidateMode? autovalidateMode,
     required Map<String, dynamic> child,

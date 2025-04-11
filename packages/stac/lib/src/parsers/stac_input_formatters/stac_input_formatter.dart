@@ -5,7 +5,7 @@ part 'stac_input_formatter.freezed.dart';
 part 'stac_input_formatter.g.dart';
 
 @freezed
-class StacInputFormatter with _$StacInputFormatter {
+abstract class StacInputFormatter with _$StacInputFormatter {
   const factory StacInputFormatter({
     required InputFormatterType type,
     String? rule,

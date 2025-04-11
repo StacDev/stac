@@ -6,9 +6,8 @@ part of 'stac_material_color.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacMaterialColorImpl _$$StacMaterialColorImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacMaterialColorImpl(
+_StacMaterialColor _$StacMaterialColorFromJson(Map<String, dynamic> json) =>
+    _StacMaterialColor(
       primary: json['primary'] as String,
       shade50: json['shade50'] as String,
       shade100: json['shade100'] as String,
@@ -22,8 +21,7 @@ _$StacMaterialColorImpl _$$StacMaterialColorImplFromJson(
       shade900: json['shade900'] as String,
     );
 
-Map<String, dynamic> _$$StacMaterialColorImplToJson(
-        _$StacMaterialColorImpl instance) =>
+Map<String, dynamic> _$StacMaterialColorToJson(_StacMaterialColor instance) =>
     <String, dynamic>{
       'primary': instance.primary,
       'shade50': instance.shade50,

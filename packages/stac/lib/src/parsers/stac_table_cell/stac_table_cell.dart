@@ -7,7 +7,7 @@ part 'stac_table_cell.freezed.dart';
 part 'stac_table_cell.g.dart';
 
 @freezed
-class StacTableCell with _$StacTableCell {
+abstract class StacTableCell with _$StacTableCell {
   const factory StacTableCell({
     TableCellVerticalAlignment? verticalAlignment,
     Map<String, dynamic>? child,

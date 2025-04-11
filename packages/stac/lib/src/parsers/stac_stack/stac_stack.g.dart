@@ -6,8 +6,7 @@ part of 'stac_stack.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacStackImpl _$$StacStackImplFromJson(Map<String, dynamic> json) =>
-    _$StacStackImpl(
+_StacStack _$StacStackFromJson(Map<String, dynamic> json) => _StacStack(
       alignment: $enumDecodeNullable(
               _$StacAlignmentDirectionalEnumMap, json['alignment']) ??
           StacAlignmentDirectional.topStart,
@@ -23,7 +22,7 @@ _$StacStackImpl _$$StacStackImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$StacStackImplToJson(_$StacStackImpl instance) =>
+Map<String, dynamic> _$StacStackToJson(_StacStack instance) =>
     <String, dynamic>{
       'alignment': _$StacAlignmentDirectionalEnumMap[instance.alignment]!,
       'clipBehavior': _$ClipEnumMap[instance.clipBehavior]!,

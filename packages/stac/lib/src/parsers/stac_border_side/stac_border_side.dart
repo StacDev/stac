@@ -6,7 +6,7 @@ part 'stac_border_side.freezed.dart';
 part 'stac_border_side.g.dart';
 
 @freezed
-class StacBorderSide with _$StacBorderSide {
+abstract class StacBorderSide with _$StacBorderSide {
   const factory StacBorderSide({
     String? color,
     @Default(0.0) double width,
@@ -14,15 +14,15 @@ class StacBorderSide with _$StacBorderSide {
     @Default(BorderStyle.solid) BorderStyle borderStyle,
   }) = _StacBorderSide;
 
+  static const none = StacBorderSide(
+    color: '000000',
+    width: 0.0,
+    strokeAlign: -1.0,
+    borderStyle: BorderStyle.none,
+  );
+
   factory StacBorderSide.fromJson(Map<String, dynamic> json) =>
       _$StacBorderSideFromJson(json);
-
-  const factory StacBorderSide.none({
-    @Default("000000") String color,
-    @Default(0.0) double width,
-    @Default(-1.0) double strokeAlign,
-    @Default(BorderStyle.none) BorderStyle borderStyle,
-  }) = _StacBorderSideNone;
 }
 
 extension StacBorderSideParser on StacBorderSide? {

@@ -11,7 +11,7 @@ part 'stac_text_field.freezed.dart';
 part 'stac_text_field.g.dart';
 
 @freezed
-class StacTextField with _$StacTextField {
+abstract class StacTextField with _$StacTextField {
   const factory StacTextField({
     StacInputDecoration? decoration,
     @Default('') String initialValue,

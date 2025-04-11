@@ -25,7 +25,7 @@ enum StacFloatingLabelAlignment {
 }
 
 @freezed
-class StacInputDecorationTheme with _$StacInputDecorationTheme {
+abstract class StacInputDecorationTheme with _$StacInputDecorationTheme {
   const factory StacInputDecorationTheme({
     StacTextStyle? labelStyle,
     StacTextStyle? floatingLabelStyle,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,55 +10,127 @@ part of 'stac_grid_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacGridView _$StacGridViewFromJson(Map<String, dynamic> json) {
-  return _StacGridView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacGridView {
-  Axis get scrollDirection => throw _privateConstructorUsedError;
-  bool get reverse => throw _privateConstructorUsedError;
-  bool get primary => throw _privateConstructorUsedError;
-  StacScrollPhysics? get physics => throw _privateConstructorUsedError;
-  bool get shrinkWrap => throw _privateConstructorUsedError;
-  StacEdgeInsets? get padding => throw _privateConstructorUsedError;
-  int? get crossAxisCount => throw _privateConstructorUsedError;
-  double get mainAxisSpacing => throw _privateConstructorUsedError;
-  double get crossAxisSpacing => throw _privateConstructorUsedError;
-  double get childAspectRatio => throw _privateConstructorUsedError;
-  double? get mainAxisExtent => throw _privateConstructorUsedError;
-  bool get addAutomaticKeepAlives => throw _privateConstructorUsedError;
-  bool get addRepaintBoundaries => throw _privateConstructorUsedError;
-  bool get addSemanticIndexes => throw _privateConstructorUsedError;
-  double? get cacheExtent => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
-  int? get semanticChildCount => throw _privateConstructorUsedError;
-  DragStartBehavior get dragStartBehavior => throw _privateConstructorUsedError;
-  ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior =>
-      throw _privateConstructorUsedError;
-  String? get restorationId => throw _privateConstructorUsedError;
-  Clip get clipBehavior => throw _privateConstructorUsedError;
-
-  /// Serializes this StacGridView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Axis get scrollDirection;
+  bool get reverse;
+  bool get primary;
+  StacScrollPhysics? get physics;
+  bool get shrinkWrap;
+  StacEdgeInsets? get padding;
+  int? get crossAxisCount;
+  double get mainAxisSpacing;
+  double get crossAxisSpacing;
+  double get childAspectRatio;
+  double? get mainAxisExtent;
+  bool get addAutomaticKeepAlives;
+  bool get addRepaintBoundaries;
+  bool get addSemanticIndexes;
+  double? get cacheExtent;
+  List<Map<String, dynamic>> get children;
+  int? get semanticChildCount;
+  DragStartBehavior get dragStartBehavior;
+  ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
+  String? get restorationId;
+  Clip get clipBehavior;
 
   /// Create a copy of StacGridView
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacGridViewCopyWith<StacGridView> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacGridViewCopyWithImpl<StacGridView>(
+          this as StacGridView, _$identity);
+
+  /// Serializes this StacGridView to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacGridView &&
+            (identical(other.scrollDirection, scrollDirection) ||
+                other.scrollDirection == scrollDirection) &&
+            (identical(other.reverse, reverse) || other.reverse == reverse) &&
+            (identical(other.primary, primary) || other.primary == primary) &&
+            (identical(other.physics, physics) || other.physics == physics) &&
+            (identical(other.shrinkWrap, shrinkWrap) ||
+                other.shrinkWrap == shrinkWrap) &&
+            (identical(other.padding, padding) || other.padding == padding) &&
+            (identical(other.crossAxisCount, crossAxisCount) ||
+                other.crossAxisCount == crossAxisCount) &&
+            (identical(other.mainAxisSpacing, mainAxisSpacing) ||
+                other.mainAxisSpacing == mainAxisSpacing) &&
+            (identical(other.crossAxisSpacing, crossAxisSpacing) ||
+                other.crossAxisSpacing == crossAxisSpacing) &&
+            (identical(other.childAspectRatio, childAspectRatio) ||
+                other.childAspectRatio == childAspectRatio) &&
+            (identical(other.mainAxisExtent, mainAxisExtent) ||
+                other.mainAxisExtent == mainAxisExtent) &&
+            (identical(other.addAutomaticKeepAlives, addAutomaticKeepAlives) ||
+                other.addAutomaticKeepAlives == addAutomaticKeepAlives) &&
+            (identical(other.addRepaintBoundaries, addRepaintBoundaries) ||
+                other.addRepaintBoundaries == addRepaintBoundaries) &&
+            (identical(other.addSemanticIndexes, addSemanticIndexes) ||
+                other.addSemanticIndexes == addSemanticIndexes) &&
+            (identical(other.cacheExtent, cacheExtent) ||
+                other.cacheExtent == cacheExtent) &&
+            const DeepCollectionEquality().equals(other.children, children) &&
+            (identical(other.semanticChildCount, semanticChildCount) ||
+                other.semanticChildCount == semanticChildCount) &&
+            (identical(other.dragStartBehavior, dragStartBehavior) ||
+                other.dragStartBehavior == dragStartBehavior) &&
+            (identical(
+                    other.keyboardDismissBehavior, keyboardDismissBehavior) ||
+                other.keyboardDismissBehavior == keyboardDismissBehavior) &&
+            (identical(other.restorationId, restorationId) ||
+                other.restorationId == restorationId) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        scrollDirection,
+        reverse,
+        primary,
+        physics,
+        shrinkWrap,
+        padding,
+        crossAxisCount,
+        mainAxisSpacing,
+        crossAxisSpacing,
+        childAspectRatio,
+        mainAxisExtent,
+        addAutomaticKeepAlives,
+        addRepaintBoundaries,
+        addSemanticIndexes,
+        cacheExtent,
+        const DeepCollectionEquality().hash(children),
+        semanticChildCount,
+        dragStartBehavior,
+        keyboardDismissBehavior,
+        restorationId,
+        clipBehavior
+      ]);
+
+  @override
+  String toString() {
+    return 'StacGridView(scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, padding: $padding, crossAxisCount: $crossAxisCount, mainAxisSpacing: $mainAxisSpacing, crossAxisSpacing: $crossAxisSpacing, childAspectRatio: $childAspectRatio, mainAxisExtent: $mainAxisExtent, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, children: $children, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, restorationId: $restorationId, clipBehavior: $clipBehavior)';
+  }
 }
 
 /// @nodoc
-abstract class $StacGridViewCopyWith<$Res> {
+abstract mixin class $StacGridViewCopyWith<$Res> {
   factory $StacGridViewCopyWith(
-          StacGridView value, $Res Function(StacGridView) then) =
-      _$StacGridViewCopyWithImpl<$Res, StacGridView>;
+          StacGridView value, $Res Function(StacGridView) _then) =
+      _$StacGridViewCopyWithImpl;
   @useResult
   $Res call(
       {Axis scrollDirection,
@@ -86,14 +159,11 @@ abstract class $StacGridViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacGridViewCopyWithImpl<$Res, $Val extends StacGridView>
-    implements $StacGridViewCopyWith<$Res> {
-  _$StacGridViewCopyWithImpl(this._value, this._then);
+class _$StacGridViewCopyWithImpl<$Res> implements $StacGridViewCopyWith<$Res> {
+  _$StacGridViewCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacGridView _self;
+  final $Res Function(StacGridView) _then;
 
   /// Create a copy of StacGridView
   /// with the given fields replaced by the non-null parameter values.
@@ -122,92 +192,92 @@ class _$StacGridViewCopyWithImpl<$Res, $Val extends StacGridView>
     Object? restorationId = freezed,
     Object? clipBehavior = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       scrollDirection: null == scrollDirection
-          ? _value.scrollDirection
+          ? _self.scrollDirection
           : scrollDirection // ignore: cast_nullable_to_non_nullable
               as Axis,
       reverse: null == reverse
-          ? _value.reverse
+          ? _self.reverse
           : reverse // ignore: cast_nullable_to_non_nullable
               as bool,
       primary: null == primary
-          ? _value.primary
+          ? _self.primary
           : primary // ignore: cast_nullable_to_non_nullable
               as bool,
       physics: freezed == physics
-          ? _value.physics
+          ? _self.physics
           : physics // ignore: cast_nullable_to_non_nullable
               as StacScrollPhysics?,
       shrinkWrap: null == shrinkWrap
-          ? _value.shrinkWrap
+          ? _self.shrinkWrap
           : shrinkWrap // ignore: cast_nullable_to_non_nullable
               as bool,
       padding: freezed == padding
-          ? _value.padding
+          ? _self.padding
           : padding // ignore: cast_nullable_to_non_nullable
               as StacEdgeInsets?,
       crossAxisCount: freezed == crossAxisCount
-          ? _value.crossAxisCount
+          ? _self.crossAxisCount
           : crossAxisCount // ignore: cast_nullable_to_non_nullable
               as int?,
       mainAxisSpacing: null == mainAxisSpacing
-          ? _value.mainAxisSpacing
+          ? _self.mainAxisSpacing
           : mainAxisSpacing // ignore: cast_nullable_to_non_nullable
               as double,
       crossAxisSpacing: null == crossAxisSpacing
-          ? _value.crossAxisSpacing
+          ? _self.crossAxisSpacing
           : crossAxisSpacing // ignore: cast_nullable_to_non_nullable
               as double,
       childAspectRatio: null == childAspectRatio
-          ? _value.childAspectRatio
+          ? _self.childAspectRatio
           : childAspectRatio // ignore: cast_nullable_to_non_nullable
               as double,
       mainAxisExtent: freezed == mainAxisExtent
-          ? _value.mainAxisExtent
+          ? _self.mainAxisExtent
           : mainAxisExtent // ignore: cast_nullable_to_non_nullable
               as double?,
       addAutomaticKeepAlives: null == addAutomaticKeepAlives
-          ? _value.addAutomaticKeepAlives
+          ? _self.addAutomaticKeepAlives
           : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
               as bool,
       addRepaintBoundaries: null == addRepaintBoundaries
-          ? _value.addRepaintBoundaries
+          ? _self.addRepaintBoundaries
           : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
               as bool,
       addSemanticIndexes: null == addSemanticIndexes
-          ? _value.addSemanticIndexes
+          ? _self.addSemanticIndexes
           : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
               as bool,
       cacheExtent: freezed == cacheExtent
-          ? _value.cacheExtent
+          ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
               as double?,
       children: null == children
-          ? _value.children
+          ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
       semanticChildCount: freezed == semanticChildCount
-          ? _value.semanticChildCount
+          ? _self.semanticChildCount
           : semanticChildCount // ignore: cast_nullable_to_non_nullable
               as int?,
       dragStartBehavior: null == dragStartBehavior
-          ? _value.dragStartBehavior
+          ? _self.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
       keyboardDismissBehavior: null == keyboardDismissBehavior
-          ? _value.keyboardDismissBehavior
+          ? _self.keyboardDismissBehavior
           : keyboardDismissBehavior // ignore: cast_nullable_to_non_nullable
               as ScrollViewKeyboardDismissBehavior,
       restorationId: freezed == restorationId
-          ? _value.restorationId
+          ? _self.restorationId
           : restorationId // ignore: cast_nullable_to_non_nullable
               as String?,
       clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
+          ? _self.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacGridView
@@ -215,179 +285,20 @@ class _$StacGridViewCopyWithImpl<$Res, $Val extends StacGridView>
   @override
   @pragma('vm:prefer-inline')
   $StacEdgeInsetsCopyWith<$Res>? get padding {
-    if (_value.padding == null) {
+    if (_self.padding == null) {
       return null;
     }
 
-    return $StacEdgeInsetsCopyWith<$Res>(_value.padding!, (value) {
-      return _then(_value.copyWith(padding: value) as $Val);
+    return $StacEdgeInsetsCopyWith<$Res>(_self.padding!, (value) {
+      return _then(_self.copyWith(padding: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacGridViewImplCopyWith<$Res>
-    implements $StacGridViewCopyWith<$Res> {
-  factory _$$StacGridViewImplCopyWith(
-          _$StacGridViewImpl value, $Res Function(_$StacGridViewImpl) then) =
-      __$$StacGridViewImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Axis scrollDirection,
-      bool reverse,
-      bool primary,
-      StacScrollPhysics? physics,
-      bool shrinkWrap,
-      StacEdgeInsets? padding,
-      int? crossAxisCount,
-      double mainAxisSpacing,
-      double crossAxisSpacing,
-      double childAspectRatio,
-      double? mainAxisExtent,
-      bool addAutomaticKeepAlives,
-      bool addRepaintBoundaries,
-      bool addSemanticIndexes,
-      double? cacheExtent,
-      List<Map<String, dynamic>> children,
-      int? semanticChildCount,
-      DragStartBehavior dragStartBehavior,
-      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
-      String? restorationId,
-      Clip clipBehavior});
-
-  @override
-  $StacEdgeInsetsCopyWith<$Res>? get padding;
-}
-
-/// @nodoc
-class __$$StacGridViewImplCopyWithImpl<$Res>
-    extends _$StacGridViewCopyWithImpl<$Res, _$StacGridViewImpl>
-    implements _$$StacGridViewImplCopyWith<$Res> {
-  __$$StacGridViewImplCopyWithImpl(
-      _$StacGridViewImpl _value, $Res Function(_$StacGridViewImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacGridView
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? scrollDirection = null,
-    Object? reverse = null,
-    Object? primary = null,
-    Object? physics = freezed,
-    Object? shrinkWrap = null,
-    Object? padding = freezed,
-    Object? crossAxisCount = freezed,
-    Object? mainAxisSpacing = null,
-    Object? crossAxisSpacing = null,
-    Object? childAspectRatio = null,
-    Object? mainAxisExtent = freezed,
-    Object? addAutomaticKeepAlives = null,
-    Object? addRepaintBoundaries = null,
-    Object? addSemanticIndexes = null,
-    Object? cacheExtent = freezed,
-    Object? children = null,
-    Object? semanticChildCount = freezed,
-    Object? dragStartBehavior = null,
-    Object? keyboardDismissBehavior = null,
-    Object? restorationId = freezed,
-    Object? clipBehavior = null,
-  }) {
-    return _then(_$StacGridViewImpl(
-      scrollDirection: null == scrollDirection
-          ? _value.scrollDirection
-          : scrollDirection // ignore: cast_nullable_to_non_nullable
-              as Axis,
-      reverse: null == reverse
-          ? _value.reverse
-          : reverse // ignore: cast_nullable_to_non_nullable
-              as bool,
-      primary: null == primary
-          ? _value.primary
-          : primary // ignore: cast_nullable_to_non_nullable
-              as bool,
-      physics: freezed == physics
-          ? _value.physics
-          : physics // ignore: cast_nullable_to_non_nullable
-              as StacScrollPhysics?,
-      shrinkWrap: null == shrinkWrap
-          ? _value.shrinkWrap
-          : shrinkWrap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      padding: freezed == padding
-          ? _value.padding
-          : padding // ignore: cast_nullable_to_non_nullable
-              as StacEdgeInsets?,
-      crossAxisCount: freezed == crossAxisCount
-          ? _value.crossAxisCount
-          : crossAxisCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      mainAxisSpacing: null == mainAxisSpacing
-          ? _value.mainAxisSpacing
-          : mainAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
-      crossAxisSpacing: null == crossAxisSpacing
-          ? _value.crossAxisSpacing
-          : crossAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
-      childAspectRatio: null == childAspectRatio
-          ? _value.childAspectRatio
-          : childAspectRatio // ignore: cast_nullable_to_non_nullable
-              as double,
-      mainAxisExtent: freezed == mainAxisExtent
-          ? _value.mainAxisExtent
-          : mainAxisExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
-      addAutomaticKeepAlives: null == addAutomaticKeepAlives
-          ? _value.addAutomaticKeepAlives
-          : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addRepaintBoundaries: null == addRepaintBoundaries
-          ? _value.addRepaintBoundaries
-          : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
-              as bool,
-      addSemanticIndexes: null == addSemanticIndexes
-          ? _value.addSemanticIndexes
-          : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
-              as bool,
-      cacheExtent: freezed == cacheExtent
-          ? _value.cacheExtent
-          : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
-      children: null == children
-          ? _value._children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-      semanticChildCount: freezed == semanticChildCount
-          ? _value.semanticChildCount
-          : semanticChildCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      dragStartBehavior: null == dragStartBehavior
-          ? _value.dragStartBehavior
-          : dragStartBehavior // ignore: cast_nullable_to_non_nullable
-              as DragStartBehavior,
-      keyboardDismissBehavior: null == keyboardDismissBehavior
-          ? _value.keyboardDismissBehavior
-          : keyboardDismissBehavior // ignore: cast_nullable_to_non_nullable
-              as ScrollViewKeyboardDismissBehavior,
-      restorationId: freezed == restorationId
-          ? _value.restorationId
-          : restorationId // ignore: cast_nullable_to_non_nullable
-              as String?,
-      clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
-          : clipBehavior // ignore: cast_nullable_to_non_nullable
-              as Clip,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacGridViewImpl implements _StacGridView {
-  const _$StacGridViewImpl(
+class _StacGridView implements StacGridView {
+  const _StacGridView(
       {this.scrollDirection = Axis.vertical,
       this.reverse = false,
       this.primary = false,
@@ -410,9 +321,8 @@ class _$StacGridViewImpl implements _StacGridView {
       this.restorationId,
       this.clipBehavior = Clip.hardEdge})
       : _children = children;
-
-  factory _$StacGridViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacGridViewImplFromJson(json);
+  factory _StacGridView.fromJson(Map<String, dynamic> json) =>
+      _$StacGridViewFromJson(json);
 
   @override
   @JsonKey()
@@ -477,16 +387,26 @@ class _$StacGridViewImpl implements _StacGridView {
   @JsonKey()
   final Clip clipBehavior;
 
+  /// Create a copy of StacGridView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacGridView(scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, padding: $padding, crossAxisCount: $crossAxisCount, mainAxisSpacing: $mainAxisSpacing, crossAxisSpacing: $crossAxisSpacing, childAspectRatio: $childAspectRatio, mainAxisExtent: $mainAxisExtent, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, children: $children, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, restorationId: $restorationId, clipBehavior: $clipBehavior)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacGridViewCopyWith<_StacGridView> get copyWith =>
+      __$StacGridViewCopyWithImpl<_StacGridView>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacGridViewToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacGridViewImpl &&
+            other is _StacGridView &&
             (identical(other.scrollDirection, scrollDirection) ||
                 other.scrollDirection == scrollDirection) &&
             (identical(other.reverse, reverse) || other.reverse == reverse) &&
@@ -554,96 +474,183 @@ class _$StacGridViewImpl implements _StacGridView {
         clipBehavior
       ]);
 
-  /// Create a copy of StacGridView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacGridViewImplCopyWith<_$StacGridViewImpl> get copyWith =>
-      __$$StacGridViewImplCopyWithImpl<_$StacGridViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacGridViewImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacGridView(scrollDirection: $scrollDirection, reverse: $reverse, primary: $primary, physics: $physics, shrinkWrap: $shrinkWrap, padding: $padding, crossAxisCount: $crossAxisCount, mainAxisSpacing: $mainAxisSpacing, crossAxisSpacing: $crossAxisSpacing, childAspectRatio: $childAspectRatio, mainAxisExtent: $mainAxisExtent, addAutomaticKeepAlives: $addAutomaticKeepAlives, addRepaintBoundaries: $addRepaintBoundaries, addSemanticIndexes: $addSemanticIndexes, cacheExtent: $cacheExtent, children: $children, semanticChildCount: $semanticChildCount, dragStartBehavior: $dragStartBehavior, keyboardDismissBehavior: $keyboardDismissBehavior, restorationId: $restorationId, clipBehavior: $clipBehavior)';
   }
 }
 
-abstract class _StacGridView implements StacGridView {
-  const factory _StacGridView(
-      {final Axis scrollDirection,
-      final bool reverse,
-      final bool primary,
-      final StacScrollPhysics? physics,
-      final bool shrinkWrap,
-      final StacEdgeInsets? padding,
-      final int? crossAxisCount,
-      final double mainAxisSpacing,
-      final double crossAxisSpacing,
-      final double childAspectRatio,
-      final double? mainAxisExtent,
-      final bool addAutomaticKeepAlives,
-      final bool addRepaintBoundaries,
-      final bool addSemanticIndexes,
-      final double? cacheExtent,
-      final List<Map<String, dynamic>> children,
-      final int? semanticChildCount,
-      final DragStartBehavior dragStartBehavior,
-      final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
-      final String? restorationId,
-      final Clip clipBehavior}) = _$StacGridViewImpl;
+/// @nodoc
+abstract mixin class _$StacGridViewCopyWith<$Res>
+    implements $StacGridViewCopyWith<$Res> {
+  factory _$StacGridViewCopyWith(
+          _StacGridView value, $Res Function(_StacGridView) _then) =
+      __$StacGridViewCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Axis scrollDirection,
+      bool reverse,
+      bool primary,
+      StacScrollPhysics? physics,
+      bool shrinkWrap,
+      StacEdgeInsets? padding,
+      int? crossAxisCount,
+      double mainAxisSpacing,
+      double crossAxisSpacing,
+      double childAspectRatio,
+      double? mainAxisExtent,
+      bool addAutomaticKeepAlives,
+      bool addRepaintBoundaries,
+      bool addSemanticIndexes,
+      double? cacheExtent,
+      List<Map<String, dynamic>> children,
+      int? semanticChildCount,
+      DragStartBehavior dragStartBehavior,
+      ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
+      String? restorationId,
+      Clip clipBehavior});
 
-  factory _StacGridView.fromJson(Map<String, dynamic> json) =
-      _$StacGridViewImpl.fromJson;
+  @override
+  $StacEdgeInsetsCopyWith<$Res>? get padding;
+}
 
-  @override
-  Axis get scrollDirection;
-  @override
-  bool get reverse;
-  @override
-  bool get primary;
-  @override
-  StacScrollPhysics? get physics;
-  @override
-  bool get shrinkWrap;
-  @override
-  StacEdgeInsets? get padding;
-  @override
-  int? get crossAxisCount;
-  @override
-  double get mainAxisSpacing;
-  @override
-  double get crossAxisSpacing;
-  @override
-  double get childAspectRatio;
-  @override
-  double? get mainAxisExtent;
-  @override
-  bool get addAutomaticKeepAlives;
-  @override
-  bool get addRepaintBoundaries;
-  @override
-  bool get addSemanticIndexes;
-  @override
-  double? get cacheExtent;
-  @override
-  List<Map<String, dynamic>> get children;
-  @override
-  int? get semanticChildCount;
-  @override
-  DragStartBehavior get dragStartBehavior;
-  @override
-  ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
-  @override
-  String? get restorationId;
-  @override
-  Clip get clipBehavior;
+/// @nodoc
+class __$StacGridViewCopyWithImpl<$Res>
+    implements _$StacGridViewCopyWith<$Res> {
+  __$StacGridViewCopyWithImpl(this._self, this._then);
+
+  final _StacGridView _self;
+  final $Res Function(_StacGridView) _then;
 
   /// Create a copy of StacGridView
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacGridViewImplCopyWith<_$StacGridViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? scrollDirection = null,
+    Object? reverse = null,
+    Object? primary = null,
+    Object? physics = freezed,
+    Object? shrinkWrap = null,
+    Object? padding = freezed,
+    Object? crossAxisCount = freezed,
+    Object? mainAxisSpacing = null,
+    Object? crossAxisSpacing = null,
+    Object? childAspectRatio = null,
+    Object? mainAxisExtent = freezed,
+    Object? addAutomaticKeepAlives = null,
+    Object? addRepaintBoundaries = null,
+    Object? addSemanticIndexes = null,
+    Object? cacheExtent = freezed,
+    Object? children = null,
+    Object? semanticChildCount = freezed,
+    Object? dragStartBehavior = null,
+    Object? keyboardDismissBehavior = null,
+    Object? restorationId = freezed,
+    Object? clipBehavior = null,
+  }) {
+    return _then(_StacGridView(
+      scrollDirection: null == scrollDirection
+          ? _self.scrollDirection
+          : scrollDirection // ignore: cast_nullable_to_non_nullable
+              as Axis,
+      reverse: null == reverse
+          ? _self.reverse
+          : reverse // ignore: cast_nullable_to_non_nullable
+              as bool,
+      primary: null == primary
+          ? _self.primary
+          : primary // ignore: cast_nullable_to_non_nullable
+              as bool,
+      physics: freezed == physics
+          ? _self.physics
+          : physics // ignore: cast_nullable_to_non_nullable
+              as StacScrollPhysics?,
+      shrinkWrap: null == shrinkWrap
+          ? _self.shrinkWrap
+          : shrinkWrap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      padding: freezed == padding
+          ? _self.padding
+          : padding // ignore: cast_nullable_to_non_nullable
+              as StacEdgeInsets?,
+      crossAxisCount: freezed == crossAxisCount
+          ? _self.crossAxisCount
+          : crossAxisCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      mainAxisSpacing: null == mainAxisSpacing
+          ? _self.mainAxisSpacing
+          : mainAxisSpacing // ignore: cast_nullable_to_non_nullable
+              as double,
+      crossAxisSpacing: null == crossAxisSpacing
+          ? _self.crossAxisSpacing
+          : crossAxisSpacing // ignore: cast_nullable_to_non_nullable
+              as double,
+      childAspectRatio: null == childAspectRatio
+          ? _self.childAspectRatio
+          : childAspectRatio // ignore: cast_nullable_to_non_nullable
+              as double,
+      mainAxisExtent: freezed == mainAxisExtent
+          ? _self.mainAxisExtent
+          : mainAxisExtent // ignore: cast_nullable_to_non_nullable
+              as double?,
+      addAutomaticKeepAlives: null == addAutomaticKeepAlives
+          ? _self.addAutomaticKeepAlives
+          : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
+              as bool,
+      addRepaintBoundaries: null == addRepaintBoundaries
+          ? _self.addRepaintBoundaries
+          : addRepaintBoundaries // ignore: cast_nullable_to_non_nullable
+              as bool,
+      addSemanticIndexes: null == addSemanticIndexes
+          ? _self.addSemanticIndexes
+          : addSemanticIndexes // ignore: cast_nullable_to_non_nullable
+              as bool,
+      cacheExtent: freezed == cacheExtent
+          ? _self.cacheExtent
+          : cacheExtent // ignore: cast_nullable_to_non_nullable
+              as double?,
+      children: null == children
+          ? _self._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+      semanticChildCount: freezed == semanticChildCount
+          ? _self.semanticChildCount
+          : semanticChildCount // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dragStartBehavior: null == dragStartBehavior
+          ? _self.dragStartBehavior
+          : dragStartBehavior // ignore: cast_nullable_to_non_nullable
+              as DragStartBehavior,
+      keyboardDismissBehavior: null == keyboardDismissBehavior
+          ? _self.keyboardDismissBehavior
+          : keyboardDismissBehavior // ignore: cast_nullable_to_non_nullable
+              as ScrollViewKeyboardDismissBehavior,
+      restorationId: freezed == restorationId
+          ? _self.restorationId
+          : restorationId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      clipBehavior: null == clipBehavior
+          ? _self.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
+    ));
+  }
+
+  /// Create a copy of StacGridView
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacEdgeInsetsCopyWith<$Res>? get padding {
+    if (_self.padding == null) {
+      return null;
+    }
+
+    return $StacEdgeInsetsCopyWith<$Res>(_self.padding!, (value) {
+      return _then(_self.copyWith(padding: value));
+    });
+  }
 }
+
+// dart format on

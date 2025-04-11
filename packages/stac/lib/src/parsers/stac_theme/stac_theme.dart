@@ -21,7 +21,7 @@ part 'stac_theme.freezed.dart';
 part 'stac_theme.g.dart';
 
 @freezed
-class StacTheme with _$StacTheme {
+abstract class StacTheme with _$StacTheme {
   const factory StacTheme({
     bool? applyElevationOverlayColor,
     StacInputDecorationTheme? inputDecorationTheme,

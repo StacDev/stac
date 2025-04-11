@@ -7,7 +7,7 @@ part 'stac_align.freezed.dart';
 part 'stac_align.g.dart';
 
 @freezed
-class StacAlign with _$StacAlign {
+abstract class StacAlign with _$StacAlign {
   const factory StacAlign({
     @Default(StacAlignmentDirectional.center)
     StacAlignmentDirectional alignment,

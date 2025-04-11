@@ -4,7 +4,7 @@ part 'counter_screen.freezed.dart';
 part 'counter_screen.g.dart';
 
 @freezed
-class CounterScreen with _$CounterScreen {
+abstract class CounterScreen with _$CounterScreen {
   const factory CounterScreen({
     required String title,
     required String description,

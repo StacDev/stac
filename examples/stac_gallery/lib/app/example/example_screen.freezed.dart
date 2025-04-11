@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,85 +10,70 @@ part of 'example_screen.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-ExampleScreen _$ExampleScreenFromJson(Map<String, dynamic> json) {
-  return _ExampleScreen.fromJson(json);
-}
 
 /// @nodoc
 mixin _$ExampleScreen {
-  String get assetPath => throw _privateConstructorUsedError;
+  String get assetPath;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $ExampleScreenCopyWith<ExampleScreen> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ExampleScreenCopyWith<$Res> {
-  factory $ExampleScreenCopyWith(
-          ExampleScreen value, $Res Function(ExampleScreen) then) =
-      _$ExampleScreenCopyWithImpl<$Res, ExampleScreen>;
-  @useResult
-  $Res call({String assetPath});
-}
-
-/// @nodoc
-class _$ExampleScreenCopyWithImpl<$Res, $Val extends ExampleScreen>
-    implements $ExampleScreenCopyWith<$Res> {
-  _$ExampleScreenCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of ExampleScreen
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $ExampleScreenCopyWith<ExampleScreen> get copyWith =>
+      _$ExampleScreenCopyWithImpl<ExampleScreen>(
+          this as ExampleScreen, _$identity);
+
+  /// Serializes this ExampleScreen to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? assetPath = null,
-  }) {
-    return _then(_value.copyWith(
-      assetPath: null == assetPath
-          ? _value.assetPath
-          : assetPath // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ExampleScreen &&
+            (identical(other.assetPath, assetPath) ||
+                other.assetPath == assetPath));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, assetPath);
+
+  @override
+  String toString() {
+    return 'ExampleScreen(assetPath: $assetPath)';
   }
 }
 
 /// @nodoc
-abstract class _$$ExampleScreenImplCopyWith<$Res>
-    implements $ExampleScreenCopyWith<$Res> {
-  factory _$$ExampleScreenImplCopyWith(
-          _$ExampleScreenImpl value, $Res Function(_$ExampleScreenImpl) then) =
-      __$$ExampleScreenImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $ExampleScreenCopyWith<$Res> {
+  factory $ExampleScreenCopyWith(
+          ExampleScreen value, $Res Function(ExampleScreen) _then) =
+      _$ExampleScreenCopyWithImpl;
   @useResult
   $Res call({String assetPath});
 }
 
 /// @nodoc
-class __$$ExampleScreenImplCopyWithImpl<$Res>
-    extends _$ExampleScreenCopyWithImpl<$Res, _$ExampleScreenImpl>
-    implements _$$ExampleScreenImplCopyWith<$Res> {
-  __$$ExampleScreenImplCopyWithImpl(
-      _$ExampleScreenImpl _value, $Res Function(_$ExampleScreenImpl) _then)
-      : super(_value, _then);
+class _$ExampleScreenCopyWithImpl<$Res>
+    implements $ExampleScreenCopyWith<$Res> {
+  _$ExampleScreenCopyWithImpl(this._self, this._then);
 
+  final ExampleScreen _self;
+  final $Res Function(ExampleScreen) _then;
+
+  /// Create a copy of ExampleScreen
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? assetPath = null,
   }) {
-    return _then(_$ExampleScreenImpl(
+    return _then(_self.copyWith(
       assetPath: null == assetPath
-          ? _value.assetPath
+          ? _self.assetPath
           : assetPath // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -96,58 +82,81 @@ class __$$ExampleScreenImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ExampleScreenImpl implements _ExampleScreen {
-  const _$ExampleScreenImpl({required this.assetPath});
-
-  factory _$ExampleScreenImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ExampleScreenImplFromJson(json);
+class _ExampleScreen implements ExampleScreen {
+  const _ExampleScreen({required this.assetPath});
+  factory _ExampleScreen.fromJson(Map<String, dynamic> json) =>
+      _$ExampleScreenFromJson(json);
 
   @override
   final String assetPath;
 
+  /// Create a copy of ExampleScreen
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'ExampleScreen(assetPath: $assetPath)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ExampleScreenCopyWith<_ExampleScreen> get copyWith =>
+      __$ExampleScreenCopyWithImpl<_ExampleScreen>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$ExampleScreenToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ExampleScreenImpl &&
+            other is _ExampleScreen &&
             (identical(other.assetPath, assetPath) ||
                 other.assetPath == assetPath));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, assetPath);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$ExampleScreenImplCopyWith<_$ExampleScreenImpl> get copyWith =>
-      __$$ExampleScreenImplCopyWithImpl<_$ExampleScreenImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExampleScreenImplToJson(
-      this,
-    );
+  String toString() {
+    return 'ExampleScreen(assetPath: $assetPath)';
   }
 }
 
-abstract class _ExampleScreen implements ExampleScreen {
-  const factory _ExampleScreen({required final String assetPath}) =
-      _$ExampleScreenImpl;
-
-  factory _ExampleScreen.fromJson(Map<String, dynamic> json) =
-      _$ExampleScreenImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$ExampleScreenCopyWith<$Res>
+    implements $ExampleScreenCopyWith<$Res> {
+  factory _$ExampleScreenCopyWith(
+          _ExampleScreen value, $Res Function(_ExampleScreen) _then) =
+      __$ExampleScreenCopyWithImpl;
   @override
-  String get assetPath;
-  @override
-  @JsonKey(ignore: true)
-  _$$ExampleScreenImplCopyWith<_$ExampleScreenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @useResult
+  $Res call({String assetPath});
 }
+
+/// @nodoc
+class __$ExampleScreenCopyWithImpl<$Res>
+    implements _$ExampleScreenCopyWith<$Res> {
+  __$ExampleScreenCopyWithImpl(this._self, this._then);
+
+  final _ExampleScreen _self;
+  final $Res Function(_ExampleScreen) _then;
+
+  /// Create a copy of ExampleScreen
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? assetPath = null,
+  }) {
+    return _then(_ExampleScreen(
+      assetPath: null == assetPath
+          ? _self.assetPath
+          : assetPath // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

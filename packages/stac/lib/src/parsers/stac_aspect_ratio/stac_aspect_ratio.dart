@@ -6,7 +6,7 @@ part 'stac_aspect_ratio.freezed.dart';
 part 'stac_aspect_ratio.g.dart';
 
 @freezed
-class StacAspectRatio with _$StacAspectRatio {
+abstract class StacAspectRatio with _$StacAspectRatio {
   const factory StacAspectRatio({
     @Default(1) double aspectRatio,
     Map<String, dynamic>? child,

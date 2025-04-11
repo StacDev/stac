@@ -9,7 +9,7 @@ part 'stac_sliver_app_bar.freezed.dart';
 part 'stac_sliver_app_bar.g.dart';
 
 @freezed
-class StacSliverAppBar with _$StacSliverAppBar {
+abstract class StacSliverAppBar with _$StacSliverAppBar {
   const factory StacSliverAppBar({
     Map<String, dynamic>? leading,
     @Default(true) bool automaticallyImplyLeading,

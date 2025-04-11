@@ -7,7 +7,7 @@ part 'stac_bottom_app_bar_theme.freezed.dart';
 part 'stac_bottom_app_bar_theme.g.dart';
 
 @freezed
-class StacBottomAppBarTheme with _$StacBottomAppBarTheme {
+abstract class StacBottomAppBarTheme with _$StacBottomAppBarTheme {
   const factory StacBottomAppBarTheme({
     String? color,
     double? elevation,

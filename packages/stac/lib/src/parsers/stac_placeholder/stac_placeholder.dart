@@ -6,7 +6,7 @@ part 'stac_placeholder.freezed.dart';
 part 'stac_placeholder.g.dart';
 
 @freezed
-class StacPlaceholder with _$StacPlaceholder {
+abstract class StacPlaceholder with _$StacPlaceholder {
   const factory StacPlaceholder({
     @Default(2.0) double fallbackWidth,
     @Default(400.0) double fallbackHeight,

@@ -7,7 +7,7 @@ part 'stac_auto_complete.freezed.dart';
 part 'stac_auto_complete.g.dart';
 
 @freezed
-class StacAutoComplete with _$StacAutoComplete {
+abstract class StacAutoComplete with _$StacAutoComplete {
   const factory StacAutoComplete({
     required List<String> options,
     Map<String, dynamic>? onSelected,

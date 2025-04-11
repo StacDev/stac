@@ -5,7 +5,7 @@ part 'stac_visual_density.freezed.dart';
 part 'stac_visual_density.g.dart';
 
 @freezed
-class StacVisualDensity with _$StacVisualDensity {
+abstract class StacVisualDensity with _$StacVisualDensity {
   const factory StacVisualDensity({
     required double horizontal,
     required double vertical,

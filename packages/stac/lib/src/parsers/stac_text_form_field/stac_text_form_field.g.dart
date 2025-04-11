@@ -6,9 +6,8 @@ part of 'stac_text_form_field.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacTextFormFieldImpl _$$StacTextFormFieldImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacTextFormFieldImpl(
+_StacTextFormField _$StacTextFormFieldFromJson(Map<String, dynamic> json) =>
+    _StacTextFormField(
       id: json['id'] as String?,
       compareId: json['compareId'] as String?,
       decoration: json['decoration'] == null
@@ -75,8 +74,7 @@ _$StacTextFormFieldImpl _$$StacTextFormFieldImplFromJson(
           const [],
     );
 
-Map<String, dynamic> _$$StacTextFormFieldImplToJson(
-        _$StacTextFormFieldImpl instance) =>
+Map<String, dynamic> _$StacTextFormFieldToJson(_StacTextFormField instance) =>
     <String, dynamic>{
       'id': instance.id,
       'compareId': instance.compareId,

@@ -8,7 +8,7 @@ part 'stac_floating_action_button.freezed.dart';
 part 'stac_floating_action_button.g.dart';
 
 @freezed
-class StacFloatingActionButton with _$StacFloatingActionButton {
+abstract class StacFloatingActionButton with _$StacFloatingActionButton {
   const factory StacFloatingActionButton({
     Map<String, dynamic>? onPressed,
     StacTextStyle? textStyle,

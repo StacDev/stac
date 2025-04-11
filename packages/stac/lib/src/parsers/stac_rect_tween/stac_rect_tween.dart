@@ -6,7 +6,7 @@ part 'stac_rect_tween.freezed.dart';
 part 'stac_rect_tween.g.dart';
 
 @freezed
-class StacRectTween with _$StacRectTween {
+abstract class StacRectTween with _$StacRectTween {
   const factory StacRectTween({
     required String type,
     StacRect? begin,

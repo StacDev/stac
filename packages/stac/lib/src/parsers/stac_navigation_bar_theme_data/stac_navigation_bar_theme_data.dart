@@ -9,7 +9,7 @@ part 'stac_navigation_bar_theme_data.freezed.dart';
 part 'stac_navigation_bar_theme_data.g.dart';
 
 @freezed
-class StacNavigationBarThemeData with _$StacNavigationBarThemeData {
+abstract class StacNavigationBarThemeData with _$StacNavigationBarThemeData {
   const factory StacNavigationBarThemeData({
     double? height,
     String? backgroundColor,

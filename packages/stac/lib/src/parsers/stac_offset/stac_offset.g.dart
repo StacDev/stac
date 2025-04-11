@@ -6,13 +6,12 @@ part of 'stac_offset.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacOffsetImpl _$$StacOffsetImplFromJson(Map<String, dynamic> json) =>
-    _$StacOffsetImpl(
+_StacOffset _$StacOffsetFromJson(Map<String, dynamic> json) => _StacOffset(
       dx: (json['dx'] as num).toDouble(),
       dy: (json['dy'] as num).toDouble(),
     );
 
-Map<String, dynamic> _$$StacOffsetImplToJson(_$StacOffsetImpl instance) =>
+Map<String, dynamic> _$StacOffsetToJson(_StacOffset instance) =>
     <String, dynamic>{
       'dx': instance.dx,
       'dy': instance.dy,

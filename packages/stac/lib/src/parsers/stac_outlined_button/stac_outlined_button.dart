@@ -8,7 +8,7 @@ part 'stac_outlined_button.freezed.dart';
 part 'stac_outlined_button.g.dart';
 
 @freezed
-class StacOutlinedButton with _$StacOutlinedButton {
+abstract class StacOutlinedButton with _$StacOutlinedButton {
   const factory StacOutlinedButton({
     Map<String, dynamic>? onPressed,
     Map<String, dynamic>? onLongPress,

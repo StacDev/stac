@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,82 +10,56 @@ part of 'stac_spacer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacSpacer _$StacSpacerFromJson(Map<String, dynamic> json) {
-  return _StacSpacer.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacSpacer {
-  int get flex => throw _privateConstructorUsedError;
-
-  /// Serializes this StacSpacer to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  int get flex;
 
   /// Create a copy of StacSpacer
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacSpacerCopyWith<StacSpacer> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacSpacerCopyWith<$Res> {
-  factory $StacSpacerCopyWith(
-          StacSpacer value, $Res Function(StacSpacer) then) =
-      _$StacSpacerCopyWithImpl<$Res, StacSpacer>;
-  @useResult
-  $Res call({int flex});
-}
-
-/// @nodoc
-class _$StacSpacerCopyWithImpl<$Res, $Val extends StacSpacer>
-    implements $StacSpacerCopyWith<$Res> {
-  _$StacSpacerCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacSpacer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacSpacerCopyWith<StacSpacer> get copyWith =>
+      _$StacSpacerCopyWithImpl<StacSpacer>(this as StacSpacer, _$identity);
+
+  /// Serializes this StacSpacer to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? flex = null,
-  }) {
-    return _then(_value.copyWith(
-      flex: null == flex
-          ? _value.flex
-          : flex // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacSpacer &&
+            (identical(other.flex, flex) || other.flex == flex));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, flex);
+
+  @override
+  String toString() {
+    return 'StacSpacer(flex: $flex)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacSpacerImplCopyWith<$Res>
-    implements $StacSpacerCopyWith<$Res> {
-  factory _$$StacSpacerImplCopyWith(
-          _$StacSpacerImpl value, $Res Function(_$StacSpacerImpl) then) =
-      __$$StacSpacerImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacSpacerCopyWith<$Res> {
+  factory $StacSpacerCopyWith(
+          StacSpacer value, $Res Function(StacSpacer) _then) =
+      _$StacSpacerCopyWithImpl;
   @useResult
   $Res call({int flex});
 }
 
 /// @nodoc
-class __$$StacSpacerImplCopyWithImpl<$Res>
-    extends _$StacSpacerCopyWithImpl<$Res, _$StacSpacerImpl>
-    implements _$$StacSpacerImplCopyWith<$Res> {
-  __$$StacSpacerImplCopyWithImpl(
-      _$StacSpacerImpl _value, $Res Function(_$StacSpacerImpl) _then)
-      : super(_value, _then);
+class _$StacSpacerCopyWithImpl<$Res> implements $StacSpacerCopyWith<$Res> {
+  _$StacSpacerCopyWithImpl(this._self, this._then);
+
+  final StacSpacer _self;
+  final $Res Function(StacSpacer) _then;
 
   /// Create a copy of StacSpacer
   /// with the given fields replaced by the non-null parameter values.
@@ -93,9 +68,9 @@ class __$$StacSpacerImplCopyWithImpl<$Res>
   $Res call({
     Object? flex = null,
   }) {
-    return _then(_$StacSpacerImpl(
+    return _then(_self.copyWith(
       flex: null == flex
-          ? _value.flex
+          ? _self.flex
           : flex // ignore: cast_nullable_to_non_nullable
               as int,
     ));
@@ -104,26 +79,35 @@ class __$$StacSpacerImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacSpacerImpl implements _StacSpacer {
-  const _$StacSpacerImpl({this.flex = 1});
-
-  factory _$StacSpacerImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacSpacerImplFromJson(json);
+class _StacSpacer implements StacSpacer {
+  const _StacSpacer({this.flex = 1});
+  factory _StacSpacer.fromJson(Map<String, dynamic> json) =>
+      _$StacSpacerFromJson(json);
 
   @override
   @JsonKey()
   final int flex;
 
+  /// Create a copy of StacSpacer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacSpacer(flex: $flex)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacSpacerCopyWith<_StacSpacer> get copyWith =>
+      __$StacSpacerCopyWithImpl<_StacSpacer>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacSpacerToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacSpacerImpl &&
+            other is _StacSpacer &&
             (identical(other.flex, flex) || other.flex == flex));
   }
 
@@ -131,35 +115,44 @@ class _$StacSpacerImpl implements _StacSpacer {
   @override
   int get hashCode => Object.hash(runtimeType, flex);
 
-  /// Create a copy of StacSpacer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacSpacerImplCopyWith<_$StacSpacerImpl> get copyWith =>
-      __$$StacSpacerImplCopyWithImpl<_$StacSpacerImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacSpacerImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacSpacer(flex: $flex)';
   }
 }
 
-abstract class _StacSpacer implements StacSpacer {
-  const factory _StacSpacer({final int flex}) = _$StacSpacerImpl;
-
-  factory _StacSpacer.fromJson(Map<String, dynamic> json) =
-      _$StacSpacerImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$StacSpacerCopyWith<$Res>
+    implements $StacSpacerCopyWith<$Res> {
+  factory _$StacSpacerCopyWith(
+          _StacSpacer value, $Res Function(_StacSpacer) _then) =
+      __$StacSpacerCopyWithImpl;
   @override
-  int get flex;
+  @useResult
+  $Res call({int flex});
+}
+
+/// @nodoc
+class __$StacSpacerCopyWithImpl<$Res> implements _$StacSpacerCopyWith<$Res> {
+  __$StacSpacerCopyWithImpl(this._self, this._then);
+
+  final _StacSpacer _self;
+  final $Res Function(_StacSpacer) _then;
 
   /// Create a copy of StacSpacer
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacSpacerImplCopyWith<_$StacSpacerImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? flex = null,
+  }) {
+    return _then(_StacSpacer(
+      flex: null == flex
+          ? _self.flex
+          : flex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
+
+// dart format on

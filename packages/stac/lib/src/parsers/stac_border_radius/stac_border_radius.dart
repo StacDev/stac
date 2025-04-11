@@ -5,7 +5,7 @@ part 'stac_border_radius.freezed.dart';
 part 'stac_border_radius.g.dart';
 
 @freezed
-class StacBorderRadius with _$StacBorderRadius {
+abstract class StacBorderRadius with _$StacBorderRadius {
   const factory StacBorderRadius({
     @Default(0.0) double topLeft,
     @Default(0.0) double topRight,

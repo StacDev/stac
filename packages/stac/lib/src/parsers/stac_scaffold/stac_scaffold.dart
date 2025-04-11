@@ -8,7 +8,7 @@ part 'stac_scaffold.freezed.dart';
 part 'stac_scaffold.g.dart';
 
 @freezed
-class StacScaffold with _$StacScaffold {
+abstract class StacScaffold with _$StacScaffold {
   const factory StacScaffold({
     Map<String, dynamic>? appBar,
     Map<String, dynamic>? body,

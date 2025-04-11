@@ -6,8 +6,8 @@ part of 'stac_page_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacPageViewImpl _$$StacPageViewImplFromJson(Map<String, dynamic> json) =>
-    _$StacPageViewImpl(
+_StacPageView _$StacPageViewFromJson(Map<String, dynamic> json) =>
+    _StacPageView(
       scrollDirection:
           $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
               Axis.horizontal,
@@ -32,7 +32,7 @@ _$StacPageViewImpl _$$StacPageViewImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$StacPageViewImplToJson(_$StacPageViewImpl instance) =>
+Map<String, dynamic> _$StacPageViewToJson(_StacPageView instance) =>
     <String, dynamic>{
       'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
       'reverse': instance.reverse,

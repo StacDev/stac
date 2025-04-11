@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,100 +10,65 @@ part of 'counter_screen.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CounterScreen _$CounterScreenFromJson(Map<String, dynamic> json) {
-  return _CounterScreen.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CounterScreen {
-  String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  int get initialCount => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onIncrement => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onDecrement => throw _privateConstructorUsedError;
-
-  /// Serializes this CounterScreen to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get title;
+  String get description;
+  int get initialCount;
+  Map<String, dynamic>? get onIncrement;
+  Map<String, dynamic>? get onDecrement;
 
   /// Create a copy of CounterScreen
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CounterScreenCopyWith<CounterScreen> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CounterScreenCopyWith<$Res> {
-  factory $CounterScreenCopyWith(
-          CounterScreen value, $Res Function(CounterScreen) then) =
-      _$CounterScreenCopyWithImpl<$Res, CounterScreen>;
-  @useResult
-  $Res call(
-      {String title,
-      String description,
-      int initialCount,
-      Map<String, dynamic>? onIncrement,
-      Map<String, dynamic>? onDecrement});
-}
-
-/// @nodoc
-class _$CounterScreenCopyWithImpl<$Res, $Val extends CounterScreen>
-    implements $CounterScreenCopyWith<$Res> {
-  _$CounterScreenCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CounterScreen
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CounterScreenCopyWith<CounterScreen> get copyWith =>
+      _$CounterScreenCopyWithImpl<CounterScreen>(
+          this as CounterScreen, _$identity);
+
+  /// Serializes this CounterScreen to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? title = null,
-    Object? description = null,
-    Object? initialCount = null,
-    Object? onIncrement = freezed,
-    Object? onDecrement = freezed,
-  }) {
-    return _then(_value.copyWith(
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      initialCount: null == initialCount
-          ? _value.initialCount
-          : initialCount // ignore: cast_nullable_to_non_nullable
-              as int,
-      onIncrement: freezed == onIncrement
-          ? _value.onIncrement
-          : onIncrement // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      onDecrement: freezed == onDecrement
-          ? _value.onDecrement
-          : onDecrement // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CounterScreen &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            (identical(other.initialCount, initialCount) ||
+                other.initialCount == initialCount) &&
+            const DeepCollectionEquality()
+                .equals(other.onIncrement, onIncrement) &&
+            const DeepCollectionEquality()
+                .equals(other.onDecrement, onDecrement));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      title,
+      description,
+      initialCount,
+      const DeepCollectionEquality().hash(onIncrement),
+      const DeepCollectionEquality().hash(onDecrement));
+
+  @override
+  String toString() {
+    return 'CounterScreen(title: $title, description: $description, initialCount: $initialCount, onIncrement: $onIncrement, onDecrement: $onDecrement)';
   }
 }
 
 /// @nodoc
-abstract class _$$CounterScreenImplCopyWith<$Res>
-    implements $CounterScreenCopyWith<$Res> {
-  factory _$$CounterScreenImplCopyWith(
-          _$CounterScreenImpl value, $Res Function(_$CounterScreenImpl) then) =
-      __$$CounterScreenImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CounterScreenCopyWith<$Res> {
+  factory $CounterScreenCopyWith(
+          CounterScreen value, $Res Function(CounterScreen) _then) =
+      _$CounterScreenCopyWithImpl;
   @useResult
   $Res call(
       {String title,
@@ -113,12 +79,12 @@ abstract class _$$CounterScreenImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CounterScreenImplCopyWithImpl<$Res>
-    extends _$CounterScreenCopyWithImpl<$Res, _$CounterScreenImpl>
-    implements _$$CounterScreenImplCopyWith<$Res> {
-  __$$CounterScreenImplCopyWithImpl(
-      _$CounterScreenImpl _value, $Res Function(_$CounterScreenImpl) _then)
-      : super(_value, _then);
+class _$CounterScreenCopyWithImpl<$Res>
+    implements $CounterScreenCopyWith<$Res> {
+  _$CounterScreenCopyWithImpl(this._self, this._then);
+
+  final CounterScreen _self;
+  final $Res Function(CounterScreen) _then;
 
   /// Create a copy of CounterScreen
   /// with the given fields replaced by the non-null parameter values.
@@ -131,25 +97,25 @@ class __$$CounterScreenImplCopyWithImpl<$Res>
     Object? onIncrement = freezed,
     Object? onDecrement = freezed,
   }) {
-    return _then(_$CounterScreenImpl(
+    return _then(_self.copyWith(
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
-          ? _value.description
+          ? _self.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
       initialCount: null == initialCount
-          ? _value.initialCount
+          ? _self.initialCount
           : initialCount // ignore: cast_nullable_to_non_nullable
               as int,
       onIncrement: freezed == onIncrement
-          ? _value._onIncrement
+          ? _self.onIncrement
           : onIncrement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       onDecrement: freezed == onDecrement
-          ? _value._onDecrement
+          ? _self.onDecrement
           : onDecrement // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -158,8 +124,8 @@ class __$$CounterScreenImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CounterScreenImpl implements _CounterScreen {
-  const _$CounterScreenImpl(
+class _CounterScreen implements CounterScreen {
+  const _CounterScreen(
       {required this.title,
       required this.description,
       this.initialCount = 0,
@@ -167,9 +133,8 @@ class _$CounterScreenImpl implements _CounterScreen {
       final Map<String, dynamic>? onDecrement})
       : _onIncrement = onIncrement,
         _onDecrement = onDecrement;
-
-  factory _$CounterScreenImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CounterScreenImplFromJson(json);
+  factory _CounterScreen.fromJson(Map<String, dynamic> json) =>
+      _$CounterScreenFromJson(json);
 
   @override
   final String title;
@@ -198,16 +163,26 @@ class _$CounterScreenImpl implements _CounterScreen {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of CounterScreen
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CounterScreen(title: $title, description: $description, initialCount: $initialCount, onIncrement: $onIncrement, onDecrement: $onDecrement)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CounterScreenCopyWith<_CounterScreen> get copyWith =>
+      __$CounterScreenCopyWithImpl<_CounterScreen>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CounterScreenToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CounterScreenImpl &&
+            other is _CounterScreen &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -229,48 +204,70 @@ class _$CounterScreenImpl implements _CounterScreen {
       const DeepCollectionEquality().hash(_onIncrement),
       const DeepCollectionEquality().hash(_onDecrement));
 
-  /// Create a copy of CounterScreen
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CounterScreenImplCopyWith<_$CounterScreenImpl> get copyWith =>
-      __$$CounterScreenImplCopyWithImpl<_$CounterScreenImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CounterScreenImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CounterScreen(title: $title, description: $description, initialCount: $initialCount, onIncrement: $onIncrement, onDecrement: $onDecrement)';
   }
 }
 
-abstract class _CounterScreen implements CounterScreen {
-  const factory _CounterScreen(
-      {required final String title,
-      required final String description,
-      final int initialCount,
-      final Map<String, dynamic>? onIncrement,
-      final Map<String, dynamic>? onDecrement}) = _$CounterScreenImpl;
+/// @nodoc
+abstract mixin class _$CounterScreenCopyWith<$Res>
+    implements $CounterScreenCopyWith<$Res> {
+  factory _$CounterScreenCopyWith(
+          _CounterScreen value, $Res Function(_CounterScreen) _then) =
+      __$CounterScreenCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String title,
+      String description,
+      int initialCount,
+      Map<String, dynamic>? onIncrement,
+      Map<String, dynamic>? onDecrement});
+}
 
-  factory _CounterScreen.fromJson(Map<String, dynamic> json) =
-      _$CounterScreenImpl.fromJson;
+/// @nodoc
+class __$CounterScreenCopyWithImpl<$Res>
+    implements _$CounterScreenCopyWith<$Res> {
+  __$CounterScreenCopyWithImpl(this._self, this._then);
 
-  @override
-  String get title;
-  @override
-  String get description;
-  @override
-  int get initialCount;
-  @override
-  Map<String, dynamic>? get onIncrement;
-  @override
-  Map<String, dynamic>? get onDecrement;
+  final _CounterScreen _self;
+  final $Res Function(_CounterScreen) _then;
 
   /// Create a copy of CounterScreen
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CounterScreenImplCopyWith<_$CounterScreenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? title = null,
+    Object? description = null,
+    Object? initialCount = null,
+    Object? onIncrement = freezed,
+    Object? onDecrement = freezed,
+  }) {
+    return _then(_CounterScreen(
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _self.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      initialCount: null == initialCount
+          ? _self.initialCount
+          : initialCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      onIncrement: freezed == onIncrement
+          ? _self._onIncrement
+          : onIncrement // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onDecrement: freezed == onDecrement
+          ? _self._onDecrement
+          : onDecrement // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

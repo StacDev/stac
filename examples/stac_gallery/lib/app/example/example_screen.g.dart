@@ -6,12 +6,12 @@ part of 'example_screen.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExampleScreenImpl _$$ExampleScreenImplFromJson(Map<String, dynamic> json) =>
-    _$ExampleScreenImpl(
+_ExampleScreen _$ExampleScreenFromJson(Map<String, dynamic> json) =>
+    _ExampleScreen(
       assetPath: json['assetPath'] as String,
     );
 
-Map<String, dynamic> _$$ExampleScreenImplToJson(_$ExampleScreenImpl instance) =>
+Map<String, dynamic> _$ExampleScreenToJson(_ExampleScreen instance) =>
     <String, dynamic>{
       'assetPath': instance.assetPath,
     };

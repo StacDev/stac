@@ -10,7 +10,7 @@ part 'stac_dialog_theme.freezed.dart';
 part 'stac_dialog_theme.g.dart';
 
 @freezed
-class StacDialogTheme with _$StacDialogTheme {
+abstract class StacDialogTheme with _$StacDialogTheme {
   const factory StacDialogTheme({
     String? backgroundColor,
     double? elevation,

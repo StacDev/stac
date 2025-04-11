@@ -11,7 +11,7 @@ part 'stac_box_decoration.freezed.dart';
 part 'stac_box_decoration.g.dart';
 
 @freezed
-class StacBoxDecoration with _$StacBoxDecoration {
+abstract class StacBoxDecoration with _$StacBoxDecoration {
   const factory StacBoxDecoration({
     String? color,
     BlendMode? backgroundBlendMode,

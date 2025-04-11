@@ -7,7 +7,7 @@ part 'stac_safe_area.freezed.dart';
 part 'stac_safe_area.g.dart';
 
 @freezed
-class StacSafeArea with _$StacSafeArea {
+abstract class StacSafeArea with _$StacSafeArea {
   const factory StacSafeArea({
     Map<String, dynamic>? child,
     @Default(true) bool left,

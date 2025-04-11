@@ -6,8 +6,8 @@ part of 'stac_text_style.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacTextStyleImpl _$$StacTextStyleImplFromJson(Map<String, dynamic> json) =>
-    _$StacTextStyleImpl(
+_StacTextStyle _$StacTextStyleFromJson(Map<String, dynamic> json) =>
+    _StacTextStyle(
       inherit: json['inherit'] as bool? ?? true,
       color: json['color'] as String?,
       backgroundColor: json['backgroundColor'] as String?,
@@ -27,7 +27,7 @@ _$StacTextStyleImpl _$$StacTextStyleImplFromJson(Map<String, dynamic> json) =>
       height: (json['height'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$StacTextStyleImplToJson(_$StacTextStyleImpl instance) =>
+Map<String, dynamic> _$StacTextStyleToJson(_StacTextStyle instance) =>
     <String, dynamic>{
       'inherit': instance.inherit,
       'color': instance.color,

@@ -12,7 +12,7 @@ part 'stac_container.freezed.dart';
 part 'stac_container.g.dart';
 
 @freezed
-class StacContainer with _$StacContainer {
+abstract class StacContainer with _$StacContainer {
   const factory StacContainer({
     StacAlignment? alignment,
     StacEdgeInsets? padding,

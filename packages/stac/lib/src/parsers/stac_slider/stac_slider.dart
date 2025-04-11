@@ -10,7 +10,7 @@ part 'stac_slider.g.dart';
 enum StacSliderType { adaptive, cupertino, material }
 
 @freezed
-class StacSlider with _$StacSlider {
+abstract class StacSlider with _$StacSlider {
   const factory StacSlider({
     String? id,
     @Default(StacSliderType.material) StacSliderType sliderType,

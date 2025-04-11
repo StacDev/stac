@@ -6,7 +6,7 @@ part 'stac_bottom_navigation_view.freezed.dart';
 part 'stac_bottom_navigation_view.g.dart';
 
 @freezed
-class StacBottomNavigationView with _$StacBottomNavigationView {
+abstract class StacBottomNavigationView with _$StacBottomNavigationView {
   const factory StacBottomNavigationView({
     @Default([]) List<Map<String, dynamic>> children,
   }) = _StacBottomNavigationView;

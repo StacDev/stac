@@ -6,7 +6,7 @@ part 'stac_default_tab_controller.freezed.dart';
 part 'stac_default_tab_controller.g.dart';
 
 @freezed
-class StacDefaultTabController with _$StacDefaultTabController {
+abstract class StacDefaultTabController with _$StacDefaultTabController {
   const factory StacDefaultTabController({
     required int length,
     @Default(0) int initialIndex,

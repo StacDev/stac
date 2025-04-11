@@ -4,7 +4,7 @@ part 'stac_form_validator.freezed.dart';
 part 'stac_form_validator.g.dart';
 
 @freezed
-class StacFormFieldValidator with _$StacFormFieldValidator {
+abstract class StacFormFieldValidator with _$StacFormFieldValidator {
   const factory StacFormFieldValidator({
     required String rule,
     String? message,

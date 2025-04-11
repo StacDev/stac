@@ -6,7 +6,7 @@ part 'stac_spacer.freezed.dart';
 part 'stac_spacer.g.dart';
 
 @freezed
-class StacSpacer with _$StacSpacer {
+abstract class StacSpacer with _$StacSpacer {
   const factory StacSpacer({
     @Default(1) int flex,
   }) = _StacSpacer;

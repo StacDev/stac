@@ -6,7 +6,7 @@ part 'stac_hero.freezed.dart';
 part 'stac_hero.g.dart';
 
 @freezed
-class StacHero with _$StacHero {
+abstract class StacHero with _$StacHero {
   const factory StacHero({
     required Object tag,
     required Map<String, dynamic> child,

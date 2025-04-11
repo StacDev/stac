@@ -7,7 +7,7 @@ part 'stac_padding.freezed.dart';
 part 'stac_padding.g.dart';
 
 @freezed
-class StacPadding with _$StacPadding {
+abstract class StacPadding with _$StacPadding {
   const factory StacPadding({
     required StacEdgeInsets padding,
     Map<String, dynamic>? child,

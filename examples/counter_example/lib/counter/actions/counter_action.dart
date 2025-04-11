@@ -9,7 +9,7 @@ enum CounterActionType {
 }
 
 @freezed
-class CounterAction with _$CounterAction {
+abstract class CounterAction with _$CounterAction {
   const factory CounterAction({
     required CounterActionType counterActionType,
     @Default(1) int delta,

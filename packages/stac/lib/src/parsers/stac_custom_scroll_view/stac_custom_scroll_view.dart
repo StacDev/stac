@@ -7,7 +7,7 @@ part 'stac_custom_scroll_view.freezed.dart';
 part 'stac_custom_scroll_view.g.dart';
 
 @freezed
-class StacCustomScrollView with _$StacCustomScrollView {
+abstract class StacCustomScrollView with _$StacCustomScrollView {
   const factory StacCustomScrollView({
     @Default([]) List<Map<String, dynamic>> slivers,
     @Default(Axis.vertical) Axis scrollDirection,

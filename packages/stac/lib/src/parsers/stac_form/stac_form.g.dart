@@ -6,15 +6,13 @@ part of 'stac_form.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacFormImpl _$$StacFormImplFromJson(Map<String, dynamic> json) =>
-    _$StacFormImpl(
+_StacForm _$StacFormFromJson(Map<String, dynamic> json) => _StacForm(
       autovalidateMode: $enumDecodeNullable(
           _$AutovalidateModeEnumMap, json['autovalidateMode']),
       child: json['child'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$StacFormImplToJson(_$StacFormImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StacFormToJson(_StacForm instance) => <String, dynamic>{
       'autovalidateMode': _$AutovalidateModeEnumMap[instance.autovalidateMode],
       'child': instance.child,
     };

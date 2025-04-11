@@ -5,7 +5,7 @@ part 'stac_alignment_geometry.freezed.dart';
 part 'stac_alignment_geometry.g.dart';
 
 @freezed
-class StacAlignmentGeometry with _$StacAlignmentGeometry {
+abstract class StacAlignmentGeometry with _$StacAlignmentGeometry {
   const factory StacAlignmentGeometry({
     required double dx,
     required double dy,

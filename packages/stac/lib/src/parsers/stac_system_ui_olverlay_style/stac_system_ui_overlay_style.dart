@@ -7,7 +7,7 @@ part 'stac_system_ui_overlay_style.freezed.dart';
 part 'stac_system_ui_overlay_style.g.dart';
 
 @freezed
-class StacSystemUIOverlayStyle with _$StacSystemUIOverlayStyle {
+abstract class StacSystemUIOverlayStyle with _$StacSystemUIOverlayStyle {
   const factory StacSystemUIOverlayStyle({
     String? systemNavigationBarColor,
     String? systemNavigationBarDividerColor,

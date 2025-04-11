@@ -6,9 +6,10 @@ part 'stac_continous_rectangle_border.freezed.dart';
 part 'stac_continous_rectangle_border.g.dart';
 
 @freezed
-class StacContinousRectangleBorder with _$StacContinousRectangleBorder {
+abstract class StacContinousRectangleBorder
+    with _$StacContinousRectangleBorder {
   const factory StacContinousRectangleBorder({
-    @Default(StacBorderSide.none()) StacBorderSide side,
+    @Default(StacBorderSide.none) StacBorderSide side,
     @Default(StacBorderRadius()) StacBorderRadius borderRadius,
   }) = _StacContinousRectangleBorder;
 

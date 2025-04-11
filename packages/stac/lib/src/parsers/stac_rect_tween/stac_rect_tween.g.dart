@@ -6,8 +6,8 @@ part of 'stac_rect_tween.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacRectTweenImpl _$$StacRectTweenImplFromJson(Map<String, dynamic> json) =>
-    _$StacRectTweenImpl(
+_StacRectTween _$StacRectTweenFromJson(Map<String, dynamic> json) =>
+    _StacRectTween(
       type: json['type'] as String,
       begin: json['begin'] == null
           ? null
@@ -17,7 +17,7 @@ _$StacRectTweenImpl _$$StacRectTweenImplFromJson(Map<String, dynamic> json) =>
           : StacRect.fromJson(json['end'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$StacRectTweenImplToJson(_$StacRectTweenImpl instance) =>
+Map<String, dynamic> _$StacRectTweenToJson(_StacRectTween instance) =>
     <String, dynamic>{
       'type': instance.type,
       'begin': instance.begin,

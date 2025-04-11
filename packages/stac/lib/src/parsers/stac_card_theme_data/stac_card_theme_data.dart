@@ -8,7 +8,7 @@ part 'stac_card_theme_data.freezed.dart';
 part 'stac_card_theme_data.g.dart';
 
 @freezed
-class StacCardThemeData with _$StacCardThemeData {
+abstract class StacCardThemeData with _$StacCardThemeData {
   const factory StacCardThemeData({
     Clip? clipBehavior,
     String? color,

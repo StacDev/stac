@@ -6,7 +6,7 @@ part 'stac_material_color.freezed.dart';
 part 'stac_material_color.g.dart';
 
 @freezed
-class StacMaterialColor with _$StacMaterialColor {
+abstract class StacMaterialColor with _$StacMaterialColor {
   const factory StacMaterialColor({
     required String primary,
     required String shade50,

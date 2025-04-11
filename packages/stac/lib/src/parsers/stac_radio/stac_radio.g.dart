@@ -6,8 +6,7 @@ part of 'stac_radio.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacRadioImpl _$$StacRadioImplFromJson(Map<String, dynamic> json) =>
-    _$StacRadioImpl(
+_StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => _StacRadio(
       radioType:
           $enumDecodeNullable(_$StacRadioTypeEnumMap, json['radioType']) ??
               StacRadioType.material,
@@ -35,7 +34,7 @@ _$StacRadioImpl _$$StacRadioImplFromJson(Map<String, dynamic> json) =>
           json['useCupertinoCheckmarkStyle'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$StacRadioImplToJson(_$StacRadioImpl instance) =>
+Map<String, dynamic> _$StacRadioToJson(_StacRadio instance) =>
     <String, dynamic>{
       'radioType': _$StacRadioTypeEnumMap[instance.radioType]!,
       'value': instance.value,

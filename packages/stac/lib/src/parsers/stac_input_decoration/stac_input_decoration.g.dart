@@ -6,9 +6,8 @@ part of 'stac_input_decoration.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacInputDecorationImpl _$$StacInputDecorationImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacInputDecorationImpl(
+_StacInputDecoration _$StacInputDecorationFromJson(Map<String, dynamic> json) =>
+    _StacInputDecoration(
       icon: json['icon'] as Map<String, dynamic>?,
       iconColor: json['iconColor'] as String?,
       label: json['label'] as Map<String, dynamic>?,
@@ -108,8 +107,8 @@ _$StacInputDecorationImpl _$$StacInputDecorationImplFromJson(
               json['constraints'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$StacInputDecorationImplToJson(
-        _$StacInputDecorationImpl instance) =>
+Map<String, dynamic> _$StacInputDecorationToJson(
+        _StacInputDecoration instance) =>
     <String, dynamic>{
       'icon': instance.icon,
       'iconColor': instance.iconColor,

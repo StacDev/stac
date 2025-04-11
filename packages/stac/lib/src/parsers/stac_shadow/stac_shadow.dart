@@ -7,7 +7,7 @@ part 'stac_shadow.freezed.dart';
 part 'stac_shadow.g.dart';
 
 @freezed
-class StacShadow with _$StacShadow {
+abstract class StacShadow with _$StacShadow {
   const factory StacShadow({
     @Default('#000000') String color,
     @Default(StacOffset(dx: 0, dy: 0)) StacOffset offset,

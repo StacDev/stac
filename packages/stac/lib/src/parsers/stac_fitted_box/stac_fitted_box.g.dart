@@ -6,8 +6,8 @@ part of 'stac_fitted_box.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacFittedBoxImpl _$$StacFittedBoxImplFromJson(Map<String, dynamic> json) =>
-    _$StacFittedBoxImpl(
+_StacFittedBox _$StacFittedBoxFromJson(Map<String, dynamic> json) =>
+    _StacFittedBox(
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit']) ?? BoxFit.contain,
       alignment: $enumDecodeNullable(
               _$StacAlignmentDirectionalEnumMap, json['alignment']) ??
@@ -17,7 +17,7 @@ _$StacFittedBoxImpl _$$StacFittedBoxImplFromJson(Map<String, dynamic> json) =>
       child: json['child'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$StacFittedBoxImplToJson(_$StacFittedBoxImpl instance) =>
+Map<String, dynamic> _$StacFittedBoxToJson(_StacFittedBox instance) =>
     <String, dynamic>{
       'fit': _$BoxFitEnumMap[instance.fit]!,
       'alignment': _$StacAlignmentDirectionalEnumMap[instance.alignment]!,

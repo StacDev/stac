@@ -6,8 +6,7 @@ part of 'stac_card.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacCardImpl _$$StacCardImplFromJson(Map<String, dynamic> json) =>
-    _$StacCardImpl(
+_StacCard _$StacCardFromJson(Map<String, dynamic> json) => _StacCard(
       color: json['color'] as String?,
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
@@ -24,8 +23,7 @@ _$StacCardImpl _$$StacCardImplFromJson(Map<String, dynamic> json) =>
       semanticContainer: json['semanticContainer'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$StacCardImplToJson(_$StacCardImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StacCardToJson(_StacCard instance) => <String, dynamic>{
       'color': instance.color,
       'shadowColor': instance.shadowColor,
       'surfaceTintColor': instance.surfaceTintColor,

@@ -6,7 +6,7 @@ part 'stac_border.freezed.dart';
 part 'stac_border.g.dart';
 
 @freezed
-class StacBorder with _$StacBorder {
+abstract class StacBorder with _$StacBorder {
   const factory StacBorder({
     String? color,
     @Default(BorderStyle.solid) BorderStyle borderStyle,

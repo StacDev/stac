@@ -8,7 +8,7 @@ part 'stac_fitted_box.freezed.dart';
 part 'stac_fitted_box.g.dart';
 
 @freezed
-class StacFittedBox with _$StacFittedBox {
+abstract class StacFittedBox with _$StacFittedBox {
   const factory StacFittedBox({
     @Default(BoxFit.contain) BoxFit fit,
     @Default(StacAlignmentDirectional.center)

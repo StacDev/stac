@@ -10,7 +10,7 @@ part 'stac_icon_button.freezed.dart';
 part 'stac_icon_button.g.dart';
 
 @freezed
-class StacIconButton with _$StacIconButton {
+abstract class StacIconButton with _$StacIconButton {
   const factory StacIconButton({
     double? iconSize,
     StacEdgeInsets? padding,

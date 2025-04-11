@@ -9,7 +9,7 @@ part 'stac_card.freezed.dart';
 part 'stac_card.g.dart';
 
 @freezed
-class StacCard with _$StacCard {
+abstract class StacCard with _$StacCard {
   const factory StacCard({
     String? color,
     String? shadowColor,

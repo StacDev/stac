@@ -7,7 +7,7 @@ part 'stac_text_style.freezed.dart';
 part 'stac_text_style.g.dart';
 
 @freezed
-class StacTextStyle with _$StacTextStyle {
+abstract class StacTextStyle with _$StacTextStyle {
   const factory StacTextStyle({
     @Default(true) bool inherit,
     String? color,

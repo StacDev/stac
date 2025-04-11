@@ -6,8 +6,7 @@ part of 'stac_webview.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacWebViewImpl _$$StacWebViewImplFromJson(Map<String, dynamic> json) =>
-    _$StacWebViewImpl(
+_StacWebView _$StacWebViewFromJson(Map<String, dynamic> json) => _StacWebView(
       url: json['url'] as String,
       javaScriptMode: $enumDecodeNullable(
               _$JavaScriptModeEnumMap, json['javaScriptMode']) ??
@@ -20,7 +19,7 @@ _$StacWebViewImpl _$$StacWebViewImplFromJson(Map<String, dynamic> json) =>
           TextDirection.ltr,
     );
 
-Map<String, dynamic> _$$StacWebViewImplToJson(_$StacWebViewImpl instance) =>
+Map<String, dynamic> _$StacWebViewToJson(_StacWebView instance) =>
     <String, dynamic>{
       'url': instance.url,
       'javaScriptMode': _$JavaScriptModeEnumMap[instance.javaScriptMode]!,

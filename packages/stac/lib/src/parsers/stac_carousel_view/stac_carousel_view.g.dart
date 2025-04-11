@@ -6,9 +6,8 @@ part of 'stac_carousel_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacCarouselViewImpl _$$StacCarouselViewImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacCarouselViewImpl(
+_StacCarouselView _$StacCarouselViewFromJson(Map<String, dynamic> json) =>
+    _StacCarouselView(
       carouselType: $enumDecodeNullable(
               _$StacCarouselViewTypeEnumMap, json['carouselType']) ??
           StacCarouselViewType.regular,
@@ -35,8 +34,7 @@ _$StacCarouselViewImpl _$$StacCarouselViewImplFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$StacCarouselViewImplToJson(
-        _$StacCarouselViewImpl instance) =>
+Map<String, dynamic> _$StacCarouselViewToJson(_StacCarouselView instance) =>
     <String, dynamic>{
       'carouselType': _$StacCarouselViewTypeEnumMap[instance.carouselType]!,
       'padding': instance.padding,

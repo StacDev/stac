@@ -17,7 +17,7 @@ enum StacShapeBorderType {
 }
 
 @freezed
-class StacShapeBorder with _$StacShapeBorder {
+abstract class StacShapeBorder with _$StacShapeBorder {
   const factory StacShapeBorder({
     required StacShapeBorderType borderType,
     required Map<String, dynamic> data,

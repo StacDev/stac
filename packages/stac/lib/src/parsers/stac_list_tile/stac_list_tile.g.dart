@@ -6,8 +6,8 @@ part of 'stac_list_tile.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacListTileImpl _$$StacListTileImplFromJson(Map<String, dynamic> json) =>
-    _$StacListTileImpl(
+_StacListTile _$StacListTileFromJson(Map<String, dynamic> json) =>
+    _StacListTile(
       onTap: json['onTap'] as Map<String, dynamic>?,
       onLongPress: json['onLongPress'] as Map<String, dynamic>?,
       leading: json['leading'] as Map<String, dynamic>?,
@@ -36,7 +36,7 @@ _$StacListTileImpl _$$StacListTileImplFromJson(Map<String, dynamic> json) =>
       minLeadingWidth: (json['minLeadingWidth'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$StacListTileImplToJson(_$StacListTileImpl instance) =>
+Map<String, dynamic> _$StacListTileToJson(_StacListTile instance) =>
     <String, dynamic>{
       'onTap': instance.onTap,
       'onLongPress': instance.onLongPress,

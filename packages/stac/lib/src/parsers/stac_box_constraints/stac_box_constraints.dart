@@ -5,7 +5,7 @@ part 'stac_box_constraints.freezed.dart';
 part 'stac_box_constraints.g.dart';
 
 @freezed
-class StacBoxConstraints with _$StacBoxConstraints {
+abstract class StacBoxConstraints with _$StacBoxConstraints {
   const factory StacBoxConstraints({
     required double minWidth,
     required double maxWidth,

@@ -13,7 +13,7 @@ enum StacCarouselViewType {
 }
 
 @freezed
-class StacCarouselView with _$StacCarouselView {
+abstract class StacCarouselView with _$StacCarouselView {
   const factory StacCarouselView({
     @Default(StacCarouselViewType.regular) StacCarouselViewType carouselType,
     StacEdgeInsets? padding,

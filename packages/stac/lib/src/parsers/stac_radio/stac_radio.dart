@@ -11,7 +11,7 @@ part 'stac_radio.g.dart';
 enum StacRadioType { adaptive, cupertino, material }
 
 @freezed
-class StacRadio with _$StacRadio {
+abstract class StacRadio with _$StacRadio {
   const factory StacRadio({
     @Default(StacRadioType.material) StacRadioType radioType,
     dynamic value,

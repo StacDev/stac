@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,41 +10,73 @@ part of 'stac_box_decoration.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacBoxDecoration _$StacBoxDecorationFromJson(Map<String, dynamic> json) {
-  return _StacBoxDecoration.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacBoxDecoration {
-  String? get color => throw _privateConstructorUsedError;
-  BlendMode? get backgroundBlendMode => throw _privateConstructorUsedError;
-  List<StacBoxShadow?>? get boxShadow => throw _privateConstructorUsedError;
-  BoxShape get shape => throw _privateConstructorUsedError;
-  StacBorder? get border => throw _privateConstructorUsedError;
-  StacBorderRadius? get borderRadius => throw _privateConstructorUsedError;
-  StacDecorationImage? get image => throw _privateConstructorUsedError;
-  StacGradient? get gradient => throw _privateConstructorUsedError;
-
-  /// Serializes this StacBoxDecoration to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get color;
+  BlendMode? get backgroundBlendMode;
+  List<StacBoxShadow?>? get boxShadow;
+  BoxShape get shape;
+  StacBorder? get border;
+  StacBorderRadius? get borderRadius;
+  StacDecorationImage? get image;
+  StacGradient? get gradient;
 
   /// Create a copy of StacBoxDecoration
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacBoxDecorationCopyWith<StacBoxDecoration> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacBoxDecorationCopyWithImpl<StacBoxDecoration>(
+          this as StacBoxDecoration, _$identity);
+
+  /// Serializes this StacBoxDecoration to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacBoxDecoration &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.backgroundBlendMode, backgroundBlendMode) ||
+                other.backgroundBlendMode == backgroundBlendMode) &&
+            const DeepCollectionEquality().equals(other.boxShadow, boxShadow) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.border, border) || other.border == border) &&
+            (identical(other.borderRadius, borderRadius) ||
+                other.borderRadius == borderRadius) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.gradient, gradient) ||
+                other.gradient == gradient));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      color,
+      backgroundBlendMode,
+      const DeepCollectionEquality().hash(boxShadow),
+      shape,
+      border,
+      borderRadius,
+      image,
+      gradient);
+
+  @override
+  String toString() {
+    return 'StacBoxDecoration(color: $color, backgroundBlendMode: $backgroundBlendMode, boxShadow: $boxShadow, shape: $shape, border: $border, borderRadius: $borderRadius, image: $image, gradient: $gradient)';
+  }
 }
 
 /// @nodoc
-abstract class $StacBoxDecorationCopyWith<$Res> {
+abstract mixin class $StacBoxDecorationCopyWith<$Res> {
   factory $StacBoxDecorationCopyWith(
-          StacBoxDecoration value, $Res Function(StacBoxDecoration) then) =
-      _$StacBoxDecorationCopyWithImpl<$Res, StacBoxDecoration>;
+          StacBoxDecoration value, $Res Function(StacBoxDecoration) _then) =
+      _$StacBoxDecorationCopyWithImpl;
   @useResult
   $Res call(
       {String? color,
@@ -62,14 +95,12 @@ abstract class $StacBoxDecorationCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
+class _$StacBoxDecorationCopyWithImpl<$Res>
     implements $StacBoxDecorationCopyWith<$Res> {
-  _$StacBoxDecorationCopyWithImpl(this._value, this._then);
+  _$StacBoxDecorationCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacBoxDecoration _self;
+  final $Res Function(StacBoxDecoration) _then;
 
   /// Create a copy of StacBoxDecoration
   /// with the given fields replaced by the non-null parameter values.
@@ -85,40 +116,40 @@ class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
     Object? image = freezed,
     Object? gradient = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       color: freezed == color
-          ? _value.color
+          ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
       backgroundBlendMode: freezed == backgroundBlendMode
-          ? _value.backgroundBlendMode
+          ? _self.backgroundBlendMode
           : backgroundBlendMode // ignore: cast_nullable_to_non_nullable
               as BlendMode?,
       boxShadow: freezed == boxShadow
-          ? _value.boxShadow
+          ? _self.boxShadow
           : boxShadow // ignore: cast_nullable_to_non_nullable
               as List<StacBoxShadow?>?,
       shape: null == shape
-          ? _value.shape
+          ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
               as BoxShape,
       border: freezed == border
-          ? _value.border
+          ? _self.border
           : border // ignore: cast_nullable_to_non_nullable
               as StacBorder?,
       borderRadius: freezed == borderRadius
-          ? _value.borderRadius
+          ? _self.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable
               as StacBorderRadius?,
       image: freezed == image
-          ? _value.image
+          ? _self.image
           : image // ignore: cast_nullable_to_non_nullable
               as StacDecorationImage?,
       gradient: freezed == gradient
-          ? _value.gradient
+          ? _self.gradient
           : gradient // ignore: cast_nullable_to_non_nullable
               as StacGradient?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacBoxDecoration
@@ -126,12 +157,12 @@ class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
   @override
   @pragma('vm:prefer-inline')
   $StacBorderCopyWith<$Res>? get border {
-    if (_value.border == null) {
+    if (_self.border == null) {
       return null;
     }
 
-    return $StacBorderCopyWith<$Res>(_value.border!, (value) {
-      return _then(_value.copyWith(border: value) as $Val);
+    return $StacBorderCopyWith<$Res>(_self.border!, (value) {
+      return _then(_self.copyWith(border: value));
     });
   }
 
@@ -140,12 +171,12 @@ class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
   @override
   @pragma('vm:prefer-inline')
   $StacBorderRadiusCopyWith<$Res>? get borderRadius {
-    if (_value.borderRadius == null) {
+    if (_self.borderRadius == null) {
       return null;
     }
 
-    return $StacBorderRadiusCopyWith<$Res>(_value.borderRadius!, (value) {
-      return _then(_value.copyWith(borderRadius: value) as $Val);
+    return $StacBorderRadiusCopyWith<$Res>(_self.borderRadius!, (value) {
+      return _then(_self.copyWith(borderRadius: value));
     });
   }
 
@@ -154,12 +185,12 @@ class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
   @override
   @pragma('vm:prefer-inline')
   $StacDecorationImageCopyWith<$Res>? get image {
-    if (_value.image == null) {
+    if (_self.image == null) {
       return null;
     }
 
-    return $StacDecorationImageCopyWith<$Res>(_value.image!, (value) {
-      return _then(_value.copyWith(image: value) as $Val);
+    return $StacDecorationImageCopyWith<$Res>(_self.image!, (value) {
+      return _then(_self.copyWith(image: value));
     });
   }
 
@@ -168,107 +199,20 @@ class _$StacBoxDecorationCopyWithImpl<$Res, $Val extends StacBoxDecoration>
   @override
   @pragma('vm:prefer-inline')
   $StacGradientCopyWith<$Res>? get gradient {
-    if (_value.gradient == null) {
+    if (_self.gradient == null) {
       return null;
     }
 
-    return $StacGradientCopyWith<$Res>(_value.gradient!, (value) {
-      return _then(_value.copyWith(gradient: value) as $Val);
+    return $StacGradientCopyWith<$Res>(_self.gradient!, (value) {
+      return _then(_self.copyWith(gradient: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacBoxDecorationImplCopyWith<$Res>
-    implements $StacBoxDecorationCopyWith<$Res> {
-  factory _$$StacBoxDecorationImplCopyWith(_$StacBoxDecorationImpl value,
-          $Res Function(_$StacBoxDecorationImpl) then) =
-      __$$StacBoxDecorationImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? color,
-      BlendMode? backgroundBlendMode,
-      List<StacBoxShadow?>? boxShadow,
-      BoxShape shape,
-      StacBorder? border,
-      StacBorderRadius? borderRadius,
-      StacDecorationImage? image,
-      StacGradient? gradient});
-
-  @override
-  $StacBorderCopyWith<$Res>? get border;
-  @override
-  $StacBorderRadiusCopyWith<$Res>? get borderRadius;
-  @override
-  $StacDecorationImageCopyWith<$Res>? get image;
-  @override
-  $StacGradientCopyWith<$Res>? get gradient;
-}
-
-/// @nodoc
-class __$$StacBoxDecorationImplCopyWithImpl<$Res>
-    extends _$StacBoxDecorationCopyWithImpl<$Res, _$StacBoxDecorationImpl>
-    implements _$$StacBoxDecorationImplCopyWith<$Res> {
-  __$$StacBoxDecorationImplCopyWithImpl(_$StacBoxDecorationImpl _value,
-      $Res Function(_$StacBoxDecorationImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacBoxDecoration
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? backgroundBlendMode = freezed,
-    Object? boxShadow = freezed,
-    Object? shape = null,
-    Object? border = freezed,
-    Object? borderRadius = freezed,
-    Object? image = freezed,
-    Object? gradient = freezed,
-  }) {
-    return _then(_$StacBoxDecorationImpl(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String?,
-      backgroundBlendMode: freezed == backgroundBlendMode
-          ? _value.backgroundBlendMode
-          : backgroundBlendMode // ignore: cast_nullable_to_non_nullable
-              as BlendMode?,
-      boxShadow: freezed == boxShadow
-          ? _value._boxShadow
-          : boxShadow // ignore: cast_nullable_to_non_nullable
-              as List<StacBoxShadow?>?,
-      shape: null == shape
-          ? _value.shape
-          : shape // ignore: cast_nullable_to_non_nullable
-              as BoxShape,
-      border: freezed == border
-          ? _value.border
-          : border // ignore: cast_nullable_to_non_nullable
-              as StacBorder?,
-      borderRadius: freezed == borderRadius
-          ? _value.borderRadius
-          : borderRadius // ignore: cast_nullable_to_non_nullable
-              as StacBorderRadius?,
-      image: freezed == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as StacDecorationImage?,
-      gradient: freezed == gradient
-          ? _value.gradient
-          : gradient // ignore: cast_nullable_to_non_nullable
-              as StacGradient?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacBoxDecorationImpl implements _StacBoxDecoration {
-  const _$StacBoxDecorationImpl(
+class _StacBoxDecoration implements StacBoxDecoration {
+  const _StacBoxDecoration(
       {this.color,
       this.backgroundBlendMode,
       final List<StacBoxShadow?>? boxShadow,
@@ -278,9 +222,8 @@ class _$StacBoxDecorationImpl implements _StacBoxDecoration {
       this.image,
       this.gradient})
       : _boxShadow = boxShadow;
-
-  factory _$StacBoxDecorationImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacBoxDecorationImplFromJson(json);
+  factory _StacBoxDecoration.fromJson(Map<String, dynamic> json) =>
+      _$StacBoxDecorationFromJson(json);
 
   @override
   final String? color;
@@ -308,16 +251,26 @@ class _$StacBoxDecorationImpl implements _StacBoxDecoration {
   @override
   final StacGradient? gradient;
 
+  /// Create a copy of StacBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacBoxDecoration(color: $color, backgroundBlendMode: $backgroundBlendMode, boxShadow: $boxShadow, shape: $shape, border: $border, borderRadius: $borderRadius, image: $image, gradient: $gradient)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacBoxDecorationCopyWith<_StacBoxDecoration> get copyWith =>
+      __$StacBoxDecorationCopyWithImpl<_StacBoxDecoration>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacBoxDecorationToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacBoxDecorationImpl &&
+            other is _StacBoxDecoration &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.backgroundBlendMode, backgroundBlendMode) ||
                 other.backgroundBlendMode == backgroundBlendMode) &&
@@ -345,58 +298,153 @@ class _$StacBoxDecorationImpl implements _StacBoxDecoration {
       image,
       gradient);
 
-  /// Create a copy of StacBoxDecoration
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacBoxDecorationImplCopyWith<_$StacBoxDecorationImpl> get copyWith =>
-      __$$StacBoxDecorationImplCopyWithImpl<_$StacBoxDecorationImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacBoxDecorationImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacBoxDecoration(color: $color, backgroundBlendMode: $backgroundBlendMode, boxShadow: $boxShadow, shape: $shape, border: $border, borderRadius: $borderRadius, image: $image, gradient: $gradient)';
   }
 }
 
-abstract class _StacBoxDecoration implements StacBoxDecoration {
-  const factory _StacBoxDecoration(
-      {final String? color,
-      final BlendMode? backgroundBlendMode,
-      final List<StacBoxShadow?>? boxShadow,
-      final BoxShape shape,
-      final StacBorder? border,
-      final StacBorderRadius? borderRadius,
-      final StacDecorationImage? image,
-      final StacGradient? gradient}) = _$StacBoxDecorationImpl;
+/// @nodoc
+abstract mixin class _$StacBoxDecorationCopyWith<$Res>
+    implements $StacBoxDecorationCopyWith<$Res> {
+  factory _$StacBoxDecorationCopyWith(
+          _StacBoxDecoration value, $Res Function(_StacBoxDecoration) _then) =
+      __$StacBoxDecorationCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? color,
+      BlendMode? backgroundBlendMode,
+      List<StacBoxShadow?>? boxShadow,
+      BoxShape shape,
+      StacBorder? border,
+      StacBorderRadius? borderRadius,
+      StacDecorationImage? image,
+      StacGradient? gradient});
 
-  factory _StacBoxDecoration.fromJson(Map<String, dynamic> json) =
-      _$StacBoxDecorationImpl.fromJson;
+  @override
+  $StacBorderCopyWith<$Res>? get border;
+  @override
+  $StacBorderRadiusCopyWith<$Res>? get borderRadius;
+  @override
+  $StacDecorationImageCopyWith<$Res>? get image;
+  @override
+  $StacGradientCopyWith<$Res>? get gradient;
+}
 
-  @override
-  String? get color;
-  @override
-  BlendMode? get backgroundBlendMode;
-  @override
-  List<StacBoxShadow?>? get boxShadow;
-  @override
-  BoxShape get shape;
-  @override
-  StacBorder? get border;
-  @override
-  StacBorderRadius? get borderRadius;
-  @override
-  StacDecorationImage? get image;
-  @override
-  StacGradient? get gradient;
+/// @nodoc
+class __$StacBoxDecorationCopyWithImpl<$Res>
+    implements _$StacBoxDecorationCopyWith<$Res> {
+  __$StacBoxDecorationCopyWithImpl(this._self, this._then);
+
+  final _StacBoxDecoration _self;
+  final $Res Function(_StacBoxDecoration) _then;
 
   /// Create a copy of StacBoxDecoration
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacBoxDecorationImplCopyWith<_$StacBoxDecorationImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? color = freezed,
+    Object? backgroundBlendMode = freezed,
+    Object? boxShadow = freezed,
+    Object? shape = null,
+    Object? border = freezed,
+    Object? borderRadius = freezed,
+    Object? image = freezed,
+    Object? gradient = freezed,
+  }) {
+    return _then(_StacBoxDecoration(
+      color: freezed == color
+          ? _self.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      backgroundBlendMode: freezed == backgroundBlendMode
+          ? _self.backgroundBlendMode
+          : backgroundBlendMode // ignore: cast_nullable_to_non_nullable
+              as BlendMode?,
+      boxShadow: freezed == boxShadow
+          ? _self._boxShadow
+          : boxShadow // ignore: cast_nullable_to_non_nullable
+              as List<StacBoxShadow?>?,
+      shape: null == shape
+          ? _self.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as BoxShape,
+      border: freezed == border
+          ? _self.border
+          : border // ignore: cast_nullable_to_non_nullable
+              as StacBorder?,
+      borderRadius: freezed == borderRadius
+          ? _self.borderRadius
+          : borderRadius // ignore: cast_nullable_to_non_nullable
+              as StacBorderRadius?,
+      image: freezed == image
+          ? _self.image
+          : image // ignore: cast_nullable_to_non_nullable
+              as StacDecorationImage?,
+      gradient: freezed == gradient
+          ? _self.gradient
+          : gradient // ignore: cast_nullable_to_non_nullable
+              as StacGradient?,
+    ));
+  }
+
+  /// Create a copy of StacBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderCopyWith<$Res>? get border {
+    if (_self.border == null) {
+      return null;
+    }
+
+    return $StacBorderCopyWith<$Res>(_self.border!, (value) {
+      return _then(_self.copyWith(border: value));
+    });
+  }
+
+  /// Create a copy of StacBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderRadiusCopyWith<$Res>? get borderRadius {
+    if (_self.borderRadius == null) {
+      return null;
+    }
+
+    return $StacBorderRadiusCopyWith<$Res>(_self.borderRadius!, (value) {
+      return _then(_self.copyWith(borderRadius: value));
+    });
+  }
+
+  /// Create a copy of StacBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDecorationImageCopyWith<$Res>? get image {
+    if (_self.image == null) {
+      return null;
+    }
+
+    return $StacDecorationImageCopyWith<$Res>(_self.image!, (value) {
+      return _then(_self.copyWith(image: value));
+    });
+  }
+
+  /// Create a copy of StacBoxDecoration
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacGradientCopyWith<$Res>? get gradient {
+    if (_self.gradient == null) {
+      return null;
+    }
+
+    return $StacGradientCopyWith<$Res>(_self.gradient!, (value) {
+      return _then(_self.copyWith(gradient: value));
+    });
+  }
 }
+
+// dart format on

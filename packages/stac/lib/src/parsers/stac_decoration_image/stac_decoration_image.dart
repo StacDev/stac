@@ -11,7 +11,7 @@ part 'stac_decoration_image.g.dart';
 enum StacDecorationImageType { file, network, asset }
 
 @freezed
-class StacDecorationImage with _$StacDecorationImage {
+abstract class StacDecorationImage with _$StacDecorationImage {
   const factory StacDecorationImage({
     required String src,
     BoxFit? fit,

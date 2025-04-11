@@ -8,7 +8,8 @@ part 'stac_circular_progress_indicator.freezed.dart';
 part 'stac_circular_progress_indicator.g.dart';
 
 @freezed
-class StacCircularProgressIndicator with _$StacCircularProgressIndicator {
+abstract class StacCircularProgressIndicator
+    with _$StacCircularProgressIndicator {
   const factory StacCircularProgressIndicator({
     double? value,
     String? backgroundColor,

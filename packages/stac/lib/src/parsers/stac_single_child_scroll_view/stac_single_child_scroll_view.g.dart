@@ -6,9 +6,9 @@ part of 'stac_single_child_scroll_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacSingleChildScrollViewImpl _$$StacSingleChildScrollViewImplFromJson(
+_StacSingleChildScrollView _$StacSingleChildScrollViewFromJson(
         Map<String, dynamic> json) =>
-    _$StacSingleChildScrollViewImpl(
+    _StacSingleChildScrollView(
       scrollDirection:
           $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
               Axis.vertical,
@@ -31,8 +31,8 @@ _$StacSingleChildScrollViewImpl _$$StacSingleChildScrollViewImplFromJson(
           ScrollViewKeyboardDismissBehavior.manual,
     );
 
-Map<String, dynamic> _$$StacSingleChildScrollViewImplToJson(
-        _$StacSingleChildScrollViewImpl instance) =>
+Map<String, dynamic> _$StacSingleChildScrollViewToJson(
+        _StacSingleChildScrollView instance) =>
     <String, dynamic>{
       'scrollDirection': _$AxisEnumMap[instance.scrollDirection]!,
       'reverse': instance.reverse,

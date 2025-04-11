@@ -14,7 +14,7 @@ part 'stac_text_form_field.freezed.dart';
 part 'stac_text_form_field.g.dart';
 
 @freezed
-class StacTextFormField with _$StacTextFormField {
+abstract class StacTextFormField with _$StacTextFormField {
   const factory StacTextFormField({
     String? id,
     String? compareId,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,87 +10,59 @@ part of 'stac_bottom_navigation_view.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacBottomNavigationView _$StacBottomNavigationViewFromJson(
-    Map<String, dynamic> json) {
-  return _StacBottomNavigationView.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacBottomNavigationView {
-  List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
-
-  /// Serializes this StacBottomNavigationView to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  List<Map<String, dynamic>> get children;
 
   /// Create a copy of StacBottomNavigationView
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacBottomNavigationViewCopyWith<StacBottomNavigationView> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacBottomNavigationViewCopyWith<$Res> {
-  factory $StacBottomNavigationViewCopyWith(StacBottomNavigationView value,
-          $Res Function(StacBottomNavigationView) then) =
-      _$StacBottomNavigationViewCopyWithImpl<$Res, StacBottomNavigationView>;
-  @useResult
-  $Res call({List<Map<String, dynamic>> children});
-}
-
-/// @nodoc
-class _$StacBottomNavigationViewCopyWithImpl<$Res,
-        $Val extends StacBottomNavigationView>
-    implements $StacBottomNavigationViewCopyWith<$Res> {
-  _$StacBottomNavigationViewCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacBottomNavigationView
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacBottomNavigationViewCopyWith<StacBottomNavigationView> get copyWith =>
+      _$StacBottomNavigationViewCopyWithImpl<StacBottomNavigationView>(
+          this as StacBottomNavigationView, _$identity);
+
+  /// Serializes this StacBottomNavigationView to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? children = null,
-  }) {
-    return _then(_value.copyWith(
-      children: null == children
-          ? _value.children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacBottomNavigationView &&
+            const DeepCollectionEquality().equals(other.children, children));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(children));
+
+  @override
+  String toString() {
+    return 'StacBottomNavigationView(children: $children)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacBottomNavigationViewImplCopyWith<$Res>
-    implements $StacBottomNavigationViewCopyWith<$Res> {
-  factory _$$StacBottomNavigationViewImplCopyWith(
-          _$StacBottomNavigationViewImpl value,
-          $Res Function(_$StacBottomNavigationViewImpl) then) =
-      __$$StacBottomNavigationViewImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacBottomNavigationViewCopyWith<$Res> {
+  factory $StacBottomNavigationViewCopyWith(StacBottomNavigationView value,
+          $Res Function(StacBottomNavigationView) _then) =
+      _$StacBottomNavigationViewCopyWithImpl;
   @useResult
   $Res call({List<Map<String, dynamic>> children});
 }
 
 /// @nodoc
-class __$$StacBottomNavigationViewImplCopyWithImpl<$Res>
-    extends _$StacBottomNavigationViewCopyWithImpl<$Res,
-        _$StacBottomNavigationViewImpl>
-    implements _$$StacBottomNavigationViewImplCopyWith<$Res> {
-  __$$StacBottomNavigationViewImplCopyWithImpl(
-      _$StacBottomNavigationViewImpl _value,
-      $Res Function(_$StacBottomNavigationViewImpl) _then)
-      : super(_value, _then);
+class _$StacBottomNavigationViewCopyWithImpl<$Res>
+    implements $StacBottomNavigationViewCopyWith<$Res> {
+  _$StacBottomNavigationViewCopyWithImpl(this._self, this._then);
+
+  final StacBottomNavigationView _self;
+  final $Res Function(StacBottomNavigationView) _then;
 
   /// Create a copy of StacBottomNavigationView
   /// with the given fields replaced by the non-null parameter values.
@@ -98,9 +71,9 @@ class __$$StacBottomNavigationViewImplCopyWithImpl<$Res>
   $Res call({
     Object? children = null,
   }) {
-    return _then(_$StacBottomNavigationViewImpl(
+    return _then(_self.copyWith(
       children: null == children
-          ? _value._children
+          ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
     ));
@@ -109,13 +82,12 @@ class __$$StacBottomNavigationViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacBottomNavigationViewImpl implements _StacBottomNavigationView {
-  const _$StacBottomNavigationViewImpl(
+class _StacBottomNavigationView implements StacBottomNavigationView {
+  const _StacBottomNavigationView(
       {final List<Map<String, dynamic>> children = const []})
       : _children = children;
-
-  factory _$StacBottomNavigationViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacBottomNavigationViewImplFromJson(json);
+  factory _StacBottomNavigationView.fromJson(Map<String, dynamic> json) =>
+      _$StacBottomNavigationViewFromJson(json);
 
   final List<Map<String, dynamic>> _children;
   @override
@@ -126,16 +98,27 @@ class _$StacBottomNavigationViewImpl implements _StacBottomNavigationView {
     return EqualUnmodifiableListView(_children);
   }
 
+  /// Create a copy of StacBottomNavigationView
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacBottomNavigationView(children: $children)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacBottomNavigationViewCopyWith<_StacBottomNavigationView> get copyWith =>
+      __$StacBottomNavigationViewCopyWithImpl<_StacBottomNavigationView>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacBottomNavigationViewToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacBottomNavigationViewImpl &&
+            other is _StacBottomNavigationView &&
             const DeepCollectionEquality().equals(other._children, _children));
   }
 
@@ -144,38 +127,45 @@ class _$StacBottomNavigationViewImpl implements _StacBottomNavigationView {
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_children));
 
-  /// Create a copy of StacBottomNavigationView
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacBottomNavigationViewImplCopyWith<_$StacBottomNavigationViewImpl>
-      get copyWith => __$$StacBottomNavigationViewImplCopyWithImpl<
-          _$StacBottomNavigationViewImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacBottomNavigationViewImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacBottomNavigationView(children: $children)';
   }
 }
 
-abstract class _StacBottomNavigationView implements StacBottomNavigationView {
-  const factory _StacBottomNavigationView(
-          {final List<Map<String, dynamic>> children}) =
-      _$StacBottomNavigationViewImpl;
-
-  factory _StacBottomNavigationView.fromJson(Map<String, dynamic> json) =
-      _$StacBottomNavigationViewImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$StacBottomNavigationViewCopyWith<$Res>
+    implements $StacBottomNavigationViewCopyWith<$Res> {
+  factory _$StacBottomNavigationViewCopyWith(_StacBottomNavigationView value,
+          $Res Function(_StacBottomNavigationView) _then) =
+      __$StacBottomNavigationViewCopyWithImpl;
   @override
-  List<Map<String, dynamic>> get children;
+  @useResult
+  $Res call({List<Map<String, dynamic>> children});
+}
+
+/// @nodoc
+class __$StacBottomNavigationViewCopyWithImpl<$Res>
+    implements _$StacBottomNavigationViewCopyWith<$Res> {
+  __$StacBottomNavigationViewCopyWithImpl(this._self, this._then);
+
+  final _StacBottomNavigationView _self;
+  final $Res Function(_StacBottomNavigationView) _then;
 
   /// Create a copy of StacBottomNavigationView
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacBottomNavigationViewImplCopyWith<_$StacBottomNavigationViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? children = null,
+  }) {
+    return _then(_StacBottomNavigationView(
+      children: null == children
+          ? _self._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+    ));
+  }
 }
+
+// dart format on

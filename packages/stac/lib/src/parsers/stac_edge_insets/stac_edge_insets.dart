@@ -5,7 +5,7 @@ part 'stac_edge_insets.freezed.dart';
 part 'stac_edge_insets.g.dart';
 
 @freezed
-class StacEdgeInsets with _$StacEdgeInsets {
+abstract class StacEdgeInsets with _$StacEdgeInsets {
   const factory StacEdgeInsets({
     double? left,
     double? top,
