@@ -8,7 +8,7 @@ part 'stac_list_tile.freezed.dart';
 part 'stac_list_tile.g.dart';
 
 @freezed
-class StacListTile with _$StacListTile {
+abstract class StacListTile with _$StacListTile {
   const factory StacListTile({
     Map<String, dynamic>? onTap,
     Map<String, dynamic>? onLongPress,

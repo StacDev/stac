@@ -6,9 +6,9 @@ part 'stac_circle_border.freezed.dart';
 part 'stac_circle_border.g.dart';
 
 @freezed
-class StacCircleBorder with _$StacCircleBorder {
+abstract class StacCircleBorder with _$StacCircleBorder {
   const factory StacCircleBorder({
-    @Default(StacBorderSide.none()) StacBorderSide side,
+    @Default(StacBorderSide.none) StacBorderSide side,
     @Default(0.0) double eccentricity,
   }) = _StacCircleBorder;
 

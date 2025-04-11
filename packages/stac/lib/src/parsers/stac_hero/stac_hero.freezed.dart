@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,67 @@ part of 'stac_hero.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacHero _$StacHeroFromJson(Map<String, dynamic> json) {
-  return _StacHero.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacHero {
-  Object get tag => throw _privateConstructorUsedError;
-  Map<String, dynamic> get child => throw _privateConstructorUsedError;
-  StacRectTween? get createRectTween => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get flightShuttleBuilder =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get placeholderBuilder =>
-      throw _privateConstructorUsedError;
-  bool get transitionOnUserGestures => throw _privateConstructorUsedError;
-
-  /// Serializes this StacHero to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Object get tag;
+  Map<String, dynamic> get child;
+  StacRectTween? get createRectTween;
+  Map<String, dynamic>? get flightShuttleBuilder;
+  Map<String, dynamic>? get placeholderBuilder;
+  bool get transitionOnUserGestures;
 
   /// Create a copy of StacHero
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacHeroCopyWith<StacHero> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacHeroCopyWithImpl<StacHero>(this as StacHero, _$identity);
+
+  /// Serializes this StacHero to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacHero &&
+            const DeepCollectionEquality().equals(other.tag, tag) &&
+            const DeepCollectionEquality().equals(other.child, child) &&
+            (identical(other.createRectTween, createRectTween) ||
+                other.createRectTween == createRectTween) &&
+            const DeepCollectionEquality()
+                .equals(other.flightShuttleBuilder, flightShuttleBuilder) &&
+            const DeepCollectionEquality()
+                .equals(other.placeholderBuilder, placeholderBuilder) &&
+            (identical(
+                    other.transitionOnUserGestures, transitionOnUserGestures) ||
+                other.transitionOnUserGestures == transitionOnUserGestures));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(tag),
+      const DeepCollectionEquality().hash(child),
+      createRectTween,
+      const DeepCollectionEquality().hash(flightShuttleBuilder),
+      const DeepCollectionEquality().hash(placeholderBuilder),
+      transitionOnUserGestures);
+
+  @override
+  String toString() {
+    return 'StacHero(tag: $tag, child: $child, createRectTween: $createRectTween, flightShuttleBuilder: $flightShuttleBuilder, placeholderBuilder: $placeholderBuilder, transitionOnUserGestures: $transitionOnUserGestures)';
+  }
 }
 
 /// @nodoc
-abstract class $StacHeroCopyWith<$Res> {
-  factory $StacHeroCopyWith(StacHero value, $Res Function(StacHero) then) =
-      _$StacHeroCopyWithImpl<$Res, StacHero>;
+abstract mixin class $StacHeroCopyWith<$Res> {
+  factory $StacHeroCopyWith(StacHero value, $Res Function(StacHero) _then) =
+      _$StacHeroCopyWithImpl;
   @useResult
   $Res call(
       {Object tag,
@@ -56,14 +84,11 @@ abstract class $StacHeroCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacHeroCopyWithImpl<$Res, $Val extends StacHero>
-    implements $StacHeroCopyWith<$Res> {
-  _$StacHeroCopyWithImpl(this._value, this._then);
+class _$StacHeroCopyWithImpl<$Res> implements $StacHeroCopyWith<$Res> {
+  _$StacHeroCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacHero _self;
+  final $Res Function(StacHero) _then;
 
   /// Create a copy of StacHero
   /// with the given fields replaced by the non-null parameter values.
@@ -77,29 +102,29 @@ class _$StacHeroCopyWithImpl<$Res, $Val extends StacHero>
     Object? placeholderBuilder = freezed,
     Object? transitionOnUserGestures = null,
   }) {
-    return _then(_value.copyWith(
-      tag: null == tag ? _value.tag : tag,
+    return _then(_self.copyWith(
+      tag: null == tag ? _self.tag : tag,
       child: null == child
-          ? _value.child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
       createRectTween: freezed == createRectTween
-          ? _value.createRectTween
+          ? _self.createRectTween
           : createRectTween // ignore: cast_nullable_to_non_nullable
               as StacRectTween?,
       flightShuttleBuilder: freezed == flightShuttleBuilder
-          ? _value.flightShuttleBuilder
+          ? _self.flightShuttleBuilder
           : flightShuttleBuilder // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       placeholderBuilder: freezed == placeholderBuilder
-          ? _value.placeholderBuilder
+          ? _self.placeholderBuilder
           : placeholderBuilder // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       transitionOnUserGestures: null == transitionOnUserGestures
-          ? _value.transitionOnUserGestures
+          ? _self.transitionOnUserGestures
           : transitionOnUserGestures // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacHero
@@ -107,86 +132,20 @@ class _$StacHeroCopyWithImpl<$Res, $Val extends StacHero>
   @override
   @pragma('vm:prefer-inline')
   $StacRectTweenCopyWith<$Res>? get createRectTween {
-    if (_value.createRectTween == null) {
+    if (_self.createRectTween == null) {
       return null;
     }
 
-    return $StacRectTweenCopyWith<$Res>(_value.createRectTween!, (value) {
-      return _then(_value.copyWith(createRectTween: value) as $Val);
+    return $StacRectTweenCopyWith<$Res>(_self.createRectTween!, (value) {
+      return _then(_self.copyWith(createRectTween: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacHeroImplCopyWith<$Res>
-    implements $StacHeroCopyWith<$Res> {
-  factory _$$StacHeroImplCopyWith(
-          _$StacHeroImpl value, $Res Function(_$StacHeroImpl) then) =
-      __$$StacHeroImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Object tag,
-      Map<String, dynamic> child,
-      StacRectTween? createRectTween,
-      Map<String, dynamic>? flightShuttleBuilder,
-      Map<String, dynamic>? placeholderBuilder,
-      bool transitionOnUserGestures});
-
-  @override
-  $StacRectTweenCopyWith<$Res>? get createRectTween;
-}
-
-/// @nodoc
-class __$$StacHeroImplCopyWithImpl<$Res>
-    extends _$StacHeroCopyWithImpl<$Res, _$StacHeroImpl>
-    implements _$$StacHeroImplCopyWith<$Res> {
-  __$$StacHeroImplCopyWithImpl(
-      _$StacHeroImpl _value, $Res Function(_$StacHeroImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacHero
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tag = null,
-    Object? child = null,
-    Object? createRectTween = freezed,
-    Object? flightShuttleBuilder = freezed,
-    Object? placeholderBuilder = freezed,
-    Object? transitionOnUserGestures = null,
-  }) {
-    return _then(_$StacHeroImpl(
-      tag: null == tag ? _value.tag : tag,
-      child: null == child
-          ? _value._child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      createRectTween: freezed == createRectTween
-          ? _value.createRectTween
-          : createRectTween // ignore: cast_nullable_to_non_nullable
-              as StacRectTween?,
-      flightShuttleBuilder: freezed == flightShuttleBuilder
-          ? _value._flightShuttleBuilder
-          : flightShuttleBuilder // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      placeholderBuilder: freezed == placeholderBuilder
-          ? _value._placeholderBuilder
-          : placeholderBuilder // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      transitionOnUserGestures: null == transitionOnUserGestures
-          ? _value.transitionOnUserGestures
-          : transitionOnUserGestures // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacHeroImpl implements _StacHero {
-  const _$StacHeroImpl(
+class _StacHero implements StacHero {
+  const _StacHero(
       {required this.tag,
       required final Map<String, dynamic> child,
       this.createRectTween,
@@ -196,9 +155,8 @@ class _$StacHeroImpl implements _StacHero {
       : _child = child,
         _flightShuttleBuilder = flightShuttleBuilder,
         _placeholderBuilder = placeholderBuilder;
-
-  factory _$StacHeroImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacHeroImplFromJson(json);
+  factory _StacHero.fromJson(Map<String, dynamic> json) =>
+      _$StacHeroFromJson(json);
 
   @override
   final Object tag;
@@ -238,16 +196,26 @@ class _$StacHeroImpl implements _StacHero {
   @JsonKey()
   final bool transitionOnUserGestures;
 
+  /// Create a copy of StacHero
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacHero(tag: $tag, child: $child, createRectTween: $createRectTween, flightShuttleBuilder: $flightShuttleBuilder, placeholderBuilder: $placeholderBuilder, transitionOnUserGestures: $transitionOnUserGestures)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacHeroCopyWith<_StacHero> get copyWith =>
+      __$StacHeroCopyWithImpl<_StacHero>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacHeroToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacHeroImpl &&
+            other is _StacHero &&
             const DeepCollectionEquality().equals(other.tag, tag) &&
             const DeepCollectionEquality().equals(other._child, _child) &&
             (identical(other.createRectTween, createRectTween) ||
@@ -272,51 +240,88 @@ class _$StacHeroImpl implements _StacHero {
       const DeepCollectionEquality().hash(_placeholderBuilder),
       transitionOnUserGestures);
 
-  /// Create a copy of StacHero
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacHeroImplCopyWith<_$StacHeroImpl> get copyWith =>
-      __$$StacHeroImplCopyWithImpl<_$StacHeroImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacHeroImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacHero(tag: $tag, child: $child, createRectTween: $createRectTween, flightShuttleBuilder: $flightShuttleBuilder, placeholderBuilder: $placeholderBuilder, transitionOnUserGestures: $transitionOnUserGestures)';
   }
 }
 
-abstract class _StacHero implements StacHero {
-  const factory _StacHero(
-      {required final Object tag,
-      required final Map<String, dynamic> child,
-      final StacRectTween? createRectTween,
-      final Map<String, dynamic>? flightShuttleBuilder,
-      final Map<String, dynamic>? placeholderBuilder,
-      final bool transitionOnUserGestures}) = _$StacHeroImpl;
+/// @nodoc
+abstract mixin class _$StacHeroCopyWith<$Res>
+    implements $StacHeroCopyWith<$Res> {
+  factory _$StacHeroCopyWith(_StacHero value, $Res Function(_StacHero) _then) =
+      __$StacHeroCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Object tag,
+      Map<String, dynamic> child,
+      StacRectTween? createRectTween,
+      Map<String, dynamic>? flightShuttleBuilder,
+      Map<String, dynamic>? placeholderBuilder,
+      bool transitionOnUserGestures});
 
-  factory _StacHero.fromJson(Map<String, dynamic> json) =
-      _$StacHeroImpl.fromJson;
+  @override
+  $StacRectTweenCopyWith<$Res>? get createRectTween;
+}
 
-  @override
-  Object get tag;
-  @override
-  Map<String, dynamic> get child;
-  @override
-  StacRectTween? get createRectTween;
-  @override
-  Map<String, dynamic>? get flightShuttleBuilder;
-  @override
-  Map<String, dynamic>? get placeholderBuilder;
-  @override
-  bool get transitionOnUserGestures;
+/// @nodoc
+class __$StacHeroCopyWithImpl<$Res> implements _$StacHeroCopyWith<$Res> {
+  __$StacHeroCopyWithImpl(this._self, this._then);
+
+  final _StacHero _self;
+  final $Res Function(_StacHero) _then;
 
   /// Create a copy of StacHero
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacHeroImplCopyWith<_$StacHeroImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? tag = null,
+    Object? child = null,
+    Object? createRectTween = freezed,
+    Object? flightShuttleBuilder = freezed,
+    Object? placeholderBuilder = freezed,
+    Object? transitionOnUserGestures = null,
+  }) {
+    return _then(_StacHero(
+      tag: null == tag ? _self.tag : tag,
+      child: null == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      createRectTween: freezed == createRectTween
+          ? _self.createRectTween
+          : createRectTween // ignore: cast_nullable_to_non_nullable
+              as StacRectTween?,
+      flightShuttleBuilder: freezed == flightShuttleBuilder
+          ? _self._flightShuttleBuilder
+          : flightShuttleBuilder // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      placeholderBuilder: freezed == placeholderBuilder
+          ? _self._placeholderBuilder
+          : placeholderBuilder // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      transitionOnUserGestures: null == transitionOnUserGestures
+          ? _self.transitionOnUserGestures
+          : transitionOnUserGestures // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of StacHero
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacRectTweenCopyWith<$Res>? get createRectTween {
+    if (_self.createRectTween == null) {
+      return null;
+    }
+
+    return $StacRectTweenCopyWith<$Res>(_self.createRectTween!, (value) {
+      return _then(_self.copyWith(createRectTween: value));
+    });
+  }
 }
+
+// dart format on

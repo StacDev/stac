@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,43 +10,67 @@ part of 'stac_rect.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacRect _$StacRectFromJson(Map<String, dynamic> json) {
-  return _StacRect.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacRect {
-  StacRectType get rectType => throw _privateConstructorUsedError;
-  StacOffset? get center => throw _privateConstructorUsedError;
-  StacOffset? get a => throw _privateConstructorUsedError;
-  StacOffset? get b => throw _privateConstructorUsedError;
-  double? get width => throw _privateConstructorUsedError;
-  double? get height => throw _privateConstructorUsedError;
-  double? get left => throw _privateConstructorUsedError;
-  double? get top => throw _privateConstructorUsedError;
-  double? get right => throw _privateConstructorUsedError;
-  double? get bottom => throw _privateConstructorUsedError;
-  double? get radius => throw _privateConstructorUsedError;
-
-  /// Serializes this StacRect to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  StacRectType get rectType;
+  StacOffset? get center;
+  StacOffset? get a;
+  StacOffset? get b;
+  double? get width;
+  double? get height;
+  double? get left;
+  double? get top;
+  double? get right;
+  double? get bottom;
+  double? get radius;
 
   /// Create a copy of StacRect
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacRectCopyWith<StacRect> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacRectCopyWithImpl<StacRect>(this as StacRect, _$identity);
+
+  /// Serializes this StacRect to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacRect &&
+            (identical(other.rectType, rectType) ||
+                other.rectType == rectType) &&
+            (identical(other.center, center) || other.center == center) &&
+            (identical(other.a, a) || other.a == a) &&
+            (identical(other.b, b) || other.b == b) &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.left, left) || other.left == left) &&
+            (identical(other.top, top) || other.top == top) &&
+            (identical(other.right, right) || other.right == right) &&
+            (identical(other.bottom, bottom) || other.bottom == bottom) &&
+            (identical(other.radius, radius) || other.radius == radius));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, rectType, center, a, b, width,
+      height, left, top, right, bottom, radius);
+
+  @override
+  String toString() {
+    return 'StacRect(rectType: $rectType, center: $center, a: $a, b: $b, width: $width, height: $height, left: $left, top: $top, right: $right, bottom: $bottom, radius: $radius)';
+  }
 }
 
 /// @nodoc
-abstract class $StacRectCopyWith<$Res> {
-  factory $StacRectCopyWith(StacRect value, $Res Function(StacRect) then) =
-      _$StacRectCopyWithImpl<$Res, StacRect>;
+abstract mixin class $StacRectCopyWith<$Res> {
+  factory $StacRectCopyWith(StacRect value, $Res Function(StacRect) _then) =
+      _$StacRectCopyWithImpl;
   @useResult
   $Res call(
       {StacRectType rectType,
@@ -66,14 +91,11 @@ abstract class $StacRectCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacRectCopyWithImpl<$Res, $Val extends StacRect>
-    implements $StacRectCopyWith<$Res> {
-  _$StacRectCopyWithImpl(this._value, this._then);
+class _$StacRectCopyWithImpl<$Res> implements $StacRectCopyWith<$Res> {
+  _$StacRectCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacRect _self;
+  final $Res Function(StacRect) _then;
 
   /// Create a copy of StacRect
   /// with the given fields replaced by the non-null parameter values.
@@ -92,52 +114,52 @@ class _$StacRectCopyWithImpl<$Res, $Val extends StacRect>
     Object? bottom = freezed,
     Object? radius = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       rectType: null == rectType
-          ? _value.rectType
+          ? _self.rectType
           : rectType // ignore: cast_nullable_to_non_nullable
               as StacRectType,
       center: freezed == center
-          ? _value.center
+          ? _self.center
           : center // ignore: cast_nullable_to_non_nullable
               as StacOffset?,
       a: freezed == a
-          ? _value.a
+          ? _self.a
           : a // ignore: cast_nullable_to_non_nullable
               as StacOffset?,
       b: freezed == b
-          ? _value.b
+          ? _self.b
           : b // ignore: cast_nullable_to_non_nullable
               as StacOffset?,
       width: freezed == width
-          ? _value.width
+          ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
               as double?,
       height: freezed == height
-          ? _value.height
+          ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
               as double?,
       left: freezed == left
-          ? _value.left
+          ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
               as double?,
       top: freezed == top
-          ? _value.top
+          ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
               as double?,
       right: freezed == right
-          ? _value.right
+          ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
               as double?,
       bottom: freezed == bottom
-          ? _value.bottom
+          ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
               as double?,
       radius: freezed == radius
-          ? _value.radius
+          ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
               as double?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacRect
@@ -145,12 +167,12 @@ class _$StacRectCopyWithImpl<$Res, $Val extends StacRect>
   @override
   @pragma('vm:prefer-inline')
   $StacOffsetCopyWith<$Res>? get center {
-    if (_value.center == null) {
+    if (_self.center == null) {
       return null;
     }
 
-    return $StacOffsetCopyWith<$Res>(_value.center!, (value) {
-      return _then(_value.copyWith(center: value) as $Val);
+    return $StacOffsetCopyWith<$Res>(_self.center!, (value) {
+      return _then(_self.copyWith(center: value));
     });
   }
 
@@ -159,12 +181,12 @@ class _$StacRectCopyWithImpl<$Res, $Val extends StacRect>
   @override
   @pragma('vm:prefer-inline')
   $StacOffsetCopyWith<$Res>? get a {
-    if (_value.a == null) {
+    if (_self.a == null) {
       return null;
     }
 
-    return $StacOffsetCopyWith<$Res>(_value.a!, (value) {
-      return _then(_value.copyWith(a: value) as $Val);
+    return $StacOffsetCopyWith<$Res>(_self.a!, (value) {
+      return _then(_self.copyWith(a: value));
     });
   }
 
@@ -173,123 +195,20 @@ class _$StacRectCopyWithImpl<$Res, $Val extends StacRect>
   @override
   @pragma('vm:prefer-inline')
   $StacOffsetCopyWith<$Res>? get b {
-    if (_value.b == null) {
+    if (_self.b == null) {
       return null;
     }
 
-    return $StacOffsetCopyWith<$Res>(_value.b!, (value) {
-      return _then(_value.copyWith(b: value) as $Val);
+    return $StacOffsetCopyWith<$Res>(_self.b!, (value) {
+      return _then(_self.copyWith(b: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacRectImplCopyWith<$Res>
-    implements $StacRectCopyWith<$Res> {
-  factory _$$StacRectImplCopyWith(
-          _$StacRectImpl value, $Res Function(_$StacRectImpl) then) =
-      __$$StacRectImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {StacRectType rectType,
-      StacOffset? center,
-      StacOffset? a,
-      StacOffset? b,
-      double? width,
-      double? height,
-      double? left,
-      double? top,
-      double? right,
-      double? bottom,
-      double? radius});
-
-  @override
-  $StacOffsetCopyWith<$Res>? get center;
-  @override
-  $StacOffsetCopyWith<$Res>? get a;
-  @override
-  $StacOffsetCopyWith<$Res>? get b;
-}
-
-/// @nodoc
-class __$$StacRectImplCopyWithImpl<$Res>
-    extends _$StacRectCopyWithImpl<$Res, _$StacRectImpl>
-    implements _$$StacRectImplCopyWith<$Res> {
-  __$$StacRectImplCopyWithImpl(
-      _$StacRectImpl _value, $Res Function(_$StacRectImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacRect
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? rectType = null,
-    Object? center = freezed,
-    Object? a = freezed,
-    Object? b = freezed,
-    Object? width = freezed,
-    Object? height = freezed,
-    Object? left = freezed,
-    Object? top = freezed,
-    Object? right = freezed,
-    Object? bottom = freezed,
-    Object? radius = freezed,
-  }) {
-    return _then(_$StacRectImpl(
-      rectType: null == rectType
-          ? _value.rectType
-          : rectType // ignore: cast_nullable_to_non_nullable
-              as StacRectType,
-      center: freezed == center
-          ? _value.center
-          : center // ignore: cast_nullable_to_non_nullable
-              as StacOffset?,
-      a: freezed == a
-          ? _value.a
-          : a // ignore: cast_nullable_to_non_nullable
-              as StacOffset?,
-      b: freezed == b
-          ? _value.b
-          : b // ignore: cast_nullable_to_non_nullable
-              as StacOffset?,
-      width: freezed == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double?,
-      height: freezed == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as double?,
-      left: freezed == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as double?,
-      top: freezed == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as double?,
-      right: freezed == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as double?,
-      bottom: freezed == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
-      radius: freezed == radius
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacRectImpl implements _StacRect {
-  const _$StacRectImpl(
+class _StacRect implements StacRect {
+  const _StacRect(
       {required this.rectType,
       this.center,
       this.a,
@@ -301,9 +220,8 @@ class _$StacRectImpl implements _StacRect {
       this.right,
       this.bottom,
       this.radius});
-
-  factory _$StacRectImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacRectImplFromJson(json);
+  factory _StacRect.fromJson(Map<String, dynamic> json) =>
+      _$StacRectFromJson(json);
 
   @override
   final StacRectType rectType;
@@ -328,16 +246,26 @@ class _$StacRectImpl implements _StacRect {
   @override
   final double? radius;
 
+  /// Create a copy of StacRect
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacRect(rectType: $rectType, center: $center, a: $a, b: $b, width: $width, height: $height, left: $left, top: $top, right: $right, bottom: $bottom, radius: $radius)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacRectCopyWith<_StacRect> get copyWith =>
+      __$StacRectCopyWithImpl<_StacRect>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacRectToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacRectImpl &&
+            other is _StacRect &&
             (identical(other.rectType, rectType) ||
                 other.rectType == rectType) &&
             (identical(other.center, center) || other.center == center) &&
@@ -357,66 +285,153 @@ class _$StacRectImpl implements _StacRect {
   int get hashCode => Object.hash(runtimeType, rectType, center, a, b, width,
       height, left, top, right, bottom, radius);
 
-  /// Create a copy of StacRect
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacRectImplCopyWith<_$StacRectImpl> get copyWith =>
-      __$$StacRectImplCopyWithImpl<_$StacRectImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacRectImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacRect(rectType: $rectType, center: $center, a: $a, b: $b, width: $width, height: $height, left: $left, top: $top, right: $right, bottom: $bottom, radius: $radius)';
   }
 }
 
-abstract class _StacRect implements StacRect {
-  const factory _StacRect(
-      {required final StacRectType rectType,
-      final StacOffset? center,
-      final StacOffset? a,
-      final StacOffset? b,
-      final double? width,
-      final double? height,
-      final double? left,
-      final double? top,
-      final double? right,
-      final double? bottom,
-      final double? radius}) = _$StacRectImpl;
+/// @nodoc
+abstract mixin class _$StacRectCopyWith<$Res>
+    implements $StacRectCopyWith<$Res> {
+  factory _$StacRectCopyWith(_StacRect value, $Res Function(_StacRect) _then) =
+      __$StacRectCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {StacRectType rectType,
+      StacOffset? center,
+      StacOffset? a,
+      StacOffset? b,
+      double? width,
+      double? height,
+      double? left,
+      double? top,
+      double? right,
+      double? bottom,
+      double? radius});
 
-  factory _StacRect.fromJson(Map<String, dynamic> json) =
-      _$StacRectImpl.fromJson;
+  @override
+  $StacOffsetCopyWith<$Res>? get center;
+  @override
+  $StacOffsetCopyWith<$Res>? get a;
+  @override
+  $StacOffsetCopyWith<$Res>? get b;
+}
 
-  @override
-  StacRectType get rectType;
-  @override
-  StacOffset? get center;
-  @override
-  StacOffset? get a;
-  @override
-  StacOffset? get b;
-  @override
-  double? get width;
-  @override
-  double? get height;
-  @override
-  double? get left;
-  @override
-  double? get top;
-  @override
-  double? get right;
-  @override
-  double? get bottom;
-  @override
-  double? get radius;
+/// @nodoc
+class __$StacRectCopyWithImpl<$Res> implements _$StacRectCopyWith<$Res> {
+  __$StacRectCopyWithImpl(this._self, this._then);
+
+  final _StacRect _self;
+  final $Res Function(_StacRect) _then;
 
   /// Create a copy of StacRect
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacRectImplCopyWith<_$StacRectImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rectType = null,
+    Object? center = freezed,
+    Object? a = freezed,
+    Object? b = freezed,
+    Object? width = freezed,
+    Object? height = freezed,
+    Object? left = freezed,
+    Object? top = freezed,
+    Object? right = freezed,
+    Object? bottom = freezed,
+    Object? radius = freezed,
+  }) {
+    return _then(_StacRect(
+      rectType: null == rectType
+          ? _self.rectType
+          : rectType // ignore: cast_nullable_to_non_nullable
+              as StacRectType,
+      center: freezed == center
+          ? _self.center
+          : center // ignore: cast_nullable_to_non_nullable
+              as StacOffset?,
+      a: freezed == a
+          ? _self.a
+          : a // ignore: cast_nullable_to_non_nullable
+              as StacOffset?,
+      b: freezed == b
+          ? _self.b
+          : b // ignore: cast_nullable_to_non_nullable
+              as StacOffset?,
+      width: freezed == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double?,
+      height: freezed == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double?,
+      left: freezed == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as double?,
+      top: freezed == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as double?,
+      right: freezed == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as double?,
+      bottom: freezed == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as double?,
+      radius: freezed == radius
+          ? _self.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
+
+  /// Create a copy of StacRect
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacOffsetCopyWith<$Res>? get center {
+    if (_self.center == null) {
+      return null;
+    }
+
+    return $StacOffsetCopyWith<$Res>(_self.center!, (value) {
+      return _then(_self.copyWith(center: value));
+    });
+  }
+
+  /// Create a copy of StacRect
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacOffsetCopyWith<$Res>? get a {
+    if (_self.a == null) {
+      return null;
+    }
+
+    return $StacOffsetCopyWith<$Res>(_self.a!, (value) {
+      return _then(_self.copyWith(a: value));
+    });
+  }
+
+  /// Create a copy of StacRect
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacOffsetCopyWith<$Res>? get b {
+    if (_self.b == null) {
+      return null;
+    }
+
+    return $StacOffsetCopyWith<$Res>(_self.b!, (value) {
+      return _then(_self.copyWith(b: value));
+    });
+  }
 }
+
+// dart format on

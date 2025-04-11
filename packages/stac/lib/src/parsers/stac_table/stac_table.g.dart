@@ -6,8 +6,7 @@ part of 'stac_table.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacTableImpl _$$StacTableImplFromJson(Map<String, dynamic> json) =>
-    _$StacTableImpl(
+_StacTable _$StacTableFromJson(Map<String, dynamic> json) => _StacTable(
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => StacTableRow.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -33,7 +32,7 @@ _$StacTableImpl _$$StacTableImplFromJson(Map<String, dynamic> json) =>
           $enumDecodeNullable(_$TextBaselineEnumMap, json['textBaseline']),
     );
 
-Map<String, dynamic> _$$StacTableImplToJson(_$StacTableImpl instance) =>
+Map<String, dynamic> _$StacTableToJson(_StacTable instance) =>
     <String, dynamic>{
       'children': instance.children,
       'columnWidths':
@@ -65,8 +64,8 @@ const _$TextBaselineEnumMap = {
   TextBaseline.ideographic: 'ideographic',
 };
 
-_$StacTableRowImpl _$$StacTableRowImplFromJson(Map<String, dynamic> json) =>
-    _$StacTableRowImpl(
+_StacTableRow _$StacTableRowFromJson(Map<String, dynamic> json) =>
+    _StacTableRow(
       decoration: json['decoration'] == null
           ? null
           : StacBoxDecoration.fromJson(
@@ -77,15 +76,14 @@ _$StacTableRowImpl _$$StacTableRowImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$StacTableRowImplToJson(_$StacTableRowImpl instance) =>
+Map<String, dynamic> _$StacTableRowToJson(_StacTableRow instance) =>
     <String, dynamic>{
       'decoration': instance.decoration,
       'children': instance.children,
     };
 
-_$StacTableBorderImpl _$$StacTableBorderImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacTableBorderImpl(
+_StacTableBorder _$StacTableBorderFromJson(Map<String, dynamic> json) =>
+    _StacTableBorder(
       color: json['color'] as String? ?? '#000000',
       width: (json['width'] as num?)?.toDouble() ?? 1.0,
       style: $enumDecodeNullable(_$BorderStyleEnumMap, json['style']) ??
@@ -95,8 +93,7 @@ _$StacTableBorderImpl _$$StacTableBorderImplFromJson(
           : StacBorderRadius.fromJson(json['borderRadius']),
     );
 
-Map<String, dynamic> _$$StacTableBorderImplToJson(
-        _$StacTableBorderImpl instance) =>
+Map<String, dynamic> _$StacTableBorderToJson(_StacTableBorder instance) =>
     <String, dynamic>{
       'color': instance.color,
       'width': instance.width,
@@ -109,17 +106,17 @@ const _$BorderStyleEnumMap = {
   BorderStyle.solid: 'solid',
 };
 
-_$StacTableColumnWidthImpl _$$StacTableColumnWidthImplFromJson(
+_StacTableColumnWidth _$StacTableColumnWidthFromJson(
         Map<String, dynamic> json) =>
-    _$StacTableColumnWidthImpl(
+    _StacTableColumnWidth(
       type: $enumDecodeNullable(
               _$StacTableColumnWidthTypeEnumMap, json['type']) ??
           StacTableColumnWidthType.flexColumnWidth,
       value: (json['value'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$StacTableColumnWidthImplToJson(
-        _$StacTableColumnWidthImpl instance) =>
+Map<String, dynamic> _$StacTableColumnWidthToJson(
+        _StacTableColumnWidth instance) =>
     <String, dynamic>{
       'type': _$StacTableColumnWidthTypeEnumMap[instance.type]!,
       'value': instance.value,

@@ -6,9 +6,9 @@ part of 'stac_navigation_bar_theme_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacNavigationBarThemeDataImpl _$$StacNavigationBarThemeDataImplFromJson(
+_StacNavigationBarThemeData _$StacNavigationBarThemeDataFromJson(
         Map<String, dynamic> json) =>
-    _$StacNavigationBarThemeDataImpl(
+    _StacNavigationBarThemeData(
       height: (json['height'] as num?)?.toDouble(),
       backgroundColor: json['backgroundColor'] as String?,
       elevation: (json['elevation'] as num?)?.toDouble(),
@@ -29,8 +29,8 @@ _$StacNavigationBarThemeDataImpl _$$StacNavigationBarThemeDataImplFromJson(
           _$NavigationDestinationLabelBehaviorEnumMap, json['labelBehavior']),
     );
 
-Map<String, dynamic> _$$StacNavigationBarThemeDataImplToJson(
-        _$StacNavigationBarThemeDataImpl instance) =>
+Map<String, dynamic> _$StacNavigationBarThemeDataToJson(
+        _StacNavigationBarThemeData instance) =>
     <String, dynamic>{
       'height': instance.height,
       'backgroundColor': instance.backgroundColor,

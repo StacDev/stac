@@ -7,7 +7,7 @@ part 'stac_app_bar.freezed.dart';
 part 'stac_app_bar.g.dart';
 
 @freezed
-class StacAppBar with _$StacAppBar {
+abstract class StacAppBar with _$StacAppBar {
   const factory StacAppBar({
     Map<String, dynamic>? leading,
     Map<String, dynamic>? title,

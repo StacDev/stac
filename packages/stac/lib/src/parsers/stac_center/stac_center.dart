@@ -6,7 +6,7 @@ part 'stac_center.freezed.dart';
 part 'stac_center.g.dart';
 
 @freezed
-class StacCenter with _$StacCenter {
+abstract class StacCenter with _$StacCenter {
   const factory StacCenter({
     double? widthFactor,
     double? heightFactor,

@@ -7,7 +7,7 @@ part 'stac_tab.freezed.dart';
 part 'stac_tab.g.dart';
 
 @freezed
-class StacTab with _$StacTab {
+abstract class StacTab with _$StacTab {
   const factory StacTab({
     String? text,
     Map<String, dynamic>? icon,

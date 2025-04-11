@@ -6,12 +6,11 @@ part of 'stac_spacer.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacSpacerImpl _$$StacSpacerImplFromJson(Map<String, dynamic> json) =>
-    _$StacSpacerImpl(
+_StacSpacer _$StacSpacerFromJson(Map<String, dynamic> json) => _StacSpacer(
       flex: (json['flex'] as num?)?.toInt() ?? 1,
     );
 
-Map<String, dynamic> _$$StacSpacerImplToJson(_$StacSpacerImpl instance) =>
+Map<String, dynamic> _$StacSpacerToJson(_StacSpacer instance) =>
     <String, dynamic>{
       'flex': instance.flex,
     };

@@ -11,7 +11,7 @@ part 'stac_tab_bar.freezed.dart';
 part 'stac_tab_bar.g.dart';
 
 @freezed
-class StacTabBar with _$StacTabBar {
+abstract class StacTabBar with _$StacTabBar {
   const factory StacTabBar({
     required List<Map<String, dynamic>> tabs,
     @Default(0) int initialIndex,

@@ -11,7 +11,7 @@ part 'stac_button_style.freezed.dart';
 part 'stac_button_style.g.dart';
 
 @freezed
-class StacButtonStyle with _$StacButtonStyle {
+abstract class StacButtonStyle with _$StacButtonStyle {
   const factory StacButtonStyle({
     String? foregroundColor,
     String? backgroundColor,

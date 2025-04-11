@@ -8,7 +8,7 @@ part 'stac_bottom_nav_bar_theme.freezed.dart';
 part 'stac_bottom_nav_bar_theme.g.dart';
 
 @freezed
-class StacBottomNavBarThemeData with _$StacBottomNavBarThemeData {
+abstract class StacBottomNavBarThemeData with _$StacBottomNavBarThemeData {
   const factory StacBottomNavBarThemeData({
     String? backgroundColor,
     double? elevation,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,44 +10,89 @@ part of 'stac_text.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacText _$StacTextFromJson(Map<String, dynamic> json) {
-  return _StacText.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacText {
-  String get data => throw _privateConstructorUsedError;
-  List<StacTextSpan> get children => throw _privateConstructorUsedError;
-  StacTextStyle? get style => throw _privateConstructorUsedError;
-  TextAlign? get textAlign => throw _privateConstructorUsedError;
-  TextDirection? get textDirection => throw _privateConstructorUsedError;
-  bool? get softWrap => throw _privateConstructorUsedError;
-  TextOverflow? get overflow => throw _privateConstructorUsedError;
-  double? get textScaleFactor => throw _privateConstructorUsedError;
-  int? get maxLines => throw _privateConstructorUsedError;
-  String? get semanticsLabel => throw _privateConstructorUsedError;
-  TextWidthBasis? get textWidthBasis => throw _privateConstructorUsedError;
-  String? get selectionColor => throw _privateConstructorUsedError;
-
-  /// Serializes this StacText to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get data;
+  List<StacTextSpan> get children;
+  StacTextStyle? get style;
+  TextAlign? get textAlign;
+  TextDirection? get textDirection;
+  bool? get softWrap;
+  TextOverflow? get overflow;
+  double? get textScaleFactor;
+  int? get maxLines;
+  String? get semanticsLabel;
+  TextWidthBasis? get textWidthBasis;
+  String? get selectionColor;
 
   /// Create a copy of StacText
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacTextCopyWith<StacText> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacTextCopyWithImpl<StacText>(this as StacText, _$identity);
+
+  /// Serializes this StacText to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacText &&
+            (identical(other.data, data) || other.data == data) &&
+            const DeepCollectionEquality().equals(other.children, children) &&
+            (identical(other.style, style) || other.style == style) &&
+            (identical(other.textAlign, textAlign) ||
+                other.textAlign == textAlign) &&
+            (identical(other.textDirection, textDirection) ||
+                other.textDirection == textDirection) &&
+            (identical(other.softWrap, softWrap) ||
+                other.softWrap == softWrap) &&
+            (identical(other.overflow, overflow) ||
+                other.overflow == overflow) &&
+            (identical(other.textScaleFactor, textScaleFactor) ||
+                other.textScaleFactor == textScaleFactor) &&
+            (identical(other.maxLines, maxLines) ||
+                other.maxLines == maxLines) &&
+            (identical(other.semanticsLabel, semanticsLabel) ||
+                other.semanticsLabel == semanticsLabel) &&
+            (identical(other.textWidthBasis, textWidthBasis) ||
+                other.textWidthBasis == textWidthBasis) &&
+            (identical(other.selectionColor, selectionColor) ||
+                other.selectionColor == selectionColor));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      data,
+      const DeepCollectionEquality().hash(children),
+      style,
+      textAlign,
+      textDirection,
+      softWrap,
+      overflow,
+      textScaleFactor,
+      maxLines,
+      semanticsLabel,
+      textWidthBasis,
+      selectionColor);
+
+  @override
+  String toString() {
+    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor)';
+  }
 }
 
 /// @nodoc
-abstract class $StacTextCopyWith<$Res> {
-  factory $StacTextCopyWith(StacText value, $Res Function(StacText) then) =
-      _$StacTextCopyWithImpl<$Res, StacText>;
+abstract mixin class $StacTextCopyWith<$Res> {
+  factory $StacTextCopyWith(StacText value, $Res Function(StacText) _then) =
+      _$StacTextCopyWithImpl;
   @useResult
   $Res call(
       {String data,
@@ -66,14 +112,11 @@ abstract class $StacTextCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacTextCopyWithImpl<$Res, $Val extends StacText>
-    implements $StacTextCopyWith<$Res> {
-  _$StacTextCopyWithImpl(this._value, this._then);
+class _$StacTextCopyWithImpl<$Res> implements $StacTextCopyWith<$Res> {
+  _$StacTextCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacText _self;
+  final $Res Function(StacText) _then;
 
   /// Create a copy of StacText
   /// with the given fields replaced by the non-null parameter values.
@@ -93,56 +136,56 @@ class _$StacTextCopyWithImpl<$Res, $Val extends StacText>
     Object? textWidthBasis = freezed,
     Object? selectionColor = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       data: null == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as String,
       children: null == children
-          ? _value.children
+          ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
               as List<StacTextSpan>,
       style: freezed == style
-          ? _value.style
+          ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       textAlign: freezed == textAlign
-          ? _value.textAlign
+          ? _self.textAlign
           : textAlign // ignore: cast_nullable_to_non_nullable
               as TextAlign?,
       textDirection: freezed == textDirection
-          ? _value.textDirection
+          ? _self.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable
               as TextDirection?,
       softWrap: freezed == softWrap
-          ? _value.softWrap
+          ? _self.softWrap
           : softWrap // ignore: cast_nullable_to_non_nullable
               as bool?,
       overflow: freezed == overflow
-          ? _value.overflow
+          ? _self.overflow
           : overflow // ignore: cast_nullable_to_non_nullable
               as TextOverflow?,
       textScaleFactor: freezed == textScaleFactor
-          ? _value.textScaleFactor
+          ? _self.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
               as double?,
       maxLines: freezed == maxLines
-          ? _value.maxLines
+          ? _self.maxLines
           : maxLines // ignore: cast_nullable_to_non_nullable
               as int?,
       semanticsLabel: freezed == semanticsLabel
-          ? _value.semanticsLabel
+          ? _self.semanticsLabel
           : semanticsLabel // ignore: cast_nullable_to_non_nullable
               as String?,
       textWidthBasis: freezed == textWidthBasis
-          ? _value.textWidthBasis
+          ? _self.textWidthBasis
           : textWidthBasis // ignore: cast_nullable_to_non_nullable
               as TextWidthBasis?,
       selectionColor: freezed == selectionColor
-          ? _value.selectionColor
+          ? _self.selectionColor
           : selectionColor // ignore: cast_nullable_to_non_nullable
               as String?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacText
@@ -150,125 +193,20 @@ class _$StacTextCopyWithImpl<$Res, $Val extends StacText>
   @override
   @pragma('vm:prefer-inline')
   $StacTextStyleCopyWith<$Res>? get style {
-    if (_value.style == null) {
+    if (_self.style == null) {
       return null;
     }
 
-    return $StacTextStyleCopyWith<$Res>(_value.style!, (value) {
-      return _then(_value.copyWith(style: value) as $Val);
+    return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
+      return _then(_self.copyWith(style: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacTextImplCopyWith<$Res>
-    implements $StacTextCopyWith<$Res> {
-  factory _$$StacTextImplCopyWith(
-          _$StacTextImpl value, $Res Function(_$StacTextImpl) then) =
-      __$$StacTextImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String data,
-      List<StacTextSpan> children,
-      StacTextStyle? style,
-      TextAlign? textAlign,
-      TextDirection? textDirection,
-      bool? softWrap,
-      TextOverflow? overflow,
-      double? textScaleFactor,
-      int? maxLines,
-      String? semanticsLabel,
-      TextWidthBasis? textWidthBasis,
-      String? selectionColor});
-
-  @override
-  $StacTextStyleCopyWith<$Res>? get style;
-}
-
-/// @nodoc
-class __$$StacTextImplCopyWithImpl<$Res>
-    extends _$StacTextCopyWithImpl<$Res, _$StacTextImpl>
-    implements _$$StacTextImplCopyWith<$Res> {
-  __$$StacTextImplCopyWithImpl(
-      _$StacTextImpl _value, $Res Function(_$StacTextImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacText
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-    Object? children = null,
-    Object? style = freezed,
-    Object? textAlign = freezed,
-    Object? textDirection = freezed,
-    Object? softWrap = freezed,
-    Object? overflow = freezed,
-    Object? textScaleFactor = freezed,
-    Object? maxLines = freezed,
-    Object? semanticsLabel = freezed,
-    Object? textWidthBasis = freezed,
-    Object? selectionColor = freezed,
-  }) {
-    return _then(_$StacTextImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String,
-      children: null == children
-          ? _value._children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<StacTextSpan>,
-      style: freezed == style
-          ? _value.style
-          : style // ignore: cast_nullable_to_non_nullable
-              as StacTextStyle?,
-      textAlign: freezed == textAlign
-          ? _value.textAlign
-          : textAlign // ignore: cast_nullable_to_non_nullable
-              as TextAlign?,
-      textDirection: freezed == textDirection
-          ? _value.textDirection
-          : textDirection // ignore: cast_nullable_to_non_nullable
-              as TextDirection?,
-      softWrap: freezed == softWrap
-          ? _value.softWrap
-          : softWrap // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      overflow: freezed == overflow
-          ? _value.overflow
-          : overflow // ignore: cast_nullable_to_non_nullable
-              as TextOverflow?,
-      textScaleFactor: freezed == textScaleFactor
-          ? _value.textScaleFactor
-          : textScaleFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
-      maxLines: freezed == maxLines
-          ? _value.maxLines
-          : maxLines // ignore: cast_nullable_to_non_nullable
-              as int?,
-      semanticsLabel: freezed == semanticsLabel
-          ? _value.semanticsLabel
-          : semanticsLabel // ignore: cast_nullable_to_non_nullable
-              as String?,
-      textWidthBasis: freezed == textWidthBasis
-          ? _value.textWidthBasis
-          : textWidthBasis // ignore: cast_nullable_to_non_nullable
-              as TextWidthBasis?,
-      selectionColor: freezed == selectionColor
-          ? _value.selectionColor
-          : selectionColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacTextImpl implements _StacText {
-  const _$StacTextImpl(
+class _StacText implements StacText {
+  const _StacText(
       {required this.data,
       final List<StacTextSpan> children = const [],
       this.style,
@@ -282,9 +220,8 @@ class _$StacTextImpl implements _StacText {
       this.textWidthBasis,
       this.selectionColor})
       : _children = children;
-
-  factory _$StacTextImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacTextImplFromJson(json);
+  factory _StacText.fromJson(Map<String, dynamic> json) =>
+      _$StacTextFromJson(json);
 
   @override
   final String data;
@@ -318,16 +255,26 @@ class _$StacTextImpl implements _StacText {
   @override
   final String? selectionColor;
 
+  /// Create a copy of StacText
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacTextCopyWith<_StacText> get copyWith =>
+      __$StacTextCopyWithImpl<_StacText>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacTextToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacTextImpl &&
+            other is _StacText &&
             (identical(other.data, data) || other.data == data) &&
             const DeepCollectionEquality().equals(other._children, _children) &&
             (identical(other.style, style) || other.style == style) &&
@@ -368,98 +315,172 @@ class _$StacTextImpl implements _StacText {
       textWidthBasis,
       selectionColor);
 
-  /// Create a copy of StacText
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacTextImplCopyWith<_$StacTextImpl> get copyWith =>
-      __$$StacTextImplCopyWithImpl<_$StacTextImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacTextImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor)';
   }
 }
 
-abstract class _StacText implements StacText {
-  const factory _StacText(
-      {required final String data,
-      final List<StacTextSpan> children,
-      final StacTextStyle? style,
-      final TextAlign? textAlign,
-      final TextDirection? textDirection,
-      final bool? softWrap,
-      final TextOverflow? overflow,
-      final double? textScaleFactor,
-      final int? maxLines,
-      final String? semanticsLabel,
-      final TextWidthBasis? textWidthBasis,
-      final String? selectionColor}) = _$StacTextImpl;
+/// @nodoc
+abstract mixin class _$StacTextCopyWith<$Res>
+    implements $StacTextCopyWith<$Res> {
+  factory _$StacTextCopyWith(_StacText value, $Res Function(_StacText) _then) =
+      __$StacTextCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String data,
+      List<StacTextSpan> children,
+      StacTextStyle? style,
+      TextAlign? textAlign,
+      TextDirection? textDirection,
+      bool? softWrap,
+      TextOverflow? overflow,
+      double? textScaleFactor,
+      int? maxLines,
+      String? semanticsLabel,
+      TextWidthBasis? textWidthBasis,
+      String? selectionColor});
 
-  factory _StacText.fromJson(Map<String, dynamic> json) =
-      _$StacTextImpl.fromJson;
+  @override
+  $StacTextStyleCopyWith<$Res>? get style;
+}
 
-  @override
-  String get data;
-  @override
-  List<StacTextSpan> get children;
-  @override
-  StacTextStyle? get style;
-  @override
-  TextAlign? get textAlign;
-  @override
-  TextDirection? get textDirection;
-  @override
-  bool? get softWrap;
-  @override
-  TextOverflow? get overflow;
-  @override
-  double? get textScaleFactor;
-  @override
-  int? get maxLines;
-  @override
-  String? get semanticsLabel;
-  @override
-  TextWidthBasis? get textWidthBasis;
-  @override
-  String? get selectionColor;
+/// @nodoc
+class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
+  __$StacTextCopyWithImpl(this._self, this._then);
+
+  final _StacText _self;
+  final $Res Function(_StacText) _then;
 
   /// Create a copy of StacText
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacTextImplCopyWith<_$StacTextImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = null,
+    Object? children = null,
+    Object? style = freezed,
+    Object? textAlign = freezed,
+    Object? textDirection = freezed,
+    Object? softWrap = freezed,
+    Object? overflow = freezed,
+    Object? textScaleFactor = freezed,
+    Object? maxLines = freezed,
+    Object? semanticsLabel = freezed,
+    Object? textWidthBasis = freezed,
+    Object? selectionColor = freezed,
+  }) {
+    return _then(_StacText(
+      data: null == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String,
+      children: null == children
+          ? _self._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<StacTextSpan>,
+      style: freezed == style
+          ? _self.style
+          : style // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      textAlign: freezed == textAlign
+          ? _self.textAlign
+          : textAlign // ignore: cast_nullable_to_non_nullable
+              as TextAlign?,
+      textDirection: freezed == textDirection
+          ? _self.textDirection
+          : textDirection // ignore: cast_nullable_to_non_nullable
+              as TextDirection?,
+      softWrap: freezed == softWrap
+          ? _self.softWrap
+          : softWrap // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      overflow: freezed == overflow
+          ? _self.overflow
+          : overflow // ignore: cast_nullable_to_non_nullable
+              as TextOverflow?,
+      textScaleFactor: freezed == textScaleFactor
+          ? _self.textScaleFactor
+          : textScaleFactor // ignore: cast_nullable_to_non_nullable
+              as double?,
+      maxLines: freezed == maxLines
+          ? _self.maxLines
+          : maxLines // ignore: cast_nullable_to_non_nullable
+              as int?,
+      semanticsLabel: freezed == semanticsLabel
+          ? _self.semanticsLabel
+          : semanticsLabel // ignore: cast_nullable_to_non_nullable
+              as String?,
+      textWidthBasis: freezed == textWidthBasis
+          ? _self.textWidthBasis
+          : textWidthBasis // ignore: cast_nullable_to_non_nullable
+              as TextWidthBasis?,
+      selectionColor: freezed == selectionColor
+          ? _self.selectionColor
+          : selectionColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 
-StacTextSpan _$StacTextSpanFromJson(Map<String, dynamic> json) {
-  return _StacTextSpan.fromJson(json);
+  /// Create a copy of StacText
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get style {
+    if (_self.style == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
+      return _then(_self.copyWith(style: value));
+    });
+  }
 }
 
 /// @nodoc
 mixin _$StacTextSpan {
-  String? get data => throw _privateConstructorUsedError;
-  StacTextStyle? get style => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onTap => throw _privateConstructorUsedError;
-
-  /// Serializes this StacTextSpan to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get data;
+  StacTextStyle? get style;
+  Map<String, dynamic>? get onTap;
 
   /// Create a copy of StacTextSpan
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacTextSpanCopyWith<StacTextSpan> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacTextSpanCopyWithImpl<StacTextSpan>(
+          this as StacTextSpan, _$identity);
+
+  /// Serializes this StacTextSpan to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacTextSpan &&
+            (identical(other.data, data) || other.data == data) &&
+            (identical(other.style, style) || other.style == style) &&
+            const DeepCollectionEquality().equals(other.onTap, onTap));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, data, style, const DeepCollectionEquality().hash(onTap));
+
+  @override
+  String toString() {
+    return 'StacTextSpan(data: $data, style: $style, onTap: $onTap)';
+  }
 }
 
 /// @nodoc
-abstract class $StacTextSpanCopyWith<$Res> {
+abstract mixin class $StacTextSpanCopyWith<$Res> {
   factory $StacTextSpanCopyWith(
-          StacTextSpan value, $Res Function(StacTextSpan) then) =
-      _$StacTextSpanCopyWithImpl<$Res, StacTextSpan>;
+          StacTextSpan value, $Res Function(StacTextSpan) _then) =
+      _$StacTextSpanCopyWithImpl;
   @useResult
   $Res call({String? data, StacTextStyle? style, Map<String, dynamic>? onTap});
 
@@ -467,14 +488,11 @@ abstract class $StacTextSpanCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacTextSpanCopyWithImpl<$Res, $Val extends StacTextSpan>
-    implements $StacTextSpanCopyWith<$Res> {
-  _$StacTextSpanCopyWithImpl(this._value, this._then);
+class _$StacTextSpanCopyWithImpl<$Res> implements $StacTextSpanCopyWith<$Res> {
+  _$StacTextSpanCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacTextSpan _self;
+  final $Res Function(StacTextSpan) _then;
 
   /// Create a copy of StacTextSpan
   /// with the given fields replaced by the non-null parameter values.
@@ -485,20 +503,20 @@ class _$StacTextSpanCopyWithImpl<$Res, $Val extends StacTextSpan>
     Object? style = freezed,
     Object? onTap = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       data: freezed == data
-          ? _value.data
+          ? _self.data
           : data // ignore: cast_nullable_to_non_nullable
               as String?,
       style: freezed == style
-          ? _value.style
+          ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       onTap: freezed == onTap
-          ? _value.onTap
+          ? _self.onTap
           : onTap // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacTextSpan
@@ -506,73 +524,24 @@ class _$StacTextSpanCopyWithImpl<$Res, $Val extends StacTextSpan>
   @override
   @pragma('vm:prefer-inline')
   $StacTextStyleCopyWith<$Res>? get style {
-    if (_value.style == null) {
+    if (_self.style == null) {
       return null;
     }
 
-    return $StacTextStyleCopyWith<$Res>(_value.style!, (value) {
-      return _then(_value.copyWith(style: value) as $Val);
+    return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
+      return _then(_self.copyWith(style: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacTextSpanImplCopyWith<$Res>
-    implements $StacTextSpanCopyWith<$Res> {
-  factory _$$StacTextSpanImplCopyWith(
-          _$StacTextSpanImpl value, $Res Function(_$StacTextSpanImpl) then) =
-      __$$StacTextSpanImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String? data, StacTextStyle? style, Map<String, dynamic>? onTap});
-
-  @override
-  $StacTextStyleCopyWith<$Res>? get style;
-}
-
-/// @nodoc
-class __$$StacTextSpanImplCopyWithImpl<$Res>
-    extends _$StacTextSpanCopyWithImpl<$Res, _$StacTextSpanImpl>
-    implements _$$StacTextSpanImplCopyWith<$Res> {
-  __$$StacTextSpanImplCopyWithImpl(
-      _$StacTextSpanImpl _value, $Res Function(_$StacTextSpanImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacTextSpan
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = freezed,
-    Object? style = freezed,
-    Object? onTap = freezed,
-  }) {
-    return _then(_$StacTextSpanImpl(
-      data: freezed == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as String?,
-      style: freezed == style
-          ? _value.style
-          : style // ignore: cast_nullable_to_non_nullable
-              as StacTextStyle?,
-      onTap: freezed == onTap
-          ? _value._onTap
-          : onTap // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacTextSpanImpl implements _StacTextSpan {
-  const _$StacTextSpanImpl(
+class _StacTextSpan implements StacTextSpan {
+  const _StacTextSpan(
       {this.data, this.style, final Map<String, dynamic>? onTap})
       : _onTap = onTap;
-
-  factory _$StacTextSpanImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacTextSpanImplFromJson(json);
+  factory _StacTextSpan.fromJson(Map<String, dynamic> json) =>
+      _$StacTextSpanFromJson(json);
 
   @override
   final String? data;
@@ -588,16 +557,26 @@ class _$StacTextSpanImpl implements _StacTextSpan {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of StacTextSpan
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacTextSpan(data: $data, style: $style, onTap: $onTap)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacTextSpanCopyWith<_StacTextSpan> get copyWith =>
+      __$StacTextSpanCopyWithImpl<_StacTextSpan>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacTextSpanToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacTextSpanImpl &&
+            other is _StacTextSpan &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.style, style) || other.style == style) &&
             const DeepCollectionEquality().equals(other._onTap, _onTap));
@@ -608,42 +587,72 @@ class _$StacTextSpanImpl implements _StacTextSpan {
   int get hashCode => Object.hash(
       runtimeType, data, style, const DeepCollectionEquality().hash(_onTap));
 
-  /// Create a copy of StacTextSpan
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacTextSpanImplCopyWith<_$StacTextSpanImpl> get copyWith =>
-      __$$StacTextSpanImplCopyWithImpl<_$StacTextSpanImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacTextSpanImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacTextSpan(data: $data, style: $style, onTap: $onTap)';
   }
 }
 
-abstract class _StacTextSpan implements StacTextSpan {
-  const factory _StacTextSpan(
-      {final String? data,
-      final StacTextStyle? style,
-      final Map<String, dynamic>? onTap}) = _$StacTextSpanImpl;
+/// @nodoc
+abstract mixin class _$StacTextSpanCopyWith<$Res>
+    implements $StacTextSpanCopyWith<$Res> {
+  factory _$StacTextSpanCopyWith(
+          _StacTextSpan value, $Res Function(_StacTextSpan) _then) =
+      __$StacTextSpanCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? data, StacTextStyle? style, Map<String, dynamic>? onTap});
 
-  factory _StacTextSpan.fromJson(Map<String, dynamic> json) =
-      _$StacTextSpanImpl.fromJson;
+  @override
+  $StacTextStyleCopyWith<$Res>? get style;
+}
 
-  @override
-  String? get data;
-  @override
-  StacTextStyle? get style;
-  @override
-  Map<String, dynamic>? get onTap;
+/// @nodoc
+class __$StacTextSpanCopyWithImpl<$Res>
+    implements _$StacTextSpanCopyWith<$Res> {
+  __$StacTextSpanCopyWithImpl(this._self, this._then);
+
+  final _StacTextSpan _self;
+  final $Res Function(_StacTextSpan) _then;
 
   /// Create a copy of StacTextSpan
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacTextSpanImplCopyWith<_$StacTextSpanImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? data = freezed,
+    Object? style = freezed,
+    Object? onTap = freezed,
+  }) {
+    return _then(_StacTextSpan(
+      data: freezed == data
+          ? _self.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as String?,
+      style: freezed == style
+          ? _self.style
+          : style // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      onTap: freezed == onTap
+          ? _self._onTap
+          : onTap // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+
+  /// Create a copy of StacTextSpan
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get style {
+    if (_self.style == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
+      return _then(_self.copyWith(style: value));
+    });
+  }
 }
+
+// dart format on

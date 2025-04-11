@@ -7,7 +7,7 @@ part 'stac_box_shadow.freezed.dart';
 part 'stac_box_shadow.g.dart';
 
 @freezed
-class StacBoxShadow with _$StacBoxShadow {
+abstract class StacBoxShadow with _$StacBoxShadow {
   const factory StacBoxShadow({
     String? color,
     @Default(0.0) double? blurRadius,

@@ -11,7 +11,7 @@ enum Method {
 }
 
 @freezed
-class StacNetworkRequest with _$StacNetworkRequest {
+abstract class StacNetworkRequest with _$StacNetworkRequest {
   const factory StacNetworkRequest({
     required String url,
     @Default(Method.get) Method method,
@@ -27,7 +27,7 @@ class StacNetworkRequest with _$StacNetworkRequest {
 }
 
 @freezed
-class StacNetworkResult with _$StacNetworkResult {
+abstract class StacNetworkResult with _$StacNetworkResult {
   const factory StacNetworkResult({
     required int statusCode,
     required Map<String, dynamic> action,

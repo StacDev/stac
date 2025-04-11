@@ -9,7 +9,7 @@ part 'stac_alert_dialog.freezed.dart';
 part 'stac_alert_dialog.g.dart';
 
 @freezed
-class StacAlertDialog with _$StacAlertDialog {
+abstract class StacAlertDialog with _$StacAlertDialog {
   const factory StacAlertDialog({
     Map<String, dynamic>? icon,
     StacEdgeInsets? iconPadding,

@@ -8,7 +8,7 @@ part 'stac_dialog_action.freezed.dart';
 part 'stac_dialog_action.g.dart';
 
 @freezed
-class StacDialogAction with _$StacDialogAction {
+abstract class StacDialogAction with _$StacDialogAction {
   const factory StacDialogAction({
     Map<String, dynamic>? widget,
     StacNetworkRequest? request,

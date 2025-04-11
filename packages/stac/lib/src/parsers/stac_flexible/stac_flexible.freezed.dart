@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,62 @@ part of 'stac_flexible.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacFlexible _$StacFlexibleFromJson(Map<String, dynamic> json) {
-  return _StacFlexible.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacFlexible {
-  Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-  int get flex => throw _privateConstructorUsedError;
-  FlexFit get fit => throw _privateConstructorUsedError;
-
-  /// Serializes this StacFlexible to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get child;
+  int get flex;
+  FlexFit get fit;
 
   /// Create a copy of StacFlexible
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacFlexibleCopyWith<StacFlexible> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacFlexibleCopyWith<$Res> {
-  factory $StacFlexibleCopyWith(
-          StacFlexible value, $Res Function(StacFlexible) then) =
-      _$StacFlexibleCopyWithImpl<$Res, StacFlexible>;
-  @useResult
-  $Res call({Map<String, dynamic>? child, int flex, FlexFit fit});
-}
-
-/// @nodoc
-class _$StacFlexibleCopyWithImpl<$Res, $Val extends StacFlexible>
-    implements $StacFlexibleCopyWith<$Res> {
-  _$StacFlexibleCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacFlexible
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacFlexibleCopyWith<StacFlexible> get copyWith =>
+      _$StacFlexibleCopyWithImpl<StacFlexible>(
+          this as StacFlexible, _$identity);
+
+  /// Serializes this StacFlexible to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? child = freezed,
-    Object? flex = null,
-    Object? fit = null,
-  }) {
-    return _then(_value.copyWith(
-      child: freezed == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      flex: null == flex
-          ? _value.flex
-          : flex // ignore: cast_nullable_to_non_nullable
-              as int,
-      fit: null == fit
-          ? _value.fit
-          : fit // ignore: cast_nullable_to_non_nullable
-              as FlexFit,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacFlexible &&
+            const DeepCollectionEquality().equals(other.child, child) &&
+            (identical(other.flex, flex) || other.flex == flex) &&
+            (identical(other.fit, fit) || other.fit == fit));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(child), flex, fit);
+
+  @override
+  String toString() {
+    return 'StacFlexible(child: $child, flex: $flex, fit: $fit)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacFlexibleImplCopyWith<$Res>
-    implements $StacFlexibleCopyWith<$Res> {
-  factory _$$StacFlexibleImplCopyWith(
-          _$StacFlexibleImpl value, $Res Function(_$StacFlexibleImpl) then) =
-      __$$StacFlexibleImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacFlexibleCopyWith<$Res> {
+  factory $StacFlexibleCopyWith(
+          StacFlexible value, $Res Function(StacFlexible) _then) =
+      _$StacFlexibleCopyWithImpl;
   @useResult
   $Res call({Map<String, dynamic>? child, int flex, FlexFit fit});
 }
 
 /// @nodoc
-class __$$StacFlexibleImplCopyWithImpl<$Res>
-    extends _$StacFlexibleCopyWithImpl<$Res, _$StacFlexibleImpl>
-    implements _$$StacFlexibleImplCopyWith<$Res> {
-  __$$StacFlexibleImplCopyWithImpl(
-      _$StacFlexibleImpl _value, $Res Function(_$StacFlexibleImpl) _then)
-      : super(_value, _then);
+class _$StacFlexibleCopyWithImpl<$Res> implements $StacFlexibleCopyWith<$Res> {
+  _$StacFlexibleCopyWithImpl(this._self, this._then);
+
+  final StacFlexible _self;
+  final $Res Function(StacFlexible) _then;
 
   /// Create a copy of StacFlexible
   /// with the given fields replaced by the non-null parameter values.
@@ -107,17 +76,17 @@ class __$$StacFlexibleImplCopyWithImpl<$Res>
     Object? flex = null,
     Object? fit = null,
   }) {
-    return _then(_$StacFlexibleImpl(
+    return _then(_self.copyWith(
       child: freezed == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       flex: null == flex
-          ? _value.flex
+          ? _self.flex
           : flex // ignore: cast_nullable_to_non_nullable
               as int,
       fit: null == fit
-          ? _value.fit
+          ? _self.fit
           : fit // ignore: cast_nullable_to_non_nullable
               as FlexFit,
     ));
@@ -126,15 +95,14 @@ class __$$StacFlexibleImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacFlexibleImpl implements _StacFlexible {
-  const _$StacFlexibleImpl(
+class _StacFlexible implements StacFlexible {
+  const _StacFlexible(
       {final Map<String, dynamic>? child,
       this.flex = 1,
       this.fit = FlexFit.loose})
       : _child = child;
-
-  factory _$StacFlexibleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacFlexibleImplFromJson(json);
+  factory _StacFlexible.fromJson(Map<String, dynamic> json) =>
+      _$StacFlexibleFromJson(json);
 
   final Map<String, dynamic>? _child;
   @override
@@ -153,16 +121,26 @@ class _$StacFlexibleImpl implements _StacFlexible {
   @JsonKey()
   final FlexFit fit;
 
+  /// Create a copy of StacFlexible
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacFlexible(child: $child, flex: $flex, fit: $fit)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacFlexibleCopyWith<_StacFlexible> get copyWith =>
+      __$StacFlexibleCopyWithImpl<_StacFlexible>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacFlexibleToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacFlexibleImpl &&
+            other is _StacFlexible &&
             const DeepCollectionEquality().equals(other._child, _child) &&
             (identical(other.flex, flex) || other.flex == flex) &&
             (identical(other.fit, fit) || other.fit == fit));
@@ -173,42 +151,55 @@ class _$StacFlexibleImpl implements _StacFlexible {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_child), flex, fit);
 
-  /// Create a copy of StacFlexible
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacFlexibleImplCopyWith<_$StacFlexibleImpl> get copyWith =>
-      __$$StacFlexibleImplCopyWithImpl<_$StacFlexibleImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacFlexibleImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacFlexible(child: $child, flex: $flex, fit: $fit)';
   }
 }
 
-abstract class _StacFlexible implements StacFlexible {
-  const factory _StacFlexible(
-      {final Map<String, dynamic>? child,
-      final int flex,
-      final FlexFit fit}) = _$StacFlexibleImpl;
+/// @nodoc
+abstract mixin class _$StacFlexibleCopyWith<$Res>
+    implements $StacFlexibleCopyWith<$Res> {
+  factory _$StacFlexibleCopyWith(
+          _StacFlexible value, $Res Function(_StacFlexible) _then) =
+      __$StacFlexibleCopyWithImpl;
+  @override
+  @useResult
+  $Res call({Map<String, dynamic>? child, int flex, FlexFit fit});
+}
 
-  factory _StacFlexible.fromJson(Map<String, dynamic> json) =
-      _$StacFlexibleImpl.fromJson;
+/// @nodoc
+class __$StacFlexibleCopyWithImpl<$Res>
+    implements _$StacFlexibleCopyWith<$Res> {
+  __$StacFlexibleCopyWithImpl(this._self, this._then);
 
-  @override
-  Map<String, dynamic>? get child;
-  @override
-  int get flex;
-  @override
-  FlexFit get fit;
+  final _StacFlexible _self;
+  final $Res Function(_StacFlexible) _then;
 
   /// Create a copy of StacFlexible
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacFlexibleImplCopyWith<_$StacFlexibleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? child = freezed,
+    Object? flex = null,
+    Object? fit = null,
+  }) {
+    return _then(_StacFlexible(
+      child: freezed == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      flex: null == flex
+          ? _self.flex
+          : flex // ignore: cast_nullable_to_non_nullable
+              as int,
+      fit: null == fit
+          ? _self.fit
+          : fit // ignore: cast_nullable_to_non_nullable
+              as FlexFit,
+    ));
+  }
 }
+
+// dart format on

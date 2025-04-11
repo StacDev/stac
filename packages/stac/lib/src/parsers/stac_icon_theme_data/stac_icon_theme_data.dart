@@ -7,7 +7,7 @@ part 'stac_icon_theme_data.freezed.dart';
 part 'stac_icon_theme_data.g.dart';
 
 @freezed
-class StacIconThemeData with _$StacIconThemeData {
+abstract class StacIconThemeData with _$StacIconThemeData {
   const factory StacIconThemeData({
     double? size,
     double? fill,

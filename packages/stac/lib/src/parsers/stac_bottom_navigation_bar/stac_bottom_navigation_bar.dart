@@ -9,7 +9,7 @@ part 'stac_bottom_navigation_bar.freezed.dart';
 part 'stac_bottom_navigation_bar.g.dart';
 
 @freezed
-class StacBottomNavigationBar with _$StacBottomNavigationBar {
+abstract class StacBottomNavigationBar with _$StacBottomNavigationBar {
   const factory StacBottomNavigationBar({
     required List<StacBottomNavigationBarItem> items,
     double? elevation,

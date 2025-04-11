@@ -11,7 +11,7 @@ part 'stac_gradient.g.dart';
 enum StacGradientType { linear, radial, sweep }
 
 @freezed
-class StacGradient with _$StacGradient {
+abstract class StacGradient with _$StacGradient {
   const factory StacGradient({
     required List<String> colors,
     List<double>? stops,

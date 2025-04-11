@@ -6,9 +6,8 @@ part of 'stac_navigate_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacNavigateActionImpl _$$StacNavigateActionImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacNavigateActionImpl(
+_StacNavigateAction _$StacNavigateActionFromJson(Map<String, dynamic> json) =>
+    _StacNavigateAction(
       request: json['request'] == null
           ? null
           : StacNetworkRequest.fromJson(
@@ -22,8 +21,7 @@ _$StacNavigateActionImpl _$$StacNavigateActionImplFromJson(
       arguments: json['arguments'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$StacNavigateActionImplToJson(
-        _$StacNavigateActionImpl instance) =>
+Map<String, dynamic> _$StacNavigateActionToJson(_StacNavigateAction instance) =>
     <String, dynamic>{
       'request': instance.request,
       'widgetJson': instance.widgetJson,

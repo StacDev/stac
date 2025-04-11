@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,94 +10,67 @@ part of 'stac_radio_group.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacRadioGroup _$StacRadioGroupFromJson(Map<String, dynamic> json) {
-  return _StacRadioGroup.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacRadioGroup {
-  String? get id => throw _privateConstructorUsedError;
-  dynamic get groupValue => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-
-  /// Serializes this StacRadioGroup to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get id;
+  dynamic get groupValue;
+  Map<String, dynamic>? get child;
 
   /// Create a copy of StacRadioGroup
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacRadioGroupCopyWith<StacRadioGroup> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacRadioGroupCopyWith<$Res> {
-  factory $StacRadioGroupCopyWith(
-          StacRadioGroup value, $Res Function(StacRadioGroup) then) =
-      _$StacRadioGroupCopyWithImpl<$Res, StacRadioGroup>;
-  @useResult
-  $Res call({String? id, dynamic groupValue, Map<String, dynamic>? child});
-}
-
-/// @nodoc
-class _$StacRadioGroupCopyWithImpl<$Res, $Val extends StacRadioGroup>
-    implements $StacRadioGroupCopyWith<$Res> {
-  _$StacRadioGroupCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacRadioGroup
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacRadioGroupCopyWith<StacRadioGroup> get copyWith =>
+      _$StacRadioGroupCopyWithImpl<StacRadioGroup>(
+          this as StacRadioGroup, _$identity);
+
+  /// Serializes this StacRadioGroup to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = freezed,
-    Object? groupValue = freezed,
-    Object? child = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String?,
-      groupValue: freezed == groupValue
-          ? _value.groupValue
-          : groupValue // ignore: cast_nullable_to_non_nullable
-              as dynamic,
-      child: freezed == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacRadioGroup &&
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality()
+                .equals(other.groupValue, groupValue) &&
+            const DeepCollectionEquality().equals(other.child, child));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      const DeepCollectionEquality().hash(groupValue),
+      const DeepCollectionEquality().hash(child));
+
+  @override
+  String toString() {
+    return 'StacRadioGroup(id: $id, groupValue: $groupValue, child: $child)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacRadioGroupImplCopyWith<$Res>
-    implements $StacRadioGroupCopyWith<$Res> {
-  factory _$$StacRadioGroupImplCopyWith(_$StacRadioGroupImpl value,
-          $Res Function(_$StacRadioGroupImpl) then) =
-      __$$StacRadioGroupImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacRadioGroupCopyWith<$Res> {
+  factory $StacRadioGroupCopyWith(
+          StacRadioGroup value, $Res Function(StacRadioGroup) _then) =
+      _$StacRadioGroupCopyWithImpl;
   @useResult
   $Res call({String? id, dynamic groupValue, Map<String, dynamic>? child});
 }
 
 /// @nodoc
-class __$$StacRadioGroupImplCopyWithImpl<$Res>
-    extends _$StacRadioGroupCopyWithImpl<$Res, _$StacRadioGroupImpl>
-    implements _$$StacRadioGroupImplCopyWith<$Res> {
-  __$$StacRadioGroupImplCopyWithImpl(
-      _$StacRadioGroupImpl _value, $Res Function(_$StacRadioGroupImpl) _then)
-      : super(_value, _then);
+class _$StacRadioGroupCopyWithImpl<$Res>
+    implements $StacRadioGroupCopyWith<$Res> {
+  _$StacRadioGroupCopyWithImpl(this._self, this._then);
+
+  final StacRadioGroup _self;
+  final $Res Function(StacRadioGroup) _then;
 
   /// Create a copy of StacRadioGroup
   /// with the given fields replaced by the non-null parameter values.
@@ -107,17 +81,17 @@ class __$$StacRadioGroupImplCopyWithImpl<$Res>
     Object? groupValue = freezed,
     Object? child = freezed,
   }) {
-    return _then(_$StacRadioGroupImpl(
+    return _then(_self.copyWith(
       id: freezed == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String?,
       groupValue: freezed == groupValue
-          ? _value.groupValue
+          ? _self.groupValue
           : groupValue // ignore: cast_nullable_to_non_nullable
               as dynamic,
       child: freezed == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
@@ -126,13 +100,12 @@ class __$$StacRadioGroupImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacRadioGroupImpl implements _StacRadioGroup {
-  const _$StacRadioGroupImpl(
+class _StacRadioGroup implements StacRadioGroup {
+  const _StacRadioGroup(
       {this.id, this.groupValue, final Map<String, dynamic>? child})
       : _child = child;
-
-  factory _$StacRadioGroupImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacRadioGroupImplFromJson(json);
+  factory _StacRadioGroup.fromJson(Map<String, dynamic> json) =>
+      _$StacRadioGroupFromJson(json);
 
   @override
   final String? id;
@@ -148,16 +121,26 @@ class _$StacRadioGroupImpl implements _StacRadioGroup {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of StacRadioGroup
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacRadioGroup(id: $id, groupValue: $groupValue, child: $child)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacRadioGroupCopyWith<_StacRadioGroup> get copyWith =>
+      __$StacRadioGroupCopyWithImpl<_StacRadioGroup>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacRadioGroupToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacRadioGroupImpl &&
+            other is _StacRadioGroup &&
             (identical(other.id, id) || other.id == id) &&
             const DeepCollectionEquality()
                 .equals(other.groupValue, groupValue) &&
@@ -172,43 +155,55 @@ class _$StacRadioGroupImpl implements _StacRadioGroup {
       const DeepCollectionEquality().hash(groupValue),
       const DeepCollectionEquality().hash(_child));
 
-  /// Create a copy of StacRadioGroup
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacRadioGroupImplCopyWith<_$StacRadioGroupImpl> get copyWith =>
-      __$$StacRadioGroupImplCopyWithImpl<_$StacRadioGroupImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacRadioGroupImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacRadioGroup(id: $id, groupValue: $groupValue, child: $child)';
   }
 }
 
-abstract class _StacRadioGroup implements StacRadioGroup {
-  const factory _StacRadioGroup(
-      {final String? id,
-      final dynamic groupValue,
-      final Map<String, dynamic>? child}) = _$StacRadioGroupImpl;
+/// @nodoc
+abstract mixin class _$StacRadioGroupCopyWith<$Res>
+    implements $StacRadioGroupCopyWith<$Res> {
+  factory _$StacRadioGroupCopyWith(
+          _StacRadioGroup value, $Res Function(_StacRadioGroup) _then) =
+      __$StacRadioGroupCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String? id, dynamic groupValue, Map<String, dynamic>? child});
+}
 
-  factory _StacRadioGroup.fromJson(Map<String, dynamic> json) =
-      _$StacRadioGroupImpl.fromJson;
+/// @nodoc
+class __$StacRadioGroupCopyWithImpl<$Res>
+    implements _$StacRadioGroupCopyWith<$Res> {
+  __$StacRadioGroupCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get id;
-  @override
-  dynamic get groupValue;
-  @override
-  Map<String, dynamic>? get child;
+  final _StacRadioGroup _self;
+  final $Res Function(_StacRadioGroup) _then;
 
   /// Create a copy of StacRadioGroup
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacRadioGroupImplCopyWith<_$StacRadioGroupImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = freezed,
+    Object? groupValue = freezed,
+    Object? child = freezed,
+  }) {
+    return _then(_StacRadioGroup(
+      id: freezed == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      groupValue: freezed == groupValue
+          ? _self.groupValue
+          : groupValue // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      child: freezed == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

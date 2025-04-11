@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,107 +10,69 @@ part of 'stac_snack_bar_action.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacSnackBarAction _$StacSnackBarActionFromJson(Map<String, dynamic> json) {
-  return _StacSnackBarAction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacSnackBarAction {
-  String? get textColor => throw _privateConstructorUsedError;
-  String? get disabledTextColor => throw _privateConstructorUsedError;
-  String? get backgroundColor => throw _privateConstructorUsedError;
-  String? get disabledBackgroundColor => throw _privateConstructorUsedError;
-  String get label => throw _privateConstructorUsedError;
-  Map<String, dynamic> get onPressed => throw _privateConstructorUsedError;
-
-  /// Serializes this StacSnackBarAction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get textColor;
+  String? get disabledTextColor;
+  String? get backgroundColor;
+  String? get disabledBackgroundColor;
+  String get label;
+  Map<String, dynamic> get onPressed;
 
   /// Create a copy of StacSnackBarAction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacSnackBarActionCopyWith<StacSnackBarAction> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacSnackBarActionCopyWith<$Res> {
-  factory $StacSnackBarActionCopyWith(
-          StacSnackBarAction value, $Res Function(StacSnackBarAction) then) =
-      _$StacSnackBarActionCopyWithImpl<$Res, StacSnackBarAction>;
-  @useResult
-  $Res call(
-      {String? textColor,
-      String? disabledTextColor,
-      String? backgroundColor,
-      String? disabledBackgroundColor,
-      String label,
-      Map<String, dynamic> onPressed});
-}
-
-/// @nodoc
-class _$StacSnackBarActionCopyWithImpl<$Res, $Val extends StacSnackBarAction>
-    implements $StacSnackBarActionCopyWith<$Res> {
-  _$StacSnackBarActionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacSnackBarAction
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacSnackBarActionCopyWith<StacSnackBarAction> get copyWith =>
+      _$StacSnackBarActionCopyWithImpl<StacSnackBarAction>(
+          this as StacSnackBarAction, _$identity);
+
+  /// Serializes this StacSnackBarAction to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? textColor = freezed,
-    Object? disabledTextColor = freezed,
-    Object? backgroundColor = freezed,
-    Object? disabledBackgroundColor = freezed,
-    Object? label = null,
-    Object? onPressed = null,
-  }) {
-    return _then(_value.copyWith(
-      textColor: freezed == textColor
-          ? _value.textColor
-          : textColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      disabledTextColor: freezed == disabledTextColor
-          ? _value.disabledTextColor
-          : disabledTextColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      disabledBackgroundColor: freezed == disabledBackgroundColor
-          ? _value.disabledBackgroundColor
-          : disabledBackgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      onPressed: null == onPressed
-          ? _value.onPressed
-          : onPressed // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacSnackBarAction &&
+            (identical(other.textColor, textColor) ||
+                other.textColor == textColor) &&
+            (identical(other.disabledTextColor, disabledTextColor) ||
+                other.disabledTextColor == disabledTextColor) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(
+                    other.disabledBackgroundColor, disabledBackgroundColor) ||
+                other.disabledBackgroundColor == disabledBackgroundColor) &&
+            (identical(other.label, label) || other.label == label) &&
+            const DeepCollectionEquality().equals(other.onPressed, onPressed));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      textColor,
+      disabledTextColor,
+      backgroundColor,
+      disabledBackgroundColor,
+      label,
+      const DeepCollectionEquality().hash(onPressed));
+
+  @override
+  String toString() {
+    return 'StacSnackBarAction(textColor: $textColor, disabledTextColor: $disabledTextColor, backgroundColor: $backgroundColor, disabledBackgroundColor: $disabledBackgroundColor, label: $label, onPressed: $onPressed)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacSnackBarActionImplCopyWith<$Res>
-    implements $StacSnackBarActionCopyWith<$Res> {
-  factory _$$StacSnackBarActionImplCopyWith(_$StacSnackBarActionImpl value,
-          $Res Function(_$StacSnackBarActionImpl) then) =
-      __$$StacSnackBarActionImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacSnackBarActionCopyWith<$Res> {
+  factory $StacSnackBarActionCopyWith(
+          StacSnackBarAction value, $Res Function(StacSnackBarAction) _then) =
+      _$StacSnackBarActionCopyWithImpl;
   @useResult
   $Res call(
       {String? textColor,
@@ -121,12 +84,12 @@ abstract class _$$StacSnackBarActionImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StacSnackBarActionImplCopyWithImpl<$Res>
-    extends _$StacSnackBarActionCopyWithImpl<$Res, _$StacSnackBarActionImpl>
-    implements _$$StacSnackBarActionImplCopyWith<$Res> {
-  __$$StacSnackBarActionImplCopyWithImpl(_$StacSnackBarActionImpl _value,
-      $Res Function(_$StacSnackBarActionImpl) _then)
-      : super(_value, _then);
+class _$StacSnackBarActionCopyWithImpl<$Res>
+    implements $StacSnackBarActionCopyWith<$Res> {
+  _$StacSnackBarActionCopyWithImpl(this._self, this._then);
+
+  final StacSnackBarAction _self;
+  final $Res Function(StacSnackBarAction) _then;
 
   /// Create a copy of StacSnackBarAction
   /// with the given fields replaced by the non-null parameter values.
@@ -140,29 +103,29 @@ class __$$StacSnackBarActionImplCopyWithImpl<$Res>
     Object? label = null,
     Object? onPressed = null,
   }) {
-    return _then(_$StacSnackBarActionImpl(
+    return _then(_self.copyWith(
       textColor: freezed == textColor
-          ? _value.textColor
+          ? _self.textColor
           : textColor // ignore: cast_nullable_to_non_nullable
               as String?,
       disabledTextColor: freezed == disabledTextColor
-          ? _value.disabledTextColor
+          ? _self.disabledTextColor
           : disabledTextColor // ignore: cast_nullable_to_non_nullable
               as String?,
       backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
+          ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       disabledBackgroundColor: freezed == disabledBackgroundColor
-          ? _value.disabledBackgroundColor
+          ? _self.disabledBackgroundColor
           : disabledBackgroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       label: null == label
-          ? _value.label
+          ? _self.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
       onPressed: null == onPressed
-          ? _value._onPressed
+          ? _self.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
@@ -171,8 +134,8 @@ class __$$StacSnackBarActionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacSnackBarActionImpl implements _StacSnackBarAction {
-  const _$StacSnackBarActionImpl(
+class _StacSnackBarAction implements StacSnackBarAction {
+  const _StacSnackBarAction(
       {this.textColor,
       this.disabledTextColor,
       this.backgroundColor,
@@ -180,9 +143,8 @@ class _$StacSnackBarActionImpl implements _StacSnackBarAction {
       required this.label,
       required final Map<String, dynamic> onPressed})
       : _onPressed = onPressed;
-
-  factory _$StacSnackBarActionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacSnackBarActionImplFromJson(json);
+  factory _StacSnackBarAction.fromJson(Map<String, dynamic> json) =>
+      _$StacSnackBarActionFromJson(json);
 
   @override
   final String? textColor;
@@ -202,16 +164,26 @@ class _$StacSnackBarActionImpl implements _StacSnackBarAction {
     return EqualUnmodifiableMapView(_onPressed);
   }
 
+  /// Create a copy of StacSnackBarAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacSnackBarAction(textColor: $textColor, disabledTextColor: $disabledTextColor, backgroundColor: $backgroundColor, disabledBackgroundColor: $disabledBackgroundColor, label: $label, onPressed: $onPressed)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacSnackBarActionCopyWith<_StacSnackBarAction> get copyWith =>
+      __$StacSnackBarActionCopyWithImpl<_StacSnackBarAction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacSnackBarActionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacSnackBarActionImpl &&
+            other is _StacSnackBarAction &&
             (identical(other.textColor, textColor) ||
                 other.textColor == textColor) &&
             (identical(other.disabledTextColor, disabledTextColor) ||
@@ -237,53 +209,76 @@ class _$StacSnackBarActionImpl implements _StacSnackBarAction {
       label,
       const DeepCollectionEquality().hash(_onPressed));
 
-  /// Create a copy of StacSnackBarAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacSnackBarActionImplCopyWith<_$StacSnackBarActionImpl> get copyWith =>
-      __$$StacSnackBarActionImplCopyWithImpl<_$StacSnackBarActionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacSnackBarActionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacSnackBarAction(textColor: $textColor, disabledTextColor: $disabledTextColor, backgroundColor: $backgroundColor, disabledBackgroundColor: $disabledBackgroundColor, label: $label, onPressed: $onPressed)';
   }
 }
 
-abstract class _StacSnackBarAction implements StacSnackBarAction {
-  const factory _StacSnackBarAction(
-          {final String? textColor,
-          final String? disabledTextColor,
-          final String? backgroundColor,
-          final String? disabledBackgroundColor,
-          required final String label,
-          required final Map<String, dynamic> onPressed}) =
-      _$StacSnackBarActionImpl;
+/// @nodoc
+abstract mixin class _$StacSnackBarActionCopyWith<$Res>
+    implements $StacSnackBarActionCopyWith<$Res> {
+  factory _$StacSnackBarActionCopyWith(
+          _StacSnackBarAction value, $Res Function(_StacSnackBarAction) _then) =
+      __$StacSnackBarActionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? textColor,
+      String? disabledTextColor,
+      String? backgroundColor,
+      String? disabledBackgroundColor,
+      String label,
+      Map<String, dynamic> onPressed});
+}
 
-  factory _StacSnackBarAction.fromJson(Map<String, dynamic> json) =
-      _$StacSnackBarActionImpl.fromJson;
+/// @nodoc
+class __$StacSnackBarActionCopyWithImpl<$Res>
+    implements _$StacSnackBarActionCopyWith<$Res> {
+  __$StacSnackBarActionCopyWithImpl(this._self, this._then);
 
-  @override
-  String? get textColor;
-  @override
-  String? get disabledTextColor;
-  @override
-  String? get backgroundColor;
-  @override
-  String? get disabledBackgroundColor;
-  @override
-  String get label;
-  @override
-  Map<String, dynamic> get onPressed;
+  final _StacSnackBarAction _self;
+  final $Res Function(_StacSnackBarAction) _then;
 
   /// Create a copy of StacSnackBarAction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacSnackBarActionImplCopyWith<_$StacSnackBarActionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? textColor = freezed,
+    Object? disabledTextColor = freezed,
+    Object? backgroundColor = freezed,
+    Object? disabledBackgroundColor = freezed,
+    Object? label = null,
+    Object? onPressed = null,
+  }) {
+    return _then(_StacSnackBarAction(
+      textColor: freezed == textColor
+          ? _self.textColor
+          : textColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      disabledTextColor: freezed == disabledTextColor
+          ? _self.disabledTextColor
+          : disabledTextColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      disabledBackgroundColor: freezed == disabledBackgroundColor
+          ? _self.disabledBackgroundColor
+          : disabledBackgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      label: null == label
+          ? _self.label
+          : label // ignore: cast_nullable_to_non_nullable
+              as String,
+      onPressed: null == onPressed
+          ? _self._onPressed
+          : onPressed // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
 }
+
+// dart format on

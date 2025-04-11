@@ -8,7 +8,7 @@ part 'stac_stack.freezed.dart';
 part 'stac_stack.g.dart';
 
 @freezed
-class StacStack with _$StacStack {
+abstract class StacStack with _$StacStack {
   const factory StacStack({
     @Default(StacAlignmentDirectional.topStart)
     StacAlignmentDirectional alignment,

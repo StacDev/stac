@@ -15,7 +15,7 @@ enum StacTableColumnWidthType {
 }
 
 @freezed
-class StacTable with _$StacTable {
+abstract class StacTable with _$StacTable {
   const factory StacTable({
     @Default([]) List<StacTableRow> children,
     Map<int, StacTableColumnWidth>? columnWidths,
@@ -32,7 +32,7 @@ class StacTable with _$StacTable {
 }
 
 @freezed
-class StacTableRow with _$StacTableRow {
+abstract class StacTableRow with _$StacTableRow {
   const factory StacTableRow({
     StacBoxDecoration? decoration,
     @Default([]) List<Map<String, dynamic>> children,
@@ -43,7 +43,7 @@ class StacTableRow with _$StacTableRow {
 }
 
 @freezed
-class StacTableBorder with _$StacTableBorder {
+abstract class StacTableBorder with _$StacTableBorder {
   const factory StacTableBorder({
     @Default('#000000') String color,
     @Default(1.0) double width,
@@ -56,7 +56,7 @@ class StacTableBorder with _$StacTableBorder {
 }
 
 @freezed
-class StacTableColumnWidth with _$StacTableColumnWidth {
+abstract class StacTableColumnWidth with _$StacTableColumnWidth {
   const factory StacTableColumnWidth({
     @Default(StacTableColumnWidthType.flexColumnWidth)
     StacTableColumnWidthType type,

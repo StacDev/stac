@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,137 +10,84 @@ part of 'stac_circle_avatar.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacCircleAvatar _$StacCircleAvatarFromJson(Map<String, dynamic> json) {
-  return _StacCircleAvatar.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacCircleAvatar {
-  Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-  String? get backgroundColor => throw _privateConstructorUsedError;
-  String? get backgroundImage => throw _privateConstructorUsedError;
-  String? get foregroundImage => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onBackgroundImageError =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get onForegroundImageError =>
-      throw _privateConstructorUsedError;
-  String? get foregroundColor => throw _privateConstructorUsedError;
-  double? get radius => throw _privateConstructorUsedError;
-  double? get minRadius => throw _privateConstructorUsedError;
-  double? get maxRadius => throw _privateConstructorUsedError;
-
-  /// Serializes this StacCircleAvatar to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get child;
+  String? get backgroundColor;
+  String? get backgroundImage;
+  String? get foregroundImage;
+  Map<String, dynamic>? get onBackgroundImageError;
+  Map<String, dynamic>? get onForegroundImageError;
+  String? get foregroundColor;
+  double? get radius;
+  double? get minRadius;
+  double? get maxRadius;
 
   /// Create a copy of StacCircleAvatar
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacCircleAvatarCopyWith<StacCircleAvatar> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacCircleAvatarCopyWith<$Res> {
-  factory $StacCircleAvatarCopyWith(
-          StacCircleAvatar value, $Res Function(StacCircleAvatar) then) =
-      _$StacCircleAvatarCopyWithImpl<$Res, StacCircleAvatar>;
-  @useResult
-  $Res call(
-      {Map<String, dynamic>? child,
-      String? backgroundColor,
-      String? backgroundImage,
-      String? foregroundImage,
-      Map<String, dynamic>? onBackgroundImageError,
-      Map<String, dynamic>? onForegroundImageError,
-      String? foregroundColor,
-      double? radius,
-      double? minRadius,
-      double? maxRadius});
-}
-
-/// @nodoc
-class _$StacCircleAvatarCopyWithImpl<$Res, $Val extends StacCircleAvatar>
-    implements $StacCircleAvatarCopyWith<$Res> {
-  _$StacCircleAvatarCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacCircleAvatar
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacCircleAvatarCopyWith<StacCircleAvatar> get copyWith =>
+      _$StacCircleAvatarCopyWithImpl<StacCircleAvatar>(
+          this as StacCircleAvatar, _$identity);
+
+  /// Serializes this StacCircleAvatar to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? child = freezed,
-    Object? backgroundColor = freezed,
-    Object? backgroundImage = freezed,
-    Object? foregroundImage = freezed,
-    Object? onBackgroundImageError = freezed,
-    Object? onForegroundImageError = freezed,
-    Object? foregroundColor = freezed,
-    Object? radius = freezed,
-    Object? minRadius = freezed,
-    Object? maxRadius = freezed,
-  }) {
-    return _then(_value.copyWith(
-      child: freezed == child
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      backgroundImage: freezed == backgroundImage
-          ? _value.backgroundImage
-          : backgroundImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      foregroundImage: freezed == foregroundImage
-          ? _value.foregroundImage
-          : foregroundImage // ignore: cast_nullable_to_non_nullable
-              as String?,
-      onBackgroundImageError: freezed == onBackgroundImageError
-          ? _value.onBackgroundImageError
-          : onBackgroundImageError // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      onForegroundImageError: freezed == onForegroundImageError
-          ? _value.onForegroundImageError
-          : onForegroundImageError // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      foregroundColor: freezed == foregroundColor
-          ? _value.foregroundColor
-          : foregroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      radius: freezed == radius
-          ? _value.radius
-          : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      minRadius: freezed == minRadius
-          ? _value.minRadius
-          : minRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      maxRadius: freezed == maxRadius
-          ? _value.maxRadius
-          : maxRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacCircleAvatar &&
+            const DeepCollectionEquality().equals(other.child, child) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(other.backgroundImage, backgroundImage) ||
+                other.backgroundImage == backgroundImage) &&
+            (identical(other.foregroundImage, foregroundImage) ||
+                other.foregroundImage == foregroundImage) &&
+            const DeepCollectionEquality()
+                .equals(other.onBackgroundImageError, onBackgroundImageError) &&
+            const DeepCollectionEquality()
+                .equals(other.onForegroundImageError, onForegroundImageError) &&
+            (identical(other.foregroundColor, foregroundColor) ||
+                other.foregroundColor == foregroundColor) &&
+            (identical(other.radius, radius) || other.radius == radius) &&
+            (identical(other.minRadius, minRadius) ||
+                other.minRadius == minRadius) &&
+            (identical(other.maxRadius, maxRadius) ||
+                other.maxRadius == maxRadius));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(child),
+      backgroundColor,
+      backgroundImage,
+      foregroundImage,
+      const DeepCollectionEquality().hash(onBackgroundImageError),
+      const DeepCollectionEquality().hash(onForegroundImageError),
+      foregroundColor,
+      radius,
+      minRadius,
+      maxRadius);
+
+  @override
+  String toString() {
+    return 'StacCircleAvatar(child: $child, backgroundColor: $backgroundColor, backgroundImage: $backgroundImage, foregroundImage: $foregroundImage, onBackgroundImageError: $onBackgroundImageError, onForegroundImageError: $onForegroundImageError, foregroundColor: $foregroundColor, radius: $radius, minRadius: $minRadius, maxRadius: $maxRadius)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacCircleAvatarImplCopyWith<$Res>
-    implements $StacCircleAvatarCopyWith<$Res> {
-  factory _$$StacCircleAvatarImplCopyWith(_$StacCircleAvatarImpl value,
-          $Res Function(_$StacCircleAvatarImpl) then) =
-      __$$StacCircleAvatarImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacCircleAvatarCopyWith<$Res> {
+  factory $StacCircleAvatarCopyWith(
+          StacCircleAvatar value, $Res Function(StacCircleAvatar) _then) =
+      _$StacCircleAvatarCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic>? child,
@@ -155,12 +103,12 @@ abstract class _$$StacCircleAvatarImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StacCircleAvatarImplCopyWithImpl<$Res>
-    extends _$StacCircleAvatarCopyWithImpl<$Res, _$StacCircleAvatarImpl>
-    implements _$$StacCircleAvatarImplCopyWith<$Res> {
-  __$$StacCircleAvatarImplCopyWithImpl(_$StacCircleAvatarImpl _value,
-      $Res Function(_$StacCircleAvatarImpl) _then)
-      : super(_value, _then);
+class _$StacCircleAvatarCopyWithImpl<$Res>
+    implements $StacCircleAvatarCopyWith<$Res> {
+  _$StacCircleAvatarCopyWithImpl(this._self, this._then);
+
+  final StacCircleAvatar _self;
+  final $Res Function(StacCircleAvatar) _then;
 
   /// Create a copy of StacCircleAvatar
   /// with the given fields replaced by the non-null parameter values.
@@ -178,45 +126,45 @@ class __$$StacCircleAvatarImplCopyWithImpl<$Res>
     Object? minRadius = freezed,
     Object? maxRadius = freezed,
   }) {
-    return _then(_$StacCircleAvatarImpl(
+    return _then(_self.copyWith(
       child: freezed == child
-          ? _value._child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
+          ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       backgroundImage: freezed == backgroundImage
-          ? _value.backgroundImage
+          ? _self.backgroundImage
           : backgroundImage // ignore: cast_nullable_to_non_nullable
               as String?,
       foregroundImage: freezed == foregroundImage
-          ? _value.foregroundImage
+          ? _self.foregroundImage
           : foregroundImage // ignore: cast_nullable_to_non_nullable
               as String?,
       onBackgroundImageError: freezed == onBackgroundImageError
-          ? _value._onBackgroundImageError
+          ? _self.onBackgroundImageError
           : onBackgroundImageError // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       onForegroundImageError: freezed == onForegroundImageError
-          ? _value._onForegroundImageError
+          ? _self.onForegroundImageError
           : onForegroundImageError // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       foregroundColor: freezed == foregroundColor
-          ? _value.foregroundColor
+          ? _self.foregroundColor
           : foregroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       radius: freezed == radius
-          ? _value.radius
+          ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
               as double?,
       minRadius: freezed == minRadius
-          ? _value.minRadius
+          ? _self.minRadius
           : minRadius // ignore: cast_nullable_to_non_nullable
               as double?,
       maxRadius: freezed == maxRadius
-          ? _value.maxRadius
+          ? _self.maxRadius
           : maxRadius // ignore: cast_nullable_to_non_nullable
               as double?,
     ));
@@ -225,8 +173,8 @@ class __$$StacCircleAvatarImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacCircleAvatarImpl implements _StacCircleAvatar {
-  const _$StacCircleAvatarImpl(
+class _StacCircleAvatar implements StacCircleAvatar {
+  const _StacCircleAvatar(
       {final Map<String, dynamic>? child,
       this.backgroundColor,
       this.backgroundImage,
@@ -240,9 +188,8 @@ class _$StacCircleAvatarImpl implements _StacCircleAvatar {
       : _child = child,
         _onBackgroundImageError = onBackgroundImageError,
         _onForegroundImageError = onForegroundImageError;
-
-  factory _$StacCircleAvatarImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacCircleAvatarImplFromJson(json);
+  factory _StacCircleAvatar.fromJson(Map<String, dynamic> json) =>
+      _$StacCircleAvatarFromJson(json);
 
   final Map<String, dynamic>? _child;
   @override
@@ -291,16 +238,26 @@ class _$StacCircleAvatarImpl implements _StacCircleAvatar {
   @override
   final double? maxRadius;
 
+  /// Create a copy of StacCircleAvatar
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacCircleAvatar(child: $child, backgroundColor: $backgroundColor, backgroundImage: $backgroundImage, foregroundImage: $foregroundImage, onBackgroundImageError: $onBackgroundImageError, onForegroundImageError: $onForegroundImageError, foregroundColor: $foregroundColor, radius: $radius, minRadius: $minRadius, maxRadius: $maxRadius)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacCircleAvatarCopyWith<_StacCircleAvatar> get copyWith =>
+      __$StacCircleAvatarCopyWithImpl<_StacCircleAvatar>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacCircleAvatarToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacCircleAvatarImpl &&
+            other is _StacCircleAvatar &&
             const DeepCollectionEquality().equals(other._child, _child) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
@@ -336,64 +293,100 @@ class _$StacCircleAvatarImpl implements _StacCircleAvatar {
       minRadius,
       maxRadius);
 
-  /// Create a copy of StacCircleAvatar
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacCircleAvatarImplCopyWith<_$StacCircleAvatarImpl> get copyWith =>
-      __$$StacCircleAvatarImplCopyWithImpl<_$StacCircleAvatarImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacCircleAvatarImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacCircleAvatar(child: $child, backgroundColor: $backgroundColor, backgroundImage: $backgroundImage, foregroundImage: $foregroundImage, onBackgroundImageError: $onBackgroundImageError, onForegroundImageError: $onForegroundImageError, foregroundColor: $foregroundColor, radius: $radius, minRadius: $minRadius, maxRadius: $maxRadius)';
   }
 }
 
-abstract class _StacCircleAvatar implements StacCircleAvatar {
-  const factory _StacCircleAvatar(
-      {final Map<String, dynamic>? child,
-      final String? backgroundColor,
-      final String? backgroundImage,
-      final String? foregroundImage,
-      final Map<String, dynamic>? onBackgroundImageError,
-      final Map<String, dynamic>? onForegroundImageError,
-      final String? foregroundColor,
-      final double? radius,
-      final double? minRadius,
-      final double? maxRadius}) = _$StacCircleAvatarImpl;
+/// @nodoc
+abstract mixin class _$StacCircleAvatarCopyWith<$Res>
+    implements $StacCircleAvatarCopyWith<$Res> {
+  factory _$StacCircleAvatarCopyWith(
+          _StacCircleAvatar value, $Res Function(_StacCircleAvatar) _then) =
+      __$StacCircleAvatarCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic>? child,
+      String? backgroundColor,
+      String? backgroundImage,
+      String? foregroundImage,
+      Map<String, dynamic>? onBackgroundImageError,
+      Map<String, dynamic>? onForegroundImageError,
+      String? foregroundColor,
+      double? radius,
+      double? minRadius,
+      double? maxRadius});
+}
 
-  factory _StacCircleAvatar.fromJson(Map<String, dynamic> json) =
-      _$StacCircleAvatarImpl.fromJson;
+/// @nodoc
+class __$StacCircleAvatarCopyWithImpl<$Res>
+    implements _$StacCircleAvatarCopyWith<$Res> {
+  __$StacCircleAvatarCopyWithImpl(this._self, this._then);
 
-  @override
-  Map<String, dynamic>? get child;
-  @override
-  String? get backgroundColor;
-  @override
-  String? get backgroundImage;
-  @override
-  String? get foregroundImage;
-  @override
-  Map<String, dynamic>? get onBackgroundImageError;
-  @override
-  Map<String, dynamic>? get onForegroundImageError;
-  @override
-  String? get foregroundColor;
-  @override
-  double? get radius;
-  @override
-  double? get minRadius;
-  @override
-  double? get maxRadius;
+  final _StacCircleAvatar _self;
+  final $Res Function(_StacCircleAvatar) _then;
 
   /// Create a copy of StacCircleAvatar
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacCircleAvatarImplCopyWith<_$StacCircleAvatarImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? child = freezed,
+    Object? backgroundColor = freezed,
+    Object? backgroundImage = freezed,
+    Object? foregroundImage = freezed,
+    Object? onBackgroundImageError = freezed,
+    Object? onForegroundImageError = freezed,
+    Object? foregroundColor = freezed,
+    Object? radius = freezed,
+    Object? minRadius = freezed,
+    Object? maxRadius = freezed,
+  }) {
+    return _then(_StacCircleAvatar(
+      child: freezed == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      backgroundImage: freezed == backgroundImage
+          ? _self.backgroundImage
+          : backgroundImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      foregroundImage: freezed == foregroundImage
+          ? _self.foregroundImage
+          : foregroundImage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onBackgroundImageError: freezed == onBackgroundImageError
+          ? _self._onBackgroundImageError
+          : onBackgroundImageError // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      onForegroundImageError: freezed == onForegroundImageError
+          ? _self._onForegroundImageError
+          : onForegroundImageError // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      foregroundColor: freezed == foregroundColor
+          ? _self.foregroundColor
+          : foregroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      radius: freezed == radius
+          ? _self.radius
+          : radius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      minRadius: freezed == minRadius
+          ? _self.minRadius
+          : minRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      maxRadius: freezed == maxRadius
+          ? _self.maxRadius
+          : maxRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+    ));
+  }
 }
+
+// dart format on

@@ -8,7 +8,7 @@ part 'stac_radio_group.g.dart';
 enum RadioAlignment { vertical, horizontal }
 
 @freezed
-class StacRadioGroup with _$StacRadioGroup {
+abstract class StacRadioGroup with _$StacRadioGroup {
   const factory StacRadioGroup({
     String? id,
     dynamic groupValue,

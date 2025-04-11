@@ -7,7 +7,7 @@ part 'stac_snack_bar_action.freezed.dart';
 part 'stac_snack_bar_action.g.dart';
 
 @freezed
-class StacSnackBarAction with _$StacSnackBarAction {
+abstract class StacSnackBarAction with _$StacSnackBarAction {
   const factory StacSnackBarAction({
     String? textColor,
     String? disabledTextColor,

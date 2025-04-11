@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,71 @@ part of 'stac_navigate_action.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacNavigateAction _$StacNavigateActionFromJson(Map<String, dynamic> json) {
-  return _StacNavigateAction.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacNavigateAction {
-  StacNetworkRequest? get request => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get widgetJson => throw _privateConstructorUsedError;
-  String? get assetPath => throw _privateConstructorUsedError;
-  String? get routeName => throw _privateConstructorUsedError;
-  NavigationStyle? get navigationStyle => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get result => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get arguments => throw _privateConstructorUsedError;
-
-  /// Serializes this StacNavigateAction to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  StacNetworkRequest? get request;
+  Map<String, dynamic>? get widgetJson;
+  String? get assetPath;
+  String? get routeName;
+  NavigationStyle? get navigationStyle;
+  Map<String, dynamic>? get result;
+  Map<String, dynamic>? get arguments;
 
   /// Create a copy of StacNavigateAction
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacNavigateActionCopyWith<StacNavigateAction> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacNavigateActionCopyWithImpl<StacNavigateAction>(
+          this as StacNavigateAction, _$identity);
+
+  /// Serializes this StacNavigateAction to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacNavigateAction &&
+            (identical(other.request, request) || other.request == request) &&
+            const DeepCollectionEquality()
+                .equals(other.widgetJson, widgetJson) &&
+            (identical(other.assetPath, assetPath) ||
+                other.assetPath == assetPath) &&
+            (identical(other.routeName, routeName) ||
+                other.routeName == routeName) &&
+            (identical(other.navigationStyle, navigationStyle) ||
+                other.navigationStyle == navigationStyle) &&
+            const DeepCollectionEquality().equals(other.result, result) &&
+            const DeepCollectionEquality().equals(other.arguments, arguments));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      request,
+      const DeepCollectionEquality().hash(widgetJson),
+      assetPath,
+      routeName,
+      navigationStyle,
+      const DeepCollectionEquality().hash(result),
+      const DeepCollectionEquality().hash(arguments));
+
+  @override
+  String toString() {
+    return 'StacNavigateAction(request: $request, widgetJson: $widgetJson, assetPath: $assetPath, routeName: $routeName, navigationStyle: $navigationStyle, result: $result, arguments: $arguments)';
+  }
 }
 
 /// @nodoc
-abstract class $StacNavigateActionCopyWith<$Res> {
+abstract mixin class $StacNavigateActionCopyWith<$Res> {
   factory $StacNavigateActionCopyWith(
-          StacNavigateAction value, $Res Function(StacNavigateAction) then) =
-      _$StacNavigateActionCopyWithImpl<$Res, StacNavigateAction>;
+          StacNavigateAction value, $Res Function(StacNavigateAction) _then) =
+      _$StacNavigateActionCopyWithImpl;
   @useResult
   $Res call(
       {StacNetworkRequest? request,
@@ -57,14 +89,12 @@ abstract class $StacNavigateActionCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacNavigateActionCopyWithImpl<$Res, $Val extends StacNavigateAction>
+class _$StacNavigateActionCopyWithImpl<$Res>
     implements $StacNavigateActionCopyWith<$Res> {
-  _$StacNavigateActionCopyWithImpl(this._value, this._then);
+  _$StacNavigateActionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacNavigateAction _self;
+  final $Res Function(StacNavigateAction) _then;
 
   /// Create a copy of StacNavigateAction
   /// with the given fields replaced by the non-null parameter values.
@@ -79,36 +109,36 @@ class _$StacNavigateActionCopyWithImpl<$Res, $Val extends StacNavigateAction>
     Object? result = freezed,
     Object? arguments = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       request: freezed == request
-          ? _value.request
+          ? _self.request
           : request // ignore: cast_nullable_to_non_nullable
               as StacNetworkRequest?,
       widgetJson: freezed == widgetJson
-          ? _value.widgetJson
+          ? _self.widgetJson
           : widgetJson // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       assetPath: freezed == assetPath
-          ? _value.assetPath
+          ? _self.assetPath
           : assetPath // ignore: cast_nullable_to_non_nullable
               as String?,
       routeName: freezed == routeName
-          ? _value.routeName
+          ? _self.routeName
           : routeName // ignore: cast_nullable_to_non_nullable
               as String?,
       navigationStyle: freezed == navigationStyle
-          ? _value.navigationStyle
+          ? _self.navigationStyle
           : navigationStyle // ignore: cast_nullable_to_non_nullable
               as NavigationStyle?,
       result: freezed == result
-          ? _value.result
+          ? _self.result
           : result // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       arguments: freezed == arguments
-          ? _value.arguments
+          ? _self.arguments
           : arguments // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacNavigateAction
@@ -116,95 +146,20 @@ class _$StacNavigateActionCopyWithImpl<$Res, $Val extends StacNavigateAction>
   @override
   @pragma('vm:prefer-inline')
   $StacNetworkRequestCopyWith<$Res>? get request {
-    if (_value.request == null) {
+    if (_self.request == null) {
       return null;
     }
 
-    return $StacNetworkRequestCopyWith<$Res>(_value.request!, (value) {
-      return _then(_value.copyWith(request: value) as $Val);
+    return $StacNetworkRequestCopyWith<$Res>(_self.request!, (value) {
+      return _then(_self.copyWith(request: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacNavigateActionImplCopyWith<$Res>
-    implements $StacNavigateActionCopyWith<$Res> {
-  factory _$$StacNavigateActionImplCopyWith(_$StacNavigateActionImpl value,
-          $Res Function(_$StacNavigateActionImpl) then) =
-      __$$StacNavigateActionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {StacNetworkRequest? request,
-      Map<String, dynamic>? widgetJson,
-      String? assetPath,
-      String? routeName,
-      NavigationStyle? navigationStyle,
-      Map<String, dynamic>? result,
-      Map<String, dynamic>? arguments});
-
-  @override
-  $StacNetworkRequestCopyWith<$Res>? get request;
-}
-
-/// @nodoc
-class __$$StacNavigateActionImplCopyWithImpl<$Res>
-    extends _$StacNavigateActionCopyWithImpl<$Res, _$StacNavigateActionImpl>
-    implements _$$StacNavigateActionImplCopyWith<$Res> {
-  __$$StacNavigateActionImplCopyWithImpl(_$StacNavigateActionImpl _value,
-      $Res Function(_$StacNavigateActionImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacNavigateAction
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? request = freezed,
-    Object? widgetJson = freezed,
-    Object? assetPath = freezed,
-    Object? routeName = freezed,
-    Object? navigationStyle = freezed,
-    Object? result = freezed,
-    Object? arguments = freezed,
-  }) {
-    return _then(_$StacNavigateActionImpl(
-      request: freezed == request
-          ? _value.request
-          : request // ignore: cast_nullable_to_non_nullable
-              as StacNetworkRequest?,
-      widgetJson: freezed == widgetJson
-          ? _value._widgetJson
-          : widgetJson // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      assetPath: freezed == assetPath
-          ? _value.assetPath
-          : assetPath // ignore: cast_nullable_to_non_nullable
-              as String?,
-      routeName: freezed == routeName
-          ? _value.routeName
-          : routeName // ignore: cast_nullable_to_non_nullable
-              as String?,
-      navigationStyle: freezed == navigationStyle
-          ? _value.navigationStyle
-          : navigationStyle // ignore: cast_nullable_to_non_nullable
-              as NavigationStyle?,
-      result: freezed == result
-          ? _value._result
-          : result // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      arguments: freezed == arguments
-          ? _value._arguments
-          : arguments // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacNavigateActionImpl extends _StacNavigateAction {
-  _$StacNavigateActionImpl(
+class _StacNavigateAction extends StacNavigateAction {
+  _StacNavigateAction(
       {this.request,
       final Map<String, dynamic>? widgetJson,
       this.assetPath,
@@ -216,9 +171,8 @@ class _$StacNavigateActionImpl extends _StacNavigateAction {
         _result = result,
         _arguments = arguments,
         super._();
-
-  factory _$StacNavigateActionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacNavigateActionImplFromJson(json);
+  factory _StacNavigateAction.fromJson(Map<String, dynamic> json) =>
+      _$StacNavigateActionFromJson(json);
 
   @override
   final StacNetworkRequest? request;
@@ -258,16 +212,26 @@ class _$StacNavigateActionImpl extends _StacNavigateAction {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of StacNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacNavigateAction(request: $request, widgetJson: $widgetJson, assetPath: $assetPath, routeName: $routeName, navigationStyle: $navigationStyle, result: $result, arguments: $arguments)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacNavigateActionCopyWith<_StacNavigateAction> get copyWith =>
+      __$StacNavigateActionCopyWithImpl<_StacNavigateAction>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacNavigateActionToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacNavigateActionImpl &&
+            other is _StacNavigateAction &&
             (identical(other.request, request) || other.request == request) &&
             const DeepCollectionEquality()
                 .equals(other._widgetJson, _widgetJson) &&
@@ -294,56 +258,99 @@ class _$StacNavigateActionImpl extends _StacNavigateAction {
       const DeepCollectionEquality().hash(_result),
       const DeepCollectionEquality().hash(_arguments));
 
-  /// Create a copy of StacNavigateAction
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacNavigateActionImplCopyWith<_$StacNavigateActionImpl> get copyWith =>
-      __$$StacNavigateActionImplCopyWithImpl<_$StacNavigateActionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacNavigateActionImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacNavigateAction(request: $request, widgetJson: $widgetJson, assetPath: $assetPath, routeName: $routeName, navigationStyle: $navigationStyle, result: $result, arguments: $arguments)';
   }
 }
 
-abstract class _StacNavigateAction extends StacNavigateAction {
-  factory _StacNavigateAction(
-      {final StacNetworkRequest? request,
-      final Map<String, dynamic>? widgetJson,
-      final String? assetPath,
-      final String? routeName,
-      final NavigationStyle? navigationStyle,
-      final Map<String, dynamic>? result,
-      final Map<String, dynamic>? arguments}) = _$StacNavigateActionImpl;
-  _StacNavigateAction._() : super._();
+/// @nodoc
+abstract mixin class _$StacNavigateActionCopyWith<$Res>
+    implements $StacNavigateActionCopyWith<$Res> {
+  factory _$StacNavigateActionCopyWith(
+          _StacNavigateAction value, $Res Function(_StacNavigateAction) _then) =
+      __$StacNavigateActionCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {StacNetworkRequest? request,
+      Map<String, dynamic>? widgetJson,
+      String? assetPath,
+      String? routeName,
+      NavigationStyle? navigationStyle,
+      Map<String, dynamic>? result,
+      Map<String, dynamic>? arguments});
 
-  factory _StacNavigateAction.fromJson(Map<String, dynamic> json) =
-      _$StacNavigateActionImpl.fromJson;
+  @override
+  $StacNetworkRequestCopyWith<$Res>? get request;
+}
 
-  @override
-  StacNetworkRequest? get request;
-  @override
-  Map<String, dynamic>? get widgetJson;
-  @override
-  String? get assetPath;
-  @override
-  String? get routeName;
-  @override
-  NavigationStyle? get navigationStyle;
-  @override
-  Map<String, dynamic>? get result;
-  @override
-  Map<String, dynamic>? get arguments;
+/// @nodoc
+class __$StacNavigateActionCopyWithImpl<$Res>
+    implements _$StacNavigateActionCopyWith<$Res> {
+  __$StacNavigateActionCopyWithImpl(this._self, this._then);
+
+  final _StacNavigateAction _self;
+  final $Res Function(_StacNavigateAction) _then;
 
   /// Create a copy of StacNavigateAction
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacNavigateActionImplCopyWith<_$StacNavigateActionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? request = freezed,
+    Object? widgetJson = freezed,
+    Object? assetPath = freezed,
+    Object? routeName = freezed,
+    Object? navigationStyle = freezed,
+    Object? result = freezed,
+    Object? arguments = freezed,
+  }) {
+    return _then(_StacNavigateAction(
+      request: freezed == request
+          ? _self.request
+          : request // ignore: cast_nullable_to_non_nullable
+              as StacNetworkRequest?,
+      widgetJson: freezed == widgetJson
+          ? _self._widgetJson
+          : widgetJson // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      assetPath: freezed == assetPath
+          ? _self.assetPath
+          : assetPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+      routeName: freezed == routeName
+          ? _self.routeName
+          : routeName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      navigationStyle: freezed == navigationStyle
+          ? _self.navigationStyle
+          : navigationStyle // ignore: cast_nullable_to_non_nullable
+              as NavigationStyle?,
+      result: freezed == result
+          ? _self._result
+          : result // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      arguments: freezed == arguments
+          ? _self._arguments
+          : arguments // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
+
+  /// Create a copy of StacNavigateAction
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacNetworkRequestCopyWith<$Res>? get request {
+    if (_self.request == null) {
+      return null;
+    }
+
+    return $StacNetworkRequestCopyWith<$Res>(_self.request!, (value) {
+      return _then(_self.copyWith(request: value));
+    });
+  }
 }
+
+// dart format on

@@ -6,9 +6,8 @@ part of 'stac_alert_dialog.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacAlertDialogImpl _$$StacAlertDialogImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacAlertDialogImpl(
+_StacAlertDialog _$StacAlertDialogFromJson(Map<String, dynamic> json) =>
+    _StacAlertDialog(
       icon: json['icon'] as Map<String, dynamic>?,
       iconPadding: json['iconPadding'] == null
           ? null
@@ -65,8 +64,7 @@ _$StacAlertDialogImpl _$$StacAlertDialogImplFromJson(
       scrollable: json['scrollable'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$StacAlertDialogImplToJson(
-        _$StacAlertDialogImpl instance) =>
+Map<String, dynamic> _$StacAlertDialogToJson(_StacAlertDialog instance) =>
     <String, dynamic>{
       'icon': instance.icon,
       'iconPadding': instance.iconPadding,

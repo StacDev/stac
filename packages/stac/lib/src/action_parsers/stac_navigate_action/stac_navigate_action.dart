@@ -16,7 +16,7 @@ enum NavigationStyle {
 }
 
 @freezed
-class StacNavigateAction with _$StacNavigateAction {
+abstract class StacNavigateAction with _$StacNavigateAction {
   const StacNavigateAction._();
 
   factory StacNavigateAction({

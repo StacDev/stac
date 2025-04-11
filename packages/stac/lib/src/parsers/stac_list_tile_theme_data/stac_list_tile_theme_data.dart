@@ -13,7 +13,7 @@ part 'stac_list_tile_theme_data.freezed.dart';
 part 'stac_list_tile_theme_data.g.dart';
 
 @freezed
-class StacListTileThemeData with _$StacListTileThemeData {
+abstract class StacListTileThemeData with _$StacListTileThemeData {
   const factory StacListTileThemeData({
     bool? dense,
     StacBorder? shape,

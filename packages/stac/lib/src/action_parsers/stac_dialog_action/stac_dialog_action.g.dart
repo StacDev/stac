@@ -6,9 +6,8 @@ part of 'stac_dialog_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacDialogActionImpl _$$StacDialogActionImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacDialogActionImpl(
+_StacDialogAction _$StacDialogActionFromJson(Map<String, dynamic> json) =>
+    _StacDialogAction(
       widget: json['widget'] as Map<String, dynamic>?,
       request: json['request'] == null
           ? null
@@ -23,8 +22,7 @@ _$StacDialogActionImpl _$$StacDialogActionImplFromJson(
           _$TraversalEdgeBehaviorEnumMap, json['traversalEdgeBehavior']),
     );
 
-Map<String, dynamic> _$$StacDialogActionImplToJson(
-        _$StacDialogActionImpl instance) =>
+Map<String, dynamic> _$StacDialogActionToJson(_StacDialogAction instance) =>
     <String, dynamic>{
       'widget': instance.widget,
       'request': instance.request,

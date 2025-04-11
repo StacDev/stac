@@ -9,7 +9,7 @@ part 'stac_page_view.freezed.dart';
 part 'stac_page_view.g.dart';
 
 @freezed
-class StacPageView with _$StacPageView {
+abstract class StacPageView with _$StacPageView {
   const factory StacPageView({
     @Default(Axis.horizontal) Axis scrollDirection,
     @Default(false) bool reverse,

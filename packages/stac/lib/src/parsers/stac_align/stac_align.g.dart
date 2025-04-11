@@ -6,8 +6,7 @@ part of 'stac_align.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacAlignImpl _$$StacAlignImplFromJson(Map<String, dynamic> json) =>
-    _$StacAlignImpl(
+_StacAlign _$StacAlignFromJson(Map<String, dynamic> json) => _StacAlign(
       alignment: $enumDecodeNullable(
               _$StacAlignmentDirectionalEnumMap, json['alignment']) ??
           StacAlignmentDirectional.center,
@@ -16,7 +15,7 @@ _$StacAlignImpl _$$StacAlignImplFromJson(Map<String, dynamic> json) =>
       child: json['child'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$StacAlignImplToJson(_$StacAlignImpl instance) =>
+Map<String, dynamic> _$StacAlignToJson(_StacAlign instance) =>
     <String, dynamic>{
       'alignment': _$StacAlignmentDirectionalEnumMap[instance.alignment]!,
       'widthFactor': instance.widthFactor,

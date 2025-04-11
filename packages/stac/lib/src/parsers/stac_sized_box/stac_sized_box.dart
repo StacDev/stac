@@ -6,7 +6,7 @@ part 'stac_sized_box.freezed.dart';
 part 'stac_sized_box.g.dart';
 
 @freezed
-class StacSizedBox with _$StacSizedBox {
+abstract class StacSizedBox with _$StacSizedBox {
   const factory StacSizedBox({
     double? width,
     double? height,

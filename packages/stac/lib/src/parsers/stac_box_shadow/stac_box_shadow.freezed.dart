@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,38 +10,59 @@ part of 'stac_box_shadow.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacBoxShadow _$StacBoxShadowFromJson(Map<String, dynamic> json) {
-  return _StacBoxShadow.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacBoxShadow {
-  String? get color => throw _privateConstructorUsedError;
-  double? get blurRadius => throw _privateConstructorUsedError;
-  StacOffset get offset => throw _privateConstructorUsedError;
-  double? get spreadRadius => throw _privateConstructorUsedError;
-  BlurStyle? get blurStyle => throw _privateConstructorUsedError;
-
-  /// Serializes this StacBoxShadow to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get color;
+  double? get blurRadius;
+  StacOffset get offset;
+  double? get spreadRadius;
+  BlurStyle? get blurStyle;
 
   /// Create a copy of StacBoxShadow
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacBoxShadowCopyWith<StacBoxShadow> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacBoxShadowCopyWithImpl<StacBoxShadow>(
+          this as StacBoxShadow, _$identity);
+
+  /// Serializes this StacBoxShadow to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacBoxShadow &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.blurRadius, blurRadius) ||
+                other.blurRadius == blurRadius) &&
+            (identical(other.offset, offset) || other.offset == offset) &&
+            (identical(other.spreadRadius, spreadRadius) ||
+                other.spreadRadius == spreadRadius) &&
+            (identical(other.blurStyle, blurStyle) ||
+                other.blurStyle == blurStyle));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, color, blurRadius, offset, spreadRadius, blurStyle);
+
+  @override
+  String toString() {
+    return 'StacBoxShadow(color: $color, blurRadius: $blurRadius, offset: $offset, spreadRadius: $spreadRadius, blurStyle: $blurStyle)';
+  }
 }
 
 /// @nodoc
-abstract class $StacBoxShadowCopyWith<$Res> {
+abstract mixin class $StacBoxShadowCopyWith<$Res> {
   factory $StacBoxShadowCopyWith(
-          StacBoxShadow value, $Res Function(StacBoxShadow) then) =
-      _$StacBoxShadowCopyWithImpl<$Res, StacBoxShadow>;
+          StacBoxShadow value, $Res Function(StacBoxShadow) _then) =
+      _$StacBoxShadowCopyWithImpl;
   @useResult
   $Res call(
       {String? color,
@@ -53,14 +75,12 @@ abstract class $StacBoxShadowCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacBoxShadowCopyWithImpl<$Res, $Val extends StacBoxShadow>
+class _$StacBoxShadowCopyWithImpl<$Res>
     implements $StacBoxShadowCopyWith<$Res> {
-  _$StacBoxShadowCopyWithImpl(this._value, this._then);
+  _$StacBoxShadowCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacBoxShadow _self;
+  final $Res Function(StacBoxShadow) _then;
 
   /// Create a copy of StacBoxShadow
   /// with the given fields replaced by the non-null parameter values.
@@ -73,28 +93,28 @@ class _$StacBoxShadowCopyWithImpl<$Res, $Val extends StacBoxShadow>
     Object? spreadRadius = freezed,
     Object? blurStyle = freezed,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       color: freezed == color
-          ? _value.color
+          ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
       blurRadius: freezed == blurRadius
-          ? _value.blurRadius
+          ? _self.blurRadius
           : blurRadius // ignore: cast_nullable_to_non_nullable
               as double?,
       offset: null == offset
-          ? _value.offset
+          ? _self.offset
           : offset // ignore: cast_nullable_to_non_nullable
               as StacOffset,
       spreadRadius: freezed == spreadRadius
-          ? _value.spreadRadius
+          ? _self.spreadRadius
           : spreadRadius // ignore: cast_nullable_to_non_nullable
               as double?,
       blurStyle: freezed == blurStyle
-          ? _value.blurStyle
+          ? _self.blurStyle
           : blurStyle // ignore: cast_nullable_to_non_nullable
               as BlurStyle?,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacBoxShadow
@@ -102,87 +122,23 @@ class _$StacBoxShadowCopyWithImpl<$Res, $Val extends StacBoxShadow>
   @override
   @pragma('vm:prefer-inline')
   $StacOffsetCopyWith<$Res> get offset {
-    return $StacOffsetCopyWith<$Res>(_value.offset, (value) {
-      return _then(_value.copyWith(offset: value) as $Val);
+    return $StacOffsetCopyWith<$Res>(_self.offset, (value) {
+      return _then(_self.copyWith(offset: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacBoxShadowImplCopyWith<$Res>
-    implements $StacBoxShadowCopyWith<$Res> {
-  factory _$$StacBoxShadowImplCopyWith(
-          _$StacBoxShadowImpl value, $Res Function(_$StacBoxShadowImpl) then) =
-      __$$StacBoxShadowImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? color,
-      double? blurRadius,
-      StacOffset offset,
-      double? spreadRadius,
-      BlurStyle? blurStyle});
-
-  @override
-  $StacOffsetCopyWith<$Res> get offset;
-}
-
-/// @nodoc
-class __$$StacBoxShadowImplCopyWithImpl<$Res>
-    extends _$StacBoxShadowCopyWithImpl<$Res, _$StacBoxShadowImpl>
-    implements _$$StacBoxShadowImplCopyWith<$Res> {
-  __$$StacBoxShadowImplCopyWithImpl(
-      _$StacBoxShadowImpl _value, $Res Function(_$StacBoxShadowImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacBoxShadow
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? color = freezed,
-    Object? blurRadius = freezed,
-    Object? offset = null,
-    Object? spreadRadius = freezed,
-    Object? blurStyle = freezed,
-  }) {
-    return _then(_$StacBoxShadowImpl(
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as String?,
-      blurRadius: freezed == blurRadius
-          ? _value.blurRadius
-          : blurRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      offset: null == offset
-          ? _value.offset
-          : offset // ignore: cast_nullable_to_non_nullable
-              as StacOffset,
-      spreadRadius: freezed == spreadRadius
-          ? _value.spreadRadius
-          : spreadRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
-      blurStyle: freezed == blurStyle
-          ? _value.blurStyle
-          : blurStyle // ignore: cast_nullable_to_non_nullable
-              as BlurStyle?,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacBoxShadowImpl implements _StacBoxShadow {
-  const _$StacBoxShadowImpl(
+class _StacBoxShadow implements StacBoxShadow {
+  const _StacBoxShadow(
       {this.color,
       this.blurRadius = 0.0,
       this.offset = const StacOffset(dx: 0, dy: 0),
       this.spreadRadius = 0.0,
       this.blurStyle = BlurStyle.normal});
-
-  factory _$StacBoxShadowImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacBoxShadowImplFromJson(json);
+  factory _StacBoxShadow.fromJson(Map<String, dynamic> json) =>
+      _$StacBoxShadowFromJson(json);
 
   @override
   final String? color;
@@ -199,16 +155,26 @@ class _$StacBoxShadowImpl implements _StacBoxShadow {
   @JsonKey()
   final BlurStyle? blurStyle;
 
+  /// Create a copy of StacBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacBoxShadow(color: $color, blurRadius: $blurRadius, offset: $offset, spreadRadius: $spreadRadius, blurStyle: $blurStyle)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacBoxShadowCopyWith<_StacBoxShadow> get copyWith =>
+      __$StacBoxShadowCopyWithImpl<_StacBoxShadow>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacBoxShadowToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacBoxShadowImpl &&
+            other is _StacBoxShadow &&
             (identical(other.color, color) || other.color == color) &&
             (identical(other.blurRadius, blurRadius) ||
                 other.blurRadius == blurRadius) &&
@@ -224,48 +190,83 @@ class _$StacBoxShadowImpl implements _StacBoxShadow {
   int get hashCode => Object.hash(
       runtimeType, color, blurRadius, offset, spreadRadius, blurStyle);
 
-  /// Create a copy of StacBoxShadow
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacBoxShadowImplCopyWith<_$StacBoxShadowImpl> get copyWith =>
-      __$$StacBoxShadowImplCopyWithImpl<_$StacBoxShadowImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacBoxShadowImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacBoxShadow(color: $color, blurRadius: $blurRadius, offset: $offset, spreadRadius: $spreadRadius, blurStyle: $blurStyle)';
   }
 }
 
-abstract class _StacBoxShadow implements StacBoxShadow {
-  const factory _StacBoxShadow(
-      {final String? color,
-      final double? blurRadius,
-      final StacOffset offset,
-      final double? spreadRadius,
-      final BlurStyle? blurStyle}) = _$StacBoxShadowImpl;
+/// @nodoc
+abstract mixin class _$StacBoxShadowCopyWith<$Res>
+    implements $StacBoxShadowCopyWith<$Res> {
+  factory _$StacBoxShadowCopyWith(
+          _StacBoxShadow value, $Res Function(_StacBoxShadow) _then) =
+      __$StacBoxShadowCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? color,
+      double? blurRadius,
+      StacOffset offset,
+      double? spreadRadius,
+      BlurStyle? blurStyle});
 
-  factory _StacBoxShadow.fromJson(Map<String, dynamic> json) =
-      _$StacBoxShadowImpl.fromJson;
+  @override
+  $StacOffsetCopyWith<$Res> get offset;
+}
 
-  @override
-  String? get color;
-  @override
-  double? get blurRadius;
-  @override
-  StacOffset get offset;
-  @override
-  double? get spreadRadius;
-  @override
-  BlurStyle? get blurStyle;
+/// @nodoc
+class __$StacBoxShadowCopyWithImpl<$Res>
+    implements _$StacBoxShadowCopyWith<$Res> {
+  __$StacBoxShadowCopyWithImpl(this._self, this._then);
+
+  final _StacBoxShadow _self;
+  final $Res Function(_StacBoxShadow) _then;
 
   /// Create a copy of StacBoxShadow
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacBoxShadowImplCopyWith<_$StacBoxShadowImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? color = freezed,
+    Object? blurRadius = freezed,
+    Object? offset = null,
+    Object? spreadRadius = freezed,
+    Object? blurStyle = freezed,
+  }) {
+    return _then(_StacBoxShadow(
+      color: freezed == color
+          ? _self.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
+      blurRadius: freezed == blurRadius
+          ? _self.blurRadius
+          : blurRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      offset: null == offset
+          ? _self.offset
+          : offset // ignore: cast_nullable_to_non_nullable
+              as StacOffset,
+      spreadRadius: freezed == spreadRadius
+          ? _self.spreadRadius
+          : spreadRadius // ignore: cast_nullable_to_non_nullable
+              as double?,
+      blurStyle: freezed == blurStyle
+          ? _self.blurStyle
+          : blurStyle // ignore: cast_nullable_to_non_nullable
+              as BlurStyle?,
+    ));
+  }
+
+  /// Create a copy of StacBoxShadow
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacOffsetCopyWith<$Res> get offset {
+    return $StacOffsetCopyWith<$Res>(_self.offset, (value) {
+      return _then(_self.copyWith(offset: value));
+    });
+  }
 }
+
+// dart format on

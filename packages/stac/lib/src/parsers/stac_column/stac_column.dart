@@ -7,7 +7,7 @@ part 'stac_column.freezed.dart';
 part 'stac_column.g.dart';
 
 @freezed
-class StacColumn with _$StacColumn {
+abstract class StacColumn with _$StacColumn {
   const factory StacColumn({
     @Default(MainAxisAlignment.start) MainAxisAlignment mainAxisAlignment,
     @Default(CrossAxisAlignment.center) CrossAxisAlignment crossAxisAlignment,

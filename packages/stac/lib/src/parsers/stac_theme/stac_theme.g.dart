@@ -6,8 +6,7 @@ part of 'stac_theme.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacThemeImpl _$$StacThemeImplFromJson(Map<String, dynamic> json) =>
-    _$StacThemeImpl(
+_StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
       applyElevationOverlayColor: json['applyElevationOverlayColor'] as bool?,
       inputDecorationTheme: json['inputDecorationTheme'] == null
           ? null
@@ -112,7 +111,7 @@ _$StacThemeImpl _$$StacThemeImplFromJson(Map<String, dynamic> json) =>
               json['tabBarTheme'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$StacThemeImplToJson(_$StacThemeImpl instance) =>
+Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
     <String, dynamic>{
       'applyElevationOverlayColor': instance.applyElevationOverlayColor,
       'inputDecorationTheme': instance.inputDecorationTheme,

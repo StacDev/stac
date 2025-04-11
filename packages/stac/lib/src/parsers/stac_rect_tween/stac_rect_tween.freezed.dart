@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,182 +10,31 @@ part of 'stac_rect_tween.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacRectTween _$StacRectTweenFromJson(Map<String, dynamic> json) {
-  return _StacRectTween.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacRectTween {
-  String get type => throw _privateConstructorUsedError;
-  StacRect? get begin => throw _privateConstructorUsedError;
-  StacRect? get end => throw _privateConstructorUsedError;
-
-  /// Serializes this StacRectTween to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get type;
+  StacRect? get begin;
+  StacRect? get end;
 
   /// Create a copy of StacRectTween
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacRectTweenCopyWith<StacRectTween> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacRectTweenCopyWithImpl<StacRectTween>(
+          this as StacRectTween, _$identity);
 
-/// @nodoc
-abstract class $StacRectTweenCopyWith<$Res> {
-  factory $StacRectTweenCopyWith(
-          StacRectTween value, $Res Function(StacRectTween) then) =
-      _$StacRectTweenCopyWithImpl<$Res, StacRectTween>;
-  @useResult
-  $Res call({String type, StacRect? begin, StacRect? end});
-
-  $StacRectCopyWith<$Res>? get begin;
-  $StacRectCopyWith<$Res>? get end;
-}
-
-/// @nodoc
-class _$StacRectTweenCopyWithImpl<$Res, $Val extends StacRectTween>
-    implements $StacRectTweenCopyWith<$Res> {
-  _$StacRectTweenCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacRectTween
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? begin = freezed,
-    Object? end = freezed,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      begin: freezed == begin
-          ? _value.begin
-          : begin // ignore: cast_nullable_to_non_nullable
-              as StacRect?,
-      end: freezed == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as StacRect?,
-    ) as $Val);
-  }
-
-  /// Create a copy of StacRectTween
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StacRectCopyWith<$Res>? get begin {
-    if (_value.begin == null) {
-      return null;
-    }
-
-    return $StacRectCopyWith<$Res>(_value.begin!, (value) {
-      return _then(_value.copyWith(begin: value) as $Val);
-    });
-  }
-
-  /// Create a copy of StacRectTween
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StacRectCopyWith<$Res>? get end {
-    if (_value.end == null) {
-      return null;
-    }
-
-    return $StacRectCopyWith<$Res>(_value.end!, (value) {
-      return _then(_value.copyWith(end: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$StacRectTweenImplCopyWith<$Res>
-    implements $StacRectTweenCopyWith<$Res> {
-  factory _$$StacRectTweenImplCopyWith(
-          _$StacRectTweenImpl value, $Res Function(_$StacRectTweenImpl) then) =
-      __$$StacRectTweenImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String type, StacRect? begin, StacRect? end});
-
-  @override
-  $StacRectCopyWith<$Res>? get begin;
-  @override
-  $StacRectCopyWith<$Res>? get end;
-}
-
-/// @nodoc
-class __$$StacRectTweenImplCopyWithImpl<$Res>
-    extends _$StacRectTweenCopyWithImpl<$Res, _$StacRectTweenImpl>
-    implements _$$StacRectTweenImplCopyWith<$Res> {
-  __$$StacRectTweenImplCopyWithImpl(
-      _$StacRectTweenImpl _value, $Res Function(_$StacRectTweenImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacRectTween
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? begin = freezed,
-    Object? end = freezed,
-  }) {
-    return _then(_$StacRectTweenImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      begin: freezed == begin
-          ? _value.begin
-          : begin // ignore: cast_nullable_to_non_nullable
-              as StacRect?,
-      end: freezed == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as StacRect?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacRectTweenImpl implements _StacRectTween {
-  const _$StacRectTweenImpl({required this.type, this.begin, this.end});
-
-  factory _$StacRectTweenImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacRectTweenImplFromJson(json);
-
-  @override
-  final String type;
-  @override
-  final StacRect? begin;
-  @override
-  final StacRect? end;
-
-  @override
-  String toString() {
-    return 'StacRectTween(type: $type, begin: $begin, end: $end)';
-  }
+  /// Serializes this StacRectTween to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacRectTweenImpl &&
+            other is StacRectTween &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.begin, begin) || other.begin == begin) &&
             (identical(other.end, end) || other.end == end));
@@ -194,42 +44,211 @@ class _$StacRectTweenImpl implements _StacRectTween {
   @override
   int get hashCode => Object.hash(runtimeType, type, begin, end);
 
-  /// Create a copy of StacRectTween
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacRectTweenImplCopyWith<_$StacRectTweenImpl> get copyWith =>
-      __$$StacRectTweenImplCopyWithImpl<_$StacRectTweenImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacRectTweenImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacRectTween(type: $type, begin: $begin, end: $end)';
   }
 }
 
-abstract class _StacRectTween implements StacRectTween {
-  const factory _StacRectTween(
-      {required final String type,
-      final StacRect? begin,
-      final StacRect? end}) = _$StacRectTweenImpl;
+/// @nodoc
+abstract mixin class $StacRectTweenCopyWith<$Res> {
+  factory $StacRectTweenCopyWith(
+          StacRectTween value, $Res Function(StacRectTween) _then) =
+      _$StacRectTweenCopyWithImpl;
+  @useResult
+  $Res call({String type, StacRect? begin, StacRect? end});
 
-  factory _StacRectTween.fromJson(Map<String, dynamic> json) =
-      _$StacRectTweenImpl.fromJson;
+  $StacRectCopyWith<$Res>? get begin;
+  $StacRectCopyWith<$Res>? get end;
+}
+
+/// @nodoc
+class _$StacRectTweenCopyWithImpl<$Res>
+    implements $StacRectTweenCopyWith<$Res> {
+  _$StacRectTweenCopyWithImpl(this._self, this._then);
+
+  final StacRectTween _self;
+  final $Res Function(StacRectTween) _then;
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? begin = freezed,
+    Object? end = freezed,
+  }) {
+    return _then(_self.copyWith(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      begin: freezed == begin
+          ? _self.begin
+          : begin // ignore: cast_nullable_to_non_nullable
+              as StacRect?,
+      end: freezed == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as StacRect?,
+    ));
+  }
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacRectCopyWith<$Res>? get begin {
+    if (_self.begin == null) {
+      return null;
+    }
+
+    return $StacRectCopyWith<$Res>(_self.begin!, (value) {
+      return _then(_self.copyWith(begin: value));
+    });
+  }
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacRectCopyWith<$Res>? get end {
+    if (_self.end == null) {
+      return null;
+    }
+
+    return $StacRectCopyWith<$Res>(_self.end!, (value) {
+      return _then(_self.copyWith(end: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacRectTween implements StacRectTween {
+  const _StacRectTween({required this.type, this.begin, this.end});
+  factory _StacRectTween.fromJson(Map<String, dynamic> json) =>
+      _$StacRectTweenFromJson(json);
 
   @override
-  String get type;
+  final String type;
   @override
-  StacRect? get begin;
+  final StacRect? begin;
   @override
-  StacRect? get end;
+  final StacRect? end;
 
   /// Create a copy of StacRectTween
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacRectTweenImplCopyWith<_$StacRectTweenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacRectTweenCopyWith<_StacRectTween> get copyWith =>
+      __$StacRectTweenCopyWithImpl<_StacRectTween>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacRectTweenToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacRectTween &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.begin, begin) || other.begin == begin) &&
+            (identical(other.end, end) || other.end == end));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, begin, end);
+
+  @override
+  String toString() {
+    return 'StacRectTween(type: $type, begin: $begin, end: $end)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacRectTweenCopyWith<$Res>
+    implements $StacRectTweenCopyWith<$Res> {
+  factory _$StacRectTweenCopyWith(
+          _StacRectTween value, $Res Function(_StacRectTween) _then) =
+      __$StacRectTweenCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String type, StacRect? begin, StacRect? end});
+
+  @override
+  $StacRectCopyWith<$Res>? get begin;
+  @override
+  $StacRectCopyWith<$Res>? get end;
+}
+
+/// @nodoc
+class __$StacRectTweenCopyWithImpl<$Res>
+    implements _$StacRectTweenCopyWith<$Res> {
+  __$StacRectTweenCopyWithImpl(this._self, this._then);
+
+  final _StacRectTween _self;
+  final $Res Function(_StacRectTween) _then;
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? begin = freezed,
+    Object? end = freezed,
+  }) {
+    return _then(_StacRectTween(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      begin: freezed == begin
+          ? _self.begin
+          : begin // ignore: cast_nullable_to_non_nullable
+              as StacRect?,
+      end: freezed == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as StacRect?,
+    ));
+  }
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacRectCopyWith<$Res>? get begin {
+    if (_self.begin == null) {
+      return null;
+    }
+
+    return $StacRectCopyWith<$Res>(_self.begin!, (value) {
+      return _then(_self.copyWith(begin: value));
+    });
+  }
+
+  /// Create a copy of StacRectTween
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacRectCopyWith<$Res>? get end {
+    if (_self.end == null) {
+      return null;
+    }
+
+    return $StacRectCopyWith<$Res>(_self.end!, (value) {
+      return _then(_self.copyWith(end: value));
+    });
+  }
+}
+
+// dart format on

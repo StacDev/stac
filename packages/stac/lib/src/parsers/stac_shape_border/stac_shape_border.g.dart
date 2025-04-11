@@ -6,15 +6,13 @@ part of 'stac_shape_border.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacShapeBorderImpl _$$StacShapeBorderImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacShapeBorderImpl(
+_StacShapeBorder _$StacShapeBorderFromJson(Map<String, dynamic> json) =>
+    _StacShapeBorder(
       borderType: $enumDecode(_$StacShapeBorderTypeEnumMap, json['borderType']),
       data: json['data'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$StacShapeBorderImplToJson(
-        _$StacShapeBorderImpl instance) =>
+Map<String, dynamic> _$StacShapeBorderToJson(_StacShapeBorder instance) =>
     <String, dynamic>{
       'borderType': _$StacShapeBorderTypeEnumMap[instance.borderType]!,
       'data': instance.data,

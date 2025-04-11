@@ -6,8 +6,7 @@ part of 'stac_wrap.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacWrapImpl _$$StacWrapImplFromJson(Map<String, dynamic> json) =>
-    _$StacWrapImpl(
+_StacWrap _$StacWrapFromJson(Map<String, dynamic> json) => _StacWrap(
       direction: $enumDecodeNullable(_$AxisEnumMap, json['direction']) ??
           Axis.horizontal,
       alignment:
@@ -34,8 +33,7 @@ _$StacWrapImpl _$$StacWrapImplFromJson(Map<String, dynamic> json) =>
           const [],
     );
 
-Map<String, dynamic> _$$StacWrapImplToJson(_$StacWrapImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StacWrapToJson(_StacWrap instance) => <String, dynamic>{
       'direction': _$AxisEnumMap[instance.direction]!,
       'alignment': _$WrapAlignmentEnumMap[instance.alignment]!,
       'spacing': instance.spacing,

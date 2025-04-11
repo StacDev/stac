@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,283 +10,39 @@ part of 'stac_material_color.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacMaterialColor _$StacMaterialColorFromJson(Map<String, dynamic> json) {
-  return _StacMaterialColor.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacMaterialColor {
-  String get primary => throw _privateConstructorUsedError;
-  String get shade50 => throw _privateConstructorUsedError;
-  String get shade100 => throw _privateConstructorUsedError;
-  String get shade200 => throw _privateConstructorUsedError;
-  String get shade300 => throw _privateConstructorUsedError;
-  String get shade400 => throw _privateConstructorUsedError;
-  String get shade500 => throw _privateConstructorUsedError;
-  String get shade600 => throw _privateConstructorUsedError;
-  String get shade700 => throw _privateConstructorUsedError;
-  String get shade800 => throw _privateConstructorUsedError;
-  String get shade900 => throw _privateConstructorUsedError;
-
-  /// Serializes this StacMaterialColor to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String get primary;
+  String get shade50;
+  String get shade100;
+  String get shade200;
+  String get shade300;
+  String get shade400;
+  String get shade500;
+  String get shade600;
+  String get shade700;
+  String get shade800;
+  String get shade900;
 
   /// Create a copy of StacMaterialColor
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacMaterialColorCopyWith<StacMaterialColor> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacMaterialColorCopyWithImpl<StacMaterialColor>(
+          this as StacMaterialColor, _$identity);
 
-/// @nodoc
-abstract class $StacMaterialColorCopyWith<$Res> {
-  factory $StacMaterialColorCopyWith(
-          StacMaterialColor value, $Res Function(StacMaterialColor) then) =
-      _$StacMaterialColorCopyWithImpl<$Res, StacMaterialColor>;
-  @useResult
-  $Res call(
-      {String primary,
-      String shade50,
-      String shade100,
-      String shade200,
-      String shade300,
-      String shade400,
-      String shade500,
-      String shade600,
-      String shade700,
-      String shade800,
-      String shade900});
-}
-
-/// @nodoc
-class _$StacMaterialColorCopyWithImpl<$Res, $Val extends StacMaterialColor>
-    implements $StacMaterialColorCopyWith<$Res> {
-  _$StacMaterialColorCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacMaterialColor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? primary = null,
-    Object? shade50 = null,
-    Object? shade100 = null,
-    Object? shade200 = null,
-    Object? shade300 = null,
-    Object? shade400 = null,
-    Object? shade500 = null,
-    Object? shade600 = null,
-    Object? shade700 = null,
-    Object? shade800 = null,
-    Object? shade900 = null,
-  }) {
-    return _then(_value.copyWith(
-      primary: null == primary
-          ? _value.primary
-          : primary // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade50: null == shade50
-          ? _value.shade50
-          : shade50 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade100: null == shade100
-          ? _value.shade100
-          : shade100 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade200: null == shade200
-          ? _value.shade200
-          : shade200 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade300: null == shade300
-          ? _value.shade300
-          : shade300 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade400: null == shade400
-          ? _value.shade400
-          : shade400 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade500: null == shade500
-          ? _value.shade500
-          : shade500 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade600: null == shade600
-          ? _value.shade600
-          : shade600 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade700: null == shade700
-          ? _value.shade700
-          : shade700 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade800: null == shade800
-          ? _value.shade800
-          : shade800 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade900: null == shade900
-          ? _value.shade900
-          : shade900 // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$StacMaterialColorImplCopyWith<$Res>
-    implements $StacMaterialColorCopyWith<$Res> {
-  factory _$$StacMaterialColorImplCopyWith(_$StacMaterialColorImpl value,
-          $Res Function(_$StacMaterialColorImpl) then) =
-      __$$StacMaterialColorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String primary,
-      String shade50,
-      String shade100,
-      String shade200,
-      String shade300,
-      String shade400,
-      String shade500,
-      String shade600,
-      String shade700,
-      String shade800,
-      String shade900});
-}
-
-/// @nodoc
-class __$$StacMaterialColorImplCopyWithImpl<$Res>
-    extends _$StacMaterialColorCopyWithImpl<$Res, _$StacMaterialColorImpl>
-    implements _$$StacMaterialColorImplCopyWith<$Res> {
-  __$$StacMaterialColorImplCopyWithImpl(_$StacMaterialColorImpl _value,
-      $Res Function(_$StacMaterialColorImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacMaterialColor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? primary = null,
-    Object? shade50 = null,
-    Object? shade100 = null,
-    Object? shade200 = null,
-    Object? shade300 = null,
-    Object? shade400 = null,
-    Object? shade500 = null,
-    Object? shade600 = null,
-    Object? shade700 = null,
-    Object? shade800 = null,
-    Object? shade900 = null,
-  }) {
-    return _then(_$StacMaterialColorImpl(
-      primary: null == primary
-          ? _value.primary
-          : primary // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade50: null == shade50
-          ? _value.shade50
-          : shade50 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade100: null == shade100
-          ? _value.shade100
-          : shade100 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade200: null == shade200
-          ? _value.shade200
-          : shade200 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade300: null == shade300
-          ? _value.shade300
-          : shade300 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade400: null == shade400
-          ? _value.shade400
-          : shade400 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade500: null == shade500
-          ? _value.shade500
-          : shade500 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade600: null == shade600
-          ? _value.shade600
-          : shade600 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade700: null == shade700
-          ? _value.shade700
-          : shade700 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade800: null == shade800
-          ? _value.shade800
-          : shade800 // ignore: cast_nullable_to_non_nullable
-              as String,
-      shade900: null == shade900
-          ? _value.shade900
-          : shade900 // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacMaterialColorImpl implements _StacMaterialColor {
-  const _$StacMaterialColorImpl(
-      {required this.primary,
-      required this.shade50,
-      required this.shade100,
-      required this.shade200,
-      required this.shade300,
-      required this.shade400,
-      required this.shade500,
-      required this.shade600,
-      required this.shade700,
-      required this.shade800,
-      required this.shade900});
-
-  factory _$StacMaterialColorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacMaterialColorImplFromJson(json);
-
-  @override
-  final String primary;
-  @override
-  final String shade50;
-  @override
-  final String shade100;
-  @override
-  final String shade200;
-  @override
-  final String shade300;
-  @override
-  final String shade400;
-  @override
-  final String shade500;
-  @override
-  final String shade600;
-  @override
-  final String shade700;
-  @override
-  final String shade800;
-  @override
-  final String shade900;
-
-  @override
-  String toString() {
-    return 'StacMaterialColor(primary: $primary, shade50: $shade50, shade100: $shade100, shade200: $shade200, shade300: $shade300, shade400: $shade400, shade500: $shade500, shade600: $shade600, shade700: $shade700, shade800: $shade800, shade900: $shade900)';
-  }
+  /// Serializes this StacMaterialColor to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacMaterialColorImpl &&
+            other is StacMaterialColor &&
             (identical(other.primary, primary) || other.primary == primary) &&
             (identical(other.shade50, shade50) || other.shade50 == shade50) &&
             (identical(other.shade100, shade100) ||
@@ -324,67 +81,305 @@ class _$StacMaterialColorImpl implements _StacMaterialColor {
       shade800,
       shade900);
 
-  /// Create a copy of StacMaterialColor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacMaterialColorImplCopyWith<_$StacMaterialColorImpl> get copyWith =>
-      __$$StacMaterialColorImplCopyWithImpl<_$StacMaterialColorImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacMaterialColorImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacMaterialColor(primary: $primary, shade50: $shade50, shade100: $shade100, shade200: $shade200, shade300: $shade300, shade400: $shade400, shade500: $shade500, shade600: $shade600, shade700: $shade700, shade800: $shade800, shade900: $shade900)';
   }
 }
 
-abstract class _StacMaterialColor implements StacMaterialColor {
-  const factory _StacMaterialColor(
-      {required final String primary,
-      required final String shade50,
-      required final String shade100,
-      required final String shade200,
-      required final String shade300,
-      required final String shade400,
-      required final String shade500,
-      required final String shade600,
-      required final String shade700,
-      required final String shade800,
-      required final String shade900}) = _$StacMaterialColorImpl;
+/// @nodoc
+abstract mixin class $StacMaterialColorCopyWith<$Res> {
+  factory $StacMaterialColorCopyWith(
+          StacMaterialColor value, $Res Function(StacMaterialColor) _then) =
+      _$StacMaterialColorCopyWithImpl;
+  @useResult
+  $Res call(
+      {String primary,
+      String shade50,
+      String shade100,
+      String shade200,
+      String shade300,
+      String shade400,
+      String shade500,
+      String shade600,
+      String shade700,
+      String shade800,
+      String shade900});
+}
 
-  factory _StacMaterialColor.fromJson(Map<String, dynamic> json) =
-      _$StacMaterialColorImpl.fromJson;
+/// @nodoc
+class _$StacMaterialColorCopyWithImpl<$Res>
+    implements $StacMaterialColorCopyWith<$Res> {
+  _$StacMaterialColorCopyWithImpl(this._self, this._then);
+
+  final StacMaterialColor _self;
+  final $Res Function(StacMaterialColor) _then;
+
+  /// Create a copy of StacMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? primary = null,
+    Object? shade50 = null,
+    Object? shade100 = null,
+    Object? shade200 = null,
+    Object? shade300 = null,
+    Object? shade400 = null,
+    Object? shade500 = null,
+    Object? shade600 = null,
+    Object? shade700 = null,
+    Object? shade800 = null,
+    Object? shade900 = null,
+  }) {
+    return _then(_self.copyWith(
+      primary: null == primary
+          ? _self.primary
+          : primary // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade50: null == shade50
+          ? _self.shade50
+          : shade50 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade100: null == shade100
+          ? _self.shade100
+          : shade100 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade200: null == shade200
+          ? _self.shade200
+          : shade200 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade300: null == shade300
+          ? _self.shade300
+          : shade300 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade400: null == shade400
+          ? _self.shade400
+          : shade400 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade500: null == shade500
+          ? _self.shade500
+          : shade500 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade600: null == shade600
+          ? _self.shade600
+          : shade600 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade700: null == shade700
+          ? _self.shade700
+          : shade700 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade800: null == shade800
+          ? _self.shade800
+          : shade800 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade900: null == shade900
+          ? _self.shade900
+          : shade900 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacMaterialColor implements StacMaterialColor {
+  const _StacMaterialColor(
+      {required this.primary,
+      required this.shade50,
+      required this.shade100,
+      required this.shade200,
+      required this.shade300,
+      required this.shade400,
+      required this.shade500,
+      required this.shade600,
+      required this.shade700,
+      required this.shade800,
+      required this.shade900});
+  factory _StacMaterialColor.fromJson(Map<String, dynamic> json) =>
+      _$StacMaterialColorFromJson(json);
 
   @override
-  String get primary;
+  final String primary;
   @override
-  String get shade50;
+  final String shade50;
   @override
-  String get shade100;
+  final String shade100;
   @override
-  String get shade200;
+  final String shade200;
   @override
-  String get shade300;
+  final String shade300;
   @override
-  String get shade400;
+  final String shade400;
   @override
-  String get shade500;
+  final String shade500;
   @override
-  String get shade600;
+  final String shade600;
   @override
-  String get shade700;
+  final String shade700;
   @override
-  String get shade800;
+  final String shade800;
   @override
-  String get shade900;
+  final String shade900;
 
   /// Create a copy of StacMaterialColor
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacMaterialColorImplCopyWith<_$StacMaterialColorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacMaterialColorCopyWith<_StacMaterialColor> get copyWith =>
+      __$StacMaterialColorCopyWithImpl<_StacMaterialColor>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacMaterialColorToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacMaterialColor &&
+            (identical(other.primary, primary) || other.primary == primary) &&
+            (identical(other.shade50, shade50) || other.shade50 == shade50) &&
+            (identical(other.shade100, shade100) ||
+                other.shade100 == shade100) &&
+            (identical(other.shade200, shade200) ||
+                other.shade200 == shade200) &&
+            (identical(other.shade300, shade300) ||
+                other.shade300 == shade300) &&
+            (identical(other.shade400, shade400) ||
+                other.shade400 == shade400) &&
+            (identical(other.shade500, shade500) ||
+                other.shade500 == shade500) &&
+            (identical(other.shade600, shade600) ||
+                other.shade600 == shade600) &&
+            (identical(other.shade700, shade700) ||
+                other.shade700 == shade700) &&
+            (identical(other.shade800, shade800) ||
+                other.shade800 == shade800) &&
+            (identical(other.shade900, shade900) ||
+                other.shade900 == shade900));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      primary,
+      shade50,
+      shade100,
+      shade200,
+      shade300,
+      shade400,
+      shade500,
+      shade600,
+      shade700,
+      shade800,
+      shade900);
+
+  @override
+  String toString() {
+    return 'StacMaterialColor(primary: $primary, shade50: $shade50, shade100: $shade100, shade200: $shade200, shade300: $shade300, shade400: $shade400, shade500: $shade500, shade600: $shade600, shade700: $shade700, shade800: $shade800, shade900: $shade900)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacMaterialColorCopyWith<$Res>
+    implements $StacMaterialColorCopyWith<$Res> {
+  factory _$StacMaterialColorCopyWith(
+          _StacMaterialColor value, $Res Function(_StacMaterialColor) _then) =
+      __$StacMaterialColorCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String primary,
+      String shade50,
+      String shade100,
+      String shade200,
+      String shade300,
+      String shade400,
+      String shade500,
+      String shade600,
+      String shade700,
+      String shade800,
+      String shade900});
+}
+
+/// @nodoc
+class __$StacMaterialColorCopyWithImpl<$Res>
+    implements _$StacMaterialColorCopyWith<$Res> {
+  __$StacMaterialColorCopyWithImpl(this._self, this._then);
+
+  final _StacMaterialColor _self;
+  final $Res Function(_StacMaterialColor) _then;
+
+  /// Create a copy of StacMaterialColor
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? primary = null,
+    Object? shade50 = null,
+    Object? shade100 = null,
+    Object? shade200 = null,
+    Object? shade300 = null,
+    Object? shade400 = null,
+    Object? shade500 = null,
+    Object? shade600 = null,
+    Object? shade700 = null,
+    Object? shade800 = null,
+    Object? shade900 = null,
+  }) {
+    return _then(_StacMaterialColor(
+      primary: null == primary
+          ? _self.primary
+          : primary // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade50: null == shade50
+          ? _self.shade50
+          : shade50 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade100: null == shade100
+          ? _self.shade100
+          : shade100 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade200: null == shade200
+          ? _self.shade200
+          : shade200 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade300: null == shade300
+          ? _self.shade300
+          : shade300 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade400: null == shade400
+          ? _self.shade400
+          : shade400 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade500: null == shade500
+          ? _self.shade500
+          : shade500 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade600: null == shade600
+          ? _self.shade600
+          : shade600 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade700: null == shade700
+          ? _self.shade700
+          : shade700 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade800: null == shade800
+          ? _self.shade800
+          : shade800 // ignore: cast_nullable_to_non_nullable
+              as String,
+      shade900: null == shade900
+          ? _self.shade900
+          : shade900 // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

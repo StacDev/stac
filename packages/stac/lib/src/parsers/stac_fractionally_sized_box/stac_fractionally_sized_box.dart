@@ -7,7 +7,7 @@ part 'stac_fractionally_sized_box.freezed.dart';
 part 'stac_fractionally_sized_box.g.dart';
 
 @freezed
-class StacFractionallySizedBox with _$StacFractionallySizedBox {
+abstract class StacFractionallySizedBox with _$StacFractionallySizedBox {
   const factory StacFractionallySizedBox({
     StacAlignment? alignment,
     double? widthFactor,

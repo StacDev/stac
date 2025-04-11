@@ -9,7 +9,7 @@ part 'stac_bottom_sheet_theme.freezed.dart';
 part 'stac_bottom_sheet_theme.g.dart';
 
 @freezed
-class StacBottomSheetThemeData with _$StacBottomSheetThemeData {
+abstract class StacBottomSheetThemeData with _$StacBottomSheetThemeData {
   const factory StacBottomSheetThemeData({
     String? backgroundColor,
     String? surfaceTintColor,

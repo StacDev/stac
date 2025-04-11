@@ -6,7 +6,7 @@ part 'stac_colored_box.freezed.dart';
 part 'stac_colored_box.g.dart';
 
 @freezed
-class StacColoredBox with _$StacColoredBox {
+abstract class StacColoredBox with _$StacColoredBox {
   const factory StacColoredBox({
     required String color,
     Map<String, dynamic>? child,

@@ -8,7 +8,7 @@ part 'stac_floating_action_button_theme_data.freezed.dart';
 part 'stac_floating_action_button_theme_data.g.dart';
 
 @freezed
-class StacFloatingActionButtonThemeData
+abstract class StacFloatingActionButtonThemeData
     with _$StacFloatingActionButtonThemeData {
   const factory StacFloatingActionButtonThemeData({
     String? foregroundColor,

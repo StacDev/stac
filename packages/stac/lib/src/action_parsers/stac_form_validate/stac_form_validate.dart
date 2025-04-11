@@ -6,7 +6,7 @@ part 'stac_form_validate.freezed.dart';
 part 'stac_form_validate.g.dart';
 
 @freezed
-class StacFormValidate with _$StacFormValidate {
+abstract class StacFormValidate with _$StacFormValidate {
   const factory StacFormValidate({
     Map<String, dynamic>? isValid,
     Map<String, dynamic>? isNotValid,

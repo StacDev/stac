@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,135 +10,82 @@ part of 'stac_wrap.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacWrap _$StacWrapFromJson(Map<String, dynamic> json) {
-  return _StacWrap.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacWrap {
-  Axis get direction => throw _privateConstructorUsedError;
-  WrapAlignment get alignment => throw _privateConstructorUsedError;
-  double get spacing => throw _privateConstructorUsedError;
-  WrapAlignment get runAlignment => throw _privateConstructorUsedError;
-  double get runSpacing => throw _privateConstructorUsedError;
-  WrapCrossAlignment get crossAxisAlignment =>
-      throw _privateConstructorUsedError;
-  TextDirection? get textDirection => throw _privateConstructorUsedError;
-  VerticalDirection get verticalDirection => throw _privateConstructorUsedError;
-  Clip get clipBehavior => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get children => throw _privateConstructorUsedError;
-
-  /// Serializes this StacWrap to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Axis get direction;
+  WrapAlignment get alignment;
+  double get spacing;
+  WrapAlignment get runAlignment;
+  double get runSpacing;
+  WrapCrossAlignment get crossAxisAlignment;
+  TextDirection? get textDirection;
+  VerticalDirection get verticalDirection;
+  Clip get clipBehavior;
+  List<Map<String, dynamic>> get children;
 
   /// Create a copy of StacWrap
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacWrapCopyWith<StacWrap> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacWrapCopyWith<$Res> {
-  factory $StacWrapCopyWith(StacWrap value, $Res Function(StacWrap) then) =
-      _$StacWrapCopyWithImpl<$Res, StacWrap>;
-  @useResult
-  $Res call(
-      {Axis direction,
-      WrapAlignment alignment,
-      double spacing,
-      WrapAlignment runAlignment,
-      double runSpacing,
-      WrapCrossAlignment crossAxisAlignment,
-      TextDirection? textDirection,
-      VerticalDirection verticalDirection,
-      Clip clipBehavior,
-      List<Map<String, dynamic>> children});
-}
-
-/// @nodoc
-class _$StacWrapCopyWithImpl<$Res, $Val extends StacWrap>
-    implements $StacWrapCopyWith<$Res> {
-  _$StacWrapCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacWrap
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacWrapCopyWith<StacWrap> get copyWith =>
+      _$StacWrapCopyWithImpl<StacWrap>(this as StacWrap, _$identity);
+
+  /// Serializes this StacWrap to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? direction = null,
-    Object? alignment = null,
-    Object? spacing = null,
-    Object? runAlignment = null,
-    Object? runSpacing = null,
-    Object? crossAxisAlignment = null,
-    Object? textDirection = freezed,
-    Object? verticalDirection = null,
-    Object? clipBehavior = null,
-    Object? children = null,
-  }) {
-    return _then(_value.copyWith(
-      direction: null == direction
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as Axis,
-      alignment: null == alignment
-          ? _value.alignment
-          : alignment // ignore: cast_nullable_to_non_nullable
-              as WrapAlignment,
-      spacing: null == spacing
-          ? _value.spacing
-          : spacing // ignore: cast_nullable_to_non_nullable
-              as double,
-      runAlignment: null == runAlignment
-          ? _value.runAlignment
-          : runAlignment // ignore: cast_nullable_to_non_nullable
-              as WrapAlignment,
-      runSpacing: null == runSpacing
-          ? _value.runSpacing
-          : runSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
-      crossAxisAlignment: null == crossAxisAlignment
-          ? _value.crossAxisAlignment
-          : crossAxisAlignment // ignore: cast_nullable_to_non_nullable
-              as WrapCrossAlignment,
-      textDirection: freezed == textDirection
-          ? _value.textDirection
-          : textDirection // ignore: cast_nullable_to_non_nullable
-              as TextDirection?,
-      verticalDirection: null == verticalDirection
-          ? _value.verticalDirection
-          : verticalDirection // ignore: cast_nullable_to_non_nullable
-              as VerticalDirection,
-      clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
-          : clipBehavior // ignore: cast_nullable_to_non_nullable
-              as Clip,
-      children: null == children
-          ? _value.children
-          : children // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacWrap &&
+            (identical(other.direction, direction) ||
+                other.direction == direction) &&
+            (identical(other.alignment, alignment) ||
+                other.alignment == alignment) &&
+            (identical(other.spacing, spacing) || other.spacing == spacing) &&
+            (identical(other.runAlignment, runAlignment) ||
+                other.runAlignment == runAlignment) &&
+            (identical(other.runSpacing, runSpacing) ||
+                other.runSpacing == runSpacing) &&
+            (identical(other.crossAxisAlignment, crossAxisAlignment) ||
+                other.crossAxisAlignment == crossAxisAlignment) &&
+            (identical(other.textDirection, textDirection) ||
+                other.textDirection == textDirection) &&
+            (identical(other.verticalDirection, verticalDirection) ||
+                other.verticalDirection == verticalDirection) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
+            const DeepCollectionEquality().equals(other.children, children));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      direction,
+      alignment,
+      spacing,
+      runAlignment,
+      runSpacing,
+      crossAxisAlignment,
+      textDirection,
+      verticalDirection,
+      clipBehavior,
+      const DeepCollectionEquality().hash(children));
+
+  @override
+  String toString() {
+    return 'StacWrap(direction: $direction, alignment: $alignment, spacing: $spacing, runAlignment: $runAlignment, runSpacing: $runSpacing, crossAxisAlignment: $crossAxisAlignment, textDirection: $textDirection, verticalDirection: $verticalDirection, clipBehavior: $clipBehavior, children: $children)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacWrapImplCopyWith<$Res>
-    implements $StacWrapCopyWith<$Res> {
-  factory _$$StacWrapImplCopyWith(
-          _$StacWrapImpl value, $Res Function(_$StacWrapImpl) then) =
-      __$$StacWrapImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacWrapCopyWith<$Res> {
+  factory $StacWrapCopyWith(StacWrap value, $Res Function(StacWrap) _then) =
+      _$StacWrapCopyWithImpl;
   @useResult
   $Res call(
       {Axis direction,
@@ -153,12 +101,11 @@ abstract class _$$StacWrapImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StacWrapImplCopyWithImpl<$Res>
-    extends _$StacWrapCopyWithImpl<$Res, _$StacWrapImpl>
-    implements _$$StacWrapImplCopyWith<$Res> {
-  __$$StacWrapImplCopyWithImpl(
-      _$StacWrapImpl _value, $Res Function(_$StacWrapImpl) _then)
-      : super(_value, _then);
+class _$StacWrapCopyWithImpl<$Res> implements $StacWrapCopyWith<$Res> {
+  _$StacWrapCopyWithImpl(this._self, this._then);
+
+  final StacWrap _self;
+  final $Res Function(StacWrap) _then;
 
   /// Create a copy of StacWrap
   /// with the given fields replaced by the non-null parameter values.
@@ -176,45 +123,45 @@ class __$$StacWrapImplCopyWithImpl<$Res>
     Object? clipBehavior = null,
     Object? children = null,
   }) {
-    return _then(_$StacWrapImpl(
+    return _then(_self.copyWith(
       direction: null == direction
-          ? _value.direction
+          ? _self.direction
           : direction // ignore: cast_nullable_to_non_nullable
               as Axis,
       alignment: null == alignment
-          ? _value.alignment
+          ? _self.alignment
           : alignment // ignore: cast_nullable_to_non_nullable
               as WrapAlignment,
       spacing: null == spacing
-          ? _value.spacing
+          ? _self.spacing
           : spacing // ignore: cast_nullable_to_non_nullable
               as double,
       runAlignment: null == runAlignment
-          ? _value.runAlignment
+          ? _self.runAlignment
           : runAlignment // ignore: cast_nullable_to_non_nullable
               as WrapAlignment,
       runSpacing: null == runSpacing
-          ? _value.runSpacing
+          ? _self.runSpacing
           : runSpacing // ignore: cast_nullable_to_non_nullable
               as double,
       crossAxisAlignment: null == crossAxisAlignment
-          ? _value.crossAxisAlignment
+          ? _self.crossAxisAlignment
           : crossAxisAlignment // ignore: cast_nullable_to_non_nullable
               as WrapCrossAlignment,
       textDirection: freezed == textDirection
-          ? _value.textDirection
+          ? _self.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable
               as TextDirection?,
       verticalDirection: null == verticalDirection
-          ? _value.verticalDirection
+          ? _self.verticalDirection
           : verticalDirection // ignore: cast_nullable_to_non_nullable
               as VerticalDirection,
       clipBehavior: null == clipBehavior
-          ? _value.clipBehavior
+          ? _self.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
               as Clip,
       children: null == children
-          ? _value._children
+          ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>,
     ));
@@ -223,8 +170,8 @@ class __$$StacWrapImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacWrapImpl implements _StacWrap {
-  const _$StacWrapImpl(
+class _StacWrap implements StacWrap {
+  const _StacWrap(
       {this.direction = Axis.horizontal,
       this.alignment = WrapAlignment.start,
       this.spacing = 0.0,
@@ -236,9 +183,8 @@ class _$StacWrapImpl implements _StacWrap {
       this.clipBehavior = Clip.none,
       final List<Map<String, dynamic>> children = const []})
       : _children = children;
-
-  factory _$StacWrapImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacWrapImplFromJson(json);
+  factory _StacWrap.fromJson(Map<String, dynamic> json) =>
+      _$StacWrapFromJson(json);
 
   @override
   @JsonKey()
@@ -275,16 +221,26 @@ class _$StacWrapImpl implements _StacWrap {
     return EqualUnmodifiableListView(_children);
   }
 
+  /// Create a copy of StacWrap
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacWrap(direction: $direction, alignment: $alignment, spacing: $spacing, runAlignment: $runAlignment, runSpacing: $runSpacing, crossAxisAlignment: $crossAxisAlignment, textDirection: $textDirection, verticalDirection: $verticalDirection, clipBehavior: $clipBehavior, children: $children)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacWrapCopyWith<_StacWrap> get copyWith =>
+      __$StacWrapCopyWithImpl<_StacWrap>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacWrapToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacWrapImpl &&
+            other is _StacWrap &&
             (identical(other.direction, direction) ||
                 other.direction == direction) &&
             (identical(other.alignment, alignment) ||
@@ -320,63 +276,98 @@ class _$StacWrapImpl implements _StacWrap {
       clipBehavior,
       const DeepCollectionEquality().hash(_children));
 
-  /// Create a copy of StacWrap
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacWrapImplCopyWith<_$StacWrapImpl> get copyWith =>
-      __$$StacWrapImplCopyWithImpl<_$StacWrapImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacWrapImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacWrap(direction: $direction, alignment: $alignment, spacing: $spacing, runAlignment: $runAlignment, runSpacing: $runSpacing, crossAxisAlignment: $crossAxisAlignment, textDirection: $textDirection, verticalDirection: $verticalDirection, clipBehavior: $clipBehavior, children: $children)';
   }
 }
 
-abstract class _StacWrap implements StacWrap {
-  const factory _StacWrap(
-      {final Axis direction,
-      final WrapAlignment alignment,
-      final double spacing,
-      final WrapAlignment runAlignment,
-      final double runSpacing,
-      final WrapCrossAlignment crossAxisAlignment,
-      final TextDirection? textDirection,
-      final VerticalDirection verticalDirection,
-      final Clip clipBehavior,
-      final List<Map<String, dynamic>> children}) = _$StacWrapImpl;
+/// @nodoc
+abstract mixin class _$StacWrapCopyWith<$Res>
+    implements $StacWrapCopyWith<$Res> {
+  factory _$StacWrapCopyWith(_StacWrap value, $Res Function(_StacWrap) _then) =
+      __$StacWrapCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Axis direction,
+      WrapAlignment alignment,
+      double spacing,
+      WrapAlignment runAlignment,
+      double runSpacing,
+      WrapCrossAlignment crossAxisAlignment,
+      TextDirection? textDirection,
+      VerticalDirection verticalDirection,
+      Clip clipBehavior,
+      List<Map<String, dynamic>> children});
+}
 
-  factory _StacWrap.fromJson(Map<String, dynamic> json) =
-      _$StacWrapImpl.fromJson;
+/// @nodoc
+class __$StacWrapCopyWithImpl<$Res> implements _$StacWrapCopyWith<$Res> {
+  __$StacWrapCopyWithImpl(this._self, this._then);
 
-  @override
-  Axis get direction;
-  @override
-  WrapAlignment get alignment;
-  @override
-  double get spacing;
-  @override
-  WrapAlignment get runAlignment;
-  @override
-  double get runSpacing;
-  @override
-  WrapCrossAlignment get crossAxisAlignment;
-  @override
-  TextDirection? get textDirection;
-  @override
-  VerticalDirection get verticalDirection;
-  @override
-  Clip get clipBehavior;
-  @override
-  List<Map<String, dynamic>> get children;
+  final _StacWrap _self;
+  final $Res Function(_StacWrap) _then;
 
   /// Create a copy of StacWrap
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacWrapImplCopyWith<_$StacWrapImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? direction = null,
+    Object? alignment = null,
+    Object? spacing = null,
+    Object? runAlignment = null,
+    Object? runSpacing = null,
+    Object? crossAxisAlignment = null,
+    Object? textDirection = freezed,
+    Object? verticalDirection = null,
+    Object? clipBehavior = null,
+    Object? children = null,
+  }) {
+    return _then(_StacWrap(
+      direction: null == direction
+          ? _self.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as Axis,
+      alignment: null == alignment
+          ? _self.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as WrapAlignment,
+      spacing: null == spacing
+          ? _self.spacing
+          : spacing // ignore: cast_nullable_to_non_nullable
+              as double,
+      runAlignment: null == runAlignment
+          ? _self.runAlignment
+          : runAlignment // ignore: cast_nullable_to_non_nullable
+              as WrapAlignment,
+      runSpacing: null == runSpacing
+          ? _self.runSpacing
+          : runSpacing // ignore: cast_nullable_to_non_nullable
+              as double,
+      crossAxisAlignment: null == crossAxisAlignment
+          ? _self.crossAxisAlignment
+          : crossAxisAlignment // ignore: cast_nullable_to_non_nullable
+              as WrapCrossAlignment,
+      textDirection: freezed == textDirection
+          ? _self.textDirection
+          : textDirection // ignore: cast_nullable_to_non_nullable
+              as TextDirection?,
+      verticalDirection: null == verticalDirection
+          ? _self.verticalDirection
+          : verticalDirection // ignore: cast_nullable_to_non_nullable
+              as VerticalDirection,
+      clipBehavior: null == clipBehavior
+          ? _self.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip,
+      children: null == children
+          ? _self._children
+          : children // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>,
+    ));
+  }
 }
+
+// dart format on

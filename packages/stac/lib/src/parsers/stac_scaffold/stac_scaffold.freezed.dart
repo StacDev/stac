@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,210 +10,128 @@ part of 'stac_scaffold.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacScaffold _$StacScaffoldFromJson(Map<String, dynamic> json) {
-  return _StacScaffold.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacScaffold {
-  Map<String, dynamic>? get appBar => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get body => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get floatingActionButton =>
-      throw _privateConstructorUsedError;
-  StacFloatingActionButtonLocation? get floatingActionButtonLocation =>
-      throw _privateConstructorUsedError;
-  List<Map<String, dynamic>>? get persistentFooterButtons =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get drawer => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get endDrawer => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get bottomNavigationBar =>
-      throw _privateConstructorUsedError;
-  Map<String, dynamic>? get bottomSheet => throw _privateConstructorUsedError;
-  String? get backgroundColor => throw _privateConstructorUsedError;
-  bool? get resizeToAvoidBottomInset => throw _privateConstructorUsedError;
-  bool get primary => throw _privateConstructorUsedError;
-  DragStartBehavior get drawerDragStartBehavior =>
-      throw _privateConstructorUsedError;
-  bool get extendBody => throw _privateConstructorUsedError;
-  bool get extendBodyBehindAppBar => throw _privateConstructorUsedError;
-  String? get drawerScrimColor => throw _privateConstructorUsedError;
-  double? get drawerEdgeDragWidth => throw _privateConstructorUsedError;
-  bool get drawerEnableOpenDragGesture => throw _privateConstructorUsedError;
-  bool get endDrawerEnableOpenDragGesture => throw _privateConstructorUsedError;
-  String? get restorationId => throw _privateConstructorUsedError;
-
-  /// Serializes this StacScaffold to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get appBar;
+  Map<String, dynamic>? get body;
+  Map<String, dynamic>? get floatingActionButton;
+  StacFloatingActionButtonLocation? get floatingActionButtonLocation;
+  List<Map<String, dynamic>>? get persistentFooterButtons;
+  Map<String, dynamic>? get drawer;
+  Map<String, dynamic>? get endDrawer;
+  Map<String, dynamic>? get bottomNavigationBar;
+  Map<String, dynamic>? get bottomSheet;
+  String? get backgroundColor;
+  bool? get resizeToAvoidBottomInset;
+  bool get primary;
+  DragStartBehavior get drawerDragStartBehavior;
+  bool get extendBody;
+  bool get extendBodyBehindAppBar;
+  String? get drawerScrimColor;
+  double? get drawerEdgeDragWidth;
+  bool get drawerEnableOpenDragGesture;
+  bool get endDrawerEnableOpenDragGesture;
+  String? get restorationId;
 
   /// Create a copy of StacScaffold
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $StacScaffoldCopyWith<StacScaffold> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $StacScaffoldCopyWith<$Res> {
-  factory $StacScaffoldCopyWith(
-          StacScaffold value, $Res Function(StacScaffold) then) =
-      _$StacScaffoldCopyWithImpl<$Res, StacScaffold>;
-  @useResult
-  $Res call(
-      {Map<String, dynamic>? appBar,
-      Map<String, dynamic>? body,
-      Map<String, dynamic>? floatingActionButton,
-      StacFloatingActionButtonLocation? floatingActionButtonLocation,
-      List<Map<String, dynamic>>? persistentFooterButtons,
-      Map<String, dynamic>? drawer,
-      Map<String, dynamic>? endDrawer,
-      Map<String, dynamic>? bottomNavigationBar,
-      Map<String, dynamic>? bottomSheet,
-      String? backgroundColor,
-      bool? resizeToAvoidBottomInset,
-      bool primary,
-      DragStartBehavior drawerDragStartBehavior,
-      bool extendBody,
-      bool extendBodyBehindAppBar,
-      String? drawerScrimColor,
-      double? drawerEdgeDragWidth,
-      bool drawerEnableOpenDragGesture,
-      bool endDrawerEnableOpenDragGesture,
-      String? restorationId});
-}
-
-/// @nodoc
-class _$StacScaffoldCopyWithImpl<$Res, $Val extends StacScaffold>
-    implements $StacScaffoldCopyWith<$Res> {
-  _$StacScaffoldCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacScaffold
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $StacScaffoldCopyWith<StacScaffold> get copyWith =>
+      _$StacScaffoldCopyWithImpl<StacScaffold>(
+          this as StacScaffold, _$identity);
+
+  /// Serializes this StacScaffold to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? appBar = freezed,
-    Object? body = freezed,
-    Object? floatingActionButton = freezed,
-    Object? floatingActionButtonLocation = freezed,
-    Object? persistentFooterButtons = freezed,
-    Object? drawer = freezed,
-    Object? endDrawer = freezed,
-    Object? bottomNavigationBar = freezed,
-    Object? bottomSheet = freezed,
-    Object? backgroundColor = freezed,
-    Object? resizeToAvoidBottomInset = freezed,
-    Object? primary = null,
-    Object? drawerDragStartBehavior = null,
-    Object? extendBody = null,
-    Object? extendBodyBehindAppBar = null,
-    Object? drawerScrimColor = freezed,
-    Object? drawerEdgeDragWidth = freezed,
-    Object? drawerEnableOpenDragGesture = null,
-    Object? endDrawerEnableOpenDragGesture = null,
-    Object? restorationId = freezed,
-  }) {
-    return _then(_value.copyWith(
-      appBar: freezed == appBar
-          ? _value.appBar
-          : appBar // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      body: freezed == body
-          ? _value.body
-          : body // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      floatingActionButton: freezed == floatingActionButton
-          ? _value.floatingActionButton
-          : floatingActionButton // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      floatingActionButtonLocation: freezed == floatingActionButtonLocation
-          ? _value.floatingActionButtonLocation
-          : floatingActionButtonLocation // ignore: cast_nullable_to_non_nullable
-              as StacFloatingActionButtonLocation?,
-      persistentFooterButtons: freezed == persistentFooterButtons
-          ? _value.persistentFooterButtons
-          : persistentFooterButtons // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>?,
-      drawer: freezed == drawer
-          ? _value.drawer
-          : drawer // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      endDrawer: freezed == endDrawer
-          ? _value.endDrawer
-          : endDrawer // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      bottomNavigationBar: freezed == bottomNavigationBar
-          ? _value.bottomNavigationBar
-          : bottomNavigationBar // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      bottomSheet: freezed == bottomSheet
-          ? _value.bottomSheet
-          : bottomSheet // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      resizeToAvoidBottomInset: freezed == resizeToAvoidBottomInset
-          ? _value.resizeToAvoidBottomInset
-          : resizeToAvoidBottomInset // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      primary: null == primary
-          ? _value.primary
-          : primary // ignore: cast_nullable_to_non_nullable
-              as bool,
-      drawerDragStartBehavior: null == drawerDragStartBehavior
-          ? _value.drawerDragStartBehavior
-          : drawerDragStartBehavior // ignore: cast_nullable_to_non_nullable
-              as DragStartBehavior,
-      extendBody: null == extendBody
-          ? _value.extendBody
-          : extendBody // ignore: cast_nullable_to_non_nullable
-              as bool,
-      extendBodyBehindAppBar: null == extendBodyBehindAppBar
-          ? _value.extendBodyBehindAppBar
-          : extendBodyBehindAppBar // ignore: cast_nullable_to_non_nullable
-              as bool,
-      drawerScrimColor: freezed == drawerScrimColor
-          ? _value.drawerScrimColor
-          : drawerScrimColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      drawerEdgeDragWidth: freezed == drawerEdgeDragWidth
-          ? _value.drawerEdgeDragWidth
-          : drawerEdgeDragWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
-      drawerEnableOpenDragGesture: null == drawerEnableOpenDragGesture
-          ? _value.drawerEnableOpenDragGesture
-          : drawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
-              as bool,
-      endDrawerEnableOpenDragGesture: null == endDrawerEnableOpenDragGesture
-          ? _value.endDrawerEnableOpenDragGesture
-          : endDrawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
-              as bool,
-      restorationId: freezed == restorationId
-          ? _value.restorationId
-          : restorationId // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacScaffold &&
+            const DeepCollectionEquality().equals(other.appBar, appBar) &&
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality()
+                .equals(other.floatingActionButton, floatingActionButton) &&
+            (identical(other.floatingActionButtonLocation,
+                    floatingActionButtonLocation) ||
+                other.floatingActionButtonLocation ==
+                    floatingActionButtonLocation) &&
+            const DeepCollectionEquality().equals(
+                other.persistentFooterButtons, persistentFooterButtons) &&
+            const DeepCollectionEquality().equals(other.drawer, drawer) &&
+            const DeepCollectionEquality().equals(other.endDrawer, endDrawer) &&
+            const DeepCollectionEquality()
+                .equals(other.bottomNavigationBar, bottomNavigationBar) &&
+            const DeepCollectionEquality()
+                .equals(other.bottomSheet, bottomSheet) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(
+                    other.resizeToAvoidBottomInset, resizeToAvoidBottomInset) ||
+                other.resizeToAvoidBottomInset == resizeToAvoidBottomInset) &&
+            (identical(other.primary, primary) || other.primary == primary) &&
+            (identical(other.drawerDragStartBehavior, drawerDragStartBehavior) ||
+                other.drawerDragStartBehavior == drawerDragStartBehavior) &&
+            (identical(other.extendBody, extendBody) ||
+                other.extendBody == extendBody) &&
+            (identical(other.extendBodyBehindAppBar, extendBodyBehindAppBar) ||
+                other.extendBodyBehindAppBar == extendBodyBehindAppBar) &&
+            (identical(other.drawerScrimColor, drawerScrimColor) ||
+                other.drawerScrimColor == drawerScrimColor) &&
+            (identical(other.drawerEdgeDragWidth, drawerEdgeDragWidth) ||
+                other.drawerEdgeDragWidth == drawerEdgeDragWidth) &&
+            (identical(other.drawerEnableOpenDragGesture, drawerEnableOpenDragGesture) ||
+                other.drawerEnableOpenDragGesture ==
+                    drawerEnableOpenDragGesture) &&
+            (identical(other.endDrawerEnableOpenDragGesture,
+                    endDrawerEnableOpenDragGesture) ||
+                other.endDrawerEnableOpenDragGesture ==
+                    endDrawerEnableOpenDragGesture) &&
+            (identical(other.restorationId, restorationId) ||
+                other.restorationId == restorationId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(appBar),
+        const DeepCollectionEquality().hash(body),
+        const DeepCollectionEquality().hash(floatingActionButton),
+        floatingActionButtonLocation,
+        const DeepCollectionEquality().hash(persistentFooterButtons),
+        const DeepCollectionEquality().hash(drawer),
+        const DeepCollectionEquality().hash(endDrawer),
+        const DeepCollectionEquality().hash(bottomNavigationBar),
+        const DeepCollectionEquality().hash(bottomSheet),
+        backgroundColor,
+        resizeToAvoidBottomInset,
+        primary,
+        drawerDragStartBehavior,
+        extendBody,
+        extendBodyBehindAppBar,
+        drawerScrimColor,
+        drawerEdgeDragWidth,
+        drawerEnableOpenDragGesture,
+        endDrawerEnableOpenDragGesture,
+        restorationId
+      ]);
+
+  @override
+  String toString() {
+    return 'StacScaffold(appBar: $appBar, body: $body, floatingActionButton: $floatingActionButton, floatingActionButtonLocation: $floatingActionButtonLocation, persistentFooterButtons: $persistentFooterButtons, drawer: $drawer, endDrawer: $endDrawer, bottomNavigationBar: $bottomNavigationBar, bottomSheet: $bottomSheet, backgroundColor: $backgroundColor, resizeToAvoidBottomInset: $resizeToAvoidBottomInset, primary: $primary, drawerDragStartBehavior: $drawerDragStartBehavior, extendBody: $extendBody, extendBodyBehindAppBar: $extendBodyBehindAppBar, drawerScrimColor: $drawerScrimColor, drawerEdgeDragWidth: $drawerEdgeDragWidth, drawerEnableOpenDragGesture: $drawerEnableOpenDragGesture, endDrawerEnableOpenDragGesture: $endDrawerEnableOpenDragGesture, restorationId: $restorationId)';
   }
 }
 
 /// @nodoc
-abstract class _$$StacScaffoldImplCopyWith<$Res>
-    implements $StacScaffoldCopyWith<$Res> {
-  factory _$$StacScaffoldImplCopyWith(
-          _$StacScaffoldImpl value, $Res Function(_$StacScaffoldImpl) then) =
-      __$$StacScaffoldImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $StacScaffoldCopyWith<$Res> {
+  factory $StacScaffoldCopyWith(
+          StacScaffold value, $Res Function(StacScaffold) _then) =
+      _$StacScaffoldCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic>? appBar,
@@ -238,12 +157,11 @@ abstract class _$$StacScaffoldImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$StacScaffoldImplCopyWithImpl<$Res>
-    extends _$StacScaffoldCopyWithImpl<$Res, _$StacScaffoldImpl>
-    implements _$$StacScaffoldImplCopyWith<$Res> {
-  __$$StacScaffoldImplCopyWithImpl(
-      _$StacScaffoldImpl _value, $Res Function(_$StacScaffoldImpl) _then)
-      : super(_value, _then);
+class _$StacScaffoldCopyWithImpl<$Res> implements $StacScaffoldCopyWith<$Res> {
+  _$StacScaffoldCopyWithImpl(this._self, this._then);
+
+  final StacScaffold _self;
+  final $Res Function(StacScaffold) _then;
 
   /// Create a copy of StacScaffold
   /// with the given fields replaced by the non-null parameter values.
@@ -271,85 +189,85 @@ class __$$StacScaffoldImplCopyWithImpl<$Res>
     Object? endDrawerEnableOpenDragGesture = null,
     Object? restorationId = freezed,
   }) {
-    return _then(_$StacScaffoldImpl(
+    return _then(_self.copyWith(
       appBar: freezed == appBar
-          ? _value._appBar
+          ? _self.appBar
           : appBar // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       body: freezed == body
-          ? _value._body
+          ? _self.body
           : body // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       floatingActionButton: freezed == floatingActionButton
-          ? _value._floatingActionButton
+          ? _self.floatingActionButton
           : floatingActionButton // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       floatingActionButtonLocation: freezed == floatingActionButtonLocation
-          ? _value.floatingActionButtonLocation
+          ? _self.floatingActionButtonLocation
           : floatingActionButtonLocation // ignore: cast_nullable_to_non_nullable
               as StacFloatingActionButtonLocation?,
       persistentFooterButtons: freezed == persistentFooterButtons
-          ? _value._persistentFooterButtons
+          ? _self.persistentFooterButtons
           : persistentFooterButtons // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>>?,
       drawer: freezed == drawer
-          ? _value._drawer
+          ? _self.drawer
           : drawer // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       endDrawer: freezed == endDrawer
-          ? _value._endDrawer
+          ? _self.endDrawer
           : endDrawer // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       bottomNavigationBar: freezed == bottomNavigationBar
-          ? _value._bottomNavigationBar
+          ? _self.bottomNavigationBar
           : bottomNavigationBar // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       bottomSheet: freezed == bottomSheet
-          ? _value._bottomSheet
+          ? _self.bottomSheet
           : bottomSheet // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
+          ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       resizeToAvoidBottomInset: freezed == resizeToAvoidBottomInset
-          ? _value.resizeToAvoidBottomInset
+          ? _self.resizeToAvoidBottomInset
           : resizeToAvoidBottomInset // ignore: cast_nullable_to_non_nullable
               as bool?,
       primary: null == primary
-          ? _value.primary
+          ? _self.primary
           : primary // ignore: cast_nullable_to_non_nullable
               as bool,
       drawerDragStartBehavior: null == drawerDragStartBehavior
-          ? _value.drawerDragStartBehavior
+          ? _self.drawerDragStartBehavior
           : drawerDragStartBehavior // ignore: cast_nullable_to_non_nullable
               as DragStartBehavior,
       extendBody: null == extendBody
-          ? _value.extendBody
+          ? _self.extendBody
           : extendBody // ignore: cast_nullable_to_non_nullable
               as bool,
       extendBodyBehindAppBar: null == extendBodyBehindAppBar
-          ? _value.extendBodyBehindAppBar
+          ? _self.extendBodyBehindAppBar
           : extendBodyBehindAppBar // ignore: cast_nullable_to_non_nullable
               as bool,
       drawerScrimColor: freezed == drawerScrimColor
-          ? _value.drawerScrimColor
+          ? _self.drawerScrimColor
           : drawerScrimColor // ignore: cast_nullable_to_non_nullable
               as String?,
       drawerEdgeDragWidth: freezed == drawerEdgeDragWidth
-          ? _value.drawerEdgeDragWidth
+          ? _self.drawerEdgeDragWidth
           : drawerEdgeDragWidth // ignore: cast_nullable_to_non_nullable
               as double?,
       drawerEnableOpenDragGesture: null == drawerEnableOpenDragGesture
-          ? _value.drawerEnableOpenDragGesture
+          ? _self.drawerEnableOpenDragGesture
           : drawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
               as bool,
       endDrawerEnableOpenDragGesture: null == endDrawerEnableOpenDragGesture
-          ? _value.endDrawerEnableOpenDragGesture
+          ? _self.endDrawerEnableOpenDragGesture
           : endDrawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
               as bool,
       restorationId: freezed == restorationId
-          ? _value.restorationId
+          ? _self.restorationId
           : restorationId // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
@@ -358,8 +276,8 @@ class __$$StacScaffoldImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StacScaffoldImpl implements _StacScaffold {
-  const _$StacScaffoldImpl(
+class _StacScaffold implements StacScaffold {
+  const _StacScaffold(
       {final Map<String, dynamic>? appBar,
       final Map<String, dynamic>? body,
       final Map<String, dynamic>? floatingActionButton,
@@ -388,9 +306,8 @@ class _$StacScaffoldImpl implements _StacScaffold {
         _endDrawer = endDrawer,
         _bottomNavigationBar = bottomNavigationBar,
         _bottomSheet = bottomSheet;
-
-  factory _$StacScaffoldImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacScaffoldImplFromJson(json);
+  factory _StacScaffold.fromJson(Map<String, dynamic> json) =>
+      _$StacScaffoldFromJson(json);
 
   final Map<String, dynamic>? _appBar;
   @override
@@ -506,16 +423,26 @@ class _$StacScaffoldImpl implements _StacScaffold {
   @override
   final String? restorationId;
 
+  /// Create a copy of StacScaffold
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacScaffold(appBar: $appBar, body: $body, floatingActionButton: $floatingActionButton, floatingActionButtonLocation: $floatingActionButtonLocation, persistentFooterButtons: $persistentFooterButtons, drawer: $drawer, endDrawer: $endDrawer, bottomNavigationBar: $bottomNavigationBar, bottomSheet: $bottomSheet, backgroundColor: $backgroundColor, resizeToAvoidBottomInset: $resizeToAvoidBottomInset, primary: $primary, drawerDragStartBehavior: $drawerDragStartBehavior, extendBody: $extendBody, extendBodyBehindAppBar: $extendBodyBehindAppBar, drawerScrimColor: $drawerScrimColor, drawerEdgeDragWidth: $drawerEdgeDragWidth, drawerEnableOpenDragGesture: $drawerEnableOpenDragGesture, endDrawerEnableOpenDragGesture: $endDrawerEnableOpenDragGesture, restorationId: $restorationId)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacScaffoldCopyWith<_StacScaffold> get copyWith =>
+      __$StacScaffoldCopyWithImpl<_StacScaffold>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacScaffoldToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacScaffoldImpl &&
+            other is _StacScaffold &&
             const DeepCollectionEquality().equals(other._appBar, _appBar) &&
             const DeepCollectionEquality().equals(other._body, _body) &&
             const DeepCollectionEquality()
@@ -585,93 +512,160 @@ class _$StacScaffoldImpl implements _StacScaffold {
         restorationId
       ]);
 
-  /// Create a copy of StacScaffold
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacScaffoldImplCopyWith<_$StacScaffoldImpl> get copyWith =>
-      __$$StacScaffoldImplCopyWithImpl<_$StacScaffoldImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacScaffoldImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacScaffold(appBar: $appBar, body: $body, floatingActionButton: $floatingActionButton, floatingActionButtonLocation: $floatingActionButtonLocation, persistentFooterButtons: $persistentFooterButtons, drawer: $drawer, endDrawer: $endDrawer, bottomNavigationBar: $bottomNavigationBar, bottomSheet: $bottomSheet, backgroundColor: $backgroundColor, resizeToAvoidBottomInset: $resizeToAvoidBottomInset, primary: $primary, drawerDragStartBehavior: $drawerDragStartBehavior, extendBody: $extendBody, extendBodyBehindAppBar: $extendBodyBehindAppBar, drawerScrimColor: $drawerScrimColor, drawerEdgeDragWidth: $drawerEdgeDragWidth, drawerEnableOpenDragGesture: $drawerEnableOpenDragGesture, endDrawerEnableOpenDragGesture: $endDrawerEnableOpenDragGesture, restorationId: $restorationId)';
   }
 }
 
-abstract class _StacScaffold implements StacScaffold {
-  const factory _StacScaffold(
-      {final Map<String, dynamic>? appBar,
-      final Map<String, dynamic>? body,
-      final Map<String, dynamic>? floatingActionButton,
-      final StacFloatingActionButtonLocation? floatingActionButtonLocation,
-      final List<Map<String, dynamic>>? persistentFooterButtons,
-      final Map<String, dynamic>? drawer,
-      final Map<String, dynamic>? endDrawer,
-      final Map<String, dynamic>? bottomNavigationBar,
-      final Map<String, dynamic>? bottomSheet,
-      final String? backgroundColor,
-      final bool? resizeToAvoidBottomInset,
-      final bool primary,
-      final DragStartBehavior drawerDragStartBehavior,
-      final bool extendBody,
-      final bool extendBodyBehindAppBar,
-      final String? drawerScrimColor,
-      final double? drawerEdgeDragWidth,
-      final bool drawerEnableOpenDragGesture,
-      final bool endDrawerEnableOpenDragGesture,
-      final String? restorationId}) = _$StacScaffoldImpl;
+/// @nodoc
+abstract mixin class _$StacScaffoldCopyWith<$Res>
+    implements $StacScaffoldCopyWith<$Res> {
+  factory _$StacScaffoldCopyWith(
+          _StacScaffold value, $Res Function(_StacScaffold) _then) =
+      __$StacScaffoldCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic>? appBar,
+      Map<String, dynamic>? body,
+      Map<String, dynamic>? floatingActionButton,
+      StacFloatingActionButtonLocation? floatingActionButtonLocation,
+      List<Map<String, dynamic>>? persistentFooterButtons,
+      Map<String, dynamic>? drawer,
+      Map<String, dynamic>? endDrawer,
+      Map<String, dynamic>? bottomNavigationBar,
+      Map<String, dynamic>? bottomSheet,
+      String? backgroundColor,
+      bool? resizeToAvoidBottomInset,
+      bool primary,
+      DragStartBehavior drawerDragStartBehavior,
+      bool extendBody,
+      bool extendBodyBehindAppBar,
+      String? drawerScrimColor,
+      double? drawerEdgeDragWidth,
+      bool drawerEnableOpenDragGesture,
+      bool endDrawerEnableOpenDragGesture,
+      String? restorationId});
+}
 
-  factory _StacScaffold.fromJson(Map<String, dynamic> json) =
-      _$StacScaffoldImpl.fromJson;
+/// @nodoc
+class __$StacScaffoldCopyWithImpl<$Res>
+    implements _$StacScaffoldCopyWith<$Res> {
+  __$StacScaffoldCopyWithImpl(this._self, this._then);
 
-  @override
-  Map<String, dynamic>? get appBar;
-  @override
-  Map<String, dynamic>? get body;
-  @override
-  Map<String, dynamic>? get floatingActionButton;
-  @override
-  StacFloatingActionButtonLocation? get floatingActionButtonLocation;
-  @override
-  List<Map<String, dynamic>>? get persistentFooterButtons;
-  @override
-  Map<String, dynamic>? get drawer;
-  @override
-  Map<String, dynamic>? get endDrawer;
-  @override
-  Map<String, dynamic>? get bottomNavigationBar;
-  @override
-  Map<String, dynamic>? get bottomSheet;
-  @override
-  String? get backgroundColor;
-  @override
-  bool? get resizeToAvoidBottomInset;
-  @override
-  bool get primary;
-  @override
-  DragStartBehavior get drawerDragStartBehavior;
-  @override
-  bool get extendBody;
-  @override
-  bool get extendBodyBehindAppBar;
-  @override
-  String? get drawerScrimColor;
-  @override
-  double? get drawerEdgeDragWidth;
-  @override
-  bool get drawerEnableOpenDragGesture;
-  @override
-  bool get endDrawerEnableOpenDragGesture;
-  @override
-  String? get restorationId;
+  final _StacScaffold _self;
+  final $Res Function(_StacScaffold) _then;
 
   /// Create a copy of StacScaffold
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacScaffoldImplCopyWith<_$StacScaffoldImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? appBar = freezed,
+    Object? body = freezed,
+    Object? floatingActionButton = freezed,
+    Object? floatingActionButtonLocation = freezed,
+    Object? persistentFooterButtons = freezed,
+    Object? drawer = freezed,
+    Object? endDrawer = freezed,
+    Object? bottomNavigationBar = freezed,
+    Object? bottomSheet = freezed,
+    Object? backgroundColor = freezed,
+    Object? resizeToAvoidBottomInset = freezed,
+    Object? primary = null,
+    Object? drawerDragStartBehavior = null,
+    Object? extendBody = null,
+    Object? extendBodyBehindAppBar = null,
+    Object? drawerScrimColor = freezed,
+    Object? drawerEdgeDragWidth = freezed,
+    Object? drawerEnableOpenDragGesture = null,
+    Object? endDrawerEnableOpenDragGesture = null,
+    Object? restorationId = freezed,
+  }) {
+    return _then(_StacScaffold(
+      appBar: freezed == appBar
+          ? _self._appBar
+          : appBar // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      body: freezed == body
+          ? _self._body
+          : body // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      floatingActionButton: freezed == floatingActionButton
+          ? _self._floatingActionButton
+          : floatingActionButton // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      floatingActionButtonLocation: freezed == floatingActionButtonLocation
+          ? _self.floatingActionButtonLocation
+          : floatingActionButtonLocation // ignore: cast_nullable_to_non_nullable
+              as StacFloatingActionButtonLocation?,
+      persistentFooterButtons: freezed == persistentFooterButtons
+          ? _self._persistentFooterButtons
+          : persistentFooterButtons // ignore: cast_nullable_to_non_nullable
+              as List<Map<String, dynamic>>?,
+      drawer: freezed == drawer
+          ? _self._drawer
+          : drawer // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      endDrawer: freezed == endDrawer
+          ? _self._endDrawer
+          : endDrawer // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      bottomNavigationBar: freezed == bottomNavigationBar
+          ? _self._bottomNavigationBar
+          : bottomNavigationBar // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      bottomSheet: freezed == bottomSheet
+          ? _self._bottomSheet
+          : bottomSheet // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      resizeToAvoidBottomInset: freezed == resizeToAvoidBottomInset
+          ? _self.resizeToAvoidBottomInset
+          : resizeToAvoidBottomInset // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      primary: null == primary
+          ? _self.primary
+          : primary // ignore: cast_nullable_to_non_nullable
+              as bool,
+      drawerDragStartBehavior: null == drawerDragStartBehavior
+          ? _self.drawerDragStartBehavior
+          : drawerDragStartBehavior // ignore: cast_nullable_to_non_nullable
+              as DragStartBehavior,
+      extendBody: null == extendBody
+          ? _self.extendBody
+          : extendBody // ignore: cast_nullable_to_non_nullable
+              as bool,
+      extendBodyBehindAppBar: null == extendBodyBehindAppBar
+          ? _self.extendBodyBehindAppBar
+          : extendBodyBehindAppBar // ignore: cast_nullable_to_non_nullable
+              as bool,
+      drawerScrimColor: freezed == drawerScrimColor
+          ? _self.drawerScrimColor
+          : drawerScrimColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      drawerEdgeDragWidth: freezed == drawerEdgeDragWidth
+          ? _self.drawerEdgeDragWidth
+          : drawerEdgeDragWidth // ignore: cast_nullable_to_non_nullable
+              as double?,
+      drawerEnableOpenDragGesture: null == drawerEnableOpenDragGesture
+          ? _self.drawerEnableOpenDragGesture
+          : drawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
+              as bool,
+      endDrawerEnableOpenDragGesture: null == endDrawerEnableOpenDragGesture
+          ? _self.endDrawerEnableOpenDragGesture
+          : endDrawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
+              as bool,
+      restorationId: freezed == restorationId
+          ? _self.restorationId
+          : restorationId // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

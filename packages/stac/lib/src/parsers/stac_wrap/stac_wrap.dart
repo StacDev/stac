@@ -7,7 +7,7 @@ part 'stac_wrap.freezed.dart';
 part 'stac_wrap.g.dart';
 
 @freezed
-class StacWrap with _$StacWrap {
+abstract class StacWrap with _$StacWrap {
   const factory StacWrap({
     @Default(Axis.horizontal) Axis direction,
     @Default(WrapAlignment.start) WrapAlignment alignment,

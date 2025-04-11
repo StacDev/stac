@@ -6,7 +6,7 @@ part 'stac_get_form_value.freezed.dart';
 part 'stac_get_form_value.g.dart';
 
 @freezed
-class StacGetFormValue with _$StacGetFormValue {
+abstract class StacGetFormValue with _$StacGetFormValue {
   const factory StacGetFormValue({
     required String id,
   }) = _StacGetFormValue;

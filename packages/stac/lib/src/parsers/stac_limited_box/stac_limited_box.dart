@@ -6,7 +6,7 @@ part 'stac_limited_box.freezed.dart';
 part 'stac_limited_box.g.dart';
 
 @freezed
-class StacLimitedBox with _$StacLimitedBox {
+abstract class StacLimitedBox with _$StacLimitedBox {
   const factory StacLimitedBox({
     @Default(double.infinity) double maxHeight,
     @Default(double.infinity) double maxWidth,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,169 +10,35 @@ part of 'stac_border_radius.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 StacBorderRadius _$StacBorderRadiusFromJson(Map<String, dynamic> json) {
   return _StacBorder.fromJson(json);
 }
 
 /// @nodoc
 mixin _$StacBorderRadius {
-  double get topLeft => throw _privateConstructorUsedError;
-  double get topRight => throw _privateConstructorUsedError;
-  double get bottomLeft => throw _privateConstructorUsedError;
-  double get bottomRight => throw _privateConstructorUsedError;
-
-  /// Serializes this StacBorderRadius to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  double get topLeft;
+  double get topRight;
+  double get bottomLeft;
+  double get bottomRight;
 
   /// Create a copy of StacBorderRadius
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacBorderRadiusCopyWith<StacBorderRadius> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacBorderRadiusCopyWithImpl<StacBorderRadius>(
+          this as StacBorderRadius, _$identity);
 
-/// @nodoc
-abstract class $StacBorderRadiusCopyWith<$Res> {
-  factory $StacBorderRadiusCopyWith(
-          StacBorderRadius value, $Res Function(StacBorderRadius) then) =
-      _$StacBorderRadiusCopyWithImpl<$Res, StacBorderRadius>;
-  @useResult
-  $Res call(
-      {double topLeft, double topRight, double bottomLeft, double bottomRight});
-}
-
-/// @nodoc
-class _$StacBorderRadiusCopyWithImpl<$Res, $Val extends StacBorderRadius>
-    implements $StacBorderRadiusCopyWith<$Res> {
-  _$StacBorderRadiusCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacBorderRadius
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? topLeft = null,
-    Object? topRight = null,
-    Object? bottomLeft = null,
-    Object? bottomRight = null,
-  }) {
-    return _then(_value.copyWith(
-      topLeft: null == topLeft
-          ? _value.topLeft
-          : topLeft // ignore: cast_nullable_to_non_nullable
-              as double,
-      topRight: null == topRight
-          ? _value.topRight
-          : topRight // ignore: cast_nullable_to_non_nullable
-              as double,
-      bottomLeft: null == bottomLeft
-          ? _value.bottomLeft
-          : bottomLeft // ignore: cast_nullable_to_non_nullable
-              as double,
-      bottomRight: null == bottomRight
-          ? _value.bottomRight
-          : bottomRight // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$StacBorderImplCopyWith<$Res>
-    implements $StacBorderRadiusCopyWith<$Res> {
-  factory _$$StacBorderImplCopyWith(
-          _$StacBorderImpl value, $Res Function(_$StacBorderImpl) then) =
-      __$$StacBorderImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {double topLeft, double topRight, double bottomLeft, double bottomRight});
-}
-
-/// @nodoc
-class __$$StacBorderImplCopyWithImpl<$Res>
-    extends _$StacBorderRadiusCopyWithImpl<$Res, _$StacBorderImpl>
-    implements _$$StacBorderImplCopyWith<$Res> {
-  __$$StacBorderImplCopyWithImpl(
-      _$StacBorderImpl _value, $Res Function(_$StacBorderImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacBorderRadius
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? topLeft = null,
-    Object? topRight = null,
-    Object? bottomLeft = null,
-    Object? bottomRight = null,
-  }) {
-    return _then(_$StacBorderImpl(
-      topLeft: null == topLeft
-          ? _value.topLeft
-          : topLeft // ignore: cast_nullable_to_non_nullable
-              as double,
-      topRight: null == topRight
-          ? _value.topRight
-          : topRight // ignore: cast_nullable_to_non_nullable
-              as double,
-      bottomLeft: null == bottomLeft
-          ? _value.bottomLeft
-          : bottomLeft // ignore: cast_nullable_to_non_nullable
-              as double,
-      bottomRight: null == bottomRight
-          ? _value.bottomRight
-          : bottomRight // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacBorderImpl implements _StacBorder {
-  const _$StacBorderImpl(
-      {this.topLeft = 0.0,
-      this.topRight = 0.0,
-      this.bottomLeft = 0.0,
-      this.bottomRight = 0.0});
-
-  factory _$StacBorderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacBorderImplFromJson(json);
-
-  @override
-  @JsonKey()
-  final double topLeft;
-  @override
-  @JsonKey()
-  final double topRight;
-  @override
-  @JsonKey()
-  final double bottomLeft;
-  @override
-  @JsonKey()
-  final double bottomRight;
-
-  @override
-  String toString() {
-    return 'StacBorderRadius(topLeft: $topLeft, topRight: $topRight, bottomLeft: $bottomLeft, bottomRight: $bottomRight)';
-  }
+  /// Serializes this StacBorderRadius to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacBorderImpl &&
+            other is StacBorderRadius &&
             (identical(other.topLeft, topLeft) || other.topLeft == topLeft) &&
             (identical(other.topRight, topRight) ||
                 other.topRight == topRight) &&
@@ -186,45 +53,173 @@ class _$StacBorderImpl implements _StacBorder {
   int get hashCode =>
       Object.hash(runtimeType, topLeft, topRight, bottomLeft, bottomRight);
 
-  /// Create a copy of StacBorderRadius
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacBorderImplCopyWith<_$StacBorderImpl> get copyWith =>
-      __$$StacBorderImplCopyWithImpl<_$StacBorderImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacBorderImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacBorderRadius(topLeft: $topLeft, topRight: $topRight, bottomLeft: $bottomLeft, bottomRight: $bottomRight)';
   }
 }
 
-abstract class _StacBorder implements StacBorderRadius {
-  const factory _StacBorder(
-      {final double topLeft,
-      final double topRight,
-      final double bottomLeft,
-      final double bottomRight}) = _$StacBorderImpl;
+/// @nodoc
+abstract mixin class $StacBorderRadiusCopyWith<$Res> {
+  factory $StacBorderRadiusCopyWith(
+          StacBorderRadius value, $Res Function(StacBorderRadius) _then) =
+      _$StacBorderRadiusCopyWithImpl;
+  @useResult
+  $Res call(
+      {double topLeft, double topRight, double bottomLeft, double bottomRight});
+}
 
-  factory _StacBorder.fromJson(Map<String, dynamic> json) =
-      _$StacBorderImpl.fromJson;
+/// @nodoc
+class _$StacBorderRadiusCopyWithImpl<$Res>
+    implements $StacBorderRadiusCopyWith<$Res> {
+  _$StacBorderRadiusCopyWithImpl(this._self, this._then);
+
+  final StacBorderRadius _self;
+  final $Res Function(StacBorderRadius) _then;
+
+  /// Create a copy of StacBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? topLeft = null,
+    Object? topRight = null,
+    Object? bottomLeft = null,
+    Object? bottomRight = null,
+  }) {
+    return _then(_self.copyWith(
+      topLeft: null == topLeft
+          ? _self.topLeft
+          : topLeft // ignore: cast_nullable_to_non_nullable
+              as double,
+      topRight: null == topRight
+          ? _self.topRight
+          : topRight // ignore: cast_nullable_to_non_nullable
+              as double,
+      bottomLeft: null == bottomLeft
+          ? _self.bottomLeft
+          : bottomLeft // ignore: cast_nullable_to_non_nullable
+              as double,
+      bottomRight: null == bottomRight
+          ? _self.bottomRight
+          : bottomRight // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacBorder implements StacBorderRadius {
+  const _StacBorder(
+      {this.topLeft = 0.0,
+      this.topRight = 0.0,
+      this.bottomLeft = 0.0,
+      this.bottomRight = 0.0});
+  factory _StacBorder.fromJson(Map<String, dynamic> json) =>
+      _$StacBorderFromJson(json);
 
   @override
-  double get topLeft;
+  @JsonKey()
+  final double topLeft;
   @override
-  double get topRight;
+  @JsonKey()
+  final double topRight;
   @override
-  double get bottomLeft;
+  @JsonKey()
+  final double bottomLeft;
   @override
-  double get bottomRight;
+  @JsonKey()
+  final double bottomRight;
 
   /// Create a copy of StacBorderRadius
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacBorderImplCopyWith<_$StacBorderImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacBorderCopyWith<_StacBorder> get copyWith =>
+      __$StacBorderCopyWithImpl<_StacBorder>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacBorderToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacBorder &&
+            (identical(other.topLeft, topLeft) || other.topLeft == topLeft) &&
+            (identical(other.topRight, topRight) ||
+                other.topRight == topRight) &&
+            (identical(other.bottomLeft, bottomLeft) ||
+                other.bottomLeft == bottomLeft) &&
+            (identical(other.bottomRight, bottomRight) ||
+                other.bottomRight == bottomRight));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, topLeft, topRight, bottomLeft, bottomRight);
+
+  @override
+  String toString() {
+    return 'StacBorderRadius(topLeft: $topLeft, topRight: $topRight, bottomLeft: $bottomLeft, bottomRight: $bottomRight)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacBorderCopyWith<$Res>
+    implements $StacBorderRadiusCopyWith<$Res> {
+  factory _$StacBorderCopyWith(
+          _StacBorder value, $Res Function(_StacBorder) _then) =
+      __$StacBorderCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {double topLeft, double topRight, double bottomLeft, double bottomRight});
+}
+
+/// @nodoc
+class __$StacBorderCopyWithImpl<$Res> implements _$StacBorderCopyWith<$Res> {
+  __$StacBorderCopyWithImpl(this._self, this._then);
+
+  final _StacBorder _self;
+  final $Res Function(_StacBorder) _then;
+
+  /// Create a copy of StacBorderRadius
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? topLeft = null,
+    Object? topRight = null,
+    Object? bottomLeft = null,
+    Object? bottomRight = null,
+  }) {
+    return _then(_StacBorder(
+      topLeft: null == topLeft
+          ? _self.topLeft
+          : topLeft // ignore: cast_nullable_to_non_nullable
+              as double,
+      topRight: null == topRight
+          ? _self.topRight
+          : topRight // ignore: cast_nullable_to_non_nullable
+              as double,
+      bottomLeft: null == bottomLeft
+          ? _self.bottomLeft
+          : bottomLeft // ignore: cast_nullable_to_non_nullable
+              as double,
+      bottomRight: null == bottomRight
+          ? _self.bottomRight
+          : bottomRight // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+// dart format on

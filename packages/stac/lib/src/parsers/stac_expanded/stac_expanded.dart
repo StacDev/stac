@@ -6,7 +6,7 @@ part 'stac_expanded.freezed.dart';
 part 'stac_expanded.g.dart';
 
 @freezed
-class StacExpanded with _$StacExpanded {
+abstract class StacExpanded with _$StacExpanded {
   const factory StacExpanded({
     @Default(1) int flex,
     Map<String, dynamic>? child,

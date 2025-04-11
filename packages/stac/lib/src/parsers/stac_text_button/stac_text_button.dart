@@ -8,7 +8,7 @@ part 'stac_text_button.freezed.dart';
 part 'stac_text_button.g.dart';
 
 @freezed
-class StacTextButton with _$StacTextButton {
+abstract class StacTextButton with _$StacTextButton {
   const factory StacTextButton({
     Map<String, dynamic>? onPressed,
     Map<String, dynamic>? onLongPress,

@@ -9,7 +9,7 @@ part 'stac_dynamic_view.g.dart';
 /// A model class for the StacDynamicView parser.
 /// This parser fetches data dynamically and renders it using a template.
 @freezed
-class StacDynamicView with _$StacDynamicView {
+abstract class StacDynamicView with _$StacDynamicView {
   const factory StacDynamicView({
     required StacNetworkRequest request,
     @Default('') String targetPath,

@@ -11,7 +11,7 @@ part 'stac_chip.freezed.dart';
 part 'stac_chip.g.dart';
 
 @freezed
-class StacChip with _$StacChip {
+abstract class StacChip with _$StacChip {
   const factory StacChip({
     Map<String, dynamic>? avatar,
     required Map<String, dynamic> label,

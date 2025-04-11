@@ -6,8 +6,8 @@ part of 'stac_box_shadow.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacBoxShadowImpl _$$StacBoxShadowImplFromJson(Map<String, dynamic> json) =>
-    _$StacBoxShadowImpl(
+_StacBoxShadow _$StacBoxShadowFromJson(Map<String, dynamic> json) =>
+    _StacBoxShadow(
       color: json['color'] as String?,
       blurRadius: (json['blurRadius'] as num?)?.toDouble() ?? 0.0,
       offset: json['offset'] == null
@@ -18,7 +18,7 @@ _$StacBoxShadowImpl _$$StacBoxShadowImplFromJson(Map<String, dynamic> json) =>
           BlurStyle.normal,
     );
 
-Map<String, dynamic> _$$StacBoxShadowImplToJson(_$StacBoxShadowImpl instance) =>
+Map<String, dynamic> _$StacBoxShadowToJson(_StacBoxShadow instance) =>
     <String, dynamic>{
       'color': instance.color,
       'blurRadius': instance.blurRadius,

@@ -6,8 +6,7 @@ part of 'stac_text.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacTextImpl _$$StacTextImplFromJson(Map<String, dynamic> json) =>
-    _$StacTextImpl(
+_StacText _$StacTextFromJson(Map<String, dynamic> json) => _StacText(
       data: json['data'] as String,
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
@@ -28,8 +27,7 @@ _$StacTextImpl _$$StacTextImplFromJson(Map<String, dynamic> json) =>
       selectionColor: json['selectionColor'] as String?,
     );
 
-Map<String, dynamic> _$$StacTextImplToJson(_$StacTextImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StacTextToJson(_StacText instance) => <String, dynamic>{
       'data': instance.data,
       'children': instance.children,
       'style': instance.style,
@@ -70,15 +68,15 @@ const _$TextWidthBasisEnumMap = {
   TextWidthBasis.longestLine: 'longestLine',
 };
 
-_$StacTextSpanImpl _$$StacTextSpanImplFromJson(Map<String, dynamic> json) =>
-    _$StacTextSpanImpl(
+_StacTextSpan _$StacTextSpanFromJson(Map<String, dynamic> json) =>
+    _StacTextSpan(
       data: json['data'] as String?,
       style:
           json['style'] == null ? null : StacTextStyle.fromJson(json['style']),
       onTap: json['onTap'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$StacTextSpanImplToJson(_$StacTextSpanImpl instance) =>
+Map<String, dynamic> _$StacTextSpanToJson(_StacTextSpan instance) =>
     <String, dynamic>{
       'data': instance.data,
       'style': instance.style,

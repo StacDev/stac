@@ -6,8 +6,8 @@ part of 'stac_snack_bar.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacSnackBarImpl _$$StacSnackBarImplFromJson(Map<String, dynamic> json) =>
-    _$StacSnackBarImpl(
+_StacSnackBar _$StacSnackBarFromJson(Map<String, dynamic> json) =>
+    _StacSnackBar(
       content: json['content'] as Map<String, dynamic>,
       backgroundColor: json['backgroundColor'] as String?,
       elevation: (json['elevation'] as num?)?.toDouble(),
@@ -42,7 +42,7 @@ _$StacSnackBarImpl _$$StacSnackBarImplFromJson(Map<String, dynamic> json) =>
           Clip.hardEdge,
     );
 
-Map<String, dynamic> _$$StacSnackBarImplToJson(_$StacSnackBarImpl instance) =>
+Map<String, dynamic> _$StacSnackBarToJson(_StacSnackBar instance) =>
     <String, dynamic>{
       'content': instance.content,
       'backgroundColor': instance.backgroundColor,

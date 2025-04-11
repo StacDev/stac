@@ -6,7 +6,7 @@ part 'stac_circle_avatar.freezed.dart';
 part 'stac_circle_avatar.g.dart';
 
 @freezed
-class StacCircleAvatar with _$StacCircleAvatar {
+abstract class StacCircleAvatar with _$StacCircleAvatar {
   const factory StacCircleAvatar({
     Map<String, dynamic>? child,
     String? backgroundColor,

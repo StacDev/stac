@@ -9,7 +9,7 @@ part 'stac_grid_view.freezed.dart';
 part 'stac_grid_view.g.dart';
 
 @freezed
-class StacGridView with _$StacGridView {
+abstract class StacGridView with _$StacGridView {
   const factory StacGridView({
     @Default(Axis.vertical) Axis scrollDirection,
     @Default(false) bool reverse,

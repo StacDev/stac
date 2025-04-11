@@ -9,7 +9,7 @@ part 'stac_tab_bar_theme_data.freezed.dart';
 part 'stac_tab_bar_theme_data.g.dart';
 
 @freezed
-class StacTabBarThemeData with _$StacTabBarThemeData {
+abstract class StacTabBarThemeData with _$StacTabBarThemeData {
   const factory StacTabBarThemeData({
     StacBoxDecoration? indicator,
     String? indicatorColor,

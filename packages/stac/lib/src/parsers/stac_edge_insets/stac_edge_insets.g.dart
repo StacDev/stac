@@ -6,16 +6,15 @@ part of 'stac_edge_insets.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacEdgeInsetsImpl _$$StacEdgeInsetsImplFromJson(Map<String, dynamic> json) =>
-    _$StacEdgeInsetsImpl(
+_StacEdgeInsets _$StacEdgeInsetsFromJson(Map<String, dynamic> json) =>
+    _StacEdgeInsets(
       left: (json['left'] as num?)?.toDouble(),
       top: (json['top'] as num?)?.toDouble(),
       right: (json['right'] as num?)?.toDouble(),
       bottom: (json['bottom'] as num?)?.toDouble(),
     );
 
-Map<String, dynamic> _$$StacEdgeInsetsImplToJson(
-        _$StacEdgeInsetsImpl instance) =>
+Map<String, dynamic> _$StacEdgeInsetsToJson(_StacEdgeInsets instance) =>
     <String, dynamic>{
       'left': instance.left,
       'top': instance.top,

@@ -7,7 +7,7 @@ part 'stac_row.freezed.dart';
 part 'stac_row.g.dart';
 
 @freezed
-class StacRow with _$StacRow {
+abstract class StacRow with _$StacRow {
   const factory StacRow({
     @Default(MainAxisAlignment.start) MainAxisAlignment mainAxisAlignment,
     @Default(CrossAxisAlignment.center) CrossAxisAlignment crossAxisAlignment,

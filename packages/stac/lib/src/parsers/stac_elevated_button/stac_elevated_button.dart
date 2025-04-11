@@ -8,7 +8,7 @@ part 'stac_elevated_button.freezed.dart';
 part 'stac_elevated_button.g.dart';
 
 @freezed
-class StacElevatedButton with _$StacElevatedButton {
+abstract class StacElevatedButton with _$StacElevatedButton {
   const factory StacElevatedButton({
     Map<String, dynamic>? onPressed,
     Map<String, dynamic>? onLongPress,

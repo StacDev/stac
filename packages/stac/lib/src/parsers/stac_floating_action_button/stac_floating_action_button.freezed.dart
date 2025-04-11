@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,55 +10,127 @@ part of 'stac_floating_action_button.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacFloatingActionButton _$StacFloatingActionButtonFromJson(
-    Map<String, dynamic> json) {
-  return _StacFloatingActionButton.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacFloatingActionButton {
-  Map<String, dynamic>? get onPressed => throw _privateConstructorUsedError;
-  StacTextStyle? get textStyle => throw _privateConstructorUsedError;
-  FloatingActionButtonType get buttonType => throw _privateConstructorUsedError;
-  bool get autofocus => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get icon => throw _privateConstructorUsedError;
-  String? get backgroundColor => throw _privateConstructorUsedError;
-  String? get foregroundColor => throw _privateConstructorUsedError;
-  String? get focusColor => throw _privateConstructorUsedError;
-  String? get hoverColor => throw _privateConstructorUsedError;
-  String? get splashColor => throw _privateConstructorUsedError;
-  StacTextStyle? get extendedTextStyle => throw _privateConstructorUsedError;
-  double? get elevation => throw _privateConstructorUsedError;
-  double? get focusElevation => throw _privateConstructorUsedError;
-  double? get hoverElevation => throw _privateConstructorUsedError;
-  double? get disabledElevation => throw _privateConstructorUsedError;
-  double? get highlightElevation => throw _privateConstructorUsedError;
-  double? get extendedIconLabelSpacing => throw _privateConstructorUsedError;
-  bool? get enableFeedback => throw _privateConstructorUsedError;
-  String? get tooltip => throw _privateConstructorUsedError;
-  Object? get heroTag => throw _privateConstructorUsedError;
-  Map<String, dynamic> get child => throw _privateConstructorUsedError;
-
-  /// Serializes this StacFloatingActionButton to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get onPressed;
+  StacTextStyle? get textStyle;
+  FloatingActionButtonType get buttonType;
+  bool get autofocus;
+  Map<String, dynamic>? get icon;
+  String? get backgroundColor;
+  String? get foregroundColor;
+  String? get focusColor;
+  String? get hoverColor;
+  String? get splashColor;
+  StacTextStyle? get extendedTextStyle;
+  double? get elevation;
+  double? get focusElevation;
+  double? get hoverElevation;
+  double? get disabledElevation;
+  double? get highlightElevation;
+  double? get extendedIconLabelSpacing;
+  bool? get enableFeedback;
+  String? get tooltip;
+  Object? get heroTag;
+  Map<String, dynamic> get child;
 
   /// Create a copy of StacFloatingActionButton
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacFloatingActionButtonCopyWith<StacFloatingActionButton> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacFloatingActionButtonCopyWithImpl<StacFloatingActionButton>(
+          this as StacFloatingActionButton, _$identity);
+
+  /// Serializes this StacFloatingActionButton to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacFloatingActionButton &&
+            const DeepCollectionEquality().equals(other.onPressed, onPressed) &&
+            (identical(other.textStyle, textStyle) ||
+                other.textStyle == textStyle) &&
+            (identical(other.buttonType, buttonType) ||
+                other.buttonType == buttonType) &&
+            (identical(other.autofocus, autofocus) ||
+                other.autofocus == autofocus) &&
+            const DeepCollectionEquality().equals(other.icon, icon) &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(other.foregroundColor, foregroundColor) ||
+                other.foregroundColor == foregroundColor) &&
+            (identical(other.focusColor, focusColor) ||
+                other.focusColor == focusColor) &&
+            (identical(other.hoverColor, hoverColor) ||
+                other.hoverColor == hoverColor) &&
+            (identical(other.splashColor, splashColor) ||
+                other.splashColor == splashColor) &&
+            (identical(other.extendedTextStyle, extendedTextStyle) ||
+                other.extendedTextStyle == extendedTextStyle) &&
+            (identical(other.elevation, elevation) ||
+                other.elevation == elevation) &&
+            (identical(other.focusElevation, focusElevation) ||
+                other.focusElevation == focusElevation) &&
+            (identical(other.hoverElevation, hoverElevation) ||
+                other.hoverElevation == hoverElevation) &&
+            (identical(other.disabledElevation, disabledElevation) ||
+                other.disabledElevation == disabledElevation) &&
+            (identical(other.highlightElevation, highlightElevation) ||
+                other.highlightElevation == highlightElevation) &&
+            (identical(
+                    other.extendedIconLabelSpacing, extendedIconLabelSpacing) ||
+                other.extendedIconLabelSpacing == extendedIconLabelSpacing) &&
+            (identical(other.enableFeedback, enableFeedback) ||
+                other.enableFeedback == enableFeedback) &&
+            (identical(other.tooltip, tooltip) || other.tooltip == tooltip) &&
+            const DeepCollectionEquality().equals(other.heroTag, heroTag) &&
+            const DeepCollectionEquality().equals(other.child, child));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(onPressed),
+        textStyle,
+        buttonType,
+        autofocus,
+        const DeepCollectionEquality().hash(icon),
+        backgroundColor,
+        foregroundColor,
+        focusColor,
+        hoverColor,
+        splashColor,
+        extendedTextStyle,
+        elevation,
+        focusElevation,
+        hoverElevation,
+        disabledElevation,
+        highlightElevation,
+        extendedIconLabelSpacing,
+        enableFeedback,
+        tooltip,
+        const DeepCollectionEquality().hash(heroTag),
+        const DeepCollectionEquality().hash(child)
+      ]);
+
+  @override
+  String toString() {
+    return 'StacFloatingActionButton(onPressed: $onPressed, textStyle: $textStyle, buttonType: $buttonType, autofocus: $autofocus, icon: $icon, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, focusColor: $focusColor, hoverColor: $hoverColor, splashColor: $splashColor, extendedTextStyle: $extendedTextStyle, elevation: $elevation, focusElevation: $focusElevation, hoverElevation: $hoverElevation, disabledElevation: $disabledElevation, highlightElevation: $highlightElevation, extendedIconLabelSpacing: $extendedIconLabelSpacing, enableFeedback: $enableFeedback, tooltip: $tooltip, heroTag: $heroTag, child: $child)';
+  }
 }
 
 /// @nodoc
-abstract class $StacFloatingActionButtonCopyWith<$Res> {
+abstract mixin class $StacFloatingActionButtonCopyWith<$Res> {
   factory $StacFloatingActionButtonCopyWith(StacFloatingActionButton value,
-          $Res Function(StacFloatingActionButton) then) =
-      _$StacFloatingActionButtonCopyWithImpl<$Res, StacFloatingActionButton>;
+          $Res Function(StacFloatingActionButton) _then) =
+      _$StacFloatingActionButtonCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic>? onPressed,
@@ -87,15 +160,12 @@ abstract class $StacFloatingActionButtonCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacFloatingActionButtonCopyWithImpl<$Res,
-        $Val extends StacFloatingActionButton>
+class _$StacFloatingActionButtonCopyWithImpl<$Res>
     implements $StacFloatingActionButtonCopyWith<$Res> {
-  _$StacFloatingActionButtonCopyWithImpl(this._value, this._then);
+  _$StacFloatingActionButtonCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacFloatingActionButton _self;
+  final $Res Function(StacFloatingActionButton) _then;
 
   /// Create a copy of StacFloatingActionButton
   /// with the given fields replaced by the non-null parameter values.
@@ -124,89 +194,89 @@ class _$StacFloatingActionButtonCopyWithImpl<$Res,
     Object? heroTag = freezed,
     Object? child = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       onPressed: freezed == onPressed
-          ? _value.onPressed
+          ? _self.onPressed
           : onPressed // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       textStyle: freezed == textStyle
-          ? _value.textStyle
+          ? _self.textStyle
           : textStyle // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       buttonType: null == buttonType
-          ? _value.buttonType
+          ? _self.buttonType
           : buttonType // ignore: cast_nullable_to_non_nullable
               as FloatingActionButtonType,
       autofocus: null == autofocus
-          ? _value.autofocus
+          ? _self.autofocus
           : autofocus // ignore: cast_nullable_to_non_nullable
               as bool,
       icon: freezed == icon
-          ? _value.icon
+          ? _self.icon
           : icon // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
+          ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       foregroundColor: freezed == foregroundColor
-          ? _value.foregroundColor
+          ? _self.foregroundColor
           : foregroundColor // ignore: cast_nullable_to_non_nullable
               as String?,
       focusColor: freezed == focusColor
-          ? _value.focusColor
+          ? _self.focusColor
           : focusColor // ignore: cast_nullable_to_non_nullable
               as String?,
       hoverColor: freezed == hoverColor
-          ? _value.hoverColor
+          ? _self.hoverColor
           : hoverColor // ignore: cast_nullable_to_non_nullable
               as String?,
       splashColor: freezed == splashColor
-          ? _value.splashColor
+          ? _self.splashColor
           : splashColor // ignore: cast_nullable_to_non_nullable
               as String?,
       extendedTextStyle: freezed == extendedTextStyle
-          ? _value.extendedTextStyle
+          ? _self.extendedTextStyle
           : extendedTextStyle // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       elevation: freezed == elevation
-          ? _value.elevation
+          ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
               as double?,
       focusElevation: freezed == focusElevation
-          ? _value.focusElevation
+          ? _self.focusElevation
           : focusElevation // ignore: cast_nullable_to_non_nullable
               as double?,
       hoverElevation: freezed == hoverElevation
-          ? _value.hoverElevation
+          ? _self.hoverElevation
           : hoverElevation // ignore: cast_nullable_to_non_nullable
               as double?,
       disabledElevation: freezed == disabledElevation
-          ? _value.disabledElevation
+          ? _self.disabledElevation
           : disabledElevation // ignore: cast_nullable_to_non_nullable
               as double?,
       highlightElevation: freezed == highlightElevation
-          ? _value.highlightElevation
+          ? _self.highlightElevation
           : highlightElevation // ignore: cast_nullable_to_non_nullable
               as double?,
       extendedIconLabelSpacing: freezed == extendedIconLabelSpacing
-          ? _value.extendedIconLabelSpacing
+          ? _self.extendedIconLabelSpacing
           : extendedIconLabelSpacing // ignore: cast_nullable_to_non_nullable
               as double?,
       enableFeedback: freezed == enableFeedback
-          ? _value.enableFeedback
+          ? _self.enableFeedback
           : enableFeedback // ignore: cast_nullable_to_non_nullable
               as bool?,
       tooltip: freezed == tooltip
-          ? _value.tooltip
+          ? _self.tooltip
           : tooltip // ignore: cast_nullable_to_non_nullable
               as String?,
-      heroTag: freezed == heroTag ? _value.heroTag : heroTag,
+      heroTag: freezed == heroTag ? _self.heroTag : heroTag,
       child: null == child
-          ? _value.child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacFloatingActionButton
@@ -214,12 +284,12 @@ class _$StacFloatingActionButtonCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $StacTextStyleCopyWith<$Res>? get textStyle {
-    if (_value.textStyle == null) {
+    if (_self.textStyle == null) {
       return null;
     }
 
-    return $StacTextStyleCopyWith<$Res>(_value.textStyle!, (value) {
-      return _then(_value.copyWith(textStyle: value) as $Val);
+    return $StacTextStyleCopyWith<$Res>(_self.textStyle!, (value) {
+      return _then(_self.copyWith(textStyle: value));
     });
   }
 
@@ -228,181 +298,20 @@ class _$StacFloatingActionButtonCopyWithImpl<$Res,
   @override
   @pragma('vm:prefer-inline')
   $StacTextStyleCopyWith<$Res>? get extendedTextStyle {
-    if (_value.extendedTextStyle == null) {
+    if (_self.extendedTextStyle == null) {
       return null;
     }
 
-    return $StacTextStyleCopyWith<$Res>(_value.extendedTextStyle!, (value) {
-      return _then(_value.copyWith(extendedTextStyle: value) as $Val);
+    return $StacTextStyleCopyWith<$Res>(_self.extendedTextStyle!, (value) {
+      return _then(_self.copyWith(extendedTextStyle: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacFloatingActionButtonImplCopyWith<$Res>
-    implements $StacFloatingActionButtonCopyWith<$Res> {
-  factory _$$StacFloatingActionButtonImplCopyWith(
-          _$StacFloatingActionButtonImpl value,
-          $Res Function(_$StacFloatingActionButtonImpl) then) =
-      __$$StacFloatingActionButtonImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Map<String, dynamic>? onPressed,
-      StacTextStyle? textStyle,
-      FloatingActionButtonType buttonType,
-      bool autofocus,
-      Map<String, dynamic>? icon,
-      String? backgroundColor,
-      String? foregroundColor,
-      String? focusColor,
-      String? hoverColor,
-      String? splashColor,
-      StacTextStyle? extendedTextStyle,
-      double? elevation,
-      double? focusElevation,
-      double? hoverElevation,
-      double? disabledElevation,
-      double? highlightElevation,
-      double? extendedIconLabelSpacing,
-      bool? enableFeedback,
-      String? tooltip,
-      Object? heroTag,
-      Map<String, dynamic> child});
-
-  @override
-  $StacTextStyleCopyWith<$Res>? get textStyle;
-  @override
-  $StacTextStyleCopyWith<$Res>? get extendedTextStyle;
-}
-
-/// @nodoc
-class __$$StacFloatingActionButtonImplCopyWithImpl<$Res>
-    extends _$StacFloatingActionButtonCopyWithImpl<$Res,
-        _$StacFloatingActionButtonImpl>
-    implements _$$StacFloatingActionButtonImplCopyWith<$Res> {
-  __$$StacFloatingActionButtonImplCopyWithImpl(
-      _$StacFloatingActionButtonImpl _value,
-      $Res Function(_$StacFloatingActionButtonImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacFloatingActionButton
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? onPressed = freezed,
-    Object? textStyle = freezed,
-    Object? buttonType = null,
-    Object? autofocus = null,
-    Object? icon = freezed,
-    Object? backgroundColor = freezed,
-    Object? foregroundColor = freezed,
-    Object? focusColor = freezed,
-    Object? hoverColor = freezed,
-    Object? splashColor = freezed,
-    Object? extendedTextStyle = freezed,
-    Object? elevation = freezed,
-    Object? focusElevation = freezed,
-    Object? hoverElevation = freezed,
-    Object? disabledElevation = freezed,
-    Object? highlightElevation = freezed,
-    Object? extendedIconLabelSpacing = freezed,
-    Object? enableFeedback = freezed,
-    Object? tooltip = freezed,
-    Object? heroTag = freezed,
-    Object? child = null,
-  }) {
-    return _then(_$StacFloatingActionButtonImpl(
-      onPressed: freezed == onPressed
-          ? _value._onPressed
-          : onPressed // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      textStyle: freezed == textStyle
-          ? _value.textStyle
-          : textStyle // ignore: cast_nullable_to_non_nullable
-              as StacTextStyle?,
-      buttonType: null == buttonType
-          ? _value.buttonType
-          : buttonType // ignore: cast_nullable_to_non_nullable
-              as FloatingActionButtonType,
-      autofocus: null == autofocus
-          ? _value.autofocus
-          : autofocus // ignore: cast_nullable_to_non_nullable
-              as bool,
-      icon: freezed == icon
-          ? _value._icon
-          : icon // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      foregroundColor: freezed == foregroundColor
-          ? _value.foregroundColor
-          : foregroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      focusColor: freezed == focusColor
-          ? _value.focusColor
-          : focusColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      hoverColor: freezed == hoverColor
-          ? _value.hoverColor
-          : hoverColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      splashColor: freezed == splashColor
-          ? _value.splashColor
-          : splashColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      extendedTextStyle: freezed == extendedTextStyle
-          ? _value.extendedTextStyle
-          : extendedTextStyle // ignore: cast_nullable_to_non_nullable
-              as StacTextStyle?,
-      elevation: freezed == elevation
-          ? _value.elevation
-          : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      focusElevation: freezed == focusElevation
-          ? _value.focusElevation
-          : focusElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      hoverElevation: freezed == hoverElevation
-          ? _value.hoverElevation
-          : hoverElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      disabledElevation: freezed == disabledElevation
-          ? _value.disabledElevation
-          : disabledElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      highlightElevation: freezed == highlightElevation
-          ? _value.highlightElevation
-          : highlightElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      extendedIconLabelSpacing: freezed == extendedIconLabelSpacing
-          ? _value.extendedIconLabelSpacing
-          : extendedIconLabelSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
-      enableFeedback: freezed == enableFeedback
-          ? _value.enableFeedback
-          : enableFeedback // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      tooltip: freezed == tooltip
-          ? _value.tooltip
-          : tooltip // ignore: cast_nullable_to_non_nullable
-              as String?,
-      heroTag: freezed == heroTag ? _value.heroTag : heroTag,
-      child: null == child
-          ? _value._child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacFloatingActionButtonImpl implements _StacFloatingActionButton {
-  const _$StacFloatingActionButtonImpl(
+class _StacFloatingActionButton implements StacFloatingActionButton {
+  const _StacFloatingActionButton(
       {final Map<String, dynamic>? onPressed,
       this.textStyle,
       this.buttonType = FloatingActionButtonType.small,
@@ -427,9 +336,8 @@ class _$StacFloatingActionButtonImpl implements _StacFloatingActionButton {
       : _onPressed = onPressed,
         _icon = icon,
         _child = child;
-
-  factory _$StacFloatingActionButtonImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacFloatingActionButtonImplFromJson(json);
+  factory _StacFloatingActionButton.fromJson(Map<String, dynamic> json) =>
+      _$StacFloatingActionButtonFromJson(json);
 
   final Map<String, dynamic>? _onPressed;
   @override
@@ -497,16 +405,27 @@ class _$StacFloatingActionButtonImpl implements _StacFloatingActionButton {
     return EqualUnmodifiableMapView(_child);
   }
 
+  /// Create a copy of StacFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacFloatingActionButton(onPressed: $onPressed, textStyle: $textStyle, buttonType: $buttonType, autofocus: $autofocus, icon: $icon, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, focusColor: $focusColor, hoverColor: $hoverColor, splashColor: $splashColor, extendedTextStyle: $extendedTextStyle, elevation: $elevation, focusElevation: $focusElevation, hoverElevation: $hoverElevation, disabledElevation: $disabledElevation, highlightElevation: $highlightElevation, extendedIconLabelSpacing: $extendedIconLabelSpacing, enableFeedback: $enableFeedback, tooltip: $tooltip, heroTag: $heroTag, child: $child)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacFloatingActionButtonCopyWith<_StacFloatingActionButton> get copyWith =>
+      __$StacFloatingActionButtonCopyWithImpl<_StacFloatingActionButton>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacFloatingActionButtonToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacFloatingActionButtonImpl &&
+            other is _StacFloatingActionButton &&
             const DeepCollectionEquality()
                 .equals(other._onPressed, _onPressed) &&
             (identical(other.textStyle, textStyle) ||
@@ -575,98 +494,196 @@ class _$StacFloatingActionButtonImpl implements _StacFloatingActionButton {
         const DeepCollectionEquality().hash(_child)
       ]);
 
-  /// Create a copy of StacFloatingActionButton
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacFloatingActionButtonImplCopyWith<_$StacFloatingActionButtonImpl>
-      get copyWith => __$$StacFloatingActionButtonImplCopyWithImpl<
-          _$StacFloatingActionButtonImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacFloatingActionButtonImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacFloatingActionButton(onPressed: $onPressed, textStyle: $textStyle, buttonType: $buttonType, autofocus: $autofocus, icon: $icon, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, focusColor: $focusColor, hoverColor: $hoverColor, splashColor: $splashColor, extendedTextStyle: $extendedTextStyle, elevation: $elevation, focusElevation: $focusElevation, hoverElevation: $hoverElevation, disabledElevation: $disabledElevation, highlightElevation: $highlightElevation, extendedIconLabelSpacing: $extendedIconLabelSpacing, enableFeedback: $enableFeedback, tooltip: $tooltip, heroTag: $heroTag, child: $child)';
   }
 }
 
-abstract class _StacFloatingActionButton implements StacFloatingActionButton {
-  const factory _StacFloatingActionButton(
-          {final Map<String, dynamic>? onPressed,
-          final StacTextStyle? textStyle,
-          final FloatingActionButtonType buttonType,
-          final bool autofocus,
-          final Map<String, dynamic>? icon,
-          final String? backgroundColor,
-          final String? foregroundColor,
-          final String? focusColor,
-          final String? hoverColor,
-          final String? splashColor,
-          final StacTextStyle? extendedTextStyle,
-          final double? elevation,
-          final double? focusElevation,
-          final double? hoverElevation,
-          final double? disabledElevation,
-          final double? highlightElevation,
-          final double? extendedIconLabelSpacing,
-          final bool? enableFeedback,
-          final String? tooltip,
-          final Object? heroTag,
-          required final Map<String, dynamic> child}) =
-      _$StacFloatingActionButtonImpl;
+/// @nodoc
+abstract mixin class _$StacFloatingActionButtonCopyWith<$Res>
+    implements $StacFloatingActionButtonCopyWith<$Res> {
+  factory _$StacFloatingActionButtonCopyWith(_StacFloatingActionButton value,
+          $Res Function(_StacFloatingActionButton) _then) =
+      __$StacFloatingActionButtonCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic>? onPressed,
+      StacTextStyle? textStyle,
+      FloatingActionButtonType buttonType,
+      bool autofocus,
+      Map<String, dynamic>? icon,
+      String? backgroundColor,
+      String? foregroundColor,
+      String? focusColor,
+      String? hoverColor,
+      String? splashColor,
+      StacTextStyle? extendedTextStyle,
+      double? elevation,
+      double? focusElevation,
+      double? hoverElevation,
+      double? disabledElevation,
+      double? highlightElevation,
+      double? extendedIconLabelSpacing,
+      bool? enableFeedback,
+      String? tooltip,
+      Object? heroTag,
+      Map<String, dynamic> child});
 
-  factory _StacFloatingActionButton.fromJson(Map<String, dynamic> json) =
-      _$StacFloatingActionButtonImpl.fromJson;
+  @override
+  $StacTextStyleCopyWith<$Res>? get textStyle;
+  @override
+  $StacTextStyleCopyWith<$Res>? get extendedTextStyle;
+}
 
-  @override
-  Map<String, dynamic>? get onPressed;
-  @override
-  StacTextStyle? get textStyle;
-  @override
-  FloatingActionButtonType get buttonType;
-  @override
-  bool get autofocus;
-  @override
-  Map<String, dynamic>? get icon;
-  @override
-  String? get backgroundColor;
-  @override
-  String? get foregroundColor;
-  @override
-  String? get focusColor;
-  @override
-  String? get hoverColor;
-  @override
-  String? get splashColor;
-  @override
-  StacTextStyle? get extendedTextStyle;
-  @override
-  double? get elevation;
-  @override
-  double? get focusElevation;
-  @override
-  double? get hoverElevation;
-  @override
-  double? get disabledElevation;
-  @override
-  double? get highlightElevation;
-  @override
-  double? get extendedIconLabelSpacing;
-  @override
-  bool? get enableFeedback;
-  @override
-  String? get tooltip;
-  @override
-  Object? get heroTag;
-  @override
-  Map<String, dynamic> get child;
+/// @nodoc
+class __$StacFloatingActionButtonCopyWithImpl<$Res>
+    implements _$StacFloatingActionButtonCopyWith<$Res> {
+  __$StacFloatingActionButtonCopyWithImpl(this._self, this._then);
+
+  final _StacFloatingActionButton _self;
+  final $Res Function(_StacFloatingActionButton) _then;
 
   /// Create a copy of StacFloatingActionButton
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacFloatingActionButtonImplCopyWith<_$StacFloatingActionButtonImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? onPressed = freezed,
+    Object? textStyle = freezed,
+    Object? buttonType = null,
+    Object? autofocus = null,
+    Object? icon = freezed,
+    Object? backgroundColor = freezed,
+    Object? foregroundColor = freezed,
+    Object? focusColor = freezed,
+    Object? hoverColor = freezed,
+    Object? splashColor = freezed,
+    Object? extendedTextStyle = freezed,
+    Object? elevation = freezed,
+    Object? focusElevation = freezed,
+    Object? hoverElevation = freezed,
+    Object? disabledElevation = freezed,
+    Object? highlightElevation = freezed,
+    Object? extendedIconLabelSpacing = freezed,
+    Object? enableFeedback = freezed,
+    Object? tooltip = freezed,
+    Object? heroTag = freezed,
+    Object? child = null,
+  }) {
+    return _then(_StacFloatingActionButton(
+      onPressed: freezed == onPressed
+          ? _self._onPressed
+          : onPressed // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      textStyle: freezed == textStyle
+          ? _self.textStyle
+          : textStyle // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      buttonType: null == buttonType
+          ? _self.buttonType
+          : buttonType // ignore: cast_nullable_to_non_nullable
+              as FloatingActionButtonType,
+      autofocus: null == autofocus
+          ? _self.autofocus
+          : autofocus // ignore: cast_nullable_to_non_nullable
+              as bool,
+      icon: freezed == icon
+          ? _self._icon
+          : icon // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      foregroundColor: freezed == foregroundColor
+          ? _self.foregroundColor
+          : foregroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      focusColor: freezed == focusColor
+          ? _self.focusColor
+          : focusColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hoverColor: freezed == hoverColor
+          ? _self.hoverColor
+          : hoverColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      splashColor: freezed == splashColor
+          ? _self.splashColor
+          : splashColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      extendedTextStyle: freezed == extendedTextStyle
+          ? _self.extendedTextStyle
+          : extendedTextStyle // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      elevation: freezed == elevation
+          ? _self.elevation
+          : elevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      focusElevation: freezed == focusElevation
+          ? _self.focusElevation
+          : focusElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      hoverElevation: freezed == hoverElevation
+          ? _self.hoverElevation
+          : hoverElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      disabledElevation: freezed == disabledElevation
+          ? _self.disabledElevation
+          : disabledElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      highlightElevation: freezed == highlightElevation
+          ? _self.highlightElevation
+          : highlightElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      extendedIconLabelSpacing: freezed == extendedIconLabelSpacing
+          ? _self.extendedIconLabelSpacing
+          : extendedIconLabelSpacing // ignore: cast_nullable_to_non_nullable
+              as double?,
+      enableFeedback: freezed == enableFeedback
+          ? _self.enableFeedback
+          : enableFeedback // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      tooltip: freezed == tooltip
+          ? _self.tooltip
+          : tooltip // ignore: cast_nullable_to_non_nullable
+              as String?,
+      heroTag: freezed == heroTag ? _self.heroTag : heroTag,
+      child: null == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+    ));
+  }
+
+  /// Create a copy of StacFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get textStyle {
+    if (_self.textStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.textStyle!, (value) {
+      return _then(_self.copyWith(textStyle: value));
+    });
+  }
+
+  /// Create a copy of StacFloatingActionButton
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get extendedTextStyle {
+    if (_self.extendedTextStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.extendedTextStyle!, (value) {
+      return _then(_self.copyWith(extendedTextStyle: value));
+    });
+  }
 }
+
+// dart format on

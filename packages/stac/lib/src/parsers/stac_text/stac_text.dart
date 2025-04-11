@@ -8,7 +8,7 @@ part 'stac_text.freezed.dart';
 part 'stac_text.g.dart';
 
 @freezed
-class StacText with _$StacText {
+abstract class StacText with _$StacText {
   const factory StacText({
     required String data,
     @Default([]) List<StacTextSpan> children,
@@ -29,7 +29,7 @@ class StacText with _$StacText {
 }
 
 @freezed
-class StacTextSpan with _$StacTextSpan {
+abstract class StacTextSpan with _$StacTextSpan {
   const factory StacTextSpan({
     String? data,
     StacTextStyle? style,

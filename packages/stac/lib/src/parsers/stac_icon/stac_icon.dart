@@ -10,7 +10,7 @@ part 'stac_icon.freezed.dart';
 part 'stac_icon.g.dart';
 
 @freezed
-class StacIcon with _$StacIcon {
+abstract class StacIcon with _$StacIcon {
   const factory StacIcon({
     required String icon,
     @Default(IconType.material) IconType iconType,

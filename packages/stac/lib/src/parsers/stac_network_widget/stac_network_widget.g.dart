@@ -6,15 +6,13 @@ part of 'stac_network_widget.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacNetworkWidgetImpl _$$StacNetworkWidgetImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacNetworkWidgetImpl(
+_StacNetworkWidget _$StacNetworkWidgetFromJson(Map<String, dynamic> json) =>
+    _StacNetworkWidget(
       request:
           StacNetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$StacNetworkWidgetImplToJson(
-        _$StacNetworkWidgetImpl instance) =>
+Map<String, dynamic> _$StacNetworkWidgetToJson(_StacNetworkWidget instance) =>
     <String, dynamic>{
       'request': instance.request,
     };

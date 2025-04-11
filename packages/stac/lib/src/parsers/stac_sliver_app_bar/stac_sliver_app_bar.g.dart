@@ -6,9 +6,8 @@ part of 'stac_sliver_app_bar.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacSliverAppBarImpl _$$StacSliverAppBarImplFromJson(
-        Map<String, dynamic> json) =>
-    _$StacSliverAppBarImpl(
+_StacSliverAppBar _$StacSliverAppBarFromJson(Map<String, dynamic> json) =>
+    _StacSliverAppBar(
       leading: json['leading'] as Map<String, dynamic>?,
       automaticallyImplyLeading:
           json['automaticallyImplyLeading'] as bool? ?? true,
@@ -69,8 +68,7 @@ _$StacSliverAppBarImpl _$$StacSliverAppBarImplFromJson(
           : StacEdgeInsets.fromJson(json['actionsPadding']),
     );
 
-Map<String, dynamic> _$$StacSliverAppBarImplToJson(
-        _$StacSliverAppBarImpl instance) =>
+Map<String, dynamic> _$StacSliverAppBarToJson(_StacSliverAppBar instance) =>
     <String, dynamic>{
       'leading': instance.leading,
       'automaticallyImplyLeading': instance.automaticallyImplyLeading,

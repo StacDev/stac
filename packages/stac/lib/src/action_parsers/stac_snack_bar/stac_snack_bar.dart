@@ -11,7 +11,7 @@ part 'stac_snack_bar.freezed.dart';
 part 'stac_snack_bar.g.dart';
 
 @freezed
-class StacSnackBar with _$StacSnackBar {
+abstract class StacSnackBar with _$StacSnackBar {
   const factory StacSnackBar({
     required Map<String, dynamic> content,
     String? backgroundColor,

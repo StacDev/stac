@@ -11,7 +11,7 @@ part 'stac_input_border.g.dart';
 enum StacInputBorderType { none, underlineInputBorder, outlineInputBorder }
 
 @freezed
-class StacInputBorder with _$StacInputBorder {
+abstract class StacInputBorder with _$StacInputBorder {
   const factory StacInputBorder({
     @Default(StacInputBorderType.underlineInputBorder) StacInputBorderType type,
     StacBorderRadius? borderRadius,

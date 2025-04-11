@@ -6,13 +6,12 @@ part of 'stac_padding.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacPaddingImpl _$$StacPaddingImplFromJson(Map<String, dynamic> json) =>
-    _$StacPaddingImpl(
+_StacPadding _$StacPaddingFromJson(Map<String, dynamic> json) => _StacPadding(
       padding: StacEdgeInsets.fromJson(json['padding']),
       child: json['child'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$StacPaddingImplToJson(_$StacPaddingImpl instance) =>
+Map<String, dynamic> _$StacPaddingToJson(_StacPadding instance) =>
     <String, dynamic>{
       'padding': instance.padding,
       'child': instance.child,

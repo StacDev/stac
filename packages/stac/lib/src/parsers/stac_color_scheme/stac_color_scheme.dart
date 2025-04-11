@@ -6,7 +6,7 @@ part 'stac_color_scheme.freezed.dart';
 part 'stac_color_scheme.g.dart';
 
 @freezed
-class StacColorScheme with _$StacColorScheme {
+abstract class StacColorScheme with _$StacColorScheme {
   const factory StacColorScheme({
     required Brightness brightness,
     required String primary,

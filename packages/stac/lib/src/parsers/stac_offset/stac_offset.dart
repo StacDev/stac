@@ -5,7 +5,7 @@ part 'stac_offset.freezed.dart';
 part 'stac_offset.g.dart';
 
 @freezed
-class StacOffset with _$StacOffset {
+abstract class StacOffset with _$StacOffset {
   const factory StacOffset({
     required double dx,
     required double dy,

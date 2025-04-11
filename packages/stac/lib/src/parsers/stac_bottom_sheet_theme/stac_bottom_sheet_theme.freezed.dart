@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,373 +10,41 @@ part of 'stac_bottom_sheet_theme.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacBottomSheetThemeData _$StacBottomSheetThemeDataFromJson(
-    Map<String, dynamic> json) {
-  return _StacBottomSheetThemeData.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacBottomSheetThemeData {
-  String? get backgroundColor => throw _privateConstructorUsedError;
-  String? get surfaceTintColor => throw _privateConstructorUsedError;
-  double? get elevation => throw _privateConstructorUsedError;
-  String? get modalBackgroundColor => throw _privateConstructorUsedError;
-  String? get modalBarrierColor => throw _privateConstructorUsedError;
-  String? get shadowColor => throw _privateConstructorUsedError;
-  double? get modalElevation => throw _privateConstructorUsedError;
-  StacBorder? get shape => throw _privateConstructorUsedError;
-  bool? get showDragHandle => throw _privateConstructorUsedError;
-  String? get dragHandleColor => throw _privateConstructorUsedError;
-  StacSize? get dragHandleSize => throw _privateConstructorUsedError;
-  Clip? get clipBehavior => throw _privateConstructorUsedError;
-  StacBoxConstraints? get constraints => throw _privateConstructorUsedError;
-
-  /// Serializes this StacBottomSheetThemeData to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get backgroundColor;
+  String? get surfaceTintColor;
+  double? get elevation;
+  String? get modalBackgroundColor;
+  String? get modalBarrierColor;
+  String? get shadowColor;
+  double? get modalElevation;
+  StacBorder? get shape;
+  bool? get showDragHandle;
+  String? get dragHandleColor;
+  StacSize? get dragHandleSize;
+  Clip? get clipBehavior;
+  StacBoxConstraints? get constraints;
 
   /// Create a copy of StacBottomSheetThemeData
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacBottomSheetThemeDataCopyWith<StacBottomSheetThemeData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacBottomSheetThemeDataCopyWithImpl<StacBottomSheetThemeData>(
+          this as StacBottomSheetThemeData, _$identity);
 
-/// @nodoc
-abstract class $StacBottomSheetThemeDataCopyWith<$Res> {
-  factory $StacBottomSheetThemeDataCopyWith(StacBottomSheetThemeData value,
-          $Res Function(StacBottomSheetThemeData) then) =
-      _$StacBottomSheetThemeDataCopyWithImpl<$Res, StacBottomSheetThemeData>;
-  @useResult
-  $Res call(
-      {String? backgroundColor,
-      String? surfaceTintColor,
-      double? elevation,
-      String? modalBackgroundColor,
-      String? modalBarrierColor,
-      String? shadowColor,
-      double? modalElevation,
-      StacBorder? shape,
-      bool? showDragHandle,
-      String? dragHandleColor,
-      StacSize? dragHandleSize,
-      Clip? clipBehavior,
-      StacBoxConstraints? constraints});
-
-  $StacBorderCopyWith<$Res>? get shape;
-  $StacSizeCopyWith<$Res>? get dragHandleSize;
-  $StacBoxConstraintsCopyWith<$Res>? get constraints;
-}
-
-/// @nodoc
-class _$StacBottomSheetThemeDataCopyWithImpl<$Res,
-        $Val extends StacBottomSheetThemeData>
-    implements $StacBottomSheetThemeDataCopyWith<$Res> {
-  _$StacBottomSheetThemeDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? backgroundColor = freezed,
-    Object? surfaceTintColor = freezed,
-    Object? elevation = freezed,
-    Object? modalBackgroundColor = freezed,
-    Object? modalBarrierColor = freezed,
-    Object? shadowColor = freezed,
-    Object? modalElevation = freezed,
-    Object? shape = freezed,
-    Object? showDragHandle = freezed,
-    Object? dragHandleColor = freezed,
-    Object? dragHandleSize = freezed,
-    Object? clipBehavior = freezed,
-    Object? constraints = freezed,
-  }) {
-    return _then(_value.copyWith(
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surfaceTintColor: freezed == surfaceTintColor
-          ? _value.surfaceTintColor
-          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      elevation: freezed == elevation
-          ? _value.elevation
-          : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      modalBackgroundColor: freezed == modalBackgroundColor
-          ? _value.modalBackgroundColor
-          : modalBackgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      modalBarrierColor: freezed == modalBarrierColor
-          ? _value.modalBarrierColor
-          : modalBarrierColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shadowColor: freezed == shadowColor
-          ? _value.shadowColor
-          : shadowColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      modalElevation: freezed == modalElevation
-          ? _value.modalElevation
-          : modalElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      shape: freezed == shape
-          ? _value.shape
-          : shape // ignore: cast_nullable_to_non_nullable
-              as StacBorder?,
-      showDragHandle: freezed == showDragHandle
-          ? _value.showDragHandle
-          : showDragHandle // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      dragHandleColor: freezed == dragHandleColor
-          ? _value.dragHandleColor
-          : dragHandleColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dragHandleSize: freezed == dragHandleSize
-          ? _value.dragHandleSize
-          : dragHandleSize // ignore: cast_nullable_to_non_nullable
-              as StacSize?,
-      clipBehavior: freezed == clipBehavior
-          ? _value.clipBehavior
-          : clipBehavior // ignore: cast_nullable_to_non_nullable
-              as Clip?,
-      constraints: freezed == constraints
-          ? _value.constraints
-          : constraints // ignore: cast_nullable_to_non_nullable
-              as StacBoxConstraints?,
-    ) as $Val);
-  }
-
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StacBorderCopyWith<$Res>? get shape {
-    if (_value.shape == null) {
-      return null;
-    }
-
-    return $StacBorderCopyWith<$Res>(_value.shape!, (value) {
-      return _then(_value.copyWith(shape: value) as $Val);
-    });
-  }
-
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StacSizeCopyWith<$Res>? get dragHandleSize {
-    if (_value.dragHandleSize == null) {
-      return null;
-    }
-
-    return $StacSizeCopyWith<$Res>(_value.dragHandleSize!, (value) {
-      return _then(_value.copyWith(dragHandleSize: value) as $Val);
-    });
-  }
-
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $StacBoxConstraintsCopyWith<$Res>? get constraints {
-    if (_value.constraints == null) {
-      return null;
-    }
-
-    return $StacBoxConstraintsCopyWith<$Res>(_value.constraints!, (value) {
-      return _then(_value.copyWith(constraints: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$StacBottomSheetThemeDataImplCopyWith<$Res>
-    implements $StacBottomSheetThemeDataCopyWith<$Res> {
-  factory _$$StacBottomSheetThemeDataImplCopyWith(
-          _$StacBottomSheetThemeDataImpl value,
-          $Res Function(_$StacBottomSheetThemeDataImpl) then) =
-      __$$StacBottomSheetThemeDataImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? backgroundColor,
-      String? surfaceTintColor,
-      double? elevation,
-      String? modalBackgroundColor,
-      String? modalBarrierColor,
-      String? shadowColor,
-      double? modalElevation,
-      StacBorder? shape,
-      bool? showDragHandle,
-      String? dragHandleColor,
-      StacSize? dragHandleSize,
-      Clip? clipBehavior,
-      StacBoxConstraints? constraints});
-
-  @override
-  $StacBorderCopyWith<$Res>? get shape;
-  @override
-  $StacSizeCopyWith<$Res>? get dragHandleSize;
-  @override
-  $StacBoxConstraintsCopyWith<$Res>? get constraints;
-}
-
-/// @nodoc
-class __$$StacBottomSheetThemeDataImplCopyWithImpl<$Res>
-    extends _$StacBottomSheetThemeDataCopyWithImpl<$Res,
-        _$StacBottomSheetThemeDataImpl>
-    implements _$$StacBottomSheetThemeDataImplCopyWith<$Res> {
-  __$$StacBottomSheetThemeDataImplCopyWithImpl(
-      _$StacBottomSheetThemeDataImpl _value,
-      $Res Function(_$StacBottomSheetThemeDataImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? backgroundColor = freezed,
-    Object? surfaceTintColor = freezed,
-    Object? elevation = freezed,
-    Object? modalBackgroundColor = freezed,
-    Object? modalBarrierColor = freezed,
-    Object? shadowColor = freezed,
-    Object? modalElevation = freezed,
-    Object? shape = freezed,
-    Object? showDragHandle = freezed,
-    Object? dragHandleColor = freezed,
-    Object? dragHandleSize = freezed,
-    Object? clipBehavior = freezed,
-    Object? constraints = freezed,
-  }) {
-    return _then(_$StacBottomSheetThemeDataImpl(
-      backgroundColor: freezed == backgroundColor
-          ? _value.backgroundColor
-          : backgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      surfaceTintColor: freezed == surfaceTintColor
-          ? _value.surfaceTintColor
-          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      elevation: freezed == elevation
-          ? _value.elevation
-          : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      modalBackgroundColor: freezed == modalBackgroundColor
-          ? _value.modalBackgroundColor
-          : modalBackgroundColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      modalBarrierColor: freezed == modalBarrierColor
-          ? _value.modalBarrierColor
-          : modalBarrierColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      shadowColor: freezed == shadowColor
-          ? _value.shadowColor
-          : shadowColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      modalElevation: freezed == modalElevation
-          ? _value.modalElevation
-          : modalElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
-      shape: freezed == shape
-          ? _value.shape
-          : shape // ignore: cast_nullable_to_non_nullable
-              as StacBorder?,
-      showDragHandle: freezed == showDragHandle
-          ? _value.showDragHandle
-          : showDragHandle // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      dragHandleColor: freezed == dragHandleColor
-          ? _value.dragHandleColor
-          : dragHandleColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      dragHandleSize: freezed == dragHandleSize
-          ? _value.dragHandleSize
-          : dragHandleSize // ignore: cast_nullable_to_non_nullable
-              as StacSize?,
-      clipBehavior: freezed == clipBehavior
-          ? _value.clipBehavior
-          : clipBehavior // ignore: cast_nullable_to_non_nullable
-              as Clip?,
-      constraints: freezed == constraints
-          ? _value.constraints
-          : constraints // ignore: cast_nullable_to_non_nullable
-              as StacBoxConstraints?,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacBottomSheetThemeDataImpl implements _StacBottomSheetThemeData {
-  const _$StacBottomSheetThemeDataImpl(
-      {this.backgroundColor,
-      this.surfaceTintColor,
-      this.elevation,
-      this.modalBackgroundColor,
-      this.modalBarrierColor,
-      this.shadowColor,
-      this.modalElevation,
-      this.shape,
-      this.showDragHandle,
-      this.dragHandleColor,
-      this.dragHandleSize,
-      this.clipBehavior,
-      this.constraints});
-
-  factory _$StacBottomSheetThemeDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacBottomSheetThemeDataImplFromJson(json);
-
-  @override
-  final String? backgroundColor;
-  @override
-  final String? surfaceTintColor;
-  @override
-  final double? elevation;
-  @override
-  final String? modalBackgroundColor;
-  @override
-  final String? modalBarrierColor;
-  @override
-  final String? shadowColor;
-  @override
-  final double? modalElevation;
-  @override
-  final StacBorder? shape;
-  @override
-  final bool? showDragHandle;
-  @override
-  final String? dragHandleColor;
-  @override
-  final StacSize? dragHandleSize;
-  @override
-  final Clip? clipBehavior;
-  @override
-  final StacBoxConstraints? constraints;
-
-  @override
-  String toString() {
-    return 'StacBottomSheetThemeData(backgroundColor: $backgroundColor, surfaceTintColor: $surfaceTintColor, elevation: $elevation, modalBackgroundColor: $modalBackgroundColor, modalBarrierColor: $modalBarrierColor, shadowColor: $shadowColor, modalElevation: $modalElevation, shape: $shape, showDragHandle: $showDragHandle, dragHandleColor: $dragHandleColor, dragHandleSize: $dragHandleSize, clipBehavior: $clipBehavior, constraints: $constraints)';
-  }
+  /// Serializes this StacBottomSheetThemeData to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacBottomSheetThemeDataImpl &&
+            other is StacBottomSheetThemeData &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.surfaceTintColor, surfaceTintColor) ||
@@ -421,73 +90,438 @@ class _$StacBottomSheetThemeDataImpl implements _StacBottomSheetThemeData {
       clipBehavior,
       constraints);
 
-  /// Create a copy of StacBottomSheetThemeData
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacBottomSheetThemeDataImplCopyWith<_$StacBottomSheetThemeDataImpl>
-      get copyWith => __$$StacBottomSheetThemeDataImplCopyWithImpl<
-          _$StacBottomSheetThemeDataImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacBottomSheetThemeDataImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacBottomSheetThemeData(backgroundColor: $backgroundColor, surfaceTintColor: $surfaceTintColor, elevation: $elevation, modalBackgroundColor: $modalBackgroundColor, modalBarrierColor: $modalBarrierColor, shadowColor: $shadowColor, modalElevation: $modalElevation, shape: $shape, showDragHandle: $showDragHandle, dragHandleColor: $dragHandleColor, dragHandleSize: $dragHandleSize, clipBehavior: $clipBehavior, constraints: $constraints)';
   }
 }
 
-abstract class _StacBottomSheetThemeData implements StacBottomSheetThemeData {
-  const factory _StacBottomSheetThemeData(
-      {final String? backgroundColor,
-      final String? surfaceTintColor,
-      final double? elevation,
-      final String? modalBackgroundColor,
-      final String? modalBarrierColor,
-      final String? shadowColor,
-      final double? modalElevation,
-      final StacBorder? shape,
-      final bool? showDragHandle,
-      final String? dragHandleColor,
-      final StacSize? dragHandleSize,
-      final Clip? clipBehavior,
-      final StacBoxConstraints? constraints}) = _$StacBottomSheetThemeDataImpl;
+/// @nodoc
+abstract mixin class $StacBottomSheetThemeDataCopyWith<$Res> {
+  factory $StacBottomSheetThemeDataCopyWith(StacBottomSheetThemeData value,
+          $Res Function(StacBottomSheetThemeData) _then) =
+      _$StacBottomSheetThemeDataCopyWithImpl;
+  @useResult
+  $Res call(
+      {String? backgroundColor,
+      String? surfaceTintColor,
+      double? elevation,
+      String? modalBackgroundColor,
+      String? modalBarrierColor,
+      String? shadowColor,
+      double? modalElevation,
+      StacBorder? shape,
+      bool? showDragHandle,
+      String? dragHandleColor,
+      StacSize? dragHandleSize,
+      Clip? clipBehavior,
+      StacBoxConstraints? constraints});
 
-  factory _StacBottomSheetThemeData.fromJson(Map<String, dynamic> json) =
-      _$StacBottomSheetThemeDataImpl.fromJson;
+  $StacBorderCopyWith<$Res>? get shape;
+  $StacSizeCopyWith<$Res>? get dragHandleSize;
+  $StacBoxConstraintsCopyWith<$Res>? get constraints;
+}
+
+/// @nodoc
+class _$StacBottomSheetThemeDataCopyWithImpl<$Res>
+    implements $StacBottomSheetThemeDataCopyWith<$Res> {
+  _$StacBottomSheetThemeDataCopyWithImpl(this._self, this._then);
+
+  final StacBottomSheetThemeData _self;
+  final $Res Function(StacBottomSheetThemeData) _then;
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? backgroundColor = freezed,
+    Object? surfaceTintColor = freezed,
+    Object? elevation = freezed,
+    Object? modalBackgroundColor = freezed,
+    Object? modalBarrierColor = freezed,
+    Object? shadowColor = freezed,
+    Object? modalElevation = freezed,
+    Object? shape = freezed,
+    Object? showDragHandle = freezed,
+    Object? dragHandleColor = freezed,
+    Object? dragHandleSize = freezed,
+    Object? clipBehavior = freezed,
+    Object? constraints = freezed,
+  }) {
+    return _then(_self.copyWith(
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceTintColor: freezed == surfaceTintColor
+          ? _self.surfaceTintColor
+          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      elevation: freezed == elevation
+          ? _self.elevation
+          : elevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      modalBackgroundColor: freezed == modalBackgroundColor
+          ? _self.modalBackgroundColor
+          : modalBackgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      modalBarrierColor: freezed == modalBarrierColor
+          ? _self.modalBarrierColor
+          : modalBarrierColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shadowColor: freezed == shadowColor
+          ? _self.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      modalElevation: freezed == modalElevation
+          ? _self.modalElevation
+          : modalElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      shape: freezed == shape
+          ? _self.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as StacBorder?,
+      showDragHandle: freezed == showDragHandle
+          ? _self.showDragHandle
+          : showDragHandle // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      dragHandleColor: freezed == dragHandleColor
+          ? _self.dragHandleColor
+          : dragHandleColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dragHandleSize: freezed == dragHandleSize
+          ? _self.dragHandleSize
+          : dragHandleSize // ignore: cast_nullable_to_non_nullable
+              as StacSize?,
+      clipBehavior: freezed == clipBehavior
+          ? _self.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip?,
+      constraints: freezed == constraints
+          ? _self.constraints
+          : constraints // ignore: cast_nullable_to_non_nullable
+              as StacBoxConstraints?,
+    ));
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderCopyWith<$Res>? get shape {
+    if (_self.shape == null) {
+      return null;
+    }
+
+    return $StacBorderCopyWith<$Res>(_self.shape!, (value) {
+      return _then(_self.copyWith(shape: value));
+    });
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacSizeCopyWith<$Res>? get dragHandleSize {
+    if (_self.dragHandleSize == null) {
+      return null;
+    }
+
+    return $StacSizeCopyWith<$Res>(_self.dragHandleSize!, (value) {
+      return _then(_self.copyWith(dragHandleSize: value));
+    });
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBoxConstraintsCopyWith<$Res>? get constraints {
+    if (_self.constraints == null) {
+      return null;
+    }
+
+    return $StacBoxConstraintsCopyWith<$Res>(_self.constraints!, (value) {
+      return _then(_self.copyWith(constraints: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacBottomSheetThemeData implements StacBottomSheetThemeData {
+  const _StacBottomSheetThemeData(
+      {this.backgroundColor,
+      this.surfaceTintColor,
+      this.elevation,
+      this.modalBackgroundColor,
+      this.modalBarrierColor,
+      this.shadowColor,
+      this.modalElevation,
+      this.shape,
+      this.showDragHandle,
+      this.dragHandleColor,
+      this.dragHandleSize,
+      this.clipBehavior,
+      this.constraints});
+  factory _StacBottomSheetThemeData.fromJson(Map<String, dynamic> json) =>
+      _$StacBottomSheetThemeDataFromJson(json);
 
   @override
-  String? get backgroundColor;
+  final String? backgroundColor;
   @override
-  String? get surfaceTintColor;
+  final String? surfaceTintColor;
   @override
-  double? get elevation;
+  final double? elevation;
   @override
-  String? get modalBackgroundColor;
+  final String? modalBackgroundColor;
   @override
-  String? get modalBarrierColor;
+  final String? modalBarrierColor;
   @override
-  String? get shadowColor;
+  final String? shadowColor;
   @override
-  double? get modalElevation;
+  final double? modalElevation;
   @override
-  StacBorder? get shape;
+  final StacBorder? shape;
   @override
-  bool? get showDragHandle;
+  final bool? showDragHandle;
   @override
-  String? get dragHandleColor;
+  final String? dragHandleColor;
   @override
-  StacSize? get dragHandleSize;
+  final StacSize? dragHandleSize;
   @override
-  Clip? get clipBehavior;
+  final Clip? clipBehavior;
   @override
-  StacBoxConstraints? get constraints;
+  final StacBoxConstraints? constraints;
 
   /// Create a copy of StacBottomSheetThemeData
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacBottomSheetThemeDataImplCopyWith<_$StacBottomSheetThemeDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacBottomSheetThemeDataCopyWith<_StacBottomSheetThemeData> get copyWith =>
+      __$StacBottomSheetThemeDataCopyWithImpl<_StacBottomSheetThemeData>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacBottomSheetThemeDataToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacBottomSheetThemeData &&
+            (identical(other.backgroundColor, backgroundColor) ||
+                other.backgroundColor == backgroundColor) &&
+            (identical(other.surfaceTintColor, surfaceTintColor) ||
+                other.surfaceTintColor == surfaceTintColor) &&
+            (identical(other.elevation, elevation) ||
+                other.elevation == elevation) &&
+            (identical(other.modalBackgroundColor, modalBackgroundColor) ||
+                other.modalBackgroundColor == modalBackgroundColor) &&
+            (identical(other.modalBarrierColor, modalBarrierColor) ||
+                other.modalBarrierColor == modalBarrierColor) &&
+            (identical(other.shadowColor, shadowColor) ||
+                other.shadowColor == shadowColor) &&
+            (identical(other.modalElevation, modalElevation) ||
+                other.modalElevation == modalElevation) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.showDragHandle, showDragHandle) ||
+                other.showDragHandle == showDragHandle) &&
+            (identical(other.dragHandleColor, dragHandleColor) ||
+                other.dragHandleColor == dragHandleColor) &&
+            (identical(other.dragHandleSize, dragHandleSize) ||
+                other.dragHandleSize == dragHandleSize) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
+            (identical(other.constraints, constraints) ||
+                other.constraints == constraints));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      backgroundColor,
+      surfaceTintColor,
+      elevation,
+      modalBackgroundColor,
+      modalBarrierColor,
+      shadowColor,
+      modalElevation,
+      shape,
+      showDragHandle,
+      dragHandleColor,
+      dragHandleSize,
+      clipBehavior,
+      constraints);
+
+  @override
+  String toString() {
+    return 'StacBottomSheetThemeData(backgroundColor: $backgroundColor, surfaceTintColor: $surfaceTintColor, elevation: $elevation, modalBackgroundColor: $modalBackgroundColor, modalBarrierColor: $modalBarrierColor, shadowColor: $shadowColor, modalElevation: $modalElevation, shape: $shape, showDragHandle: $showDragHandle, dragHandleColor: $dragHandleColor, dragHandleSize: $dragHandleSize, clipBehavior: $clipBehavior, constraints: $constraints)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacBottomSheetThemeDataCopyWith<$Res>
+    implements $StacBottomSheetThemeDataCopyWith<$Res> {
+  factory _$StacBottomSheetThemeDataCopyWith(_StacBottomSheetThemeData value,
+          $Res Function(_StacBottomSheetThemeData) _then) =
+      __$StacBottomSheetThemeDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String? backgroundColor,
+      String? surfaceTintColor,
+      double? elevation,
+      String? modalBackgroundColor,
+      String? modalBarrierColor,
+      String? shadowColor,
+      double? modalElevation,
+      StacBorder? shape,
+      bool? showDragHandle,
+      String? dragHandleColor,
+      StacSize? dragHandleSize,
+      Clip? clipBehavior,
+      StacBoxConstraints? constraints});
+
+  @override
+  $StacBorderCopyWith<$Res>? get shape;
+  @override
+  $StacSizeCopyWith<$Res>? get dragHandleSize;
+  @override
+  $StacBoxConstraintsCopyWith<$Res>? get constraints;
+}
+
+/// @nodoc
+class __$StacBottomSheetThemeDataCopyWithImpl<$Res>
+    implements _$StacBottomSheetThemeDataCopyWith<$Res> {
+  __$StacBottomSheetThemeDataCopyWithImpl(this._self, this._then);
+
+  final _StacBottomSheetThemeData _self;
+  final $Res Function(_StacBottomSheetThemeData) _then;
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? backgroundColor = freezed,
+    Object? surfaceTintColor = freezed,
+    Object? elevation = freezed,
+    Object? modalBackgroundColor = freezed,
+    Object? modalBarrierColor = freezed,
+    Object? shadowColor = freezed,
+    Object? modalElevation = freezed,
+    Object? shape = freezed,
+    Object? showDragHandle = freezed,
+    Object? dragHandleColor = freezed,
+    Object? dragHandleSize = freezed,
+    Object? clipBehavior = freezed,
+    Object? constraints = freezed,
+  }) {
+    return _then(_StacBottomSheetThemeData(
+      backgroundColor: freezed == backgroundColor
+          ? _self.backgroundColor
+          : backgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceTintColor: freezed == surfaceTintColor
+          ? _self.surfaceTintColor
+          : surfaceTintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      elevation: freezed == elevation
+          ? _self.elevation
+          : elevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      modalBackgroundColor: freezed == modalBackgroundColor
+          ? _self.modalBackgroundColor
+          : modalBackgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      modalBarrierColor: freezed == modalBarrierColor
+          ? _self.modalBarrierColor
+          : modalBarrierColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shadowColor: freezed == shadowColor
+          ? _self.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      modalElevation: freezed == modalElevation
+          ? _self.modalElevation
+          : modalElevation // ignore: cast_nullable_to_non_nullable
+              as double?,
+      shape: freezed == shape
+          ? _self.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as StacBorder?,
+      showDragHandle: freezed == showDragHandle
+          ? _self.showDragHandle
+          : showDragHandle // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      dragHandleColor: freezed == dragHandleColor
+          ? _self.dragHandleColor
+          : dragHandleColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dragHandleSize: freezed == dragHandleSize
+          ? _self.dragHandleSize
+          : dragHandleSize // ignore: cast_nullable_to_non_nullable
+              as StacSize?,
+      clipBehavior: freezed == clipBehavior
+          ? _self.clipBehavior
+          : clipBehavior // ignore: cast_nullable_to_non_nullable
+              as Clip?,
+      constraints: freezed == constraints
+          ? _self.constraints
+          : constraints // ignore: cast_nullable_to_non_nullable
+              as StacBoxConstraints?,
+    ));
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderCopyWith<$Res>? get shape {
+    if (_self.shape == null) {
+      return null;
+    }
+
+    return $StacBorderCopyWith<$Res>(_self.shape!, (value) {
+      return _then(_self.copyWith(shape: value));
+    });
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacSizeCopyWith<$Res>? get dragHandleSize {
+    if (_self.dragHandleSize == null) {
+      return null;
+    }
+
+    return $StacSizeCopyWith<$Res>(_self.dragHandleSize!, (value) {
+      return _then(_self.copyWith(dragHandleSize: value));
+    });
+  }
+
+  /// Create a copy of StacBottomSheetThemeData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBoxConstraintsCopyWith<$Res>? get constraints {
+    if (_self.constraints == null) {
+      return null;
+    }
+
+    return $StacBoxConstraintsCopyWith<$Res>(_self.constraints!, (value) {
+      return _then(_self.copyWith(constraints: value));
+    });
+  }
+}
+
+// dart format on

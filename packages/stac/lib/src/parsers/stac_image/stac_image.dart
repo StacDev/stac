@@ -10,7 +10,7 @@ part 'stac_image.g.dart';
 enum StacImageType { file, network, asset }
 
 @freezed
-class StacImage with _$StacImage {
+abstract class StacImage with _$StacImage {
   const factory StacImage({
     required String src,
     @Default(StacAlignment.center) StacAlignment alignment,

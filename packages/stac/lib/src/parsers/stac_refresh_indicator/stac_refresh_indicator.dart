@@ -7,7 +7,7 @@ part 'stac_refresh_indicator.freezed.dart';
 part 'stac_refresh_indicator.g.dart';
 
 @freezed
-class StacRefreshIndicator with _$StacRefreshIndicator {
+abstract class StacRefreshIndicator with _$StacRefreshIndicator {
   const factory StacRefreshIndicator({
     Map<String, dynamic>? child,
     @Default(40) double displacement,

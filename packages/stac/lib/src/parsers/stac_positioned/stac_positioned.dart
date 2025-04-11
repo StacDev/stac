@@ -15,7 +15,7 @@ part 'stac_positioned.g.dart';
 enum StacPositionedType { directional, fill, fromRect }
 
 @freezed
-class StacPositioned with _$StacPositioned {
+abstract class StacPositioned with _$StacPositioned {
   const factory StacPositioned({
     StacPositionedType? positionedType,
     double? left,

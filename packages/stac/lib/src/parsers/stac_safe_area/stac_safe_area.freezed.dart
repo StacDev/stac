@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,40 +10,69 @@ part of 'stac_safe_area.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacSafeArea _$StacSafeAreaFromJson(Map<String, dynamic> json) {
-  return _StacSafeArea.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacSafeArea {
-  Map<String, dynamic>? get child => throw _privateConstructorUsedError;
-  bool get left => throw _privateConstructorUsedError;
-  bool get top => throw _privateConstructorUsedError;
-  bool get right => throw _privateConstructorUsedError;
-  bool get bottom => throw _privateConstructorUsedError;
-  StacEdgeInsets get minimum => throw _privateConstructorUsedError;
-  bool get maintainBottomViewPadding => throw _privateConstructorUsedError;
-
-  /// Serializes this StacSafeArea to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get child;
+  bool get left;
+  bool get top;
+  bool get right;
+  bool get bottom;
+  StacEdgeInsets get minimum;
+  bool get maintainBottomViewPadding;
 
   /// Create a copy of StacSafeArea
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacSafeAreaCopyWith<StacSafeArea> get copyWith =>
-      throw _privateConstructorUsedError;
+      _$StacSafeAreaCopyWithImpl<StacSafeArea>(
+          this as StacSafeArea, _$identity);
+
+  /// Serializes this StacSafeArea to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacSafeArea &&
+            const DeepCollectionEquality().equals(other.child, child) &&
+            (identical(other.left, left) || other.left == left) &&
+            (identical(other.top, top) || other.top == top) &&
+            (identical(other.right, right) || other.right == right) &&
+            (identical(other.bottom, bottom) || other.bottom == bottom) &&
+            (identical(other.minimum, minimum) || other.minimum == minimum) &&
+            (identical(other.maintainBottomViewPadding,
+                    maintainBottomViewPadding) ||
+                other.maintainBottomViewPadding == maintainBottomViewPadding));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(child),
+      left,
+      top,
+      right,
+      bottom,
+      minimum,
+      maintainBottomViewPadding);
+
+  @override
+  String toString() {
+    return 'StacSafeArea(child: $child, left: $left, top: $top, right: $right, bottom: $bottom, minimum: $minimum, maintainBottomViewPadding: $maintainBottomViewPadding)';
+  }
 }
 
 /// @nodoc
-abstract class $StacSafeAreaCopyWith<$Res> {
+abstract mixin class $StacSafeAreaCopyWith<$Res> {
   factory $StacSafeAreaCopyWith(
-          StacSafeArea value, $Res Function(StacSafeArea) then) =
-      _$StacSafeAreaCopyWithImpl<$Res, StacSafeArea>;
+          StacSafeArea value, $Res Function(StacSafeArea) _then) =
+      _$StacSafeAreaCopyWithImpl;
   @useResult
   $Res call(
       {Map<String, dynamic>? child,
@@ -57,14 +87,11 @@ abstract class $StacSafeAreaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StacSafeAreaCopyWithImpl<$Res, $Val extends StacSafeArea>
-    implements $StacSafeAreaCopyWith<$Res> {
-  _$StacSafeAreaCopyWithImpl(this._value, this._then);
+class _$StacSafeAreaCopyWithImpl<$Res> implements $StacSafeAreaCopyWith<$Res> {
+  _$StacSafeAreaCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final StacSafeArea _self;
+  final $Res Function(StacSafeArea) _then;
 
   /// Create a copy of StacSafeArea
   /// with the given fields replaced by the non-null parameter values.
@@ -79,36 +106,36 @@ class _$StacSafeAreaCopyWithImpl<$Res, $Val extends StacSafeArea>
     Object? minimum = null,
     Object? maintainBottomViewPadding = null,
   }) {
-    return _then(_value.copyWith(
+    return _then(_self.copyWith(
       child: freezed == child
-          ? _value.child
+          ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
       left: null == left
-          ? _value.left
+          ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
               as bool,
       top: null == top
-          ? _value.top
+          ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
               as bool,
       right: null == right
-          ? _value.right
+          ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
               as bool,
       bottom: null == bottom
-          ? _value.bottom
+          ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
               as bool,
       minimum: null == minimum
-          ? _value.minimum
+          ? _self.minimum
           : minimum // ignore: cast_nullable_to_non_nullable
               as StacEdgeInsets,
       maintainBottomViewPadding: null == maintainBottomViewPadding
-          ? _value.maintainBottomViewPadding
+          ? _self.maintainBottomViewPadding
           : maintainBottomViewPadding // ignore: cast_nullable_to_non_nullable
               as bool,
-    ) as $Val);
+    ));
   }
 
   /// Create a copy of StacSafeArea
@@ -116,91 +143,16 @@ class _$StacSafeAreaCopyWithImpl<$Res, $Val extends StacSafeArea>
   @override
   @pragma('vm:prefer-inline')
   $StacEdgeInsetsCopyWith<$Res> get minimum {
-    return $StacEdgeInsetsCopyWith<$Res>(_value.minimum, (value) {
-      return _then(_value.copyWith(minimum: value) as $Val);
+    return $StacEdgeInsetsCopyWith<$Res>(_self.minimum, (value) {
+      return _then(_self.copyWith(minimum: value));
     });
   }
 }
 
 /// @nodoc
-abstract class _$$StacSafeAreaImplCopyWith<$Res>
-    implements $StacSafeAreaCopyWith<$Res> {
-  factory _$$StacSafeAreaImplCopyWith(
-          _$StacSafeAreaImpl value, $Res Function(_$StacSafeAreaImpl) then) =
-      __$$StacSafeAreaImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {Map<String, dynamic>? child,
-      bool left,
-      bool top,
-      bool right,
-      bool bottom,
-      StacEdgeInsets minimum,
-      bool maintainBottomViewPadding});
-
-  @override
-  $StacEdgeInsetsCopyWith<$Res> get minimum;
-}
-
-/// @nodoc
-class __$$StacSafeAreaImplCopyWithImpl<$Res>
-    extends _$StacSafeAreaCopyWithImpl<$Res, _$StacSafeAreaImpl>
-    implements _$$StacSafeAreaImplCopyWith<$Res> {
-  __$$StacSafeAreaImplCopyWithImpl(
-      _$StacSafeAreaImpl _value, $Res Function(_$StacSafeAreaImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacSafeArea
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? child = freezed,
-    Object? left = null,
-    Object? top = null,
-    Object? right = null,
-    Object? bottom = null,
-    Object? minimum = null,
-    Object? maintainBottomViewPadding = null,
-  }) {
-    return _then(_$StacSafeAreaImpl(
-      child: freezed == child
-          ? _value._child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-      left: null == left
-          ? _value.left
-          : left // ignore: cast_nullable_to_non_nullable
-              as bool,
-      top: null == top
-          ? _value.top
-          : top // ignore: cast_nullable_to_non_nullable
-              as bool,
-      right: null == right
-          ? _value.right
-          : right // ignore: cast_nullable_to_non_nullable
-              as bool,
-      bottom: null == bottom
-          ? _value.bottom
-          : bottom // ignore: cast_nullable_to_non_nullable
-              as bool,
-      minimum: null == minimum
-          ? _value.minimum
-          : minimum // ignore: cast_nullable_to_non_nullable
-              as StacEdgeInsets,
-      maintainBottomViewPadding: null == maintainBottomViewPadding
-          ? _value.maintainBottomViewPadding
-          : maintainBottomViewPadding // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
 @JsonSerializable()
-class _$StacSafeAreaImpl implements _StacSafeArea {
-  const _$StacSafeAreaImpl(
+class _StacSafeArea implements StacSafeArea {
+  const _StacSafeArea(
       {final Map<String, dynamic>? child,
       this.left = true,
       this.top = true,
@@ -209,9 +161,8 @@ class _$StacSafeAreaImpl implements _StacSafeArea {
       this.minimum = const StacEdgeInsets(),
       this.maintainBottomViewPadding = false})
       : _child = child;
-
-  factory _$StacSafeAreaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacSafeAreaImplFromJson(json);
+  factory _StacSafeArea.fromJson(Map<String, dynamic> json) =>
+      _$StacSafeAreaFromJson(json);
 
   final Map<String, dynamic>? _child;
   @override
@@ -242,16 +193,26 @@ class _$StacSafeAreaImpl implements _StacSafeArea {
   @JsonKey()
   final bool maintainBottomViewPadding;
 
+  /// Create a copy of StacSafeArea
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'StacSafeArea(child: $child, left: $left, top: $top, right: $right, bottom: $bottom, minimum: $minimum, maintainBottomViewPadding: $maintainBottomViewPadding)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacSafeAreaCopyWith<_StacSafeArea> get copyWith =>
+      __$StacSafeAreaCopyWithImpl<_StacSafeArea>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacSafeAreaToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacSafeAreaImpl &&
+            other is _StacSafeArea &&
             const DeepCollectionEquality().equals(other._child, _child) &&
             (identical(other.left, left) || other.left == left) &&
             (identical(other.top, top) || other.top == top) &&
@@ -275,54 +236,95 @@ class _$StacSafeAreaImpl implements _StacSafeArea {
       minimum,
       maintainBottomViewPadding);
 
-  /// Create a copy of StacSafeArea
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacSafeAreaImplCopyWith<_$StacSafeAreaImpl> get copyWith =>
-      __$$StacSafeAreaImplCopyWithImpl<_$StacSafeAreaImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacSafeAreaImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacSafeArea(child: $child, left: $left, top: $top, right: $right, bottom: $bottom, minimum: $minimum, maintainBottomViewPadding: $maintainBottomViewPadding)';
   }
 }
 
-abstract class _StacSafeArea implements StacSafeArea {
-  const factory _StacSafeArea(
-      {final Map<String, dynamic>? child,
-      final bool left,
-      final bool top,
-      final bool right,
-      final bool bottom,
-      final StacEdgeInsets minimum,
-      final bool maintainBottomViewPadding}) = _$StacSafeAreaImpl;
+/// @nodoc
+abstract mixin class _$StacSafeAreaCopyWith<$Res>
+    implements $StacSafeAreaCopyWith<$Res> {
+  factory _$StacSafeAreaCopyWith(
+          _StacSafeArea value, $Res Function(_StacSafeArea) _then) =
+      __$StacSafeAreaCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {Map<String, dynamic>? child,
+      bool left,
+      bool top,
+      bool right,
+      bool bottom,
+      StacEdgeInsets minimum,
+      bool maintainBottomViewPadding});
 
-  factory _StacSafeArea.fromJson(Map<String, dynamic> json) =
-      _$StacSafeAreaImpl.fromJson;
+  @override
+  $StacEdgeInsetsCopyWith<$Res> get minimum;
+}
 
-  @override
-  Map<String, dynamic>? get child;
-  @override
-  bool get left;
-  @override
-  bool get top;
-  @override
-  bool get right;
-  @override
-  bool get bottom;
-  @override
-  StacEdgeInsets get minimum;
-  @override
-  bool get maintainBottomViewPadding;
+/// @nodoc
+class __$StacSafeAreaCopyWithImpl<$Res>
+    implements _$StacSafeAreaCopyWith<$Res> {
+  __$StacSafeAreaCopyWithImpl(this._self, this._then);
+
+  final _StacSafeArea _self;
+  final $Res Function(_StacSafeArea) _then;
 
   /// Create a copy of StacSafeArea
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacSafeAreaImplCopyWith<_$StacSafeAreaImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? child = freezed,
+    Object? left = null,
+    Object? top = null,
+    Object? right = null,
+    Object? bottom = null,
+    Object? minimum = null,
+    Object? maintainBottomViewPadding = null,
+  }) {
+    return _then(_StacSafeArea(
+      child: freezed == child
+          ? _self._child
+          : child // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+      left: null == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as bool,
+      top: null == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as bool,
+      right: null == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as bool,
+      bottom: null == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as bool,
+      minimum: null == minimum
+          ? _self.minimum
+          : minimum // ignore: cast_nullable_to_non_nullable
+              as StacEdgeInsets,
+      maintainBottomViewPadding: null == maintainBottomViewPadding
+          ? _self.maintainBottomViewPadding
+          : maintainBottomViewPadding // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+
+  /// Create a copy of StacSafeArea
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacEdgeInsetsCopyWith<$Res> get minimum {
+    return $StacEdgeInsetsCopyWith<$Res>(_self.minimum, (value) {
+      return _then(_self.copyWith(minimum: value));
+    });
+  }
 }
+
+// dart format on

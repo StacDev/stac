@@ -9,7 +9,7 @@ part 'stac_app_bar_theme.freezed.dart';
 part 'stac_app_bar_theme.g.dart';
 
 @freezed
-class StacAppBarTheme with _$StacAppBarTheme {
+abstract class StacAppBarTheme with _$StacAppBarTheme {
   const factory StacAppBarTheme({
     String? backgroundColor,
     String? foregroundColor,

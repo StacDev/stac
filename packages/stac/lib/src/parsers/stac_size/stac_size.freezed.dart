@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,132 +10,29 @@ part of 'stac_size.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-StacSize _$StacSizeFromJson(Map<String, dynamic> json) {
-  return _StacSize.fromJson(json);
-}
 
 /// @nodoc
 mixin _$StacSize {
-  double get width => throw _privateConstructorUsedError;
-  double get height => throw _privateConstructorUsedError;
-
-  /// Serializes this StacSize to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  double get width;
+  double get height;
 
   /// Create a copy of StacSize
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
   $StacSizeCopyWith<StacSize> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+      _$StacSizeCopyWithImpl<StacSize>(this as StacSize, _$identity);
 
-/// @nodoc
-abstract class $StacSizeCopyWith<$Res> {
-  factory $StacSizeCopyWith(StacSize value, $Res Function(StacSize) then) =
-      _$StacSizeCopyWithImpl<$Res, StacSize>;
-  @useResult
-  $Res call({double width, double height});
-}
-
-/// @nodoc
-class _$StacSizeCopyWithImpl<$Res, $Val extends StacSize>
-    implements $StacSizeCopyWith<$Res> {
-  _$StacSizeCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of StacSize
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = null,
-    Object? height = null,
-  }) {
-    return _then(_value.copyWith(
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as double,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$StacSizeImplCopyWith<$Res>
-    implements $StacSizeCopyWith<$Res> {
-  factory _$$StacSizeImplCopyWith(
-          _$StacSizeImpl value, $Res Function(_$StacSizeImpl) then) =
-      __$$StacSizeImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({double width, double height});
-}
-
-/// @nodoc
-class __$$StacSizeImplCopyWithImpl<$Res>
-    extends _$StacSizeCopyWithImpl<$Res, _$StacSizeImpl>
-    implements _$$StacSizeImplCopyWith<$Res> {
-  __$$StacSizeImplCopyWithImpl(
-      _$StacSizeImpl _value, $Res Function(_$StacSizeImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of StacSize
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? width = null,
-    Object? height = null,
-  }) {
-    return _then(_$StacSizeImpl(
-      width: null == width
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as double,
-      height: null == height
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as double,
-    ));
-  }
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$StacSizeImpl implements _StacSize {
-  const _$StacSizeImpl({required this.width, required this.height});
-
-  factory _$StacSizeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$StacSizeImplFromJson(json);
-
-  @override
-  final double width;
-  @override
-  final double height;
-
-  @override
-  String toString() {
-    return 'StacSize(width: $width, height: $height)';
-  }
+  /// Serializes this StacSize to a JSON map.
+  Map<String, dynamic> toJson();
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StacSizeImpl &&
+            other is StacSize &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
   }
@@ -143,39 +41,130 @@ class _$StacSizeImpl implements _StacSize {
   @override
   int get hashCode => Object.hash(runtimeType, width, height);
 
-  /// Create a copy of StacSize
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$StacSizeImplCopyWith<_$StacSizeImpl> get copyWith =>
-      __$$StacSizeImplCopyWithImpl<_$StacSizeImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StacSizeImplToJson(
-      this,
-    );
+  String toString() {
+    return 'StacSize(width: $width, height: $height)';
   }
 }
 
-abstract class _StacSize implements StacSize {
-  const factory _StacSize(
-      {required final double width,
-      required final double height}) = _$StacSizeImpl;
+/// @nodoc
+abstract mixin class $StacSizeCopyWith<$Res> {
+  factory $StacSizeCopyWith(StacSize value, $Res Function(StacSize) _then) =
+      _$StacSizeCopyWithImpl;
+  @useResult
+  $Res call({double width, double height});
+}
 
-  factory _StacSize.fromJson(Map<String, dynamic> json) =
-      _$StacSizeImpl.fromJson;
+/// @nodoc
+class _$StacSizeCopyWithImpl<$Res> implements $StacSizeCopyWith<$Res> {
+  _$StacSizeCopyWithImpl(this._self, this._then);
+
+  final StacSize _self;
+  final $Res Function(StacSize) _then;
+
+  /// Create a copy of StacSize
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? width = null,
+    Object? height = null,
+  }) {
+    return _then(_self.copyWith(
+      width: null == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: null == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacSize implements StacSize {
+  const _StacSize({required this.width, required this.height});
+  factory _StacSize.fromJson(Map<String, dynamic> json) =>
+      _$StacSizeFromJson(json);
 
   @override
-  double get width;
+  final double width;
   @override
-  double get height;
+  final double height;
 
   /// Create a copy of StacSize
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$StacSizeImplCopyWith<_$StacSizeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  _$StacSizeCopyWith<_StacSize> get copyWith =>
+      __$StacSizeCopyWithImpl<_StacSize>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacSizeToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacSize &&
+            (identical(other.width, width) || other.width == width) &&
+            (identical(other.height, height) || other.height == height));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, width, height);
+
+  @override
+  String toString() {
+    return 'StacSize(width: $width, height: $height)';
+  }
 }
+
+/// @nodoc
+abstract mixin class _$StacSizeCopyWith<$Res>
+    implements $StacSizeCopyWith<$Res> {
+  factory _$StacSizeCopyWith(_StacSize value, $Res Function(_StacSize) _then) =
+      __$StacSizeCopyWithImpl;
+  @override
+  @useResult
+  $Res call({double width, double height});
+}
+
+/// @nodoc
+class __$StacSizeCopyWithImpl<$Res> implements _$StacSizeCopyWith<$Res> {
+  __$StacSizeCopyWithImpl(this._self, this._then);
+
+  final _StacSize _self;
+  final $Res Function(_StacSize) _then;
+
+  /// Create a copy of StacSize
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? width = null,
+    Object? height = null,
+  }) {
+    return _then(_StacSize(
+      width: null == width
+          ? _self.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as double,
+      height: null == height
+          ? _self.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+// dart format on

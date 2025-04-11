@@ -6,16 +6,16 @@ part of 'stac_default_tab_controller.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacDefaultTabControllerImpl _$$StacDefaultTabControllerImplFromJson(
+_StacDefaultTabController _$StacDefaultTabControllerFromJson(
         Map<String, dynamic> json) =>
-    _$StacDefaultTabControllerImpl(
+    _StacDefaultTabController(
       length: (json['length'] as num).toInt(),
       initialIndex: (json['initialIndex'] as num?)?.toInt() ?? 0,
       child: json['child'] as Map<String, dynamic>,
     );
 
-Map<String, dynamic> _$$StacDefaultTabControllerImplToJson(
-        _$StacDefaultTabControllerImpl instance) =>
+Map<String, dynamic> _$StacDefaultTabControllerToJson(
+        _StacDefaultTabController instance) =>
     <String, dynamic>{
       'length': instance.length,
       'initialIndex': instance.initialIndex,

@@ -9,7 +9,7 @@ part 'stac_check_box.freezed.dart';
 part 'stac_check_box.g.dart';
 
 @freezed
-class StacCheckBox with _$StacCheckBox {
+abstract class StacCheckBox with _$StacCheckBox {
   const factory StacCheckBox({
     String? id,
     bool? value,

@@ -6,19 +6,19 @@ part of 'stac_continous_rectangle_border.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacContinousRectangleBorderImpl _$$StacContinousRectangleBorderImplFromJson(
+_StacContinousRectangleBorder _$StacContinousRectangleBorderFromJson(
         Map<String, dynamic> json) =>
-    _$StacContinousRectangleBorderImpl(
+    _StacContinousRectangleBorder(
       side: json['side'] == null
-          ? const StacBorderSide.none()
+          ? StacBorderSide.none
           : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
       borderRadius: json['borderRadius'] == null
           ? const StacBorderRadius()
           : StacBorderRadius.fromJson(json['borderRadius']),
     );
 
-Map<String, dynamic> _$$StacContinousRectangleBorderImplToJson(
-        _$StacContinousRectangleBorderImpl instance) =>
+Map<String, dynamic> _$StacContinousRectangleBorderToJson(
+        _StacContinousRectangleBorder instance) =>
     <String, dynamic>{
       'side': instance.side,
       'borderRadius': instance.borderRadius,

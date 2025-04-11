@@ -7,7 +7,7 @@ part 'stac_bottom_navigation_bar_item.freezed.dart';
 part 'stac_bottom_navigation_bar_item.g.dart';
 
 @freezed
-class StacBottomNavigationBarItem with _$StacBottomNavigationBarItem {
+abstract class StacBottomNavigationBarItem with _$StacBottomNavigationBarItem {
   const factory StacBottomNavigationBarItem({
     required Map<String, dynamic> icon,
     required String label,

@@ -8,7 +8,7 @@ part 'stac_rect.g.dart';
 enum StacRectType { fromCenter, fromCircle, fromLTRB, fromLTWH, fromPoints }
 
 @freezed
-class StacRect with _$StacRect {
+abstract class StacRect with _$StacRect {
   const factory StacRect({
     required StacRectType rectType,
     StacOffset? center,

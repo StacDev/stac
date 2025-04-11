@@ -6,8 +6,7 @@ part of 'stac_icon.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacIconImpl _$$StacIconImplFromJson(Map<String, dynamic> json) =>
-    _$StacIconImpl(
+_StacIcon _$StacIconFromJson(Map<String, dynamic> json) => _StacIcon(
       icon: json['icon'] as String,
       iconType: $enumDecodeNullable(_$IconTypeEnumMap, json['iconType']) ??
           IconType.material,
@@ -18,8 +17,7 @@ _$StacIconImpl _$$StacIconImplFromJson(Map<String, dynamic> json) =>
           $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
     );
 
-Map<String, dynamic> _$$StacIconImplToJson(_$StacIconImpl instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$StacIconToJson(_StacIcon instance) => <String, dynamic>{
       'icon': instance.icon,
       'iconType': _$IconTypeEnumMap[instance.iconType]!,
       'size': instance.size,

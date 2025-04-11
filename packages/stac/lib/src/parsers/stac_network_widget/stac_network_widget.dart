@@ -7,7 +7,7 @@ part 'stac_network_widget.freezed.dart';
 part 'stac_network_widget.g.dart';
 
 @freezed
-class StacNetworkWidget with _$StacNetworkWidget {
+abstract class StacNetworkWidget with _$StacNetworkWidget {
   const factory StacNetworkWidget({
     required StacNetworkRequest request,
   }) = _StacNetworkWidget;

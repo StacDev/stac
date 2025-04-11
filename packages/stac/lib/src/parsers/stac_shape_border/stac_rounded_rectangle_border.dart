@@ -6,9 +6,9 @@ part 'stac_rounded_rectangle_border.freezed.dart';
 part 'stac_rounded_rectangle_border.g.dart';
 
 @freezed
-class StacRoundedRactangleBorder with _$StacRoundedRactangleBorder {
+abstract class StacRoundedRactangleBorder with _$StacRoundedRactangleBorder {
   const factory StacRoundedRactangleBorder({
-    @Default(StacBorderSide.none()) StacBorderSide side,
+    @Default(StacBorderSide.none) StacBorderSide side,
     @Default(StacBorderRadius()) StacBorderRadius borderRadius,
   }) = _StacRoundedRactangleBorder;
 

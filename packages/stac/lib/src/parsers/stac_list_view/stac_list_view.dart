@@ -10,7 +10,7 @@ part 'stac_list_view.freezed.dart';
 part 'stac_list_view.g.dart';
 
 @freezed
-class StacListView with _$StacListView {
+abstract class StacListView with _$StacListView {
   const factory StacListView({
     @Default(Axis.vertical) Axis scrollDirection,
     @Default(false) bool reverse,

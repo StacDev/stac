@@ -7,7 +7,7 @@ part 'stac_modal_bottom_sheet_action.freezed.dart';
 part 'stac_modal_bottom_sheet_action.g.dart';
 
 @freezed
-class StacModalBottomSheetAction with _$StacModalBottomSheetAction {
+abstract class StacModalBottomSheetAction with _$StacModalBottomSheetAction {
   const factory StacModalBottomSheetAction({
     Map<String, dynamic>? widget,
     StacNetworkRequest? request,

@@ -6,7 +6,7 @@ part 'stac_default_bottom_navigation_controller.freezed.dart';
 part 'stac_default_bottom_navigation_controller.g.dart';
 
 @freezed
-class StacDefaultBottomNavigationController
+abstract class StacDefaultBottomNavigationController
     with _$StacDefaultBottomNavigationController {
   const factory StacDefaultBottomNavigationController({
     required int length,

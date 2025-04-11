@@ -7,7 +7,7 @@ part 'stac_flexible.freezed.dart';
 part 'stac_flexible.g.dart';
 
 @freezed
-class StacFlexible with _$StacFlexible {
+abstract class StacFlexible with _$StacFlexible {
   const factory StacFlexible({
     Map<String, dynamic>? child,
     @Default(1) int flex,

@@ -11,7 +11,7 @@ part 'stac_switch.g.dart';
 enum StacSwitchType { adaptive, cupertino, material }
 
 @freezed
-class StacSwitch with _$StacSwitch {
+abstract class StacSwitch with _$StacSwitch {
   const factory StacSwitch({
     @Default(StacSwitchType.material) StacSwitchType switchType,
     @Default(false) value,

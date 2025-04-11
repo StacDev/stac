@@ -10,7 +10,7 @@ part 'stac_single_child_scroll_view.freezed.dart';
 part 'stac_single_child_scroll_view.g.dart';
 
 @freezed
-class StacSingleChildScrollView with _$StacSingleChildScrollView {
+abstract class StacSingleChildScrollView with _$StacSingleChildScrollView {
   const factory StacSingleChildScrollView({
     @Default(Axis.vertical) Axis scrollDirection,
     @Default(false) bool reverse,

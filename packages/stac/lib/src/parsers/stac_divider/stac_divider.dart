@@ -6,7 +6,7 @@ part 'stac_divider.freezed.dart';
 part 'stac_divider.g.dart';
 
 @freezed
-class StacDivider with _$StacDivider {
+abstract class StacDivider with _$StacDivider {
   const factory StacDivider({
     double? thickness,
     double? height,

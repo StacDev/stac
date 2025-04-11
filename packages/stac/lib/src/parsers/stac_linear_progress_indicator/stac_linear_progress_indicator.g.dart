@@ -6,9 +6,9 @@ part of 'stac_linear_progress_indicator.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$StacLinearProgressIndicatorImpl _$$StacLinearProgressIndicatorImplFromJson(
+_StacLinearProgressIndicator _$StacLinearProgressIndicatorFromJson(
         Map<String, dynamic> json) =>
-    _$StacLinearProgressIndicatorImpl(
+    _StacLinearProgressIndicator(
       value: (json['value'] as num?)?.toDouble(),
       backgroundColor: json['backgroundColor'] as String?,
       color: json['color'] as String?,
@@ -20,8 +20,8 @@ _$StacLinearProgressIndicatorImpl _$$StacLinearProgressIndicatorImplFromJson(
           : StacBorderRadius.fromJson(json['borderRadius']),
     );
 
-Map<String, dynamic> _$$StacLinearProgressIndicatorImplToJson(
-        _$StacLinearProgressIndicatorImpl instance) =>
+Map<String, dynamic> _$StacLinearProgressIndicatorToJson(
+        _StacLinearProgressIndicator instance) =>
     <String, dynamic>{
       'value': instance.value,
       'backgroundColor': instance.backgroundColor,

@@ -4,7 +4,7 @@ part 'stac_duration.freezed.dart';
 part 'stac_duration.g.dart';
 
 @freezed
-class StacDuration with _$StacDuration {
+abstract class StacDuration with _$StacDuration {
   const factory StacDuration({
     @Default(0) int days,
     @Default(0) int hours,
