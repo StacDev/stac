@@ -6,14 +6,14 @@ part of 'counter_action.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CounterActionImpl _$$CounterActionImplFromJson(Map<String, dynamic> json) =>
-    _$CounterActionImpl(
+_CounterAction _$CounterActionFromJson(Map<String, dynamic> json) =>
+    _CounterAction(
       counterActionType:
           $enumDecode(_$CounterActionTypeEnumMap, json['counterActionType']),
       delta: (json['delta'] as num?)?.toInt() ?? 1,
     );
 
-Map<String, dynamic> _$$CounterActionImplToJson(_$CounterActionImpl instance) =>
+Map<String, dynamic> _$CounterActionToJson(_CounterAction instance) =>
     <String, dynamic>{
       'counterActionType':
           _$CounterActionTypeEnumMap[instance.counterActionType]!,

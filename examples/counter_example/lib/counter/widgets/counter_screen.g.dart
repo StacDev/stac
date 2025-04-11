@@ -6,8 +6,8 @@ part of 'counter_screen.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CounterScreenImpl _$$CounterScreenImplFromJson(Map<String, dynamic> json) =>
-    _$CounterScreenImpl(
+_CounterScreen _$CounterScreenFromJson(Map<String, dynamic> json) =>
+    _CounterScreen(
       title: json['title'] as String,
       description: json['description'] as String,
       initialCount: (json['initialCount'] as num?)?.toInt() ?? 0,
@@ -15,7 +15,7 @@ _$CounterScreenImpl _$$CounterScreenImplFromJson(Map<String, dynamic> json) =>
       onDecrement: json['onDecrement'] as Map<String, dynamic>?,
     );
 
-Map<String, dynamic> _$$CounterScreenImplToJson(_$CounterScreenImpl instance) =>
+Map<String, dynamic> _$CounterScreenToJson(_CounterScreen instance) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,

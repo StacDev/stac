@@ -9,7 +9,7 @@ part 'stac_webview.g.dart';
 
 /// `StacWebView` is a widget that renders a web page within a flutter application.
 @freezed
-class StacWebView with _$StacWebView {
+abstract class StacWebView with _$StacWebView {
   /// `StacWebView` constructor.
   const factory StacWebView({
     /// The URL to load in the `WebView`.
