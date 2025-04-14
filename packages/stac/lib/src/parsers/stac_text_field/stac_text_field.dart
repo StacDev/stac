@@ -14,7 +14,7 @@ part 'stac_text_field.g.dart';
 abstract class StacTextField with _$StacTextField {
   const factory StacTextField({
     StacInputDecoration? decoration,
-    @Default('') String initialValue,
+    @Default("") String initialValue,
     StacTextInputType? keyboardType,
     TextInputAction? textInputAction,
     @Default(TextCapitalization.none) TextCapitalization textCapitalization,

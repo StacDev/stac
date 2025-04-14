@@ -15,7 +15,7 @@ class StacApp extends StatelessWidget {
     List<NavigatorObserver> this.navigatorObservers =
         const <NavigatorObserver>[],
     this.builder,
-    this.title = '',
+    this.title = "",
     this.onGenerateTitle,
     this.color,
     this.theme,
@@ -56,7 +56,7 @@ class StacApp extends StatelessWidget {
     this.routerConfig,
     this.backButtonDispatcher,
     this.builder,
-    this.title = '',
+    this.title = "",
     this.onGenerateTitle,
     this.color,
     this.theme,

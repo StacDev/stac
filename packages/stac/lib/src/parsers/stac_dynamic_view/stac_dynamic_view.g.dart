@@ -10,7 +10,7 @@ _StacDynamicView _$StacDynamicViewFromJson(Map<String, dynamic> json) =>
     _StacDynamicView(
       request:
           StacNetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
-      targetPath: json['targetPath'] as String? ?? '',
+      targetPath: json['targetPath'] as String? ?? "",
       template: json['template'] as Map<String, dynamic>,
     );
 

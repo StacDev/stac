@@ -18,7 +18,7 @@ class StacAutoCompleteParser extends StacParser<StacAutoComplete> {
   Widget parse(BuildContext context, StacAutoComplete model) {
     return Autocomplete<String>(
       optionsBuilder: (TextEditingValue textEditingValue) {
-        if (textEditingValue.text == '') {
+        if (textEditingValue.text == "") {
           return const Iterable<String>.empty();
         }
         return model.options.where((String option) {

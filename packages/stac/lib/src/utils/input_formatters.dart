@@ -16,7 +16,7 @@ enum InputFormatterType {
       }
     } catch (e) {
       Log.e(e);
-      return FilteringTextInputFormatter.allow(RegExp(''));
+      return FilteringTextInputFormatter.allow(RegExp(""));
     }
   }
 }

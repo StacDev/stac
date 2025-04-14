@@ -357,7 +357,7 @@ class _$StacTextFieldCopyWithImpl<$Res>
 class _StacTextField implements StacTextField {
   const _StacTextField(
       {this.decoration,
-      this.initialValue = '',
+      this.initialValue = "",
       this.keyboardType,
       this.textInputAction,
       this.textCapitalization = TextCapitalization.none,

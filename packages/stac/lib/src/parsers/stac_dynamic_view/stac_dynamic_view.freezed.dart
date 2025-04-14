@@ -115,7 +115,7 @@ class _$StacDynamicViewCopyWithImpl<$Res>
 class _StacDynamicView implements StacDynamicView {
   const _StacDynamicView(
       {required this.request,
-      this.targetPath = '',
+      this.targetPath = "",
       required final Map<String, dynamic> template})
       : _template = template;
   factory _StacDynamicView.fromJson(Map<String, dynamic> json) =>

@@ -38,13 +38,13 @@ extension StacDecorationImageParser on StacDecorationImage? {
     late ImageProvider image;
     switch (this?.imageType) {
       case StacDecorationImageType.network:
-        image = NetworkImage(this?.src ?? '');
+        image = NetworkImage(this?.src ?? "");
         break;
       case StacDecorationImageType.file:
-        image = FileImage(File(this?.src ?? ''));
+        image = FileImage(File(this?.src ?? ""));
         break;
       case StacDecorationImageType.asset:
-        image = AssetImage(this?.src ?? '');
+        image = AssetImage(this?.src ?? "");
         break;
       default:
         return null;

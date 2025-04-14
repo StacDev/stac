@@ -12,7 +12,7 @@ part 'stac_dynamic_view.g.dart';
 abstract class StacDynamicView with _$StacDynamicView {
   const factory StacDynamicView({
     required StacNetworkRequest request,
-    @Default('') String targetPath,
+    @Default("") String targetPath,
     required Map<String, dynamic> template,
   }) = _StacDynamicView;
 

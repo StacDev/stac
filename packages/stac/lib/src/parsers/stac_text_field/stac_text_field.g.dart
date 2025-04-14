@@ -12,7 +12,7 @@ _StacTextField _$StacTextFieldFromJson(Map<String, dynamic> json) =>
           ? null
           : StacInputDecoration.fromJson(
               json['decoration'] as Map<String, dynamic>),
-      initialValue: json['initialValue'] as String? ?? '',
+      initialValue: json['initialValue'] as String? ?? "",
       keyboardType:
           $enumDecodeNullable(_$StacTextInputTypeEnumMap, json['keyboardType']),
       textInputAction: $enumDecodeNullable(

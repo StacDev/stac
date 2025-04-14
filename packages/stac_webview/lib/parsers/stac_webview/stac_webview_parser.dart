@@ -88,7 +88,7 @@ extension ColorExt on String? {
 
     final buffer = StringBuffer();
     if (this!.length == 6 || this!.length == 7) buffer.write('ff');
-    buffer.write(this!.replaceFirst('#', ''));
+    buffer.write(this!.replaceFirst('#', ""));
 
     /// convert to int
     int? intColor = int.tryParse(buffer.toString(), radix: 16);
