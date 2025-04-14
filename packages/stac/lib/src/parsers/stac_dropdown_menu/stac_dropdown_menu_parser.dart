@@ -69,15 +69,8 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
       textStyle: model.textStyle?.parse(context),
       textAlign: model.textAlign,
       inputDecorationTheme: model.inputDecorationTheme.parse(context),
-
-      // this.controller,
-      // this.initialSelection,
-      // this.onSelected,
-      // this.focusNode,
       requestFocusOnTap: model.requestFocusOnTap,
       expandedInsets: model.expandedInsets.parse,
-      // this.filterCallback,
-      // this.searchCallback,
       alignmentOffset: model.alignmentOffset?.parse,
       inputFormatters: model.inputFormatters
           .map((StacInputFormatter formatter) =>
