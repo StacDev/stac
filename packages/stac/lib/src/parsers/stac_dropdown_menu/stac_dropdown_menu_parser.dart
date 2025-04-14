@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/stac_dropdown_menu/stac_dropdown_menu.dart';
+import 'package:stac/src/parsers/stac_dropdown_menu_entry/stac_dropdown_menu_entry.dart';
 import 'package:stac/src/parsers/stac_input_decoration_theme/stac_input_decoration_theme.dart';
 import 'package:stac/src/parsers/stac_offset/stac_offset.dart';
-
-import '../../../stac.dart';
-import '../../utils/widget_type.dart';
-import '../stac_dropdown_menu_entry/stac_dropdown_menu_entry.dart';
+import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac/stac.dart';
 
 class StacDropdownMenuParser extends StacParser<StacDropdownMenu> {
   const StacDropdownMenuParser();
