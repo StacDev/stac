@@ -15,14 +15,14 @@ class MyApp extends StatelessWidget {
     ThemeData();
     return StacApp(
       title: 'Flutter Demo',
-      theme: StacTheme.fromJson(themeJson),
+      theme: StacTheme.fromJson(darkThemeJson),
       homeBuilder:
           (context) => Stac.fromAssets('assets/jsons/screens/home_screen.json'),
     );
   }
 }
 
-final Map<String, dynamic> themeJson = {
+final Map<String, dynamic> lightThemeJson = {
   "brightness": "light",
   "colorScheme": {
     "brightness": "light",
@@ -40,5 +40,26 @@ final Map<String, dynamic> themeJson = {
     "onError": "#FFFFFF",
     "outline": "#080110810",
     "onOutline": "#120110810",
+  },
+};
+
+final Map<String, dynamic> darkThemeJson = {
+  "brightness": "dark",
+  "colorScheme": {
+    "brightness": "dark",
+    "primary": "#95E183",
+    "onPrimary": "#050608",
+    "secondary": "#95E183",
+    "onSecondary": "#FFFFFF",
+    "background": "#050608",
+    "onBackground": "#FFFFFF",
+    "surface": "#050608",
+    "onSurface": "#FFFFFF",
+    "surfaceVariant": "#101214",
+    "onSurfaceVariant": "#65FFFFFF",
+    "error": "#FF6565",
+    "onError": "#050608",
+    "outline": "#08FFFFFF",
+    "onOutline": "#12FFFFFF",
   },
 };
