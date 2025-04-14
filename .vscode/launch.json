@@ -1,0 +1,20 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "stac_gallery",
+            "cwd": "examples/stac_gallery",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "counter_example",
+            "cwd": "examples/counter_example",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}
