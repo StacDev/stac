@@ -1,0 +1,24 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "children": [
+                {
+                    "type": "text",
+                    "data": "Hello World"
+                },
+                {
+                    "type": "filledButton",
+                    "child": {
+                        "type": "text",
+                        "data": "Click Me!!"
+                    },
+                    "onPressed": {}
+                }
+            ]
+        }
+    }
+}

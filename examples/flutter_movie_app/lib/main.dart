@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
 
 void main() async {
+  await Stac.initialize();
+
   runApp(const MyApp());
 }
 
@@ -9,59 +12,33 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    ThemeData();
+    return StacApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: StacTheme.fromJson(themeJson),
+      homeBuilder:
+          (context) => Stac.fromAssets('assets/jsons/screens/home_screen.json'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-}
+final Map<String, dynamic> themeJson = {
+  "brightness": "light",
+  "colorScheme": {
+    "brightness": "light",
+    "primary": "#14865F",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#14865F",
+    "onSecondary": "#FFFFFF",
+    "background": "#FFFFFF",
+    "onBackground": "#010810",
+    "surface": "#FFFFFF",
+    "onSurface": "#010810",
+    "surfaceVariant": "#F6F7F8",
+    "onSurfaceVariant": "#65010810",
+    "error": "#FD1717",
+    "onError": "#FFFFFF",
+    "outline": "#080110810",
+    "onOutline": "#120110810",
+  },
+};
