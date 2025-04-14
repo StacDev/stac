@@ -35,19 +35,8 @@ abstract class StacDropdownMenu with _$StacDropdownMenu {
       StacOffset? alignmentOffset,
       StacEdgeInsets? expandedInsets,
       bool? requestFocusOnTap,
-
-      // TextEditingController? controller;
-      // T? initialSelection;
-      // ValueChanged<T?>? onSelected;
-      // FocusNode? focusNode;
-
+      dynamic initialSelection,
       @Default([]) List<StacDropdownMenuEntry> dropdownMenuEntries,
-
-      //    FilterCallback<T>? filterCallback;
-      //    SearchCallback<T>? searchCallback,
-      //
-      //
-      //
       @Default(DropdownMenuCloseBehavior.all)
       DropdownMenuCloseBehavior? closeBehavior}) = _StacDropdownMenu;
 

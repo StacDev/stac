@@ -35,8 +35,7 @@ mixin _$StacDropdownMenu {
   StacOffset? get alignmentOffset;
   StacEdgeInsets? get expandedInsets;
   bool? get requestFocusOnTap; // TextEditingController? controller;
-// T? initialSelection;
-// ValueChanged<T?>? onSelected;
+  dynamic get initialSelection; // ValueChanged<T?>? onSelected;
 // FocusNode? focusNode;
   List<StacDropdownMenuEntry>
       get dropdownMenuEntries; //    FilterCallback<T>? filterCallback;
@@ -100,6 +99,8 @@ mixin _$StacDropdownMenu {
             (identical(other.requestFocusOnTap, requestFocusOnTap) ||
                 other.requestFocusOnTap == requestFocusOnTap) &&
             const DeepCollectionEquality()
+                .equals(other.initialSelection, initialSelection) &&
+            const DeepCollectionEquality()
                 .equals(other.dropdownMenuEntries, dropdownMenuEntries) &&
             (identical(other.closeBehavior, closeBehavior) ||
                 other.closeBehavior == closeBehavior));
@@ -129,13 +130,14 @@ mixin _$StacDropdownMenu {
         alignmentOffset,
         expandedInsets,
         requestFocusOnTap,
+        const DeepCollectionEquality().hash(initialSelection),
         const DeepCollectionEquality().hash(dropdownMenuEntries),
         closeBehavior
       ]);
 
   @override
   String toString() {
-    return 'StacDropdownMenu(enabled: $enabled, width: $width, menuHeight: $menuHeight, leadingIcon: $leadingIcon, trailingIcon: $trailingIcon, label: $label, hintText: $hintText, helperText: $helperText, errorText: $errorText, selectedTrailingIcon: $selectedTrailingIcon, enableFilter: $enableFilter, enableSearch: $enableSearch, keyboardType: $keyboardType, textStyle: $textStyle, textAlign: $textAlign, inputDecorationTheme: $inputDecorationTheme, inputFormatters: $inputFormatters, alignmentOffset: $alignmentOffset, expandedInsets: $expandedInsets, requestFocusOnTap: $requestFocusOnTap, dropdownMenuEntries: $dropdownMenuEntries, closeBehavior: $closeBehavior)';
+    return 'StacDropdownMenu(enabled: $enabled, width: $width, menuHeight: $menuHeight, leadingIcon: $leadingIcon, trailingIcon: $trailingIcon, label: $label, hintText: $hintText, helperText: $helperText, errorText: $errorText, selectedTrailingIcon: $selectedTrailingIcon, enableFilter: $enableFilter, enableSearch: $enableSearch, keyboardType: $keyboardType, textStyle: $textStyle, textAlign: $textAlign, inputDecorationTheme: $inputDecorationTheme, inputFormatters: $inputFormatters, alignmentOffset: $alignmentOffset, expandedInsets: $expandedInsets, requestFocusOnTap: $requestFocusOnTap, initialSelection: $initialSelection, dropdownMenuEntries: $dropdownMenuEntries, closeBehavior: $closeBehavior)';
   }
 }
 
@@ -166,6 +168,7 @@ abstract mixin class $StacDropdownMenuCopyWith<$Res> {
       StacOffset? alignmentOffset,
       StacEdgeInsets? expandedInsets,
       bool? requestFocusOnTap,
+      dynamic initialSelection,
       List<StacDropdownMenuEntry> dropdownMenuEntries,
       DropdownMenuCloseBehavior? closeBehavior});
 
@@ -208,6 +211,7 @@ class _$StacDropdownMenuCopyWithImpl<$Res>
     Object? alignmentOffset = freezed,
     Object? expandedInsets = freezed,
     Object? requestFocusOnTap = freezed,
+    Object? initialSelection = freezed,
     Object? dropdownMenuEntries = null,
     Object? closeBehavior = freezed,
   }) {
@@ -292,6 +296,10 @@ class _$StacDropdownMenuCopyWithImpl<$Res>
           ? _self.requestFocusOnTap
           : requestFocusOnTap // ignore: cast_nullable_to_non_nullable
               as bool?,
+      initialSelection: freezed == initialSelection
+          ? _self.initialSelection
+          : initialSelection // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       dropdownMenuEntries: null == dropdownMenuEntries
           ? _self.dropdownMenuEntries
           : dropdownMenuEntries // ignore: cast_nullable_to_non_nullable
@@ -385,6 +393,7 @@ class _StacDropdownMenu implements StacDropdownMenu {
       this.alignmentOffset,
       this.expandedInsets,
       this.requestFocusOnTap,
+      this.initialSelection,
       final List<StacDropdownMenuEntry> dropdownMenuEntries = const [],
       this.closeBehavior = DropdownMenuCloseBehavior.all})
       : _leadingIcon = leadingIcon,
@@ -479,12 +488,11 @@ class _StacDropdownMenu implements StacDropdownMenu {
   @override
   final bool? requestFocusOnTap;
 // TextEditingController? controller;
-// T? initialSelection;
+  @override
+  final dynamic initialSelection;
 // ValueChanged<T?>? onSelected;
 // FocusNode? focusNode;
   final List<StacDropdownMenuEntry> _dropdownMenuEntries;
-// TextEditingController? controller;
-// T? initialSelection;
 // ValueChanged<T?>? onSelected;
 // FocusNode? focusNode;
   @override
@@ -563,6 +571,8 @@ class _StacDropdownMenu implements StacDropdownMenu {
             (identical(other.requestFocusOnTap, requestFocusOnTap) ||
                 other.requestFocusOnTap == requestFocusOnTap) &&
             const DeepCollectionEquality()
+                .equals(other.initialSelection, initialSelection) &&
+            const DeepCollectionEquality()
                 .equals(other._dropdownMenuEntries, _dropdownMenuEntries) &&
             (identical(other.closeBehavior, closeBehavior) ||
                 other.closeBehavior == closeBehavior));
@@ -592,13 +602,14 @@ class _StacDropdownMenu implements StacDropdownMenu {
         alignmentOffset,
         expandedInsets,
         requestFocusOnTap,
+        const DeepCollectionEquality().hash(initialSelection),
         const DeepCollectionEquality().hash(_dropdownMenuEntries),
         closeBehavior
       ]);
 
   @override
   String toString() {
-    return 'StacDropdownMenu(enabled: $enabled, width: $width, menuHeight: $menuHeight, leadingIcon: $leadingIcon, trailingIcon: $trailingIcon, label: $label, hintText: $hintText, helperText: $helperText, errorText: $errorText, selectedTrailingIcon: $selectedTrailingIcon, enableFilter: $enableFilter, enableSearch: $enableSearch, keyboardType: $keyboardType, textStyle: $textStyle, textAlign: $textAlign, inputDecorationTheme: $inputDecorationTheme, inputFormatters: $inputFormatters, alignmentOffset: $alignmentOffset, expandedInsets: $expandedInsets, requestFocusOnTap: $requestFocusOnTap, dropdownMenuEntries: $dropdownMenuEntries, closeBehavior: $closeBehavior)';
+    return 'StacDropdownMenu(enabled: $enabled, width: $width, menuHeight: $menuHeight, leadingIcon: $leadingIcon, trailingIcon: $trailingIcon, label: $label, hintText: $hintText, helperText: $helperText, errorText: $errorText, selectedTrailingIcon: $selectedTrailingIcon, enableFilter: $enableFilter, enableSearch: $enableSearch, keyboardType: $keyboardType, textStyle: $textStyle, textAlign: $textAlign, inputDecorationTheme: $inputDecorationTheme, inputFormatters: $inputFormatters, alignmentOffset: $alignmentOffset, expandedInsets: $expandedInsets, requestFocusOnTap: $requestFocusOnTap, initialSelection: $initialSelection, dropdownMenuEntries: $dropdownMenuEntries, closeBehavior: $closeBehavior)';
   }
 }
 
@@ -631,6 +642,7 @@ abstract mixin class _$StacDropdownMenuCopyWith<$Res>
       StacOffset? alignmentOffset,
       StacEdgeInsets? expandedInsets,
       bool? requestFocusOnTap,
+      dynamic initialSelection,
       List<StacDropdownMenuEntry> dropdownMenuEntries,
       DropdownMenuCloseBehavior? closeBehavior});
 
@@ -677,6 +689,7 @@ class __$StacDropdownMenuCopyWithImpl<$Res>
     Object? alignmentOffset = freezed,
     Object? expandedInsets = freezed,
     Object? requestFocusOnTap = freezed,
+    Object? initialSelection = freezed,
     Object? dropdownMenuEntries = null,
     Object? closeBehavior = freezed,
   }) {
@@ -761,6 +774,10 @@ class __$StacDropdownMenuCopyWithImpl<$Res>
           ? _self.requestFocusOnTap
           : requestFocusOnTap // ignore: cast_nullable_to_non_nullable
               as bool?,
+      initialSelection: freezed == initialSelection
+          ? _self.initialSelection
+          : initialSelection // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       dropdownMenuEntries: null == dropdownMenuEntries
           ? _self._dropdownMenuEntries
           : dropdownMenuEntries // ignore: cast_nullable_to_non_nullable

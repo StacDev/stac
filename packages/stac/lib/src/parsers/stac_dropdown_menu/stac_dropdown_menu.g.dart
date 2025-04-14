@@ -45,6 +45,7 @@ _StacDropdownMenu _$StacDropdownMenuFromJson(Map<String, dynamic> json) =>
           ? null
           : StacEdgeInsets.fromJson(json['expandedInsets']),
       requestFocusOnTap: json['requestFocusOnTap'] as bool?,
+      initialSelection: json['initialSelection'],
       dropdownMenuEntries: (json['dropdownMenuEntries'] as List<dynamic>?)
               ?.map((e) =>
                   StacDropdownMenuEntry.fromJson(e as Map<String, dynamic>))
@@ -77,6 +78,7 @@ Map<String, dynamic> _$StacDropdownMenuToJson(_StacDropdownMenu instance) =>
       'alignmentOffset': instance.alignmentOffset,
       'expandedInsets': instance.expandedInsets,
       'requestFocusOnTap': instance.requestFocusOnTap,
+      'initialSelection': instance.initialSelection,
       'dropdownMenuEntries': instance.dropdownMenuEntries,
       'closeBehavior':
           _$DropdownMenuCloseBehaviorEnumMap[instance.closeBehavior],

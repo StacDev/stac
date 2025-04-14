@@ -33,7 +33,7 @@ class _DropDownMenuWidget extends StatefulWidget {
 }
 
 class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
-  late final TextEditingController _controller;
+  final TextEditingController _controller = TextEditingController();
   final _focusNode = FocusNode();
   late final StacDropdownMenu model;
 
@@ -46,6 +46,7 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
   @override
   Widget build(BuildContext context) {
     return DropdownMenu(
+      initialSelection: model.initialSelection,
       focusNode: _focusNode,
       controller: _controller,
       dropdownMenuEntries: model.dropdownMenuEntries
