@@ -20,6 +20,9 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | menuHeight           | `double?`                       | The height of the dropdown menu.                          |
 | inputDecorationTheme | `StacInputDecorationTheme?`     | The theme to use for the input decoration.                |
 | textStyle            | `StacTextStyle?`                | The text style to use for the dropdown menu.              |
+| enableFilter         | `bool`                          | Whether to enable filtering. Defaults to `false`.         |
+| enableSearch         | `bool`                          | Whether to enable search. Defaults to `false`.            |
+| requestFocusOnTap    | `bool`                          | Whether to request focus on tap. Defaults to `true`.      |
 
 # DropdownMenuEntry
 
@@ -76,4 +79,4 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
     }
   ]
 }
-```6
+```
