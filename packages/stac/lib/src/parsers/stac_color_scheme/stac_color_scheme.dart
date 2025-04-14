@@ -26,7 +26,7 @@ abstract class StacColorScheme with _$StacColorScheme {
     String? errorContainer,
     String? onErrorContainer,
     String? background,
-    required String onBackground,
+    String? onBackground,
     required String surface,
     required String onSurface,
     String? surfaceVariant,

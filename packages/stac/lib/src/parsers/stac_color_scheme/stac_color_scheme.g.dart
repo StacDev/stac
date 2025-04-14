@@ -26,7 +26,7 @@ _StacColorScheme _$StacColorSchemeFromJson(Map<String, dynamic> json) =>
       errorContainer: json['errorContainer'] as String?,
       onErrorContainer: json['onErrorContainer'] as String?,
       background: json['background'] as String?,
-      onBackground: json['onBackground'] as String,
+      onBackground: json['onBackground'] as String?,
       surface: json['surface'] as String,
       onSurface: json['onSurface'] as String,
       surfaceVariant: json['surfaceVariant'] as String?,

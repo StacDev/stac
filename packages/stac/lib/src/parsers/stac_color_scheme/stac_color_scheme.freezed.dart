@@ -33,7 +33,7 @@ mixin _$StacColorScheme {
   String? get errorContainer;
   String? get onErrorContainer;
   String? get background;
-  String get onBackground;
+  String? get onBackground;
   String get surface;
   String get onSurface;
   String? get surfaceVariant;
@@ -188,7 +188,7 @@ abstract mixin class $StacColorSchemeCopyWith<$Res> {
       String? errorContainer,
       String? onErrorContainer,
       String? background,
-      String onBackground,
+      String? onBackground,
       String surface,
       String onSurface,
       String? surfaceVariant,
@@ -234,7 +234,7 @@ class _$StacColorSchemeCopyWithImpl<$Res>
     Object? errorContainer = freezed,
     Object? onErrorContainer = freezed,
     Object? background = freezed,
-    Object? onBackground = null,
+    Object? onBackground = freezed,
     Object? surface = null,
     Object? onSurface = null,
     Object? surfaceVariant = freezed,
@@ -321,10 +321,10 @@ class _$StacColorSchemeCopyWithImpl<$Res>
           ? _self.background
           : background // ignore: cast_nullable_to_non_nullable
               as String?,
-      onBackground: null == onBackground
+      onBackground: freezed == onBackground
           ? _self.onBackground
           : onBackground // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       surface: null == surface
           ? _self.surface
           : surface // ignore: cast_nullable_to_non_nullable
@@ -399,7 +399,7 @@ class _StacColorScheme implements StacColorScheme {
       this.errorContainer,
       this.onErrorContainer,
       this.background,
-      required this.onBackground,
+      this.onBackground,
       required this.surface,
       required this.onSurface,
       this.surfaceVariant,
@@ -452,7 +452,7 @@ class _StacColorScheme implements StacColorScheme {
   @override
   final String? background;
   @override
-  final String onBackground;
+  final String? onBackground;
   @override
   final String surface;
   @override
@@ -625,7 +625,7 @@ abstract mixin class _$StacColorSchemeCopyWith<$Res>
       String? errorContainer,
       String? onErrorContainer,
       String? background,
-      String onBackground,
+      String? onBackground,
       String surface,
       String onSurface,
       String? surfaceVariant,
@@ -671,7 +671,7 @@ class __$StacColorSchemeCopyWithImpl<$Res>
     Object? errorContainer = freezed,
     Object? onErrorContainer = freezed,
     Object? background = freezed,
-    Object? onBackground = null,
+    Object? onBackground = freezed,
     Object? surface = null,
     Object? onSurface = null,
     Object? surfaceVariant = freezed,
@@ -758,10 +758,10 @@ class __$StacColorSchemeCopyWithImpl<$Res>
           ? _self.background
           : background // ignore: cast_nullable_to_non_nullable
               as String?,
-      onBackground: null == onBackground
+      onBackground: freezed == onBackground
           ? _self.onBackground
           : onBackground // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       surface: null == surface
           ? _self.surface
           : surface // ignore: cast_nullable_to_non_nullable
