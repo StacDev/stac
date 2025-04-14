@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/framework/framework.dart' show Stac;
 import 'package:stac/src/parsers/parsers.dart';
-
-import '../../../stac.dart' show Stac;
 
 part 'stac_dropdown_menu_entry.freezed.dart';
 part 'stac_dropdown_menu_entry.g.dart';
@@ -30,7 +29,7 @@ extension StacDropdownMenuEntryParser on StacDropdownMenuEntry? {
       label: this!.label,
       labelWidget: Stac.fromJson(this?.labelWidget, context),
       leadingIcon: Stac.fromJson(this?.leadingIcon, context),
-      enabled: this?.enabled ?? false,
+      enabled: this?.enabled ?? true,
       style: this?.style?.parseText(context),
     );
   }
