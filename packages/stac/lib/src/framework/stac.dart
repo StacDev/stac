@@ -9,6 +9,7 @@ import 'package:stac/src/action_parsers/stac_network_request/stac_network_reques
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/parsers.dart';
 import 'package:stac/src/parsers/stac_custom_scroll_view/stac_custom_scroll_view_parser.dart';
+import 'package:stac/src/parsers/stac_dropdown_menu/stac_dropdown_menu_parser.dart';
 import 'package:stac/src/parsers/stac_sliver_app_bar/stac_sliver_app_bar_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/log.dart';
@@ -99,6 +100,7 @@ class Stac {
     const StacFittedBoxParser(),
     const StacLimitedBoxParser(),
     const StacDynamicViewParser(),
+    const StacDropdownMenuParser()
   ];
 
   static final _actionParsers = <StacActionParser>[

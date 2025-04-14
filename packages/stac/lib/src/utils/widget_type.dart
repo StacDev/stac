@@ -16,6 +16,7 @@ enum WidgetType {
   coloredBox,
   column,
   container,
+  dropdownMenu,
   customScrollView,
   defaultBottomNavigationController,
   defaultTabController,

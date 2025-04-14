@@ -1,0 +1,65 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Stac DropDown"
+    }
+  },
+  "body": {
+    "type": "column",
+    "children": [
+      {
+        "type": "dropdownMenu",
+        "leadingIcon": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "arrow_downward",
+          "size": 32
+        },
+        "trailingIcon": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "double_arrow",
+          "size": 32
+        },
+        "initialSelection": "b",
+        "dropdownMenuEntries": [
+          {
+            "label": "A",
+            "value": "a",
+            "leadingIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "arrow_downward_sharp",
+              "size": 32
+            },
+            "trailingIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "arrow_forward_ios",
+              "size": 32
+            }
+          },
+          {
+            "label": "B",
+            "value": "b",
+            "leadingIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "arrow_downward_sharp",
+              "size": 32
+            },
+            "trailingIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "arrow_forward_ios",
+              "size": 32
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
