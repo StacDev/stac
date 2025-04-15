@@ -1,0 +1,1796 @@
+// dart format width=80
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'stac_theme.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+
+/// @nodoc
+mixin _$StacTheme {
+// GENERAL CONFIGURATION
+  bool? get applyElevationOverlayColor;
+  StacInputDecorationTheme? get inputDecorationTheme;
+  MaterialTapTargetSize? get materialTapTargetSize;
+  TargetPlatform? get platform; // ScrollbarThemeData? scrollbarTheme, // Todo
+  bool? get useMaterial3; // COLOR
+  StacColorScheme? get colorScheme;
+  Brightness? get brightness;
+  String?
+      get colorSchemeSeed; // [colorScheme] is the preferred way to configure colors. The [Color] properties
+// listed below (as well as primarySwatch) will gradually be phased out, see
+// https://github.com/flutter/flutter/issues/91772.
+  String? get canvasColor;
+  String? get cardColor;
+  String? get disabledColor;
+  String? get dividerColor;
+  String? get focusColor;
+  String? get highlightColor;
+  String? get hintColor;
+  String? get hoverColor;
+  String? get indicatorColor;
+  String? get primaryColor;
+  String? get primaryColorDark;
+  String? get primaryColorLight;
+  StacMaterialColor? get primarySwatch;
+  String? get scaffoldBackgroundColor;
+  String? get secondaryHeaderColor;
+  String? get shadowColor;
+  String? get splashColor;
+  String? get unselectedWidgetColor; // TYPOGRAPHY & ICONOGRAPHY
+  String? get fontFamily;
+  List<String>? get fontFamilyFallback;
+  String? get package;
+  StacIconThemeData? get iconTheme;
+  StacIconThemeData? get primaryIconTheme; // TextTheme? primaryTextTheme,
+// TextTheme? textTheme,
+// Typography? typography,
+// COMPONENT THEMES
+// ActionIconThemeData? actionIconTheme, // todo
+  StacAppBarTheme? get appBarTheme; // BadgeThemeData? badgeTheme, // todo
+// MaterialBannerThemeData? bannerTheme, // todo
+  StacBottomAppBarTheme? get bottomAppBarTheme;
+  StacBottomNavBarThemeData? get bottomNavigationBarTheme;
+  StacBottomSheetThemeData?
+      get bottomSheetTheme; // ButtonThemeData? buttonTheme, // todo
+  StacCardThemeData? get cardTheme; // CheckboxThemeData? checkboxTheme, // todo
+// ChipThemeData? chipTheme,
+// DataTableThemeData? dataTableTheme,
+// DatePickerThemeData? datePickerTheme, // todo
+  StacDialogTheme? get dialogTheme; // DividerThemeData? dividerTheme,
+// DrawerThemeData? drawerTheme,
+// DropdownMenuThemeData? dropdownMenuTheme,
+  StacButtonStyle?
+      get elevatedButtonTheme; // ExpansionTileThemeData? expansionTileTheme,
+// FilledButtonThemeData? filledButtonTheme,
+  StacFloatingActionButtonThemeData? get floatingActionButtonTheme;
+  StacButtonStyle? get iconButtonTheme;
+  StacListTileThemeData? get listTileTheme; // MenuBarThemeData? menuBarTheme,
+// MenuButtonThemeData? menuButtonTheme,
+// MenuThemeData? menuTheme,
+  StacNavigationBarThemeData?
+      get navigationBarTheme; // NavigationDrawerThemeData? navigationDrawerTheme,
+// NavigationRailThemeData? navigationRailTheme,
+  StacButtonStyle?
+      get outlinedButtonTheme; // PopupMenuThemeData? popupMenuTheme,
+// ProgressIndicatorThemeData? progressIndicatorTheme,
+// RadioThemeData? radioTheme,
+// SearchBarThemeData? searchBarTheme,
+// SearchViewThemeData? searchViewTheme,
+// SegmentedButtonThemeData? segmentedButtonTheme,
+// SliderThemeData? sliderTheme,
+// SnackBarThemeData? snackBarTheme,
+// SwitchThemeData? switchTheme,
+  StacTabBarThemeData? get tabBarTheme;
+  StacButtonStyle? get textButtonTheme;
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $StacThemeCopyWith<StacTheme> get copyWith =>
+      _$StacThemeCopyWithImpl<StacTheme>(this as StacTheme, _$identity);
+
+  /// Serializes this StacTheme to a JSON map.
+  Map<String, dynamic> toJson();
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is StacTheme &&
+            (identical(other.applyElevationOverlayColor, applyElevationOverlayColor) ||
+                other.applyElevationOverlayColor ==
+                    applyElevationOverlayColor) &&
+            (identical(other.inputDecorationTheme, inputDecorationTheme) ||
+                other.inputDecorationTheme == inputDecorationTheme) &&
+            (identical(other.materialTapTargetSize, materialTapTargetSize) ||
+                other.materialTapTargetSize == materialTapTargetSize) &&
+            (identical(other.platform, platform) ||
+                other.platform == platform) &&
+            (identical(other.useMaterial3, useMaterial3) ||
+                other.useMaterial3 == useMaterial3) &&
+            (identical(other.colorScheme, colorScheme) ||
+                other.colorScheme == colorScheme) &&
+            (identical(other.brightness, brightness) ||
+                other.brightness == brightness) &&
+            (identical(other.colorSchemeSeed, colorSchemeSeed) ||
+                other.colorSchemeSeed == colorSchemeSeed) &&
+            (identical(other.canvasColor, canvasColor) ||
+                other.canvasColor == canvasColor) &&
+            (identical(other.cardColor, cardColor) ||
+                other.cardColor == cardColor) &&
+            (identical(other.disabledColor, disabledColor) ||
+                other.disabledColor == disabledColor) &&
+            (identical(other.dividerColor, dividerColor) ||
+                other.dividerColor == dividerColor) &&
+            (identical(other.focusColor, focusColor) ||
+                other.focusColor == focusColor) &&
+            (identical(other.highlightColor, highlightColor) ||
+                other.highlightColor == highlightColor) &&
+            (identical(other.hintColor, hintColor) ||
+                other.hintColor == hintColor) &&
+            (identical(other.hoverColor, hoverColor) ||
+                other.hoverColor == hoverColor) &&
+            (identical(other.indicatorColor, indicatorColor) ||
+                other.indicatorColor == indicatorColor) &&
+            (identical(other.primaryColor, primaryColor) ||
+                other.primaryColor == primaryColor) &&
+            (identical(other.primaryColorDark, primaryColorDark) ||
+                other.primaryColorDark == primaryColorDark) &&
+            (identical(other.primaryColorLight, primaryColorLight) ||
+                other.primaryColorLight == primaryColorLight) &&
+            (identical(other.primarySwatch, primarySwatch) ||
+                other.primarySwatch == primarySwatch) &&
+            (identical(other.scaffoldBackgroundColor, scaffoldBackgroundColor) ||
+                other.scaffoldBackgroundColor == scaffoldBackgroundColor) &&
+            (identical(other.secondaryHeaderColor, secondaryHeaderColor) ||
+                other.secondaryHeaderColor == secondaryHeaderColor) &&
+            (identical(other.shadowColor, shadowColor) ||
+                other.shadowColor == shadowColor) &&
+            (identical(other.splashColor, splashColor) ||
+                other.splashColor == splashColor) &&
+            (identical(other.unselectedWidgetColor, unselectedWidgetColor) ||
+                other.unselectedWidgetColor == unselectedWidgetColor) &&
+            (identical(other.fontFamily, fontFamily) ||
+                other.fontFamily == fontFamily) &&
+            const DeepCollectionEquality()
+                .equals(other.fontFamilyFallback, fontFamilyFallback) &&
+            (identical(other.package, package) || other.package == package) &&
+            (identical(other.iconTheme, iconTheme) ||
+                other.iconTheme == iconTheme) &&
+            (identical(other.primaryIconTheme, primaryIconTheme) ||
+                other.primaryIconTheme == primaryIconTheme) &&
+            (identical(other.appBarTheme, appBarTheme) ||
+                other.appBarTheme == appBarTheme) &&
+            (identical(other.bottomAppBarTheme, bottomAppBarTheme) ||
+                other.bottomAppBarTheme == bottomAppBarTheme) &&
+            (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
+            (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
+            (identical(other.cardTheme, cardTheme) || other.cardTheme == cardTheme) &&
+            (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
+            (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
+            (identical(other.iconButtonTheme, iconButtonTheme) || other.iconButtonTheme == iconButtonTheme) &&
+            (identical(other.listTileTheme, listTileTheme) || other.listTileTheme == listTileTheme) &&
+            (identical(other.navigationBarTheme, navigationBarTheme) || other.navigationBarTheme == navigationBarTheme) &&
+            (identical(other.outlinedButtonTheme, outlinedButtonTheme) || other.outlinedButtonTheme == outlinedButtonTheme) &&
+            (identical(other.tabBarTheme, tabBarTheme) || other.tabBarTheme == tabBarTheme) &&
+            (identical(other.textButtonTheme, textButtonTheme) || other.textButtonTheme == textButtonTheme));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        applyElevationOverlayColor,
+        inputDecorationTheme,
+        materialTapTargetSize,
+        platform,
+        useMaterial3,
+        colorScheme,
+        brightness,
+        colorSchemeSeed,
+        canvasColor,
+        cardColor,
+        disabledColor,
+        dividerColor,
+        focusColor,
+        highlightColor,
+        hintColor,
+        hoverColor,
+        indicatorColor,
+        primaryColor,
+        primaryColorDark,
+        primaryColorLight,
+        primarySwatch,
+        scaffoldBackgroundColor,
+        secondaryHeaderColor,
+        shadowColor,
+        splashColor,
+        unselectedWidgetColor,
+        fontFamily,
+        const DeepCollectionEquality().hash(fontFamilyFallback),
+        package,
+        iconTheme,
+        primaryIconTheme,
+        appBarTheme,
+        bottomAppBarTheme,
+        bottomNavigationBarTheme,
+        bottomSheetTheme,
+        cardTheme,
+        dialogTheme,
+        elevatedButtonTheme,
+        floatingActionButtonTheme,
+        iconButtonTheme,
+        listTileTheme,
+        navigationBarTheme,
+        outlinedButtonTheme,
+        tabBarTheme,
+        textButtonTheme
+      ]);
+
+  @override
+  String toString() {
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, appBarTheme: $appBarTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+  }
+}
+
+/// @nodoc
+abstract mixin class $StacThemeCopyWith<$Res> {
+  factory $StacThemeCopyWith(StacTheme value, $Res Function(StacTheme) _then) =
+      _$StacThemeCopyWithImpl;
+  @useResult
+  $Res call(
+      {bool? applyElevationOverlayColor,
+      StacInputDecorationTheme? inputDecorationTheme,
+      MaterialTapTargetSize? materialTapTargetSize,
+      TargetPlatform? platform,
+      bool? useMaterial3,
+      StacColorScheme? colorScheme,
+      Brightness? brightness,
+      String? colorSchemeSeed,
+      String? canvasColor,
+      String? cardColor,
+      String? disabledColor,
+      String? dividerColor,
+      String? focusColor,
+      String? highlightColor,
+      String? hintColor,
+      String? hoverColor,
+      String? indicatorColor,
+      String? primaryColor,
+      String? primaryColorDark,
+      String? primaryColorLight,
+      StacMaterialColor? primarySwatch,
+      String? scaffoldBackgroundColor,
+      String? secondaryHeaderColor,
+      String? shadowColor,
+      String? splashColor,
+      String? unselectedWidgetColor,
+      String? fontFamily,
+      List<String>? fontFamilyFallback,
+      String? package,
+      StacIconThemeData? iconTheme,
+      StacIconThemeData? primaryIconTheme,
+      StacAppBarTheme? appBarTheme,
+      StacBottomAppBarTheme? bottomAppBarTheme,
+      StacBottomNavBarThemeData? bottomNavigationBarTheme,
+      StacBottomSheetThemeData? bottomSheetTheme,
+      StacCardThemeData? cardTheme,
+      StacDialogTheme? dialogTheme,
+      StacButtonStyle? elevatedButtonTheme,
+      StacFloatingActionButtonThemeData? floatingActionButtonTheme,
+      StacButtonStyle? iconButtonTheme,
+      StacListTileThemeData? listTileTheme,
+      StacNavigationBarThemeData? navigationBarTheme,
+      StacButtonStyle? outlinedButtonTheme,
+      StacTabBarThemeData? tabBarTheme,
+      StacButtonStyle? textButtonTheme});
+
+  $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme;
+  $StacColorSchemeCopyWith<$Res>? get colorScheme;
+  $StacMaterialColorCopyWith<$Res>? get primarySwatch;
+  $StacIconThemeDataCopyWith<$Res>? get iconTheme;
+  $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme;
+  $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
+  $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
+  $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme;
+  $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme;
+  $StacCardThemeDataCopyWith<$Res>? get cardTheme;
+  $StacDialogThemeCopyWith<$Res>? get dialogTheme;
+  $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
+  $StacFloatingActionButtonThemeDataCopyWith<$Res>?
+      get floatingActionButtonTheme;
+  $StacButtonStyleCopyWith<$Res>? get iconButtonTheme;
+  $StacListTileThemeDataCopyWith<$Res>? get listTileTheme;
+  $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme;
+  $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme;
+  $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme;
+  $StacButtonStyleCopyWith<$Res>? get textButtonTheme;
+}
+
+/// @nodoc
+class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
+  _$StacThemeCopyWithImpl(this._self, this._then);
+
+  final StacTheme _self;
+  final $Res Function(StacTheme) _then;
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? applyElevationOverlayColor = freezed,
+    Object? inputDecorationTheme = freezed,
+    Object? materialTapTargetSize = freezed,
+    Object? platform = freezed,
+    Object? useMaterial3 = freezed,
+    Object? colorScheme = freezed,
+    Object? brightness = freezed,
+    Object? colorSchemeSeed = freezed,
+    Object? canvasColor = freezed,
+    Object? cardColor = freezed,
+    Object? disabledColor = freezed,
+    Object? dividerColor = freezed,
+    Object? focusColor = freezed,
+    Object? highlightColor = freezed,
+    Object? hintColor = freezed,
+    Object? hoverColor = freezed,
+    Object? indicatorColor = freezed,
+    Object? primaryColor = freezed,
+    Object? primaryColorDark = freezed,
+    Object? primaryColorLight = freezed,
+    Object? primarySwatch = freezed,
+    Object? scaffoldBackgroundColor = freezed,
+    Object? secondaryHeaderColor = freezed,
+    Object? shadowColor = freezed,
+    Object? splashColor = freezed,
+    Object? unselectedWidgetColor = freezed,
+    Object? fontFamily = freezed,
+    Object? fontFamilyFallback = freezed,
+    Object? package = freezed,
+    Object? iconTheme = freezed,
+    Object? primaryIconTheme = freezed,
+    Object? appBarTheme = freezed,
+    Object? bottomAppBarTheme = freezed,
+    Object? bottomNavigationBarTheme = freezed,
+    Object? bottomSheetTheme = freezed,
+    Object? cardTheme = freezed,
+    Object? dialogTheme = freezed,
+    Object? elevatedButtonTheme = freezed,
+    Object? floatingActionButtonTheme = freezed,
+    Object? iconButtonTheme = freezed,
+    Object? listTileTheme = freezed,
+    Object? navigationBarTheme = freezed,
+    Object? outlinedButtonTheme = freezed,
+    Object? tabBarTheme = freezed,
+    Object? textButtonTheme = freezed,
+  }) {
+    return _then(_self.copyWith(
+      applyElevationOverlayColor: freezed == applyElevationOverlayColor
+          ? _self.applyElevationOverlayColor
+          : applyElevationOverlayColor // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      inputDecorationTheme: freezed == inputDecorationTheme
+          ? _self.inputDecorationTheme
+          : inputDecorationTheme // ignore: cast_nullable_to_non_nullable
+              as StacInputDecorationTheme?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _self.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
+      platform: freezed == platform
+          ? _self.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as TargetPlatform?,
+      useMaterial3: freezed == useMaterial3
+          ? _self.useMaterial3
+          : useMaterial3 // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      colorScheme: freezed == colorScheme
+          ? _self.colorScheme
+          : colorScheme // ignore: cast_nullable_to_non_nullable
+              as StacColorScheme?,
+      brightness: freezed == brightness
+          ? _self.brightness
+          : brightness // ignore: cast_nullable_to_non_nullable
+              as Brightness?,
+      colorSchemeSeed: freezed == colorSchemeSeed
+          ? _self.colorSchemeSeed
+          : colorSchemeSeed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      canvasColor: freezed == canvasColor
+          ? _self.canvasColor
+          : canvasColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cardColor: freezed == cardColor
+          ? _self.cardColor
+          : cardColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      disabledColor: freezed == disabledColor
+          ? _self.disabledColor
+          : disabledColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dividerColor: freezed == dividerColor
+          ? _self.dividerColor
+          : dividerColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      focusColor: freezed == focusColor
+          ? _self.focusColor
+          : focusColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      highlightColor: freezed == highlightColor
+          ? _self.highlightColor
+          : highlightColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hintColor: freezed == hintColor
+          ? _self.hintColor
+          : hintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hoverColor: freezed == hoverColor
+          ? _self.hoverColor
+          : hoverColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      indicatorColor: freezed == indicatorColor
+          ? _self.indicatorColor
+          : indicatorColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColor: freezed == primaryColor
+          ? _self.primaryColor
+          : primaryColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColorDark: freezed == primaryColorDark
+          ? _self.primaryColorDark
+          : primaryColorDark // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColorLight: freezed == primaryColorLight
+          ? _self.primaryColorLight
+          : primaryColorLight // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primarySwatch: freezed == primarySwatch
+          ? _self.primarySwatch
+          : primarySwatch // ignore: cast_nullable_to_non_nullable
+              as StacMaterialColor?,
+      scaffoldBackgroundColor: freezed == scaffoldBackgroundColor
+          ? _self.scaffoldBackgroundColor
+          : scaffoldBackgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryHeaderColor: freezed == secondaryHeaderColor
+          ? _self.secondaryHeaderColor
+          : secondaryHeaderColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shadowColor: freezed == shadowColor
+          ? _self.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      splashColor: freezed == splashColor
+          ? _self.splashColor
+          : splashColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      unselectedWidgetColor: freezed == unselectedWidgetColor
+          ? _self.unselectedWidgetColor
+          : unselectedWidgetColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fontFamily: freezed == fontFamily
+          ? _self.fontFamily
+          : fontFamily // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fontFamilyFallback: freezed == fontFamilyFallback
+          ? _self.fontFamilyFallback
+          : fontFamilyFallback // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      package: freezed == package
+          ? _self.package
+          : package // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iconTheme: freezed == iconTheme
+          ? _self.iconTheme
+          : iconTheme // ignore: cast_nullable_to_non_nullable
+              as StacIconThemeData?,
+      primaryIconTheme: freezed == primaryIconTheme
+          ? _self.primaryIconTheme
+          : primaryIconTheme // ignore: cast_nullable_to_non_nullable
+              as StacIconThemeData?,
+      appBarTheme: freezed == appBarTheme
+          ? _self.appBarTheme
+          : appBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacAppBarTheme?,
+      bottomAppBarTheme: freezed == bottomAppBarTheme
+          ? _self.bottomAppBarTheme
+          : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomAppBarTheme?,
+      bottomNavigationBarTheme: freezed == bottomNavigationBarTheme
+          ? _self.bottomNavigationBarTheme
+          : bottomNavigationBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomNavBarThemeData?,
+      bottomSheetTheme: freezed == bottomSheetTheme
+          ? _self.bottomSheetTheme
+          : bottomSheetTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomSheetThemeData?,
+      cardTheme: freezed == cardTheme
+          ? _self.cardTheme
+          : cardTheme // ignore: cast_nullable_to_non_nullable
+              as StacCardThemeData?,
+      dialogTheme: freezed == dialogTheme
+          ? _self.dialogTheme
+          : dialogTheme // ignore: cast_nullable_to_non_nullable
+              as StacDialogTheme?,
+      elevatedButtonTheme: freezed == elevatedButtonTheme
+          ? _self.elevatedButtonTheme
+          : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      floatingActionButtonTheme: freezed == floatingActionButtonTheme
+          ? _self.floatingActionButtonTheme
+          : floatingActionButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacFloatingActionButtonThemeData?,
+      iconButtonTheme: freezed == iconButtonTheme
+          ? _self.iconButtonTheme
+          : iconButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      listTileTheme: freezed == listTileTheme
+          ? _self.listTileTheme
+          : listTileTheme // ignore: cast_nullable_to_non_nullable
+              as StacListTileThemeData?,
+      navigationBarTheme: freezed == navigationBarTheme
+          ? _self.navigationBarTheme
+          : navigationBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacNavigationBarThemeData?,
+      outlinedButtonTheme: freezed == outlinedButtonTheme
+          ? _self.outlinedButtonTheme
+          : outlinedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      tabBarTheme: freezed == tabBarTheme
+          ? _self.tabBarTheme
+          : tabBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacTabBarThemeData?,
+      textButtonTheme: freezed == textButtonTheme
+          ? _self.textButtonTheme
+          : textButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+    ));
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme {
+    if (_self.inputDecorationTheme == null) {
+      return null;
+    }
+
+    return $StacInputDecorationThemeCopyWith<$Res>(_self.inputDecorationTheme!,
+        (value) {
+      return _then(_self.copyWith(inputDecorationTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacColorSchemeCopyWith<$Res>? get colorScheme {
+    if (_self.colorScheme == null) {
+      return null;
+    }
+
+    return $StacColorSchemeCopyWith<$Res>(_self.colorScheme!, (value) {
+      return _then(_self.copyWith(colorScheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialColorCopyWith<$Res>? get primarySwatch {
+    if (_self.primarySwatch == null) {
+      return null;
+    }
+
+    return $StacMaterialColorCopyWith<$Res>(_self.primarySwatch!, (value) {
+      return _then(_self.copyWith(primarySwatch: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacIconThemeDataCopyWith<$Res>? get iconTheme {
+    if (_self.iconTheme == null) {
+      return null;
+    }
+
+    return $StacIconThemeDataCopyWith<$Res>(_self.iconTheme!, (value) {
+      return _then(_self.copyWith(iconTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme {
+    if (_self.primaryIconTheme == null) {
+      return null;
+    }
+
+    return $StacIconThemeDataCopyWith<$Res>(_self.primaryIconTheme!, (value) {
+      return _then(_self.copyWith(primaryIconTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacAppBarThemeCopyWith<$Res>? get appBarTheme {
+    if (_self.appBarTheme == null) {
+      return null;
+    }
+
+    return $StacAppBarThemeCopyWith<$Res>(_self.appBarTheme!, (value) {
+      return _then(_self.copyWith(appBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme {
+    if (_self.bottomAppBarTheme == null) {
+      return null;
+    }
+
+    return $StacBottomAppBarThemeCopyWith<$Res>(_self.bottomAppBarTheme!,
+        (value) {
+      return _then(_self.copyWith(bottomAppBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme {
+    if (_self.bottomNavigationBarTheme == null) {
+      return null;
+    }
+
+    return $StacBottomNavBarThemeDataCopyWith<$Res>(
+        _self.bottomNavigationBarTheme!, (value) {
+      return _then(_self.copyWith(bottomNavigationBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme {
+    if (_self.bottomSheetTheme == null) {
+      return null;
+    }
+
+    return $StacBottomSheetThemeDataCopyWith<$Res>(_self.bottomSheetTheme!,
+        (value) {
+      return _then(_self.copyWith(bottomSheetTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacCardThemeDataCopyWith<$Res>? get cardTheme {
+    if (_self.cardTheme == null) {
+      return null;
+    }
+
+    return $StacCardThemeDataCopyWith<$Res>(_self.cardTheme!, (value) {
+      return _then(_self.copyWith(cardTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDialogThemeCopyWith<$Res>? get dialogTheme {
+    if (_self.dialogTheme == null) {
+      return null;
+    }
+
+    return $StacDialogThemeCopyWith<$Res>(_self.dialogTheme!, (value) {
+      return _then(_self.copyWith(dialogTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme {
+    if (_self.elevatedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.elevatedButtonTheme!, (value) {
+      return _then(_self.copyWith(elevatedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacFloatingActionButtonThemeDataCopyWith<$Res>?
+      get floatingActionButtonTheme {
+    if (_self.floatingActionButtonTheme == null) {
+      return null;
+    }
+
+    return $StacFloatingActionButtonThemeDataCopyWith<$Res>(
+        _self.floatingActionButtonTheme!, (value) {
+      return _then(_self.copyWith(floatingActionButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get iconButtonTheme {
+    if (_self.iconButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.iconButtonTheme!, (value) {
+      return _then(_self.copyWith(iconButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacListTileThemeDataCopyWith<$Res>? get listTileTheme {
+    if (_self.listTileTheme == null) {
+      return null;
+    }
+
+    return $StacListTileThemeDataCopyWith<$Res>(_self.listTileTheme!, (value) {
+      return _then(_self.copyWith(listTileTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme {
+    if (_self.navigationBarTheme == null) {
+      return null;
+    }
+
+    return $StacNavigationBarThemeDataCopyWith<$Res>(_self.navigationBarTheme!,
+        (value) {
+      return _then(_self.copyWith(navigationBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme {
+    if (_self.outlinedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.outlinedButtonTheme!, (value) {
+      return _then(_self.copyWith(outlinedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme {
+    if (_self.tabBarTheme == null) {
+      return null;
+    }
+
+    return $StacTabBarThemeDataCopyWith<$Res>(_self.tabBarTheme!, (value) {
+      return _then(_self.copyWith(tabBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get textButtonTheme {
+    if (_self.textButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.textButtonTheme!, (value) {
+      return _then(_self.copyWith(textButtonTheme: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _StacTheme implements StacTheme {
+  const _StacTheme(
+      {this.applyElevationOverlayColor,
+      this.inputDecorationTheme,
+      this.materialTapTargetSize,
+      this.platform,
+      this.useMaterial3,
+      this.colorScheme,
+      this.brightness,
+      this.colorSchemeSeed,
+      this.canvasColor,
+      this.cardColor,
+      this.disabledColor,
+      this.dividerColor,
+      this.focusColor,
+      this.highlightColor,
+      this.hintColor,
+      this.hoverColor,
+      this.indicatorColor,
+      this.primaryColor,
+      this.primaryColorDark,
+      this.primaryColorLight,
+      this.primarySwatch,
+      this.scaffoldBackgroundColor,
+      this.secondaryHeaderColor,
+      this.shadowColor,
+      this.splashColor,
+      this.unselectedWidgetColor,
+      this.fontFamily,
+      final List<String>? fontFamilyFallback,
+      this.package,
+      this.iconTheme,
+      this.primaryIconTheme,
+      this.appBarTheme,
+      this.bottomAppBarTheme,
+      this.bottomNavigationBarTheme,
+      this.bottomSheetTheme,
+      this.cardTheme,
+      this.dialogTheme,
+      this.elevatedButtonTheme,
+      this.floatingActionButtonTheme,
+      this.iconButtonTheme,
+      this.listTileTheme,
+      this.navigationBarTheme,
+      this.outlinedButtonTheme,
+      this.tabBarTheme,
+      this.textButtonTheme})
+      : _fontFamilyFallback = fontFamilyFallback;
+  factory _StacTheme.fromJson(Map<String, dynamic> json) =>
+      _$StacThemeFromJson(json);
+
+// GENERAL CONFIGURATION
+  @override
+  final bool? applyElevationOverlayColor;
+  @override
+  final StacInputDecorationTheme? inputDecorationTheme;
+  @override
+  final MaterialTapTargetSize? materialTapTargetSize;
+  @override
+  final TargetPlatform? platform;
+// ScrollbarThemeData? scrollbarTheme, // Todo
+  @override
+  final bool? useMaterial3;
+// COLOR
+  @override
+  final StacColorScheme? colorScheme;
+  @override
+  final Brightness? brightness;
+  @override
+  final String? colorSchemeSeed;
+// [colorScheme] is the preferred way to configure colors. The [Color] properties
+// listed below (as well as primarySwatch) will gradually be phased out, see
+// https://github.com/flutter/flutter/issues/91772.
+  @override
+  final String? canvasColor;
+  @override
+  final String? cardColor;
+  @override
+  final String? disabledColor;
+  @override
+  final String? dividerColor;
+  @override
+  final String? focusColor;
+  @override
+  final String? highlightColor;
+  @override
+  final String? hintColor;
+  @override
+  final String? hoverColor;
+  @override
+  final String? indicatorColor;
+  @override
+  final String? primaryColor;
+  @override
+  final String? primaryColorDark;
+  @override
+  final String? primaryColorLight;
+  @override
+  final StacMaterialColor? primarySwatch;
+  @override
+  final String? scaffoldBackgroundColor;
+  @override
+  final String? secondaryHeaderColor;
+  @override
+  final String? shadowColor;
+  @override
+  final String? splashColor;
+  @override
+  final String? unselectedWidgetColor;
+// TYPOGRAPHY & ICONOGRAPHY
+  @override
+  final String? fontFamily;
+  final List<String>? _fontFamilyFallback;
+  @override
+  List<String>? get fontFamilyFallback {
+    final value = _fontFamilyFallback;
+    if (value == null) return null;
+    if (_fontFamilyFallback is EqualUnmodifiableListView)
+      return _fontFamilyFallback;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? package;
+  @override
+  final StacIconThemeData? iconTheme;
+  @override
+  final StacIconThemeData? primaryIconTheme;
+// TextTheme? primaryTextTheme,
+// TextTheme? textTheme,
+// Typography? typography,
+// COMPONENT THEMES
+// ActionIconThemeData? actionIconTheme, // todo
+  @override
+  final StacAppBarTheme? appBarTheme;
+// BadgeThemeData? badgeTheme, // todo
+// MaterialBannerThemeData? bannerTheme, // todo
+  @override
+  final StacBottomAppBarTheme? bottomAppBarTheme;
+  @override
+  final StacBottomNavBarThemeData? bottomNavigationBarTheme;
+  @override
+  final StacBottomSheetThemeData? bottomSheetTheme;
+// ButtonThemeData? buttonTheme, // todo
+  @override
+  final StacCardThemeData? cardTheme;
+// CheckboxThemeData? checkboxTheme, // todo
+// ChipThemeData? chipTheme,
+// DataTableThemeData? dataTableTheme,
+// DatePickerThemeData? datePickerTheme, // todo
+  @override
+  final StacDialogTheme? dialogTheme;
+// DividerThemeData? dividerTheme,
+// DrawerThemeData? drawerTheme,
+// DropdownMenuThemeData? dropdownMenuTheme,
+  @override
+  final StacButtonStyle? elevatedButtonTheme;
+// ExpansionTileThemeData? expansionTileTheme,
+// FilledButtonThemeData? filledButtonTheme,
+  @override
+  final StacFloatingActionButtonThemeData? floatingActionButtonTheme;
+  @override
+  final StacButtonStyle? iconButtonTheme;
+  @override
+  final StacListTileThemeData? listTileTheme;
+// MenuBarThemeData? menuBarTheme,
+// MenuButtonThemeData? menuButtonTheme,
+// MenuThemeData? menuTheme,
+  @override
+  final StacNavigationBarThemeData? navigationBarTheme;
+// NavigationDrawerThemeData? navigationDrawerTheme,
+// NavigationRailThemeData? navigationRailTheme,
+  @override
+  final StacButtonStyle? outlinedButtonTheme;
+// PopupMenuThemeData? popupMenuTheme,
+// ProgressIndicatorThemeData? progressIndicatorTheme,
+// RadioThemeData? radioTheme,
+// SearchBarThemeData? searchBarTheme,
+// SearchViewThemeData? searchViewTheme,
+// SegmentedButtonThemeData? segmentedButtonTheme,
+// SliderThemeData? sliderTheme,
+// SnackBarThemeData? snackBarTheme,
+// SwitchThemeData? switchTheme,
+  @override
+  final StacTabBarThemeData? tabBarTheme;
+  @override
+  final StacButtonStyle? textButtonTheme;
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$StacThemeCopyWith<_StacTheme> get copyWith =>
+      __$StacThemeCopyWithImpl<_StacTheme>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$StacThemeToJson(
+      this,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StacTheme &&
+            (identical(other.applyElevationOverlayColor, applyElevationOverlayColor) ||
+                other.applyElevationOverlayColor ==
+                    applyElevationOverlayColor) &&
+            (identical(other.inputDecorationTheme, inputDecorationTheme) ||
+                other.inputDecorationTheme == inputDecorationTheme) &&
+            (identical(other.materialTapTargetSize, materialTapTargetSize) ||
+                other.materialTapTargetSize == materialTapTargetSize) &&
+            (identical(other.platform, platform) ||
+                other.platform == platform) &&
+            (identical(other.useMaterial3, useMaterial3) ||
+                other.useMaterial3 == useMaterial3) &&
+            (identical(other.colorScheme, colorScheme) ||
+                other.colorScheme == colorScheme) &&
+            (identical(other.brightness, brightness) ||
+                other.brightness == brightness) &&
+            (identical(other.colorSchemeSeed, colorSchemeSeed) ||
+                other.colorSchemeSeed == colorSchemeSeed) &&
+            (identical(other.canvasColor, canvasColor) ||
+                other.canvasColor == canvasColor) &&
+            (identical(other.cardColor, cardColor) ||
+                other.cardColor == cardColor) &&
+            (identical(other.disabledColor, disabledColor) ||
+                other.disabledColor == disabledColor) &&
+            (identical(other.dividerColor, dividerColor) ||
+                other.dividerColor == dividerColor) &&
+            (identical(other.focusColor, focusColor) ||
+                other.focusColor == focusColor) &&
+            (identical(other.highlightColor, highlightColor) ||
+                other.highlightColor == highlightColor) &&
+            (identical(other.hintColor, hintColor) ||
+                other.hintColor == hintColor) &&
+            (identical(other.hoverColor, hoverColor) ||
+                other.hoverColor == hoverColor) &&
+            (identical(other.indicatorColor, indicatorColor) ||
+                other.indicatorColor == indicatorColor) &&
+            (identical(other.primaryColor, primaryColor) ||
+                other.primaryColor == primaryColor) &&
+            (identical(other.primaryColorDark, primaryColorDark) ||
+                other.primaryColorDark == primaryColorDark) &&
+            (identical(other.primaryColorLight, primaryColorLight) ||
+                other.primaryColorLight == primaryColorLight) &&
+            (identical(other.primarySwatch, primarySwatch) ||
+                other.primarySwatch == primarySwatch) &&
+            (identical(other.scaffoldBackgroundColor, scaffoldBackgroundColor) ||
+                other.scaffoldBackgroundColor == scaffoldBackgroundColor) &&
+            (identical(other.secondaryHeaderColor, secondaryHeaderColor) ||
+                other.secondaryHeaderColor == secondaryHeaderColor) &&
+            (identical(other.shadowColor, shadowColor) ||
+                other.shadowColor == shadowColor) &&
+            (identical(other.splashColor, splashColor) ||
+                other.splashColor == splashColor) &&
+            (identical(other.unselectedWidgetColor, unselectedWidgetColor) ||
+                other.unselectedWidgetColor == unselectedWidgetColor) &&
+            (identical(other.fontFamily, fontFamily) ||
+                other.fontFamily == fontFamily) &&
+            const DeepCollectionEquality()
+                .equals(other._fontFamilyFallback, _fontFamilyFallback) &&
+            (identical(other.package, package) || other.package == package) &&
+            (identical(other.iconTheme, iconTheme) ||
+                other.iconTheme == iconTheme) &&
+            (identical(other.primaryIconTheme, primaryIconTheme) ||
+                other.primaryIconTheme == primaryIconTheme) &&
+            (identical(other.appBarTheme, appBarTheme) ||
+                other.appBarTheme == appBarTheme) &&
+            (identical(other.bottomAppBarTheme, bottomAppBarTheme) ||
+                other.bottomAppBarTheme == bottomAppBarTheme) &&
+            (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
+            (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
+            (identical(other.cardTheme, cardTheme) || other.cardTheme == cardTheme) &&
+            (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
+            (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
+            (identical(other.iconButtonTheme, iconButtonTheme) || other.iconButtonTheme == iconButtonTheme) &&
+            (identical(other.listTileTheme, listTileTheme) || other.listTileTheme == listTileTheme) &&
+            (identical(other.navigationBarTheme, navigationBarTheme) || other.navigationBarTheme == navigationBarTheme) &&
+            (identical(other.outlinedButtonTheme, outlinedButtonTheme) || other.outlinedButtonTheme == outlinedButtonTheme) &&
+            (identical(other.tabBarTheme, tabBarTheme) || other.tabBarTheme == tabBarTheme) &&
+            (identical(other.textButtonTheme, textButtonTheme) || other.textButtonTheme == textButtonTheme));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        applyElevationOverlayColor,
+        inputDecorationTheme,
+        materialTapTargetSize,
+        platform,
+        useMaterial3,
+        colorScheme,
+        brightness,
+        colorSchemeSeed,
+        canvasColor,
+        cardColor,
+        disabledColor,
+        dividerColor,
+        focusColor,
+        highlightColor,
+        hintColor,
+        hoverColor,
+        indicatorColor,
+        primaryColor,
+        primaryColorDark,
+        primaryColorLight,
+        primarySwatch,
+        scaffoldBackgroundColor,
+        secondaryHeaderColor,
+        shadowColor,
+        splashColor,
+        unselectedWidgetColor,
+        fontFamily,
+        const DeepCollectionEquality().hash(_fontFamilyFallback),
+        package,
+        iconTheme,
+        primaryIconTheme,
+        appBarTheme,
+        bottomAppBarTheme,
+        bottomNavigationBarTheme,
+        bottomSheetTheme,
+        cardTheme,
+        dialogTheme,
+        elevatedButtonTheme,
+        floatingActionButtonTheme,
+        iconButtonTheme,
+        listTileTheme,
+        navigationBarTheme,
+        outlinedButtonTheme,
+        tabBarTheme,
+        textButtonTheme
+      ]);
+
+  @override
+  String toString() {
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, appBarTheme: $appBarTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+  }
+}
+
+/// @nodoc
+abstract mixin class _$StacThemeCopyWith<$Res>
+    implements $StacThemeCopyWith<$Res> {
+  factory _$StacThemeCopyWith(
+          _StacTheme value, $Res Function(_StacTheme) _then) =
+      __$StacThemeCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {bool? applyElevationOverlayColor,
+      StacInputDecorationTheme? inputDecorationTheme,
+      MaterialTapTargetSize? materialTapTargetSize,
+      TargetPlatform? platform,
+      bool? useMaterial3,
+      StacColorScheme? colorScheme,
+      Brightness? brightness,
+      String? colorSchemeSeed,
+      String? canvasColor,
+      String? cardColor,
+      String? disabledColor,
+      String? dividerColor,
+      String? focusColor,
+      String? highlightColor,
+      String? hintColor,
+      String? hoverColor,
+      String? indicatorColor,
+      String? primaryColor,
+      String? primaryColorDark,
+      String? primaryColorLight,
+      StacMaterialColor? primarySwatch,
+      String? scaffoldBackgroundColor,
+      String? secondaryHeaderColor,
+      String? shadowColor,
+      String? splashColor,
+      String? unselectedWidgetColor,
+      String? fontFamily,
+      List<String>? fontFamilyFallback,
+      String? package,
+      StacIconThemeData? iconTheme,
+      StacIconThemeData? primaryIconTheme,
+      StacAppBarTheme? appBarTheme,
+      StacBottomAppBarTheme? bottomAppBarTheme,
+      StacBottomNavBarThemeData? bottomNavigationBarTheme,
+      StacBottomSheetThemeData? bottomSheetTheme,
+      StacCardThemeData? cardTheme,
+      StacDialogTheme? dialogTheme,
+      StacButtonStyle? elevatedButtonTheme,
+      StacFloatingActionButtonThemeData? floatingActionButtonTheme,
+      StacButtonStyle? iconButtonTheme,
+      StacListTileThemeData? listTileTheme,
+      StacNavigationBarThemeData? navigationBarTheme,
+      StacButtonStyle? outlinedButtonTheme,
+      StacTabBarThemeData? tabBarTheme,
+      StacButtonStyle? textButtonTheme});
+
+  @override
+  $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme;
+  @override
+  $StacColorSchemeCopyWith<$Res>? get colorScheme;
+  @override
+  $StacMaterialColorCopyWith<$Res>? get primarySwatch;
+  @override
+  $StacIconThemeDataCopyWith<$Res>? get iconTheme;
+  @override
+  $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme;
+  @override
+  $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
+  @override
+  $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
+  @override
+  $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme;
+  @override
+  $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme;
+  @override
+  $StacCardThemeDataCopyWith<$Res>? get cardTheme;
+  @override
+  $StacDialogThemeCopyWith<$Res>? get dialogTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
+  @override
+  $StacFloatingActionButtonThemeDataCopyWith<$Res>?
+      get floatingActionButtonTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get iconButtonTheme;
+  @override
+  $StacListTileThemeDataCopyWith<$Res>? get listTileTheme;
+  @override
+  $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme;
+  @override
+  $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get textButtonTheme;
+}
+
+/// @nodoc
+class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
+  __$StacThemeCopyWithImpl(this._self, this._then);
+
+  final _StacTheme _self;
+  final $Res Function(_StacTheme) _then;
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? applyElevationOverlayColor = freezed,
+    Object? inputDecorationTheme = freezed,
+    Object? materialTapTargetSize = freezed,
+    Object? platform = freezed,
+    Object? useMaterial3 = freezed,
+    Object? colorScheme = freezed,
+    Object? brightness = freezed,
+    Object? colorSchemeSeed = freezed,
+    Object? canvasColor = freezed,
+    Object? cardColor = freezed,
+    Object? disabledColor = freezed,
+    Object? dividerColor = freezed,
+    Object? focusColor = freezed,
+    Object? highlightColor = freezed,
+    Object? hintColor = freezed,
+    Object? hoverColor = freezed,
+    Object? indicatorColor = freezed,
+    Object? primaryColor = freezed,
+    Object? primaryColorDark = freezed,
+    Object? primaryColorLight = freezed,
+    Object? primarySwatch = freezed,
+    Object? scaffoldBackgroundColor = freezed,
+    Object? secondaryHeaderColor = freezed,
+    Object? shadowColor = freezed,
+    Object? splashColor = freezed,
+    Object? unselectedWidgetColor = freezed,
+    Object? fontFamily = freezed,
+    Object? fontFamilyFallback = freezed,
+    Object? package = freezed,
+    Object? iconTheme = freezed,
+    Object? primaryIconTheme = freezed,
+    Object? appBarTheme = freezed,
+    Object? bottomAppBarTheme = freezed,
+    Object? bottomNavigationBarTheme = freezed,
+    Object? bottomSheetTheme = freezed,
+    Object? cardTheme = freezed,
+    Object? dialogTheme = freezed,
+    Object? elevatedButtonTheme = freezed,
+    Object? floatingActionButtonTheme = freezed,
+    Object? iconButtonTheme = freezed,
+    Object? listTileTheme = freezed,
+    Object? navigationBarTheme = freezed,
+    Object? outlinedButtonTheme = freezed,
+    Object? tabBarTheme = freezed,
+    Object? textButtonTheme = freezed,
+  }) {
+    return _then(_StacTheme(
+      applyElevationOverlayColor: freezed == applyElevationOverlayColor
+          ? _self.applyElevationOverlayColor
+          : applyElevationOverlayColor // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      inputDecorationTheme: freezed == inputDecorationTheme
+          ? _self.inputDecorationTheme
+          : inputDecorationTheme // ignore: cast_nullable_to_non_nullable
+              as StacInputDecorationTheme?,
+      materialTapTargetSize: freezed == materialTapTargetSize
+          ? _self.materialTapTargetSize
+          : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
+      platform: freezed == platform
+          ? _self.platform
+          : platform // ignore: cast_nullable_to_non_nullable
+              as TargetPlatform?,
+      useMaterial3: freezed == useMaterial3
+          ? _self.useMaterial3
+          : useMaterial3 // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      colorScheme: freezed == colorScheme
+          ? _self.colorScheme
+          : colorScheme // ignore: cast_nullable_to_non_nullable
+              as StacColorScheme?,
+      brightness: freezed == brightness
+          ? _self.brightness
+          : brightness // ignore: cast_nullable_to_non_nullable
+              as Brightness?,
+      colorSchemeSeed: freezed == colorSchemeSeed
+          ? _self.colorSchemeSeed
+          : colorSchemeSeed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      canvasColor: freezed == canvasColor
+          ? _self.canvasColor
+          : canvasColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      cardColor: freezed == cardColor
+          ? _self.cardColor
+          : cardColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      disabledColor: freezed == disabledColor
+          ? _self.disabledColor
+          : disabledColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      dividerColor: freezed == dividerColor
+          ? _self.dividerColor
+          : dividerColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      focusColor: freezed == focusColor
+          ? _self.focusColor
+          : focusColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      highlightColor: freezed == highlightColor
+          ? _self.highlightColor
+          : highlightColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hintColor: freezed == hintColor
+          ? _self.hintColor
+          : hintColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      hoverColor: freezed == hoverColor
+          ? _self.hoverColor
+          : hoverColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      indicatorColor: freezed == indicatorColor
+          ? _self.indicatorColor
+          : indicatorColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColor: freezed == primaryColor
+          ? _self.primaryColor
+          : primaryColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColorDark: freezed == primaryColorDark
+          ? _self.primaryColorDark
+          : primaryColorDark // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryColorLight: freezed == primaryColorLight
+          ? _self.primaryColorLight
+          : primaryColorLight // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primarySwatch: freezed == primarySwatch
+          ? _self.primarySwatch
+          : primarySwatch // ignore: cast_nullable_to_non_nullable
+              as StacMaterialColor?,
+      scaffoldBackgroundColor: freezed == scaffoldBackgroundColor
+          ? _self.scaffoldBackgroundColor
+          : scaffoldBackgroundColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryHeaderColor: freezed == secondaryHeaderColor
+          ? _self.secondaryHeaderColor
+          : secondaryHeaderColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      shadowColor: freezed == shadowColor
+          ? _self.shadowColor
+          : shadowColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      splashColor: freezed == splashColor
+          ? _self.splashColor
+          : splashColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      unselectedWidgetColor: freezed == unselectedWidgetColor
+          ? _self.unselectedWidgetColor
+          : unselectedWidgetColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fontFamily: freezed == fontFamily
+          ? _self.fontFamily
+          : fontFamily // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fontFamilyFallback: freezed == fontFamilyFallback
+          ? _self._fontFamilyFallback
+          : fontFamilyFallback // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      package: freezed == package
+          ? _self.package
+          : package // ignore: cast_nullable_to_non_nullable
+              as String?,
+      iconTheme: freezed == iconTheme
+          ? _self.iconTheme
+          : iconTheme // ignore: cast_nullable_to_non_nullable
+              as StacIconThemeData?,
+      primaryIconTheme: freezed == primaryIconTheme
+          ? _self.primaryIconTheme
+          : primaryIconTheme // ignore: cast_nullable_to_non_nullable
+              as StacIconThemeData?,
+      appBarTheme: freezed == appBarTheme
+          ? _self.appBarTheme
+          : appBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacAppBarTheme?,
+      bottomAppBarTheme: freezed == bottomAppBarTheme
+          ? _self.bottomAppBarTheme
+          : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomAppBarTheme?,
+      bottomNavigationBarTheme: freezed == bottomNavigationBarTheme
+          ? _self.bottomNavigationBarTheme
+          : bottomNavigationBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomNavBarThemeData?,
+      bottomSheetTheme: freezed == bottomSheetTheme
+          ? _self.bottomSheetTheme
+          : bottomSheetTheme // ignore: cast_nullable_to_non_nullable
+              as StacBottomSheetThemeData?,
+      cardTheme: freezed == cardTheme
+          ? _self.cardTheme
+          : cardTheme // ignore: cast_nullable_to_non_nullable
+              as StacCardThemeData?,
+      dialogTheme: freezed == dialogTheme
+          ? _self.dialogTheme
+          : dialogTheme // ignore: cast_nullable_to_non_nullable
+              as StacDialogTheme?,
+      elevatedButtonTheme: freezed == elevatedButtonTheme
+          ? _self.elevatedButtonTheme
+          : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      floatingActionButtonTheme: freezed == floatingActionButtonTheme
+          ? _self.floatingActionButtonTheme
+          : floatingActionButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacFloatingActionButtonThemeData?,
+      iconButtonTheme: freezed == iconButtonTheme
+          ? _self.iconButtonTheme
+          : iconButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      listTileTheme: freezed == listTileTheme
+          ? _self.listTileTheme
+          : listTileTheme // ignore: cast_nullable_to_non_nullable
+              as StacListTileThemeData?,
+      navigationBarTheme: freezed == navigationBarTheme
+          ? _self.navigationBarTheme
+          : navigationBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacNavigationBarThemeData?,
+      outlinedButtonTheme: freezed == outlinedButtonTheme
+          ? _self.outlinedButtonTheme
+          : outlinedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      tabBarTheme: freezed == tabBarTheme
+          ? _self.tabBarTheme
+          : tabBarTheme // ignore: cast_nullable_to_non_nullable
+              as StacTabBarThemeData?,
+      textButtonTheme: freezed == textButtonTheme
+          ? _self.textButtonTheme
+          : textButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+    ));
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme {
+    if (_self.inputDecorationTheme == null) {
+      return null;
+    }
+
+    return $StacInputDecorationThemeCopyWith<$Res>(_self.inputDecorationTheme!,
+        (value) {
+      return _then(_self.copyWith(inputDecorationTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacColorSchemeCopyWith<$Res>? get colorScheme {
+    if (_self.colorScheme == null) {
+      return null;
+    }
+
+    return $StacColorSchemeCopyWith<$Res>(_self.colorScheme!, (value) {
+      return _then(_self.copyWith(colorScheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialColorCopyWith<$Res>? get primarySwatch {
+    if (_self.primarySwatch == null) {
+      return null;
+    }
+
+    return $StacMaterialColorCopyWith<$Res>(_self.primarySwatch!, (value) {
+      return _then(_self.copyWith(primarySwatch: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacIconThemeDataCopyWith<$Res>? get iconTheme {
+    if (_self.iconTheme == null) {
+      return null;
+    }
+
+    return $StacIconThemeDataCopyWith<$Res>(_self.iconTheme!, (value) {
+      return _then(_self.copyWith(iconTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme {
+    if (_self.primaryIconTheme == null) {
+      return null;
+    }
+
+    return $StacIconThemeDataCopyWith<$Res>(_self.primaryIconTheme!, (value) {
+      return _then(_self.copyWith(primaryIconTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacAppBarThemeCopyWith<$Res>? get appBarTheme {
+    if (_self.appBarTheme == null) {
+      return null;
+    }
+
+    return $StacAppBarThemeCopyWith<$Res>(_self.appBarTheme!, (value) {
+      return _then(_self.copyWith(appBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme {
+    if (_self.bottomAppBarTheme == null) {
+      return null;
+    }
+
+    return $StacBottomAppBarThemeCopyWith<$Res>(_self.bottomAppBarTheme!,
+        (value) {
+      return _then(_self.copyWith(bottomAppBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme {
+    if (_self.bottomNavigationBarTheme == null) {
+      return null;
+    }
+
+    return $StacBottomNavBarThemeDataCopyWith<$Res>(
+        _self.bottomNavigationBarTheme!, (value) {
+      return _then(_self.copyWith(bottomNavigationBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme {
+    if (_self.bottomSheetTheme == null) {
+      return null;
+    }
+
+    return $StacBottomSheetThemeDataCopyWith<$Res>(_self.bottomSheetTheme!,
+        (value) {
+      return _then(_self.copyWith(bottomSheetTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacCardThemeDataCopyWith<$Res>? get cardTheme {
+    if (_self.cardTheme == null) {
+      return null;
+    }
+
+    return $StacCardThemeDataCopyWith<$Res>(_self.cardTheme!, (value) {
+      return _then(_self.copyWith(cardTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDialogThemeCopyWith<$Res>? get dialogTheme {
+    if (_self.dialogTheme == null) {
+      return null;
+    }
+
+    return $StacDialogThemeCopyWith<$Res>(_self.dialogTheme!, (value) {
+      return _then(_self.copyWith(dialogTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme {
+    if (_self.elevatedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.elevatedButtonTheme!, (value) {
+      return _then(_self.copyWith(elevatedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacFloatingActionButtonThemeDataCopyWith<$Res>?
+      get floatingActionButtonTheme {
+    if (_self.floatingActionButtonTheme == null) {
+      return null;
+    }
+
+    return $StacFloatingActionButtonThemeDataCopyWith<$Res>(
+        _self.floatingActionButtonTheme!, (value) {
+      return _then(_self.copyWith(floatingActionButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get iconButtonTheme {
+    if (_self.iconButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.iconButtonTheme!, (value) {
+      return _then(_self.copyWith(iconButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacListTileThemeDataCopyWith<$Res>? get listTileTheme {
+    if (_self.listTileTheme == null) {
+      return null;
+    }
+
+    return $StacListTileThemeDataCopyWith<$Res>(_self.listTileTheme!, (value) {
+      return _then(_self.copyWith(listTileTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme {
+    if (_self.navigationBarTheme == null) {
+      return null;
+    }
+
+    return $StacNavigationBarThemeDataCopyWith<$Res>(_self.navigationBarTheme!,
+        (value) {
+      return _then(_self.copyWith(navigationBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme {
+    if (_self.outlinedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.outlinedButtonTheme!, (value) {
+      return _then(_self.copyWith(outlinedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme {
+    if (_self.tabBarTheme == null) {
+      return null;
+    }
+
+    return $StacTabBarThemeDataCopyWith<$Res>(_self.tabBarTheme!, (value) {
+      return _then(_self.copyWith(tabBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get textButtonTheme {
+    if (_self.textButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.textButtonTheme!, (value) {
+      return _then(_self.copyWith(textButtonTheme: value));
+    });
+  }
+}
+
+// dart format on

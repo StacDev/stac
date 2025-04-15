@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/stac_theme/stac_theme.dart';
+import 'package:stac/src/parsers/theme/stac_theme/stac_theme.dart';
 
 class StacApp extends StatelessWidget {
   const StacApp({
