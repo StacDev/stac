@@ -1,0 +1,98 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "stack",
+        "children": [
+            {
+                "type": "image",
+                "imageType": "asset",
+                "src": "assets/images/image.png",
+                "width": 10000,
+                "height": 10000,
+                "fit": "cover"
+            },
+            {
+                "type": "positioned",
+                "left": 0,
+                "right": 0,
+                "bottom": 0,
+                "child": {
+                    "type": "container",
+                    "width": 1000,
+                    "height": 500,
+                    "decoration": {
+                        "gradient": {
+                            "colors": [
+                                "#00050608",
+                                "#050608",
+                                "#050608"
+                            ],
+                            "begin": "topCenter",
+                            "end": "bottomCenter",
+                            "stops": [
+                                0.0,
+                                0.8,
+                                1.0
+                            ]
+                        }
+                    },
+                    "child": {
+                        "type": "padding",
+                        "padding": {
+                            "left": 20,
+                            "right": 20,
+                            "top": 48,
+                            "bottom": 48
+                        },
+                        "child": {
+                            "type": "column",
+                            "mainAxisAlignment": "end",
+                            "crossAxisAlignment": "start",
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "data": "Movie ",
+                                    "style": {
+                                        "fontSize": 40,
+                                        "color": "#ffffff",
+                                        "fontWeight": "w700",
+                                        "height": 1.1,
+                                        "letterSpacing": -0.08
+                                    },
+                                    "children": [
+                                        {
+                                            "data": "\nDatabase",
+                                            "style": {
+                                                "color": "primary"
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 24
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Watch & enjoy a variety of award winning TV shows, movies, anime, and a lot more"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 64
+                                },
+                                {
+                                    "type": "filledButton",
+                                    "child": {
+                                        "type": "text",
+                                        "data": "Get Started"
+                                    },
+                                    "onPressed": {}
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
