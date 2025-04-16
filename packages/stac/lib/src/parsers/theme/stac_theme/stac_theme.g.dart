@@ -15,6 +15,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
       materialTapTargetSize: $enumDecodeNullable(
           _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
       platform: $enumDecodeNullable(_$TargetPlatformEnumMap, json['platform']),
+      scrollbarTheme: json['scrollbarTheme'] == null
+          ? null
+          : StacScrollbarThemeData.fromJson(
+              json['scrollbarTheme'] as Map<String, dynamic>),
       useMaterial3: json['useMaterial3'] as bool?,
       colorScheme: json['colorScheme'] == null
           ? null
@@ -56,6 +60,13 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacIconThemeData.fromJson(
               json['primaryIconTheme'] as Map<String, dynamic>),
+      primaryTextTheme: json['primaryTextTheme'] == null
+          ? null
+          : StacTextTheme.fromJson(
+              json['primaryTextTheme'] as Map<String, dynamic>),
+      textTheme: json['textTheme'] == null
+          ? null
+          : StacTextTheme.fromJson(json['textTheme'] as Map<String, dynamic>),
       appBarTheme: json['appBarTheme'] == null
           ? null
           : StacAppBarTheme.fromJson(
@@ -121,6 +132,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'materialTapTargetSize':
           _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
       'platform': _$TargetPlatformEnumMap[instance.platform],
+      'scrollbarTheme': instance.scrollbarTheme,
       'useMaterial3': instance.useMaterial3,
       'colorScheme': instance.colorScheme,
       'brightness': _$BrightnessEnumMap[instance.brightness],
@@ -148,6 +160,8 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'package': instance.package,
       'iconTheme': instance.iconTheme,
       'primaryIconTheme': instance.primaryIconTheme,
+      'primaryTextTheme': instance.primaryTextTheme,
+      'textTheme': instance.textTheme,
       'appBarTheme': instance.appBarTheme,
       'bottomAppBarTheme': instance.bottomAppBarTheme,
       'bottomNavigationBarTheme': instance.bottomNavigationBarTheme,

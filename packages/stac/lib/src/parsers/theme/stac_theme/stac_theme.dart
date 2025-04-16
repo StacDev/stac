@@ -10,7 +10,9 @@ import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart'
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
 import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data/stac_scrollbar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_text_theme/stac_text_theme.dart';
 import 'package:stac/src/parsers/widgets/stac_color_scheme/stac_color_scheme.dart';
 import 'package:stac/src/parsers/widgets/stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';
 import 'package:stac/src/parsers/widgets/stac_input_decoration_theme/stac_input_decoration_theme.dart';
@@ -28,7 +30,7 @@ abstract class StacTheme with _$StacTheme {
     StacInputDecorationTheme? inputDecorationTheme,
     MaterialTapTargetSize? materialTapTargetSize,
     TargetPlatform? platform,
-    // ScrollbarThemeData? scrollbarTheme, // Todo
+    StacScrollbarThemeData? scrollbarTheme,
     bool? useMaterial3,
     // COLOR
     StacColorScheme? colorScheme,
@@ -61,9 +63,8 @@ abstract class StacTheme with _$StacTheme {
     String? package,
     StacIconThemeData? iconTheme,
     StacIconThemeData? primaryIconTheme,
-    // TextTheme? primaryTextTheme,
-    // TextTheme? textTheme,
-    // Typography? typography,
+    StacTextTheme? primaryTextTheme,
+    StacTextTheme? textTheme,
     // COMPONENT THEMES
     // ActionIconThemeData? actionIconTheme, // todo
     StacAppBarTheme? appBarTheme,
@@ -119,31 +120,43 @@ abstract class StacTheme with _$StacTheme {
 extension StacThemeParser on StacTheme {
   ThemeData? parse(BuildContext context) {
     return ThemeData(
+      // GENERAL CONFIGURATION
       applyElevationOverlayColor: applyElevationOverlayColor,
       inputDecorationTheme: inputDecorationTheme?.parse(context),
+      materialTapTargetSize: materialTapTargetSize,
+      scrollbarTheme: scrollbarTheme?.parse(context),
       useMaterial3: useMaterial3,
-      brightness: brightness,
-      canvasColor: canvasColor?.toColor(context),
+      // COLOR
       colorScheme: colorScheme?.parse(context),
+      brightness: brightness,
       colorSchemeSeed: colorSchemeSeed.toColor(context),
-      disabledColor: disabledColor.toColor(context),
-      dividerColor: dividerColor.toColor(context),
-      focusColor: focusColor.toColor(context),
-      highlightColor: highlightColor.toColor(context),
-      hintColor: hintColor.toColor(context),
-      hoverColor: hoverColor.toColor(context),
-      indicatorColor: indicatorColor.toColor(context),
-      primaryColor: primaryColor.toColor(context),
-      primaryColorDark: primaryColorDark.toColor(context),
-      primaryColorLight: primaryColorLight.toColor(context),
-      scaffoldBackgroundColor: scaffoldBackgroundColor.toColor(context),
-      secondaryHeaderColor: secondaryHeaderColor.toColor(context),
-      shadowColor: shadowColor.toColor(context),
-      splashColor: splashColor.toColor(context),
-      unselectedWidgetColor: unselectedWidgetColor.toColor(context),
+      canvasColor: canvasColor?.toColor(context),
+      cardColor: cardColor?.toColor(context),
+      disabledColor: disabledColor?.toColor(context),
+      dividerColor: dividerColor?.toColor(context),
+      focusColor: focusColor?.toColor(context),
+      highlightColor: highlightColor?.toColor(context),
+      hintColor: hintColor?.toColor(context),
+      hoverColor: hoverColor?.toColor(context),
+      indicatorColor: indicatorColor?.toColor(context),
+      primaryColor: primaryColor?.toColor(context),
+      primaryColorDark: primaryColorDark?.toColor(context),
+      primaryColorLight: primaryColorLight?.toColor(context),
+      primarySwatch: primarySwatch?.parse(context),
+      scaffoldBackgroundColor: scaffoldBackgroundColor?.toColor(context),
+      secondaryHeaderColor: secondaryHeaderColor?.toColor(context),
+      shadowColor: shadowColor?.toColor(context),
+      splashColor: splashColor?.toColor(context),
+      unselectedWidgetColor: unselectedWidgetColor?.toColor(context),
+      // TYPOGRAPHY & ICONOGRAPHY
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
-      primarySwatch: primarySwatch?.parse(context),
+      package: package,
+      iconTheme: iconTheme?.parse(context),
+      primaryIconTheme: primaryIconTheme?.parse(context),
+      primaryTextTheme: primaryTextTheme?.parse(context),
+      textTheme: textTheme?.parse(context),
+      // COMPONENT THEMES
       appBarTheme: appBarTheme?.parse(context),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: elevatedButtonTheme?.parseElevated(context)),
@@ -151,8 +164,6 @@ extension StacThemeParser on StacTheme {
           style: outlinedButtonTheme?.parseOutlined(context)),
       iconButtonTheme:
           IconButtonThemeData(style: iconButtonTheme?.parseIcon(context)),
-      iconTheme: iconTheme?.parse(context),
-      primaryIconTheme: primaryIconTheme?.parse(context),
       dialogTheme: dialogTheme?.parse(context),
       floatingActionButtonTheme: floatingActionButtonTheme?.parse(context),
       textButtonTheme:
