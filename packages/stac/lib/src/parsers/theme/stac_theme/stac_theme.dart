@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/theme/stac_app_bar_theme/stac_app_bar_theme.dart';
+import 'package:stac/src/parsers/theme/stac_badge_theme_data/stac_badge_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_bottom_app_bar_theme/stac_bottom_app_bar_theme.dart';
 import 'package:stac/src/parsers/theme/stac_bottom_nav_bar_theme/stac_bottom_nav_bar_theme.dart';
 import 'package:stac/src/parsers/theme/stac_bottom_sheet_theme/stac_bottom_sheet_theme.dart';
@@ -66,9 +67,8 @@ abstract class StacTheme with _$StacTheme {
     StacTextTheme? primaryTextTheme,
     StacTextTheme? textTheme,
     // COMPONENT THEMES
-    // ActionIconThemeData? actionIconTheme, // todo
     StacAppBarTheme? appBarTheme,
-    // BadgeThemeData? badgeTheme, // todo
+    StacBadgeThemeData? badgeTheme,
     // MaterialBannerThemeData? bannerTheme, // todo
     StacBottomAppBarTheme? bottomAppBarTheme,
     StacBottomNavBarThemeData? bottomNavigationBarTheme,
@@ -158,6 +158,7 @@ extension StacThemeParser on StacTheme {
       textTheme: textTheme?.parse(context),
       // COMPONENT THEMES
       appBarTheme: appBarTheme?.parse(context),
+      badgeTheme: badgeTheme?.parse(context),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: elevatedButtonTheme?.parseElevated(context)),
       outlinedButtonTheme: OutlinedButtonThemeData(
