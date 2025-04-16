@@ -75,6 +75,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacBadgeThemeData.fromJson(
               json['badgeTheme'] as Map<String, dynamic>),
+      bannerTheme: json['bannerTheme'] == null
+          ? null
+          : StacMaterialBannerThemeData.fromJson(
+              json['bannerTheme'] as Map<String, dynamic>),
       bottomAppBarTheme: json['bottomAppBarTheme'] == null
           ? null
           : StacBottomAppBarTheme.fromJson(
@@ -168,6 +172,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'textTheme': instance.textTheme,
       'appBarTheme': instance.appBarTheme,
       'badgeTheme': instance.badgeTheme,
+      'bannerTheme': instance.bannerTheme,
       'bottomAppBarTheme': instance.bottomAppBarTheme,
       'bottomNavigationBarTheme': instance.bottomNavigationBarTheme,
       'bottomSheetTheme': instance.bottomSheetTheme,

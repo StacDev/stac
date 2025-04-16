@@ -9,6 +9,7 @@ import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style.dart'
 import 'package:stac/src/parsers/theme/stac_card_theme_data/stac_card_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
 import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data/stac_scrollbar_theme_data.dart';
@@ -69,7 +70,7 @@ abstract class StacTheme with _$StacTheme {
     // COMPONENT THEMES
     StacAppBarTheme? appBarTheme,
     StacBadgeThemeData? badgeTheme,
-    // MaterialBannerThemeData? bannerTheme, // todo
+    StacMaterialBannerThemeData? bannerTheme,
     StacBottomAppBarTheme? bottomAppBarTheme,
     StacBottomNavBarThemeData? bottomNavigationBarTheme,
     StacBottomSheetThemeData? bottomSheetTheme,
@@ -159,6 +160,7 @@ extension StacThemeParser on StacTheme {
       // COMPONENT THEMES
       appBarTheme: appBarTheme?.parse(context),
       badgeTheme: badgeTheme?.parse(context),
+      bannerTheme: bannerTheme?.parse(context),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: elevatedButtonTheme?.parseElevated(context)),
       outlinedButtonTheme: OutlinedButtonThemeData(

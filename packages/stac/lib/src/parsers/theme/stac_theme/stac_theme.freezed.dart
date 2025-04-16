@@ -54,8 +54,8 @@ mixin _$StacTheme {
   StacTextTheme? get primaryTextTheme;
   StacTextTheme? get textTheme; // COMPONENT THEMES
   StacAppBarTheme? get appBarTheme;
-  StacBadgeThemeData?
-      get badgeTheme; // MaterialBannerThemeData? bannerTheme, // todo
+  StacBadgeThemeData? get badgeTheme;
+  StacMaterialBannerThemeData? get bannerTheme;
   StacBottomAppBarTheme? get bottomAppBarTheme;
   StacBottomNavBarThemeData? get bottomNavigationBarTheme;
   StacBottomSheetThemeData?
@@ -175,6 +175,7 @@ mixin _$StacTheme {
             (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
             (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
             (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
+            (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
             (identical(other.bottomAppBarTheme, bottomAppBarTheme) || other.bottomAppBarTheme == bottomAppBarTheme) &&
             (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
             (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
@@ -230,6 +231,7 @@ mixin _$StacTheme {
         textTheme,
         appBarTheme,
         badgeTheme,
+        bannerTheme,
         bottomAppBarTheme,
         bottomNavigationBarTheme,
         bottomSheetTheme,
@@ -247,7 +249,7 @@ mixin _$StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -293,6 +295,7 @@ abstract mixin class $StacThemeCopyWith<$Res> {
       StacTextTheme? textTheme,
       StacAppBarTheme? appBarTheme,
       StacBadgeThemeData? badgeTheme,
+      StacMaterialBannerThemeData? bannerTheme,
       StacBottomAppBarTheme? bottomAppBarTheme,
       StacBottomNavBarThemeData? bottomNavigationBarTheme,
       StacBottomSheetThemeData? bottomSheetTheme,
@@ -317,6 +320,7 @@ abstract mixin class $StacThemeCopyWith<$Res> {
   $StacTextThemeCopyWith<$Res>? get textTheme;
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
   $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme;
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme;
   $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
   $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme;
   $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme;
@@ -381,6 +385,7 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     Object? textTheme = freezed,
     Object? appBarTheme = freezed,
     Object? badgeTheme = freezed,
+    Object? bannerTheme = freezed,
     Object? bottomAppBarTheme = freezed,
     Object? bottomNavigationBarTheme = freezed,
     Object? bottomSheetTheme = freezed,
@@ -540,6 +545,10 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.badgeTheme
           : badgeTheme // ignore: cast_nullable_to_non_nullable
               as StacBadgeThemeData?,
+      bannerTheme: freezed == bannerTheme
+          ? _self.bannerTheme
+          : bannerTheme // ignore: cast_nullable_to_non_nullable
+              as StacMaterialBannerThemeData?,
       bottomAppBarTheme: freezed == bottomAppBarTheme
           ? _self.bottomAppBarTheme
           : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
@@ -734,6 +743,21 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacBadgeThemeDataCopyWith<$Res>(_self.badgeTheme!, (value) {
       return _then(_self.copyWith(badgeTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme {
+    if (_self.bannerTheme == null) {
+      return null;
+    }
+
+    return $StacMaterialBannerThemeDataCopyWith<$Res>(_self.bannerTheme!,
+        (value) {
+      return _then(_self.copyWith(bannerTheme: value));
     });
   }
 
@@ -966,6 +990,7 @@ class _StacTheme implements StacTheme {
       this.textTheme,
       this.appBarTheme,
       this.badgeTheme,
+      this.bannerTheme,
       this.bottomAppBarTheme,
       this.bottomNavigationBarTheme,
       this.bottomSheetTheme,
@@ -1071,7 +1096,8 @@ class _StacTheme implements StacTheme {
   final StacAppBarTheme? appBarTheme;
   @override
   final StacBadgeThemeData? badgeTheme;
-// MaterialBannerThemeData? bannerTheme, // todo
+  @override
+  final StacMaterialBannerThemeData? bannerTheme;
   @override
   final StacBottomAppBarTheme? bottomAppBarTheme;
   @override
@@ -1212,6 +1238,7 @@ class _StacTheme implements StacTheme {
             (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
             (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
             (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
+            (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
             (identical(other.bottomAppBarTheme, bottomAppBarTheme) || other.bottomAppBarTheme == bottomAppBarTheme) &&
             (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
             (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
@@ -1267,6 +1294,7 @@ class _StacTheme implements StacTheme {
         textTheme,
         appBarTheme,
         badgeTheme,
+        bannerTheme,
         bottomAppBarTheme,
         bottomNavigationBarTheme,
         bottomSheetTheme,
@@ -1284,7 +1312,7 @@ class _StacTheme implements StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -1333,6 +1361,7 @@ abstract mixin class _$StacThemeCopyWith<$Res>
       StacTextTheme? textTheme,
       StacAppBarTheme? appBarTheme,
       StacBadgeThemeData? badgeTheme,
+      StacMaterialBannerThemeData? bannerTheme,
       StacBottomAppBarTheme? bottomAppBarTheme,
       StacBottomNavBarThemeData? bottomNavigationBarTheme,
       StacBottomSheetThemeData? bottomSheetTheme,
@@ -1367,6 +1396,8 @@ abstract mixin class _$StacThemeCopyWith<$Res>
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
   @override
   $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme;
+  @override
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme;
   @override
   $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
   @override
@@ -1444,6 +1475,7 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     Object? textTheme = freezed,
     Object? appBarTheme = freezed,
     Object? badgeTheme = freezed,
+    Object? bannerTheme = freezed,
     Object? bottomAppBarTheme = freezed,
     Object? bottomNavigationBarTheme = freezed,
     Object? bottomSheetTheme = freezed,
@@ -1603,6 +1635,10 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.badgeTheme
           : badgeTheme // ignore: cast_nullable_to_non_nullable
               as StacBadgeThemeData?,
+      bannerTheme: freezed == bannerTheme
+          ? _self.bannerTheme
+          : bannerTheme // ignore: cast_nullable_to_non_nullable
+              as StacMaterialBannerThemeData?,
       bottomAppBarTheme: freezed == bottomAppBarTheme
           ? _self.bottomAppBarTheme
           : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
@@ -1797,6 +1833,21 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacBadgeThemeDataCopyWith<$Res>(_self.badgeTheme!, (value) {
       return _then(_self.copyWith(badgeTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme {
+    if (_self.bannerTheme == null) {
+      return null;
+    }
+
+    return $StacMaterialBannerThemeDataCopyWith<$Res>(_self.bannerTheme!,
+        (value) {
+      return _then(_self.copyWith(bannerTheme: value));
     });
   }
 
