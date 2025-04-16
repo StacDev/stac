@@ -27,7 +27,7 @@ abstract class StacShapeBorder with _$StacShapeBorder {
       _$StacShapeBorderFromJson(json);
 }
 
-extension MiralShapeBorderParser on StacShapeBorder {
+extension StacShapeBorderParser on StacShapeBorder {
   ShapeBorder parse(BuildContext context) {
     switch (borderType) {
       case StacShapeBorderType.circleBorder:

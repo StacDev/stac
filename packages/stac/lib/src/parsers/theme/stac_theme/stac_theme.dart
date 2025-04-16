@@ -8,6 +8,7 @@ import 'package:stac/src/parsers/theme/stac_bottom_sheet_theme/stac_bottom_sheet
 import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style.dart';
 import 'package:stac/src/parsers/theme/stac_button_theme_data/stac_button_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_card_theme_data/stac_card_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_checkbox_theme_data/stac_checkbox_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
@@ -77,7 +78,7 @@ abstract class StacTheme with _$StacTheme {
     StacBottomSheetThemeData? bottomSheetTheme,
     StacButtonThemeData? buttonTheme,
     StacCardThemeData? cardTheme,
-    // CheckboxThemeData? checkboxTheme, // todo
+    StacCheckboxThemeData? checkboxTheme, // todo
     // ChipThemeData? chipTheme,
     // DataTableThemeData? dataTableTheme,
     // DatePickerThemeData? datePickerTheme, // todo
@@ -167,7 +168,7 @@ extension StacThemeParser on StacTheme {
       bottomSheetTheme: bottomSheetTheme?.parse(context),
       buttonTheme: buttonTheme?.parse(context),
       cardTheme: cardTheme?.parse(context),
-      // CheckboxThemeData? checkboxTheme, // todo
+      checkboxTheme: checkboxTheme?.parse(context),
       // ChipThemeData? chipTheme,
       // DataTableThemeData? dataTableTheme,
       // DatePickerThemeData? datePickerTheme, // todo

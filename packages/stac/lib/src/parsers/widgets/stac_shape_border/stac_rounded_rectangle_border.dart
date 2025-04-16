@@ -16,7 +16,7 @@ abstract class StacRoundedRactangleBorder with _$StacRoundedRactangleBorder {
       _$StacRoundedRactangleBorderFromJson(json);
 }
 
-extension MiralRoundedRactangleBorderParser on StacRoundedRactangleBorder {
+extension StacRoundedRactangleBorderParser on StacRoundedRactangleBorder {
   ShapeBorder parse(BuildContext context) {
     return RoundedRectangleBorder(
       side: side.parse(context),
