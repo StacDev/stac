@@ -6,6 +6,7 @@ import 'package:stac/src/parsers/theme/stac_bottom_app_bar_theme/stac_bottom_app
 import 'package:stac/src/parsers/theme/stac_bottom_nav_bar_theme/stac_bottom_nav_bar_theme.dart';
 import 'package:stac/src/parsers/theme/stac_bottom_sheet_theme/stac_bottom_sheet_theme.dart';
 import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style.dart';
+import 'package:stac/src/parsers/theme/stac_button_theme_data/stac_button_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_card_theme_data/stac_card_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
@@ -74,7 +75,7 @@ abstract class StacTheme with _$StacTheme {
     StacBottomAppBarTheme? bottomAppBarTheme,
     StacBottomNavBarThemeData? bottomNavigationBarTheme,
     StacBottomSheetThemeData? bottomSheetTheme,
-    // ButtonThemeData? buttonTheme, // todo
+    StacButtonThemeData? buttonTheme,
     StacCardThemeData? cardTheme,
     // CheckboxThemeData? checkboxTheme, // todo
     // ChipThemeData? chipTheme,
@@ -86,12 +87,12 @@ abstract class StacTheme with _$StacTheme {
     // DropdownMenuThemeData? dropdownMenuTheme,
     StacButtonStyle? elevatedButtonTheme,
     // ExpansionTileThemeData? expansionTileTheme,
-    // FilledButtonThemeData? filledButtonTheme,
+    StacButtonStyle? filledButtonTheme,
     StacFloatingActionButtonThemeData? floatingActionButtonTheme,
     StacButtonStyle? iconButtonTheme,
     StacListTileThemeData? listTileTheme,
     // MenuBarThemeData? menuBarTheme,
-    // MenuButtonThemeData? menuButtonTheme,
+    StacButtonStyle? menuButtonTheme,
     // MenuThemeData? menuTheme,
     StacNavigationBarThemeData? navigationBarTheme,
     // NavigationDrawerThemeData? navigationDrawerTheme,
@@ -102,7 +103,7 @@ abstract class StacTheme with _$StacTheme {
     // RadioThemeData? radioTheme,
     // SearchBarThemeData? searchBarTheme,
     // SearchViewThemeData? searchViewTheme,
-    // SegmentedButtonThemeData? segmentedButtonTheme,
+    StacButtonStyle? segmentedButtonTheme,
     // SliderThemeData? sliderTheme,
     // SnackBarThemeData? snackBarTheme,
     // SwitchThemeData? switchTheme,
@@ -161,23 +162,56 @@ extension StacThemeParser on StacTheme {
       appBarTheme: appBarTheme?.parse(context),
       badgeTheme: badgeTheme?.parse(context),
       bannerTheme: bannerTheme?.parse(context),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-          style: elevatedButtonTheme?.parseElevated(context)),
-      outlinedButtonTheme: OutlinedButtonThemeData(
-          style: outlinedButtonTheme?.parseOutlined(context)),
-      iconButtonTheme:
-          IconButtonThemeData(style: iconButtonTheme?.parseIcon(context)),
-      dialogTheme: dialogTheme?.parse(context),
-      floatingActionButtonTheme: floatingActionButtonTheme?.parse(context),
-      textButtonTheme:
-          TextButtonThemeData(style: textButtonTheme?.parseText(context)),
       bottomAppBarTheme: bottomAppBarTheme?.parse(context),
       bottomNavigationBarTheme: bottomNavigationBarTheme?.parse(context),
       bottomSheetTheme: bottomSheetTheme?.parse(context),
+      buttonTheme: buttonTheme?.parse(context),
       cardTheme: cardTheme?.parse(context),
+      // CheckboxThemeData? checkboxTheme, // todo
+      // ChipThemeData? chipTheme,
+      // DataTableThemeData? dataTableTheme,
+      // DatePickerThemeData? datePickerTheme, // todo
+      dialogTheme: dialogTheme?.parse(context),
+      // DividerThemeData? dividerTheme,
+      // DrawerThemeData? drawerTheme,
+      // DropdownMenuThemeData? dropdownMenuTheme,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: elevatedButtonTheme?.parseElevatedButton(context)),
+      // ExpansionTileThemeData? expansionTileTheme,
+      filledButtonTheme: FilledButtonThemeData(
+        style: filledButtonTheme?.parseFilledButton(context),
+      ),
+      floatingActionButtonTheme: floatingActionButtonTheme?.parse(context),
+      iconButtonTheme:
+          IconButtonThemeData(style: iconButtonTheme?.parseIconButton(context)),
       listTileTheme: listTileTheme?.parse(context),
+      // MenuBarThemeData? menuBarTheme,
+      menuButtonTheme: MenuButtonThemeData(
+        style: menuButtonTheme?.parseElevatedButton(context),
+      ),
+      // MenuThemeData? menuTheme,
       navigationBarTheme: navigationBarTheme?.parse(context),
+      // NavigationDrawerThemeData? navigationDrawerTheme,
+      // NavigationRailThemeData? navigationRailTheme,
+      outlinedButtonTheme: OutlinedButtonThemeData(
+          style: outlinedButtonTheme?.parseOutlinedButton(context)),
+      // PopupMenuThemeData? popupMenuTheme,
+      // ProgressIndicatorThemeData? progressIndicatorTheme,
+      // RadioThemeData? radioTheme,
+      // SearchBarThemeData? searchBarTheme,
+      // SearchViewThemeData? searchViewTheme,
+      // SegmentedButtonThemeData? segmentedButtonTheme,
+      // SliderThemeData? sliderTheme,
+      // SnackBarThemeData? snackBarTheme,
+      // SwitchThemeData? switchTheme,
       tabBarTheme: tabBarTheme?.parse(context),
+      textButtonTheme: TextButtonThemeData(
+        style: textButtonTheme?.parseTextButton(context),
+      ),
+      // TextSelectionThemeData? textSelectionTheme,
+      // TimePickerThemeData? timePickerTheme,
+      // ToggleButtonsThemeData? toggleButtonsTheme,
+      // TooltipThemeData? tooltipTheme,
     );
   }
 }

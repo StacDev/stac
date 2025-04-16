@@ -30,7 +30,7 @@ extension StacDropdownMenuEntryParser on StacDropdownMenuEntry? {
       labelWidget: Stac.fromJson(this?.labelWidget, context),
       leadingIcon: Stac.fromJson(this?.leadingIcon, context),
       enabled: this?.enabled ?? true,
-      style: this?.style?.parseText(context),
+      style: this?.style?.parseTextButton(context),
     );
   }
 }

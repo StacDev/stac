@@ -22,7 +22,10 @@ mixin _$StacButtonStyle {
   String? get shadowColor;
   String? get surfaceTintColor;
   String? get iconColor;
+  double? get iconSize;
+  IconAlignment? get iconAlignment;
   String? get disabledIconColor;
+  String? get overlayColor;
   double? get elevation;
   StacTextStyle? get textStyle;
   StacEdgeInsets? get padding;
@@ -31,8 +34,13 @@ mixin _$StacButtonStyle {
   StacSize? get maximumSize;
   StacBorderSide? get side;
   StacRoundedRectangleBorder? get shape;
+  StacMouseCursor? get enabledMouseCursor;
+  StacMouseCursor? get disabledMouseCursor;
+  StacVisualDensity? get visualDensity;
+  MaterialTapTargetSize? get tapTargetSize;
+  Duration? get animationDuration;
   bool? get enableFeedback;
-  double? get iconSize;
+  StacAlignmentGeometry? get alignment;
 
   /// Create a copy of StacButtonStyle
   /// with the given fields replaced by the non-null parameter values.
@@ -66,8 +74,14 @@ mixin _$StacButtonStyle {
                 other.surfaceTintColor == surfaceTintColor) &&
             (identical(other.iconColor, iconColor) ||
                 other.iconColor == iconColor) &&
+            (identical(other.iconSize, iconSize) ||
+                other.iconSize == iconSize) &&
+            (identical(other.iconAlignment, iconAlignment) ||
+                other.iconAlignment == iconAlignment) &&
             (identical(other.disabledIconColor, disabledIconColor) ||
                 other.disabledIconColor == disabledIconColor) &&
+            (identical(other.overlayColor, overlayColor) ||
+                other.overlayColor == overlayColor) &&
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
             (identical(other.textStyle, textStyle) ||
@@ -81,38 +95,57 @@ mixin _$StacButtonStyle {
                 other.maximumSize == maximumSize) &&
             (identical(other.side, side) || other.side == side) &&
             (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.enabledMouseCursor, enabledMouseCursor) ||
+                other.enabledMouseCursor == enabledMouseCursor) &&
+            (identical(other.disabledMouseCursor, disabledMouseCursor) ||
+                other.disabledMouseCursor == disabledMouseCursor) &&
+            (identical(other.visualDensity, visualDensity) ||
+                other.visualDensity == visualDensity) &&
+            (identical(other.tapTargetSize, tapTargetSize) ||
+                other.tapTargetSize == tapTargetSize) &&
+            (identical(other.animationDuration, animationDuration) ||
+                other.animationDuration == animationDuration) &&
             (identical(other.enableFeedback, enableFeedback) ||
                 other.enableFeedback == enableFeedback) &&
-            (identical(other.iconSize, iconSize) ||
-                other.iconSize == iconSize));
+            (identical(other.alignment, alignment) ||
+                other.alignment == alignment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      foregroundColor,
-      backgroundColor,
-      disabledForegroundColor,
-      disabledBackgroundColor,
-      shadowColor,
-      surfaceTintColor,
-      iconColor,
-      disabledIconColor,
-      elevation,
-      textStyle,
-      padding,
-      minimumSize,
-      fixedSize,
-      maximumSize,
-      side,
-      shape,
-      enableFeedback,
-      iconSize);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        foregroundColor,
+        backgroundColor,
+        disabledForegroundColor,
+        disabledBackgroundColor,
+        shadowColor,
+        surfaceTintColor,
+        iconColor,
+        iconSize,
+        iconAlignment,
+        disabledIconColor,
+        overlayColor,
+        elevation,
+        textStyle,
+        padding,
+        minimumSize,
+        fixedSize,
+        maximumSize,
+        side,
+        shape,
+        enabledMouseCursor,
+        disabledMouseCursor,
+        visualDensity,
+        tapTargetSize,
+        animationDuration,
+        enableFeedback,
+        alignment
+      ]);
 
   @override
   String toString() {
-    return 'StacButtonStyle(foregroundColor: $foregroundColor, backgroundColor: $backgroundColor, disabledForegroundColor: $disabledForegroundColor, disabledBackgroundColor: $disabledBackgroundColor, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconColor: $iconColor, disabledIconColor: $disabledIconColor, elevation: $elevation, textStyle: $textStyle, padding: $padding, minimumSize: $minimumSize, fixedSize: $fixedSize, maximumSize: $maximumSize, side: $side, shape: $shape, enableFeedback: $enableFeedback, iconSize: $iconSize)';
+    return 'StacButtonStyle(foregroundColor: $foregroundColor, backgroundColor: $backgroundColor, disabledForegroundColor: $disabledForegroundColor, disabledBackgroundColor: $disabledBackgroundColor, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconColor: $iconColor, iconSize: $iconSize, iconAlignment: $iconAlignment, disabledIconColor: $disabledIconColor, overlayColor: $overlayColor, elevation: $elevation, textStyle: $textStyle, padding: $padding, minimumSize: $minimumSize, fixedSize: $fixedSize, maximumSize: $maximumSize, side: $side, shape: $shape, enabledMouseCursor: $enabledMouseCursor, disabledMouseCursor: $disabledMouseCursor, visualDensity: $visualDensity, tapTargetSize: $tapTargetSize, animationDuration: $animationDuration, enableFeedback: $enableFeedback, alignment: $alignment)';
   }
 }
 
@@ -130,7 +163,10 @@ abstract mixin class $StacButtonStyleCopyWith<$Res> {
       String? shadowColor,
       String? surfaceTintColor,
       String? iconColor,
+      double? iconSize,
+      IconAlignment? iconAlignment,
       String? disabledIconColor,
+      String? overlayColor,
       double? elevation,
       StacTextStyle? textStyle,
       StacEdgeInsets? padding,
@@ -139,8 +175,13 @@ abstract mixin class $StacButtonStyleCopyWith<$Res> {
       StacSize? maximumSize,
       StacBorderSide? side,
       StacRoundedRectangleBorder? shape,
+      StacMouseCursor? enabledMouseCursor,
+      StacMouseCursor? disabledMouseCursor,
+      StacVisualDensity? visualDensity,
+      MaterialTapTargetSize? tapTargetSize,
+      Duration? animationDuration,
       bool? enableFeedback,
-      double? iconSize});
+      StacAlignmentGeometry? alignment});
 
   $StacTextStyleCopyWith<$Res>? get textStyle;
   $StacEdgeInsetsCopyWith<$Res>? get padding;
@@ -149,6 +190,8 @@ abstract mixin class $StacButtonStyleCopyWith<$Res> {
   $StacSizeCopyWith<$Res>? get maximumSize;
   $StacBorderSideCopyWith<$Res>? get side;
   $StacRoundedRectangleBorderCopyWith<$Res>? get shape;
+  $StacVisualDensityCopyWith<$Res>? get visualDensity;
+  $StacAlignmentGeometryCopyWith<$Res>? get alignment;
 }
 
 /// @nodoc
@@ -171,7 +214,10 @@ class _$StacButtonStyleCopyWithImpl<$Res>
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? iconColor = freezed,
+    Object? iconSize = freezed,
+    Object? iconAlignment = freezed,
     Object? disabledIconColor = freezed,
+    Object? overlayColor = freezed,
     Object? elevation = freezed,
     Object? textStyle = freezed,
     Object? padding = freezed,
@@ -180,8 +226,13 @@ class _$StacButtonStyleCopyWithImpl<$Res>
     Object? maximumSize = freezed,
     Object? side = freezed,
     Object? shape = freezed,
+    Object? enabledMouseCursor = freezed,
+    Object? disabledMouseCursor = freezed,
+    Object? visualDensity = freezed,
+    Object? tapTargetSize = freezed,
+    Object? animationDuration = freezed,
     Object? enableFeedback = freezed,
-    Object? iconSize = freezed,
+    Object? alignment = freezed,
   }) {
     return _then(_self.copyWith(
       foregroundColor: freezed == foregroundColor
@@ -212,9 +263,21 @@ class _$StacButtonStyleCopyWithImpl<$Res>
           ? _self.iconColor
           : iconColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      iconSize: freezed == iconSize
+          ? _self.iconSize
+          : iconSize // ignore: cast_nullable_to_non_nullable
+              as double?,
+      iconAlignment: freezed == iconAlignment
+          ? _self.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment?,
       disabledIconColor: freezed == disabledIconColor
           ? _self.disabledIconColor
           : disabledIconColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      overlayColor: freezed == overlayColor
+          ? _self.overlayColor
+          : overlayColor // ignore: cast_nullable_to_non_nullable
               as String?,
       elevation: freezed == elevation
           ? _self.elevation
@@ -248,14 +311,34 @@ class _$StacButtonStyleCopyWithImpl<$Res>
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
               as StacRoundedRectangleBorder?,
+      enabledMouseCursor: freezed == enabledMouseCursor
+          ? _self.enabledMouseCursor
+          : enabledMouseCursor // ignore: cast_nullable_to_non_nullable
+              as StacMouseCursor?,
+      disabledMouseCursor: freezed == disabledMouseCursor
+          ? _self.disabledMouseCursor
+          : disabledMouseCursor // ignore: cast_nullable_to_non_nullable
+              as StacMouseCursor?,
+      visualDensity: freezed == visualDensity
+          ? _self.visualDensity
+          : visualDensity // ignore: cast_nullable_to_non_nullable
+              as StacVisualDensity?,
+      tapTargetSize: freezed == tapTargetSize
+          ? _self.tapTargetSize
+          : tapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
+      animationDuration: freezed == animationDuration
+          ? _self.animationDuration
+          : animationDuration // ignore: cast_nullable_to_non_nullable
+              as Duration?,
       enableFeedback: freezed == enableFeedback
           ? _self.enableFeedback
           : enableFeedback // ignore: cast_nullable_to_non_nullable
               as bool?,
-      iconSize: freezed == iconSize
-          ? _self.iconSize
-          : iconSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+      alignment: freezed == alignment
+          ? _self.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as StacAlignmentGeometry?,
     ));
   }
 
@@ -356,6 +439,34 @@ class _$StacButtonStyleCopyWithImpl<$Res>
       return _then(_self.copyWith(shape: value));
     });
   }
+
+  /// Create a copy of StacButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacVisualDensityCopyWith<$Res>? get visualDensity {
+    if (_self.visualDensity == null) {
+      return null;
+    }
+
+    return $StacVisualDensityCopyWith<$Res>(_self.visualDensity!, (value) {
+      return _then(_self.copyWith(visualDensity: value));
+    });
+  }
+
+  /// Create a copy of StacButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacAlignmentGeometryCopyWith<$Res>? get alignment {
+    if (_self.alignment == null) {
+      return null;
+    }
+
+    return $StacAlignmentGeometryCopyWith<$Res>(_self.alignment!, (value) {
+      return _then(_self.copyWith(alignment: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -369,7 +480,10 @@ class _StacButtonStyle implements StacButtonStyle {
       this.shadowColor,
       this.surfaceTintColor,
       this.iconColor,
+      this.iconSize,
+      this.iconAlignment,
       this.disabledIconColor,
+      this.overlayColor,
       this.elevation,
       this.textStyle,
       this.padding,
@@ -378,8 +492,13 @@ class _StacButtonStyle implements StacButtonStyle {
       this.maximumSize,
       this.side,
       this.shape,
+      this.enabledMouseCursor,
+      this.disabledMouseCursor,
+      this.visualDensity,
+      this.tapTargetSize,
+      this.animationDuration,
       this.enableFeedback,
-      this.iconSize});
+      this.alignment});
   factory _StacButtonStyle.fromJson(Map<String, dynamic> json) =>
       _$StacButtonStyleFromJson(json);
 
@@ -398,7 +517,13 @@ class _StacButtonStyle implements StacButtonStyle {
   @override
   final String? iconColor;
   @override
+  final double? iconSize;
+  @override
+  final IconAlignment? iconAlignment;
+  @override
   final String? disabledIconColor;
+  @override
+  final String? overlayColor;
   @override
   final double? elevation;
   @override
@@ -416,9 +541,19 @@ class _StacButtonStyle implements StacButtonStyle {
   @override
   final StacRoundedRectangleBorder? shape;
   @override
+  final StacMouseCursor? enabledMouseCursor;
+  @override
+  final StacMouseCursor? disabledMouseCursor;
+  @override
+  final StacVisualDensity? visualDensity;
+  @override
+  final MaterialTapTargetSize? tapTargetSize;
+  @override
+  final Duration? animationDuration;
+  @override
   final bool? enableFeedback;
   @override
-  final double? iconSize;
+  final StacAlignmentGeometry? alignment;
 
   /// Create a copy of StacButtonStyle
   /// with the given fields replaced by the non-null parameter values.
@@ -456,8 +591,14 @@ class _StacButtonStyle implements StacButtonStyle {
                 other.surfaceTintColor == surfaceTintColor) &&
             (identical(other.iconColor, iconColor) ||
                 other.iconColor == iconColor) &&
+            (identical(other.iconSize, iconSize) ||
+                other.iconSize == iconSize) &&
+            (identical(other.iconAlignment, iconAlignment) ||
+                other.iconAlignment == iconAlignment) &&
             (identical(other.disabledIconColor, disabledIconColor) ||
                 other.disabledIconColor == disabledIconColor) &&
+            (identical(other.overlayColor, overlayColor) ||
+                other.overlayColor == overlayColor) &&
             (identical(other.elevation, elevation) ||
                 other.elevation == elevation) &&
             (identical(other.textStyle, textStyle) ||
@@ -471,38 +612,57 @@ class _StacButtonStyle implements StacButtonStyle {
                 other.maximumSize == maximumSize) &&
             (identical(other.side, side) || other.side == side) &&
             (identical(other.shape, shape) || other.shape == shape) &&
+            (identical(other.enabledMouseCursor, enabledMouseCursor) ||
+                other.enabledMouseCursor == enabledMouseCursor) &&
+            (identical(other.disabledMouseCursor, disabledMouseCursor) ||
+                other.disabledMouseCursor == disabledMouseCursor) &&
+            (identical(other.visualDensity, visualDensity) ||
+                other.visualDensity == visualDensity) &&
+            (identical(other.tapTargetSize, tapTargetSize) ||
+                other.tapTargetSize == tapTargetSize) &&
+            (identical(other.animationDuration, animationDuration) ||
+                other.animationDuration == animationDuration) &&
             (identical(other.enableFeedback, enableFeedback) ||
                 other.enableFeedback == enableFeedback) &&
-            (identical(other.iconSize, iconSize) ||
-                other.iconSize == iconSize));
+            (identical(other.alignment, alignment) ||
+                other.alignment == alignment));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      foregroundColor,
-      backgroundColor,
-      disabledForegroundColor,
-      disabledBackgroundColor,
-      shadowColor,
-      surfaceTintColor,
-      iconColor,
-      disabledIconColor,
-      elevation,
-      textStyle,
-      padding,
-      minimumSize,
-      fixedSize,
-      maximumSize,
-      side,
-      shape,
-      enableFeedback,
-      iconSize);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        foregroundColor,
+        backgroundColor,
+        disabledForegroundColor,
+        disabledBackgroundColor,
+        shadowColor,
+        surfaceTintColor,
+        iconColor,
+        iconSize,
+        iconAlignment,
+        disabledIconColor,
+        overlayColor,
+        elevation,
+        textStyle,
+        padding,
+        minimumSize,
+        fixedSize,
+        maximumSize,
+        side,
+        shape,
+        enabledMouseCursor,
+        disabledMouseCursor,
+        visualDensity,
+        tapTargetSize,
+        animationDuration,
+        enableFeedback,
+        alignment
+      ]);
 
   @override
   String toString() {
-    return 'StacButtonStyle(foregroundColor: $foregroundColor, backgroundColor: $backgroundColor, disabledForegroundColor: $disabledForegroundColor, disabledBackgroundColor: $disabledBackgroundColor, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconColor: $iconColor, disabledIconColor: $disabledIconColor, elevation: $elevation, textStyle: $textStyle, padding: $padding, minimumSize: $minimumSize, fixedSize: $fixedSize, maximumSize: $maximumSize, side: $side, shape: $shape, enableFeedback: $enableFeedback, iconSize: $iconSize)';
+    return 'StacButtonStyle(foregroundColor: $foregroundColor, backgroundColor: $backgroundColor, disabledForegroundColor: $disabledForegroundColor, disabledBackgroundColor: $disabledBackgroundColor, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconColor: $iconColor, iconSize: $iconSize, iconAlignment: $iconAlignment, disabledIconColor: $disabledIconColor, overlayColor: $overlayColor, elevation: $elevation, textStyle: $textStyle, padding: $padding, minimumSize: $minimumSize, fixedSize: $fixedSize, maximumSize: $maximumSize, side: $side, shape: $shape, enabledMouseCursor: $enabledMouseCursor, disabledMouseCursor: $disabledMouseCursor, visualDensity: $visualDensity, tapTargetSize: $tapTargetSize, animationDuration: $animationDuration, enableFeedback: $enableFeedback, alignment: $alignment)';
   }
 }
 
@@ -522,7 +682,10 @@ abstract mixin class _$StacButtonStyleCopyWith<$Res>
       String? shadowColor,
       String? surfaceTintColor,
       String? iconColor,
+      double? iconSize,
+      IconAlignment? iconAlignment,
       String? disabledIconColor,
+      String? overlayColor,
       double? elevation,
       StacTextStyle? textStyle,
       StacEdgeInsets? padding,
@@ -531,8 +694,13 @@ abstract mixin class _$StacButtonStyleCopyWith<$Res>
       StacSize? maximumSize,
       StacBorderSide? side,
       StacRoundedRectangleBorder? shape,
+      StacMouseCursor? enabledMouseCursor,
+      StacMouseCursor? disabledMouseCursor,
+      StacVisualDensity? visualDensity,
+      MaterialTapTargetSize? tapTargetSize,
+      Duration? animationDuration,
       bool? enableFeedback,
-      double? iconSize});
+      StacAlignmentGeometry? alignment});
 
   @override
   $StacTextStyleCopyWith<$Res>? get textStyle;
@@ -548,6 +716,10 @@ abstract mixin class _$StacButtonStyleCopyWith<$Res>
   $StacBorderSideCopyWith<$Res>? get side;
   @override
   $StacRoundedRectangleBorderCopyWith<$Res>? get shape;
+  @override
+  $StacVisualDensityCopyWith<$Res>? get visualDensity;
+  @override
+  $StacAlignmentGeometryCopyWith<$Res>? get alignment;
 }
 
 /// @nodoc
@@ -570,7 +742,10 @@ class __$StacButtonStyleCopyWithImpl<$Res>
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
     Object? iconColor = freezed,
+    Object? iconSize = freezed,
+    Object? iconAlignment = freezed,
     Object? disabledIconColor = freezed,
+    Object? overlayColor = freezed,
     Object? elevation = freezed,
     Object? textStyle = freezed,
     Object? padding = freezed,
@@ -579,8 +754,13 @@ class __$StacButtonStyleCopyWithImpl<$Res>
     Object? maximumSize = freezed,
     Object? side = freezed,
     Object? shape = freezed,
+    Object? enabledMouseCursor = freezed,
+    Object? disabledMouseCursor = freezed,
+    Object? visualDensity = freezed,
+    Object? tapTargetSize = freezed,
+    Object? animationDuration = freezed,
     Object? enableFeedback = freezed,
-    Object? iconSize = freezed,
+    Object? alignment = freezed,
   }) {
     return _then(_StacButtonStyle(
       foregroundColor: freezed == foregroundColor
@@ -611,9 +791,21 @@ class __$StacButtonStyleCopyWithImpl<$Res>
           ? _self.iconColor
           : iconColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      iconSize: freezed == iconSize
+          ? _self.iconSize
+          : iconSize // ignore: cast_nullable_to_non_nullable
+              as double?,
+      iconAlignment: freezed == iconAlignment
+          ? _self.iconAlignment
+          : iconAlignment // ignore: cast_nullable_to_non_nullable
+              as IconAlignment?,
       disabledIconColor: freezed == disabledIconColor
           ? _self.disabledIconColor
           : disabledIconColor // ignore: cast_nullable_to_non_nullable
+              as String?,
+      overlayColor: freezed == overlayColor
+          ? _self.overlayColor
+          : overlayColor // ignore: cast_nullable_to_non_nullable
               as String?,
       elevation: freezed == elevation
           ? _self.elevation
@@ -647,14 +839,34 @@ class __$StacButtonStyleCopyWithImpl<$Res>
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
               as StacRoundedRectangleBorder?,
+      enabledMouseCursor: freezed == enabledMouseCursor
+          ? _self.enabledMouseCursor
+          : enabledMouseCursor // ignore: cast_nullable_to_non_nullable
+              as StacMouseCursor?,
+      disabledMouseCursor: freezed == disabledMouseCursor
+          ? _self.disabledMouseCursor
+          : disabledMouseCursor // ignore: cast_nullable_to_non_nullable
+              as StacMouseCursor?,
+      visualDensity: freezed == visualDensity
+          ? _self.visualDensity
+          : visualDensity // ignore: cast_nullable_to_non_nullable
+              as StacVisualDensity?,
+      tapTargetSize: freezed == tapTargetSize
+          ? _self.tapTargetSize
+          : tapTargetSize // ignore: cast_nullable_to_non_nullable
+              as MaterialTapTargetSize?,
+      animationDuration: freezed == animationDuration
+          ? _self.animationDuration
+          : animationDuration // ignore: cast_nullable_to_non_nullable
+              as Duration?,
       enableFeedback: freezed == enableFeedback
           ? _self.enableFeedback
           : enableFeedback // ignore: cast_nullable_to_non_nullable
               as bool?,
-      iconSize: freezed == iconSize
-          ? _self.iconSize
-          : iconSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+      alignment: freezed == alignment
+          ? _self.alignment
+          : alignment // ignore: cast_nullable_to_non_nullable
+              as StacAlignmentGeometry?,
     ));
   }
 
@@ -753,6 +965,34 @@ class __$StacButtonStyleCopyWithImpl<$Res>
 
     return $StacRoundedRectangleBorderCopyWith<$Res>(_self.shape!, (value) {
       return _then(_self.copyWith(shape: value));
+    });
+  }
+
+  /// Create a copy of StacButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacVisualDensityCopyWith<$Res>? get visualDensity {
+    if (_self.visualDensity == null) {
+      return null;
+    }
+
+    return $StacVisualDensityCopyWith<$Res>(_self.visualDensity!, (value) {
+      return _then(_self.copyWith(visualDensity: value));
+    });
+  }
+
+  /// Create a copy of StacButtonStyle
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacAlignmentGeometryCopyWith<$Res>? get alignment {
+    if (_self.alignment == null) {
+      return null;
+    }
+
+    return $StacAlignmentGeometryCopyWith<$Res>(_self.alignment!, (value) {
+      return _then(_self.copyWith(alignment: value));
     });
   }
 }
