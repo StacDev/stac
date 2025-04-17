@@ -10,6 +10,7 @@ import 'package:stac/src/parsers/theme/stac_button_theme_data/stac_button_theme_
 import 'package:stac/src/parsers/theme/stac_card_theme_data/stac_card_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_checkbox_theme_data/stac_checkbox_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_chip_theme_data/stac_chip_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_date_picker_theme_data/stac_date_picker_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
@@ -81,8 +82,7 @@ abstract class StacTheme with _$StacTheme {
     StacCardThemeData? cardTheme,
     StacCheckboxThemeData? checkboxTheme,
     StacChipThemeData? chipTheme,
-    // DataTableThemeData? dataTableTheme,
-    // DatePickerThemeData? datePickerTheme, // todo
+    StacDatePickerThemeData? datePickerTheme,
     StacDialogTheme? dialogTheme,
     // DividerThemeData? dividerTheme,
     // DrawerThemeData? drawerTheme,
@@ -171,8 +171,7 @@ extension StacThemeParser on StacTheme {
       cardTheme: cardTheme?.parse(context),
       checkboxTheme: checkboxTheme?.parse(context),
       chipTheme: chipTheme?.parse(context),
-      // DataTableThemeData? dataTableTheme,
-      // DatePickerThemeData? datePickerTheme, // todo
+      datePickerTheme: datePickerTheme?.parse(context),
       dialogTheme: dialogTheme?.parse(context),
       // DividerThemeData? dividerTheme,
       // DrawerThemeData? drawerTheme,

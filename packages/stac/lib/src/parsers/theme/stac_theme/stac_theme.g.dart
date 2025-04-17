@@ -107,6 +107,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacChipThemeData.fromJson(
               json['chipTheme'] as Map<String, dynamic>),
+      datePickerTheme: json['datePickerTheme'] == null
+          ? null
+          : StacDatePickerThemeData.fromJson(
+              json['datePickerTheme'] as Map<String, dynamic>),
       dialogTheme: json['dialogTheme'] == null
           ? null
           : StacDialogTheme.fromJson(
@@ -204,6 +208,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'cardTheme': instance.cardTheme,
       'checkboxTheme': instance.checkboxTheme,
       'chipTheme': instance.chipTheme,
+      'datePickerTheme': instance.datePickerTheme,
       'dialogTheme': instance.dialogTheme,
       'elevatedButtonTheme': instance.elevatedButtonTheme,
       'filledButtonTheme': instance.filledButtonTheme,
