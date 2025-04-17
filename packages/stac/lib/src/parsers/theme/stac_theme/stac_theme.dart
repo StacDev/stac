@@ -18,6 +18,7 @@ import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data
 import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
 import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_navigation_drawer_theme_data/stac_navigation_drawer_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data/stac_scrollbar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_text_theme/stac_text_theme.dart';
@@ -99,7 +100,7 @@ abstract class StacTheme with _$StacTheme {
     StacButtonStyle? menuButtonTheme,
     // MenuThemeData? menuTheme,
     StacNavigationBarThemeData? navigationBarTheme,
-    // NavigationDrawerThemeData? navigationDrawerTheme,
+    StacNavigationDrawerThemeData? navigationDrawerTheme,
     // NavigationRailThemeData? navigationRailTheme,
     StacButtonStyle? outlinedButtonTheme,
     // PopupMenuThemeData? popupMenuTheme,
@@ -194,7 +195,7 @@ extension StacThemeParser on StacTheme {
       ),
       // MenuThemeData? menuTheme,
       navigationBarTheme: navigationBarTheme?.parse(context),
-      // NavigationDrawerThemeData? navigationDrawerTheme,
+      navigationDrawerTheme: navigationDrawerTheme?.parse(context),
       // NavigationRailThemeData? navigationRailTheme,
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: outlinedButtonTheme?.parseOutlinedButton(context)),

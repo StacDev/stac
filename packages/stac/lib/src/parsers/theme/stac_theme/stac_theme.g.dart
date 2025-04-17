@@ -151,6 +151,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacNavigationBarThemeData.fromJson(
               json['navigationBarTheme'] as Map<String, dynamic>),
+      navigationDrawerTheme: json['navigationDrawerTheme'] == null
+          ? null
+          : StacNavigationDrawerThemeData.fromJson(
+              json['navigationDrawerTheme'] as Map<String, dynamic>),
       outlinedButtonTheme: json['outlinedButtonTheme'] == null
           ? null
           : StacButtonStyle.fromJson(
@@ -227,6 +231,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'listTileTheme': instance.listTileTheme,
       'menuButtonTheme': instance.menuButtonTheme,
       'navigationBarTheme': instance.navigationBarTheme,
+      'navigationDrawerTheme': instance.navigationDrawerTheme,
       'outlinedButtonTheme': instance.outlinedButtonTheme,
       'segmentedButtonTheme': instance.segmentedButtonTheme,
       'tabBarTheme': instance.tabBarTheme,
