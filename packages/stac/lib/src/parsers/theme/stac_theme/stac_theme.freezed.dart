@@ -64,8 +64,8 @@ mixin _$StacTheme {
   StacCheckboxThemeData? get checkboxTheme;
   StacChipThemeData? get chipTheme;
   StacDatePickerThemeData? get datePickerTheme;
-  StacDialogTheme? get dialogTheme; // DividerThemeData? dividerTheme,
-// DrawerThemeData? drawerTheme,
+  StacDialogTheme? get dialogTheme;
+  StacDividerThemeData? get dividerTheme; // DrawerThemeData? drawerTheme,
 // DropdownMenuThemeData? dropdownMenuTheme,
   StacButtonStyle?
       get elevatedButtonTheme; // ExpansionTileThemeData? expansionTileTheme,
@@ -183,6 +183,7 @@ mixin _$StacTheme {
             (identical(other.chipTheme, chipTheme) || other.chipTheme == chipTheme) &&
             (identical(other.datePickerTheme, datePickerTheme) || other.datePickerTheme == datePickerTheme) &&
             (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.dividerTheme, dividerTheme) || other.dividerTheme == dividerTheme) &&
             (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
             (identical(other.filledButtonTheme, filledButtonTheme) || other.filledButtonTheme == filledButtonTheme) &&
             (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
@@ -246,6 +247,7 @@ mixin _$StacTheme {
         chipTheme,
         datePickerTheme,
         dialogTheme,
+        dividerTheme,
         elevatedButtonTheme,
         filledButtonTheme,
         floatingActionButtonTheme,
@@ -261,7 +263,7 @@ mixin _$StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -317,6 +319,7 @@ abstract mixin class $StacThemeCopyWith<$Res> {
       StacChipThemeData? chipTheme,
       StacDatePickerThemeData? datePickerTheme,
       StacDialogTheme? dialogTheme,
+      StacDividerThemeData? dividerTheme,
       StacButtonStyle? elevatedButtonTheme,
       StacButtonStyle? filledButtonTheme,
       StacFloatingActionButtonThemeData? floatingActionButtonTheme,
@@ -349,6 +352,7 @@ abstract mixin class $StacThemeCopyWith<$Res> {
   $StacChipThemeDataCopyWith<$Res>? get chipTheme;
   $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme;
   $StacDialogThemeCopyWith<$Res>? get dialogTheme;
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme;
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
   $StacButtonStyleCopyWith<$Res>? get filledButtonTheme;
   $StacFloatingActionButtonThemeDataCopyWith<$Res>?
@@ -421,6 +425,7 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     Object? chipTheme = freezed,
     Object? datePickerTheme = freezed,
     Object? dialogTheme = freezed,
+    Object? dividerTheme = freezed,
     Object? elevatedButtonTheme = freezed,
     Object? filledButtonTheme = freezed,
     Object? floatingActionButtonTheme = freezed,
@@ -618,6 +623,10 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.dialogTheme
           : dialogTheme // ignore: cast_nullable_to_non_nullable
               as StacDialogTheme?,
+      dividerTheme: freezed == dividerTheme
+          ? _self.dividerTheme
+          : dividerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDividerThemeData?,
       elevatedButtonTheme: freezed == elevatedButtonTheme
           ? _self.elevatedButtonTheme
           : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
@@ -949,6 +958,20 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacDialogThemeCopyWith<$Res>(_self.dialogTheme!, (value) {
       return _then(_self.copyWith(dialogTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme {
+    if (_self.dividerTheme == null) {
+      return null;
+    }
+
+    return $StacDividerThemeDataCopyWith<$Res>(_self.dividerTheme!, (value) {
+      return _then(_self.copyWith(dividerTheme: value));
     });
   }
 
@@ -1160,6 +1183,7 @@ class _StacTheme implements StacTheme {
       this.chipTheme,
       this.datePickerTheme,
       this.dialogTheme,
+      this.dividerTheme,
       this.elevatedButtonTheme,
       this.filledButtonTheme,
       this.floatingActionButtonTheme,
@@ -1283,7 +1307,8 @@ class _StacTheme implements StacTheme {
   final StacDatePickerThemeData? datePickerTheme;
   @override
   final StacDialogTheme? dialogTheme;
-// DividerThemeData? dividerTheme,
+  @override
+  final StacDividerThemeData? dividerTheme;
 // DrawerThemeData? drawerTheme,
 // DropdownMenuThemeData? dropdownMenuTheme,
   @override
@@ -1421,6 +1446,7 @@ class _StacTheme implements StacTheme {
             (identical(other.chipTheme, chipTheme) || other.chipTheme == chipTheme) &&
             (identical(other.datePickerTheme, datePickerTheme) || other.datePickerTheme == datePickerTheme) &&
             (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.dividerTheme, dividerTheme) || other.dividerTheme == dividerTheme) &&
             (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
             (identical(other.filledButtonTheme, filledButtonTheme) || other.filledButtonTheme == filledButtonTheme) &&
             (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
@@ -1484,6 +1510,7 @@ class _StacTheme implements StacTheme {
         chipTheme,
         datePickerTheme,
         dialogTheme,
+        dividerTheme,
         elevatedButtonTheme,
         filledButtonTheme,
         floatingActionButtonTheme,
@@ -1499,7 +1526,7 @@ class _StacTheme implements StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -1558,6 +1585,7 @@ abstract mixin class _$StacThemeCopyWith<$Res>
       StacChipThemeData? chipTheme,
       StacDatePickerThemeData? datePickerTheme,
       StacDialogTheme? dialogTheme,
+      StacDividerThemeData? dividerTheme,
       StacButtonStyle? elevatedButtonTheme,
       StacButtonStyle? filledButtonTheme,
       StacFloatingActionButtonThemeData? floatingActionButtonTheme,
@@ -1610,6 +1638,8 @@ abstract mixin class _$StacThemeCopyWith<$Res>
   $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme;
   @override
   $StacDialogThemeCopyWith<$Res>? get dialogTheme;
+  @override
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme;
   @override
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
   @override
@@ -1693,6 +1723,7 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     Object? chipTheme = freezed,
     Object? datePickerTheme = freezed,
     Object? dialogTheme = freezed,
+    Object? dividerTheme = freezed,
     Object? elevatedButtonTheme = freezed,
     Object? filledButtonTheme = freezed,
     Object? floatingActionButtonTheme = freezed,
@@ -1890,6 +1921,10 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.dialogTheme
           : dialogTheme // ignore: cast_nullable_to_non_nullable
               as StacDialogTheme?,
+      dividerTheme: freezed == dividerTheme
+          ? _self.dividerTheme
+          : dividerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDividerThemeData?,
       elevatedButtonTheme: freezed == elevatedButtonTheme
           ? _self.elevatedButtonTheme
           : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
@@ -2221,6 +2256,20 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacDialogThemeCopyWith<$Res>(_self.dialogTheme!, (value) {
       return _then(_self.copyWith(dialogTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme {
+    if (_self.dividerTheme == null) {
+      return null;
+    }
+
+    return $StacDividerThemeDataCopyWith<$Res>(_self.dividerTheme!, (value) {
+      return _then(_self.copyWith(dividerTheme: value));
     });
   }
 

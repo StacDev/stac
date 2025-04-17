@@ -12,6 +12,7 @@ import 'package:stac/src/parsers/theme/stac_checkbox_theme_data/stac_checkbox_th
 import 'package:stac/src/parsers/theme/stac_chip_theme_data/stac_chip_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_date_picker_theme_data/stac_date_picker_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
+import 'package:stac/src/parsers/theme/stac_divider_theme_data/stac_divider_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
@@ -84,7 +85,7 @@ abstract class StacTheme with _$StacTheme {
     StacChipThemeData? chipTheme,
     StacDatePickerThemeData? datePickerTheme,
     StacDialogTheme? dialogTheme,
-    // DividerThemeData? dividerTheme,
+    StacDividerThemeData? dividerTheme,
     // DrawerThemeData? drawerTheme,
     // DropdownMenuThemeData? dropdownMenuTheme,
     StacButtonStyle? elevatedButtonTheme,
@@ -173,7 +174,7 @@ extension StacThemeParser on StacTheme {
       chipTheme: chipTheme?.parse(context),
       datePickerTheme: datePickerTheme?.parse(context),
       dialogTheme: dialogTheme?.parse(context),
-      // DividerThemeData? dividerTheme,
+      dividerTheme: dividerTheme?.parse(context),
       // DrawerThemeData? drawerTheme,
       // DropdownMenuThemeData? dropdownMenuTheme,
       elevatedButtonTheme: ElevatedButtonThemeData(

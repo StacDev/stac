@@ -115,6 +115,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacDialogTheme.fromJson(
               json['dialogTheme'] as Map<String, dynamic>),
+      dividerTheme: json['dividerTheme'] == null
+          ? null
+          : StacDividerThemeData.fromJson(
+              json['dividerTheme'] as Map<String, dynamic>),
       elevatedButtonTheme: json['elevatedButtonTheme'] == null
           ? null
           : StacButtonStyle.fromJson(
@@ -210,6 +214,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'chipTheme': instance.chipTheme,
       'datePickerTheme': instance.datePickerTheme,
       'dialogTheme': instance.dialogTheme,
+      'dividerTheme': instance.dividerTheme,
       'elevatedButtonTheme': instance.elevatedButtonTheme,
       'filledButtonTheme': instance.filledButtonTheme,
       'floatingActionButtonTheme': instance.floatingActionButtonTheme,
