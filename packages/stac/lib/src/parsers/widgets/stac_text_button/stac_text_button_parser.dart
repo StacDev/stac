@@ -27,7 +27,7 @@ class StacTextButtonParser extends StacParser<StacTextButton> {
       onHover: (bool value) => value == false ? null : model.onHover,
       onFocusChange: (bool value) =>
           value == false ? null : model.onFocusChange,
-      style: model.style?.parseText(context),
+      style: model.style?.parseTextButton(context),
       autofocus: model.autofocus,
       clipBehavior: model.clipBehavior,
       isSemanticButton: model.isSemanticButton,

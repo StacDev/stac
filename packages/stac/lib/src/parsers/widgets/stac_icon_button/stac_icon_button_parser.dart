@@ -39,7 +39,7 @@ class StacIconButtonParser extends StacParser<StacIconButton> {
       tooltip: model.tooltip,
       enableFeedback: model.enableFeedback,
       constraints: model.constraints?.parse,
-      style: model.style?.parseIcon(context),
+      style: model.style?.parseIconButton(context),
       isSelected: model.isSelected,
       selectedIcon: Stac.fromJson(model.selectedIcon, context),
       icon: Stac.fromJson(model.icon, context) ?? const SizedBox(),

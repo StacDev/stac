@@ -19,7 +19,8 @@ mixin _$StacTheme {
   bool? get applyElevationOverlayColor;
   StacInputDecorationTheme? get inputDecorationTheme;
   MaterialTapTargetSize? get materialTapTargetSize;
-  TargetPlatform? get platform; // ScrollbarThemeData? scrollbarTheme, // Todo
+  TargetPlatform? get platform;
+  StacScrollbarThemeData? get scrollbarTheme;
   bool? get useMaterial3; // COLOR
   StacColorScheme? get colorScheme;
   Brightness? get brightness;
@@ -49,43 +50,41 @@ mixin _$StacTheme {
   List<String>? get fontFamilyFallback;
   String? get package;
   StacIconThemeData? get iconTheme;
-  StacIconThemeData? get primaryIconTheme; // TextTheme? primaryTextTheme,
-// TextTheme? textTheme,
-// Typography? typography,
-// COMPONENT THEMES
-// ActionIconThemeData? actionIconTheme, // todo
-  StacAppBarTheme? get appBarTheme; // BadgeThemeData? badgeTheme, // todo
-// MaterialBannerThemeData? bannerTheme, // todo
+  StacIconThemeData? get primaryIconTheme;
+  StacTextTheme? get primaryTextTheme;
+  StacTextTheme? get textTheme; // COMPONENT THEMES
+  StacAppBarTheme? get appBarTheme;
+  StacBadgeThemeData? get badgeTheme;
+  StacMaterialBannerThemeData? get bannerTheme;
   StacBottomAppBarTheme? get bottomAppBarTheme;
   StacBottomNavBarThemeData? get bottomNavigationBarTheme;
-  StacBottomSheetThemeData?
-      get bottomSheetTheme; // ButtonThemeData? buttonTheme, // todo
-  StacCardThemeData? get cardTheme; // CheckboxThemeData? checkboxTheme, // todo
-// ChipThemeData? chipTheme,
-// DataTableThemeData? dataTableTheme,
-// DatePickerThemeData? datePickerTheme, // todo
-  StacDialogTheme? get dialogTheme; // DividerThemeData? dividerTheme,
-// DrawerThemeData? drawerTheme,
-// DropdownMenuThemeData? dropdownMenuTheme,
+  StacBottomSheetThemeData? get bottomSheetTheme;
+  StacButtonThemeData? get buttonTheme;
+  StacCardThemeData? get cardTheme;
+  StacCheckboxThemeData? get checkboxTheme;
+  StacChipThemeData? get chipTheme;
+  StacDatePickerThemeData? get datePickerTheme;
+  StacDialogTheme? get dialogTheme;
+  StacDividerThemeData? get dividerTheme;
+  StacDrawerThemeData?
+      get drawerTheme; // DropdownMenuThemeData? dropdownMenuTheme,
   StacButtonStyle?
       get elevatedButtonTheme; // ExpansionTileThemeData? expansionTileTheme,
-// FilledButtonThemeData? filledButtonTheme,
+  StacButtonStyle? get filledButtonTheme;
   StacFloatingActionButtonThemeData? get floatingActionButtonTheme;
   StacButtonStyle? get iconButtonTheme;
   StacListTileThemeData? get listTileTheme; // MenuBarThemeData? menuBarTheme,
-// MenuButtonThemeData? menuButtonTheme,
-// MenuThemeData? menuTheme,
-  StacNavigationBarThemeData?
-      get navigationBarTheme; // NavigationDrawerThemeData? navigationDrawerTheme,
-// NavigationRailThemeData? navigationRailTheme,
+  StacButtonStyle? get menuButtonTheme; // MenuThemeData? menuTheme,
+  StacNavigationBarThemeData? get navigationBarTheme;
+  StacNavigationDrawerThemeData?
+      get navigationDrawerTheme; // NavigationRailThemeData? navigationRailTheme,
   StacButtonStyle?
       get outlinedButtonTheme; // PopupMenuThemeData? popupMenuTheme,
 // ProgressIndicatorThemeData? progressIndicatorTheme,
 // RadioThemeData? radioTheme,
 // SearchBarThemeData? searchBarTheme,
 // SearchViewThemeData? searchViewTheme,
-// SegmentedButtonThemeData? segmentedButtonTheme,
-// SliderThemeData? sliderTheme,
+  StacButtonStyle? get segmentedButtonTheme; // SliderThemeData? sliderTheme,
 // SnackBarThemeData? snackBarTheme,
 // SwitchThemeData? switchTheme,
   StacTabBarThemeData? get tabBarTheme;
@@ -115,6 +114,8 @@ mixin _$StacTheme {
                 other.materialTapTargetSize == materialTapTargetSize) &&
             (identical(other.platform, platform) ||
                 other.platform == platform) &&
+            (identical(other.scrollbarTheme, scrollbarTheme) ||
+                other.scrollbarTheme == scrollbarTheme) &&
             (identical(other.useMaterial3, useMaterial3) ||
                 other.useMaterial3 == useMaterial3) &&
             (identical(other.colorScheme, colorScheme) ||
@@ -168,20 +169,33 @@ mixin _$StacTheme {
                 other.iconTheme == iconTheme) &&
             (identical(other.primaryIconTheme, primaryIconTheme) ||
                 other.primaryIconTheme == primaryIconTheme) &&
-            (identical(other.appBarTheme, appBarTheme) ||
-                other.appBarTheme == appBarTheme) &&
-            (identical(other.bottomAppBarTheme, bottomAppBarTheme) ||
-                other.bottomAppBarTheme == bottomAppBarTheme) &&
+            (identical(other.primaryTextTheme, primaryTextTheme) ||
+                other.primaryTextTheme == primaryTextTheme) &&
+            (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
+            (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
+            (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
+            (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
+            (identical(other.bottomAppBarTheme, bottomAppBarTheme) || other.bottomAppBarTheme == bottomAppBarTheme) &&
             (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
             (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
+            (identical(other.buttonTheme, buttonTheme) || other.buttonTheme == buttonTheme) &&
             (identical(other.cardTheme, cardTheme) || other.cardTheme == cardTheme) &&
+            (identical(other.checkboxTheme, checkboxTheme) || other.checkboxTheme == checkboxTheme) &&
+            (identical(other.chipTheme, chipTheme) || other.chipTheme == chipTheme) &&
+            (identical(other.datePickerTheme, datePickerTheme) || other.datePickerTheme == datePickerTheme) &&
             (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.dividerTheme, dividerTheme) || other.dividerTheme == dividerTheme) &&
+            (identical(other.drawerTheme, drawerTheme) || other.drawerTheme == drawerTheme) &&
             (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
+            (identical(other.filledButtonTheme, filledButtonTheme) || other.filledButtonTheme == filledButtonTheme) &&
             (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
             (identical(other.iconButtonTheme, iconButtonTheme) || other.iconButtonTheme == iconButtonTheme) &&
             (identical(other.listTileTheme, listTileTheme) || other.listTileTheme == listTileTheme) &&
+            (identical(other.menuButtonTheme, menuButtonTheme) || other.menuButtonTheme == menuButtonTheme) &&
             (identical(other.navigationBarTheme, navigationBarTheme) || other.navigationBarTheme == navigationBarTheme) &&
+            (identical(other.navigationDrawerTheme, navigationDrawerTheme) || other.navigationDrawerTheme == navigationDrawerTheme) &&
             (identical(other.outlinedButtonTheme, outlinedButtonTheme) || other.outlinedButtonTheme == outlinedButtonTheme) &&
+            (identical(other.segmentedButtonTheme, segmentedButtonTheme) || other.segmentedButtonTheme == segmentedButtonTheme) &&
             (identical(other.tabBarTheme, tabBarTheme) || other.tabBarTheme == tabBarTheme) &&
             (identical(other.textButtonTheme, textButtonTheme) || other.textButtonTheme == textButtonTheme));
   }
@@ -194,6 +208,7 @@ mixin _$StacTheme {
         inputDecorationTheme,
         materialTapTargetSize,
         platform,
+        scrollbarTheme,
         useMaterial3,
         colorScheme,
         brightness,
@@ -221,25 +236,39 @@ mixin _$StacTheme {
         package,
         iconTheme,
         primaryIconTheme,
+        primaryTextTheme,
+        textTheme,
         appBarTheme,
+        badgeTheme,
+        bannerTheme,
         bottomAppBarTheme,
         bottomNavigationBarTheme,
         bottomSheetTheme,
+        buttonTheme,
         cardTheme,
+        checkboxTheme,
+        chipTheme,
+        datePickerTheme,
         dialogTheme,
+        dividerTheme,
+        drawerTheme,
         elevatedButtonTheme,
+        filledButtonTheme,
         floatingActionButtonTheme,
         iconButtonTheme,
         listTileTheme,
+        menuButtonTheme,
         navigationBarTheme,
+        navigationDrawerTheme,
         outlinedButtonTheme,
+        segmentedButtonTheme,
         tabBarTheme,
         textButtonTheme
       ]);
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, appBarTheme: $appBarTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -253,6 +282,7 @@ abstract mixin class $StacThemeCopyWith<$Res> {
       StacInputDecorationTheme? inputDecorationTheme,
       MaterialTapTargetSize? materialTapTargetSize,
       TargetPlatform? platform,
+      StacScrollbarThemeData? scrollbarTheme,
       bool? useMaterial3,
       StacColorScheme? colorScheme,
       Brightness? brightness,
@@ -280,39 +310,68 @@ abstract mixin class $StacThemeCopyWith<$Res> {
       String? package,
       StacIconThemeData? iconTheme,
       StacIconThemeData? primaryIconTheme,
+      StacTextTheme? primaryTextTheme,
+      StacTextTheme? textTheme,
       StacAppBarTheme? appBarTheme,
+      StacBadgeThemeData? badgeTheme,
+      StacMaterialBannerThemeData? bannerTheme,
       StacBottomAppBarTheme? bottomAppBarTheme,
       StacBottomNavBarThemeData? bottomNavigationBarTheme,
       StacBottomSheetThemeData? bottomSheetTheme,
+      StacButtonThemeData? buttonTheme,
       StacCardThemeData? cardTheme,
+      StacCheckboxThemeData? checkboxTheme,
+      StacChipThemeData? chipTheme,
+      StacDatePickerThemeData? datePickerTheme,
       StacDialogTheme? dialogTheme,
+      StacDividerThemeData? dividerTheme,
+      StacDrawerThemeData? drawerTheme,
       StacButtonStyle? elevatedButtonTheme,
+      StacButtonStyle? filledButtonTheme,
       StacFloatingActionButtonThemeData? floatingActionButtonTheme,
       StacButtonStyle? iconButtonTheme,
       StacListTileThemeData? listTileTheme,
+      StacButtonStyle? menuButtonTheme,
       StacNavigationBarThemeData? navigationBarTheme,
+      StacNavigationDrawerThemeData? navigationDrawerTheme,
       StacButtonStyle? outlinedButtonTheme,
+      StacButtonStyle? segmentedButtonTheme,
       StacTabBarThemeData? tabBarTheme,
       StacButtonStyle? textButtonTheme});
 
   $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme;
+  $StacScrollbarThemeDataCopyWith<$Res>? get scrollbarTheme;
   $StacColorSchemeCopyWith<$Res>? get colorScheme;
   $StacMaterialColorCopyWith<$Res>? get primarySwatch;
   $StacIconThemeDataCopyWith<$Res>? get iconTheme;
   $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme;
+  $StacTextThemeCopyWith<$Res>? get primaryTextTheme;
+  $StacTextThemeCopyWith<$Res>? get textTheme;
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
+  $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme;
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme;
   $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
   $StacBottomNavBarThemeDataCopyWith<$Res>? get bottomNavigationBarTheme;
   $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme;
+  $StacButtonThemeDataCopyWith<$Res>? get buttonTheme;
   $StacCardThemeDataCopyWith<$Res>? get cardTheme;
+  $StacCheckboxThemeDataCopyWith<$Res>? get checkboxTheme;
+  $StacChipThemeDataCopyWith<$Res>? get chipTheme;
+  $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme;
   $StacDialogThemeCopyWith<$Res>? get dialogTheme;
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme;
+  $StacDrawerThemeDataCopyWith<$Res>? get drawerTheme;
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
+  $StacButtonStyleCopyWith<$Res>? get filledButtonTheme;
   $StacFloatingActionButtonThemeDataCopyWith<$Res>?
       get floatingActionButtonTheme;
   $StacButtonStyleCopyWith<$Res>? get iconButtonTheme;
   $StacListTileThemeDataCopyWith<$Res>? get listTileTheme;
+  $StacButtonStyleCopyWith<$Res>? get menuButtonTheme;
   $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme;
+  $StacNavigationDrawerThemeDataCopyWith<$Res>? get navigationDrawerTheme;
   $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme;
+  $StacButtonStyleCopyWith<$Res>? get segmentedButtonTheme;
   $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme;
   $StacButtonStyleCopyWith<$Res>? get textButtonTheme;
 }
@@ -333,6 +392,7 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     Object? inputDecorationTheme = freezed,
     Object? materialTapTargetSize = freezed,
     Object? platform = freezed,
+    Object? scrollbarTheme = freezed,
     Object? useMaterial3 = freezed,
     Object? colorScheme = freezed,
     Object? brightness = freezed,
@@ -360,18 +420,32 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     Object? package = freezed,
     Object? iconTheme = freezed,
     Object? primaryIconTheme = freezed,
+    Object? primaryTextTheme = freezed,
+    Object? textTheme = freezed,
     Object? appBarTheme = freezed,
+    Object? badgeTheme = freezed,
+    Object? bannerTheme = freezed,
     Object? bottomAppBarTheme = freezed,
     Object? bottomNavigationBarTheme = freezed,
     Object? bottomSheetTheme = freezed,
+    Object? buttonTheme = freezed,
     Object? cardTheme = freezed,
+    Object? checkboxTheme = freezed,
+    Object? chipTheme = freezed,
+    Object? datePickerTheme = freezed,
     Object? dialogTheme = freezed,
+    Object? dividerTheme = freezed,
+    Object? drawerTheme = freezed,
     Object? elevatedButtonTheme = freezed,
+    Object? filledButtonTheme = freezed,
     Object? floatingActionButtonTheme = freezed,
     Object? iconButtonTheme = freezed,
     Object? listTileTheme = freezed,
+    Object? menuButtonTheme = freezed,
     Object? navigationBarTheme = freezed,
+    Object? navigationDrawerTheme = freezed,
     Object? outlinedButtonTheme = freezed,
+    Object? segmentedButtonTheme = freezed,
     Object? tabBarTheme = freezed,
     Object? textButtonTheme = freezed,
   }) {
@@ -392,6 +466,10 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.platform
           : platform // ignore: cast_nullable_to_non_nullable
               as TargetPlatform?,
+      scrollbarTheme: freezed == scrollbarTheme
+          ? _self.scrollbarTheme
+          : scrollbarTheme // ignore: cast_nullable_to_non_nullable
+              as StacScrollbarThemeData?,
       useMaterial3: freezed == useMaterial3
           ? _self.useMaterial3
           : useMaterial3 // ignore: cast_nullable_to_non_nullable
@@ -500,10 +578,26 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.primaryIconTheme
           : primaryIconTheme // ignore: cast_nullable_to_non_nullable
               as StacIconThemeData?,
+      primaryTextTheme: freezed == primaryTextTheme
+          ? _self.primaryTextTheme
+          : primaryTextTheme // ignore: cast_nullable_to_non_nullable
+              as StacTextTheme?,
+      textTheme: freezed == textTheme
+          ? _self.textTheme
+          : textTheme // ignore: cast_nullable_to_non_nullable
+              as StacTextTheme?,
       appBarTheme: freezed == appBarTheme
           ? _self.appBarTheme
           : appBarTheme // ignore: cast_nullable_to_non_nullable
               as StacAppBarTheme?,
+      badgeTheme: freezed == badgeTheme
+          ? _self.badgeTheme
+          : badgeTheme // ignore: cast_nullable_to_non_nullable
+              as StacBadgeThemeData?,
+      bannerTheme: freezed == bannerTheme
+          ? _self.bannerTheme
+          : bannerTheme // ignore: cast_nullable_to_non_nullable
+              as StacMaterialBannerThemeData?,
       bottomAppBarTheme: freezed == bottomAppBarTheme
           ? _self.bottomAppBarTheme
           : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
@@ -516,17 +610,45 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.bottomSheetTheme
           : bottomSheetTheme // ignore: cast_nullable_to_non_nullable
               as StacBottomSheetThemeData?,
+      buttonTheme: freezed == buttonTheme
+          ? _self.buttonTheme
+          : buttonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonThemeData?,
       cardTheme: freezed == cardTheme
           ? _self.cardTheme
           : cardTheme // ignore: cast_nullable_to_non_nullable
               as StacCardThemeData?,
+      checkboxTheme: freezed == checkboxTheme
+          ? _self.checkboxTheme
+          : checkboxTheme // ignore: cast_nullable_to_non_nullable
+              as StacCheckboxThemeData?,
+      chipTheme: freezed == chipTheme
+          ? _self.chipTheme
+          : chipTheme // ignore: cast_nullable_to_non_nullable
+              as StacChipThemeData?,
+      datePickerTheme: freezed == datePickerTheme
+          ? _self.datePickerTheme
+          : datePickerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDatePickerThemeData?,
       dialogTheme: freezed == dialogTheme
           ? _self.dialogTheme
           : dialogTheme // ignore: cast_nullable_to_non_nullable
               as StacDialogTheme?,
+      dividerTheme: freezed == dividerTheme
+          ? _self.dividerTheme
+          : dividerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDividerThemeData?,
+      drawerTheme: freezed == drawerTheme
+          ? _self.drawerTheme
+          : drawerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDrawerThemeData?,
       elevatedButtonTheme: freezed == elevatedButtonTheme
           ? _self.elevatedButtonTheme
           : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      filledButtonTheme: freezed == filledButtonTheme
+          ? _self.filledButtonTheme
+          : filledButtonTheme // ignore: cast_nullable_to_non_nullable
               as StacButtonStyle?,
       floatingActionButtonTheme: freezed == floatingActionButtonTheme
           ? _self.floatingActionButtonTheme
@@ -540,13 +662,25 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
           ? _self.listTileTheme
           : listTileTheme // ignore: cast_nullable_to_non_nullable
               as StacListTileThemeData?,
+      menuButtonTheme: freezed == menuButtonTheme
+          ? _self.menuButtonTheme
+          : menuButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
       navigationBarTheme: freezed == navigationBarTheme
           ? _self.navigationBarTheme
           : navigationBarTheme // ignore: cast_nullable_to_non_nullable
               as StacNavigationBarThemeData?,
+      navigationDrawerTheme: freezed == navigationDrawerTheme
+          ? _self.navigationDrawerTheme
+          : navigationDrawerTheme // ignore: cast_nullable_to_non_nullable
+              as StacNavigationDrawerThemeData?,
       outlinedButtonTheme: freezed == outlinedButtonTheme
           ? _self.outlinedButtonTheme
           : outlinedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      segmentedButtonTheme: freezed == segmentedButtonTheme
+          ? _self.segmentedButtonTheme
+          : segmentedButtonTheme // ignore: cast_nullable_to_non_nullable
               as StacButtonStyle?,
       tabBarTheme: freezed == tabBarTheme
           ? _self.tabBarTheme
@@ -571,6 +705,21 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     return $StacInputDecorationThemeCopyWith<$Res>(_self.inputDecorationTheme!,
         (value) {
       return _then(_self.copyWith(inputDecorationTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacScrollbarThemeDataCopyWith<$Res>? get scrollbarTheme {
+    if (_self.scrollbarTheme == null) {
+      return null;
+    }
+
+    return $StacScrollbarThemeDataCopyWith<$Res>(_self.scrollbarTheme!,
+        (value) {
+      return _then(_self.copyWith(scrollbarTheme: value));
     });
   }
 
@@ -634,6 +783,34 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacTextThemeCopyWith<$Res>? get primaryTextTheme {
+    if (_self.primaryTextTheme == null) {
+      return null;
+    }
+
+    return $StacTextThemeCopyWith<$Res>(_self.primaryTextTheme!, (value) {
+      return _then(_self.copyWith(primaryTextTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextThemeCopyWith<$Res>? get textTheme {
+    if (_self.textTheme == null) {
+      return null;
+    }
+
+    return $StacTextThemeCopyWith<$Res>(_self.textTheme!, (value) {
+      return _then(_self.copyWith(textTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme {
     if (_self.appBarTheme == null) {
       return null;
@@ -641,6 +818,35 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacAppBarThemeCopyWith<$Res>(_self.appBarTheme!, (value) {
       return _then(_self.copyWith(appBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme {
+    if (_self.badgeTheme == null) {
+      return null;
+    }
+
+    return $StacBadgeThemeDataCopyWith<$Res>(_self.badgeTheme!, (value) {
+      return _then(_self.copyWith(badgeTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme {
+    if (_self.bannerTheme == null) {
+      return null;
+    }
+
+    return $StacMaterialBannerThemeDataCopyWith<$Res>(_self.bannerTheme!,
+        (value) {
+      return _then(_self.copyWith(bannerTheme: value));
     });
   }
 
@@ -693,6 +899,20 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacButtonThemeDataCopyWith<$Res>? get buttonTheme {
+    if (_self.buttonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonThemeDataCopyWith<$Res>(_self.buttonTheme!, (value) {
+      return _then(_self.copyWith(buttonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacCardThemeDataCopyWith<$Res>? get cardTheme {
     if (_self.cardTheme == null) {
       return null;
@@ -700,6 +920,49 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacCardThemeDataCopyWith<$Res>(_self.cardTheme!, (value) {
       return _then(_self.copyWith(cardTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacCheckboxThemeDataCopyWith<$Res>? get checkboxTheme {
+    if (_self.checkboxTheme == null) {
+      return null;
+    }
+
+    return $StacCheckboxThemeDataCopyWith<$Res>(_self.checkboxTheme!, (value) {
+      return _then(_self.copyWith(checkboxTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacChipThemeDataCopyWith<$Res>? get chipTheme {
+    if (_self.chipTheme == null) {
+      return null;
+    }
+
+    return $StacChipThemeDataCopyWith<$Res>(_self.chipTheme!, (value) {
+      return _then(_self.copyWith(chipTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme {
+    if (_self.datePickerTheme == null) {
+      return null;
+    }
+
+    return $StacDatePickerThemeDataCopyWith<$Res>(_self.datePickerTheme!,
+        (value) {
+      return _then(_self.copyWith(datePickerTheme: value));
     });
   }
 
@@ -721,6 +984,34 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme {
+    if (_self.dividerTheme == null) {
+      return null;
+    }
+
+    return $StacDividerThemeDataCopyWith<$Res>(_self.dividerTheme!, (value) {
+      return _then(_self.copyWith(dividerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDrawerThemeDataCopyWith<$Res>? get drawerTheme {
+    if (_self.drawerTheme == null) {
+      return null;
+    }
+
+    return $StacDrawerThemeDataCopyWith<$Res>(_self.drawerTheme!, (value) {
+      return _then(_self.copyWith(drawerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme {
     if (_self.elevatedButtonTheme == null) {
       return null;
@@ -728,6 +1019,20 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacButtonStyleCopyWith<$Res>(_self.elevatedButtonTheme!, (value) {
       return _then(_self.copyWith(elevatedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get filledButtonTheme {
+    if (_self.filledButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.filledButtonTheme!, (value) {
+      return _then(_self.copyWith(filledButtonTheme: value));
     });
   }
 
@@ -779,6 +1084,20 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get menuButtonTheme {
+    if (_self.menuButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.menuButtonTheme!, (value) {
+      return _then(_self.copyWith(menuButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme {
     if (_self.navigationBarTheme == null) {
       return null;
@@ -794,6 +1113,21 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacNavigationDrawerThemeDataCopyWith<$Res>? get navigationDrawerTheme {
+    if (_self.navigationDrawerTheme == null) {
+      return null;
+    }
+
+    return $StacNavigationDrawerThemeDataCopyWith<$Res>(
+        _self.navigationDrawerTheme!, (value) {
+      return _then(_self.copyWith(navigationDrawerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme {
     if (_self.outlinedButtonTheme == null) {
       return null;
@@ -801,6 +1135,20 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
 
     return $StacButtonStyleCopyWith<$Res>(_self.outlinedButtonTheme!, (value) {
       return _then(_self.copyWith(outlinedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get segmentedButtonTheme {
+    if (_self.segmentedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.segmentedButtonTheme!, (value) {
+      return _then(_self.copyWith(segmentedButtonTheme: value));
     });
   }
 
@@ -841,6 +1189,7 @@ class _StacTheme implements StacTheme {
       this.inputDecorationTheme,
       this.materialTapTargetSize,
       this.platform,
+      this.scrollbarTheme,
       this.useMaterial3,
       this.colorScheme,
       this.brightness,
@@ -868,18 +1217,32 @@ class _StacTheme implements StacTheme {
       this.package,
       this.iconTheme,
       this.primaryIconTheme,
+      this.primaryTextTheme,
+      this.textTheme,
       this.appBarTheme,
+      this.badgeTheme,
+      this.bannerTheme,
       this.bottomAppBarTheme,
       this.bottomNavigationBarTheme,
       this.bottomSheetTheme,
+      this.buttonTheme,
       this.cardTheme,
+      this.checkboxTheme,
+      this.chipTheme,
+      this.datePickerTheme,
       this.dialogTheme,
+      this.dividerTheme,
+      this.drawerTheme,
       this.elevatedButtonTheme,
+      this.filledButtonTheme,
       this.floatingActionButtonTheme,
       this.iconButtonTheme,
       this.listTileTheme,
+      this.menuButtonTheme,
       this.navigationBarTheme,
+      this.navigationDrawerTheme,
       this.outlinedButtonTheme,
+      this.segmentedButtonTheme,
       this.tabBarTheme,
       this.textButtonTheme})
       : _fontFamilyFallback = fontFamilyFallback;
@@ -895,7 +1258,8 @@ class _StacTheme implements StacTheme {
   final MaterialTapTargetSize? materialTapTargetSize;
   @override
   final TargetPlatform? platform;
-// ScrollbarThemeData? scrollbarTheme, // Todo
+  @override
+  final StacScrollbarThemeData? scrollbarTheme;
   @override
   final bool? useMaterial3;
 // COLOR
@@ -964,37 +1328,45 @@ class _StacTheme implements StacTheme {
   final StacIconThemeData? iconTheme;
   @override
   final StacIconThemeData? primaryIconTheme;
-// TextTheme? primaryTextTheme,
-// TextTheme? textTheme,
-// Typography? typography,
+  @override
+  final StacTextTheme? primaryTextTheme;
+  @override
+  final StacTextTheme? textTheme;
 // COMPONENT THEMES
-// ActionIconThemeData? actionIconTheme, // todo
   @override
   final StacAppBarTheme? appBarTheme;
-// BadgeThemeData? badgeTheme, // todo
-// MaterialBannerThemeData? bannerTheme, // todo
+  @override
+  final StacBadgeThemeData? badgeTheme;
+  @override
+  final StacMaterialBannerThemeData? bannerTheme;
   @override
   final StacBottomAppBarTheme? bottomAppBarTheme;
   @override
   final StacBottomNavBarThemeData? bottomNavigationBarTheme;
   @override
   final StacBottomSheetThemeData? bottomSheetTheme;
-// ButtonThemeData? buttonTheme, // todo
+  @override
+  final StacButtonThemeData? buttonTheme;
   @override
   final StacCardThemeData? cardTheme;
-// CheckboxThemeData? checkboxTheme, // todo
-// ChipThemeData? chipTheme,
-// DataTableThemeData? dataTableTheme,
-// DatePickerThemeData? datePickerTheme, // todo
+  @override
+  final StacCheckboxThemeData? checkboxTheme;
+  @override
+  final StacChipThemeData? chipTheme;
+  @override
+  final StacDatePickerThemeData? datePickerTheme;
   @override
   final StacDialogTheme? dialogTheme;
-// DividerThemeData? dividerTheme,
-// DrawerThemeData? drawerTheme,
+  @override
+  final StacDividerThemeData? dividerTheme;
+  @override
+  final StacDrawerThemeData? drawerTheme;
 // DropdownMenuThemeData? dropdownMenuTheme,
   @override
   final StacButtonStyle? elevatedButtonTheme;
 // ExpansionTileThemeData? expansionTileTheme,
-// FilledButtonThemeData? filledButtonTheme,
+  @override
+  final StacButtonStyle? filledButtonTheme;
   @override
   final StacFloatingActionButtonThemeData? floatingActionButtonTheme;
   @override
@@ -1002,11 +1374,13 @@ class _StacTheme implements StacTheme {
   @override
   final StacListTileThemeData? listTileTheme;
 // MenuBarThemeData? menuBarTheme,
-// MenuButtonThemeData? menuButtonTheme,
+  @override
+  final StacButtonStyle? menuButtonTheme;
 // MenuThemeData? menuTheme,
   @override
   final StacNavigationBarThemeData? navigationBarTheme;
-// NavigationDrawerThemeData? navigationDrawerTheme,
+  @override
+  final StacNavigationDrawerThemeData? navigationDrawerTheme;
 // NavigationRailThemeData? navigationRailTheme,
   @override
   final StacButtonStyle? outlinedButtonTheme;
@@ -1015,7 +1389,8 @@ class _StacTheme implements StacTheme {
 // RadioThemeData? radioTheme,
 // SearchBarThemeData? searchBarTheme,
 // SearchViewThemeData? searchViewTheme,
-// SegmentedButtonThemeData? segmentedButtonTheme,
+  @override
+  final StacButtonStyle? segmentedButtonTheme;
 // SliderThemeData? sliderTheme,
 // SnackBarThemeData? snackBarTheme,
 // SwitchThemeData? switchTheme,
@@ -1053,6 +1428,8 @@ class _StacTheme implements StacTheme {
                 other.materialTapTargetSize == materialTapTargetSize) &&
             (identical(other.platform, platform) ||
                 other.platform == platform) &&
+            (identical(other.scrollbarTheme, scrollbarTheme) ||
+                other.scrollbarTheme == scrollbarTheme) &&
             (identical(other.useMaterial3, useMaterial3) ||
                 other.useMaterial3 == useMaterial3) &&
             (identical(other.colorScheme, colorScheme) ||
@@ -1106,20 +1483,33 @@ class _StacTheme implements StacTheme {
                 other.iconTheme == iconTheme) &&
             (identical(other.primaryIconTheme, primaryIconTheme) ||
                 other.primaryIconTheme == primaryIconTheme) &&
-            (identical(other.appBarTheme, appBarTheme) ||
-                other.appBarTheme == appBarTheme) &&
-            (identical(other.bottomAppBarTheme, bottomAppBarTheme) ||
-                other.bottomAppBarTheme == bottomAppBarTheme) &&
+            (identical(other.primaryTextTheme, primaryTextTheme) ||
+                other.primaryTextTheme == primaryTextTheme) &&
+            (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
+            (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
+            (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
+            (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
+            (identical(other.bottomAppBarTheme, bottomAppBarTheme) || other.bottomAppBarTheme == bottomAppBarTheme) &&
             (identical(other.bottomNavigationBarTheme, bottomNavigationBarTheme) || other.bottomNavigationBarTheme == bottomNavigationBarTheme) &&
             (identical(other.bottomSheetTheme, bottomSheetTheme) || other.bottomSheetTheme == bottomSheetTheme) &&
+            (identical(other.buttonTheme, buttonTheme) || other.buttonTheme == buttonTheme) &&
             (identical(other.cardTheme, cardTheme) || other.cardTheme == cardTheme) &&
+            (identical(other.checkboxTheme, checkboxTheme) || other.checkboxTheme == checkboxTheme) &&
+            (identical(other.chipTheme, chipTheme) || other.chipTheme == chipTheme) &&
+            (identical(other.datePickerTheme, datePickerTheme) || other.datePickerTheme == datePickerTheme) &&
             (identical(other.dialogTheme, dialogTheme) || other.dialogTheme == dialogTheme) &&
+            (identical(other.dividerTheme, dividerTheme) || other.dividerTheme == dividerTheme) &&
+            (identical(other.drawerTheme, drawerTheme) || other.drawerTheme == drawerTheme) &&
             (identical(other.elevatedButtonTheme, elevatedButtonTheme) || other.elevatedButtonTheme == elevatedButtonTheme) &&
+            (identical(other.filledButtonTheme, filledButtonTheme) || other.filledButtonTheme == filledButtonTheme) &&
             (identical(other.floatingActionButtonTheme, floatingActionButtonTheme) || other.floatingActionButtonTheme == floatingActionButtonTheme) &&
             (identical(other.iconButtonTheme, iconButtonTheme) || other.iconButtonTheme == iconButtonTheme) &&
             (identical(other.listTileTheme, listTileTheme) || other.listTileTheme == listTileTheme) &&
+            (identical(other.menuButtonTheme, menuButtonTheme) || other.menuButtonTheme == menuButtonTheme) &&
             (identical(other.navigationBarTheme, navigationBarTheme) || other.navigationBarTheme == navigationBarTheme) &&
+            (identical(other.navigationDrawerTheme, navigationDrawerTheme) || other.navigationDrawerTheme == navigationDrawerTheme) &&
             (identical(other.outlinedButtonTheme, outlinedButtonTheme) || other.outlinedButtonTheme == outlinedButtonTheme) &&
+            (identical(other.segmentedButtonTheme, segmentedButtonTheme) || other.segmentedButtonTheme == segmentedButtonTheme) &&
             (identical(other.tabBarTheme, tabBarTheme) || other.tabBarTheme == tabBarTheme) &&
             (identical(other.textButtonTheme, textButtonTheme) || other.textButtonTheme == textButtonTheme));
   }
@@ -1132,6 +1522,7 @@ class _StacTheme implements StacTheme {
         inputDecorationTheme,
         materialTapTargetSize,
         platform,
+        scrollbarTheme,
         useMaterial3,
         colorScheme,
         brightness,
@@ -1159,25 +1550,39 @@ class _StacTheme implements StacTheme {
         package,
         iconTheme,
         primaryIconTheme,
+        primaryTextTheme,
+        textTheme,
         appBarTheme,
+        badgeTheme,
+        bannerTheme,
         bottomAppBarTheme,
         bottomNavigationBarTheme,
         bottomSheetTheme,
+        buttonTheme,
         cardTheme,
+        checkboxTheme,
+        chipTheme,
+        datePickerTheme,
         dialogTheme,
+        dividerTheme,
+        drawerTheme,
         elevatedButtonTheme,
+        filledButtonTheme,
         floatingActionButtonTheme,
         iconButtonTheme,
         listTileTheme,
+        menuButtonTheme,
         navigationBarTheme,
+        navigationDrawerTheme,
         outlinedButtonTheme,
+        segmentedButtonTheme,
         tabBarTheme,
         textButtonTheme
       ]);
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, appBarTheme: $appBarTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, cardTheme: $cardTheme, dialogTheme: $dialogTheme, elevatedButtonTheme: $elevatedButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, navigationBarTheme: $navigationBarTheme, outlinedButtonTheme: $outlinedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -1194,6 +1599,7 @@ abstract mixin class _$StacThemeCopyWith<$Res>
       StacInputDecorationTheme? inputDecorationTheme,
       MaterialTapTargetSize? materialTapTargetSize,
       TargetPlatform? platform,
+      StacScrollbarThemeData? scrollbarTheme,
       bool? useMaterial3,
       StacColorScheme? colorScheme,
       Brightness? brightness,
@@ -1221,23 +1627,39 @@ abstract mixin class _$StacThemeCopyWith<$Res>
       String? package,
       StacIconThemeData? iconTheme,
       StacIconThemeData? primaryIconTheme,
+      StacTextTheme? primaryTextTheme,
+      StacTextTheme? textTheme,
       StacAppBarTheme? appBarTheme,
+      StacBadgeThemeData? badgeTheme,
+      StacMaterialBannerThemeData? bannerTheme,
       StacBottomAppBarTheme? bottomAppBarTheme,
       StacBottomNavBarThemeData? bottomNavigationBarTheme,
       StacBottomSheetThemeData? bottomSheetTheme,
+      StacButtonThemeData? buttonTheme,
       StacCardThemeData? cardTheme,
+      StacCheckboxThemeData? checkboxTheme,
+      StacChipThemeData? chipTheme,
+      StacDatePickerThemeData? datePickerTheme,
       StacDialogTheme? dialogTheme,
+      StacDividerThemeData? dividerTheme,
+      StacDrawerThemeData? drawerTheme,
       StacButtonStyle? elevatedButtonTheme,
+      StacButtonStyle? filledButtonTheme,
       StacFloatingActionButtonThemeData? floatingActionButtonTheme,
       StacButtonStyle? iconButtonTheme,
       StacListTileThemeData? listTileTheme,
+      StacButtonStyle? menuButtonTheme,
       StacNavigationBarThemeData? navigationBarTheme,
+      StacNavigationDrawerThemeData? navigationDrawerTheme,
       StacButtonStyle? outlinedButtonTheme,
+      StacButtonStyle? segmentedButtonTheme,
       StacTabBarThemeData? tabBarTheme,
       StacButtonStyle? textButtonTheme});
 
   @override
   $StacInputDecorationThemeCopyWith<$Res>? get inputDecorationTheme;
+  @override
+  $StacScrollbarThemeDataCopyWith<$Res>? get scrollbarTheme;
   @override
   $StacColorSchemeCopyWith<$Res>? get colorScheme;
   @override
@@ -1247,7 +1669,15 @@ abstract mixin class _$StacThemeCopyWith<$Res>
   @override
   $StacIconThemeDataCopyWith<$Res>? get primaryIconTheme;
   @override
+  $StacTextThemeCopyWith<$Res>? get primaryTextTheme;
+  @override
+  $StacTextThemeCopyWith<$Res>? get textTheme;
+  @override
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme;
+  @override
+  $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme;
+  @override
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme;
   @override
   $StacBottomAppBarThemeCopyWith<$Res>? get bottomAppBarTheme;
   @override
@@ -1255,11 +1685,25 @@ abstract mixin class _$StacThemeCopyWith<$Res>
   @override
   $StacBottomSheetThemeDataCopyWith<$Res>? get bottomSheetTheme;
   @override
+  $StacButtonThemeDataCopyWith<$Res>? get buttonTheme;
+  @override
   $StacCardThemeDataCopyWith<$Res>? get cardTheme;
+  @override
+  $StacCheckboxThemeDataCopyWith<$Res>? get checkboxTheme;
+  @override
+  $StacChipThemeDataCopyWith<$Res>? get chipTheme;
+  @override
+  $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme;
   @override
   $StacDialogThemeCopyWith<$Res>? get dialogTheme;
   @override
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme;
+  @override
+  $StacDrawerThemeDataCopyWith<$Res>? get drawerTheme;
+  @override
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get filledButtonTheme;
   @override
   $StacFloatingActionButtonThemeDataCopyWith<$Res>?
       get floatingActionButtonTheme;
@@ -1268,9 +1712,15 @@ abstract mixin class _$StacThemeCopyWith<$Res>
   @override
   $StacListTileThemeDataCopyWith<$Res>? get listTileTheme;
   @override
+  $StacButtonStyleCopyWith<$Res>? get menuButtonTheme;
+  @override
   $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme;
   @override
+  $StacNavigationDrawerThemeDataCopyWith<$Res>? get navigationDrawerTheme;
+  @override
   $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme;
+  @override
+  $StacButtonStyleCopyWith<$Res>? get segmentedButtonTheme;
   @override
   $StacTabBarThemeDataCopyWith<$Res>? get tabBarTheme;
   @override
@@ -1293,6 +1743,7 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     Object? inputDecorationTheme = freezed,
     Object? materialTapTargetSize = freezed,
     Object? platform = freezed,
+    Object? scrollbarTheme = freezed,
     Object? useMaterial3 = freezed,
     Object? colorScheme = freezed,
     Object? brightness = freezed,
@@ -1320,18 +1771,32 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     Object? package = freezed,
     Object? iconTheme = freezed,
     Object? primaryIconTheme = freezed,
+    Object? primaryTextTheme = freezed,
+    Object? textTheme = freezed,
     Object? appBarTheme = freezed,
+    Object? badgeTheme = freezed,
+    Object? bannerTheme = freezed,
     Object? bottomAppBarTheme = freezed,
     Object? bottomNavigationBarTheme = freezed,
     Object? bottomSheetTheme = freezed,
+    Object? buttonTheme = freezed,
     Object? cardTheme = freezed,
+    Object? checkboxTheme = freezed,
+    Object? chipTheme = freezed,
+    Object? datePickerTheme = freezed,
     Object? dialogTheme = freezed,
+    Object? dividerTheme = freezed,
+    Object? drawerTheme = freezed,
     Object? elevatedButtonTheme = freezed,
+    Object? filledButtonTheme = freezed,
     Object? floatingActionButtonTheme = freezed,
     Object? iconButtonTheme = freezed,
     Object? listTileTheme = freezed,
+    Object? menuButtonTheme = freezed,
     Object? navigationBarTheme = freezed,
+    Object? navigationDrawerTheme = freezed,
     Object? outlinedButtonTheme = freezed,
+    Object? segmentedButtonTheme = freezed,
     Object? tabBarTheme = freezed,
     Object? textButtonTheme = freezed,
   }) {
@@ -1352,6 +1817,10 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.platform
           : platform // ignore: cast_nullable_to_non_nullable
               as TargetPlatform?,
+      scrollbarTheme: freezed == scrollbarTheme
+          ? _self.scrollbarTheme
+          : scrollbarTheme // ignore: cast_nullable_to_non_nullable
+              as StacScrollbarThemeData?,
       useMaterial3: freezed == useMaterial3
           ? _self.useMaterial3
           : useMaterial3 // ignore: cast_nullable_to_non_nullable
@@ -1460,10 +1929,26 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.primaryIconTheme
           : primaryIconTheme // ignore: cast_nullable_to_non_nullable
               as StacIconThemeData?,
+      primaryTextTheme: freezed == primaryTextTheme
+          ? _self.primaryTextTheme
+          : primaryTextTheme // ignore: cast_nullable_to_non_nullable
+              as StacTextTheme?,
+      textTheme: freezed == textTheme
+          ? _self.textTheme
+          : textTheme // ignore: cast_nullable_to_non_nullable
+              as StacTextTheme?,
       appBarTheme: freezed == appBarTheme
           ? _self.appBarTheme
           : appBarTheme // ignore: cast_nullable_to_non_nullable
               as StacAppBarTheme?,
+      badgeTheme: freezed == badgeTheme
+          ? _self.badgeTheme
+          : badgeTheme // ignore: cast_nullable_to_non_nullable
+              as StacBadgeThemeData?,
+      bannerTheme: freezed == bannerTheme
+          ? _self.bannerTheme
+          : bannerTheme // ignore: cast_nullable_to_non_nullable
+              as StacMaterialBannerThemeData?,
       bottomAppBarTheme: freezed == bottomAppBarTheme
           ? _self.bottomAppBarTheme
           : bottomAppBarTheme // ignore: cast_nullable_to_non_nullable
@@ -1476,17 +1961,45 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.bottomSheetTheme
           : bottomSheetTheme // ignore: cast_nullable_to_non_nullable
               as StacBottomSheetThemeData?,
+      buttonTheme: freezed == buttonTheme
+          ? _self.buttonTheme
+          : buttonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonThemeData?,
       cardTheme: freezed == cardTheme
           ? _self.cardTheme
           : cardTheme // ignore: cast_nullable_to_non_nullable
               as StacCardThemeData?,
+      checkboxTheme: freezed == checkboxTheme
+          ? _self.checkboxTheme
+          : checkboxTheme // ignore: cast_nullable_to_non_nullable
+              as StacCheckboxThemeData?,
+      chipTheme: freezed == chipTheme
+          ? _self.chipTheme
+          : chipTheme // ignore: cast_nullable_to_non_nullable
+              as StacChipThemeData?,
+      datePickerTheme: freezed == datePickerTheme
+          ? _self.datePickerTheme
+          : datePickerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDatePickerThemeData?,
       dialogTheme: freezed == dialogTheme
           ? _self.dialogTheme
           : dialogTheme // ignore: cast_nullable_to_non_nullable
               as StacDialogTheme?,
+      dividerTheme: freezed == dividerTheme
+          ? _self.dividerTheme
+          : dividerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDividerThemeData?,
+      drawerTheme: freezed == drawerTheme
+          ? _self.drawerTheme
+          : drawerTheme // ignore: cast_nullable_to_non_nullable
+              as StacDrawerThemeData?,
       elevatedButtonTheme: freezed == elevatedButtonTheme
           ? _self.elevatedButtonTheme
           : elevatedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      filledButtonTheme: freezed == filledButtonTheme
+          ? _self.filledButtonTheme
+          : filledButtonTheme // ignore: cast_nullable_to_non_nullable
               as StacButtonStyle?,
       floatingActionButtonTheme: freezed == floatingActionButtonTheme
           ? _self.floatingActionButtonTheme
@@ -1500,13 +2013,25 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
           ? _self.listTileTheme
           : listTileTheme // ignore: cast_nullable_to_non_nullable
               as StacListTileThemeData?,
+      menuButtonTheme: freezed == menuButtonTheme
+          ? _self.menuButtonTheme
+          : menuButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
       navigationBarTheme: freezed == navigationBarTheme
           ? _self.navigationBarTheme
           : navigationBarTheme // ignore: cast_nullable_to_non_nullable
               as StacNavigationBarThemeData?,
+      navigationDrawerTheme: freezed == navigationDrawerTheme
+          ? _self.navigationDrawerTheme
+          : navigationDrawerTheme // ignore: cast_nullable_to_non_nullable
+              as StacNavigationDrawerThemeData?,
       outlinedButtonTheme: freezed == outlinedButtonTheme
           ? _self.outlinedButtonTheme
           : outlinedButtonTheme // ignore: cast_nullable_to_non_nullable
+              as StacButtonStyle?,
+      segmentedButtonTheme: freezed == segmentedButtonTheme
+          ? _self.segmentedButtonTheme
+          : segmentedButtonTheme // ignore: cast_nullable_to_non_nullable
               as StacButtonStyle?,
       tabBarTheme: freezed == tabBarTheme
           ? _self.tabBarTheme
@@ -1531,6 +2056,21 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     return $StacInputDecorationThemeCopyWith<$Res>(_self.inputDecorationTheme!,
         (value) {
       return _then(_self.copyWith(inputDecorationTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacScrollbarThemeDataCopyWith<$Res>? get scrollbarTheme {
+    if (_self.scrollbarTheme == null) {
+      return null;
+    }
+
+    return $StacScrollbarThemeDataCopyWith<$Res>(_self.scrollbarTheme!,
+        (value) {
+      return _then(_self.copyWith(scrollbarTheme: value));
     });
   }
 
@@ -1594,6 +2134,34 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacTextThemeCopyWith<$Res>? get primaryTextTheme {
+    if (_self.primaryTextTheme == null) {
+      return null;
+    }
+
+    return $StacTextThemeCopyWith<$Res>(_self.primaryTextTheme!, (value) {
+      return _then(_self.copyWith(primaryTextTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextThemeCopyWith<$Res>? get textTheme {
+    if (_self.textTheme == null) {
+      return null;
+    }
+
+    return $StacTextThemeCopyWith<$Res>(_self.textTheme!, (value) {
+      return _then(_self.copyWith(textTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacAppBarThemeCopyWith<$Res>? get appBarTheme {
     if (_self.appBarTheme == null) {
       return null;
@@ -1601,6 +2169,35 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacAppBarThemeCopyWith<$Res>(_self.appBarTheme!, (value) {
       return _then(_self.copyWith(appBarTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBadgeThemeDataCopyWith<$Res>? get badgeTheme {
+    if (_self.badgeTheme == null) {
+      return null;
+    }
+
+    return $StacBadgeThemeDataCopyWith<$Res>(_self.badgeTheme!, (value) {
+      return _then(_self.copyWith(badgeTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacMaterialBannerThemeDataCopyWith<$Res>? get bannerTheme {
+    if (_self.bannerTheme == null) {
+      return null;
+    }
+
+    return $StacMaterialBannerThemeDataCopyWith<$Res>(_self.bannerTheme!,
+        (value) {
+      return _then(_self.copyWith(bannerTheme: value));
     });
   }
 
@@ -1653,6 +2250,20 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacButtonThemeDataCopyWith<$Res>? get buttonTheme {
+    if (_self.buttonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonThemeDataCopyWith<$Res>(_self.buttonTheme!, (value) {
+      return _then(_self.copyWith(buttonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacCardThemeDataCopyWith<$Res>? get cardTheme {
     if (_self.cardTheme == null) {
       return null;
@@ -1660,6 +2271,49 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacCardThemeDataCopyWith<$Res>(_self.cardTheme!, (value) {
       return _then(_self.copyWith(cardTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacCheckboxThemeDataCopyWith<$Res>? get checkboxTheme {
+    if (_self.checkboxTheme == null) {
+      return null;
+    }
+
+    return $StacCheckboxThemeDataCopyWith<$Res>(_self.checkboxTheme!, (value) {
+      return _then(_self.copyWith(checkboxTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacChipThemeDataCopyWith<$Res>? get chipTheme {
+    if (_self.chipTheme == null) {
+      return null;
+    }
+
+    return $StacChipThemeDataCopyWith<$Res>(_self.chipTheme!, (value) {
+      return _then(_self.copyWith(chipTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDatePickerThemeDataCopyWith<$Res>? get datePickerTheme {
+    if (_self.datePickerTheme == null) {
+      return null;
+    }
+
+    return $StacDatePickerThemeDataCopyWith<$Res>(_self.datePickerTheme!,
+        (value) {
+      return _then(_self.copyWith(datePickerTheme: value));
     });
   }
 
@@ -1681,6 +2335,34 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacDividerThemeDataCopyWith<$Res>? get dividerTheme {
+    if (_self.dividerTheme == null) {
+      return null;
+    }
+
+    return $StacDividerThemeDataCopyWith<$Res>(_self.dividerTheme!, (value) {
+      return _then(_self.copyWith(dividerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacDrawerThemeDataCopyWith<$Res>? get drawerTheme {
+    if (_self.drawerTheme == null) {
+      return null;
+    }
+
+    return $StacDrawerThemeDataCopyWith<$Res>(_self.drawerTheme!, (value) {
+      return _then(_self.copyWith(drawerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacButtonStyleCopyWith<$Res>? get elevatedButtonTheme {
     if (_self.elevatedButtonTheme == null) {
       return null;
@@ -1688,6 +2370,20 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacButtonStyleCopyWith<$Res>(_self.elevatedButtonTheme!, (value) {
       return _then(_self.copyWith(elevatedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get filledButtonTheme {
+    if (_self.filledButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.filledButtonTheme!, (value) {
+      return _then(_self.copyWith(filledButtonTheme: value));
     });
   }
 
@@ -1739,6 +2435,20 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get menuButtonTheme {
+    if (_self.menuButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.menuButtonTheme!, (value) {
+      return _then(_self.copyWith(menuButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacNavigationBarThemeDataCopyWith<$Res>? get navigationBarTheme {
     if (_self.navigationBarTheme == null) {
       return null;
@@ -1754,6 +2464,21 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
+  $StacNavigationDrawerThemeDataCopyWith<$Res>? get navigationDrawerTheme {
+    if (_self.navigationDrawerTheme == null) {
+      return null;
+    }
+
+    return $StacNavigationDrawerThemeDataCopyWith<$Res>(
+        _self.navigationDrawerTheme!, (value) {
+      return _then(_self.copyWith(navigationDrawerTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
   $StacButtonStyleCopyWith<$Res>? get outlinedButtonTheme {
     if (_self.outlinedButtonTheme == null) {
       return null;
@@ -1761,6 +2486,20 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
 
     return $StacButtonStyleCopyWith<$Res>(_self.outlinedButtonTheme!, (value) {
       return _then(_self.copyWith(outlinedButtonTheme: value));
+    });
+  }
+
+  /// Create a copy of StacTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacButtonStyleCopyWith<$Res>? get segmentedButtonTheme {
+    if (_self.segmentedButtonTheme == null) {
+      return null;
+    }
+
+    return $StacButtonStyleCopyWith<$Res>(_self.segmentedButtonTheme!, (value) {
+      return _then(_self.copyWith(segmentedButtonTheme: value));
     });
   }
 

@@ -15,6 +15,10 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
       materialTapTargetSize: $enumDecodeNullable(
           _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
       platform: $enumDecodeNullable(_$TargetPlatformEnumMap, json['platform']),
+      scrollbarTheme: json['scrollbarTheme'] == null
+          ? null
+          : StacScrollbarThemeData.fromJson(
+              json['scrollbarTheme'] as Map<String, dynamic>),
       useMaterial3: json['useMaterial3'] as bool?,
       colorScheme: json['colorScheme'] == null
           ? null
@@ -56,10 +60,25 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacIconThemeData.fromJson(
               json['primaryIconTheme'] as Map<String, dynamic>),
+      primaryTextTheme: json['primaryTextTheme'] == null
+          ? null
+          : StacTextTheme.fromJson(
+              json['primaryTextTheme'] as Map<String, dynamic>),
+      textTheme: json['textTheme'] == null
+          ? null
+          : StacTextTheme.fromJson(json['textTheme'] as Map<String, dynamic>),
       appBarTheme: json['appBarTheme'] == null
           ? null
           : StacAppBarTheme.fromJson(
               json['appBarTheme'] as Map<String, dynamic>),
+      badgeTheme: json['badgeTheme'] == null
+          ? null
+          : StacBadgeThemeData.fromJson(
+              json['badgeTheme'] as Map<String, dynamic>),
+      bannerTheme: json['bannerTheme'] == null
+          ? null
+          : StacMaterialBannerThemeData.fromJson(
+              json['bannerTheme'] as Map<String, dynamic>),
       bottomAppBarTheme: json['bottomAppBarTheme'] == null
           ? null
           : StacBottomAppBarTheme.fromJson(
@@ -72,18 +91,46 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacBottomSheetThemeData.fromJson(
               json['bottomSheetTheme'] as Map<String, dynamic>),
+      buttonTheme: json['buttonTheme'] == null
+          ? null
+          : StacButtonThemeData.fromJson(
+              json['buttonTheme'] as Map<String, dynamic>),
       cardTheme: json['cardTheme'] == null
           ? null
           : StacCardThemeData.fromJson(
               json['cardTheme'] as Map<String, dynamic>),
+      checkboxTheme: json['checkboxTheme'] == null
+          ? null
+          : StacCheckboxThemeData.fromJson(
+              json['checkboxTheme'] as Map<String, dynamic>),
+      chipTheme: json['chipTheme'] == null
+          ? null
+          : StacChipThemeData.fromJson(
+              json['chipTheme'] as Map<String, dynamic>),
+      datePickerTheme: json['datePickerTheme'] == null
+          ? null
+          : StacDatePickerThemeData.fromJson(
+              json['datePickerTheme'] as Map<String, dynamic>),
       dialogTheme: json['dialogTheme'] == null
           ? null
           : StacDialogTheme.fromJson(
               json['dialogTheme'] as Map<String, dynamic>),
+      dividerTheme: json['dividerTheme'] == null
+          ? null
+          : StacDividerThemeData.fromJson(
+              json['dividerTheme'] as Map<String, dynamic>),
+      drawerTheme: json['drawerTheme'] == null
+          ? null
+          : StacDrawerThemeData.fromJson(
+              json['drawerTheme'] as Map<String, dynamic>),
       elevatedButtonTheme: json['elevatedButtonTheme'] == null
           ? null
           : StacButtonStyle.fromJson(
               json['elevatedButtonTheme'] as Map<String, dynamic>),
+      filledButtonTheme: json['filledButtonTheme'] == null
+          ? null
+          : StacButtonStyle.fromJson(
+              json['filledButtonTheme'] as Map<String, dynamic>),
       floatingActionButtonTheme: json['floatingActionButtonTheme'] == null
           ? null
           : StacFloatingActionButtonThemeData.fromJson(
@@ -96,14 +143,26 @@ _StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => _StacTheme(
           ? null
           : StacListTileThemeData.fromJson(
               json['listTileTheme'] as Map<String, dynamic>),
+      menuButtonTheme: json['menuButtonTheme'] == null
+          ? null
+          : StacButtonStyle.fromJson(
+              json['menuButtonTheme'] as Map<String, dynamic>),
       navigationBarTheme: json['navigationBarTheme'] == null
           ? null
           : StacNavigationBarThemeData.fromJson(
               json['navigationBarTheme'] as Map<String, dynamic>),
+      navigationDrawerTheme: json['navigationDrawerTheme'] == null
+          ? null
+          : StacNavigationDrawerThemeData.fromJson(
+              json['navigationDrawerTheme'] as Map<String, dynamic>),
       outlinedButtonTheme: json['outlinedButtonTheme'] == null
           ? null
           : StacButtonStyle.fromJson(
               json['outlinedButtonTheme'] as Map<String, dynamic>),
+      segmentedButtonTheme: json['segmentedButtonTheme'] == null
+          ? null
+          : StacButtonStyle.fromJson(
+              json['segmentedButtonTheme'] as Map<String, dynamic>),
       tabBarTheme: json['tabBarTheme'] == null
           ? null
           : StacTabBarThemeData.fromJson(
@@ -121,6 +180,7 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'materialTapTargetSize':
           _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
       'platform': _$TargetPlatformEnumMap[instance.platform],
+      'scrollbarTheme': instance.scrollbarTheme,
       'useMaterial3': instance.useMaterial3,
       'colorScheme': instance.colorScheme,
       'brightness': _$BrightnessEnumMap[instance.brightness],
@@ -148,18 +208,32 @@ Map<String, dynamic> _$StacThemeToJson(_StacTheme instance) =>
       'package': instance.package,
       'iconTheme': instance.iconTheme,
       'primaryIconTheme': instance.primaryIconTheme,
+      'primaryTextTheme': instance.primaryTextTheme,
+      'textTheme': instance.textTheme,
       'appBarTheme': instance.appBarTheme,
+      'badgeTheme': instance.badgeTheme,
+      'bannerTheme': instance.bannerTheme,
       'bottomAppBarTheme': instance.bottomAppBarTheme,
       'bottomNavigationBarTheme': instance.bottomNavigationBarTheme,
       'bottomSheetTheme': instance.bottomSheetTheme,
+      'buttonTheme': instance.buttonTheme,
       'cardTheme': instance.cardTheme,
+      'checkboxTheme': instance.checkboxTheme,
+      'chipTheme': instance.chipTheme,
+      'datePickerTheme': instance.datePickerTheme,
       'dialogTheme': instance.dialogTheme,
+      'dividerTheme': instance.dividerTheme,
+      'drawerTheme': instance.drawerTheme,
       'elevatedButtonTheme': instance.elevatedButtonTheme,
+      'filledButtonTheme': instance.filledButtonTheme,
       'floatingActionButtonTheme': instance.floatingActionButtonTheme,
       'iconButtonTheme': instance.iconButtonTheme,
       'listTileTheme': instance.listTileTheme,
+      'menuButtonTheme': instance.menuButtonTheme,
       'navigationBarTheme': instance.navigationBarTheme,
+      'navigationDrawerTheme': instance.navigationDrawerTheme,
       'outlinedButtonTheme': instance.outlinedButtonTheme,
+      'segmentedButtonTheme': instance.segmentedButtonTheme,
       'tabBarTheme': instance.tabBarTheme,
       'textButtonTheme': instance.textButtonTheme,
     };
