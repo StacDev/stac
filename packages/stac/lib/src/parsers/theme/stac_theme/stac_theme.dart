@@ -78,7 +78,7 @@ abstract class StacTheme with _$StacTheme {
     StacBottomSheetThemeData? bottomSheetTheme,
     StacButtonThemeData? buttonTheme,
     StacCardThemeData? cardTheme,
-    StacCheckboxThemeData? checkboxTheme, // todo
+    StacCheckboxThemeData? checkboxTheme,
     // ChipThemeData? chipTheme,
     // DataTableThemeData? dataTableTheme,
     // DatePickerThemeData? datePickerTheme, // todo
