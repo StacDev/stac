@@ -63,4 +63,78 @@ final Map<String, dynamic> darkThemeJson = {
     "outline": "#08FFFFFF",
     "onOutline": "#12FFFFFF",
   },
+  "textTheme": {
+    "displayLarge": {
+      "fontSize": 48,
+      "fontWeight": "w700",
+      "height": 1.1,
+      "letterSpacing": -0.96,
+    },
+    "displayMedium": {
+      "fontSize": 40,
+      "fontWeight": "w700",
+      "height": 1.1,
+      "letterSpacing": -0.80,
+    },
+    "displaySmall": {
+      "fontSize": 34,
+      "fontWeight": "w700",
+      "height": 1.1,
+      "letterSpacing": -0.72,
+    },
+    "headlineLarge": {
+      "fontSize": 30,
+      "fontWeight": "w700",
+      "height": 1.3,
+      "letterSpacing": -0.3,
+    },
+    "headlineMedium": {
+      "fontSize": 26,
+      "fontWeight": "w700",
+      "height": 1.3,
+      "letterSpacing": -0.26,
+    },
+    "headlineSmall": {
+      "fontSize": 23,
+      "fontWeight": "w700",
+      "height": 1.3,
+      "letterSpacing": -0.23,
+    },
+    "titleLarge": {
+      "fontSize": 20,
+      "fontWeight": "w500",
+      "height": 1.3,
+      "letterSpacing": -0.20,
+    },
+    "titleMedium": {
+      "fontSize": 18,
+      "fontWeight": "w500",
+      "height": 1.3,
+      "letterSpacing": -0.18,
+    },
+    "titleSmall": {
+      "fontSize": 16,
+      "fontWeight": "w500",
+      "height": 1.3,
+      "letterSpacing": -0.16,
+    },
+    "labelLarge": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
+    "labelMedium": {"fontSize": 14, "fontWeight": "w600", "height": 1.3},
+    "labelSmall": {"fontSize": 12, "fontWeight": "w500", "height": 1.3},
+    "bodyLarge": {"fontSize": 18, "fontWeight": "w400", "height": 1.5},
+    "bodyMedium": {"fontSize": 16, "fontWeight": "w400", "height": 1.5},
+    "bodySmall": {"fontSize": 14, "fontWeight": "w400", "height": 1.5},
+  },
+  "filledButtonTheme": {
+    "fixedSize": {"width": 1000, "height": 48},
+    "textStyle": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
+    "shape": {
+      "borderRadius": {
+        "topLeft": 8,
+        "topRight": 8,
+        "bottomLeft": 8,
+        "bottomRight": 8,
+      },
+    },
+  },
 };

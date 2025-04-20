@@ -52,13 +52,7 @@
                                 {
                                     "type": "text",
                                     "data": "Movie ",
-                                    "style": {
-                                        "fontSize": 40,
-                                        "color": "#ffffff",
-                                        "fontWeight": "w700",
-                                        "height": 1.1,
-                                        "letterSpacing": -0.08
-                                    },
+                                    "style": "displayMedium",
                                     "children": [
                                         {
                                             "data": "\nDatabase",
@@ -74,7 +68,8 @@
                                 },
                                 {
                                     "type": "text",
-                                    "data": "Watch & enjoy a variety of award winning TV shows, movies, anime, and a lot more"
+                                    "data": "Watch & enjoy a variety of award winning TV shows, movies, anime, and a lot more",
+                                    "style": "bodyMedium"
                                 },
                                 {
                                     "type": "sizedBox",
