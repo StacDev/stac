@@ -1,22 +1,71 @@
 {
-    "type": "scaffold",
-    "body": {
-        "type": "center",
-        "child": {
-            "type": "column",
-            "mainAxisAlignment": "center",
+    "type": "defaultBottomNavigationController",
+    "length": 3,
+    "child": {
+        "type": "scaffold",
+        "body": {
+            "type": "bottomNavigationView",
             "children": [
                 {
-                    "type": "text",
-                    "data": "Hello World"
+                    "type": "listView",
+                    "children": [
+                        {
+                            "type": "container",
+                            "width": 1000,
+                            "height": 400,
+                            "decoration": {
+                                "color": "#ffffff",
+                                "image": {
+                                    "src": "assets/images/image.png",
+                                    "imageType": "asset",
+                                    "fit": "cover"
+                                }
+                            }
+                        }
+                    ]
                 },
                 {
-                    "type": "filledButton",
+                    "type": "center",
                     "child": {
                         "type": "text",
-                        "data": "Click Me!!"
-                    },
-                    "onPressed": {}
+                        "data": "Search"
+                    }
+                },
+                {
+                    "type": "center",
+                    "child": {
+                        "type": "text",
+                        "data": "Profile"
+                    }
+                }
+            ]
+        },
+        "bottomNavigationBar": {
+            "type": "bottomNavigationBar",
+            "items": [
+                {
+                    "type": "navigationBarItem",
+                    "label": "Home",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "home_outlined"
+                    }
+                },
+                {
+                    "type": "navigationBarItem",
+                    "label": "Search",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "search_outlined"
+                    }
+                },
+                {
+                    "type": "navigationBarItem",
+                    "label": "Profile",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "person_outlined"
+                    }
                 }
             ]
         }

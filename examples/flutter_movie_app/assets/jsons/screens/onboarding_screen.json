@@ -81,7 +81,10 @@
                                         "type": "text",
                                         "data": "Get Started"
                                     },
-                                    "onPressed": {}
+                                    "onPressed": {
+                                        "actionType": "navigate",
+                                        "assetPath": "assets/jsons/screens/home_screen.json"
+                                    }
                                 }
                             ]
                         }
