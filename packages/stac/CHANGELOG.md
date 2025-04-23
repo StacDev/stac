@@ -1,3 +1,15 @@
+## 1.0.0-dev.2
+
+* feat: update stac theme with new ThemeData classes
+* fix: Make background & onBackground as nullable in ColorScheme by @oyewalekehinde
+* feat: Add support for the DropdownMenu widget by @Odinachi
+
+## 1.0.0-dev.1
+
+* feat: Add SliverAppBar & CustomScrollView parser by @nikb7
+* chore: update pub dependencies
+* feat: Add StacDynamicView parser for fetching and rendering API data
+
 ## 0.10.0
 
 * Migrate to Flutter 3.29
