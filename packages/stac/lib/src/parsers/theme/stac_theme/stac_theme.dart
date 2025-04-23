@@ -10,11 +10,15 @@ import 'package:stac/src/parsers/theme/stac_button_theme_data/stac_button_theme_
 import 'package:stac/src/parsers/theme/stac_card_theme_data/stac_card_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_checkbox_theme_data/stac_checkbox_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_chip_theme_data/stac_chip_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_color_scheme/stac_color_scheme.dart';
 import 'package:stac/src/parsers/theme/stac_date_picker_theme_data/stac_date_picker_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_dialog_theme/stac_dialog_theme.dart';
 import 'package:stac/src/parsers/theme/stac_divider_theme_data/stac_divider_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_drawer_theme_data/stac_drawer_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_input_decoration_theme/stac_input_decoration_theme.dart';
+import 'package:stac/src/parsers/theme/stac_list_tile_theme_data/stac_list_tile_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_banner_theme_data/stac_material_banner_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
 import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
@@ -22,10 +26,6 @@ import 'package:stac/src/parsers/theme/stac_navigation_drawer_theme_data/stac_na
 import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data/stac_scrollbar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_text_theme/stac_text_theme.dart';
-import 'package:stac/src/parsers/widgets/stac_color_scheme/stac_color_scheme.dart';
-import 'package:stac/src/parsers/widgets/stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';
-import 'package:stac/src/parsers/widgets/stac_input_decoration_theme/stac_input_decoration_theme.dart';
-import 'package:stac/src/parsers/widgets/stac_list_tile_theme_data/stac_list_tile_theme_data.dart';
 import 'package:stac/src/utils/color_utils.dart';
 
 part 'stac_theme.freezed.dart';

@@ -1,3 +1,5 @@
+export 'package:stac/src/parsers/theme/stac_color_scheme/stac_color_scheme.dart';
+export 'package:stac/src/parsers/theme/stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';
 export 'package:stac/src/parsers/widgets/stac_alert_dialog/stac_alert_dialog.dart';
 export 'package:stac/src/parsers/widgets/stac_align/stac_align.dart';
 export 'package:stac/src/parsers/widgets/stac_alignment/stac_alignment.dart';
@@ -21,7 +23,6 @@ export 'package:stac/src/parsers/widgets/stac_check_box/stac_check_box.dart';
 export 'package:stac/src/parsers/widgets/stac_chip/stac_chip.dart';
 export 'package:stac/src/parsers/widgets/stac_circle_avatar/stac_circle_avatar.dart';
 export 'package:stac/src/parsers/widgets/stac_circular_progress_indicator/stac_circular_progress_indicator.dart';
-export 'package:stac/src/parsers/widgets/stac_color_scheme/stac_color_scheme.dart';
 export 'package:stac/src/parsers/widgets/stac_colored_box/stac_colored_box.dart';
 export 'package:stac/src/parsers/widgets/stac_column/stac_column.dart';
 export 'package:stac/src/parsers/widgets/stac_container/stac_container.dart';
@@ -41,7 +42,6 @@ export 'package:stac/src/parsers/widgets/stac_filled_button/stac_filled_button.d
 export 'package:stac/src/parsers/widgets/stac_fitted_box/stac_fitted_box.dart';
 export 'package:stac/src/parsers/widgets/stac_flexible/stac_flexible.dart';
 export 'package:stac/src/parsers/widgets/stac_floating_action_button/stac_floating_action_button.dart';
-export 'package:stac/src/parsers/widgets/stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';
 export 'package:stac/src/parsers/widgets/stac_font_weight/stac_font_weight.dart';
 export 'package:stac/src/parsers/widgets/stac_form/stac_form.dart';
 export 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
