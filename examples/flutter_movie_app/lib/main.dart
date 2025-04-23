@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData();
     return StacApp(
       title: 'Flutter Demo',
       theme: StacTheme.fromJson(darkThemeJson),
