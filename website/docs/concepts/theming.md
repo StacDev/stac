@@ -60,4 +60,4 @@ class MyApp extends StatelessWidget {
 }
 ```
 
-For more details check out [StacTheme](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/parsers/stac_theme/stac_theme.dart) class.
+For more details check out [StacTheme](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/parsers/theme/stac_theme/stac_theme.dart) class.
