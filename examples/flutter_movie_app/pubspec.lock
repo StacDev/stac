@@ -203,19 +203,16 @@ packages:
   stac:
     dependency: "direct main"
     description:
-      path: "packages/stac"
-      ref: dev
-      resolved-ref: c4c568511b432996ee3909695d074a75ee43c32a
-      url: "https://github.com/StacDev/stac"
-    source: git
+      path: "../../packages/stac"
+      relative: true
+    source: path
     version: "0.10.0"
   stac_framework:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: stac_framework
-      sha256: "58fb26982eaf83626eaaefd4db153306f4f198bb2c4a4d288d97705da4eadac0"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../../packages/stac_framework"
+      relative: true
+    source: path
     version: "0.2.2"
   stack_trace:
     dependency: transitive
