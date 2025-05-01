@@ -124,7 +124,7 @@ final Map<String, dynamic> darkThemeJson = {
     "bodySmall": {"fontSize": 14, "fontWeight": "w400", "height": 1.5},
   },
   "filledButtonTheme": {
-    "fixedSize": {"width": 1000, "height": 48},
+    "minimumSize": {"width": 120, "height": 40},
     "textStyle": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
     "shape": {
       "borderRadius": {

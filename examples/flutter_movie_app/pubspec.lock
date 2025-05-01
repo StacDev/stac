@@ -206,7 +206,7 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "0.10.0"
+    version: "1.0.0-dev.2"
   stac_framework:
     dependency: "direct overridden"
     description:

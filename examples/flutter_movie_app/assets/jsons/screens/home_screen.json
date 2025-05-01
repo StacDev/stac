@@ -3,24 +3,96 @@
     "length": 3,
     "child": {
         "type": "scaffold",
+        "extendBodyBehindAppBar": true,
+        "extendBody": true,
         "body": {
             "type": "bottomNavigationView",
             "children": [
                 {
                     "type": "listView",
+                    "padding": 0,
                     "children": [
                         {
-                            "type": "container",
-                            "width": 1000,
-                            "height": 400,
-                            "decoration": {
-                                "color": "#ffffff",
-                                "image": {
-                                    "src": "assets/images/image.png",
+                            "type": "stack",
+                            "children": [
+                                {
+                                    "type": "image",
                                     "imageType": "asset",
-                                    "fit": "cover"
+                                    "src": "assets/images/image.png",
+                                    "fit": "cover",
+                                    "width": 1000,
+                                    "height": 480
+                                },
+                                {
+                                    "type": "positioned",
+                                    "bottom": 0,
+                                    "left": 0,
+                                    "right": 0,
+                                    "child": {
+                                        "type": "container",
+                                        "height": 240,
+                                        "decoration": {
+                                            "gradient": {
+                                                "colors": [
+                                                    "#00050608",
+                                                    "#050608",
+                                                    "#050608"
+                                                ],
+                                                "begin": "topCenter",
+                                                "end": "bottomCenter",
+                                                "stops": [
+                                                    0.0,
+                                                    0.8,
+                                                    1.0
+                                                ]
+                                            }
+                                        },
+                                        "child": {
+                                            "type": "column",
+                                            "children": [
+                                                {
+                                                    "type": "text",
+                                                    "data": "Arcane:\nLeague of Legends",
+                                                    "style": "headlineMedium",
+                                                    "textAlign": "center"
+                                                },
+                                                {
+                                                    "type": "sizedBox",
+                                                    "height": 16
+                                                },
+                                                {
+                                                    "type": "row",
+                                                    "mainAxisAlignment": "center",
+                                                    "children": [
+                                                        {
+                                                            "type": "filledButton",
+                                                            "child": {
+                                                                "type": "text",
+                                                                "data": "Watch Now"
+                                                            },
+                                                            "onPressed": {
+                                                                "actionType": "navigate",
+                                                                "assetPath": "assets/jsons/screens/home_screen.json"
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "outlinedButton",
+                                                            "child": {
+                                                                "type": "text",
+                                                                "data": "Details"
+                                                            },
+                                                            "onPressed": {
+                                                                "actionType": "navigate",
+                                                                "assetPath": "assets/jsons/screens/home_screen.json"
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    }
                                 }
-                            }
+                            ]
                         }
                     ]
                 },
