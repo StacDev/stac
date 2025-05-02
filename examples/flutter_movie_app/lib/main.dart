@@ -1,8 +1,22 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
+final token =
+    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzNjN2I1OGQ5NjU5NzUwMmNjODAxNWRkZjNjNTY1MyIsIm5iZiI6MTc0NDY1NDUzNi4zMjgsInN1YiI6IjY3ZmQ1MGM4N2MyOWFlNWJjM2Q5NjEzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oZWfMnM-eiPjHvlvjLbrZeQXCfm2lvgGiNx8xDovzW8";
+
 void main() async {
-  await Stac.initialize();
+  final dio = Dio();
+  dio.interceptors.add(
+    InterceptorsWrapper(
+      onRequest: (options, handler) {
+        options.headers['Authorization'] = 'Bearer $token';
+        return handler.next(options);
+      },
+    ),
+  );
+
+  await Stac.initialize(dio: dio);
 
   runApp(const MyApp());
 }
@@ -126,6 +140,7 @@ final Map<String, dynamic> darkThemeJson = {
   "filledButtonTheme": {
     "minimumSize": {"width": 120, "height": 40},
     "textStyle": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
+    "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
     "shape": {
       "borderRadius": {
         "topLeft": 8,

@@ -4,7 +4,6 @@
     "child": {
         "type": "scaffold",
         "extendBodyBehindAppBar": true,
-        "extendBody": true,
         "body": {
             "type": "bottomNavigationView",
             "children": [
@@ -21,7 +20,7 @@
                                     "src": "assets/images/image.png",
                                     "fit": "cover",
                                     "width": 1000,
-                                    "height": 480
+                                    "height": 440
                                 },
                                 {
                                     "type": "positioned",
@@ -35,20 +34,19 @@
                                             "gradient": {
                                                 "colors": [
                                                     "#00050608",
-                                                    "#050608",
                                                     "#050608"
                                                 ],
                                                 "begin": "topCenter",
                                                 "end": "bottomCenter",
                                                 "stops": [
                                                     0.0,
-                                                    0.8,
                                                     1.0
                                                 ]
                                             }
                                         },
                                         "child": {
                                             "type": "column",
+                                            "mainAxisAlignment": "center",
                                             "children": [
                                                 {
                                                     "type": "text",
@@ -67,8 +65,23 @@
                                                         {
                                                             "type": "filledButton",
                                                             "child": {
-                                                                "type": "text",
-                                                                "data": "Watch Now"
+                                                                "type": "row",
+                                                                "children": [
+                                                                    {
+                                                                        "type": "icon",
+                                                                        "iconType": "material",
+                                                                        "icon": "play_arrow",
+                                                                        "size": 18
+                                                                    },
+                                                                    {
+                                                                        "type": "sizedBox",
+                                                                        "width": 4
+                                                                    },
+                                                                    {
+                                                                        "type": "text",
+                                                                        "data": "Watch Now"
+                                                                    }
+                                                                ]
                                                             },
                                                             "onPressed": {
                                                                 "actionType": "navigate",
@@ -76,10 +89,26 @@
                                                             }
                                                         },
                                                         {
+                                                            "type": "sizedBox",
+                                                            "width": 8
+                                                        },
+                                                        {
                                                             "type": "outlinedButton",
                                                             "child": {
                                                                 "type": "text",
                                                                 "data": "Details"
+                                                            },
+                                                            "style": {
+                                                                "side": {
+                                                                    "width": 1,
+                                                                    "color": "primary"
+                                                                },
+                                                                "padding": {
+                                                                    "left": 12,
+                                                                    "right": 12,
+                                                                    "top": 8,
+                                                                    "bottom": 8
+                                                                }
                                                             },
                                                             "onPressed": {
                                                                 "actionType": "navigate",
@@ -89,6 +118,210 @@
                                                     ]
                                                 }
                                             ]
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 20,
+                                        "right": 20
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Trending",
+                                                "style": "labelMedium"
+                                            },
+                                            {
+                                                "type": "textButton",
+                                                "child": {
+                                                    "type": "text",
+                                                    "data": "View All"
+                                                },
+                                                "style": {
+                                                    "textStyle": "labelMedium"
+                                                },
+                                                "onPressed": {
+                                                    "actionType": "navigate",
+                                                    "assetPath": "assets/jsons/screens/home_screen.json"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 20
+                                            },
+                                            "ItemTemplate": {
+                                                "type": "image",
+                                                "imageType": "network",
+                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                "width": 108,
+                                                "height": 164
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 20,
+                                        "right": 20
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Popular Movies",
+                                                "style": "labelMedium"
+                                            },
+                                            {
+                                                "type": "textButton",
+                                                "child": {
+                                                    "type": "text",
+                                                    "data": "View All"
+                                                },
+                                                "style": {
+                                                    "textStyle": "labelMedium"
+                                                },
+                                                "onPressed": {
+                                                    "actionType": "navigate",
+                                                    "assetPath": "assets/jsons/screens/home_screen.json"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 20
+                                            },
+                                            "ItemTemplate": {
+                                                "type": "image",
+                                                "imageType": "network",
+                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                "width": 108,
+                                                "height": 164
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 20,
+                                        "right": 20
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Popular TV Shows",
+                                                "style": "labelMedium"
+                                            },
+                                            {
+                                                "type": "textButton",
+                                                "child": {
+                                                    "type": "text",
+                                                    "data": "View All"
+                                                },
+                                                "style": {
+                                                    "textStyle": "labelMedium"
+                                                },
+                                                "onPressed": {
+                                                    "actionType": "navigate",
+                                                    "assetPath": "assets/jsons/screens/home_screen.json"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 20
+                                            },
+                                            "ItemTemplate": {
+                                                "type": "image",
+                                                "imageType": "network",
+                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                "width": 108,
+                                                "height": 164
+                                            }
                                         }
                                     }
                                 }
