@@ -104,10 +104,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     Map<String, dynamic> result = {};
 
     if (data is List) {
-      // Check if the template contains an ItemTemplate key
-      if (template.containsKey('ItemTemplate')) {
-        // Create a list of widgets using the ItemTemplate
-        final itemTemplate = template['ItemTemplate'] as Map<String, dynamic>;
+      // Check if the template contains an itemTemplate key
+      if (template.containsKey('itemTemplate')) {
+        // Create a list of widgets using the itemTemplate
+        final itemTemplate = template['itemTemplate'] as Map<String, dynamic>;
 
         // Process each item in the list
         final items = <Map<String, dynamic>>[];
@@ -121,7 +121,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
         // Create the result with the processed items
         result = Map<String, dynamic>.from(template);
-        result.remove('ItemTemplate'); // Remove the template
+        result.remove('itemTemplate'); // Remove the template
 
         // If the template doesn't have a children key, create it
         if (!result.containsKey('children')) {
@@ -137,7 +137,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           result['children'] = items;
         }
       } else {
-        // If no ItemTemplate is found, pass through the template
+        // If no itemTemplate is found, pass through the template
         result = template;
       }
     } else if (data is Map) {
