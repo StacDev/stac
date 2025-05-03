@@ -96,7 +96,8 @@ class Stac {
     const StacFittedBoxParser(),
     const StacLimitedBoxParser(),
     const StacDynamicViewParser(),
-    const StacDropdownMenuParser()
+    const StacDropdownMenuParser(),
+    const StacClipRRectParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
