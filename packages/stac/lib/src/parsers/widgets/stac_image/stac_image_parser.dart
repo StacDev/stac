@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -28,14 +29,16 @@ class StacImageParser extends StacParser<StacImage> {
     }
   }
 
-  Widget _networkImage(StacImage model, BuildContext context) => Image.network(
-        model.src,
+  Widget _networkImage(StacImage model, BuildContext context) =>
+      CachedNetworkImage(
+        imageUrl: model.src,
         alignment: model.alignment.value,
         color: model.color?.toColor(context),
         width: model.width,
         height: model.height,
         fit: model.fit,
       );
+
   Widget _fileImage(StacImage model, BuildContext context) => Image.file(
         File(model.src),
         alignment: model.alignment.value,

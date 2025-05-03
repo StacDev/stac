@@ -11,6 +11,7 @@ enum WidgetType {
   center,
   checkBox,
   chip,
+  clipRRect,
   circleAvatar,
   circularProgressIndicator,
   coloredBox,
