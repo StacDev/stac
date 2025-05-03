@@ -130,7 +130,9 @@
                                     "type": "padding",
                                     "padding": {
                                         "left": 20,
-                                        "right": 20
+                                        "right": 20,
+                                        "top": 24,
+                                        "bottom": 10
                                     },
                                     "child": {
                                         "type": "row",
@@ -140,20 +142,6 @@
                                                 "type": "text",
                                                 "data": "Trending",
                                                 "style": "labelMedium"
-                                            },
-                                            {
-                                                "type": "textButton",
-                                                "child": {
-                                                    "type": "text",
-                                                    "data": "View All"
-                                                },
-                                                "style": {
-                                                    "textStyle": "labelMedium"
-                                                },
-                                                "onPressed": {
-                                                    "actionType": "navigate",
-                                                    "assetPath": "assets/jsons/screens/home_screen.json"
-                                                }
                                             }
                                         ]
                                     }
@@ -180,11 +168,15 @@
                                                 "left": 20
                                             },
                                             "ItemTemplate": {
-                                                "type": "image",
-                                                "imageType": "network",
-                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                "width": 108,
-                                                "height": 164
+                                                "type": "clipRRect",
+                                                "borderRadius": 6,
+                                                "child": {
+                                                    "type": "image",
+                                                    "imageType": "network",
+                                                    "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                    "width": 108,
+                                                    "height": 164
+                                                }
                                             }
                                         }
                                     }
@@ -197,8 +189,10 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20
+                                        "left": 24,
+                                        "right": 24,
+                                        "top": 24,
+                                        "bottom": 10
                                     },
                                     "child": {
                                         "type": "row",
@@ -208,20 +202,6 @@
                                                 "type": "text",
                                                 "data": "Popular Movies",
                                                 "style": "labelMedium"
-                                            },
-                                            {
-                                                "type": "textButton",
-                                                "child": {
-                                                    "type": "text",
-                                                    "data": "View All"
-                                                },
-                                                "style": {
-                                                    "textStyle": "labelMedium"
-                                                },
-                                                "onPressed": {
-                                                    "actionType": "navigate",
-                                                    "assetPath": "assets/jsons/screens/home_screen.json"
-                                                }
                                             }
                                         ]
                                     }
@@ -248,11 +228,15 @@
                                                 "left": 20
                                             },
                                             "ItemTemplate": {
-                                                "type": "image",
-                                                "imageType": "network",
-                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                "width": 108,
-                                                "height": 164
+                                                "type": "clipRRect",
+                                                "borderRadius": 6,
+                                                "child": {
+                                                    "type": "image",
+                                                    "imageType": "network",
+                                                    "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                    "width": 108,
+                                                    "height": 164
+                                                }
                                             }
                                         }
                                     }
@@ -266,7 +250,9 @@
                                     "type": "padding",
                                     "padding": {
                                         "left": 20,
-                                        "right": 20
+                                        "right": 20,
+                                        "top": 24,
+                                        "bottom": 10
                                     },
                                     "child": {
                                         "type": "row",
@@ -276,20 +262,6 @@
                                                 "type": "text",
                                                 "data": "Popular TV Shows",
                                                 "style": "labelMedium"
-                                            },
-                                            {
-                                                "type": "textButton",
-                                                "child": {
-                                                    "type": "text",
-                                                    "data": "View All"
-                                                },
-                                                "style": {
-                                                    "textStyle": "labelMedium"
-                                                },
-                                                "onPressed": {
-                                                    "actionType": "navigate",
-                                                    "assetPath": "assets/jsons/screens/home_screen.json"
-                                                }
                                             }
                                         ]
                                     }

@@ -1,0 +1,10 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "text",
+            "data": "Detail Screen"
+        }
+    }
+}
