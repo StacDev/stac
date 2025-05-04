@@ -16,7 +16,7 @@
     "targetPath": "users",
     "template": {
       "type": "listView",
-      "ItemTemplate": {
+      "itemTemplate": {
         "type": "listTile",
         "title": {
           "type": "text",
