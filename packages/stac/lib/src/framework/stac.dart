@@ -98,6 +98,7 @@ class Stac {
     const StacDynamicViewParser(),
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),
+    const StacGestureDetectorParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
