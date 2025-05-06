@@ -15,12 +15,14 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacAppBarTheme {
+  String? get color;
   String? get backgroundColor;
   String? get foregroundColor;
   double? get elevation;
   double? get scrolledUnderElevation;
   String? get shadowColor;
   String? get surfaceTintColor;
+  StacShapeBorder? get shape;
   StacIconThemeData? get iconTheme;
   StacIconThemeData? get actionsIconTheme;
   bool? get centerTitle;
@@ -29,6 +31,7 @@ mixin _$StacAppBarTheme {
   StacTextStyle? get toolbarTextStyle;
   StacTextStyle? get titleTextStyle;
   StacSystemUIOverlayStyle? get systemOverlayStyle;
+  StacEdgeInsets? get actionsPadding;
 
   /// Create a copy of StacAppBarTheme
   /// with the given fields replaced by the non-null parameter values.
@@ -46,6 +49,7 @@ mixin _$StacAppBarTheme {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StacAppBarTheme &&
+            (identical(other.color, color) || other.color == color) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.foregroundColor, foregroundColor) ||
@@ -58,6 +62,7 @@ mixin _$StacAppBarTheme {
                 other.shadowColor == shadowColor) &&
             (identical(other.surfaceTintColor, surfaceTintColor) ||
                 other.surfaceTintColor == surfaceTintColor) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
             (identical(other.iconTheme, iconTheme) ||
                 other.iconTheme == iconTheme) &&
             (identical(other.actionsIconTheme, actionsIconTheme) ||
@@ -73,19 +78,23 @@ mixin _$StacAppBarTheme {
             (identical(other.titleTextStyle, titleTextStyle) ||
                 other.titleTextStyle == titleTextStyle) &&
             (identical(other.systemOverlayStyle, systemOverlayStyle) ||
-                other.systemOverlayStyle == systemOverlayStyle));
+                other.systemOverlayStyle == systemOverlayStyle) &&
+            (identical(other.actionsPadding, actionsPadding) ||
+                other.actionsPadding == actionsPadding));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      color,
       backgroundColor,
       foregroundColor,
       elevation,
       scrolledUnderElevation,
       shadowColor,
       surfaceTintColor,
+      shape,
       iconTheme,
       actionsIconTheme,
       centerTitle,
@@ -93,11 +102,12 @@ mixin _$StacAppBarTheme {
       toolbarHeight,
       toolbarTextStyle,
       titleTextStyle,
-      systemOverlayStyle);
+      systemOverlayStyle,
+      actionsPadding);
 
   @override
   String toString() {
-    return 'StacAppBarTheme(backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconTheme: $iconTheme, actionsIconTheme: $actionsIconTheme, centerTitle: $centerTitle, titleSpacing: $titleSpacing, toolbarHeight: $toolbarHeight, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, systemOverlayStyle: $systemOverlayStyle)';
+    return 'StacAppBarTheme(color: $color, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, shape: $shape, iconTheme: $iconTheme, actionsIconTheme: $actionsIconTheme, centerTitle: $centerTitle, titleSpacing: $titleSpacing, toolbarHeight: $toolbarHeight, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, systemOverlayStyle: $systemOverlayStyle, actionsPadding: $actionsPadding)';
   }
 }
 
@@ -108,12 +118,14 @@ abstract mixin class $StacAppBarThemeCopyWith<$Res> {
       _$StacAppBarThemeCopyWithImpl;
   @useResult
   $Res call(
-      {String? backgroundColor,
+      {String? color,
+      String? backgroundColor,
       String? foregroundColor,
       double? elevation,
       double? scrolledUnderElevation,
       String? shadowColor,
       String? surfaceTintColor,
+      StacShapeBorder? shape,
       StacIconThemeData? iconTheme,
       StacIconThemeData? actionsIconTheme,
       bool? centerTitle,
@@ -121,13 +133,16 @@ abstract mixin class $StacAppBarThemeCopyWith<$Res> {
       double? toolbarHeight,
       StacTextStyle? toolbarTextStyle,
       StacTextStyle? titleTextStyle,
-      StacSystemUIOverlayStyle? systemOverlayStyle});
+      StacSystemUIOverlayStyle? systemOverlayStyle,
+      StacEdgeInsets? actionsPadding});
 
+  $StacShapeBorderCopyWith<$Res>? get shape;
   $StacIconThemeDataCopyWith<$Res>? get iconTheme;
   $StacIconThemeDataCopyWith<$Res>? get actionsIconTheme;
   $StacTextStyleCopyWith<$Res>? get toolbarTextStyle;
   $StacTextStyleCopyWith<$Res>? get titleTextStyle;
   $StacSystemUIOverlayStyleCopyWith<$Res>? get systemOverlayStyle;
+  $StacEdgeInsetsCopyWith<$Res>? get actionsPadding;
 }
 
 /// @nodoc
@@ -143,12 +158,14 @@ class _$StacAppBarThemeCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? color = freezed,
     Object? backgroundColor = freezed,
     Object? foregroundColor = freezed,
     Object? elevation = freezed,
     Object? scrolledUnderElevation = freezed,
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
+    Object? shape = freezed,
     Object? iconTheme = freezed,
     Object? actionsIconTheme = freezed,
     Object? centerTitle = freezed,
@@ -157,8 +174,13 @@ class _$StacAppBarThemeCopyWithImpl<$Res>
     Object? toolbarTextStyle = freezed,
     Object? titleTextStyle = freezed,
     Object? systemOverlayStyle = freezed,
+    Object? actionsPadding = freezed,
   }) {
     return _then(_self.copyWith(
+      color: freezed == color
+          ? _self.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -183,6 +205,10 @@ class _$StacAppBarThemeCopyWithImpl<$Res>
           ? _self.surfaceTintColor
           : surfaceTintColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      shape: freezed == shape
+          ? _self.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as StacShapeBorder?,
       iconTheme: freezed == iconTheme
           ? _self.iconTheme
           : iconTheme // ignore: cast_nullable_to_non_nullable
@@ -215,7 +241,25 @@ class _$StacAppBarThemeCopyWithImpl<$Res>
           ? _self.systemOverlayStyle
           : systemOverlayStyle // ignore: cast_nullable_to_non_nullable
               as StacSystemUIOverlayStyle?,
+      actionsPadding: freezed == actionsPadding
+          ? _self.actionsPadding
+          : actionsPadding // ignore: cast_nullable_to_non_nullable
+              as StacEdgeInsets?,
     ));
+  }
+
+  /// Create a copy of StacAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacShapeBorderCopyWith<$Res>? get shape {
+    if (_self.shape == null) {
+      return null;
+    }
+
+    return $StacShapeBorderCopyWith<$Res>(_self.shape!, (value) {
+      return _then(_self.copyWith(shape: value));
+    });
   }
 
   /// Create a copy of StacAppBarTheme
@@ -288,18 +332,34 @@ class _$StacAppBarThemeCopyWithImpl<$Res>
       return _then(_self.copyWith(systemOverlayStyle: value));
     });
   }
+
+  /// Create a copy of StacAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacEdgeInsetsCopyWith<$Res>? get actionsPadding {
+    if (_self.actionsPadding == null) {
+      return null;
+    }
+
+    return $StacEdgeInsetsCopyWith<$Res>(_self.actionsPadding!, (value) {
+      return _then(_self.copyWith(actionsPadding: value));
+    });
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _StacAppBarTheme implements StacAppBarTheme {
   const _StacAppBarTheme(
-      {this.backgroundColor,
+      {this.color,
+      this.backgroundColor,
       this.foregroundColor,
       this.elevation,
       this.scrolledUnderElevation,
       this.shadowColor,
       this.surfaceTintColor,
+      this.shape,
       this.iconTheme,
       this.actionsIconTheme,
       this.centerTitle,
@@ -307,10 +367,13 @@ class _StacAppBarTheme implements StacAppBarTheme {
       this.toolbarHeight,
       this.toolbarTextStyle,
       this.titleTextStyle,
-      this.systemOverlayStyle});
+      this.systemOverlayStyle,
+      this.actionsPadding});
   factory _StacAppBarTheme.fromJson(Map<String, dynamic> json) =>
       _$StacAppBarThemeFromJson(json);
 
+  @override
+  final String? color;
   @override
   final String? backgroundColor;
   @override
@@ -323,6 +386,8 @@ class _StacAppBarTheme implements StacAppBarTheme {
   final String? shadowColor;
   @override
   final String? surfaceTintColor;
+  @override
+  final StacShapeBorder? shape;
   @override
   final StacIconThemeData? iconTheme;
   @override
@@ -339,6 +404,8 @@ class _StacAppBarTheme implements StacAppBarTheme {
   final StacTextStyle? titleTextStyle;
   @override
   final StacSystemUIOverlayStyle? systemOverlayStyle;
+  @override
+  final StacEdgeInsets? actionsPadding;
 
   /// Create a copy of StacAppBarTheme
   /// with the given fields replaced by the non-null parameter values.
@@ -360,6 +427,7 @@ class _StacAppBarTheme implements StacAppBarTheme {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StacAppBarTheme &&
+            (identical(other.color, color) || other.color == color) &&
             (identical(other.backgroundColor, backgroundColor) ||
                 other.backgroundColor == backgroundColor) &&
             (identical(other.foregroundColor, foregroundColor) ||
@@ -372,6 +440,7 @@ class _StacAppBarTheme implements StacAppBarTheme {
                 other.shadowColor == shadowColor) &&
             (identical(other.surfaceTintColor, surfaceTintColor) ||
                 other.surfaceTintColor == surfaceTintColor) &&
+            (identical(other.shape, shape) || other.shape == shape) &&
             (identical(other.iconTheme, iconTheme) ||
                 other.iconTheme == iconTheme) &&
             (identical(other.actionsIconTheme, actionsIconTheme) ||
@@ -387,19 +456,23 @@ class _StacAppBarTheme implements StacAppBarTheme {
             (identical(other.titleTextStyle, titleTextStyle) ||
                 other.titleTextStyle == titleTextStyle) &&
             (identical(other.systemOverlayStyle, systemOverlayStyle) ||
-                other.systemOverlayStyle == systemOverlayStyle));
+                other.systemOverlayStyle == systemOverlayStyle) &&
+            (identical(other.actionsPadding, actionsPadding) ||
+                other.actionsPadding == actionsPadding));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      color,
       backgroundColor,
       foregroundColor,
       elevation,
       scrolledUnderElevation,
       shadowColor,
       surfaceTintColor,
+      shape,
       iconTheme,
       actionsIconTheme,
       centerTitle,
@@ -407,11 +480,12 @@ class _StacAppBarTheme implements StacAppBarTheme {
       toolbarHeight,
       toolbarTextStyle,
       titleTextStyle,
-      systemOverlayStyle);
+      systemOverlayStyle,
+      actionsPadding);
 
   @override
   String toString() {
-    return 'StacAppBarTheme(backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, iconTheme: $iconTheme, actionsIconTheme: $actionsIconTheme, centerTitle: $centerTitle, titleSpacing: $titleSpacing, toolbarHeight: $toolbarHeight, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, systemOverlayStyle: $systemOverlayStyle)';
+    return 'StacAppBarTheme(color: $color, backgroundColor: $backgroundColor, foregroundColor: $foregroundColor, elevation: $elevation, scrolledUnderElevation: $scrolledUnderElevation, shadowColor: $shadowColor, surfaceTintColor: $surfaceTintColor, shape: $shape, iconTheme: $iconTheme, actionsIconTheme: $actionsIconTheme, centerTitle: $centerTitle, titleSpacing: $titleSpacing, toolbarHeight: $toolbarHeight, toolbarTextStyle: $toolbarTextStyle, titleTextStyle: $titleTextStyle, systemOverlayStyle: $systemOverlayStyle, actionsPadding: $actionsPadding)';
   }
 }
 
@@ -424,12 +498,14 @@ abstract mixin class _$StacAppBarThemeCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? backgroundColor,
+      {String? color,
+      String? backgroundColor,
       String? foregroundColor,
       double? elevation,
       double? scrolledUnderElevation,
       String? shadowColor,
       String? surfaceTintColor,
+      StacShapeBorder? shape,
       StacIconThemeData? iconTheme,
       StacIconThemeData? actionsIconTheme,
       bool? centerTitle,
@@ -437,8 +513,11 @@ abstract mixin class _$StacAppBarThemeCopyWith<$Res>
       double? toolbarHeight,
       StacTextStyle? toolbarTextStyle,
       StacTextStyle? titleTextStyle,
-      StacSystemUIOverlayStyle? systemOverlayStyle});
+      StacSystemUIOverlayStyle? systemOverlayStyle,
+      StacEdgeInsets? actionsPadding});
 
+  @override
+  $StacShapeBorderCopyWith<$Res>? get shape;
   @override
   $StacIconThemeDataCopyWith<$Res>? get iconTheme;
   @override
@@ -449,6 +528,8 @@ abstract mixin class _$StacAppBarThemeCopyWith<$Res>
   $StacTextStyleCopyWith<$Res>? get titleTextStyle;
   @override
   $StacSystemUIOverlayStyleCopyWith<$Res>? get systemOverlayStyle;
+  @override
+  $StacEdgeInsetsCopyWith<$Res>? get actionsPadding;
 }
 
 /// @nodoc
@@ -464,12 +545,14 @@ class __$StacAppBarThemeCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
+    Object? color = freezed,
     Object? backgroundColor = freezed,
     Object? foregroundColor = freezed,
     Object? elevation = freezed,
     Object? scrolledUnderElevation = freezed,
     Object? shadowColor = freezed,
     Object? surfaceTintColor = freezed,
+    Object? shape = freezed,
     Object? iconTheme = freezed,
     Object? actionsIconTheme = freezed,
     Object? centerTitle = freezed,
@@ -478,8 +561,13 @@ class __$StacAppBarThemeCopyWithImpl<$Res>
     Object? toolbarTextStyle = freezed,
     Object? titleTextStyle = freezed,
     Object? systemOverlayStyle = freezed,
+    Object? actionsPadding = freezed,
   }) {
     return _then(_StacAppBarTheme(
+      color: freezed == color
+          ? _self.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as String?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -504,6 +592,10 @@ class __$StacAppBarThemeCopyWithImpl<$Res>
           ? _self.surfaceTintColor
           : surfaceTintColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      shape: freezed == shape
+          ? _self.shape
+          : shape // ignore: cast_nullable_to_non_nullable
+              as StacShapeBorder?,
       iconTheme: freezed == iconTheme
           ? _self.iconTheme
           : iconTheme // ignore: cast_nullable_to_non_nullable
@@ -536,7 +628,25 @@ class __$StacAppBarThemeCopyWithImpl<$Res>
           ? _self.systemOverlayStyle
           : systemOverlayStyle // ignore: cast_nullable_to_non_nullable
               as StacSystemUIOverlayStyle?,
+      actionsPadding: freezed == actionsPadding
+          ? _self.actionsPadding
+          : actionsPadding // ignore: cast_nullable_to_non_nullable
+              as StacEdgeInsets?,
     ));
+  }
+
+  /// Create a copy of StacAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacShapeBorderCopyWith<$Res>? get shape {
+    if (_self.shape == null) {
+      return null;
+    }
+
+    return $StacShapeBorderCopyWith<$Res>(_self.shape!, (value) {
+      return _then(_self.copyWith(shape: value));
+    });
   }
 
   /// Create a copy of StacAppBarTheme
@@ -607,6 +717,20 @@ class __$StacAppBarThemeCopyWithImpl<$Res>
     return $StacSystemUIOverlayStyleCopyWith<$Res>(_self.systemOverlayStyle!,
         (value) {
       return _then(_self.copyWith(systemOverlayStyle: value));
+    });
+  }
+
+  /// Create a copy of StacAppBarTheme
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacEdgeInsetsCopyWith<$Res>? get actionsPadding {
+    if (_self.actionsPadding == null) {
+      return null;
+    }
+
+    return $StacEdgeInsetsCopyWith<$Res>(_self.actionsPadding!, (value) {
+      return _then(_self.copyWith(actionsPadding: value));
     });
   }
 }
