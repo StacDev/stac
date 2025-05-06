@@ -20,23 +20,39 @@ mixin _$StacColorScheme {
   String get onPrimary;
   String? get primaryContainer;
   String? get onPrimaryContainer;
+  String? get primaryFixed;
+  String? get primaryFixedDim;
+  String? get onPrimaryFixed;
+  String? get onPrimaryFixedVariant;
   String get secondary;
   String get onSecondary;
   String? get secondaryContainer;
   String? get onSecondaryContainer;
+  String? get secondaryFixed;
+  String? get secondaryFixedDim;
+  String? get onSecondaryFixed;
+  String? get onSecondaryFixedVariant;
   String? get tertiary;
   String? get onTertiary;
   String? get tertiaryContainer;
   String? get onTertiaryContainer;
+  String? get tertiaryFixed;
+  String? get tertiaryFixedDim;
+  String? get onTertiaryFixed;
+  String? get onTertiaryFixedVariant;
   String get error;
   String get onError;
   String? get errorContainer;
   String? get onErrorContainer;
-  String? get background;
-  String? get onBackground;
   String get surface;
   String get onSurface;
-  String? get surfaceVariant;
+  String? get surfaceDim;
+  String? get surfaceBright;
+  String? get surfaceContainerLowest;
+  String? get surfaceContainerLow;
+  String? get surfaceContainer;
+  String? get surfaceContainerHigh;
+  String? get surfaceContainerHighest;
   String? get onSurfaceVariant;
   String? get outline;
   String? get outlineVariant;
@@ -72,6 +88,14 @@ mixin _$StacColorScheme {
                 other.primaryContainer == primaryContainer) &&
             (identical(other.onPrimaryContainer, onPrimaryContainer) ||
                 other.onPrimaryContainer == onPrimaryContainer) &&
+            (identical(other.primaryFixed, primaryFixed) ||
+                other.primaryFixed == primaryFixed) &&
+            (identical(other.primaryFixedDim, primaryFixedDim) ||
+                other.primaryFixedDim == primaryFixedDim) &&
+            (identical(other.onPrimaryFixed, onPrimaryFixed) ||
+                other.onPrimaryFixed == onPrimaryFixed) &&
+            (identical(other.onPrimaryFixedVariant, onPrimaryFixedVariant) ||
+                other.onPrimaryFixedVariant == onPrimaryFixedVariant) &&
             (identical(other.secondary, secondary) ||
                 other.secondary == secondary) &&
             (identical(other.onSecondary, onSecondary) ||
@@ -80,6 +104,14 @@ mixin _$StacColorScheme {
                 other.secondaryContainer == secondaryContainer) &&
             (identical(other.onSecondaryContainer, onSecondaryContainer) ||
                 other.onSecondaryContainer == onSecondaryContainer) &&
+            (identical(other.secondaryFixed, secondaryFixed) ||
+                other.secondaryFixed == secondaryFixed) &&
+            (identical(other.secondaryFixedDim, secondaryFixedDim) ||
+                other.secondaryFixedDim == secondaryFixedDim) &&
+            (identical(other.onSecondaryFixed, onSecondaryFixed) ||
+                other.onSecondaryFixed == onSecondaryFixed) &&
+            (identical(other.onSecondaryFixedVariant, onSecondaryFixedVariant) ||
+                other.onSecondaryFixedVariant == onSecondaryFixedVariant) &&
             (identical(other.tertiary, tertiary) ||
                 other.tertiary == tertiary) &&
             (identical(other.onTertiary, onTertiary) ||
@@ -88,21 +120,37 @@ mixin _$StacColorScheme {
                 other.tertiaryContainer == tertiaryContainer) &&
             (identical(other.onTertiaryContainer, onTertiaryContainer) ||
                 other.onTertiaryContainer == onTertiaryContainer) &&
+            (identical(other.tertiaryFixed, tertiaryFixed) ||
+                other.tertiaryFixed == tertiaryFixed) &&
+            (identical(other.tertiaryFixedDim, tertiaryFixedDim) ||
+                other.tertiaryFixedDim == tertiaryFixedDim) &&
+            (identical(other.onTertiaryFixed, onTertiaryFixed) ||
+                other.onTertiaryFixed == onTertiaryFixed) &&
+            (identical(other.onTertiaryFixedVariant, onTertiaryFixedVariant) ||
+                other.onTertiaryFixedVariant == onTertiaryFixedVariant) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.onError, onError) || other.onError == onError) &&
             (identical(other.errorContainer, errorContainer) ||
                 other.errorContainer == errorContainer) &&
             (identical(other.onErrorContainer, onErrorContainer) ||
                 other.onErrorContainer == onErrorContainer) &&
-            (identical(other.background, background) ||
-                other.background == background) &&
-            (identical(other.onBackground, onBackground) ||
-                other.onBackground == onBackground) &&
             (identical(other.surface, surface) || other.surface == surface) &&
             (identical(other.onSurface, onSurface) ||
                 other.onSurface == onSurface) &&
-            (identical(other.surfaceVariant, surfaceVariant) ||
-                other.surfaceVariant == surfaceVariant) &&
+            (identical(other.surfaceDim, surfaceDim) ||
+                other.surfaceDim == surfaceDim) &&
+            (identical(other.surfaceBright, surfaceBright) ||
+                other.surfaceBright == surfaceBright) &&
+            (identical(other.surfaceContainerLowest, surfaceContainerLowest) ||
+                other.surfaceContainerLowest == surfaceContainerLowest) &&
+            (identical(other.surfaceContainerLow, surfaceContainerLow) ||
+                other.surfaceContainerLow == surfaceContainerLow) &&
+            (identical(other.surfaceContainer, surfaceContainer) ||
+                other.surfaceContainer == surfaceContainer) &&
+            (identical(other.surfaceContainerHigh, surfaceContainerHigh) ||
+                other.surfaceContainerHigh == surfaceContainerHigh) &&
+            (identical(other.surfaceContainerHighest, surfaceContainerHighest) ||
+                other.surfaceContainerHighest == surfaceContainerHighest) &&
             (identical(other.onSurfaceVariant, onSurfaceVariant) ||
                 other.onSurfaceVariant == onSurfaceVariant) &&
             (identical(other.outline, outline) || other.outline == outline) &&
@@ -112,12 +160,9 @@ mixin _$StacColorScheme {
             (identical(other.scrim, scrim) || other.scrim == scrim) &&
             (identical(other.inverseSurface, inverseSurface) ||
                 other.inverseSurface == inverseSurface) &&
-            (identical(other.onInverseSurface, onInverseSurface) ||
-                other.onInverseSurface == onInverseSurface) &&
-            (identical(other.inversePrimary, inversePrimary) ||
-                other.inversePrimary == inversePrimary) &&
-            (identical(other.surfaceTint, surfaceTint) ||
-                other.surfaceTint == surfaceTint));
+            (identical(other.onInverseSurface, onInverseSurface) || other.onInverseSurface == onInverseSurface) &&
+            (identical(other.inversePrimary, inversePrimary) || other.inversePrimary == inversePrimary) &&
+            (identical(other.surfaceTint, surfaceTint) || other.surfaceTint == surfaceTint));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -129,23 +174,39 @@ mixin _$StacColorScheme {
         onPrimary,
         primaryContainer,
         onPrimaryContainer,
+        primaryFixed,
+        primaryFixedDim,
+        onPrimaryFixed,
+        onPrimaryFixedVariant,
         secondary,
         onSecondary,
         secondaryContainer,
         onSecondaryContainer,
+        secondaryFixed,
+        secondaryFixedDim,
+        onSecondaryFixed,
+        onSecondaryFixedVariant,
         tertiary,
         onTertiary,
         tertiaryContainer,
         onTertiaryContainer,
+        tertiaryFixed,
+        tertiaryFixedDim,
+        onTertiaryFixed,
+        onTertiaryFixedVariant,
         error,
         onError,
         errorContainer,
         onErrorContainer,
-        background,
-        onBackground,
         surface,
         onSurface,
-        surfaceVariant,
+        surfaceDim,
+        surfaceBright,
+        surfaceContainerLowest,
+        surfaceContainerLow,
+        surfaceContainer,
+        surfaceContainerHigh,
+        surfaceContainerHighest,
         onSurfaceVariant,
         outline,
         outlineVariant,
@@ -159,7 +220,7 @@ mixin _$StacColorScheme {
 
   @override
   String toString() {
-    return 'StacColorScheme(brightness: $brightness, primary: $primary, onPrimary: $onPrimary, primaryContainer: $primaryContainer, onPrimaryContainer: $onPrimaryContainer, secondary: $secondary, onSecondary: $onSecondary, secondaryContainer: $secondaryContainer, onSecondaryContainer: $onSecondaryContainer, tertiary: $tertiary, onTertiary: $onTertiary, tertiaryContainer: $tertiaryContainer, onTertiaryContainer: $onTertiaryContainer, error: $error, onError: $onError, errorContainer: $errorContainer, onErrorContainer: $onErrorContainer, background: $background, onBackground: $onBackground, surface: $surface, onSurface: $onSurface, surfaceVariant: $surfaceVariant, onSurfaceVariant: $onSurfaceVariant, outline: $outline, outlineVariant: $outlineVariant, shadow: $shadow, scrim: $scrim, inverseSurface: $inverseSurface, onInverseSurface: $onInverseSurface, inversePrimary: $inversePrimary, surfaceTint: $surfaceTint)';
+    return 'StacColorScheme(brightness: $brightness, primary: $primary, onPrimary: $onPrimary, primaryContainer: $primaryContainer, onPrimaryContainer: $onPrimaryContainer, primaryFixed: $primaryFixed, primaryFixedDim: $primaryFixedDim, onPrimaryFixed: $onPrimaryFixed, onPrimaryFixedVariant: $onPrimaryFixedVariant, secondary: $secondary, onSecondary: $onSecondary, secondaryContainer: $secondaryContainer, onSecondaryContainer: $onSecondaryContainer, secondaryFixed: $secondaryFixed, secondaryFixedDim: $secondaryFixedDim, onSecondaryFixed: $onSecondaryFixed, onSecondaryFixedVariant: $onSecondaryFixedVariant, tertiary: $tertiary, onTertiary: $onTertiary, tertiaryContainer: $tertiaryContainer, onTertiaryContainer: $onTertiaryContainer, tertiaryFixed: $tertiaryFixed, tertiaryFixedDim: $tertiaryFixedDim, onTertiaryFixed: $onTertiaryFixed, onTertiaryFixedVariant: $onTertiaryFixedVariant, error: $error, onError: $onError, errorContainer: $errorContainer, onErrorContainer: $onErrorContainer, surface: $surface, onSurface: $onSurface, surfaceDim: $surfaceDim, surfaceBright: $surfaceBright, surfaceContainerLowest: $surfaceContainerLowest, surfaceContainerLow: $surfaceContainerLow, surfaceContainer: $surfaceContainer, surfaceContainerHigh: $surfaceContainerHigh, surfaceContainerHighest: $surfaceContainerHighest, onSurfaceVariant: $onSurfaceVariant, outline: $outline, outlineVariant: $outlineVariant, shadow: $shadow, scrim: $scrim, inverseSurface: $inverseSurface, onInverseSurface: $onInverseSurface, inversePrimary: $inversePrimary, surfaceTint: $surfaceTint)';
   }
 }
 
@@ -175,23 +236,39 @@ abstract mixin class $StacColorSchemeCopyWith<$Res> {
       String onPrimary,
       String? primaryContainer,
       String? onPrimaryContainer,
+      String? primaryFixed,
+      String? primaryFixedDim,
+      String? onPrimaryFixed,
+      String? onPrimaryFixedVariant,
       String secondary,
       String onSecondary,
       String? secondaryContainer,
       String? onSecondaryContainer,
+      String? secondaryFixed,
+      String? secondaryFixedDim,
+      String? onSecondaryFixed,
+      String? onSecondaryFixedVariant,
       String? tertiary,
       String? onTertiary,
       String? tertiaryContainer,
       String? onTertiaryContainer,
+      String? tertiaryFixed,
+      String? tertiaryFixedDim,
+      String? onTertiaryFixed,
+      String? onTertiaryFixedVariant,
       String error,
       String onError,
       String? errorContainer,
       String? onErrorContainer,
-      String? background,
-      String? onBackground,
       String surface,
       String onSurface,
-      String? surfaceVariant,
+      String? surfaceDim,
+      String? surfaceBright,
+      String? surfaceContainerLowest,
+      String? surfaceContainerLow,
+      String? surfaceContainer,
+      String? surfaceContainerHigh,
+      String? surfaceContainerHighest,
       String? onSurfaceVariant,
       String? outline,
       String? outlineVariant,
@@ -221,23 +298,39 @@ class _$StacColorSchemeCopyWithImpl<$Res>
     Object? onPrimary = null,
     Object? primaryContainer = freezed,
     Object? onPrimaryContainer = freezed,
+    Object? primaryFixed = freezed,
+    Object? primaryFixedDim = freezed,
+    Object? onPrimaryFixed = freezed,
+    Object? onPrimaryFixedVariant = freezed,
     Object? secondary = null,
     Object? onSecondary = null,
     Object? secondaryContainer = freezed,
     Object? onSecondaryContainer = freezed,
+    Object? secondaryFixed = freezed,
+    Object? secondaryFixedDim = freezed,
+    Object? onSecondaryFixed = freezed,
+    Object? onSecondaryFixedVariant = freezed,
     Object? tertiary = freezed,
     Object? onTertiary = freezed,
     Object? tertiaryContainer = freezed,
     Object? onTertiaryContainer = freezed,
+    Object? tertiaryFixed = freezed,
+    Object? tertiaryFixedDim = freezed,
+    Object? onTertiaryFixed = freezed,
+    Object? onTertiaryFixedVariant = freezed,
     Object? error = null,
     Object? onError = null,
     Object? errorContainer = freezed,
     Object? onErrorContainer = freezed,
-    Object? background = freezed,
-    Object? onBackground = freezed,
     Object? surface = null,
     Object? onSurface = null,
-    Object? surfaceVariant = freezed,
+    Object? surfaceDim = freezed,
+    Object? surfaceBright = freezed,
+    Object? surfaceContainerLowest = freezed,
+    Object? surfaceContainerLow = freezed,
+    Object? surfaceContainer = freezed,
+    Object? surfaceContainerHigh = freezed,
+    Object? surfaceContainerHighest = freezed,
     Object? onSurfaceVariant = freezed,
     Object? outline = freezed,
     Object? outlineVariant = freezed,
@@ -269,6 +362,22 @@ class _$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onPrimaryContainer
           : onPrimaryContainer // ignore: cast_nullable_to_non_nullable
               as String?,
+      primaryFixed: freezed == primaryFixed
+          ? _self.primaryFixed
+          : primaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryFixedDim: freezed == primaryFixedDim
+          ? _self.primaryFixedDim
+          : primaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onPrimaryFixed: freezed == onPrimaryFixed
+          ? _self.onPrimaryFixed
+          : onPrimaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onPrimaryFixedVariant: freezed == onPrimaryFixedVariant
+          ? _self.onPrimaryFixedVariant
+          : onPrimaryFixedVariant // ignore: cast_nullable_to_non_nullable
+              as String?,
       secondary: null == secondary
           ? _self.secondary
           : secondary // ignore: cast_nullable_to_non_nullable
@@ -284,6 +393,22 @@ class _$StacColorSchemeCopyWithImpl<$Res>
       onSecondaryContainer: freezed == onSecondaryContainer
           ? _self.onSecondaryContainer
           : onSecondaryContainer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryFixed: freezed == secondaryFixed
+          ? _self.secondaryFixed
+          : secondaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryFixedDim: freezed == secondaryFixedDim
+          ? _self.secondaryFixedDim
+          : secondaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onSecondaryFixed: freezed == onSecondaryFixed
+          ? _self.onSecondaryFixed
+          : onSecondaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onSecondaryFixedVariant: freezed == onSecondaryFixedVariant
+          ? _self.onSecondaryFixedVariant
+          : onSecondaryFixedVariant // ignore: cast_nullable_to_non_nullable
               as String?,
       tertiary: freezed == tertiary
           ? _self.tertiary
@@ -301,6 +426,22 @@ class _$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onTertiaryContainer
           : onTertiaryContainer // ignore: cast_nullable_to_non_nullable
               as String?,
+      tertiaryFixed: freezed == tertiaryFixed
+          ? _self.tertiaryFixed
+          : tertiaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tertiaryFixedDim: freezed == tertiaryFixedDim
+          ? _self.tertiaryFixedDim
+          : tertiaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onTertiaryFixed: freezed == onTertiaryFixed
+          ? _self.onTertiaryFixed
+          : onTertiaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onTertiaryFixedVariant: freezed == onTertiaryFixedVariant
+          ? _self.onTertiaryFixedVariant
+          : onTertiaryFixedVariant // ignore: cast_nullable_to_non_nullable
+              as String?,
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -317,14 +458,6 @@ class _$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onErrorContainer
           : onErrorContainer // ignore: cast_nullable_to_non_nullable
               as String?,
-      background: freezed == background
-          ? _self.background
-          : background // ignore: cast_nullable_to_non_nullable
-              as String?,
-      onBackground: freezed == onBackground
-          ? _self.onBackground
-          : onBackground // ignore: cast_nullable_to_non_nullable
-              as String?,
       surface: null == surface
           ? _self.surface
           : surface // ignore: cast_nullable_to_non_nullable
@@ -333,9 +466,33 @@ class _$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onSurface
           : onSurface // ignore: cast_nullable_to_non_nullable
               as String,
-      surfaceVariant: freezed == surfaceVariant
-          ? _self.surfaceVariant
-          : surfaceVariant // ignore: cast_nullable_to_non_nullable
+      surfaceDim: freezed == surfaceDim
+          ? _self.surfaceDim
+          : surfaceDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceBright: freezed == surfaceBright
+          ? _self.surfaceBright
+          : surfaceBright // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerLowest: freezed == surfaceContainerLowest
+          ? _self.surfaceContainerLowest
+          : surfaceContainerLowest // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerLow: freezed == surfaceContainerLow
+          ? _self.surfaceContainerLow
+          : surfaceContainerLow // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainer: freezed == surfaceContainer
+          ? _self.surfaceContainer
+          : surfaceContainer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerHigh: freezed == surfaceContainerHigh
+          ? _self.surfaceContainerHigh
+          : surfaceContainerHigh // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerHighest: freezed == surfaceContainerHighest
+          ? _self.surfaceContainerHighest
+          : surfaceContainerHighest // ignore: cast_nullable_to_non_nullable
               as String?,
       onSurfaceVariant: freezed == onSurfaceVariant
           ? _self.onSurfaceVariant
@@ -386,23 +543,39 @@ class _StacColorScheme implements StacColorScheme {
       required this.onPrimary,
       this.primaryContainer,
       this.onPrimaryContainer,
+      this.primaryFixed,
+      this.primaryFixedDim,
+      this.onPrimaryFixed,
+      this.onPrimaryFixedVariant,
       required this.secondary,
       required this.onSecondary,
       this.secondaryContainer,
       this.onSecondaryContainer,
+      this.secondaryFixed,
+      this.secondaryFixedDim,
+      this.onSecondaryFixed,
+      this.onSecondaryFixedVariant,
       this.tertiary,
       this.onTertiary,
       this.tertiaryContainer,
       this.onTertiaryContainer,
+      this.tertiaryFixed,
+      this.tertiaryFixedDim,
+      this.onTertiaryFixed,
+      this.onTertiaryFixedVariant,
       required this.error,
       required this.onError,
       this.errorContainer,
       this.onErrorContainer,
-      this.background,
-      this.onBackground,
       required this.surface,
       required this.onSurface,
-      this.surfaceVariant,
+      this.surfaceDim,
+      this.surfaceBright,
+      this.surfaceContainerLowest,
+      this.surfaceContainerLow,
+      this.surfaceContainer,
+      this.surfaceContainerHigh,
+      this.surfaceContainerHighest,
       this.onSurfaceVariant,
       this.outline,
       this.outlineVariant,
@@ -426,6 +599,14 @@ class _StacColorScheme implements StacColorScheme {
   @override
   final String? onPrimaryContainer;
   @override
+  final String? primaryFixed;
+  @override
+  final String? primaryFixedDim;
+  @override
+  final String? onPrimaryFixed;
+  @override
+  final String? onPrimaryFixedVariant;
+  @override
   final String secondary;
   @override
   final String onSecondary;
@@ -433,6 +614,14 @@ class _StacColorScheme implements StacColorScheme {
   final String? secondaryContainer;
   @override
   final String? onSecondaryContainer;
+  @override
+  final String? secondaryFixed;
+  @override
+  final String? secondaryFixedDim;
+  @override
+  final String? onSecondaryFixed;
+  @override
+  final String? onSecondaryFixedVariant;
   @override
   final String? tertiary;
   @override
@@ -442,6 +631,14 @@ class _StacColorScheme implements StacColorScheme {
   @override
   final String? onTertiaryContainer;
   @override
+  final String? tertiaryFixed;
+  @override
+  final String? tertiaryFixedDim;
+  @override
+  final String? onTertiaryFixed;
+  @override
+  final String? onTertiaryFixedVariant;
+  @override
   final String error;
   @override
   final String onError;
@@ -450,15 +647,23 @@ class _StacColorScheme implements StacColorScheme {
   @override
   final String? onErrorContainer;
   @override
-  final String? background;
-  @override
-  final String? onBackground;
-  @override
   final String surface;
   @override
   final String onSurface;
   @override
-  final String? surfaceVariant;
+  final String? surfaceDim;
+  @override
+  final String? surfaceBright;
+  @override
+  final String? surfaceContainerLowest;
+  @override
+  final String? surfaceContainerLow;
+  @override
+  final String? surfaceContainer;
+  @override
+  final String? surfaceContainerHigh;
+  @override
+  final String? surfaceContainerHighest;
   @override
   final String? onSurfaceVariant;
   @override
@@ -507,6 +712,14 @@ class _StacColorScheme implements StacColorScheme {
                 other.primaryContainer == primaryContainer) &&
             (identical(other.onPrimaryContainer, onPrimaryContainer) ||
                 other.onPrimaryContainer == onPrimaryContainer) &&
+            (identical(other.primaryFixed, primaryFixed) ||
+                other.primaryFixed == primaryFixed) &&
+            (identical(other.primaryFixedDim, primaryFixedDim) ||
+                other.primaryFixedDim == primaryFixedDim) &&
+            (identical(other.onPrimaryFixed, onPrimaryFixed) ||
+                other.onPrimaryFixed == onPrimaryFixed) &&
+            (identical(other.onPrimaryFixedVariant, onPrimaryFixedVariant) ||
+                other.onPrimaryFixedVariant == onPrimaryFixedVariant) &&
             (identical(other.secondary, secondary) ||
                 other.secondary == secondary) &&
             (identical(other.onSecondary, onSecondary) ||
@@ -515,6 +728,14 @@ class _StacColorScheme implements StacColorScheme {
                 other.secondaryContainer == secondaryContainer) &&
             (identical(other.onSecondaryContainer, onSecondaryContainer) ||
                 other.onSecondaryContainer == onSecondaryContainer) &&
+            (identical(other.secondaryFixed, secondaryFixed) ||
+                other.secondaryFixed == secondaryFixed) &&
+            (identical(other.secondaryFixedDim, secondaryFixedDim) ||
+                other.secondaryFixedDim == secondaryFixedDim) &&
+            (identical(other.onSecondaryFixed, onSecondaryFixed) ||
+                other.onSecondaryFixed == onSecondaryFixed) &&
+            (identical(other.onSecondaryFixedVariant, onSecondaryFixedVariant) ||
+                other.onSecondaryFixedVariant == onSecondaryFixedVariant) &&
             (identical(other.tertiary, tertiary) ||
                 other.tertiary == tertiary) &&
             (identical(other.onTertiary, onTertiary) ||
@@ -523,21 +744,37 @@ class _StacColorScheme implements StacColorScheme {
                 other.tertiaryContainer == tertiaryContainer) &&
             (identical(other.onTertiaryContainer, onTertiaryContainer) ||
                 other.onTertiaryContainer == onTertiaryContainer) &&
+            (identical(other.tertiaryFixed, tertiaryFixed) ||
+                other.tertiaryFixed == tertiaryFixed) &&
+            (identical(other.tertiaryFixedDim, tertiaryFixedDim) ||
+                other.tertiaryFixedDim == tertiaryFixedDim) &&
+            (identical(other.onTertiaryFixed, onTertiaryFixed) ||
+                other.onTertiaryFixed == onTertiaryFixed) &&
+            (identical(other.onTertiaryFixedVariant, onTertiaryFixedVariant) ||
+                other.onTertiaryFixedVariant == onTertiaryFixedVariant) &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.onError, onError) || other.onError == onError) &&
             (identical(other.errorContainer, errorContainer) ||
                 other.errorContainer == errorContainer) &&
             (identical(other.onErrorContainer, onErrorContainer) ||
                 other.onErrorContainer == onErrorContainer) &&
-            (identical(other.background, background) ||
-                other.background == background) &&
-            (identical(other.onBackground, onBackground) ||
-                other.onBackground == onBackground) &&
             (identical(other.surface, surface) || other.surface == surface) &&
             (identical(other.onSurface, onSurface) ||
                 other.onSurface == onSurface) &&
-            (identical(other.surfaceVariant, surfaceVariant) ||
-                other.surfaceVariant == surfaceVariant) &&
+            (identical(other.surfaceDim, surfaceDim) ||
+                other.surfaceDim == surfaceDim) &&
+            (identical(other.surfaceBright, surfaceBright) ||
+                other.surfaceBright == surfaceBright) &&
+            (identical(other.surfaceContainerLowest, surfaceContainerLowest) ||
+                other.surfaceContainerLowest == surfaceContainerLowest) &&
+            (identical(other.surfaceContainerLow, surfaceContainerLow) ||
+                other.surfaceContainerLow == surfaceContainerLow) &&
+            (identical(other.surfaceContainer, surfaceContainer) ||
+                other.surfaceContainer == surfaceContainer) &&
+            (identical(other.surfaceContainerHigh, surfaceContainerHigh) ||
+                other.surfaceContainerHigh == surfaceContainerHigh) &&
+            (identical(other.surfaceContainerHighest, surfaceContainerHighest) ||
+                other.surfaceContainerHighest == surfaceContainerHighest) &&
             (identical(other.onSurfaceVariant, onSurfaceVariant) ||
                 other.onSurfaceVariant == onSurfaceVariant) &&
             (identical(other.outline, outline) || other.outline == outline) &&
@@ -547,12 +784,9 @@ class _StacColorScheme implements StacColorScheme {
             (identical(other.scrim, scrim) || other.scrim == scrim) &&
             (identical(other.inverseSurface, inverseSurface) ||
                 other.inverseSurface == inverseSurface) &&
-            (identical(other.onInverseSurface, onInverseSurface) ||
-                other.onInverseSurface == onInverseSurface) &&
-            (identical(other.inversePrimary, inversePrimary) ||
-                other.inversePrimary == inversePrimary) &&
-            (identical(other.surfaceTint, surfaceTint) ||
-                other.surfaceTint == surfaceTint));
+            (identical(other.onInverseSurface, onInverseSurface) || other.onInverseSurface == onInverseSurface) &&
+            (identical(other.inversePrimary, inversePrimary) || other.inversePrimary == inversePrimary) &&
+            (identical(other.surfaceTint, surfaceTint) || other.surfaceTint == surfaceTint));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -564,23 +798,39 @@ class _StacColorScheme implements StacColorScheme {
         onPrimary,
         primaryContainer,
         onPrimaryContainer,
+        primaryFixed,
+        primaryFixedDim,
+        onPrimaryFixed,
+        onPrimaryFixedVariant,
         secondary,
         onSecondary,
         secondaryContainer,
         onSecondaryContainer,
+        secondaryFixed,
+        secondaryFixedDim,
+        onSecondaryFixed,
+        onSecondaryFixedVariant,
         tertiary,
         onTertiary,
         tertiaryContainer,
         onTertiaryContainer,
+        tertiaryFixed,
+        tertiaryFixedDim,
+        onTertiaryFixed,
+        onTertiaryFixedVariant,
         error,
         onError,
         errorContainer,
         onErrorContainer,
-        background,
-        onBackground,
         surface,
         onSurface,
-        surfaceVariant,
+        surfaceDim,
+        surfaceBright,
+        surfaceContainerLowest,
+        surfaceContainerLow,
+        surfaceContainer,
+        surfaceContainerHigh,
+        surfaceContainerHighest,
         onSurfaceVariant,
         outline,
         outlineVariant,
@@ -594,7 +844,7 @@ class _StacColorScheme implements StacColorScheme {
 
   @override
   String toString() {
-    return 'StacColorScheme(brightness: $brightness, primary: $primary, onPrimary: $onPrimary, primaryContainer: $primaryContainer, onPrimaryContainer: $onPrimaryContainer, secondary: $secondary, onSecondary: $onSecondary, secondaryContainer: $secondaryContainer, onSecondaryContainer: $onSecondaryContainer, tertiary: $tertiary, onTertiary: $onTertiary, tertiaryContainer: $tertiaryContainer, onTertiaryContainer: $onTertiaryContainer, error: $error, onError: $onError, errorContainer: $errorContainer, onErrorContainer: $onErrorContainer, background: $background, onBackground: $onBackground, surface: $surface, onSurface: $onSurface, surfaceVariant: $surfaceVariant, onSurfaceVariant: $onSurfaceVariant, outline: $outline, outlineVariant: $outlineVariant, shadow: $shadow, scrim: $scrim, inverseSurface: $inverseSurface, onInverseSurface: $onInverseSurface, inversePrimary: $inversePrimary, surfaceTint: $surfaceTint)';
+    return 'StacColorScheme(brightness: $brightness, primary: $primary, onPrimary: $onPrimary, primaryContainer: $primaryContainer, onPrimaryContainer: $onPrimaryContainer, primaryFixed: $primaryFixed, primaryFixedDim: $primaryFixedDim, onPrimaryFixed: $onPrimaryFixed, onPrimaryFixedVariant: $onPrimaryFixedVariant, secondary: $secondary, onSecondary: $onSecondary, secondaryContainer: $secondaryContainer, onSecondaryContainer: $onSecondaryContainer, secondaryFixed: $secondaryFixed, secondaryFixedDim: $secondaryFixedDim, onSecondaryFixed: $onSecondaryFixed, onSecondaryFixedVariant: $onSecondaryFixedVariant, tertiary: $tertiary, onTertiary: $onTertiary, tertiaryContainer: $tertiaryContainer, onTertiaryContainer: $onTertiaryContainer, tertiaryFixed: $tertiaryFixed, tertiaryFixedDim: $tertiaryFixedDim, onTertiaryFixed: $onTertiaryFixed, onTertiaryFixedVariant: $onTertiaryFixedVariant, error: $error, onError: $onError, errorContainer: $errorContainer, onErrorContainer: $onErrorContainer, surface: $surface, onSurface: $onSurface, surfaceDim: $surfaceDim, surfaceBright: $surfaceBright, surfaceContainerLowest: $surfaceContainerLowest, surfaceContainerLow: $surfaceContainerLow, surfaceContainer: $surfaceContainer, surfaceContainerHigh: $surfaceContainerHigh, surfaceContainerHighest: $surfaceContainerHighest, onSurfaceVariant: $onSurfaceVariant, outline: $outline, outlineVariant: $outlineVariant, shadow: $shadow, scrim: $scrim, inverseSurface: $inverseSurface, onInverseSurface: $onInverseSurface, inversePrimary: $inversePrimary, surfaceTint: $surfaceTint)';
   }
 }
 
@@ -612,23 +862,39 @@ abstract mixin class _$StacColorSchemeCopyWith<$Res>
       String onPrimary,
       String? primaryContainer,
       String? onPrimaryContainer,
+      String? primaryFixed,
+      String? primaryFixedDim,
+      String? onPrimaryFixed,
+      String? onPrimaryFixedVariant,
       String secondary,
       String onSecondary,
       String? secondaryContainer,
       String? onSecondaryContainer,
+      String? secondaryFixed,
+      String? secondaryFixedDim,
+      String? onSecondaryFixed,
+      String? onSecondaryFixedVariant,
       String? tertiary,
       String? onTertiary,
       String? tertiaryContainer,
       String? onTertiaryContainer,
+      String? tertiaryFixed,
+      String? tertiaryFixedDim,
+      String? onTertiaryFixed,
+      String? onTertiaryFixedVariant,
       String error,
       String onError,
       String? errorContainer,
       String? onErrorContainer,
-      String? background,
-      String? onBackground,
       String surface,
       String onSurface,
-      String? surfaceVariant,
+      String? surfaceDim,
+      String? surfaceBright,
+      String? surfaceContainerLowest,
+      String? surfaceContainerLow,
+      String? surfaceContainer,
+      String? surfaceContainerHigh,
+      String? surfaceContainerHighest,
       String? onSurfaceVariant,
       String? outline,
       String? outlineVariant,
@@ -658,23 +924,39 @@ class __$StacColorSchemeCopyWithImpl<$Res>
     Object? onPrimary = null,
     Object? primaryContainer = freezed,
     Object? onPrimaryContainer = freezed,
+    Object? primaryFixed = freezed,
+    Object? primaryFixedDim = freezed,
+    Object? onPrimaryFixed = freezed,
+    Object? onPrimaryFixedVariant = freezed,
     Object? secondary = null,
     Object? onSecondary = null,
     Object? secondaryContainer = freezed,
     Object? onSecondaryContainer = freezed,
+    Object? secondaryFixed = freezed,
+    Object? secondaryFixedDim = freezed,
+    Object? onSecondaryFixed = freezed,
+    Object? onSecondaryFixedVariant = freezed,
     Object? tertiary = freezed,
     Object? onTertiary = freezed,
     Object? tertiaryContainer = freezed,
     Object? onTertiaryContainer = freezed,
+    Object? tertiaryFixed = freezed,
+    Object? tertiaryFixedDim = freezed,
+    Object? onTertiaryFixed = freezed,
+    Object? onTertiaryFixedVariant = freezed,
     Object? error = null,
     Object? onError = null,
     Object? errorContainer = freezed,
     Object? onErrorContainer = freezed,
-    Object? background = freezed,
-    Object? onBackground = freezed,
     Object? surface = null,
     Object? onSurface = null,
-    Object? surfaceVariant = freezed,
+    Object? surfaceDim = freezed,
+    Object? surfaceBright = freezed,
+    Object? surfaceContainerLowest = freezed,
+    Object? surfaceContainerLow = freezed,
+    Object? surfaceContainer = freezed,
+    Object? surfaceContainerHigh = freezed,
+    Object? surfaceContainerHighest = freezed,
     Object? onSurfaceVariant = freezed,
     Object? outline = freezed,
     Object? outlineVariant = freezed,
@@ -706,6 +988,22 @@ class __$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onPrimaryContainer
           : onPrimaryContainer // ignore: cast_nullable_to_non_nullable
               as String?,
+      primaryFixed: freezed == primaryFixed
+          ? _self.primaryFixed
+          : primaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      primaryFixedDim: freezed == primaryFixedDim
+          ? _self.primaryFixedDim
+          : primaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onPrimaryFixed: freezed == onPrimaryFixed
+          ? _self.onPrimaryFixed
+          : onPrimaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onPrimaryFixedVariant: freezed == onPrimaryFixedVariant
+          ? _self.onPrimaryFixedVariant
+          : onPrimaryFixedVariant // ignore: cast_nullable_to_non_nullable
+              as String?,
       secondary: null == secondary
           ? _self.secondary
           : secondary // ignore: cast_nullable_to_non_nullable
@@ -721,6 +1019,22 @@ class __$StacColorSchemeCopyWithImpl<$Res>
       onSecondaryContainer: freezed == onSecondaryContainer
           ? _self.onSecondaryContainer
           : onSecondaryContainer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryFixed: freezed == secondaryFixed
+          ? _self.secondaryFixed
+          : secondaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      secondaryFixedDim: freezed == secondaryFixedDim
+          ? _self.secondaryFixedDim
+          : secondaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onSecondaryFixed: freezed == onSecondaryFixed
+          ? _self.onSecondaryFixed
+          : onSecondaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onSecondaryFixedVariant: freezed == onSecondaryFixedVariant
+          ? _self.onSecondaryFixedVariant
+          : onSecondaryFixedVariant // ignore: cast_nullable_to_non_nullable
               as String?,
       tertiary: freezed == tertiary
           ? _self.tertiary
@@ -738,6 +1052,22 @@ class __$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onTertiaryContainer
           : onTertiaryContainer // ignore: cast_nullable_to_non_nullable
               as String?,
+      tertiaryFixed: freezed == tertiaryFixed
+          ? _self.tertiaryFixed
+          : tertiaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      tertiaryFixedDim: freezed == tertiaryFixedDim
+          ? _self.tertiaryFixedDim
+          : tertiaryFixedDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onTertiaryFixed: freezed == onTertiaryFixed
+          ? _self.onTertiaryFixed
+          : onTertiaryFixed // ignore: cast_nullable_to_non_nullable
+              as String?,
+      onTertiaryFixedVariant: freezed == onTertiaryFixedVariant
+          ? _self.onTertiaryFixedVariant
+          : onTertiaryFixedVariant // ignore: cast_nullable_to_non_nullable
+              as String?,
       error: null == error
           ? _self.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -754,14 +1084,6 @@ class __$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onErrorContainer
           : onErrorContainer // ignore: cast_nullable_to_non_nullable
               as String?,
-      background: freezed == background
-          ? _self.background
-          : background // ignore: cast_nullable_to_non_nullable
-              as String?,
-      onBackground: freezed == onBackground
-          ? _self.onBackground
-          : onBackground // ignore: cast_nullable_to_non_nullable
-              as String?,
       surface: null == surface
           ? _self.surface
           : surface // ignore: cast_nullable_to_non_nullable
@@ -770,9 +1092,33 @@ class __$StacColorSchemeCopyWithImpl<$Res>
           ? _self.onSurface
           : onSurface // ignore: cast_nullable_to_non_nullable
               as String,
-      surfaceVariant: freezed == surfaceVariant
-          ? _self.surfaceVariant
-          : surfaceVariant // ignore: cast_nullable_to_non_nullable
+      surfaceDim: freezed == surfaceDim
+          ? _self.surfaceDim
+          : surfaceDim // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceBright: freezed == surfaceBright
+          ? _self.surfaceBright
+          : surfaceBright // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerLowest: freezed == surfaceContainerLowest
+          ? _self.surfaceContainerLowest
+          : surfaceContainerLowest // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerLow: freezed == surfaceContainerLow
+          ? _self.surfaceContainerLow
+          : surfaceContainerLow // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainer: freezed == surfaceContainer
+          ? _self.surfaceContainer
+          : surfaceContainer // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerHigh: freezed == surfaceContainerHigh
+          ? _self.surfaceContainerHigh
+          : surfaceContainerHigh // ignore: cast_nullable_to_non_nullable
+              as String?,
+      surfaceContainerHighest: freezed == surfaceContainerHighest
+          ? _self.surfaceContainerHighest
+          : surfaceContainerHighest // ignore: cast_nullable_to_non_nullable
               as String?,
       onSurfaceVariant: freezed == onSurfaceVariant
           ? _self.onSurfaceVariant

@@ -32,6 +32,7 @@ enum WidgetType {
   form,
   formField,
   fractionallySizedBox,
+  gestureDetector,
   gridView,
   hero,
   icon,
