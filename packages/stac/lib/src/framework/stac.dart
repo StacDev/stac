@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/actions/stac_network_request/stac_network_request_parser.dart';
 import 'package:stac/src/parsers/parsers.dart';
+import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/log.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -99,6 +100,7 @@ class Stac {
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),
     const StacGestureDetectorParser(),
+    const StacInkwellParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
