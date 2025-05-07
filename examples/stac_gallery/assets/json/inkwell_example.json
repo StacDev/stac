@@ -1,0 +1,27 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "InkWell"
+        }
+    },
+    "body": {
+        "type": "listView",
+        "shrinkWrap": true,
+        "children": [
+            {
+                "type": "sizedBox",
+                "height": 25
+            },
+            {
+                "type": "inkWell",
+                "child": {
+                    "type": "text",
+                    "data": "Hello, World! from Inkwell"
+                }
+            }
+        ]
+    }
+}
