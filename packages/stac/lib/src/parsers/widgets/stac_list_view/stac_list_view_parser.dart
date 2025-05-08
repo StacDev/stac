@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_list_view/stac_list_view.dart';
+import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -19,6 +20,8 @@ class StacListViewParser extends StacParser<StacListView> {
 
   @override
   Widget parse(BuildContext context, StacListView model) {
+    Log.d("ListView");
+    Log.d(model);
     return ListView.separated(
       scrollDirection: model.scrollDirection,
       reverse: model.reverse,

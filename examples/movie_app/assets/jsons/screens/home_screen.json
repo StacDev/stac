@@ -167,7 +167,7 @@
                                             "padding": {
                                                 "left": 20
                                             },
-                                            "ItemTemplate": {
+                                            "itemTemplate": {
                                                 "type": "clipRRect",
                                                 "borderRadius": 6,
                                                 "child": {
@@ -227,7 +227,7 @@
                                             "padding": {
                                                 "left": 20
                                             },
-                                            "ItemTemplate": {
+                                            "itemTemplate": {
                                                 "type": "clipRRect",
                                                 "borderRadius": 6,
                                                 "child": {
@@ -287,7 +287,7 @@
                                             "padding": {
                                                 "left": 20
                                             },
-                                            "ItemTemplate": {
+                                            "itemTemplate": {
                                                 "type": "image",
                                                 "imageType": "network",
                                                 "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",

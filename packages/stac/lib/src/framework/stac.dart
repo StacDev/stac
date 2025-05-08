@@ -132,6 +132,7 @@ class Stac {
         StacParser? stacParser = StacRegistry.instance.getParser(widgetType);
         if (stacParser != null) {
           final model = stacParser.getModel(json);
+          Log.d(model);
           return stacParser.parse(context, model);
         } else {
           Log.w('Widget type [$widgetType] not supported');
