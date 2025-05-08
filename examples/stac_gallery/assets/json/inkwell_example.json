@@ -12,14 +12,35 @@
         "shrinkWrap": true,
         "children": [
             {
-                "type": "sizedBox",
-                "height": 25
-            },
-            {
-                "type": "inkWell",
+                "type": "center",
                 "child": {
-                    "type": "text",
-                    "data": "Hello, World! from Inkwell"
+                    "type": "inkWell",
+                    "child": {
+                        "type": "padding",
+                        "padding": {
+                            "top": 20,
+                            "bottom": 20,
+                            "right": 20,
+                            "left": 20
+                        },
+                        "child": {
+                            "type": "text",
+                            "data": "Hello, World! from Inkwell",
+                            "textAlign": "center"
+                        }
+                    },
+                    "splashColor": "#E1BEE7",
+                    "borderRadius_": {
+                        "topLeft": 20,
+                        "topRight": 20,
+                        "bottomLeft": 20,
+                        "bottomRight": 20
+                    },
+                    "radius": 20,
+                    "hoverDuration": {
+                        "seconds": 10
+                    },
+                    "onTap": {}
                 }
             }
         ]
