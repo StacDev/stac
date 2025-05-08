@@ -168,14 +168,28 @@
                                                 "left": 20
                                             },
                                             "itemTemplate": {
-                                                "type": "clipRRect",
-                                                "borderRadius": 6,
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "navigate",
+                                                    "assetPath": "assets/jsons/screens/detail_screen.json",
+                                                    "arguments": {
+                                                        "title": "{{title}}",
+                                                        "poster_path": "{{poster_path}}",
+                                                        "overview": "{{overview}}",
+                                                        "release_date": "{{release_date}}",
+                                                        "vote_average": "{{vote_average}}"
+                                                    }
+                                                },
                                                 "child": {
-                                                    "type": "image",
-                                                    "imageType": "network",
-                                                    "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                    "width": 108,
-                                                    "height": 164
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
                                                 }
                                             }
                                         }
@@ -228,14 +242,21 @@
                                                 "left": 20
                                             },
                                             "itemTemplate": {
-                                                "type": "clipRRect",
-                                                "borderRadius": 6,
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "navigate",
+                                                    "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                },
                                                 "child": {
-                                                    "type": "image",
-                                                    "imageType": "network",
-                                                    "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                    "width": 108,
-                                                    "height": 164
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
                                                 }
                                             }
                                         }
