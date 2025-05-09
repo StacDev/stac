@@ -17,8 +17,7 @@ class StacClipOvalParser extends StacParser<StacClipOval> {
   @override
   Widget parse(BuildContext context, StacClipOval model) {
     return ClipOval(
-      clipBehavior: model.clipBehavior,
-      child: Stac.fromJson(model.child, context)
-    );
+        clipBehavior: model.clipBehavior,
+        child: Stac.fromJson(model.child, context));
   }
 }
