@@ -4,9 +4,12 @@ import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
 class StacInkwellParser extends StacParser<StacInkWell> {
+  
   const StacInkwellParser();
+
   @override
   String get type => WidgetType.inkWell.name;
+
   @override
   StacInkWell getModel(Map<String, dynamic> json) {
     return StacInkWell.fromJson(json);
