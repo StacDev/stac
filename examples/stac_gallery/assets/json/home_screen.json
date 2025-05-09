@@ -892,6 +892,30 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "crop_original"
+    },
+    "title": {
+      "type": "text",
+      "data": "ClipOval"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A widget that clips its child using an oval",
+      "align": "center"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/clip_oval_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "wrap_text"
     },
     "title": {

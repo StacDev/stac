@@ -99,6 +99,7 @@ class Stac {
     const StacDynamicViewParser(),
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),
+    const StacClipOvalParser(),
     const StacGestureDetectorParser(),
     const StacInkwellParser(),
   ];
