@@ -23,6 +23,7 @@ export 'package:stac/src/parsers/widgets/stac_check_box/stac_check_box.dart';
 export 'package:stac/src/parsers/widgets/stac_chip/stac_chip.dart';
 export 'package:stac/src/parsers/widgets/stac_circle_avatar/stac_circle_avatar.dart';
 export 'package:stac/src/parsers/widgets/stac_circular_progress_indicator/stac_circular_progress_indicator.dart';
+export 'package:stac/src/parsers/widgets/stac_clip_oval/stac_clip_oval.dart';
 export 'package:stac/src/parsers/widgets/stac_clip_rrect/stac_clip_rrect.dart';
 export 'package:stac/src/parsers/widgets/stac_colored_box/stac_colored_box.dart';
 export 'package:stac/src/parsers/widgets/stac_column/stac_column.dart';
