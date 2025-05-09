@@ -4,29 +4,6 @@
     "leading": {
       "type": "icon",
       "iconType": "cupertino",
-      "icon": "hand_draw"
-    },
-    "title": {
-      "type": "text",
-      "data": "Stac InkWell"
-    },
-    "subtitle": {
-      "type": "text",
-      "data": "Creates an Inkwell effect when tapped"
-    },
-    "onTap": {
-      "actionType": "navigate",
-      "widgetJson": {
-        "type": "exampleScreen",
-        "assetPath": "assets/json/inkwell_example.json"
-      }
-    }
-  },
-  {
-    "type": "listTile",
-    "leading": {
-      "type": "icon",
-      "iconType": "cupertino",
       "icon": "app_fill"
     },
     "title": {
@@ -395,6 +372,29 @@
       "widgetJson": {
         "type": "exampleScreen",
         "assetPath": "assets/json/image_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "cupertino",
+      "icon": "hand_draw"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac InkWell"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Creates an Inkwell effect when tapped"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/inkwell_example.json"
       }
     }
   },

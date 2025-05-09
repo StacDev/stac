@@ -30,7 +30,7 @@
                         }
                     },
                     "splashColor": "#E1BEE7",
-                    "borderRadius_": {
+                    "borderRadius": {
                         "topLeft": 20,
                         "topRight": 20,
                         "bottomLeft": 20,
@@ -40,7 +40,16 @@
                     "hoverDuration": {
                         "seconds": 10
                     },
-                    "onTap": {}
+                    "onTap": {
+                        "actionType": "showDialog",
+                        "widget": {
+                            "type": "alertDialog",
+                            "title": {
+                                "type": "text",
+                                "data": "On Tap Successful"
+                            }
+                        }
+                    }
                 }
             }
         ]
