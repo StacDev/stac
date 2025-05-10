@@ -4,7 +4,6 @@ import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
 class StacInkwellParser extends StacParser<StacInkWell> {
-  
   const StacInkwellParser();
 
   @override
