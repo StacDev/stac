@@ -39,6 +39,7 @@ enum WidgetType {
   icon,
   iconButton,
   image,
+  inkWell,
   limitedBox,
   linearProgressIndicator,
   listTile,
