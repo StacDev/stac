@@ -5,11 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dart: Attach to Process",
-            "type": "dart",
-            "request": "attach"
-        },
-        {
             "name": "stac_gallery",
             "cwd": "examples/stac_gallery",
             "request": "launch",
