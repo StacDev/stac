@@ -7,8 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/actions/stac_network_request/stac_network_request_parser.dart';
 import 'package:stac/src/parsers/parsers.dart';
+import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
+import 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/log.dart';
+import 'package:stac/src/utils/variable_resolver.dart';
+import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 typedef ErrorWidgetBuilder = Widget Function(
@@ -100,6 +104,8 @@ class Stac {
     const StacClipRRectParser(),
     const StacClipOvalParser(),
     const StacGestureDetectorParser(),
+    const StacSetValueParser(),
+    const StacInkwellParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
@@ -111,6 +117,7 @@ class Stac {
     const StacGetFormValueParser(),
     const StacFormValidateParser(),
     const StacSnackBarParser(),
+    const StacSetValueActionParser(),
   ];
 
   static Future<void> initialize({
@@ -131,9 +138,16 @@ class Stac {
       if (json != null) {
         String widgetType = json['type'];
         StacParser? stacParser = StacRegistry.instance.getParser(widgetType);
+
         if (stacParser != null) {
-          final model = stacParser.getModel(json);
-          Log.d(model);
+          Map<String, dynamic> resolvedJson;
+          if (widgetType == WidgetType.setValue.name) {
+            resolvedJson = json;
+          } else {
+            resolvedJson = resolveVariablesInJson(json, StacRegistry.instance);
+          }
+          final model = stacParser.getModel(resolvedJson);
+
           return stacParser.parse(context, model);
         } else {
           Log.w('Widget type [$widgetType] not supported');

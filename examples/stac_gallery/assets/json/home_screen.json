@@ -379,6 +379,29 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "cupertino",
+      "icon": "hand_draw"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac InkWell"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Creates an Inkwell effect when tapped"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/inkwell_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "table_rows_sharp"
     },
     "title": {
@@ -1326,6 +1349,28 @@
       "widgetJson": {
         "type": "exampleScreen",
         "assetPath": "assets/json/dropdown_menu_view_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "category"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Variable"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Use variables to store and access values"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/variable_example.json"
       }
     }
   }

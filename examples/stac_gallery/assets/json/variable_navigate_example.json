@@ -1,0 +1,33 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "children": [
+                {
+                    "type": "text",
+                    "data": "{{name}}"
+                },
+                {
+                    "type": "text",
+                    "data": "{{age}}"
+                },
+                {
+                    "type": "text",
+                    "data": "{{city}} ",
+                    "children": [
+                        {
+                            "data": "{{country}}"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "data": "phone: {{phone}}"
+                }
+            ]
+        }
+    }
+}
