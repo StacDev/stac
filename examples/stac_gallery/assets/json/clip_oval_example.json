@@ -1,0 +1,107 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "ClipOval"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": 16.0,
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "crossAxisAlignment": "center",
+      "children": [
+        {
+          "type": "text",
+          "data": "Basic ClipOval with Image",
+          "style": {
+            "fontSize": 18.0,
+            "fontWeight": "w600"
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 16.0
+        },
+        {
+          "type": "clipOval",
+          "clipBehavior": "antiAlias",
+          "child": {
+            "type": "image",
+            "src": "https://picsum.photos/200",
+            "width": 200,
+            "height": 200,
+            "fit": "cover"
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 32.0
+        },
+        {
+          "type": "text",
+          "data": "ClipOval with Container",
+          "style": {
+            "fontSize": 18.0,
+            "fontWeight": "w600"
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 16.0
+        },
+        {
+          "type": "clipOval",
+          "clipBehavior": "antiAlias",
+          "child": {
+            "type": "container",
+            "color": "#2196F3",
+            "height": 100,
+            "width": 200
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 32.0
+        },
+        {
+          "type": "text",
+          "data": "ClipOval with Text",
+          "style": {
+            "fontSize": 18.0,
+            "fontWeight": "w600"
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 16.0
+        },
+        {
+          "type": "clipOval",
+          "clipBehavior": "antiAlias",
+          "child": {
+            "type": "container",
+            "color": "#FF5722",
+            "height": 100,
+            "width": 100,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Hello",
+                "style": {
+                  "color": "#FFFFFF",
+                  "fontSize": 18.0
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
