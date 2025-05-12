@@ -1351,5 +1351,27 @@
         "assetPath": "assets/json/dropdown_menu_view_example.json"
       }
     }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "category"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Variable"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Use variables to store and access values"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/variable_example.json"
+      }
+    }
   }
 ]
