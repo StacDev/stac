@@ -75,6 +75,7 @@ export 'package:stac/src/parsers/widgets/stac_refresh_indicator/stac_refresh_ind
 export 'package:stac/src/parsers/widgets/stac_row/stac_row.dart';
 export 'package:stac/src/parsers/widgets/stac_safe_area/stac_safe_area.dart';
 export 'package:stac/src/parsers/widgets/stac_scaffold/stac_scaffold.dart';
+export 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value.dart';
 export 'package:stac/src/parsers/widgets/stac_shape_border/stac_shape_border.dart';
 export 'package:stac/src/parsers/widgets/stac_single_child_scroll_view/stac_single_child_scroll_view.dart';
 export 'package:stac/src/parsers/widgets/stac_sized_box/stac_sized_box.dart';
