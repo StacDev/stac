@@ -18,7 +18,7 @@
         },
         {
             "name": "Movie App",
-            "cwd": "examples/flutter_movie_app",
+            "cwd": "examples/movie_app",
             "request": "launch",
             "type": "dart"
         }
