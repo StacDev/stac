@@ -8,6 +8,11 @@ dynamic resolveVariablesInJson(dynamic json, StacRegistry registry) {
       return registry.getValue(variableName ?? '')?.toString() ?? '';
     });
   } else if (json is Map<String, dynamic>) {
+    // Skip variable resolution for dynamicView and SetValue widget types
+    if (json.containsKey('type') &&
+        (json['type'] == 'dynamicView' || json['type'] == 'SetValue')) {
+      return json;
+    }
     return json.map(
         (key, value) => MapEntry(key, resolveVariablesInJson(value, registry)));
   } else if (json is List) {
