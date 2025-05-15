@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: StacTheme.fromJson(darkThemeJson),
       homeBuilder:
-          (context) => Stac.fromAssets('assets/jsons/screens/home_screen.json'),
+          (context) =>
+              Stac.fromAssets('assets/jsons/screens/onboarding_screen.json'),
     );
   }
 }
@@ -77,60 +78,15 @@ final Map<String, dynamic> darkThemeJson = {
     "onOutline": "#12FFFFFF",
   },
   "textTheme": {
-    "displayLarge": {
-      "fontSize": 48,
-      "fontWeight": "w700",
-      "height": 1.1,
-      "letterSpacing": -0.96,
-    },
-    "displayMedium": {
-      "fontSize": 40,
-      "fontWeight": "w700",
-      "height": 1.1,
-      "letterSpacing": -0.80,
-    },
-    "displaySmall": {
-      "fontSize": 34,
-      "fontWeight": "w700",
-      "height": 1.1,
-      "letterSpacing": -0.72,
-    },
-    "headlineLarge": {
-      "fontSize": 30,
-      "fontWeight": "w700",
-      "height": 1.3,
-      "letterSpacing": -0.3,
-    },
-    "headlineMedium": {
-      "fontSize": 26,
-      "fontWeight": "w700",
-      "height": 1.3,
-      "letterSpacing": -0.26,
-    },
-    "headlineSmall": {
-      "fontSize": 23,
-      "fontWeight": "w700",
-      "height": 1.3,
-      "letterSpacing": -0.23,
-    },
-    "titleLarge": {
-      "fontSize": 20,
-      "fontWeight": "w500",
-      "height": 1.3,
-      "letterSpacing": -0.20,
-    },
-    "titleMedium": {
-      "fontSize": 18,
-      "fontWeight": "w500",
-      "height": 1.3,
-      "letterSpacing": -0.18,
-    },
-    "titleSmall": {
-      "fontSize": 16,
-      "fontWeight": "w500",
-      "height": 1.3,
-      "letterSpacing": -0.16,
-    },
+    "displayLarge": {"fontSize": 48, "fontWeight": "w700", "height": 1.1},
+    "displayMedium": {"fontSize": 40, "fontWeight": "w700", "height": 1.1},
+    "displaySmall": {"fontSize": 34, "fontWeight": "w700", "height": 1.1},
+    "headlineLarge": {"fontSize": 30, "fontWeight": "w700", "height": 1.3},
+    "headlineMedium": {"fontSize": 26, "fontWeight": "w700", "height": 1.3},
+    "headlineSmall": {"fontSize": 23, "fontWeight": "w700", "height": 1.3},
+    "titleLarge": {"fontSize": 20, "fontWeight": "w500", "height": 1.3},
+    "titleMedium": {"fontSize": 18, "fontWeight": "w500", "height": 1.3},
+    "titleSmall": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
     "labelLarge": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
     "labelMedium": {"fontSize": 14, "fontWeight": "w600", "height": 1.3},
     "labelSmall": {"fontSize": 12, "fontWeight": "w500", "height": 1.3},

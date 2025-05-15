@@ -39,8 +39,8 @@
                     "child": {
                         "type": "padding",
                         "padding": {
-                            "left": 20,
-                            "right": 20,
+                            "left": 16,
+                            "right": 16,
                             "top": 48,
                             "bottom": 48
                         },
@@ -76,14 +76,19 @@
                                     "height": 64
                                 },
                                 {
-                                    "type": "filledButton",
+                                    "type": "sizedBox",
+                                    "height": 48,
+                                    "width": 1000,
                                     "child": {
-                                        "type": "text",
-                                        "data": "Get Started"
-                                    },
-                                    "onPressed": {
-                                        "actionType": "navigate",
-                                        "assetPath": "assets/jsons/screens/home_screen.json"
+                                        "type": "filledButton",
+                                        "child": {
+                                            "type": "text",
+                                            "data": "Get Started"
+                                        },
+                                        "onPressed": {
+                                            "actionType": "navigate",
+                                            "assetPath": "assets/jsons/screens/home_screen.json"
+                                        }
                                     }
                                 }
                             ]

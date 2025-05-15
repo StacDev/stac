@@ -24,8 +24,8 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20,
+                                        "left": 16,
+                                        "right": 16,
                                         "top": 24,
                                         "bottom": 10
                                     },
@@ -60,7 +60,7 @@
                                                 "width": 8
                                             },
                                             "padding": {
-                                                "left": 20
+                                                "left": 16
                                             },
                                             "itemTemplate": {
                                                 "type": "gestureDetector",
@@ -100,8 +100,8 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20,
+                                        "left": 16,
+                                        "right": 16,
                                         "top": 24,
                                         "bottom": 10
                                     },
@@ -136,7 +136,7 @@
                                                 "width": 8
                                             },
                                             "padding": {
-                                                "left": 20
+                                                "left": 16
                                             },
                                             "itemTemplate": {
                                                 "type": "gestureDetector",
@@ -176,8 +176,8 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20,
+                                        "left": 16,
+                                        "right": 16,
                                         "top": 24,
                                         "bottom": 10
                                     },
@@ -252,8 +252,8 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20,
+                                        "left": 16,
+                                        "right": 16,
                                         "top": 24,
                                         "bottom": 10
                                     },
@@ -288,7 +288,7 @@
                                                 "width": 8
                                             },
                                             "padding": {
-                                                "left": 20
+                                                "left": 16
                                             },
                                             "itemTemplate": {
                                                 "type": "gestureDetector",
@@ -328,8 +328,8 @@
                                 {
                                     "type": "padding",
                                     "padding": {
-                                        "left": 20,
-                                        "right": 20,
+                                        "left": 16,
+                                        "right": 16,
                                         "top": 24,
                                         "bottom": 10
                                     },
@@ -364,7 +364,7 @@
                                                 "width": 8
                                             },
                                             "padding": {
-                                                "left": 20
+                                                "left": 16
                                             },
                                             "itemTemplate": {
                                                 "type": "gestureDetector",
@@ -397,6 +397,10 @@
                                     }
                                 }
                             ]
+                        },
+                        {
+                            "type": "sizedBox",
+                            "height": 80
                         }
                     ]
                 },

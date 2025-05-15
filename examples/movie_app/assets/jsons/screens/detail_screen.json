@@ -1,5 +1,29 @@
 {
     "type": "scaffold",
+    "extendBodyBehindAppBar": true,
+    "appBar": {
+        "type": "appBar",
+        "backgroundColor": "transparent",
+        "leading": {
+            "type": "iconButton",
+            "icon": {
+                "type": "icon",
+                "icon": "chevron_left",
+                "color": "onSurface"
+            },
+            "style": {
+                "backgroundColor": "#50050608",
+                "fixedSize": {
+                    "width": 36,
+                    "height": 36
+                }
+            },
+            "onPressed": {
+                "actionType": "navigate",
+                "navigationStyle": "pop"
+            }
+        }
+    },
     "body": {
         "type": "dynamicView",
         "request": {
@@ -50,8 +74,8 @@
                     {
                         "type": "padding",
                         "padding": {
-                            "left": 20,
-                            "right": 20
+                            "left": 16,
+                            "right": 16
                         },
                         "child": {
                             "type": "column",
@@ -151,6 +175,10 @@
                                                 },
                                                 "onPressed": {}
                                             }
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "width": 16
                                         },
                                         {
                                             "type": "outlinedButton",
