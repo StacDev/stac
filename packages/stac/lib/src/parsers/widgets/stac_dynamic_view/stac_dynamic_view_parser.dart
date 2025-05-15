@@ -51,6 +51,8 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                       model.targetPath.split('.'),
                     );
 
+              Log.d("data: $data");
+
               if (data != null) {
                 // Apply the data to the template
                 final renderedTemplate = _applyDataToTemplate(

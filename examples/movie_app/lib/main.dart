@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
     return StacApp(
       title: 'Flutter Demo',
       theme: StacTheme.fromJson(darkThemeJson),
-      homeBuilder: (context) =>
-          Stac.fromAssets('assets/jsons/screens/home_screen.json'),
+      homeBuilder:
+          (context) => Stac.fromAssets('assets/jsons/screens/home_screen.json'),
     );
   }
 }
@@ -139,7 +139,7 @@ final Map<String, dynamic> darkThemeJson = {
   },
   "filledButtonTheme": {
     "minimumSize": {"width": 120, "height": 40},
-    "textStyle": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
+    "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
     "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
     "shape": {
       "borderRadius": {
@@ -150,4 +150,5 @@ final Map<String, dynamic> darkThemeJson = {
       },
     },
   },
+  "dividerTheme": {"color": "#24FFFFFF", "thickness": 1},
 };

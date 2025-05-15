@@ -152,7 +152,7 @@
                                     "child": {
                                         "type": "dynamicView",
                                         "request": {
-                                            "url": "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+                                            "url": "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
                                             "method": "get"
                                         },
                                         "targetPath": "results",
@@ -170,14 +170,16 @@
                                             "itemTemplate": {
                                                 "type": "gestureDetector",
                                                 "onTap": {
-                                                    "actionType": "navigate",
-                                                    "assetPath": "assets/jsons/screens/detail_screen.json",
-                                                    "arguments": {
-                                                        "title": "{{title}}",
-                                                        "poster_path": "{{poster_path}}",
-                                                        "overview": "{{overview}}",
-                                                        "release_date": "{{release_date}}",
-                                                        "vote_average": "{{vote_average}}"
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
                                                     }
                                                 },
                                                 "child": {
@@ -191,129 +193,6 @@
                                                         "height": 164
                                                     }
                                                 }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "column",
-                            "children": [
-                                {
-                                    "type": "padding",
-                                    "padding": {
-                                        "left": 24,
-                                        "right": 24,
-                                        "top": 24,
-                                        "bottom": 10
-                                    },
-                                    "child": {
-                                        "type": "row",
-                                        "mainAxisAlignment": "spaceBetween",
-                                        "children": [
-                                            {
-                                                "type": "text",
-                                                "data": "Popular Movies",
-                                                "style": "labelMedium"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "sizedBox",
-                                    "height": 164,
-                                    "child": {
-                                        "type": "dynamicView",
-                                        "request": {
-                                            "url": "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
-                                            "method": "get"
-                                        },
-                                        "targetPath": "results",
-                                        "template": {
-                                            "type": "listView",
-                                            "scrollDirection": "horizontal",
-                                            "shrinkWrap": true,
-                                            "separator": {
-                                                "type": "sizedBox",
-                                                "width": 8
-                                            },
-                                            "padding": {
-                                                "left": 20
-                                            },
-                                            "itemTemplate": {
-                                                "type": "gestureDetector",
-                                                "onTap": {
-                                                    "actionType": "navigate",
-                                                    "assetPath": "assets/jsons/screens/detail_screen.json"
-                                                },
-                                                "child": {
-                                                    "type": "clipRRect",
-                                                    "borderRadius": 6,
-                                                    "child": {
-                                                        "type": "image",
-                                                        "imageType": "network",
-                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                        "width": 108,
-                                                        "height": 164
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "column",
-                            "children": [
-                                {
-                                    "type": "padding",
-                                    "padding": {
-                                        "left": 20,
-                                        "right": 20,
-                                        "top": 24,
-                                        "bottom": 10
-                                    },
-                                    "child": {
-                                        "type": "row",
-                                        "mainAxisAlignment": "spaceBetween",
-                                        "children": [
-                                            {
-                                                "type": "text",
-                                                "data": "Popular TV Shows",
-                                                "style": "labelMedium"
-                                            }
-                                        ]
-                                    }
-                                },
-                                {
-                                    "type": "sizedBox",
-                                    "height": 164,
-                                    "child": {
-                                        "type": "dynamicView",
-                                        "request": {
-                                            "url": "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
-                                            "method": "get"
-                                        },
-                                        "targetPath": "results",
-                                        "template": {
-                                            "type": "listView",
-                                            "scrollDirection": "horizontal",
-                                            "shrinkWrap": true,
-                                            "separator": {
-                                                "type": "sizedBox",
-                                                "width": 8
-                                            },
-                                            "padding": {
-                                                "left": 20
-                                            },
-                                            "itemTemplate": {
-                                                "type": "image",
-                                                "imageType": "network",
-                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
-                                                "width": 108,
-                                                "height": 164
                                             }
                                         }
                                     }
