@@ -31,7 +31,6 @@ class StacListViewParser extends StacParser<StacListView> {
       addRepaintBoundaries: model.addRepaintBoundaries,
       addSemanticIndexes: model.addSemanticIndexes,
       cacheExtent: model.cacheExtent,
-      // semanticChildCount: model.semanticChildCount,
       dragStartBehavior: model.dragStartBehavior,
       keyboardDismissBehavior: model.keyboardDismissBehavior,
       restorationId: model.restorationId,

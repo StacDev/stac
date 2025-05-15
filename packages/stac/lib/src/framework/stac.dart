@@ -7,8 +7,8 @@ import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/actions/stac_network_request/stac_network_request_parser.dart';
 import 'package:stac/src/parsers/parsers.dart';
-import 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
+import 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
@@ -138,6 +138,7 @@ class Stac {
       if (json != null) {
         String widgetType = json['type'];
         StacParser? stacParser = StacRegistry.instance.getParser(widgetType);
+
         if (stacParser != null) {
           Map<String, dynamic> resolvedJson;
           if (widgetType == WidgetType.setValue.name) {
@@ -145,7 +146,6 @@ class Stac {
           } else {
             resolvedJson = resolveVariablesInJson(json, StacRegistry.instance);
           }
-
           final model = stacParser.getModel(resolvedJson);
 
           return stacParser.parse(context, model);
