@@ -54,10 +54,16 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               Log.d("data: $data");
 
               if (data != null) {
+                // Prepare data for template based on resultTarget
+                final dataForTemplate = model.resultTarget.isNotEmpty
+                    ? {model.resultTarget: data}
+                    : data;
+
                 // Apply the data to the template
                 final renderedTemplate = _applyDataToTemplate(
                   model.template,
-                  data,
+                  dataForTemplate,
+                  model.resultTarget,
                 );
                 return Stac.fromJson(renderedTemplate, context) ??
                     const SizedBox();
@@ -100,57 +106,80 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
   }
 
   Map<String, dynamic> _applyDataToTemplate(
-    Map<String, dynamic> template,
+    Map<String, dynamic> currentTemplate,
     dynamic data,
+    String resultTarget,
   ) {
-    Map<String, dynamic> result = {};
+    // Deep copy template to avoid modifying the original
+    Map<String, dynamic> resolvedTemplate =
+        jsonDecode(jsonEncode(currentTemplate));
 
-    if (data is List) {
-      // Check if the template contains an itemTemplate key
-      if (template.containsKey('itemTemplate')) {
-        // Create a list of widgets using the itemTemplate
-        final itemTemplate = template['itemTemplate'] as Map<String, dynamic>;
+    // Check for list processing with itemTemplate
+    if (resolvedTemplate.containsKey('itemTemplate')) {
+      dynamic listForIteration;
+      final String itemTemplateKey = 'itemTemplate';
+      // Ensure itemTemplateActual is correctly typed.
+      final itemTemplateActual =
+          resolvedTemplate[itemTemplateKey] as Map<String, dynamic>;
 
-        // Process each item in the list
-        final items = <Map<String, dynamic>>[];
-        for (final item in data) {
-          if (item is Map) {
-            // Apply the template to each item
-            final processedItem = _applyDataToItem(itemTemplate, item);
-            items.add(processedItem);
+      if (resultTarget.isNotEmpty &&
+          data is Map &&
+          data.containsKey(resultTarget) &&
+          data[resultTarget] is List) {
+        listForIteration = data[resultTarget];
+      } else if (resultTarget.isEmpty && data is List) {
+        listForIteration = data;
+      }
+
+      if (listForIteration != null) {
+        resolvedTemplate
+            .remove(itemTemplateKey); // Remove from outer template structure
+        final processedChildItems = <Map<String, dynamic>>[];
+
+        for (final singleRawItem in listForIteration) {
+          // Removed unnecessary cast
+          if (singleRawItem is Map) {
+            final itemSpecificDataContext = resultTarget.isNotEmpty
+                ? {resultTarget: singleRawItem}
+                : singleRawItem;
+
+            final processedChild =
+                _applyDataToItem(itemTemplateActual, itemSpecificDataContext);
+            processedChildItems.add(processedChild);
+          } else {
+            Log.w("Item in list is not a Map, skipping: $singleRawItem");
           }
         }
 
-        // Create the result with the processed items
-        result = Map<String, dynamic>.from(template);
-        result.remove('itemTemplate'); // Remove the template
-
-        // If the template doesn't have a children key, create it
-        if (!result.containsKey('children')) {
-          result['children'] = [];
+        if (!resolvedTemplate.containsKey('children')) {
+          resolvedTemplate['children'] = [];
         }
-
-        // Add the processed items as children
-        if (result['children'] is List) {
-          // Add to existing children if it's already a list
-          (result['children'] as List).addAll(items);
+        if (resolvedTemplate['children'] is List) {
+          (resolvedTemplate['children'] as List).addAll(processedChildItems);
         } else {
-          // Replace with new list otherwise
-          result['children'] = items;
+          Log.w(
+              "Template has 'children' but it's not a List. Overwriting with processed items.");
+          resolvedTemplate['children'] = processedChildItems;
         }
       } else {
-        // If no itemTemplate is found, pass through the template
-        result = template;
+        Log.d(
+            "itemTemplate found but no list to iterate in dataContext. Template: $currentTemplate, DataContext: $data");
       }
-    } else if (data is Map) {
-      // If data is a single object, apply it directly to the template
-      result = _applyDataToItem(template, data);
-    } else {
-      // For primitive data types or unsupported formats, just pass through the template
-      result = template;
     }
 
-    return result;
+    // Process the (potentially modified) resolvedTemplate itself for any placeholders
+    // using the original overall dataContext.
+    if (data is Map) {
+      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
+      final Map<dynamic, dynamic> mapDataContext =
+          Map<dynamic, dynamic>.from(data);
+      _processTemplateRecursively(resolvedTemplate, mapDataContext);
+    } else {
+      Log.d(
+          "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data");
+    }
+
+    return resolvedTemplate;
   }
 
   Map<String, dynamic> _applyDataToItem(

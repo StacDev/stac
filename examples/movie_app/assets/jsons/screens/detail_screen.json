@@ -325,6 +325,7 @@
                                                     "method": "get"
                                                 },
                                                 "targetPath": "results",
+                                                "resultTarget": "data",
                                                 "template": {
                                                     "type": "listView",
                                                     "scrollDirection": "horizontal",
@@ -339,7 +340,7 @@
                                                         "child": {
                                                             "type": "image",
                                                             "imageType": "network",
-                                                            "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                            "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{data.poster_path}}",
                                                             "width": 108,
                                                             "height": 164
                                                         }
