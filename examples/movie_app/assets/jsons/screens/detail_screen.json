@@ -335,14 +335,30 @@
                                                         "width": 8
                                                     },
                                                     "itemTemplate": {
-                                                        "type": "clipRRect",
-                                                        "borderRadius": 6,
+                                                        "type": "gestureDetector",
+                                                        "onTap": {
+                                                            "actionType": "setValue",
+                                                            "values": [
+                                                                {
+                                                                    "key": "movie_id",
+                                                                    "value": "{{data.id}}"
+                                                                }
+                                                            ],
+                                                            "action": {
+                                                                "actionType": "navigate",
+                                                                "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                            }
+                                                        },
                                                         "child": {
-                                                            "type": "image",
-                                                            "imageType": "network",
-                                                            "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{data.poster_path}}",
-                                                            "width": 108,
-                                                            "height": 164
+                                                            "type": "clipRRect",
+                                                            "borderRadius": 6,
+                                                            "child": {
+                                                                "type": "image",
+                                                                "imageType": "network",
+                                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{data.poster_path}}",
+                                                                "width": 108,
+                                                                "height": 164
+                                                            }
                                                         }
                                                     }
                                                 }
