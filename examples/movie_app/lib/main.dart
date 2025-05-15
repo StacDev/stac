@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
 import 'package:stac/stac.dart';
 
 final token =
@@ -16,7 +17,7 @@ void main() async {
     ),
   );
 
-  await Stac.initialize(dio: dio);
+  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser()]);
 
   runApp(const MyApp());
 }
@@ -141,14 +142,14 @@ final Map<String, dynamic> darkThemeJson = {
     "minimumSize": {"width": 120, "height": 40},
     "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
     "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
-    "shape": {
-      "borderRadius": {
-        "topLeft": 8,
-        "topRight": 8,
-        "bottomLeft": 8,
-        "bottomRight": 8,
-      },
-    },
+    "shape": {"borderRadius": 8},
+  },
+  "outlinedButtonTheme": {
+    "minimumSize": {"width": 120, "height": 40},
+    "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+    "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
+    "side": {"color": "#95E183", "width": 1.0},
+    "shape": {"borderRadius": 8},
   },
   "dividerTheme": {"color": "#24FFFFFF", "thickness": 1},
 };
