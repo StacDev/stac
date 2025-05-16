@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacNetworkWidget {
   StacNetworkRequest get request;
+  Map<String, dynamic>? get loading;
 
   /// Create a copy of StacNetworkWidget
   /// with the given fields replaced by the non-null parameter values.
@@ -33,16 +34,18 @@ mixin _$StacNetworkWidget {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StacNetworkWidget &&
-            (identical(other.request, request) || other.request == request));
+            (identical(other.request, request) || other.request == request) &&
+            const DeepCollectionEquality().equals(other.loading, loading));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, request);
+  int get hashCode => Object.hash(
+      runtimeType, request, const DeepCollectionEquality().hash(loading));
 
   @override
   String toString() {
-    return 'StacNetworkWidget(request: $request)';
+    return 'StacNetworkWidget(request: $request, loading: $loading)';
   }
 }
 
@@ -52,7 +55,7 @@ abstract mixin class $StacNetworkWidgetCopyWith<$Res> {
           StacNetworkWidget value, $Res Function(StacNetworkWidget) _then) =
       _$StacNetworkWidgetCopyWithImpl;
   @useResult
-  $Res call({StacNetworkRequest request});
+  $Res call({StacNetworkRequest request, Map<String, dynamic>? loading});
 
   $StacNetworkRequestCopyWith<$Res> get request;
 }
@@ -71,12 +74,17 @@ class _$StacNetworkWidgetCopyWithImpl<$Res>
   @override
   $Res call({
     Object? request = null,
+    Object? loading = freezed,
   }) {
     return _then(_self.copyWith(
       request: null == request
           ? _self.request
           : request // ignore: cast_nullable_to_non_nullable
               as StacNetworkRequest,
+      loading: freezed == loading
+          ? _self.loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 
@@ -94,12 +102,23 @@ class _$StacNetworkWidgetCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _StacNetworkWidget implements StacNetworkWidget {
-  const _StacNetworkWidget({required this.request});
+  const _StacNetworkWidget(
+      {required this.request, final Map<String, dynamic>? loading})
+      : _loading = loading;
   factory _StacNetworkWidget.fromJson(Map<String, dynamic> json) =>
       _$StacNetworkWidgetFromJson(json);
 
   @override
   final StacNetworkRequest request;
+  final Map<String, dynamic>? _loading;
+  @override
+  Map<String, dynamic>? get loading {
+    final value = _loading;
+    if (value == null) return null;
+    if (_loading is EqualUnmodifiableMapView) return _loading;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// Create a copy of StacNetworkWidget
   /// with the given fields replaced by the non-null parameter values.
@@ -121,16 +140,18 @@ class _StacNetworkWidget implements StacNetworkWidget {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StacNetworkWidget &&
-            (identical(other.request, request) || other.request == request));
+            (identical(other.request, request) || other.request == request) &&
+            const DeepCollectionEquality().equals(other._loading, _loading));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, request);
+  int get hashCode => Object.hash(
+      runtimeType, request, const DeepCollectionEquality().hash(_loading));
 
   @override
   String toString() {
-    return 'StacNetworkWidget(request: $request)';
+    return 'StacNetworkWidget(request: $request, loading: $loading)';
   }
 }
 
@@ -142,7 +163,7 @@ abstract mixin class _$StacNetworkWidgetCopyWith<$Res>
       __$StacNetworkWidgetCopyWithImpl;
   @override
   @useResult
-  $Res call({StacNetworkRequest request});
+  $Res call({StacNetworkRequest request, Map<String, dynamic>? loading});
 
   @override
   $StacNetworkRequestCopyWith<$Res> get request;
@@ -162,12 +183,17 @@ class __$StacNetworkWidgetCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? request = null,
+    Object? loading = freezed,
   }) {
     return _then(_StacNetworkWidget(
       request: null == request
           ? _self.request
           : request // ignore: cast_nullable_to_non_nullable
               as StacNetworkRequest,
+      loading: freezed == loading
+          ? _self._loading
+          : loading // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
     ));
   }
 
