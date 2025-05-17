@@ -1,0 +1,453 @@
+{
+    "type": "defaultBottomNavigationController",
+    "length": 3,
+    "child": {
+        "type": "scaffold",
+        "extendBodyBehindAppBar": true,
+        "body": {
+            "type": "bottomNavigationView",
+            "children": [
+                {
+                    "type": "listView",
+                    "padding": 0,
+                    "children": [
+                        {
+                            "type": "movieCarousel",
+                            "request": {
+                                "url": "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+                                "method": "get"
+                            }
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 24,
+                                        "bottom": 10
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Now Playing",
+                                                "style": "labelLarge"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 16
+                                            },
+                                            "itemTemplate": {
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                    }
+                                                },
+                                                "child": {
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 24,
+                                        "bottom": 10
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Popular Movies",
+                                                "style": "labelLarge"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 16
+                                            },
+                                            "itemTemplate": {
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                    }
+                                                },
+                                                "child": {
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 24,
+                                        "bottom": 10
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Trending Movies",
+                                                "style": "labelLarge"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 20
+                                            },
+                                            "itemTemplate": {
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                    }
+                                                },
+                                                "child": {
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 24,
+                                        "bottom": 10
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Top Rated",
+                                                "style": "labelLarge"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 16
+                                            },
+                                            "itemTemplate": {
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                    }
+                                                },
+                                                "child": {
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "column",
+                            "children": [
+                                {
+                                    "type": "padding",
+                                    "padding": {
+                                        "left": 16,
+                                        "right": 16,
+                                        "top": 24,
+                                        "bottom": 10
+                                    },
+                                    "child": {
+                                        "type": "row",
+                                        "mainAxisAlignment": "spaceBetween",
+                                        "children": [
+                                            {
+                                                "type": "text",
+                                                "data": "Upcoming Movies",
+                                                "style": "labelLarge"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 164,
+                                    "child": {
+                                        "type": "dynamicView",
+                                        "request": {
+                                            "url": "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1",
+                                            "method": "get"
+                                        },
+                                        "targetPath": "results",
+                                        "template": {
+                                            "type": "listView",
+                                            "scrollDirection": "horizontal",
+                                            "shrinkWrap": true,
+                                            "separator": {
+                                                "type": "sizedBox",
+                                                "width": 8
+                                            },
+                                            "padding": {
+                                                "left": 16
+                                            },
+                                            "itemTemplate": {
+                                                "type": "gestureDetector",
+                                                "onTap": {
+                                                    "actionType": "setValue",
+                                                    "values": [
+                                                        {
+                                                            "key": "movie_id",
+                                                            "value": "{{id}}"
+                                                        }
+                                                    ],
+                                                    "action": {
+                                                        "actionType": "navigate",
+                                                        "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                    }
+                                                },
+                                                "child": {
+                                                    "type": "clipRRect",
+                                                    "borderRadius": 6,
+                                                    "child": {
+                                                        "type": "image",
+                                                        "imageType": "network",
+                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                                        "width": 108,
+                                                        "height": 164
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "sizedBox",
+                            "height": 80
+                        }
+                    ]
+                },
+                {
+                    "type": "center",
+                    "child": {
+                        "type": "text",
+                        "data": "Search"
+                    }
+                },
+                {
+                    "type": "center",
+                    "child": {
+                        "type": "text",
+                        "data": "Profile"
+                    }
+                }
+            ]
+        },
+        "bottomNavigationBar": {
+            "type": "bottomNavigationBar",
+            "items": [
+                {
+                    "type": "navigationBarItem",
+                    "label": "Home",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "home_outlined"
+                    }
+                },
+                {
+                    "type": "navigationBarItem",
+                    "label": "Search",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "search_outlined"
+                    }
+                },
+                {
+                    "type": "navigationBarItem",
+                    "label": "Profile",
+                    "icon": {
+                        "type": "icon",
+                        "icon": "person_outlined"
+                    }
+                }
+            ]
+        }
+    }
+}
