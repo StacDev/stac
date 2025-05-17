@@ -1,0 +1,408 @@
+{
+    "type": "scaffold",
+    "extendBodyBehindAppBar": true,
+    "appBar": {
+        "type": "appBar",
+        "backgroundColor": "transparent",
+        "leading": {
+            "type": "iconButton",
+            "icon": {
+                "type": "icon",
+                "icon": "chevron_left",
+                "color": "onSurface"
+            },
+            "style": {
+                "backgroundColor": "#50050608",
+                "fixedSize": {
+                    "width": 36,
+                    "height": 36
+                }
+            },
+            "onPressed": {
+                "actionType": "navigate",
+                "navigationStyle": "pop"
+            }
+        }
+    },
+    "body": {
+        "type": "dynamicView",
+        "request": {
+            "url": "https://api.themoviedb.org/3/movie/{{movie_id}}?language=en-US",
+            "method": "get"
+        },
+        "template": {
+            "type": "singleChildScrollView",
+            "child": {
+                "type": "column",
+                "children": [
+                    {
+                        "type": "stack",
+                        "children": [
+                            {
+                                "type": "image",
+                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{poster_path}}",
+                                "width": 1000,
+                                "height": 480,
+                                "fit": "cover"
+                            },
+                            {
+                                "type": "positioned",
+                                "bottom": 0,
+                                "left": 0,
+                                "right": 0,
+                                "child": {
+                                    "type": "container",
+                                    "height": 240,
+                                    "decoration": {
+                                        "gradient": {
+                                            "colors": [
+                                                "#00050608",
+                                                "#050608"
+                                            ],
+                                            "begin": "topCenter",
+                                            "end": "bottomCenter",
+                                            "stops": [
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "padding",
+                        "padding": {
+                            "left": 16,
+                            "right": 16
+                        },
+                        "child": {
+                            "type": "column",
+                            "crossAxisAlignment": "start",
+                            "children": [
+                                {
+                                    "type": "row",
+                                    "mainAxisAlignment": "spaceBetween",
+                                    "children": [
+                                        {
+                                            "type": "expanded",
+                                            "child": {
+                                                "type": "text",
+                                                "data": "{{title}}",
+                                                "style": "headlineMedium",
+                                                "overflow": "ellipsis"
+                                            }
+                                        },
+                                        {
+                                            "type": "container",
+                                            "height": 24,
+                                            "decoration": {
+                                                "borderRadius": 4,
+                                                "color": "primary"
+                                            },
+                                            "child": {
+                                                "type": "row",
+                                                "children": [
+                                                    {
+                                                        "type": "sizedBox",
+                                                        "width": 6
+                                                    },
+                                                    {
+                                                        "type": "icon",
+                                                        "icon": "star_rounded",
+                                                        "color": "onPrimary",
+                                                        "size": 14
+                                                    },
+                                                    {
+                                                        "type": "sizedBox",
+                                                        "width": 2
+                                                    },
+                                                    {
+                                                        "type": "text",
+                                                        "data": "{{vote_average}}",
+                                                        "style": {
+                                                            "color": "onPrimary",
+                                                            "fontSize": 14
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "sizedBox",
+                                                        "width": 6
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "{{release_date}} · {{runtime}} mins",
+                                    "style": "bodySmall",
+                                    "textAlign": "left"
+                                },
+                                {
+                                    "type": "divider"
+                                },
+                                {
+                                    "type": "row",
+                                    "children": [
+                                        {
+                                            "type": "expanded",
+                                            "child": {
+                                                "type": "filledButton",
+                                                "child": {
+                                                    "type": "row",
+                                                    "mainAxisAlignment": "center",
+                                                    "children": [
+                                                        {
+                                                            "type": "icon",
+                                                            "icon": "play_circle_filled",
+                                                            "size": 24
+                                                        },
+                                                        {
+                                                            "type": "sizedBox",
+                                                            "width": 6
+                                                        },
+                                                        {
+                                                            "type": "text",
+                                                            "data": "Watch Trailer"
+                                                        }
+                                                    ]
+                                                },
+                                                "onPressed": {}
+                                            }
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "width": 16
+                                        },
+                                        {
+                                            "type": "outlinedButton",
+                                            "child": {
+                                                "type": "row",
+                                                "mainAxisAlignment": "center",
+                                                "children": [
+                                                    {
+                                                        "type": "icon",
+                                                        "icon": "favorite_outline",
+                                                        "size": 24
+                                                    },
+                                                    {
+                                                        "type": "sizedBox",
+                                                        "width": 6
+                                                    },
+                                                    {
+                                                        "type": "text",
+                                                        "data": "Add to Watchlist"
+                                                    }
+                                                ]
+                                            },
+                                            "onPressed": {}
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 24
+                                },
+                                {
+                                    "type": "column",
+                                    "crossAxisAlignment": "start",
+                                    "children": [
+                                        {
+                                            "type": "text",
+                                            "data": "About",
+                                            "style": "bodyMedium"
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 4
+                                        },
+                                        {
+                                            "type": "container",
+                                            "width": 24,
+                                            "height": 2,
+                                            "color": "primary"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 20
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "{{overview}}",
+                                    "style": "bodyMedium"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 24
+                                },
+                                {
+                                    "type": "column",
+                                    "crossAxisAlignment": "start",
+                                    "children": [
+                                        {
+                                            "type": "text",
+                                            "data": "Cast",
+                                            "style": {
+                                                "fontSize": 16,
+                                                "fontWeight": "w600",
+                                                "height": 1.3,
+                                                "color": "onSurfaceVariant"
+                                            }
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 10
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 146,
+                                            "child": {
+                                                "type": "dynamicView",
+                                                "request": {
+                                                    "url": "https://api.themoviedb.org/3/movie/{{movie_id}}/credits?language=en-US",
+                                                    "method": "get"
+                                                },
+                                                "targetPath": "cast",
+                                                "template": {
+                                                    "type": "listView",
+                                                    "scrollDirection": "horizontal",
+                                                    "shrinkWrap": true,
+                                                    "separator": {
+                                                        "type": "sizedBox",
+                                                        "width": 16
+                                                    },
+                                                    "itemTemplate": {
+                                                        "type": "sizedBox",
+                                                        "width": 80,
+                                                        "child": {
+                                                            "type": "column",
+                                                            "crossAxisAlignment": "start",
+                                                            "children": [
+                                                                {
+                                                                    "type": "clipRRect",
+                                                                    "borderRadius": 6,
+                                                                    "child": {
+                                                                        "type": "image",
+                                                                        "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{profile_path}}",
+                                                                        "fit": "cover",
+                                                                        "width": 80,
+                                                                        "height": 96
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "sizedBox",
+                                                                    "height": 8
+                                                                },
+                                                                {
+                                                                    "type": "text",
+                                                                    "data": "{{name}}",
+                                                                    "style": "titleSmall",
+                                                                    "overflow": "ellipsis"
+                                                                },
+                                                                {
+                                                                    "type": "text",
+                                                                    "data": "{{character}}",
+                                                                    "style": "bodySmall",
+                                                                    "overflow": "ellipsis"
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 24
+                                },
+                                {
+                                    "type": "column",
+                                    "crossAxisAlignment": "start",
+                                    "children": [
+                                        {
+                                            "type": "text",
+                                            "data": "Similar Movies",
+                                            "style": {
+                                                "fontSize": 16,
+                                                "fontWeight": "w600",
+                                                "height": 1.3,
+                                                "color": "onSurfaceVariant"
+                                            }
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 10
+                                        },
+                                        {
+                                            "type": "sizedBox",
+                                            "height": 164,
+                                            "child": {
+                                                "type": "dynamicView",
+                                                "request": {
+                                                    "url": "https://api.themoviedb.org/3/movie/{{movie_id}}/similar?language=en-US&page=1",
+                                                    "method": "get"
+                                                },
+                                                "targetPath": "results",
+                                                "resultTarget": "data",
+                                                "template": {
+                                                    "type": "listView",
+                                                    "scrollDirection": "horizontal",
+                                                    "shrinkWrap": true,
+                                                    "separator": {
+                                                        "type": "sizedBox",
+                                                        "width": 8
+                                                    },
+                                                    "itemTemplate": {
+                                                        "type": "gestureDetector",
+                                                        "onTap": {
+                                                            "actionType": "setValue",
+                                                            "values": [
+                                                                {
+                                                                    "key": "movie_id",
+                                                                    "value": "{{data.id}}"
+                                                                }
+                                                            ],
+                                                            "action": {
+                                                                "actionType": "navigate",
+                                                                "assetPath": "assets/jsons/screens/detail_screen.json"
+                                                            }
+                                                        },
+                                                        "child": {
+                                                            "type": "clipRRect",
+                                                            "borderRadius": 6,
+                                                            "child": {
+                                                                "type": "image",
+                                                                "imageType": "network",
+                                                                "src": "https://media.themoviedb.org/t/p/w440_and_h660_face/{{data.poster_path}}",
+                                                                "width": 108,
+                                                                "height": 164
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "height": 80
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
