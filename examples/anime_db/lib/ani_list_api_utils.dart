@@ -1,0 +1,293 @@
+class AniListAPIUtils {
+  // --- Sort Types ---
+
+  // General & Popularity Based
+  static const String sortId = "ID";
+  static const String sortIdDesc = "ID_DESC";
+  static const String sortPopularity = "POPULARITY";
+  static const String sortPopularityDesc = "POPULARITY_DESC";
+  static const String sortTrending = "TRENDING";
+  static const String sortTrendingDesc = "TRENDING_DESC";
+  static const String sortFavourites = "FAVOURITES";
+  static const String sortFavouritesDesc = "FAVOURITES_DESC";
+
+  // Score & Rating Based
+  static const String sortScore = "SCORE";
+  static const String sortScoreDesc = "SCORE_DESC";
+  static const String sortMeanScore = "MEAN_SCORE";
+  static const String sortMeanScoreDesc = "MEAN_SCORE_DESC";
+
+  // Date & Time Based
+  static const String sortStartDate = "START_DATE";
+  static const String sortStartDateDesc = "START_DATE_DESC";
+  static const String sortEndDate = "END_DATE";
+  static const String sortEndDateDesc = "END_DATE_DESC";
+
+  // Alphabetical
+  static const String sortTitleRomaji = "TITLE_ROMAJI";
+  static const String sortTitleRomajiDesc = "TITLE_ROMAJI_DESC";
+  static const String sortTitleEnglish = "TITLE_ENGLISH";
+  static const String sortTitleEnglishDesc = "TITLE_ENGLISH_DESC";
+  static const String sortTitleNative = "TITLE_NATIVE";
+  static const String sortTitleNativeDesc = "TITLE_NATIVE_DESC";
+
+  // Content Specific (Anime)
+  static const String sortEpisodes = "EPISODES";
+  static const String sortEpisodesDesc = "EPISODES_DESC";
+
+  // --- API Query Generation ---
+
+  static Map<String, dynamic> getAniListAPIRequest(String query) {
+    return {
+      "url": "https://graphql.anilist.co",
+      "method": "post",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+      },
+      "body": {"query": query},
+    };
+  }
+
+  static String getAniListAPIQueryForAnimeList({
+    required int count,
+    required String sortType,
+    String? genre,
+    String? season,
+    int? seasonYear,
+  }) {
+    String mediaArgs = "type: ANIME, sort: $sortType";
+
+    if (genre != null && genre.isNotEmpty) {
+      mediaArgs += ", genre: \"$genre\"";
+    }
+
+    if (season != null && season.isNotEmpty) {
+      mediaArgs += ", season: $season";
+    }
+
+    if (seasonYear != null) {
+      mediaArgs += ", seasonYear: $seasonYear";
+    }
+
+    return """
+      query GetAnimeListPage {
+        Page(page: 1, perPage: $count) {
+          media($mediaArgs) {
+            id
+            title {
+              romaji
+              english
+              native
+            }
+            coverImage {
+              extraLarge
+            }
+            bannerImage
+            startDate {
+              year
+              month
+              day
+            }
+            endDate {
+              year
+              month
+              day
+            }
+            description(asHtml: false)
+            averageScore
+            episodes
+            duration
+            studios(isMain: true, sort: [ID]) {
+              nodes {
+                name
+              }
+            }
+            source(version: 3)
+            format
+            season
+            seasonYear
+            genres
+            status(version: 2)
+            nextAiringEpisode {
+              airingAt
+              timeUntilAiring
+              episode
+            }
+          }
+        }
+      }
+    """;
+  }
+
+  static String getAniListAPIQueryForAnimeAiringSchedule({
+    required int count,
+    bool? notYetAired,
+    int? airingAtStart,
+    int? airingAtEnd,
+  }) {
+    return "query Page {"
+        " Page(page: 1, perPage: $count) {"
+        "  airingSchedules(sort: TIME${notYetAired != null ? ", notYetAired: $notYetAired" : ""}${airingAtStart != null ? ", airingAt_greater: $airingAtStart" : ""}${airingAtEnd != null ? ", airingAt_lesser: $airingAtEnd" : ""}) {"
+        "    airingAt"
+        "    episode"
+        "    timeUntilAiring"
+        "    media {"
+        "      id"
+        "      title {"
+        "        romaji"
+        "        english"
+        "        native"
+        "      }"
+        "      coverImage {"
+        "        extraLarge"
+        "        large"
+        "      }"
+        "      bannerImage"
+        "      duration"
+        "    }"
+        "  }"
+        " }"
+        "}";
+  }
+
+  static String getQueryForAnimeById(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          id
+          title {
+            romaji
+            english
+            native
+          }
+          coverImage {
+            extraLarge
+          }
+          startDate {
+            year
+            month
+            day
+          }
+          endDate {
+            year
+            month
+            day
+          }
+          description(asHtml: false)
+          studios(isMain: true) {
+            edges {
+              isMain
+              node {
+                id
+                name
+              }
+            }
+          }
+          averageScore
+          episodes
+          duration
+          source(version: 3)
+          format
+          season
+          seasonYear
+        }
+      }
+    """;
+  }
+
+  static String getQueryForAnimeByIdRelationsOnly(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          relations {
+            edges {
+              id
+              relationType(version: 2)
+              node {
+                id
+                title {
+                  romaji
+                }
+                format
+                type
+                status(version: 2)
+                bannerImage
+                coverImage {
+                  large
+                }
+              }
+            }
+          }
+        }
+      }
+    """;
+  }
+
+  static String getQueryForAnimeByIdEpisodesOnly(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          streamingEpisodes {
+            site
+            episodeTitle: title
+            thumbnail
+            url
+          }
+        }
+      }
+    """;
+  }
+
+  static String getAnimeSeasonForMonth(int month) {
+    if (month < 1 || month > 12) {
+      throw ArgumentError("Month must be between 1 and 12. Received: $month");
+    }
+
+    if (month >= 1 && month <= 3) {
+      return "WINTER";
+    } else if (month >= 4 && month <= 6) {
+      return "SPRING";
+    } else if (month >= 7 && month <= 9) {
+      return "SUMMER";
+    } else {
+      return "FALL";
+    }
+  }
+
+  static String getAnimeSeason() {
+    final now = DateTime.now();
+    final currentMonth = now.month;
+    return getAnimeSeasonForMonth(currentMonth);
+  }
+
+  static String getNextAnimeSeason() {
+    final now = DateTime.now();
+    int currentMonth = now.month;
+
+    int currentSeasonIndex = (currentMonth - 1) ~/ 3;
+    int nextSeasonIndex = (currentSeasonIndex + 1) % 4;
+    int firstMonthOfNextSeason = (nextSeasonIndex * 3) + 1;
+
+    return getAnimeSeasonForMonth(firstMonthOfNextSeason);
+  }
+
+  static int getAnimeSeasonYear() {
+    final now = DateTime.now();
+    return now.year;
+  }
+
+  static int getNextAnimeSeasonYear() {
+    final now = DateTime.now();
+    int currentYear = now.year;
+    int currentMonth = now.month;
+
+    int currentSeasonIndex = (currentMonth - 1) ~/ 3;
+
+    if (currentSeasonIndex == 3) {
+      return currentYear + 1;
+    } else {
+      return currentYear;
+    }
+  }
+}
