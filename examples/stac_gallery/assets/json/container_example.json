@@ -8,43 +8,69 @@
     }
   },
   "body": {
-    "type": "listView",
-    "physics": "never",
-    "shrinkWrap": true,
-    "children": [
-      {
-        "type": "sizedBox",
-        "height": 52
-      },
-      {
-        "type": "container",
-        "color": "#672BFF",
-        "height": 250,
-        "width": 200
-      },
-      {
-        "type": "sizedBox",
-        "height": 52
-      },
-      {
-        "type": "container",
-        "color": "#FC5632",
-        "height": 250,
-        "width": 200,
-        "child": {
-          "type": "align",
-          "alignment": "bottomCenter",
+    "type": "center",
+    "child": {
+      "type": "listView",
+      "physics": "never",
+      "shrinkWrap": true,
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 52
+        },
+        {
+          "type": "container",
+          "color": "#672BFF",
+          "height": 250,
+          "width": "maxFinite"
+        },
+        {
+          "type": "sizedBox",
+          "height": 52
+        },
+        {
+          "type": "container",
+          "color": "#FC5632",
+          "height": 100,
+          "width": "200",
           "child": {
-            "type": "text",
-            "data": "Flutter",
-            "align": "center",
-            "style": {
-              "fontSize": 23,
-              "fontWeight": "w600"
+            "type": "align",
+            "alignment": "bottomCenter",
+            "child": {
+              "type": "text",
+              "data": "Flutter",
+              "align": "center",
+              "style": {
+                "fontSize": 23,
+                "fontWeight": "w600"
+              }
+            }
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 52
+        },
+        {
+          "type": "container",
+          "color": "#FFFF00",
+          "height": 250,
+          "width": 250,
+          "child": {
+            "type": "align",
+            "alignment": "bottomCenter",
+            "child": {
+              "type": "text",
+              "data": "Flutter",
+              "align": "center",
+              "style": {
+                "fontSize": 23,
+                "fontWeight": "w600"
+              }
             }
           }
         }
-      }
-    ]
+      ]
+    }
   }
 }
