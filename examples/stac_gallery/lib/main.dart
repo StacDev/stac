@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             theme: state.lightTheme,
             darkTheme: state.darkTheme,
             themeMode: state.themeMode,
-            homeBuilder: (context) => const HomeScreen(),
+            homeBuilder: (context) => HomeScreen(),
             title: 'Stac Gallery',
             routes: {
               '/homeScreen': (context) => const HomeScreen(),

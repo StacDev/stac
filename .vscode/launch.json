@@ -15,6 +15,12 @@
             "cwd": "examples/counter_example",
             "request": "launch",
             "type": "dart"
+        },
+        {
+            "name": "Movie App",
+            "cwd": "examples/movie_app",
+            "request": "launch",
+            "type": "dart"
         }
     ]
 }

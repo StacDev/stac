@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/actions/stac_navigate_action/stac_navigate_action.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/actions/stac_navigate_action/stac_navigate_action.dart';
 import 'package:stac/src/utils/action_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 

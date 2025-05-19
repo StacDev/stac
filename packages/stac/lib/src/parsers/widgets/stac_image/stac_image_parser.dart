@@ -38,6 +38,9 @@ class StacImageParser extends StacParser<StacImage> {
         width: model.width?.parse,
         height: model.height?.parse,
         fit: model.fit,
+        errorWidget: (context, error, stackTrace) {
+          return const SizedBox();
+        },
       );
 
   Widget _fileImage(StacImage model, BuildContext context) => Image.file(

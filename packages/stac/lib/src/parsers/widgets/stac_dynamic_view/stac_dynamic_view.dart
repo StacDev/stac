@@ -14,6 +14,7 @@ abstract class StacDynamicView with _$StacDynamicView {
     required StacNetworkRequest request,
     @Default('') String targetPath,
     required Map<String, dynamic> template,
+    @Default('') String resultTarget,
   }) = _StacDynamicView;
 
   factory StacDynamicView.fromJson(Map<String, dynamic> json) =>

@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
 
+typedef StacWidget = Map<String, dynamic>;
+
 /// [StacParser] is an abstract class that is used to parse a JSON object into
 /// a model and then parse the model into a widget.
 ///
@@ -19,7 +21,7 @@ abstract class StacParser<T> {
   /// This method should be implemented to parse a JSON object into a model.
   /// The JSON object is typically a part of the STAC widget.
   /// The model [T] should contain all the necessary data to build a widget.
-  T getModel(Map<String, dynamic> json);
+  T getModel(StacWidget json);
 
   /// Parses a model [T] into a [Widget].
   ///

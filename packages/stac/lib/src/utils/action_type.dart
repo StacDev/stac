@@ -7,4 +7,5 @@ enum ActionType {
   getFormValue,
   validateForm,
   showSnackBar,
+  setValue,
 }

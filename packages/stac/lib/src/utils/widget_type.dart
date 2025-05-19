@@ -57,6 +57,7 @@ enum WidgetType {
   row,
   safeArea,
   scaffold,
+  setValue,
   singleChildScrollView,
   sizedBox,
   slider,

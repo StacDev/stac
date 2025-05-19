@@ -14,6 +14,8 @@ class StacRegistry {
 
   static final _stacActionParsers = <String, StacActionParser>{};
 
+  static final Map<String, dynamic> _variables = {};
+
   bool register(StacParser parser, [bool override = false]) {
     final String type = parser.type;
     if (_stacParsers.containsKey(type)) {
@@ -74,5 +76,21 @@ class StacRegistry {
 
   StacActionParser<dynamic>? getActionParser(String type) {
     return _stacActionParsers[type];
+  }
+
+  dynamic setValue(String key, dynamic value) {
+    if (value == null) {
+      removeValue(key);
+    } else {
+      _variables[key] = value;
+    }
+  }
+
+  dynamic removeValue(String key) {
+    return _variables.remove(key);
+  }
+
+  dynamic getValue(String key) {
+    return _variables[key];
   }
 }

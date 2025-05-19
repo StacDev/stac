@@ -428,6 +428,7 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
 ## Maintainers
 
 - [Divyanshu Bhargava][divyanshu_github]
+- [Rahul Bisht][rahul_linkedin]
 
 [github_stars]: https://img.shields.io/github/stars/StacDev/stac
 [github_stars_link]: https://github.com/StacDev/stac/stargazers 
@@ -436,4 +437,5 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
 [stac_banner]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png
 [form_screen]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/form_screen_image.png
 [divyanshu_github]: https://github.com/divyanshub024
+[rahul_linkedin]: https://www.linkedin.com/in/bybisht
 [stac_website]: https://stac.dev/

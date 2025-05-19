@@ -12,6 +12,7 @@ _StacDynamicView _$StacDynamicViewFromJson(Map<String, dynamic> json) =>
           StacNetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
       targetPath: json['targetPath'] as String? ?? '',
       template: json['template'] as Map<String, dynamic>,
+      resultTarget: json['resultTarget'] as String? ?? '',
     );
 
 Map<String, dynamic> _$StacDynamicViewToJson(_StacDynamicView instance) =>
@@ -19,4 +20,5 @@ Map<String, dynamic> _$StacDynamicViewToJson(_StacDynamicView instance) =>
       'request': instance.request,
       'targetPath': instance.targetPath,
       'template': instance.template,
+      'resultTarget': instance.resultTarget,
     };
