@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 
@@ -14,7 +15,7 @@ abstract class StacRow with _$StacRow {
     @Default(MainAxisSize.max) MainAxisSize mainAxisSize,
     TextDirection? textDirection,
     @Default(VerticalDirection.down) VerticalDirection verticalDirection,
-    @Default(0) double spacing,
+    @Default(StacDouble.zero) StacDouble spacing,
     @Default([]) List<Map<String, dynamic>> children,
   }) = _StacRow;
 

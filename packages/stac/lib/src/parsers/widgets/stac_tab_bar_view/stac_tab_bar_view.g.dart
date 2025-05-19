@@ -16,7 +16,9 @@ _StacTabBarView _$StacTabBarViewFromJson(Map<String, dynamic> json) =>
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
           DragStartBehavior.start,
       physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
-      viewportFraction: (json['viewportFraction'] as num?)?.toDouble() ?? 1.0,
+      viewportFraction: json['viewportFraction'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['viewportFraction']),
       clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ??
           Clip.hardEdge,
     );

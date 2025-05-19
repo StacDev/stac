@@ -8,8 +8,8 @@ part of 'stac_visual_density.dart';
 
 _StacVisualDensity _$StacVisualDensityFromJson(Map<String, dynamic> json) =>
     _StacVisualDensity(
-      horizontal: (json['horizontal'] as num).toDouble(),
-      vertical: (json['vertical'] as num).toDouble(),
+      horizontal: StacDouble.fromJson(json['horizontal']),
+      vertical: StacDouble.fromJson(json['vertical']),
     );
 
 Map<String, dynamic> _$StacVisualDensityToJson(_StacVisualDensity instance) =>

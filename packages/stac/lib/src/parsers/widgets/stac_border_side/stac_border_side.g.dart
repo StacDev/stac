@@ -9,8 +9,12 @@ part of 'stac_border_side.dart';
 _StacBorderSide _$StacBorderSideFromJson(Map<String, dynamic> json) =>
     _StacBorderSide(
       color: json['color'] as String?,
-      width: (json['width'] as num?)?.toDouble() ?? 0.0,
-      strokeAlign: (json['strokeAlign'] as num?)?.toDouble() ?? 0.0,
+      width: json['width'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['width']),
+      strokeAlign: json['strokeAlign'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['strokeAlign']),
       borderStyle:
           $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle']) ??
               BorderStyle.solid,

@@ -10,7 +10,7 @@ _StacIcon _$StacIconFromJson(Map<String, dynamic> json) => _StacIcon(
       icon: json['icon'] as String,
       iconType: $enumDecodeNullable(_$IconTypeEnumMap, json['iconType']) ??
           IconType.material,
-      size: (json['size'] as num?)?.toDouble(),
+      size: json['size'] == null ? null : StacDouble.fromJson(json['size']),
       color: json['color'] as String?,
       semanticLabel: json['semanticLabel'] as String?,
       textDirection:

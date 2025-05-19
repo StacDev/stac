@@ -27,7 +27,7 @@ mixin _$StacPageView {
   bool get padEnds;
   int get initialPage;
   dynamic get keepPage;
-  double get viewportFraction;
+  StacDouble get viewportFraction;
   List<Map<String, dynamic>> get children;
 
   /// Create a copy of StacPageView
@@ -115,7 +115,7 @@ abstract mixin class $StacPageViewCopyWith<$Res> {
       bool padEnds,
       int initialPage,
       dynamic keepPage,
-      double viewportFraction,
+      StacDouble viewportFraction,
       List<Map<String, dynamic>> children});
 }
 
@@ -198,7 +198,7 @@ class _$StacPageViewCopyWithImpl<$Res> implements $StacPageViewCopyWith<$Res> {
       viewportFraction: null == viewportFraction
           ? _self.viewportFraction
           : viewportFraction // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       children: null == children
           ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -223,7 +223,7 @@ class _StacPageView implements StacPageView {
       this.padEnds = true,
       this.initialPage = 0,
       this.keepPage = true,
-      this.viewportFraction = 1.0,
+      this.viewportFraction = const StacDouble(1.0),
       final List<Map<String, dynamic>> children = const []})
       : _onPageChanged = onPageChanged,
         _children = children;
@@ -273,7 +273,7 @@ class _StacPageView implements StacPageView {
   final dynamic keepPage;
   @override
   @JsonKey()
-  final double viewportFraction;
+  final StacDouble viewportFraction;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -374,7 +374,7 @@ abstract mixin class _$StacPageViewCopyWith<$Res>
       bool padEnds,
       int initialPage,
       dynamic keepPage,
-      double viewportFraction,
+      StacDouble viewportFraction,
       List<Map<String, dynamic>> children});
 }
 
@@ -458,7 +458,7 @@ class __$StacPageViewCopyWithImpl<$Res>
       viewportFraction: null == viewportFraction
           ? _self.viewportFraction
           : viewportFraction // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       children: null == children
           ? _self._children
           : children // ignore: cast_nullable_to_non_nullable

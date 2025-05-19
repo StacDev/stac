@@ -9,8 +9,8 @@ part of 'stac_alignment_geometry.dart';
 _StacAlignmentGeometry _$StacAlignmentGeometryFromJson(
         Map<String, dynamic> json) =>
     _StacAlignmentGeometry(
-      dx: (json['dx'] as num).toDouble(),
-      dy: (json['dy'] as num).toDouble(),
+      dx: StacDouble.fromJson(json['dx']),
+      dy: StacDouble.fromJson(json['dy']),
     );
 
 Map<String, dynamic> _$StacAlignmentGeometryToJson(

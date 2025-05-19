@@ -15,10 +15,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacIconButton {
-  double? get iconSize;
+  StacDouble? get iconSize;
   StacEdgeInsets? get padding;
   StacAlignment? get alignment;
-  double? get splashRadius;
+  StacDouble? get splashRadius;
   String? get color;
   String? get focusColor;
   String? get hoverColor;
@@ -123,10 +123,10 @@ abstract mixin class $StacIconButtonCopyWith<$Res> {
       _$StacIconButtonCopyWithImpl;
   @useResult
   $Res call(
-      {double? iconSize,
+      {StacDouble? iconSize,
       StacEdgeInsets? padding,
       StacAlignment? alignment,
-      double? splashRadius,
+      StacDouble? splashRadius,
       String? color,
       String? focusColor,
       String? hoverColor,
@@ -185,7 +185,7 @@ class _$StacIconButtonCopyWithImpl<$Res>
       iconSize: freezed == iconSize
           ? _self.iconSize
           : iconSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       padding: freezed == padding
           ? _self.padding
           : padding // ignore: cast_nullable_to_non_nullable
@@ -197,7 +197,7 @@ class _$StacIconButtonCopyWithImpl<$Res>
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -334,13 +334,13 @@ class _StacIconButton implements StacIconButton {
       _$StacIconButtonFromJson(json);
 
   @override
-  final double? iconSize;
+  final StacDouble? iconSize;
   @override
   final StacEdgeInsets? padding;
   @override
   final StacAlignment? alignment;
   @override
-  final double? splashRadius;
+  final StacDouble? splashRadius;
   @override
   final String? color;
   @override
@@ -491,10 +491,10 @@ abstract mixin class _$StacIconButtonCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? iconSize,
+      {StacDouble? iconSize,
       StacEdgeInsets? padding,
       StacAlignment? alignment,
-      double? splashRadius,
+      StacDouble? splashRadius,
       String? color,
       String? focusColor,
       String? hoverColor,
@@ -556,7 +556,7 @@ class __$StacIconButtonCopyWithImpl<$Res>
       iconSize: freezed == iconSize
           ? _self.iconSize
           : iconSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       padding: freezed == padding
           ? _self.padding
           : padding // ignore: cast_nullable_to_non_nullable
@@ -568,7 +568,7 @@ class __$StacIconButtonCopyWithImpl<$Res>
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable

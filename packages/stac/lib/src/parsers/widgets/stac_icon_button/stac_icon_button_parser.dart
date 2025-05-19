@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style.dart';
 import 'package:stac/src/parsers/widgets/stac_box_constraints/stac_box_constraints.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -22,10 +23,10 @@ class StacIconButtonParser extends StacParser<StacIconButton> {
   @override
   Widget parse(BuildContext context, StacIconButton model) {
     return IconButton(
-      iconSize: model.iconSize,
+      iconSize: model.iconSize?.parse,
       padding: model.padding?.parse,
       alignment: model.alignment?.value,
-      splashRadius: model.splashRadius,
+      splashRadius: model.splashRadius?.parse,
       color: model.color.toColor(context),
       focusColor: model.focusColor.toColor(context),
       hoverColor: model.hoverColor.toColor(context),

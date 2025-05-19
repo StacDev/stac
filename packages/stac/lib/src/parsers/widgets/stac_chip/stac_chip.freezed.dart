@@ -32,7 +32,7 @@ mixin _$StacChip {
   StacEdgeInsets? get padding;
   StacVisualDensity? get visualDensity;
   MaterialTapTargetSize? get materialTapTargetSize;
-  double? get elevation;
+  StacDouble? get elevation;
   String? get shadowColor;
   String? get surfaceTintColor;
   StacIconThemeData? get iconTheme;
@@ -156,7 +156,7 @@ abstract mixin class $StacChipCopyWith<$Res> {
       StacEdgeInsets? padding,
       StacVisualDensity? visualDensity,
       MaterialTapTargetSize? materialTapTargetSize,
-      double? elevation,
+      StacDouble? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       StacIconThemeData? iconTheme,
@@ -282,7 +282,7 @@ class _$StacChipCopyWithImpl<$Res> implements $StacChipCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable
@@ -536,7 +536,7 @@ class _StacChip implements StacChip {
   @override
   final MaterialTapTargetSize? materialTapTargetSize;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
   final String? shadowColor;
   @override
@@ -673,7 +673,7 @@ abstract mixin class _$StacChipCopyWith<$Res>
       StacEdgeInsets? padding,
       StacVisualDensity? visualDensity,
       MaterialTapTargetSize? materialTapTargetSize,
-      double? elevation,
+      StacDouble? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       StacIconThemeData? iconTheme,
@@ -808,7 +808,7 @@ class __$StacChipCopyWithImpl<$Res> implements _$StacChipCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable

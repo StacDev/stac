@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
 import 'package:stac/src/parsers/widgets/stac_check_box/stac_check_box.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -66,7 +67,7 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
       hoverColor: widget.model.hoverColor.toColor(context),
       overlayColor:
           WidgetStateProperty.all(widget.model.overlayColor?.parse(context)),
-      splashRadius: widget.model.splashRadius,
+      splashRadius: widget.model.splashRadius?.parse,
       materialTapTargetSize: widget.model.materialTapTargetSize,
       autofocus: widget.model.autofocus,
       isError: widget.model.isError,

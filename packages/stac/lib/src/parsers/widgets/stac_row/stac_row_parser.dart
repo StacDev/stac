@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_row/stac_row.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -21,7 +22,7 @@ class StacRowParser extends StacParser<StacRow> {
       mainAxisSize: model.mainAxisSize,
       textDirection: model.textDirection,
       verticalDirection: model.verticalDirection,
-      spacing: model.spacing,
+      spacing: model.spacing.parse,
       children: model.children
           .map((value) => Stac.fromJson(value, context) ?? const SizedBox())
           .toList(),

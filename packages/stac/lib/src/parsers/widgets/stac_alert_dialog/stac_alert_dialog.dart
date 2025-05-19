@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_alignment_geometry/stac_alignment_geometry.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_shape_border/stac_shape_border.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
@@ -27,14 +28,18 @@ abstract class StacAlertDialog with _$StacAlertDialog {
     MainAxisAlignment? actionsAlignment,
     OverflowBarAlignment? actionsOverflowAlignment,
     VerticalDirection? actionsOverflowDirection,
-    double? actionsOverflowButtonSpacing,
+    StacDouble? actionsOverflowButtonSpacing,
     StacEdgeInsets? buttonPadding,
     String? backgroundColor,
-    double? elevation,
+    StacDouble? elevation,
     String? shadowColor,
     String? surfaceTintColor,
     String? semanticLabel,
-    @Default(StacEdgeInsets(left: 40, right: 40, top: 24, bottom: 24))
+    @Default(StacEdgeInsets(
+        left: StacDouble(40),
+        right: StacDouble(40),
+        top: StacDouble(24),
+        bottom: StacDouble(24)))
     StacEdgeInsets insetPadding,
     @Default(Clip.none) Clip clipBehavior,
     StacShapeBorder? shape,

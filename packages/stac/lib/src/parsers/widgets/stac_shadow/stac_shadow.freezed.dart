@@ -17,7 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$StacShadow {
   String get color;
   StacOffset get offset;
-  double get blurRadius;
+  StacDouble get blurRadius;
 
   /// Create a copy of StacShadow
   /// with the given fields replaced by the non-null parameter values.
@@ -56,7 +56,7 @@ abstract mixin class $StacShadowCopyWith<$Res> {
           StacShadow value, $Res Function(StacShadow) _then) =
       _$StacShadowCopyWithImpl;
   @useResult
-  $Res call({String color, StacOffset offset, double blurRadius});
+  $Res call({String color, StacOffset offset, StacDouble blurRadius});
 
   $StacOffsetCopyWith<$Res> get offset;
 }
@@ -89,7 +89,7 @@ class _$StacShadowCopyWithImpl<$Res> implements $StacShadowCopyWith<$Res> {
       blurRadius: null == blurRadius
           ? _self.blurRadius
           : blurRadius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 
@@ -109,8 +109,8 @@ class _$StacShadowCopyWithImpl<$Res> implements $StacShadowCopyWith<$Res> {
 class _StacShadow implements StacShadow {
   const _StacShadow(
       {this.color = '#000000',
-      this.offset = const StacOffset(dx: 0, dy: 0),
-      this.blurRadius = 0.0});
+      this.offset = const StacOffset(dx: StacDouble.zero, dy: StacDouble.zero),
+      this.blurRadius = StacDouble.zero});
   factory _StacShadow.fromJson(Map<String, dynamic> json) =>
       _$StacShadowFromJson(json);
 
@@ -122,7 +122,7 @@ class _StacShadow implements StacShadow {
   final StacOffset offset;
   @override
   @JsonKey()
-  final double blurRadius;
+  final StacDouble blurRadius;
 
   /// Create a copy of StacShadow
   /// with the given fields replaced by the non-null parameter values.
@@ -168,7 +168,7 @@ abstract mixin class _$StacShadowCopyWith<$Res>
       __$StacShadowCopyWithImpl;
   @override
   @useResult
-  $Res call({String color, StacOffset offset, double blurRadius});
+  $Res call({String color, StacOffset offset, StacDouble blurRadius});
 
   @override
   $StacOffsetCopyWith<$Res> get offset;
@@ -202,7 +202,7 @@ class __$StacShadowCopyWithImpl<$Res> implements _$StacShadowCopyWith<$Res> {
       blurRadius: null == blurRadius
           ? _self.blurRadius
           : blurRadius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 

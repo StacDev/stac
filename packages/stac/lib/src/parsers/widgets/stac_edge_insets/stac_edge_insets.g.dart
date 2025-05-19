@@ -8,10 +8,11 @@ part of 'stac_edge_insets.dart';
 
 _StacEdgeInsets _$StacEdgeInsetsFromJson(Map<String, dynamic> json) =>
     _StacEdgeInsets(
-      left: (json['left'] as num?)?.toDouble(),
-      top: (json['top'] as num?)?.toDouble(),
-      right: (json['right'] as num?)?.toDouble(),
-      bottom: (json['bottom'] as num?)?.toDouble(),
+      left: json['left'] == null ? null : StacDouble.fromJson(json['left']),
+      top: json['top'] == null ? null : StacDouble.fromJson(json['top']),
+      right: json['right'] == null ? null : StacDouble.fromJson(json['right']),
+      bottom:
+          json['bottom'] == null ? null : StacDouble.fromJson(json['bottom']),
     );
 
 Map<String, dynamic> _$StacEdgeInsetsToJson(_StacEdgeInsets instance) =>

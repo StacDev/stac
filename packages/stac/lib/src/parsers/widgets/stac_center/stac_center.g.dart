@@ -7,8 +7,12 @@ part of 'stac_center.dart';
 // **************************************************************************
 
 _StacCenter _$StacCenterFromJson(Map<String, dynamic> json) => _StacCenter(
-      widthFactor: (json['widthFactor'] as num?)?.toDouble(),
-      heightFactor: (json['heightFactor'] as num?)?.toDouble(),
+      widthFactor: json['widthFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['widthFactor']),
+      heightFactor: json['heightFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['heightFactor']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

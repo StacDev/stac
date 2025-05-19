@@ -26,12 +26,12 @@ mixin _$StacFloatingActionButton {
   String? get hoverColor;
   String? get splashColor;
   StacTextStyle? get extendedTextStyle;
-  double? get elevation;
-  double? get focusElevation;
-  double? get hoverElevation;
-  double? get disabledElevation;
-  double? get highlightElevation;
-  double? get extendedIconLabelSpacing;
+  StacDouble? get elevation;
+  StacDouble? get focusElevation;
+  StacDouble? get hoverElevation;
+  StacDouble? get disabledElevation;
+  StacDouble? get highlightElevation;
+  StacDouble? get extendedIconLabelSpacing;
   bool? get enableFeedback;
   String? get tooltip;
   Object? get heroTag;
@@ -144,12 +144,12 @@ abstract mixin class $StacFloatingActionButtonCopyWith<$Res> {
       String? hoverColor,
       String? splashColor,
       StacTextStyle? extendedTextStyle,
-      double? elevation,
-      double? focusElevation,
-      double? hoverElevation,
-      double? disabledElevation,
-      double? highlightElevation,
-      double? extendedIconLabelSpacing,
+      StacDouble? elevation,
+      StacDouble? focusElevation,
+      StacDouble? hoverElevation,
+      StacDouble? disabledElevation,
+      StacDouble? highlightElevation,
+      StacDouble? extendedIconLabelSpacing,
       bool? enableFeedback,
       String? tooltip,
       Object? heroTag,
@@ -242,27 +242,27 @@ class _$StacFloatingActionButtonCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       focusElevation: freezed == focusElevation
           ? _self.focusElevation
           : focusElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       hoverElevation: freezed == hoverElevation
           ? _self.hoverElevation
           : hoverElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       disabledElevation: freezed == disabledElevation
           ? _self.disabledElevation
           : disabledElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       highlightElevation: freezed == highlightElevation
           ? _self.highlightElevation
           : highlightElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       extendedIconLabelSpacing: freezed == extendedIconLabelSpacing
           ? _self.extendedIconLabelSpacing
           : extendedIconLabelSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       enableFeedback: freezed == enableFeedback
           ? _self.enableFeedback
           : enableFeedback // ignore: cast_nullable_to_non_nullable
@@ -380,17 +380,17 @@ class _StacFloatingActionButton implements StacFloatingActionButton {
   @override
   final StacTextStyle? extendedTextStyle;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
-  final double? focusElevation;
+  final StacDouble? focusElevation;
   @override
-  final double? hoverElevation;
+  final StacDouble? hoverElevation;
   @override
-  final double? disabledElevation;
+  final StacDouble? disabledElevation;
   @override
-  final double? highlightElevation;
+  final StacDouble? highlightElevation;
   @override
-  final double? extendedIconLabelSpacing;
+  final StacDouble? extendedIconLabelSpacing;
   @override
   final bool? enableFeedback;
   @override
@@ -520,12 +520,12 @@ abstract mixin class _$StacFloatingActionButtonCopyWith<$Res>
       String? hoverColor,
       String? splashColor,
       StacTextStyle? extendedTextStyle,
-      double? elevation,
-      double? focusElevation,
-      double? hoverElevation,
-      double? disabledElevation,
-      double? highlightElevation,
-      double? extendedIconLabelSpacing,
+      StacDouble? elevation,
+      StacDouble? focusElevation,
+      StacDouble? hoverElevation,
+      StacDouble? disabledElevation,
+      StacDouble? highlightElevation,
+      StacDouble? extendedIconLabelSpacing,
       bool? enableFeedback,
       String? tooltip,
       Object? heroTag,
@@ -620,27 +620,27 @@ class __$StacFloatingActionButtonCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       focusElevation: freezed == focusElevation
           ? _self.focusElevation
           : focusElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       hoverElevation: freezed == hoverElevation
           ? _self.hoverElevation
           : hoverElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       disabledElevation: freezed == disabledElevation
           ? _self.disabledElevation
           : disabledElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       highlightElevation: freezed == highlightElevation
           ? _self.highlightElevation
           : highlightElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       extendedIconLabelSpacing: freezed == extendedIconLabelSpacing
           ? _self.extendedIconLabelSpacing
           : extendedIconLabelSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       enableFeedback: freezed == enableFeedback
           ? _self.enableFeedback
           : enableFeedback // ignore: cast_nullable_to_non_nullable

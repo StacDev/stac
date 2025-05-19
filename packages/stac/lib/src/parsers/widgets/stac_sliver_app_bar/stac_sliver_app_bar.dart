@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_shape_border/stac_shape_border.dart';
 import 'package:stac/src/parsers/widgets/stac_system_ui_olverlay_style/stac_system_ui_overlay_style.dart';
@@ -20,8 +21,8 @@ abstract class StacSliverAppBar with _$StacSliverAppBar {
     List<Map<String, dynamic>>? actions,
     Map<String, dynamic>? flexibleSpace,
     Map<String, dynamic>? bottom,
-    double? elevation,
-    double? scrolledUnderElevation,
+    StacDouble? elevation,
+    StacDouble? scrolledUnderElevation,
     String? shadowColor,
     String? surfaceTintColor,
     @Default(false) bool forceElevated,
@@ -32,18 +33,18 @@ abstract class StacSliverAppBar with _$StacSliverAppBar {
     @Default(true) bool primary,
     bool? centerTitle,
     @Default(false) bool excludeHeaderSemantics,
-    double? titleSpacing,
-    double? collapsedHeight,
-    double? expandedHeight,
+    StacDouble? titleSpacing,
+    StacDouble? collapsedHeight,
+    StacDouble? expandedHeight,
     @Default(false) bool floating,
     @Default(true) bool pinned,
     @Default(false) bool snap,
     @Default(false) bool stretch,
-    @Default(100.0) double stretchTriggerOffset,
+    @Default(StacDouble(100.0)) StacDouble stretchTriggerOffset,
     StacShapeBorder? shape,
     // StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
-    @Default(64.0) double toolbarHeight,
-    double? leadingWidth,
+    @Default(StacDouble(64.0)) StacDouble toolbarHeight,
+    StacDouble? leadingWidth,
     StacTextStyle? toolbarTextStyle,
     StacTextStyle? titleTextStyle,
     StacSystemUIOverlayStyle? systemOverlayStyle,

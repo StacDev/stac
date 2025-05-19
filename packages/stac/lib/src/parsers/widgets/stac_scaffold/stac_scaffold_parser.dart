@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_scaffold/stac_scaffold.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -36,7 +37,7 @@ class StacScaffoldParser extends StacParser<StacScaffold> {
       extendBody: model.extendBody,
       extendBodyBehindAppBar: model.extendBodyBehindAppBar,
       drawerScrimColor: model.drawerScrimColor.toColor(context),
-      drawerEdgeDragWidth: model.drawerEdgeDragWidth,
+      drawerEdgeDragWidth: model.drawerEdgeDragWidth?.parse,
       drawerEnableOpenDragGesture: model.drawerEnableOpenDragGesture,
       endDrawerEnableOpenDragGesture: model.endDrawerEnableOpenDragGesture,
     );

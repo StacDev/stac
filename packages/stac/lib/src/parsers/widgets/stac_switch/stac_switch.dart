@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'stac_switch_parser.dart';
 
@@ -25,14 +26,14 @@ abstract class StacSwitch with _$StacSwitch {
     String? inactiveTrackColor,
     String? onLabelColor,
     String? offLabelColor,
-    double? splashRadius,
+    StacDouble? splashRadius,
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,
     StacMaterialColor? overlayColor,
     StacMaterialColor? thumbColor,
     StacMaterialColor? trackColor,
     MaterialTapTargetSize? materialTapTargetSize,
     StacMaterialColor? trackOutlineColor,
-    double? trackOutlineWidth,
+    StacDouble? trackOutlineWidth,
     Map<String, dynamic>? thumbIcon,
     String? inactiveThumbImage,
     String? activeThumbImage,

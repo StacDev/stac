@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
@@ -23,9 +24,9 @@ class StacCircleAvatarParser extends StacParser<StacCircleAvatar> {
           ? NetworkImage(model.foregroundImage!)
           : null,
       foregroundColor: model.foregroundColor.toColor(context),
-      radius: model.radius,
-      minRadius: model.minRadius,
-      maxRadius: model.maxRadius,
+      radius: model.radius?.parse,
+      minRadius: model.minRadius?.parse,
+      maxRadius: model.maxRadius?.parse,
       child: Stac.fromJson(model.child, context),
     );
   }

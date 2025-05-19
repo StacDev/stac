@@ -22,8 +22,12 @@ _StacDecorationImage _$StacDecorationImageFromJson(Map<String, dynamic> json) =>
       repeat: $enumDecodeNullable(_$ImageRepeatEnumMap, json['repeat']) ??
           ImageRepeat.noRepeat,
       matchTextDirection: json['matchTextDirection'] as bool? ?? false,
-      scale: (json['scale'] as num?)?.toDouble() ?? 1.0,
-      opacity: (json['opacity'] as num?)?.toDouble() ?? 1.0,
+      scale: json['scale'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['scale']),
+      opacity: json['opacity'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['opacity']),
       filterQuality:
           $enumDecodeNullable(_$FilterQualityEnumMap, json['filterQuality']) ??
               FilterQuality.low,

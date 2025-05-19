@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_rect/stac_rect.dart';
 
 export 'stac_positioned_parser.dart';
@@ -18,14 +19,14 @@ enum StacPositionedType { directional, fill, fromRect }
 abstract class StacPositioned with _$StacPositioned {
   const factory StacPositioned({
     StacPositionedType? positionedType,
-    double? left,
-    double? top,
-    double? right,
-    double? bottom,
-    double? width,
-    double? height,
-    double? start,
-    double? end,
+    StacDouble? left,
+    StacDouble? top,
+    StacDouble? right,
+    StacDouble? bottom,
+    StacDouble? width,
+    StacDouble? height,
+    StacDouble? start,
+    StacDouble? end,
     @Default(TextDirection.ltr) TextDirection textDirection,
     StacRect? rect,
     Map<String, dynamic>? child,

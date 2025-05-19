@@ -21,7 +21,9 @@ _StacListView _$StacListViewFromJson(Map<String, dynamic> json) =>
       addAutomaticKeepAlives: json['addAutomaticKeepAlives'] as bool? ?? true,
       addRepaintBoundaries: json['addRepaintBoundaries'] as bool? ?? true,
       addSemanticIndexes: json['addSemanticIndexes'] as bool? ?? true,
-      cacheExtent: (json['cacheExtent'] as num?)?.toDouble(),
+      cacheExtent: json['cacheExtent'] == null
+          ? null
+          : StacDouble.fromJson(json['cacheExtent']),
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??

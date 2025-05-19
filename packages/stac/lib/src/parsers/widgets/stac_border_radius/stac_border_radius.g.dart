@@ -7,10 +7,18 @@ part of 'stac_border_radius.dart';
 // **************************************************************************
 
 _StacBorder _$StacBorderFromJson(Map<String, dynamic> json) => _StacBorder(
-      topLeft: (json['topLeft'] as num?)?.toDouble() ?? 0.0,
-      topRight: (json['topRight'] as num?)?.toDouble() ?? 0.0,
-      bottomLeft: (json['bottomLeft'] as num?)?.toDouble() ?? 0.0,
-      bottomRight: (json['bottomRight'] as num?)?.toDouble() ?? 0.0,
+      topLeft: json['topLeft'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['topLeft']),
+      topRight: json['topRight'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['topRight']),
+      bottomLeft: json['bottomLeft'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['bottomLeft']),
+      bottomRight: json['bottomRight'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['bottomRight']),
     );
 
 Map<String, dynamic> _$StacBorderToJson(_StacBorder instance) =>

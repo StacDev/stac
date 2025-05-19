@@ -7,8 +7,8 @@ part of 'stac_offset.dart';
 // **************************************************************************
 
 _StacOffset _$StacOffsetFromJson(Map<String, dynamic> json) => _StacOffset(
-      dx: (json['dx'] as num).toDouble(),
-      dy: (json['dy'] as num).toDouble(),
+      dx: StacDouble.fromJson(json['dx']),
+      dy: StacDouble.fromJson(json['dy']),
     );
 
 Map<String, dynamic> _$StacOffsetToJson(_StacOffset instance) =>

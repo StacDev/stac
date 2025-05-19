@@ -12,7 +12,9 @@ _StacTextStyle _$StacTextStyleFromJson(Map<String, dynamic> json) =>
       color: json['color'] as String?,
       backgroundColor: json['backgroundColor'] as String?,
       styleFromTheme: json['styleFromTheme'] as String?,
-      fontSize: (json['fontSize'] as num?)?.toDouble(),
+      fontSize: json['fontSize'] == null
+          ? null
+          : StacDouble.fromJson(json['fontSize']),
       fontWeight:
           $enumDecodeNullable(_$StacFontWeightEnumMap, json['fontWeight']),
       fontStyle: $enumDecodeNullable(_$FontStyleEnumMap, json['fontStyle']),
@@ -20,11 +22,16 @@ _StacTextStyle _$StacTextStyleFromJson(Map<String, dynamic> json) =>
       fontFamilyFallback: (json['fontFamilyFallback'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      letterSpacing: (json['letterSpacing'] as num?)?.toDouble(),
-      wordSpacing: (json['wordSpacing'] as num?)?.toDouble(),
+      letterSpacing: json['letterSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['letterSpacing']),
+      wordSpacing: json['wordSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['wordSpacing']),
       textBaseline:
           $enumDecodeNullable(_$TextBaselineEnumMap, json['textBaseline']),
-      height: (json['height'] as num?)?.toDouble(),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
     );
 
 Map<String, dynamic> _$StacTextStyleToJson(_StacTextStyle instance) =>

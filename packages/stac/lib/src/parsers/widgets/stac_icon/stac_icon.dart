@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/icon_utils.dart';
 
 export 'stac_icon_parser.dart';
@@ -14,7 +15,7 @@ abstract class StacIcon with _$StacIcon {
   const factory StacIcon({
     required String icon,
     @Default(IconType.material) IconType iconType,
-    double? size,
+    StacDouble? size,
     String? color,
     String? semanticLabel,
     TextDirection? textDirection,

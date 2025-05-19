@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_input_decoration/stac_input_decoration.dart';
 import 'package:stac/src/parsers/widgets/stac_input_formatters/stac_input_formatter.dart';
 import 'package:stac/src/parsers/widgets/stac_text_field/stac_text_field.dart';
@@ -47,8 +48,8 @@ class StacTextFieldParser extends StacParser<StacTextField> {
       enableSuggestions: model.enableSuggestions,
       enabled: model.enabled,
       expands: model.expands,
-      cursorWidth: model.cursorWidth,
-      cursorHeight: model.cursorHeight,
+      cursorWidth: model.cursorWidth.parse,
+      cursorHeight: model.cursorHeight?.parse,
       cursorColor: model.cursorColor?.toColor(context),
       style: model.style?.parse(context),
       decoration: model.decoration?.parse(context),

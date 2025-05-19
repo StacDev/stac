@@ -17,9 +17,9 @@ T _$identity<T>(T value) => value;
 mixin _$StacWrap {
   Axis get direction;
   WrapAlignment get alignment;
-  double get spacing;
+  StacDouble get spacing;
   WrapAlignment get runAlignment;
-  double get runSpacing;
+  StacDouble get runSpacing;
   WrapCrossAlignment get crossAxisAlignment;
   TextDirection? get textDirection;
   VerticalDirection get verticalDirection;
@@ -90,9 +90,9 @@ abstract mixin class $StacWrapCopyWith<$Res> {
   $Res call(
       {Axis direction,
       WrapAlignment alignment,
-      double spacing,
+      StacDouble spacing,
       WrapAlignment runAlignment,
-      double runSpacing,
+      StacDouble runSpacing,
       WrapCrossAlignment crossAxisAlignment,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
@@ -135,7 +135,7 @@ class _$StacWrapCopyWithImpl<$Res> implements $StacWrapCopyWith<$Res> {
       spacing: null == spacing
           ? _self.spacing
           : spacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       runAlignment: null == runAlignment
           ? _self.runAlignment
           : runAlignment // ignore: cast_nullable_to_non_nullable
@@ -143,7 +143,7 @@ class _$StacWrapCopyWithImpl<$Res> implements $StacWrapCopyWith<$Res> {
       runSpacing: null == runSpacing
           ? _self.runSpacing
           : runSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       crossAxisAlignment: null == crossAxisAlignment
           ? _self.crossAxisAlignment
           : crossAxisAlignment // ignore: cast_nullable_to_non_nullable
@@ -174,9 +174,9 @@ class _StacWrap implements StacWrap {
   const _StacWrap(
       {this.direction = Axis.horizontal,
       this.alignment = WrapAlignment.start,
-      this.spacing = 0.0,
+      this.spacing = StacDouble.zero,
       this.runAlignment = WrapAlignment.start,
-      this.runSpacing = 0.0,
+      this.runSpacing = StacDouble.zero,
       this.crossAxisAlignment = WrapCrossAlignment.start,
       this.textDirection,
       this.verticalDirection = VerticalDirection.down,
@@ -194,13 +194,13 @@ class _StacWrap implements StacWrap {
   final WrapAlignment alignment;
   @override
   @JsonKey()
-  final double spacing;
+  final StacDouble spacing;
   @override
   @JsonKey()
   final WrapAlignment runAlignment;
   @override
   @JsonKey()
-  final double runSpacing;
+  final StacDouble runSpacing;
   @override
   @JsonKey()
   final WrapCrossAlignment crossAxisAlignment;
@@ -292,9 +292,9 @@ abstract mixin class _$StacWrapCopyWith<$Res>
   $Res call(
       {Axis direction,
       WrapAlignment alignment,
-      double spacing,
+      StacDouble spacing,
       WrapAlignment runAlignment,
-      double runSpacing,
+      StacDouble runSpacing,
       WrapCrossAlignment crossAxisAlignment,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
@@ -337,7 +337,7 @@ class __$StacWrapCopyWithImpl<$Res> implements _$StacWrapCopyWith<$Res> {
       spacing: null == spacing
           ? _self.spacing
           : spacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       runAlignment: null == runAlignment
           ? _self.runAlignment
           : runAlignment // ignore: cast_nullable_to_non_nullable
@@ -345,7 +345,7 @@ class __$StacWrapCopyWithImpl<$Res> implements _$StacWrapCopyWith<$Res> {
       runSpacing: null == runSpacing
           ? _self.runSpacing
           : runSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       crossAxisAlignment: null == crossAxisAlignment
           ? _self.crossAxisAlignment
           : crossAxisAlignment // ignore: cast_nullable_to_non_nullable

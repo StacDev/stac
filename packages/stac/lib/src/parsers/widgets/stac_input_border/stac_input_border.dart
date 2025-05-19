@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/framework/ui/stac_outline_input_border.dart';
 import 'package:stac/src/parsers/widgets/stac_border_radius/stac_border_radius.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_gradient/stac_gradient.dart';
 import 'package:stac/src/utils/color_utils.dart';
 
@@ -16,7 +17,7 @@ abstract class StacInputBorder with _$StacInputBorder {
     @Default(StacInputBorderType.underlineInputBorder) StacInputBorderType type,
     StacBorderRadius? borderRadius,
     @Default(4.0) double gapPadding,
-    @Default(0.0) double width,
+    @Default(StacDouble.zero) StacDouble width,
     String? color,
     StacGradient? gradient,
   }) = _StacInputBorder;
@@ -34,13 +35,13 @@ extension StacInputBorderParser on StacInputBorder {
         return UnderlineInputBorder(
           borderSide: BorderSide(
             color: color?.toColor(context) ?? Colors.black,
-            width: width,
+            width: width.parse,
           ),
           borderRadius: borderRadius.parse,
         );
       case StacInputBorderType.outlineInputBorder:
         return StacOutlineInputBorder(
-          width: width,
+          width: width.parse,
           borderRadius: borderRadius.parse,
           gapPadding: gapPadding,
           color: color?.toColor(context) ?? Colors.black,

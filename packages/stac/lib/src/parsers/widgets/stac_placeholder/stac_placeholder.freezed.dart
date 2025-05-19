@@ -15,9 +15,9 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacPlaceholder {
-  double get fallbackWidth;
-  double get fallbackHeight;
-  double get strokeWidth;
+  StacDouble get fallbackWidth;
+  StacDouble get fallbackHeight;
+  StacDouble get strokeWidth;
   String get color;
   Map<String, dynamic>? get child;
 
@@ -65,9 +65,9 @@ abstract mixin class $StacPlaceholderCopyWith<$Res> {
       _$StacPlaceholderCopyWithImpl;
   @useResult
   $Res call(
-      {double fallbackWidth,
-      double fallbackHeight,
-      double strokeWidth,
+      {StacDouble fallbackWidth,
+      StacDouble fallbackHeight,
+      StacDouble strokeWidth,
       String color,
       Map<String, dynamic>? child});
 }
@@ -95,15 +95,15 @@ class _$StacPlaceholderCopyWithImpl<$Res>
       fallbackWidth: null == fallbackWidth
           ? _self.fallbackWidth
           : fallbackWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       fallbackHeight: null == fallbackHeight
           ? _self.fallbackHeight
           : fallbackHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       color: null == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -120,9 +120,9 @@ class _$StacPlaceholderCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacPlaceholder implements StacPlaceholder {
   const _StacPlaceholder(
-      {this.fallbackWidth = 2.0,
-      this.fallbackHeight = 400.0,
-      this.strokeWidth = 400.0,
+      {this.fallbackWidth = const StacDouble(2.0),
+      this.fallbackHeight = const StacDouble(400.0),
+      this.strokeWidth = const StacDouble(400.0),
       this.color = '#455A64',
       final Map<String, dynamic>? child})
       : _child = child;
@@ -131,13 +131,13 @@ class _StacPlaceholder implements StacPlaceholder {
 
   @override
   @JsonKey()
-  final double fallbackWidth;
+  final StacDouble fallbackWidth;
   @override
   @JsonKey()
-  final double fallbackHeight;
+  final StacDouble fallbackHeight;
   @override
   @JsonKey()
-  final double strokeWidth;
+  final StacDouble strokeWidth;
   @override
   @JsonKey()
   final String color;
@@ -201,9 +201,9 @@ abstract mixin class _$StacPlaceholderCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double fallbackWidth,
-      double fallbackHeight,
-      double strokeWidth,
+      {StacDouble fallbackWidth,
+      StacDouble fallbackHeight,
+      StacDouble strokeWidth,
       String color,
       Map<String, dynamic>? child});
 }
@@ -231,15 +231,15 @@ class __$StacPlaceholderCopyWithImpl<$Res>
       fallbackWidth: null == fallbackWidth
           ? _self.fallbackWidth
           : fallbackWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       fallbackHeight: null == fallbackHeight
           ? _self.fallbackHeight
           : fallbackHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       color: null == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable

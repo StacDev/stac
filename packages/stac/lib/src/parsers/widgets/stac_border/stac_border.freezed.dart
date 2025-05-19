@@ -17,8 +17,8 @@ T _$identity<T>(T value) => value;
 mixin _$StacBorder {
   String? get color;
   BorderStyle get borderStyle;
-  double get width;
-  double get strokeAlign;
+  StacDouble get width;
+  StacDouble get strokeAlign;
 
   /// Create a copy of StacBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -63,8 +63,8 @@ abstract mixin class $StacBorderCopyWith<$Res> {
   $Res call(
       {String? color,
       BorderStyle borderStyle,
-      double width,
-      double strokeAlign});
+      StacDouble width,
+      StacDouble strokeAlign});
 }
 
 /// @nodoc
@@ -96,11 +96,11 @@ class _$StacBorderCopyWithImpl<$Res> implements $StacBorderCopyWith<$Res> {
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -111,8 +111,8 @@ class _StacBorder implements StacBorder {
   const _StacBorder(
       {this.color,
       this.borderStyle = BorderStyle.solid,
-      this.width = 1.0,
-      this.strokeAlign = BorderSide.strokeAlignInside});
+      this.width = const StacDouble(1.0),
+      this.strokeAlign = const StacDouble(BorderSide.strokeAlignInside)});
   factory _StacBorder.fromJson(Map<String, dynamic> json) =>
       _$StacBorderFromJson(json);
 
@@ -123,10 +123,10 @@ class _StacBorder implements StacBorder {
   final BorderStyle borderStyle;
   @override
   @JsonKey()
-  final double width;
+  final StacDouble width;
   @override
   @JsonKey()
-  final double strokeAlign;
+  final StacDouble strokeAlign;
 
   /// Create a copy of StacBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -178,8 +178,8 @@ abstract mixin class _$StacBorderCopyWith<$Res>
   $Res call(
       {String? color,
       BorderStyle borderStyle,
-      double width,
-      double strokeAlign});
+      StacDouble width,
+      StacDouble strokeAlign});
 }
 
 /// @nodoc
@@ -211,11 +211,11 @@ class __$StacBorderCopyWithImpl<$Res> implements _$StacBorderCopyWith<$Res> {
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

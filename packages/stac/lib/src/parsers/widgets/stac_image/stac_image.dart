@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_alignment/stac_alignment.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'stac_image_parser.dart';
 
@@ -16,8 +17,8 @@ abstract class StacImage with _$StacImage {
     @Default(StacAlignment.center) StacAlignment alignment,
     @Default(StacImageType.network) StacImageType imageType,
     String? color,
-    double? width,
-    double? height,
+    StacDouble? width,
+    StacDouble? height,
     BoxFit? fit,
   }) = _StacImage;
 

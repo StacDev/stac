@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 import 'package:stac/src/utils/button_utils.dart';
 
@@ -22,12 +23,12 @@ abstract class StacFloatingActionButton with _$StacFloatingActionButton {
     String? hoverColor,
     String? splashColor,
     StacTextStyle? extendedTextStyle,
-    double? elevation,
-    double? focusElevation,
-    double? hoverElevation,
-    double? disabledElevation,
-    double? highlightElevation,
-    double? extendedIconLabelSpacing,
+    StacDouble? elevation,
+    StacDouble? focusElevation,
+    StacDouble? hoverElevation,
+    StacDouble? disabledElevation,
+    StacDouble? highlightElevation,
+    StacDouble? extendedIconLabelSpacing,
     bool? enableFeedback,
     String? tooltip,
     Object? heroTag,

@@ -19,15 +19,15 @@ mixin _$StacTextStyle {
   String? get color;
   String? get backgroundColor;
   String? get styleFromTheme;
-  double? get fontSize;
+  StacDouble? get fontSize;
   StacFontWeight? get fontWeight;
   FontStyle? get fontStyle;
   String? get fontFamily;
   List<String>? get fontFamilyFallback;
-  double? get letterSpacing;
-  double? get wordSpacing;
+  StacDouble? get letterSpacing;
+  StacDouble? get wordSpacing;
   TextBaseline? get textBaseline;
-  double? get height;
+  StacDouble? get height;
 
   /// Create a copy of StacTextStyle
   /// with the given fields replaced by the non-null parameter values.
@@ -105,15 +105,15 @@ abstract mixin class $StacTextStyleCopyWith<$Res> {
       String? color,
       String? backgroundColor,
       String? styleFromTheme,
-      double? fontSize,
+      StacDouble? fontSize,
       StacFontWeight? fontWeight,
       FontStyle? fontStyle,
       String? fontFamily,
       List<String>? fontFamilyFallback,
-      double? letterSpacing,
-      double? wordSpacing,
+      StacDouble? letterSpacing,
+      StacDouble? wordSpacing,
       TextBaseline? textBaseline,
-      double? height});
+      StacDouble? height});
 }
 
 /// @nodoc
@@ -163,7 +163,7 @@ class _$StacTextStyleCopyWithImpl<$Res>
       fontSize: freezed == fontSize
           ? _self.fontSize
           : fontSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       fontWeight: freezed == fontWeight
           ? _self.fontWeight
           : fontWeight // ignore: cast_nullable_to_non_nullable
@@ -183,11 +183,11 @@ class _$StacTextStyleCopyWithImpl<$Res>
       letterSpacing: freezed == letterSpacing
           ? _self.letterSpacing
           : letterSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       wordSpacing: freezed == wordSpacing
           ? _self.wordSpacing
           : wordSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       textBaseline: freezed == textBaseline
           ? _self.textBaseline
           : textBaseline // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$StacTextStyleCopyWithImpl<$Res>
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }
@@ -231,7 +231,7 @@ class _StacTextStyle implements StacTextStyle {
   @override
   final String? styleFromTheme;
   @override
-  final double? fontSize;
+  final StacDouble? fontSize;
   @override
   final StacFontWeight? fontWeight;
   @override
@@ -250,13 +250,13 @@ class _StacTextStyle implements StacTextStyle {
   }
 
   @override
-  final double? letterSpacing;
+  final StacDouble? letterSpacing;
   @override
-  final double? wordSpacing;
+  final StacDouble? wordSpacing;
   @override
   final TextBaseline? textBaseline;
   @override
-  final double? height;
+  final StacDouble? height;
 
   /// Create a copy of StacTextStyle
   /// with the given fields replaced by the non-null parameter values.
@@ -340,15 +340,15 @@ abstract mixin class _$StacTextStyleCopyWith<$Res>
       String? color,
       String? backgroundColor,
       String? styleFromTheme,
-      double? fontSize,
+      StacDouble? fontSize,
       StacFontWeight? fontWeight,
       FontStyle? fontStyle,
       String? fontFamily,
       List<String>? fontFamilyFallback,
-      double? letterSpacing,
-      double? wordSpacing,
+      StacDouble? letterSpacing,
+      StacDouble? wordSpacing,
       TextBaseline? textBaseline,
-      double? height});
+      StacDouble? height});
 }
 
 /// @nodoc
@@ -398,7 +398,7 @@ class __$StacTextStyleCopyWithImpl<$Res>
       fontSize: freezed == fontSize
           ? _self.fontSize
           : fontSize // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       fontWeight: freezed == fontWeight
           ? _self.fontWeight
           : fontWeight // ignore: cast_nullable_to_non_nullable
@@ -418,11 +418,11 @@ class __$StacTextStyleCopyWithImpl<$Res>
       letterSpacing: freezed == letterSpacing
           ? _self.letterSpacing
           : letterSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       wordSpacing: freezed == wordSpacing
           ? _self.wordSpacing
           : wordSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       textBaseline: freezed == textBaseline
           ? _self.textBaseline
           : textBaseline // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ class __$StacTextStyleCopyWithImpl<$Res>
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/theme/stac_input_decoration_theme/stac_input_decoration_theme.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_dropdown_menu/stac_dropdown_menu.dart';
 import 'package:stac/src/parsers/widgets/stac_dropdown_menu_entry/stac_dropdown_menu_entry.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
@@ -57,8 +58,8 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
               dropDownMenu.parse(context)!)
           .toList(),
       enabled: model.enabled,
-      width: model.width,
-      menuHeight: model.menuHeight,
+      width: model.width?.parse,
+      menuHeight: model.menuHeight?.parse,
       leadingIcon: Stac.fromJson(model.leadingIcon, context),
       trailingIcon: Stac.fromJson(model.trailingIcon, context),
       label: Stac.fromJson(model.label, context),

@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 
 export 'stac_app_bar_parser.dart';
@@ -19,15 +20,15 @@ abstract class StacAppBar with _$StacAppBar {
     String? surfaceTintColor,
     @Default([]) List<Map<String, dynamic>> actions,
     Map<String, dynamic>? bottom,
-    double? titleSpacing,
-    @Default(1.0) double toolbarOpacity,
-    @Default(1.0) double bottomOpacity,
-    double? toolbarHeight,
-    double? leadingWidth,
+    StacDouble? titleSpacing,
+    @Default(StacDouble(1.0)) StacDouble toolbarOpacity,
+    @Default(StacDouble(1.0)) StacDouble bottomOpacity,
+    StacDouble? toolbarHeight,
+    StacDouble? leadingWidth,
     @Default(true) bool primary,
     bool? centerTitle,
-    double? elevation,
-    double? scrolledUnderElevation,
+    StacDouble? elevation,
+    StacDouble? scrolledUnderElevation,
   }) = _StacAppBar;
 
   factory StacAppBar.fromJson(Map<String, dynamic> json) =>

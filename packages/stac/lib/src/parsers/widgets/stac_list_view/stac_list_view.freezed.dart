@@ -24,7 +24,7 @@ mixin _$StacListView {
   bool get addAutomaticKeepAlives;
   bool get addRepaintBoundaries;
   bool get addSemanticIndexes;
-  double? get cacheExtent;
+  StacDouble? get cacheExtent;
   List<Map<String, dynamic>> get children;
   Map<String, dynamic>? get separator;
   int? get semanticChildCount;
@@ -124,7 +124,7 @@ abstract mixin class $StacListViewCopyWith<$Res> {
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
-      double? cacheExtent,
+      StacDouble? cacheExtent,
       List<Map<String, dynamic>> children,
       Map<String, dynamic>? separator,
       int? semanticChildCount,
@@ -206,7 +206,7 @@ class _$StacListViewCopyWithImpl<$Res> implements $StacListViewCopyWith<$Res> {
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       children: null == children
           ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -304,7 +304,7 @@ class _StacListView implements StacListView {
   @JsonKey()
   final bool addSemanticIndexes;
   @override
-  final double? cacheExtent;
+  final StacDouble? cacheExtent;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -436,7 +436,7 @@ abstract mixin class _$StacListViewCopyWith<$Res>
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
-      double? cacheExtent,
+      StacDouble? cacheExtent,
       List<Map<String, dynamic>> children,
       Map<String, dynamic>? separator,
       int? semanticChildCount,
@@ -520,7 +520,7 @@ class __$StacListViewCopyWithImpl<$Res>
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       children: null == children
           ? _self._children
           : children // ignore: cast_nullable_to_non_nullable

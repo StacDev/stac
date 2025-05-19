@@ -25,15 +25,15 @@ mixin _$StacAppBar {
   String? get surfaceTintColor;
   List<Map<String, dynamic>> get actions;
   Map<String, dynamic>? get bottom;
-  double? get titleSpacing;
-  double get toolbarOpacity;
-  double get bottomOpacity;
-  double? get toolbarHeight;
-  double? get leadingWidth;
+  StacDouble? get titleSpacing;
+  StacDouble get toolbarOpacity;
+  StacDouble get bottomOpacity;
+  StacDouble? get toolbarHeight;
+  StacDouble? get leadingWidth;
   bool get primary;
   bool? get centerTitle;
-  double? get elevation;
-  double? get scrolledUnderElevation;
+  StacDouble? get elevation;
+  StacDouble? get scrolledUnderElevation;
 
   /// Create a copy of StacAppBar
   /// with the given fields replaced by the non-null parameter values.
@@ -133,15 +133,15 @@ abstract mixin class $StacAppBarCopyWith<$Res> {
       String? surfaceTintColor,
       List<Map<String, dynamic>> actions,
       Map<String, dynamic>? bottom,
-      double? titleSpacing,
-      double toolbarOpacity,
-      double bottomOpacity,
-      double? toolbarHeight,
-      double? leadingWidth,
+      StacDouble? titleSpacing,
+      StacDouble toolbarOpacity,
+      StacDouble bottomOpacity,
+      StacDouble? toolbarHeight,
+      StacDouble? leadingWidth,
       bool primary,
       bool? centerTitle,
-      double? elevation,
-      double? scrolledUnderElevation});
+      StacDouble? elevation,
+      StacDouble? scrolledUnderElevation});
 
   $StacTextStyleCopyWith<$Res>? get titleTextStyle;
   $StacTextStyleCopyWith<$Res>? get toolbarTextStyle;
@@ -223,23 +223,23 @@ class _$StacAppBarCopyWithImpl<$Res> implements $StacAppBarCopyWith<$Res> {
       titleSpacing: freezed == titleSpacing
           ? _self.titleSpacing
           : titleSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       toolbarOpacity: null == toolbarOpacity
           ? _self.toolbarOpacity
           : toolbarOpacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomOpacity: null == bottomOpacity
           ? _self.bottomOpacity
           : bottomOpacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       toolbarHeight: freezed == toolbarHeight
           ? _self.toolbarHeight
           : toolbarHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       leadingWidth: freezed == leadingWidth
           ? _self.leadingWidth
           : leadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       primary: null == primary
           ? _self.primary
           : primary // ignore: cast_nullable_to_non_nullable
@@ -251,11 +251,11 @@ class _$StacAppBarCopyWithImpl<$Res> implements $StacAppBarCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       scrolledUnderElevation: freezed == scrolledUnderElevation
           ? _self.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 
@@ -303,8 +303,8 @@ class _StacAppBar implements StacAppBar {
       final List<Map<String, dynamic>> actions = const [],
       final Map<String, dynamic>? bottom,
       this.titleSpacing,
-      this.toolbarOpacity = 1.0,
-      this.bottomOpacity = 1.0,
+      this.toolbarOpacity = const StacDouble(1.0),
+      this.bottomOpacity = const StacDouble(1.0),
       this.toolbarHeight,
       this.leadingWidth,
       this.primary = true,
@@ -370,26 +370,26 @@ class _StacAppBar implements StacAppBar {
   }
 
   @override
-  final double? titleSpacing;
+  final StacDouble? titleSpacing;
   @override
   @JsonKey()
-  final double toolbarOpacity;
+  final StacDouble toolbarOpacity;
   @override
   @JsonKey()
-  final double bottomOpacity;
+  final StacDouble bottomOpacity;
   @override
-  final double? toolbarHeight;
+  final StacDouble? toolbarHeight;
   @override
-  final double? leadingWidth;
+  final StacDouble? leadingWidth;
   @override
   @JsonKey()
   final bool primary;
   @override
   final bool? centerTitle;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
-  final double? scrolledUnderElevation;
+  final StacDouble? scrolledUnderElevation;
 
   /// Create a copy of StacAppBar
   /// with the given fields replaced by the non-null parameter values.
@@ -496,15 +496,15 @@ abstract mixin class _$StacAppBarCopyWith<$Res>
       String? surfaceTintColor,
       List<Map<String, dynamic>> actions,
       Map<String, dynamic>? bottom,
-      double? titleSpacing,
-      double toolbarOpacity,
-      double bottomOpacity,
-      double? toolbarHeight,
-      double? leadingWidth,
+      StacDouble? titleSpacing,
+      StacDouble toolbarOpacity,
+      StacDouble bottomOpacity,
+      StacDouble? toolbarHeight,
+      StacDouble? leadingWidth,
       bool primary,
       bool? centerTitle,
-      double? elevation,
-      double? scrolledUnderElevation});
+      StacDouble? elevation,
+      StacDouble? scrolledUnderElevation});
 
   @override
   $StacTextStyleCopyWith<$Res>? get titleTextStyle;
@@ -588,23 +588,23 @@ class __$StacAppBarCopyWithImpl<$Res> implements _$StacAppBarCopyWith<$Res> {
       titleSpacing: freezed == titleSpacing
           ? _self.titleSpacing
           : titleSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       toolbarOpacity: null == toolbarOpacity
           ? _self.toolbarOpacity
           : toolbarOpacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomOpacity: null == bottomOpacity
           ? _self.bottomOpacity
           : bottomOpacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       toolbarHeight: freezed == toolbarHeight
           ? _self.toolbarHeight
           : toolbarHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       leadingWidth: freezed == leadingWidth
           ? _self.leadingWidth
           : leadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       primary: null == primary
           ? _self.primary
           : primary // ignore: cast_nullable_to_non_nullable
@@ -616,11 +616,11 @@ class __$StacAppBarCopyWithImpl<$Res> implements _$StacAppBarCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       scrolledUnderElevation: freezed == scrolledUnderElevation
           ? _self.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 

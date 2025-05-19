@@ -20,8 +20,12 @@ _StacCustomScrollView _$StacCustomScrollViewFromJson(
       primary: json['primary'] as bool?,
       physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
       shrinkWrap: json['shrinkWrap'] as bool? ?? false,
-      anchor: (json['anchor'] as num?)?.toDouble() ?? 0.0,
-      cacheExtent: (json['cacheExtent'] as num?)?.toDouble(),
+      anchor: json['anchor'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['anchor']),
+      cacheExtent: json['cacheExtent'] == null
+          ? null
+          : StacDouble.fromJson(json['cacheExtent']),
       semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
       dragStartBehavior: $enumDecodeNullable(
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??

@@ -26,13 +26,24 @@ _StacFloatingActionButton _$StacFloatingActionButtonFromJson(
       extendedTextStyle: json['extendedTextStyle'] == null
           ? null
           : StacTextStyle.fromJson(json['extendedTextStyle']),
-      elevation: (json['elevation'] as num?)?.toDouble(),
-      focusElevation: (json['focusElevation'] as num?)?.toDouble(),
-      hoverElevation: (json['hoverElevation'] as num?)?.toDouble(),
-      disabledElevation: (json['disabledElevation'] as num?)?.toDouble(),
-      highlightElevation: (json['highlightElevation'] as num?)?.toDouble(),
-      extendedIconLabelSpacing:
-          (json['extendedIconLabelSpacing'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
+      focusElevation: json['focusElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['focusElevation']),
+      hoverElevation: json['hoverElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['hoverElevation']),
+      disabledElevation: json['disabledElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['disabledElevation']),
+      highlightElevation: json['highlightElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['highlightElevation']),
+      extendedIconLabelSpacing: json['extendedIconLabelSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['extendedIconLabelSpacing']),
       enableFeedback: json['enableFeedback'] as bool?,
       tooltip: json['tooltip'] as String?,
       heroTag: json['heroTag'],

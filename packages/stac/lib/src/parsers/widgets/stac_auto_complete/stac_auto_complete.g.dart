@@ -11,7 +11,9 @@ _StacAutoComplete _$StacAutoCompleteFromJson(Map<String, dynamic> json) =>
       options:
           (json['options'] as List<dynamic>).map((e) => e as String).toList(),
       onSelected: json['onSelected'] as Map<String, dynamic>?,
-      optionsMaxHeight: (json['optionsMaxHeight'] as num?)?.toDouble() ?? 200,
+      optionsMaxHeight: json['optionsMaxHeight'] == null
+          ? const StacDouble(200)
+          : StacDouble.fromJson(json['optionsMaxHeight']),
       optionsViewOpenDirection: $enumDecodeNullable(
               _$OptionsViewOpenDirectionEnumMap,
               json['optionsViewOpenDirection']) ??

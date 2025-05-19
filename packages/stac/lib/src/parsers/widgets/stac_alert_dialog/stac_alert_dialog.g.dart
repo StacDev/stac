@@ -39,18 +39,25 @@ _StacAlertDialog _$StacAlertDialogFromJson(Map<String, dynamic> json) =>
           _$OverflowBarAlignmentEnumMap, json['actionsOverflowAlignment']),
       actionsOverflowDirection: $enumDecodeNullable(
           _$VerticalDirectionEnumMap, json['actionsOverflowDirection']),
-      actionsOverflowButtonSpacing:
-          (json['actionsOverflowButtonSpacing'] as num?)?.toDouble(),
+      actionsOverflowButtonSpacing: json['actionsOverflowButtonSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['actionsOverflowButtonSpacing']),
       buttonPadding: json['buttonPadding'] == null
           ? null
           : StacEdgeInsets.fromJson(json['buttonPadding']),
       backgroundColor: json['backgroundColor'] as String?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
       semanticLabel: json['semanticLabel'] as String?,
       insetPadding: json['insetPadding'] == null
-          ? const StacEdgeInsets(left: 40, right: 40, top: 24, bottom: 24)
+          ? const StacEdgeInsets(
+              left: StacDouble(40),
+              right: StacDouble(40),
+              top: StacDouble(24),
+              bottom: StacDouble(24))
           : StacEdgeInsets.fromJson(json['insetPadding']),
       clipBehavior:
           $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']) ?? Clip.none,

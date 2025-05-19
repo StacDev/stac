@@ -16,17 +16,17 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacGradient {
   List<String> get colors;
-  List<double>? get stops;
+  List<StacDouble>? get stops;
   StacAlignment get begin;
   StacAlignment get end;
   StacAlignment get center;
   StacGradientType get gradientType;
   StacAlignmentGeometry? get focal;
   TileMode get tileMode;
-  double get focalRadius;
-  double get radius;
-  double get startAngle;
-  double get endAngle;
+  StacDouble get focalRadius;
+  StacDouble get radius;
+  StacDouble get startAngle;
+  StacDouble get endAngle;
 
   /// Create a copy of StacGradient
   /// with the given fields replaced by the non-null parameter values.
@@ -94,17 +94,17 @@ abstract mixin class $StacGradientCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String> colors,
-      List<double>? stops,
+      List<StacDouble>? stops,
       StacAlignment begin,
       StacAlignment end,
       StacAlignment center,
       StacGradientType gradientType,
       StacAlignmentGeometry? focal,
       TileMode tileMode,
-      double focalRadius,
-      double radius,
-      double startAngle,
-      double endAngle});
+      StacDouble focalRadius,
+      StacDouble radius,
+      StacDouble startAngle,
+      StacDouble endAngle});
 
   $StacAlignmentGeometryCopyWith<$Res>? get focal;
 }
@@ -142,7 +142,7 @@ class _$StacGradientCopyWithImpl<$Res> implements $StacGradientCopyWith<$Res> {
       stops: freezed == stops
           ? _self.stops
           : stops // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<StacDouble>?,
       begin: null == begin
           ? _self.begin
           : begin // ignore: cast_nullable_to_non_nullable
@@ -170,19 +170,19 @@ class _$StacGradientCopyWithImpl<$Res> implements $StacGradientCopyWith<$Res> {
       focalRadius: null == focalRadius
           ? _self.focalRadius
           : focalRadius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       radius: null == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       startAngle: null == startAngle
           ? _self.startAngle
           : startAngle // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       endAngle: null == endAngle
           ? _self.endAngle
           : endAngle // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 
@@ -206,17 +206,17 @@ class _$StacGradientCopyWithImpl<$Res> implements $StacGradientCopyWith<$Res> {
 class _StacGradient implements StacGradient {
   const _StacGradient(
       {required final List<String> colors,
-      final List<double>? stops,
+      final List<StacDouble>? stops,
       this.begin = StacAlignment.centerLeft,
       this.end = StacAlignment.centerRight,
       this.center = StacAlignment.center,
       this.gradientType = StacGradientType.linear,
       this.focal,
       this.tileMode = TileMode.clamp,
-      this.focalRadius = 0.0,
-      this.radius = 0.5,
-      this.startAngle = 0.0,
-      this.endAngle = math.pi * 2})
+      this.focalRadius = StacDouble.zero,
+      this.radius = const StacDouble(0.5),
+      this.startAngle = StacDouble.zero,
+      this.endAngle = const StacDouble(math.pi * 2)})
       : _colors = colors,
         _stops = stops;
   factory _StacGradient.fromJson(Map<String, dynamic> json) =>
@@ -230,9 +230,9 @@ class _StacGradient implements StacGradient {
     return EqualUnmodifiableListView(_colors);
   }
 
-  final List<double>? _stops;
+  final List<StacDouble>? _stops;
   @override
-  List<double>? get stops {
+  List<StacDouble>? get stops {
     final value = _stops;
     if (value == null) return null;
     if (_stops is EqualUnmodifiableListView) return _stops;
@@ -259,16 +259,16 @@ class _StacGradient implements StacGradient {
   final TileMode tileMode;
   @override
   @JsonKey()
-  final double focalRadius;
+  final StacDouble focalRadius;
   @override
   @JsonKey()
-  final double radius;
+  final StacDouble radius;
   @override
   @JsonKey()
-  final double startAngle;
+  final StacDouble startAngle;
   @override
   @JsonKey()
-  final double endAngle;
+  final StacDouble endAngle;
 
   /// Create a copy of StacGradient
   /// with the given fields replaced by the non-null parameter values.
@@ -342,17 +342,17 @@ abstract mixin class _$StacGradientCopyWith<$Res>
   @useResult
   $Res call(
       {List<String> colors,
-      List<double>? stops,
+      List<StacDouble>? stops,
       StacAlignment begin,
       StacAlignment end,
       StacAlignment center,
       StacGradientType gradientType,
       StacAlignmentGeometry? focal,
       TileMode tileMode,
-      double focalRadius,
-      double radius,
-      double startAngle,
-      double endAngle});
+      StacDouble focalRadius,
+      StacDouble radius,
+      StacDouble startAngle,
+      StacDouble endAngle});
 
   @override
   $StacAlignmentGeometryCopyWith<$Res>? get focal;
@@ -392,7 +392,7 @@ class __$StacGradientCopyWithImpl<$Res>
       stops: freezed == stops
           ? _self._stops
           : stops // ignore: cast_nullable_to_non_nullable
-              as List<double>?,
+              as List<StacDouble>?,
       begin: null == begin
           ? _self.begin
           : begin // ignore: cast_nullable_to_non_nullable
@@ -420,19 +420,19 @@ class __$StacGradientCopyWithImpl<$Res>
       focalRadius: null == focalRadius
           ? _self.focalRadius
           : focalRadius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       radius: null == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       startAngle: null == startAngle
           ? _self.startAngle
           : startAngle // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       endAngle: null == endAngle
           ? _self.endAngle
           : endAngle // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data/stac_icon_theme_data.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_shape_border/stac_shape_border.dart';
 import 'package:stac/src/parsers/widgets/stac_system_ui_olverlay_style/stac_system_ui_overlay_style.dart';
@@ -32,8 +33,8 @@ class StacSliverAppBarParser extends StacParser<StacSliverAppBar> {
           .toList(growable: false),
       flexibleSpace: Stac.fromJson(model.flexibleSpace, context),
       bottom: Stac.fromJson(model.bottom, context).toPreferredSizeWidget,
-      elevation: model.elevation,
-      scrolledUnderElevation: model.scrolledUnderElevation,
+      elevation: model.elevation?.parse,
+      scrolledUnderElevation: model.scrolledUnderElevation?.parse,
       shadowColor: model.shadowColor.toColor(context),
       surfaceTintColor: model.surfaceTintColor.toColor(context),
       forceElevated: model.forceElevated,
@@ -44,17 +45,17 @@ class StacSliverAppBarParser extends StacParser<StacSliverAppBar> {
       primary: model.primary,
       centerTitle: model.centerTitle,
       excludeHeaderSemantics: model.excludeHeaderSemantics,
-      titleSpacing: model.titleSpacing,
-      collapsedHeight: model.collapsedHeight,
-      expandedHeight: model.expandedHeight,
+      titleSpacing: model.titleSpacing?.parse,
+      collapsedHeight: model.collapsedHeight?.parse,
+      expandedHeight: model.expandedHeight?.parse,
       floating: model.floating,
       pinned: model.pinned,
       snap: model.snap,
       stretch: model.stretch,
-      stretchTriggerOffset: model.stretchTriggerOffset,
+      stretchTriggerOffset: model.stretchTriggerOffset.parse,
       shape: model.shape?.parse(context),
-      toolbarHeight: model.toolbarHeight,
-      leadingWidth: model.leadingWidth,
+      toolbarHeight: model.toolbarHeight.parse,
+      leadingWidth: model.leadingWidth?.parse,
       toolbarTextStyle: model.toolbarTextStyle?.parse(context),
       titleTextStyle: model.titleTextStyle?.parse(context),
       systemOverlayStyle: model.systemOverlayStyle?.parse(context),

@@ -10,8 +10,12 @@ _StacFractionallySizedBox _$StacFractionallySizedBoxFromJson(
         Map<String, dynamic> json) =>
     _StacFractionallySizedBox(
       alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-      widthFactor: (json['widthFactor'] as num?)?.toDouble(),
-      heightFactor: (json['heightFactor'] as num?)?.toDouble(),
+      widthFactor: json['widthFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['widthFactor']),
+      heightFactor: json['heightFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['heightFactor']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

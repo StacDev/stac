@@ -26,7 +26,7 @@ mixin _$StacRadio {
   String? get focusColor;
   String? get hoverColor;
   String? get overlayColor;
-  double? get splashRadius;
+  StacDouble? get splashRadius;
   MaterialTapTargetSize? get materialTapTargetSize;
   StacVisualDensity? get visualDensity;
   bool get autofocus;
@@ -129,7 +129,7 @@ abstract mixin class $StacRadioCopyWith<$Res> {
       String? focusColor,
       String? hoverColor,
       String? overlayColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       MaterialTapTargetSize? materialTapTargetSize,
       StacVisualDensity? visualDensity,
       bool autofocus,
@@ -217,7 +217,7 @@ class _$StacRadioCopyWithImpl<$Res> implements $StacRadioCopyWith<$Res> {
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       materialTapTargetSize: freezed == materialTapTargetSize
           ? _self.materialTapTargetSize
           : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
@@ -314,7 +314,7 @@ class _StacRadio implements StacRadio {
   @override
   final String? overlayColor;
   @override
-  final double? splashRadius;
+  final StacDouble? splashRadius;
   @override
   final MaterialTapTargetSize? materialTapTargetSize;
   @override
@@ -434,7 +434,7 @@ abstract mixin class _$StacRadioCopyWith<$Res>
       String? focusColor,
       String? hoverColor,
       String? overlayColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       MaterialTapTargetSize? materialTapTargetSize,
       StacVisualDensity? visualDensity,
       bool autofocus,
@@ -523,7 +523,7 @@ class __$StacRadioCopyWithImpl<$Res> implements _$StacRadioCopyWith<$Res> {
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       materialTapTargetSize: freezed == materialTapTargetSize
           ? _self.materialTapTargetSize
           : materialTapTargetSize // ignore: cast_nullable_to_non_nullable

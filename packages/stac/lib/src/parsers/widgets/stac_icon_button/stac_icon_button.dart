@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style.dart';
 import 'package:stac/src/parsers/widgets/stac_alignment/stac_alignment.dart';
 import 'package:stac/src/parsers/widgets/stac_box_constraints/stac_box_constraints.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 
 export 'stac_icon_button_parser.dart';
@@ -12,10 +13,10 @@ part 'stac_icon_button.g.dart';
 @freezed
 abstract class StacIconButton with _$StacIconButton {
   const factory StacIconButton({
-    double? iconSize,
+    StacDouble? iconSize,
     StacEdgeInsets? padding,
     StacAlignment? alignment,
-    double? splashRadius,
+    StacDouble? splashRadius,
     String? color,
     String? focusColor,
     String? hoverColor,

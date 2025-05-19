@@ -39,8 +39,12 @@ _StacTextField _$StacTextFieldFromJson(Map<String, dynamic> json) =>
       obscureText: json['obscureText'] as bool? ?? false,
       enableSuggestions: json['enableSuggestions'] as bool? ?? true,
       enabled: json['enabled'] as bool?,
-      cursorWidth: (json['cursorWidth'] as num?)?.toDouble() ?? 2,
-      cursorHeight: (json['cursorHeight'] as num?)?.toDouble(),
+      cursorWidth: json['cursorWidth'] == null
+          ? const StacDouble(2)
+          : StacDouble.fromJson(json['cursorWidth']),
+      cursorHeight: json['cursorHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['cursorHeight']),
       cursorColor: json['cursorColor'] as String?,
       hintText: json['hintText'] as String?,
       inputFormatters: (json['inputFormatters'] as List<dynamic>?)

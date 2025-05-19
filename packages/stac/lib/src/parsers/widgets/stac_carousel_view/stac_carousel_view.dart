@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 
 export 'stac_carousel_view_parser.dart';
@@ -18,15 +19,15 @@ abstract class StacCarouselView with _$StacCarouselView {
     @Default(StacCarouselViewType.regular) StacCarouselViewType carouselType,
     StacEdgeInsets? padding,
     String? backgroundColor,
-    double? elevation,
+    StacDouble? elevation,
     String? overlayColor,
     @Default(false) bool itemSnapping,
-    @Default(0.0) double shrinkExtent,
+    @Default(StacDouble.zero) StacDouble shrinkExtent,
     @Default(Axis.horizontal) Axis scrollDirection,
     @Default(false) bool reverse,
     Map<String, dynamic>? onTap,
     @Default(true) bool enableSplash,
-    double? itemExtent,
+    StacDouble? itemExtent,
     List<int>? flexWeights,
     required List<Map<String, dynamic>>? children,
   }) = _StacCarouselView;

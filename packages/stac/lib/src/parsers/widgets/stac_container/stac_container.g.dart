@@ -21,8 +21,9 @@ _StacContainer _$StacContainerFromJson(Map<String, dynamic> json) =>
           : StacBoxDecoration.fromJson(
               json['foregroundDecoration'] as Map<String, dynamic>),
       color: json['color'] as String?,
-      width: (json['width'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       constraints: json['constraints'] == null
           ? null
           : StacBoxConstraints.fromJson(

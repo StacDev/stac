@@ -12,7 +12,8 @@ _StacTab _$StacTabFromJson(Map<String, dynamic> json) => _StacTab(
       iconMargin: json['iconMargin'] == null
           ? null
           : StacEdgeInsets.fromJson(json['iconMargin']),
-      height: (json['height'] as num?)?.toDouble(),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

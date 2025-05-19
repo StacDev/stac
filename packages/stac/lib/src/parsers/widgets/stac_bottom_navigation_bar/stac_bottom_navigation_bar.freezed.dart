@@ -16,15 +16,15 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacBottomNavigationBar {
   List<StacBottomNavigationBarItem> get items;
-  double? get elevation;
+  StacDouble? get elevation;
   BottomNavigationBarType? get bottomNavigationBarType;
   String? get fixedColor;
   String? get backgroundColor;
-  double get iconSize;
+  StacDouble get iconSize;
   String? get selectedItemColor;
   String? get unselectedItemColor;
-  double get selectedFontSize;
-  double get unselectedFontSize;
+  StacDouble get selectedFontSize;
+  StacDouble get unselectedFontSize;
   StacTextStyle? get selectedLabelStyle;
   StacTextStyle? get unselectedLabelStyle;
   bool? get showSelectedLabels;
@@ -117,15 +117,15 @@ abstract mixin class $StacBottomNavigationBarCopyWith<$Res> {
   @useResult
   $Res call(
       {List<StacBottomNavigationBarItem> items,
-      double? elevation,
+      StacDouble? elevation,
       BottomNavigationBarType? bottomNavigationBarType,
       String? fixedColor,
       String? backgroundColor,
-      double iconSize,
+      StacDouble iconSize,
       String? selectedItemColor,
       String? unselectedItemColor,
-      double selectedFontSize,
-      double unselectedFontSize,
+      StacDouble selectedFontSize,
+      StacDouble unselectedFontSize,
       StacTextStyle? selectedLabelStyle,
       StacTextStyle? unselectedLabelStyle,
       bool? showSelectedLabels,
@@ -175,7 +175,7 @@ class _$StacBottomNavigationBarCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottomNavigationBarType: freezed == bottomNavigationBarType
           ? _self.bottomNavigationBarType
           : bottomNavigationBarType // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class _$StacBottomNavigationBarCopyWithImpl<$Res>
       iconSize: null == iconSize
           ? _self.iconSize
           : iconSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       selectedItemColor: freezed == selectedItemColor
           ? _self.selectedItemColor
           : selectedItemColor // ignore: cast_nullable_to_non_nullable
@@ -203,11 +203,11 @@ class _$StacBottomNavigationBarCopyWithImpl<$Res>
       selectedFontSize: null == selectedFontSize
           ? _self.selectedFontSize
           : selectedFontSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       unselectedFontSize: null == unselectedFontSize
           ? _self.unselectedFontSize
           : unselectedFontSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       selectedLabelStyle: freezed == selectedLabelStyle
           ? _self.selectedLabelStyle
           : selectedLabelStyle // ignore: cast_nullable_to_non_nullable
@@ -273,11 +273,11 @@ class _StacBottomNavigationBar implements StacBottomNavigationBar {
       this.bottomNavigationBarType,
       this.fixedColor,
       this.backgroundColor,
-      this.iconSize = 24,
+      this.iconSize = const StacDouble(24),
       this.selectedItemColor,
       this.unselectedItemColor,
-      this.selectedFontSize = 14.0,
-      this.unselectedFontSize = 12.0,
+      this.selectedFontSize = const StacDouble(14.0),
+      this.unselectedFontSize = const StacDouble(12.0),
       this.selectedLabelStyle,
       this.unselectedLabelStyle,
       this.showSelectedLabels,
@@ -297,7 +297,7 @@ class _StacBottomNavigationBar implements StacBottomNavigationBar {
   }
 
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
   final BottomNavigationBarType? bottomNavigationBarType;
   @override
@@ -306,17 +306,17 @@ class _StacBottomNavigationBar implements StacBottomNavigationBar {
   final String? backgroundColor;
   @override
   @JsonKey()
-  final double iconSize;
+  final StacDouble iconSize;
   @override
   final String? selectedItemColor;
   @override
   final String? unselectedItemColor;
   @override
   @JsonKey()
-  final double selectedFontSize;
+  final StacDouble selectedFontSize;
   @override
   @JsonKey()
-  final double unselectedFontSize;
+  final StacDouble unselectedFontSize;
   @override
   final StacTextStyle? selectedLabelStyle;
   @override
@@ -422,15 +422,15 @@ abstract mixin class _$StacBottomNavigationBarCopyWith<$Res>
   @useResult
   $Res call(
       {List<StacBottomNavigationBarItem> items,
-      double? elevation,
+      StacDouble? elevation,
       BottomNavigationBarType? bottomNavigationBarType,
       String? fixedColor,
       String? backgroundColor,
-      double iconSize,
+      StacDouble iconSize,
       String? selectedItemColor,
       String? unselectedItemColor,
-      double selectedFontSize,
-      double unselectedFontSize,
+      StacDouble selectedFontSize,
+      StacDouble unselectedFontSize,
       StacTextStyle? selectedLabelStyle,
       StacTextStyle? unselectedLabelStyle,
       bool? showSelectedLabels,
@@ -482,7 +482,7 @@ class __$StacBottomNavigationBarCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottomNavigationBarType: freezed == bottomNavigationBarType
           ? _self.bottomNavigationBarType
           : bottomNavigationBarType // ignore: cast_nullable_to_non_nullable
@@ -498,7 +498,7 @@ class __$StacBottomNavigationBarCopyWithImpl<$Res>
       iconSize: null == iconSize
           ? _self.iconSize
           : iconSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       selectedItemColor: freezed == selectedItemColor
           ? _self.selectedItemColor
           : selectedItemColor // ignore: cast_nullable_to_non_nullable
@@ -510,11 +510,11 @@ class __$StacBottomNavigationBarCopyWithImpl<$Res>
       selectedFontSize: null == selectedFontSize
           ? _self.selectedFontSize
           : selectedFontSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       unselectedFontSize: null == unselectedFontSize
           ? _self.unselectedFontSize
           : unselectedFontSize // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       selectedLabelStyle: freezed == selectedLabelStyle
           ? _self.selectedLabelStyle
           : selectedLabelStyle // ignore: cast_nullable_to_non_nullable

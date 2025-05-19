@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/parsers.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_offset/stac_offset.dart';
 import 'package:stac/src/utils/text_input_utils.dart';
 
@@ -13,8 +14,8 @@ part 'stac_dropdown_menu.g.dart';
 abstract class StacDropdownMenu with _$StacDropdownMenu {
   const factory StacDropdownMenu({
     @Default(true) bool enabled,
-    double? width,
-    double? menuHeight,
+    StacDouble? width,
+    StacDouble? menuHeight,
     Map<String, dynamic>? leadingIcon,
     Map<String, dynamic>? trailingIcon,
     Map<String, dynamic>? label,

@@ -16,9 +16,9 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacBoxShadow {
   String? get color;
-  double? get blurRadius;
+  StacDouble? get blurRadius;
   StacOffset get offset;
-  double? get spreadRadius;
+  StacDouble? get spreadRadius;
   BlurStyle? get blurStyle;
 
   /// Create a copy of StacBoxShadow
@@ -66,9 +66,9 @@ abstract mixin class $StacBoxShadowCopyWith<$Res> {
   @useResult
   $Res call(
       {String? color,
-      double? blurRadius,
+      StacDouble? blurRadius,
       StacOffset offset,
-      double? spreadRadius,
+      StacDouble? spreadRadius,
       BlurStyle? blurStyle});
 
   $StacOffsetCopyWith<$Res> get offset;
@@ -101,7 +101,7 @@ class _$StacBoxShadowCopyWithImpl<$Res>
       blurRadius: freezed == blurRadius
           ? _self.blurRadius
           : blurRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       offset: null == offset
           ? _self.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ class _$StacBoxShadowCopyWithImpl<$Res>
       spreadRadius: freezed == spreadRadius
           ? _self.spreadRadius
           : spreadRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       blurStyle: freezed == blurStyle
           ? _self.blurStyle
           : blurStyle // ignore: cast_nullable_to_non_nullable
@@ -133,9 +133,9 @@ class _$StacBoxShadowCopyWithImpl<$Res>
 class _StacBoxShadow implements StacBoxShadow {
   const _StacBoxShadow(
       {this.color,
-      this.blurRadius = 0.0,
-      this.offset = const StacOffset(dx: 0, dy: 0),
-      this.spreadRadius = 0.0,
+      this.blurRadius = StacDouble.zero,
+      this.offset = const StacOffset(dx: StacDouble.zero, dy: StacDouble.zero),
+      this.spreadRadius = StacDouble.zero,
       this.blurStyle = BlurStyle.normal});
   factory _StacBoxShadow.fromJson(Map<String, dynamic> json) =>
       _$StacBoxShadowFromJson(json);
@@ -144,13 +144,13 @@ class _StacBoxShadow implements StacBoxShadow {
   final String? color;
   @override
   @JsonKey()
-  final double? blurRadius;
+  final StacDouble? blurRadius;
   @override
   @JsonKey()
   final StacOffset offset;
   @override
   @JsonKey()
-  final double? spreadRadius;
+  final StacDouble? spreadRadius;
   @override
   @JsonKey()
   final BlurStyle? blurStyle;
@@ -206,9 +206,9 @@ abstract mixin class _$StacBoxShadowCopyWith<$Res>
   @useResult
   $Res call(
       {String? color,
-      double? blurRadius,
+      StacDouble? blurRadius,
       StacOffset offset,
-      double? spreadRadius,
+      StacDouble? spreadRadius,
       BlurStyle? blurStyle});
 
   @override
@@ -242,7 +242,7 @@ class __$StacBoxShadowCopyWithImpl<$Res>
       blurRadius: freezed == blurRadius
           ? _self.blurRadius
           : blurRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       offset: null == offset
           ? _self.offset
           : offset // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ class __$StacBoxShadowCopyWithImpl<$Res>
       spreadRadius: freezed == spreadRadius
           ? _self.spreadRadius
           : spreadRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       blurStyle: freezed == blurStyle
           ? _self.blurStyle
           : blurStyle // ignore: cast_nullable_to_non_nullable

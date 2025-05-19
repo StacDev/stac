@@ -14,7 +14,9 @@ _StacInputBorder _$StacInputBorderFromJson(Map<String, dynamic> json) =>
           ? null
           : StacBorderRadius.fromJson(json['borderRadius']),
       gapPadding: (json['gapPadding'] as num?)?.toDouble() ?? 4.0,
-      width: (json['width'] as num?)?.toDouble() ?? 0.0,
+      width: json['width'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['width']),
       color: json['color'] as String?,
       gradient: json['gradient'] == null
           ? null

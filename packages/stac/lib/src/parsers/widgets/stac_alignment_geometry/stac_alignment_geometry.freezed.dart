@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacAlignmentGeometry {
-  double get dx;
-  double get dy;
+  StacDouble get dx;
+  StacDouble get dy;
 
   /// Create a copy of StacAlignmentGeometry
   /// with the given fields replaced by the non-null parameter values.
@@ -54,7 +54,7 @@ abstract mixin class $StacAlignmentGeometryCopyWith<$Res> {
           $Res Function(StacAlignmentGeometry) _then) =
       _$StacAlignmentGeometryCopyWithImpl;
   @useResult
-  $Res call({double dx, double dy});
+  $Res call({StacDouble dx, StacDouble dy});
 }
 
 /// @nodoc
@@ -77,11 +77,11 @@ class _$StacAlignmentGeometryCopyWithImpl<$Res>
       dx: null == dx
           ? _self.dx
           : dx // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       dy: null == dy
           ? _self.dy
           : dy // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -94,9 +94,9 @@ class _StacAlignmentGeometry implements StacAlignmentGeometry {
       _$StacAlignmentGeometryFromJson(json);
 
   @override
-  final double dx;
+  final StacDouble dx;
   @override
-  final double dy;
+  final StacDouble dy;
 
   /// Create a copy of StacAlignmentGeometry
   /// with the given fields replaced by the non-null parameter values.
@@ -141,7 +141,7 @@ abstract mixin class _$StacAlignmentGeometryCopyWith<$Res>
       __$StacAlignmentGeometryCopyWithImpl;
   @override
   @useResult
-  $Res call({double dx, double dy});
+  $Res call({StacDouble dx, StacDouble dy});
 }
 
 /// @nodoc
@@ -164,11 +164,11 @@ class __$StacAlignmentGeometryCopyWithImpl<$Res>
       dx: null == dx
           ? _self.dx
           : dx // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       dy: null == dy
           ? _self.dy
           : dy // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

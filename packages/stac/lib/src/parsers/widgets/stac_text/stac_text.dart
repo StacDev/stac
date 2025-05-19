@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 
 export 'stac_text_parser.dart';
@@ -17,7 +18,7 @@ abstract class StacText with _$StacText {
     TextDirection? textDirection,
     bool? softWrap,
     TextOverflow? overflow,
-    double? textScaleFactor,
+    StacDouble? textScaleFactor,
     int? maxLines,
     String? semanticsLabel,
     TextWidthBasis? textWidthBasis,

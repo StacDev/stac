@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/stac.dart';
 
 export 'stac_table_parser.dart';
@@ -46,7 +47,7 @@ abstract class StacTableRow with _$StacTableRow {
 abstract class StacTableBorder with _$StacTableBorder {
   const factory StacTableBorder({
     @Default('#000000') String color,
-    @Default(1.0) double width,
+    @Default(StacDouble(1.0)) StacDouble width,
     @Default(BorderStyle.solid) BorderStyle style,
     @Default(StacBorderRadius()) StacBorderRadius borderRadius,
   }) = _StacTableBorder;
@@ -60,7 +61,7 @@ abstract class StacTableColumnWidth with _$StacTableColumnWidth {
   const factory StacTableColumnWidth({
     @Default(StacTableColumnWidthType.flexColumnWidth)
     StacTableColumnWidthType type,
-    double? value,
+    StacDouble? value,
   }) = _StacTableColumnWidth;
 
   factory StacTableColumnWidth.fromJson(Map<String, dynamic> json) =>

@@ -8,10 +8,10 @@ part of 'stac_box_constraints.dart';
 
 _StacBoxConstraints _$StacBoxConstraintsFromJson(Map<String, dynamic> json) =>
     _StacBoxConstraints(
-      minWidth: (json['minWidth'] as num).toDouble(),
-      maxWidth: (json['maxWidth'] as num).toDouble(),
-      minHeight: (json['minHeight'] as num).toDouble(),
-      maxHeight: (json['maxHeight'] as num).toDouble(),
+      minWidth: StacDouble.fromJson(json['minWidth']),
+      maxWidth: StacDouble.fromJson(json['maxWidth']),
+      minHeight: StacDouble.fromJson(json['minHeight']),
+      maxHeight: StacDouble.fromJson(json['maxHeight']),
     );
 
 Map<String, dynamic> _$StacBoxConstraintsToJson(_StacBoxConstraints instance) =>

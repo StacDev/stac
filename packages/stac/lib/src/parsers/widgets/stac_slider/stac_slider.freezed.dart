@@ -17,13 +17,13 @@ T _$identity<T>(T value) => value;
 mixin _$StacSlider {
   String? get id;
   StacSliderType get sliderType;
-  double get value;
-  double? get secondaryTrackValue;
+  StacDouble get value;
+  StacDouble? get secondaryTrackValue;
   Map<String, dynamic>? get onChanged;
   Map<String, dynamic>? get onChangeStart;
   Map<String, dynamic>? get onChangeEnd;
-  double get min;
-  double get max;
+  StacDouble get min;
+  StacDouble get max;
   int? get divisions;
   String? get label;
   String? get activeColor;
@@ -124,13 +124,13 @@ abstract mixin class $StacSliderCopyWith<$Res> {
   $Res call(
       {String? id,
       StacSliderType sliderType,
-      double value,
-      double? secondaryTrackValue,
+      StacDouble value,
+      StacDouble? secondaryTrackValue,
       Map<String, dynamic>? onChanged,
       Map<String, dynamic>? onChangeStart,
       Map<String, dynamic>? onChangeEnd,
-      double min,
-      double max,
+      StacDouble min,
+      StacDouble max,
       int? divisions,
       String? label,
       String? activeColor,
@@ -187,11 +187,11 @@ class _$StacSliderCopyWithImpl<$Res> implements $StacSliderCopyWith<$Res> {
       value: null == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       secondaryTrackValue: freezed == secondaryTrackValue
           ? _self.secondaryTrackValue
           : secondaryTrackValue // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       onChanged: freezed == onChanged
           ? _self.onChanged
           : onChanged // ignore: cast_nullable_to_non_nullable
@@ -207,11 +207,11 @@ class _$StacSliderCopyWithImpl<$Res> implements $StacSliderCopyWith<$Res> {
       min: null == min
           ? _self.min
           : min // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       max: null == max
           ? _self.max
           : max // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       divisions: freezed == divisions
           ? _self.divisions
           : divisions // ignore: cast_nullable_to_non_nullable
@@ -267,8 +267,8 @@ class _StacSlider implements StacSlider {
       final Map<String, dynamic>? onChanged,
       final Map<String, dynamic>? onChangeStart,
       final Map<String, dynamic>? onChangeEnd,
-      this.min = 0.0,
-      this.max = 1.0,
+      this.min = StacDouble.zero,
+      this.max = const StacDouble(1.0),
       this.divisions,
       this.label,
       this.activeColor,
@@ -291,9 +291,9 @@ class _StacSlider implements StacSlider {
   @JsonKey()
   final StacSliderType sliderType;
   @override
-  final double value;
+  final StacDouble value;
   @override
-  final double? secondaryTrackValue;
+  final StacDouble? secondaryTrackValue;
   final Map<String, dynamic>? _onChanged;
   @override
   Map<String, dynamic>? get onChanged {
@@ -326,10 +326,10 @@ class _StacSlider implements StacSlider {
 
   @override
   @JsonKey()
-  final double min;
+  final StacDouble min;
   @override
   @JsonKey()
-  final double max;
+  final StacDouble max;
   @override
   final int? divisions;
   @override
@@ -449,13 +449,13 @@ abstract mixin class _$StacSliderCopyWith<$Res>
   $Res call(
       {String? id,
       StacSliderType sliderType,
-      double value,
-      double? secondaryTrackValue,
+      StacDouble value,
+      StacDouble? secondaryTrackValue,
       Map<String, dynamic>? onChanged,
       Map<String, dynamic>? onChangeStart,
       Map<String, dynamic>? onChangeEnd,
-      double min,
-      double max,
+      StacDouble min,
+      StacDouble max,
       int? divisions,
       String? label,
       String? activeColor,
@@ -512,11 +512,11 @@ class __$StacSliderCopyWithImpl<$Res> implements _$StacSliderCopyWith<$Res> {
       value: null == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       secondaryTrackValue: freezed == secondaryTrackValue
           ? _self.secondaryTrackValue
           : secondaryTrackValue // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       onChanged: freezed == onChanged
           ? _self._onChanged
           : onChanged // ignore: cast_nullable_to_non_nullable
@@ -532,11 +532,11 @@ class __$StacSliderCopyWithImpl<$Res> implements _$StacSliderCopyWith<$Res> {
       min: null == min
           ? _self.min
           : min // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       max: null == max
           ? _self.max
           : max // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       divisions: freezed == divisions
           ? _self.divisions
           : divisions // ignore: cast_nullable_to_non_nullable

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/stac.dart';
 
 export 'stac_grid_view_parser.dart';
@@ -18,14 +19,14 @@ abstract class StacGridView with _$StacGridView {
     @Default(false) bool shrinkWrap,
     StacEdgeInsets? padding,
     int? crossAxisCount,
-    @Default(0.0) double mainAxisSpacing,
-    @Default(0.0) double crossAxisSpacing,
-    @Default(1.0) double childAspectRatio,
-    double? mainAxisExtent,
+    @Default(StacDouble.zero) StacDouble mainAxisSpacing,
+    @Default(StacDouble.zero) StacDouble crossAxisSpacing,
+    @Default(StacDouble(1.0)) StacDouble childAspectRatio,
+    StacDouble? mainAxisExtent,
     @Default(true) bool addAutomaticKeepAlives,
     @Default(true) bool addRepaintBoundaries,
     @Default(true) bool addSemanticIndexes,
-    double? cacheExtent,
+    StacDouble? cacheExtent,
     @Default([]) List<Map<String, dynamic>> children,
     int? semanticChildCount,
     @Default(DragStartBehavior.start) DragStartBehavior dragStartBehavior,

@@ -24,16 +24,29 @@ _StacAppBar _$StacAppBarFromJson(Map<String, dynamic> json) => _StacAppBar(
               .toList() ??
           const [],
       bottom: json['bottom'] as Map<String, dynamic>?,
-      titleSpacing: (json['titleSpacing'] as num?)?.toDouble(),
-      toolbarOpacity: (json['toolbarOpacity'] as num?)?.toDouble() ?? 1.0,
-      bottomOpacity: (json['bottomOpacity'] as num?)?.toDouble() ?? 1.0,
-      toolbarHeight: (json['toolbarHeight'] as num?)?.toDouble(),
-      leadingWidth: (json['leadingWidth'] as num?)?.toDouble(),
+      titleSpacing: json['titleSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['titleSpacing']),
+      toolbarOpacity: json['toolbarOpacity'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['toolbarOpacity']),
+      bottomOpacity: json['bottomOpacity'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['bottomOpacity']),
+      toolbarHeight: json['toolbarHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['toolbarHeight']),
+      leadingWidth: json['leadingWidth'] == null
+          ? null
+          : StacDouble.fromJson(json['leadingWidth']),
       primary: json['primary'] as bool? ?? true,
       centerTitle: json['centerTitle'] as bool?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
-      scrolledUnderElevation:
-          (json['scrolledUnderElevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
+      scrolledUnderElevation: json['scrolledUnderElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['scrolledUnderElevation']),
     );
 
 Map<String, dynamic> _$StacAppBarToJson(_StacAppBar instance) =>

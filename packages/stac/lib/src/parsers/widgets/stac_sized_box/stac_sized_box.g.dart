@@ -8,8 +8,9 @@ part of 'stac_sized_box.dart';
 
 _StacSizedBox _$StacSizedBoxFromJson(Map<String, dynamic> json) =>
     _StacSizedBox(
-      width: (json['width'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

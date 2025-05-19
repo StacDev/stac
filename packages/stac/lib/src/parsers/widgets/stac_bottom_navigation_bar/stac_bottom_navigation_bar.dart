@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_navigation_bar_item/stac_bottom_navigation_bar_item.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 
@@ -12,15 +13,15 @@ part 'stac_bottom_navigation_bar.g.dart';
 abstract class StacBottomNavigationBar with _$StacBottomNavigationBar {
   const factory StacBottomNavigationBar({
     required List<StacBottomNavigationBarItem> items,
-    double? elevation,
+    StacDouble? elevation,
     BottomNavigationBarType? bottomNavigationBarType,
     String? fixedColor,
     String? backgroundColor,
-    @Default(24) double iconSize,
+    @Default(StacDouble(24)) StacDouble iconSize,
     String? selectedItemColor,
     String? unselectedItemColor,
-    @Default(14.0) double selectedFontSize,
-    @Default(12.0) double unselectedFontSize,
+    @Default(StacDouble(14.0)) StacDouble selectedFontSize,
+    @Default(StacDouble(12.0)) StacDouble unselectedFontSize,
     StacTextStyle? selectedLabelStyle,
     StacTextStyle? unselectedLabelStyle,
     bool? showSelectedLabels,

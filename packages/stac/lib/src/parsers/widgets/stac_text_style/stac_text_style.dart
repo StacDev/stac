@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_font_weight/stac_font_weight.dart';
 import 'package:stac/src/utils/color_utils.dart';
 
@@ -13,15 +14,15 @@ abstract class StacTextStyle with _$StacTextStyle {
     String? color,
     String? backgroundColor,
     String? styleFromTheme,
-    double? fontSize,
+    StacDouble? fontSize,
     StacFontWeight? fontWeight,
     FontStyle? fontStyle,
     String? fontFamily,
     List<String>? fontFamilyFallback,
-    double? letterSpacing,
-    double? wordSpacing,
+    StacDouble? letterSpacing,
+    StacDouble? wordSpacing,
     TextBaseline? textBaseline,
-    double? height,
+    StacDouble? height,
   }) = _StacTextStyle;
 
   factory StacTextStyle.fromJson(dynamic json) => _fromJson(json);
@@ -78,15 +79,15 @@ extension StacTextStyleParser on StacTextStyle {
       inherit: inherit,
       color: color?.toColor(context),
       backgroundColor: backgroundColor.toColor(context),
-      fontSize: fontSize,
+      fontSize: fontSize?.parse,
       fontWeight: fontWeight?.value,
       fontStyle: fontStyle,
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
-      letterSpacing: letterSpacing,
-      wordSpacing: wordSpacing,
+      letterSpacing: letterSpacing?.parse,
+      wordSpacing: wordSpacing?.parse,
       textBaseline: textBaseline,
-      height: height,
+      height: height?.parse,
     );
   }
 }

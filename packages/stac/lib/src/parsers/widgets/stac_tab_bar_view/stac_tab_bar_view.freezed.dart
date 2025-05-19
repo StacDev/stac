@@ -19,7 +19,7 @@ mixin _$StacTabBarView {
   int get initialIndex;
   DragStartBehavior get dragStartBehavior;
   StacScrollPhysics? get physics;
-  double get viewportFraction;
+  StacDouble get viewportFraction;
   Clip get clipBehavior;
 
   /// Create a copy of StacTabBarView
@@ -78,7 +78,7 @@ abstract mixin class $StacTabBarViewCopyWith<$Res> {
       int initialIndex,
       DragStartBehavior dragStartBehavior,
       StacScrollPhysics? physics,
-      double viewportFraction,
+      StacDouble viewportFraction,
       Clip clipBehavior});
 }
 
@@ -122,7 +122,7 @@ class _$StacTabBarViewCopyWithImpl<$Res>
       viewportFraction: null == viewportFraction
           ? _self.viewportFraction
           : viewportFraction // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       clipBehavior: null == clipBehavior
           ? _self.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ class _StacTabBarView implements StacTabBarView {
       this.initialIndex = 0,
       this.dragStartBehavior = DragStartBehavior.start,
       this.physics,
-      this.viewportFraction = 1.0,
+      this.viewportFraction = const StacDouble(1.0),
       this.clipBehavior = Clip.hardEdge})
       : _children = children;
   factory _StacTabBarView.fromJson(Map<String, dynamic> json) =>
@@ -163,7 +163,7 @@ class _StacTabBarView implements StacTabBarView {
   final StacScrollPhysics? physics;
   @override
   @JsonKey()
-  final double viewportFraction;
+  final StacDouble viewportFraction;
   @override
   @JsonKey()
   final Clip clipBehavior;
@@ -230,7 +230,7 @@ abstract mixin class _$StacTabBarViewCopyWith<$Res>
       int initialIndex,
       DragStartBehavior dragStartBehavior,
       StacScrollPhysics? physics,
-      double viewportFraction,
+      StacDouble viewportFraction,
       Clip clipBehavior});
 }
 
@@ -274,7 +274,7 @@ class __$StacTabBarViewCopyWithImpl<$Res>
       viewportFraction: null == viewportFraction
           ? _self.viewportFraction
           : viewportFraction // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       clipBehavior: null == clipBehavior
           ? _self.clipBehavior
           : clipBehavior // ignore: cast_nullable_to_non_nullable

@@ -10,9 +10,8 @@ _StacGradient _$StacGradientFromJson(Map<String, dynamic> json) =>
     _StacGradient(
       colors:
           (json['colors'] as List<dynamic>).map((e) => e as String).toList(),
-      stops: (json['stops'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
+      stops:
+          (json['stops'] as List<dynamic>?)?.map(StacDouble.fromJson).toList(),
       begin: $enumDecodeNullable(_$StacAlignmentEnumMap, json['begin']) ??
           StacAlignment.centerLeft,
       end: $enumDecodeNullable(_$StacAlignmentEnumMap, json['end']) ??
@@ -28,10 +27,18 @@ _StacGradient _$StacGradientFromJson(Map<String, dynamic> json) =>
               json['focal'] as Map<String, dynamic>),
       tileMode: $enumDecodeNullable(_$TileModeEnumMap, json['tileMode']) ??
           TileMode.clamp,
-      focalRadius: (json['focalRadius'] as num?)?.toDouble() ?? 0.0,
-      radius: (json['radius'] as num?)?.toDouble() ?? 0.5,
-      startAngle: (json['startAngle'] as num?)?.toDouble() ?? 0.0,
-      endAngle: (json['endAngle'] as num?)?.toDouble() ?? math.pi * 2,
+      focalRadius: json['focalRadius'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['focalRadius']),
+      radius: json['radius'] == null
+          ? const StacDouble(0.5)
+          : StacDouble.fromJson(json['radius']),
+      startAngle: json['startAngle'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['startAngle']),
+      endAngle: json['endAngle'] == null
+          ? const StacDouble(math.pi * 2)
+          : StacDouble.fromJson(json['endAngle']),
     );
 
 Map<String, dynamic> _$StacGradientToJson(_StacGradient instance) =>

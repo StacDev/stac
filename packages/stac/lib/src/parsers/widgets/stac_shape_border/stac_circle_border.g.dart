@@ -11,7 +11,9 @@ _StacCircleBorder _$StacCircleBorderFromJson(Map<String, dynamic> json) =>
       side: json['side'] == null
           ? StacBorderSide.none
           : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
-      eccentricity: (json['eccentricity'] as num?)?.toDouble() ?? 0.0,
+      eccentricity: json['eccentricity'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['eccentricity']),
     );
 
 Map<String, dynamic> _$StacCircleBorderToJson(_StacCircleBorder instance) =>

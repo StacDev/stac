@@ -13,17 +13,24 @@ _StacBottomNavigationBar _$StacBottomNavigationBarFromJson(
           .map((e) =>
               StacBottomNavigationBarItem.fromJson(e as Map<String, dynamic>))
           .toList(),
-      elevation: (json['elevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
       bottomNavigationBarType: $enumDecodeNullable(
           _$BottomNavigationBarTypeEnumMap, json['bottomNavigationBarType']),
       fixedColor: json['fixedColor'] as String?,
       backgroundColor: json['backgroundColor'] as String?,
-      iconSize: (json['iconSize'] as num?)?.toDouble() ?? 24,
+      iconSize: json['iconSize'] == null
+          ? const StacDouble(24)
+          : StacDouble.fromJson(json['iconSize']),
       selectedItemColor: json['selectedItemColor'] as String?,
       unselectedItemColor: json['unselectedItemColor'] as String?,
-      selectedFontSize: (json['selectedFontSize'] as num?)?.toDouble() ?? 14.0,
-      unselectedFontSize:
-          (json['unselectedFontSize'] as num?)?.toDouble() ?? 12.0,
+      selectedFontSize: json['selectedFontSize'] == null
+          ? const StacDouble(14.0)
+          : StacDouble.fromJson(json['selectedFontSize']),
+      unselectedFontSize: json['unselectedFontSize'] == null
+          ? const StacDouble(12.0)
+          : StacDouble.fromJson(json['unselectedFontSize']),
       selectedLabelStyle: json['selectedLabelStyle'] == null
           ? null
           : StacTextStyle.fromJson(json['selectedLabelStyle']),

@@ -36,9 +36,9 @@ mixin _$StacListTile {
   String? get tileColor;
   String? get selectedTileColor;
   bool? get enableFeedback;
-  double? get horizontalTitleGap;
-  double? get minVerticalPadding;
-  double? get minLeadingWidth;
+  StacDouble? get horizontalTitleGap;
+  StacDouble? get minVerticalPadding;
+  StacDouble? get minLeadingWidth;
 
   /// Create a copy of StacListTile
   /// with the given fields replaced by the non-null parameter values.
@@ -162,9 +162,9 @@ abstract mixin class $StacListTileCopyWith<$Res> {
       String? tileColor,
       String? selectedTileColor,
       bool? enableFeedback,
-      double? horizontalTitleGap,
-      double? minVerticalPadding,
-      double? minLeadingWidth});
+      StacDouble? horizontalTitleGap,
+      StacDouble? minVerticalPadding,
+      StacDouble? minLeadingWidth});
 
   $StacEdgeInsetsCopyWith<$Res>? get contentPadding;
 }
@@ -294,15 +294,15 @@ class _$StacListTileCopyWithImpl<$Res> implements $StacListTileCopyWith<$Res> {
       horizontalTitleGap: freezed == horizontalTitleGap
           ? _self.horizontalTitleGap
           : horizontalTitleGap // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minVerticalPadding: freezed == minVerticalPadding
           ? _self.minVerticalPadding
           : minVerticalPadding // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minLeadingWidth: freezed == minLeadingWidth
           ? _self.minLeadingWidth
           : minLeadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 
@@ -453,11 +453,11 @@ class _StacListTile implements StacListTile {
   @override
   final bool? enableFeedback;
   @override
-  final double? horizontalTitleGap;
+  final StacDouble? horizontalTitleGap;
   @override
-  final double? minVerticalPadding;
+  final StacDouble? minVerticalPadding;
   @override
-  final double? minLeadingWidth;
+  final StacDouble? minLeadingWidth;
 
   /// Create a copy of StacListTile
   /// with the given fields replaced by the non-null parameter values.
@@ -587,9 +587,9 @@ abstract mixin class _$StacListTileCopyWith<$Res>
       String? tileColor,
       String? selectedTileColor,
       bool? enableFeedback,
-      double? horizontalTitleGap,
-      double? minVerticalPadding,
-      double? minLeadingWidth});
+      StacDouble? horizontalTitleGap,
+      StacDouble? minVerticalPadding,
+      StacDouble? minLeadingWidth});
 
   @override
   $StacEdgeInsetsCopyWith<$Res>? get contentPadding;
@@ -721,15 +721,15 @@ class __$StacListTileCopyWithImpl<$Res>
       horizontalTitleGap: freezed == horizontalTitleGap
           ? _self.horizontalTitleGap
           : horizontalTitleGap // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minVerticalPadding: freezed == minVerticalPadding
           ? _self.minVerticalPadding
           : minVerticalPadding // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minLeadingWidth: freezed == minLeadingWidth
           ? _self.minLeadingWidth
           : minLeadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 

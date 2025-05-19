@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -39,7 +40,7 @@ class StacTextParser extends StacParser<StacText> {
       softWrap: model.softWrap,
       overflow: model.overflow,
       textScaler: model.textScaleFactor != null
-          ? TextScaler.linear(model.textScaleFactor!)
+          ? TextScaler.linear(model.textScaleFactor!.parse)
           : TextScaler.noScaling,
       maxLines: model.maxLines,
       semanticsLabel: model.semanticsLabel,

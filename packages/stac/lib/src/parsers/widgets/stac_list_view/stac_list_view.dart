@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/utils/stac_scroll_physics.dart';
 
@@ -21,7 +22,7 @@ abstract class StacListView with _$StacListView {
     @Default(true) bool addAutomaticKeepAlives,
     @Default(true) bool addRepaintBoundaries,
     @Default(true) bool addSemanticIndexes,
-    double? cacheExtent,
+    StacDouble? cacheExtent,
     @Default([]) List<Map<String, dynamic>> children,
     Map<String, dynamic>? separator,
     int? semanticChildCount,

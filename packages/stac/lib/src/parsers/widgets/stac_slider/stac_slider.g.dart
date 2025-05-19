@@ -11,13 +11,19 @@ _StacSlider _$StacSliderFromJson(Map<String, dynamic> json) => _StacSlider(
       sliderType:
           $enumDecodeNullable(_$StacSliderTypeEnumMap, json['sliderType']) ??
               StacSliderType.material,
-      value: (json['value'] as num).toDouble(),
-      secondaryTrackValue: (json['secondaryTrackValue'] as num?)?.toDouble(),
+      value: StacDouble.fromJson(json['value']),
+      secondaryTrackValue: json['secondaryTrackValue'] == null
+          ? null
+          : StacDouble.fromJson(json['secondaryTrackValue']),
       onChanged: json['onChanged'] as Map<String, dynamic>?,
       onChangeStart: json['onChangeStart'] as Map<String, dynamic>?,
       onChangeEnd: json['onChangeEnd'] as Map<String, dynamic>?,
-      min: (json['min'] as num?)?.toDouble() ?? 0.0,
-      max: (json['max'] as num?)?.toDouble() ?? 1.0,
+      min: json['min'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['min']),
+      max: json['max'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['max']),
       divisions: (json['divisions'] as num?)?.toInt(),
       label: json['label'] as String?,
       activeColor: json['activeColor'] as String?,

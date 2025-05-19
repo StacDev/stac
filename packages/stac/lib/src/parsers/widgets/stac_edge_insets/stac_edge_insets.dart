@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 part 'stac_edge_insets.freezed.dart';
 part 'stac_edge_insets.g.dart';
@@ -7,10 +8,10 @@ part 'stac_edge_insets.g.dart';
 @freezed
 abstract class StacEdgeInsets with _$StacEdgeInsets {
   const factory StacEdgeInsets({
-    double? left,
-    double? top,
-    double? right,
-    double? bottom,
+    StacDouble? left,
+    StacDouble? top,
+    StacDouble? right,
+    StacDouble? bottom,
   }) = _StacEdgeInsets;
 
   factory StacEdgeInsets.fromJson(dynamic json) => _fromJson(json);
@@ -49,10 +50,10 @@ abstract class StacEdgeInsets with _$StacEdgeInsets {
 extension StacEdgeInsetsParser on StacEdgeInsets? {
   EdgeInsets get parse {
     return EdgeInsets.only(
-      left: this?.left ?? 0,
-      right: this?.right ?? 0,
-      top: this?.top ?? 0,
-      bottom: this?.bottom ?? 0,
+      left: this?.left?.parse ?? 0,
+      right: this?.right?.parse ?? 0,
+      top: this?.top?.parse ?? 0,
+      bottom: this?.bottom?.parse ?? 0,
     );
   }
 }

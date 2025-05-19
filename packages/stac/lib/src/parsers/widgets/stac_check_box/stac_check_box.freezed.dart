@@ -26,7 +26,7 @@ mixin _$StacCheckBox {
   String? get focusColor;
   String? get hoverColor;
   StacMaterialColor? get overlayColor;
-  double? get splashRadius;
+  StacDouble? get splashRadius;
   MaterialTapTargetSize? get materialTapTargetSize;
   bool get autofocus;
   bool get isError;
@@ -119,7 +119,7 @@ abstract mixin class $StacCheckBoxCopyWith<$Res> {
       String? focusColor,
       String? hoverColor,
       StacMaterialColor? overlayColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       MaterialTapTargetSize? materialTapTargetSize,
       bool autofocus,
       bool isError});
@@ -204,7 +204,7 @@ class _$StacCheckBoxCopyWithImpl<$Res> implements $StacCheckBoxCopyWith<$Res> {
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       materialTapTargetSize: freezed == materialTapTargetSize
           ? _self.materialTapTargetSize
           : materialTapTargetSize // ignore: cast_nullable_to_non_nullable
@@ -304,7 +304,7 @@ class _StacCheckBox implements StacCheckBox {
   @override
   final StacMaterialColor? overlayColor;
   @override
-  final double? splashRadius;
+  final StacDouble? splashRadius;
   @override
   final MaterialTapTargetSize? materialTapTargetSize;
   @override
@@ -409,7 +409,7 @@ abstract mixin class _$StacCheckBoxCopyWith<$Res>
       String? focusColor,
       String? hoverColor,
       StacMaterialColor? overlayColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       MaterialTapTargetSize? materialTapTargetSize,
       bool autofocus,
       bool isError});
@@ -497,7 +497,7 @@ class __$StacCheckBoxCopyWithImpl<$Res>
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       materialTapTargetSize: freezed == materialTapTargetSize
           ? _self.materialTapTargetSize
           : materialTapTargetSize // ignore: cast_nullable_to_non_nullable

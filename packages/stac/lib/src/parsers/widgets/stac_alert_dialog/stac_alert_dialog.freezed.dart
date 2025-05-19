@@ -29,10 +29,10 @@ mixin _$StacAlertDialog {
   MainAxisAlignment? get actionsAlignment;
   OverflowBarAlignment? get actionsOverflowAlignment;
   VerticalDirection? get actionsOverflowDirection;
-  double? get actionsOverflowButtonSpacing;
+  StacDouble? get actionsOverflowButtonSpacing;
   StacEdgeInsets? get buttonPadding;
   String? get backgroundColor;
-  double? get elevation;
+  StacDouble? get elevation;
   String? get shadowColor;
   String? get surfaceTintColor;
   String? get semanticLabel;
@@ -170,10 +170,10 @@ abstract mixin class $StacAlertDialogCopyWith<$Res> {
       MainAxisAlignment? actionsAlignment,
       OverflowBarAlignment? actionsOverflowAlignment,
       VerticalDirection? actionsOverflowDirection,
-      double? actionsOverflowButtonSpacing,
+      StacDouble? actionsOverflowButtonSpacing,
       StacEdgeInsets? buttonPadding,
       String? backgroundColor,
-      double? elevation,
+      StacDouble? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       String? semanticLabel,
@@ -295,7 +295,7 @@ class _$StacAlertDialogCopyWithImpl<$Res>
       actionsOverflowButtonSpacing: freezed == actionsOverflowButtonSpacing
           ? _self.actionsOverflowButtonSpacing
           : actionsOverflowButtonSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       buttonPadding: freezed == buttonPadding
           ? _self.buttonPadding
           : buttonPadding // ignore: cast_nullable_to_non_nullable
@@ -307,7 +307,7 @@ class _$StacAlertDialogCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable
@@ -505,8 +505,11 @@ class _StacAlertDialog implements StacAlertDialog {
       this.shadowColor,
       this.surfaceTintColor,
       this.semanticLabel,
-      this.insetPadding =
-          const StacEdgeInsets(left: 40, right: 40, top: 24, bottom: 24),
+      this.insetPadding = const StacEdgeInsets(
+          left: StacDouble(40),
+          right: StacDouble(40),
+          top: StacDouble(24),
+          bottom: StacDouble(24)),
       this.clipBehavior = Clip.none,
       this.shape,
       this.alignment,
@@ -579,13 +582,13 @@ class _StacAlertDialog implements StacAlertDialog {
   @override
   final VerticalDirection? actionsOverflowDirection;
   @override
-  final double? actionsOverflowButtonSpacing;
+  final StacDouble? actionsOverflowButtonSpacing;
   @override
   final StacEdgeInsets? buttonPadding;
   @override
   final String? backgroundColor;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
   final String? shadowColor;
   @override
@@ -740,10 +743,10 @@ abstract mixin class _$StacAlertDialogCopyWith<$Res>
       MainAxisAlignment? actionsAlignment,
       OverflowBarAlignment? actionsOverflowAlignment,
       VerticalDirection? actionsOverflowDirection,
-      double? actionsOverflowButtonSpacing,
+      StacDouble? actionsOverflowButtonSpacing,
       StacEdgeInsets? buttonPadding,
       String? backgroundColor,
-      double? elevation,
+      StacDouble? elevation,
       String? shadowColor,
       String? surfaceTintColor,
       String? semanticLabel,
@@ -875,7 +878,7 @@ class __$StacAlertDialogCopyWithImpl<$Res>
       actionsOverflowButtonSpacing: freezed == actionsOverflowButtonSpacing
           ? _self.actionsOverflowButtonSpacing
           : actionsOverflowButtonSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       buttonPadding: freezed == buttonPadding
           ? _self.buttonPadding
           : buttonPadding // ignore: cast_nullable_to_non_nullable
@@ -887,7 +890,7 @@ class __$StacAlertDialogCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable

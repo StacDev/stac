@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_rect/stac_rect.dart';
 import 'package:stac/stac.dart';
 
@@ -20,8 +21,8 @@ abstract class StacDecorationImage with _$StacDecorationImage {
     StacRect? centerSlice,
     @Default(ImageRepeat.noRepeat) ImageRepeat repeat,
     @Default(false) bool matchTextDirection,
-    @Default(1.0) double scale,
-    @Default(1.0) double opacity,
+    @Default(StacDouble(1.0)) StacDouble scale,
+    @Default(StacDouble(1.0)) StacDouble opacity,
     @Default(FilterQuality.low) FilterQuality filterQuality,
     @Default(false) bool invertColors,
     @Default(false) bool isAntiAlias,
@@ -57,8 +58,8 @@ extension StacDecorationImageParser on StacDecorationImage? {
       centerSlice: this?.centerSlice?.parse,
       repeat: this?.repeat ?? ImageRepeat.noRepeat,
       matchTextDirection: this?.matchTextDirection ?? false,
-      scale: this?.scale ?? 1.0,
-      opacity: this?.opacity ?? 1.0,
+      scale: this?.scale.parse ?? 1.0,
+      opacity: this?.opacity.parse ?? 1.0,
       filterQuality: this?.filterQuality ?? FilterQuality.low,
       invertColors: this?.invertColors ?? false,
       isAntiAlias: this?.isAntiAlias ?? false,

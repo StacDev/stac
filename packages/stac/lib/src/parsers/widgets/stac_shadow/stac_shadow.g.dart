@@ -9,9 +9,11 @@ part of 'stac_shadow.dart';
 _StacShadow _$StacShadowFromJson(Map<String, dynamic> json) => _StacShadow(
       color: json['color'] as String? ?? '#000000',
       offset: json['offset'] == null
-          ? const StacOffset(dx: 0, dy: 0)
+          ? const StacOffset(dx: StacDouble.zero, dy: StacDouble.zero)
           : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
-      blurRadius: (json['blurRadius'] as num?)?.toDouble() ?? 0.0,
+      blurRadius: json['blurRadius'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['blurRadius']),
     );
 
 Map<String, dynamic> _$StacShadowToJson(_StacShadow instance) =>

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_mouse_cursor/stac_mouse_cursor.dart';
 
 export 'stac_check_box_parser.dart';
@@ -22,7 +23,7 @@ abstract class StacCheckBox with _$StacCheckBox {
     String? focusColor,
     String? hoverColor,
     StacMaterialColor? overlayColor,
-    double? splashRadius,
+    StacDouble? splashRadius,
     MaterialTapTargetSize? materialTapTargetSize,
     @Default(false) bool autofocus,
     @Default(false) bool isError,

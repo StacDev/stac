@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacCircleBorder {
   StacBorderSide get side;
-  double get eccentricity;
+  StacDouble get eccentricity;
 
   /// Create a copy of StacCircleBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -55,7 +55,7 @@ abstract mixin class $StacCircleBorderCopyWith<$Res> {
           StacCircleBorder value, $Res Function(StacCircleBorder) _then) =
       _$StacCircleBorderCopyWithImpl;
   @useResult
-  $Res call({StacBorderSide side, double eccentricity});
+  $Res call({StacBorderSide side, StacDouble eccentricity});
 
   $StacBorderSideCopyWith<$Res> get side;
 }
@@ -84,7 +84,7 @@ class _$StacCircleBorderCopyWithImpl<$Res>
       eccentricity: null == eccentricity
           ? _self.eccentricity
           : eccentricity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 
@@ -103,7 +103,7 @@ class _$StacCircleBorderCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacCircleBorder implements StacCircleBorder {
   const _StacCircleBorder(
-      {this.side = StacBorderSide.none, this.eccentricity = 0.0});
+      {this.side = StacBorderSide.none, this.eccentricity = StacDouble.zero});
   factory _StacCircleBorder.fromJson(Map<String, dynamic> json) =>
       _$StacCircleBorderFromJson(json);
 
@@ -112,7 +112,7 @@ class _StacCircleBorder implements StacCircleBorder {
   final StacBorderSide side;
   @override
   @JsonKey()
-  final double eccentricity;
+  final StacDouble eccentricity;
 
   /// Create a copy of StacCircleBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -157,7 +157,7 @@ abstract mixin class _$StacCircleBorderCopyWith<$Res>
       __$StacCircleBorderCopyWithImpl;
   @override
   @useResult
-  $Res call({StacBorderSide side, double eccentricity});
+  $Res call({StacBorderSide side, StacDouble eccentricity});
 
   @override
   $StacBorderSideCopyWith<$Res> get side;
@@ -187,7 +187,7 @@ class __$StacCircleBorderCopyWithImpl<$Res>
       eccentricity: null == eccentricity
           ? _self.eccentricity
           : eccentricity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 part 'stac_border_radius.freezed.dart';
 part 'stac_border_radius.g.dart';
@@ -7,10 +8,10 @@ part 'stac_border_radius.g.dart';
 @freezed
 abstract class StacBorderRadius with _$StacBorderRadius {
   const factory StacBorderRadius({
-    @Default(0.0) double topLeft,
-    @Default(0.0) double topRight,
-    @Default(0.0) double bottomLeft,
-    @Default(0.0) double bottomRight,
+    @Default(StacDouble.zero) StacDouble topLeft,
+    @Default(StacDouble.zero) StacDouble topRight,
+    @Default(StacDouble.zero) StacDouble bottomLeft,
+    @Default(StacDouble.zero) StacDouble bottomRight,
   }) = _StacBorder;
 
   factory StacBorderRadius.fromJson(dynamic json) => _fromJson(json);
@@ -49,10 +50,10 @@ abstract class StacBorderRadius with _$StacBorderRadius {
 extension StacBorderRadiusParser on StacBorderRadius? {
   BorderRadius get parse {
     return BorderRadius.only(
-      topLeft: Radius.circular(this?.topLeft ?? 0.0),
-      topRight: Radius.circular(this?.topRight ?? 0.0),
-      bottomLeft: Radius.circular(this?.bottomLeft ?? 0.0),
-      bottomRight: Radius.circular(this?.bottomRight ?? 0.0),
+      topLeft: Radius.circular(this?.topLeft.parse ?? 0.0),
+      topRight: Radius.circular(this?.topRight.parse ?? 0.0),
+      bottomLeft: Radius.circular(this?.bottomLeft.parse ?? 0.0),
+      bottomRight: Radius.circular(this?.bottomRight.parse ?? 0.0),
     );
   }
 }

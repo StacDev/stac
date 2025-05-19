@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/widgets/stac_app_bar/stac_app_bar.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -30,15 +31,15 @@ class StacAppBarParser extends StacParser<StacAppBar> {
           .map((action) => Stac.fromJson(action, context) ?? const SizedBox())
           .toList(),
       bottom: Stac.fromJson(model.bottom, context).toPreferredSizeWidget,
-      titleSpacing: model.titleSpacing,
-      toolbarOpacity: model.toolbarOpacity,
-      bottomOpacity: model.bottomOpacity,
-      toolbarHeight: model.toolbarHeight,
-      leadingWidth: model.leadingWidth,
+      titleSpacing: model.titleSpacing?.parse,
+      toolbarOpacity: model.toolbarOpacity.parse,
+      bottomOpacity: model.bottomOpacity.parse,
+      toolbarHeight: model.toolbarHeight?.parse,
+      leadingWidth: model.leadingWidth?.parse,
       primary: model.primary,
       centerTitle: model.centerTitle,
-      elevation: model.elevation,
-      scrolledUnderElevation: model.scrolledUnderElevation,
+      elevation: model.elevation?.parse,
+      scrolledUnderElevation: model.scrolledUnderElevation?.parse,
     );
   }
 }

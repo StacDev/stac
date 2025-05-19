@@ -17,9 +17,14 @@ _StacCircleAvatar _$StacCircleAvatarFromJson(Map<String, dynamic> json) =>
       onForegroundImageError:
           json['onForegroundImageError'] as Map<String, dynamic>?,
       foregroundColor: json['foregroundColor'] as String?,
-      radius: (json['radius'] as num?)?.toDouble(),
-      minRadius: (json['minRadius'] as num?)?.toDouble(),
-      maxRadius: (json['maxRadius'] as num?)?.toDouble(),
+      radius:
+          json['radius'] == null ? null : StacDouble.fromJson(json['radius']),
+      minRadius: json['minRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['minRadius']),
+      maxRadius: json['maxRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['maxRadius']),
     );
 
 Map<String, dynamic> _$StacCircleAvatarToJson(_StacCircleAvatar instance) =>

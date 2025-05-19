@@ -17,13 +17,16 @@ _StacRect _$StacRectFromJson(Map<String, dynamic> json) => _StacRect(
       b: json['b'] == null
           ? null
           : StacOffset.fromJson(json['b'] as Map<String, dynamic>),
-      width: (json['width'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
-      left: (json['left'] as num?)?.toDouble(),
-      top: (json['top'] as num?)?.toDouble(),
-      right: (json['right'] as num?)?.toDouble(),
-      bottom: (json['bottom'] as num?)?.toDouble(),
-      radius: (json['radius'] as num?)?.toDouble(),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
+      left: json['left'] == null ? null : StacDouble.fromJson(json['left']),
+      top: json['top'] == null ? null : StacDouble.fromJson(json['top']),
+      right: json['right'] == null ? null : StacDouble.fromJson(json['right']),
+      bottom:
+          json['bottom'] == null ? null : StacDouble.fromJson(json['bottom']),
+      radius:
+          json['radius'] == null ? null : StacDouble.fromJson(json['radius']),
     );
 
 Map<String, dynamic> _$StacRectToJson(_StacRect instance) => <String, dynamic>{

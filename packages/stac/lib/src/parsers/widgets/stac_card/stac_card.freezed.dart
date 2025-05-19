@@ -18,7 +18,7 @@ mixin _$StacCard {
   String? get color;
   String? get shadowColor;
   String? get surfaceTintColor;
-  double? get elevation;
+  StacDouble? get elevation;
   StacShapeBorder? get shape;
   bool get borderOnForeground;
   StacEdgeInsets? get margin;
@@ -89,7 +89,7 @@ abstract mixin class $StacCardCopyWith<$Res> {
       {String? color,
       String? shadowColor,
       String? surfaceTintColor,
-      double? elevation,
+      StacDouble? elevation,
       StacShapeBorder? shape,
       bool borderOnForeground,
       StacEdgeInsets? margin,
@@ -140,7 +140,7 @@ class _$StacCardCopyWithImpl<$Res> implements $StacCardCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shape: freezed == shape
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
@@ -222,7 +222,7 @@ class _StacCard implements StacCard {
   @override
   final String? surfaceTintColor;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
   final StacShapeBorder? shape;
   @override
@@ -316,7 +316,7 @@ abstract mixin class _$StacCardCopyWith<$Res>
       {String? color,
       String? shadowColor,
       String? surfaceTintColor,
-      double? elevation,
+      StacDouble? elevation,
       StacShapeBorder? shape,
       bool borderOnForeground,
       StacEdgeInsets? margin,
@@ -369,7 +369,7 @@ class __$StacCardCopyWithImpl<$Res> implements _$StacCardCopyWith<$Res> {
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shape: freezed == shape
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_offset/stac_offset.dart';
 import 'package:stac/src/utils/color_utils.dart';
 
@@ -10,8 +11,9 @@ part 'stac_shadow.g.dart';
 abstract class StacShadow with _$StacShadow {
   const factory StacShadow({
     @Default('#000000') String color,
-    @Default(StacOffset(dx: 0, dy: 0)) StacOffset offset,
-    @Default(0.0) double blurRadius,
+    @Default(StacOffset(dx: StacDouble.zero, dy: StacDouble.zero))
+    StacOffset offset,
+    @Default(StacDouble.zero) StacDouble blurRadius,
   }) = _StacShadow;
 
   factory StacShadow.fromJson(Map<String, dynamic> json) =>
@@ -23,7 +25,7 @@ extension StacShadowParser on StacShadow {
     return Shadow(
       color: color.toColor(context)!,
       offset: offset.parse,
-      blurRadius: blurRadius,
+      blurRadius: blurRadius.parse,
     );
   }
 }

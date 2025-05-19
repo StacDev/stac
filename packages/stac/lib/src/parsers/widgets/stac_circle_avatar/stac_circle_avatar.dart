@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'stac_circle_avatar_parser.dart';
 
@@ -15,9 +16,9 @@ abstract class StacCircleAvatar with _$StacCircleAvatar {
     Map<String, dynamic>? onBackgroundImageError,
     Map<String, dynamic>? onForegroundImageError,
     String? foregroundColor,
-    double? radius,
-    double? minRadius,
-    double? maxRadius,
+    StacDouble? radius,
+    StacDouble? minRadius,
+    StacDouble? maxRadius,
   }) = _StacCircleAvatar;
 
   factory StacCircleAvatar.fromJson(Map<String, dynamic> json) =>

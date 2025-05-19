@@ -15,17 +15,23 @@ _StacCarouselView _$StacCarouselViewFromJson(Map<String, dynamic> json) =>
           ? null
           : StacEdgeInsets.fromJson(json['padding']),
       backgroundColor: json['backgroundColor'] as String?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
       overlayColor: json['overlayColor'] as String?,
       itemSnapping: json['itemSnapping'] as bool? ?? false,
-      shrinkExtent: (json['shrinkExtent'] as num?)?.toDouble() ?? 0.0,
+      shrinkExtent: json['shrinkExtent'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['shrinkExtent']),
       scrollDirection:
           $enumDecodeNullable(_$AxisEnumMap, json['scrollDirection']) ??
               Axis.horizontal,
       reverse: json['reverse'] as bool? ?? false,
       onTap: json['onTap'] as Map<String, dynamic>?,
       enableSplash: json['enableSplash'] as bool? ?? true,
-      itemExtent: (json['itemExtent'] as num?)?.toDouble(),
+      itemExtent: json['itemExtent'] == null
+          ? null
+          : StacDouble.fromJson(json['itemExtent']),
       flexWeights: (json['flexWeights'] as List<dynamic>?)
           ?.map((e) => (e as num).toInt())
           .toList(),

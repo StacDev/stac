@@ -19,14 +19,24 @@ _StacGridView _$StacGridViewFromJson(Map<String, dynamic> json) =>
           ? null
           : StacEdgeInsets.fromJson(json['padding']),
       crossAxisCount: (json['crossAxisCount'] as num?)?.toInt(),
-      mainAxisSpacing: (json['mainAxisSpacing'] as num?)?.toDouble() ?? 0.0,
-      crossAxisSpacing: (json['crossAxisSpacing'] as num?)?.toDouble() ?? 0.0,
-      childAspectRatio: (json['childAspectRatio'] as num?)?.toDouble() ?? 1.0,
-      mainAxisExtent: (json['mainAxisExtent'] as num?)?.toDouble(),
+      mainAxisSpacing: json['mainAxisSpacing'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['mainAxisSpacing']),
+      crossAxisSpacing: json['crossAxisSpacing'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['crossAxisSpacing']),
+      childAspectRatio: json['childAspectRatio'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['childAspectRatio']),
+      mainAxisExtent: json['mainAxisExtent'] == null
+          ? null
+          : StacDouble.fromJson(json['mainAxisExtent']),
       addAutomaticKeepAlives: json['addAutomaticKeepAlives'] as bool? ?? true,
       addRepaintBoundaries: json['addRepaintBoundaries'] as bool? ?? true,
       addSemanticIndexes: json['addSemanticIndexes'] as bool? ?? true,
-      cacheExtent: (json['cacheExtent'] as num?)?.toDouble(),
+      cacheExtent: json['cacheExtent'] == null
+          ? null
+          : StacDouble.fromJson(json['cacheExtent']),
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??

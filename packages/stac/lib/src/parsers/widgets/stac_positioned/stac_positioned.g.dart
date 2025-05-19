@@ -10,14 +10,16 @@ _StacPositioned _$StacPositionedFromJson(Map<String, dynamic> json) =>
     _StacPositioned(
       positionedType: $enumDecodeNullable(
           _$StacPositionedTypeEnumMap, json['positionedType']),
-      left: (json['left'] as num?)?.toDouble(),
-      top: (json['top'] as num?)?.toDouble(),
-      right: (json['right'] as num?)?.toDouble(),
-      bottom: (json['bottom'] as num?)?.toDouble(),
-      width: (json['width'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
-      start: (json['start'] as num?)?.toDouble(),
-      end: (json['end'] as num?)?.toDouble(),
+      left: json['left'] == null ? null : StacDouble.fromJson(json['left']),
+      top: json['top'] == null ? null : StacDouble.fromJson(json['top']),
+      right: json['right'] == null ? null : StacDouble.fromJson(json['right']),
+      bottom:
+          json['bottom'] == null ? null : StacDouble.fromJson(json['bottom']),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
+      start: json['start'] == null ? null : StacDouble.fromJson(json['start']),
+      end: json['end'] == null ? null : StacDouble.fromJson(json['end']),
       textDirection:
           $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']) ??
               TextDirection.ltr,

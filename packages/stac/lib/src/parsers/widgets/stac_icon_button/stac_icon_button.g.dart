@@ -8,12 +8,16 @@ part of 'stac_icon_button.dart';
 
 _StacIconButton _$StacIconButtonFromJson(Map<String, dynamic> json) =>
     _StacIconButton(
-      iconSize: (json['iconSize'] as num?)?.toDouble(),
+      iconSize: json['iconSize'] == null
+          ? null
+          : StacDouble.fromJson(json['iconSize']),
       padding: json['padding'] == null
           ? null
           : StacEdgeInsets.fromJson(json['padding']),
       alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      splashRadius: json['splashRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['splashRadius']),
       color: json['color'] as String?,
       focusColor: json['focusColor'] as String?,
       hoverColor: json['hoverColor'] as String?,

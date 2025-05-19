@@ -7,8 +7,8 @@ part of 'stac_size.dart';
 // **************************************************************************
 
 _StacSize _$StacSizeFromJson(Map<String, dynamic> json) => _StacSize(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
+      width: StacDouble.fromJson(json['width']),
+      height: StacDouble.fromJson(json['height']),
     );
 
 Map<String, dynamic> _$StacSizeToJson(_StacSize instance) => <String, dynamic>{

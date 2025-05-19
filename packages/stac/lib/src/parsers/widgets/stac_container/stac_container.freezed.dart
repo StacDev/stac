@@ -20,8 +20,8 @@ mixin _$StacContainer {
   StacBoxDecoration? get decoration;
   StacBoxDecoration? get foregroundDecoration;
   String? get color;
-  double? get width;
-  double? get height;
+  StacDouble? get width;
+  StacDouble? get height;
   StacBoxConstraints? get constraints;
   StacEdgeInsets? get margin;
   Map<String, dynamic>? get child;
@@ -95,8 +95,8 @@ abstract mixin class $StacContainerCopyWith<$Res> {
       StacBoxDecoration? decoration,
       StacBoxDecoration? foregroundDecoration,
       String? color,
-      double? width,
-      double? height,
+      StacDouble? width,
+      StacDouble? height,
       StacBoxConstraints? constraints,
       StacEdgeInsets? margin,
       Map<String, dynamic>? child,
@@ -158,11 +158,11 @@ class _$StacContainerCopyWithImpl<$Res>
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       constraints: freezed == constraints
           ? _self.constraints
           : constraints // ignore: cast_nullable_to_non_nullable
@@ -284,9 +284,9 @@ class _StacContainer implements StacContainer {
   @override
   final String? color;
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? height;
+  final StacDouble? height;
   @override
   final StacBoxConstraints? constraints;
   @override
@@ -379,8 +379,8 @@ abstract mixin class _$StacContainerCopyWith<$Res>
       StacBoxDecoration? decoration,
       StacBoxDecoration? foregroundDecoration,
       String? color,
-      double? width,
-      double? height,
+      StacDouble? width,
+      StacDouble? height,
       StacBoxConstraints? constraints,
       StacEdgeInsets? margin,
       Map<String, dynamic>? child,
@@ -447,11 +447,11 @@ class __$StacContainerCopyWithImpl<$Res>
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       constraints: freezed == constraints
           ? _self.constraints
           : constraints // ignore: cast_nullable_to_non_nullable

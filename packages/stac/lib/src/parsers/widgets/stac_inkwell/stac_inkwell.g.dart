@@ -29,7 +29,8 @@ _StacInkWell _$StacInkWellFromJson(Map<String, dynamic> json) => _StacInkWell(
       overlayColor: json['overlayColor'] as String?,
       splashColor: json['splashColor'] as String?,
       splashFactory: json['splashFactory'] as Map<String, dynamic>?,
-      radius: (json['radius'] as num?)?.toDouble(),
+      radius:
+          json['radius'] == null ? null : StacDouble.fromJson(json['radius']),
       borderRadius: json['borderRadius'] == null
           ? null
           : StacBorderRadius.fromJson(json['borderRadius']),

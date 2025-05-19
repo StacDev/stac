@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 
 export 'stac_list_tile_parser.dart';
@@ -31,9 +32,9 @@ abstract class StacListTile with _$StacListTile {
     String? tileColor,
     String? selectedTileColor,
     bool? enableFeedback,
-    double? horizontalTitleGap,
-    double? minVerticalPadding,
-    double? minLeadingWidth,
+    StacDouble? horizontalTitleGap,
+    StacDouble? minVerticalPadding,
+    StacDouble? minLeadingWidth,
   }) = _StacListTile;
 
   factory StacListTile.fromJson(Map<String, dynamic> json) =>

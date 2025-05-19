@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacAspectRatio {
-  double get aspectRatio;
+  StacDouble get aspectRatio;
   Map<String, dynamic>? get child;
 
   /// Create a copy of StacAspectRatio
@@ -56,7 +56,7 @@ abstract mixin class $StacAspectRatioCopyWith<$Res> {
           StacAspectRatio value, $Res Function(StacAspectRatio) _then) =
       _$StacAspectRatioCopyWithImpl;
   @useResult
-  $Res call({double aspectRatio, Map<String, dynamic>? child});
+  $Res call({StacDouble aspectRatio, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -79,7 +79,7 @@ class _$StacAspectRatioCopyWithImpl<$Res>
       aspectRatio: null == aspectRatio
           ? _self.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: freezed == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -92,14 +92,15 @@ class _$StacAspectRatioCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacAspectRatio implements StacAspectRatio {
   const _StacAspectRatio(
-      {this.aspectRatio = 1, final Map<String, dynamic>? child})
+      {this.aspectRatio = const StacDouble(1),
+      final Map<String, dynamic>? child})
       : _child = child;
   factory _StacAspectRatio.fromJson(Map<String, dynamic> json) =>
       _$StacAspectRatioFromJson(json);
 
   @override
   @JsonKey()
-  final double aspectRatio;
+  final StacDouble aspectRatio;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -154,7 +155,7 @@ abstract mixin class _$StacAspectRatioCopyWith<$Res>
       __$StacAspectRatioCopyWithImpl;
   @override
   @useResult
-  $Res call({double aspectRatio, Map<String, dynamic>? child});
+  $Res call({StacDouble aspectRatio, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -177,7 +178,7 @@ class __$StacAspectRatioCopyWithImpl<$Res>
       aspectRatio: null == aspectRatio
           ? _self.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: freezed == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

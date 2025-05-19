@@ -35,8 +35,8 @@ mixin _$StacTextField {
   bool get obscureText;
   bool get enableSuggestions;
   bool? get enabled;
-  double get cursorWidth;
-  double? get cursorHeight;
+  StacDouble get cursorWidth;
+  StacDouble? get cursorHeight;
   String? get cursorColor;
   String? get hintText;
   List<StacInputFormatter> get inputFormatters;
@@ -170,8 +170,8 @@ abstract mixin class $StacTextFieldCopyWith<$Res> {
       bool obscureText,
       bool enableSuggestions,
       bool? enabled,
-      double cursorWidth,
-      double? cursorHeight,
+      StacDouble cursorWidth,
+      StacDouble? cursorHeight,
       String? cursorColor,
       String? hintText,
       List<StacInputFormatter> inputFormatters});
@@ -303,11 +303,11 @@ class _$StacTextFieldCopyWithImpl<$Res>
       cursorWidth: null == cursorWidth
           ? _self.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cursorHeight: freezed == cursorHeight
           ? _self.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       cursorColor: freezed == cursorColor
           ? _self.cursorColor
           : cursorColor // ignore: cast_nullable_to_non_nullable
@@ -376,7 +376,7 @@ class _StacTextField implements StacTextField {
       this.obscureText = false,
       this.enableSuggestions = true,
       this.enabled,
-      this.cursorWidth = 2,
+      this.cursorWidth = const StacDouble(2),
       this.cursorHeight,
       this.cursorColor,
       this.hintText,
@@ -436,9 +436,9 @@ class _StacTextField implements StacTextField {
   final bool? enabled;
   @override
   @JsonKey()
-  final double cursorWidth;
+  final StacDouble cursorWidth;
   @override
-  final double? cursorHeight;
+  final StacDouble? cursorHeight;
   @override
   final String? cursorColor;
   @override
@@ -587,8 +587,8 @@ abstract mixin class _$StacTextFieldCopyWith<$Res>
       bool obscureText,
       bool enableSuggestions,
       bool? enabled,
-      double cursorWidth,
-      double? cursorHeight,
+      StacDouble cursorWidth,
+      StacDouble? cursorHeight,
       String? cursorColor,
       String? hintText,
       List<StacInputFormatter> inputFormatters});
@@ -722,11 +722,11 @@ class __$StacTextFieldCopyWithImpl<$Res>
       cursorWidth: null == cursorWidth
           ? _self.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cursorHeight: freezed == cursorHeight
           ? _self.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       cursorColor: freezed == cursorColor
           ? _self.cursorColor
           : cursorColor // ignore: cast_nullable_to_non_nullable

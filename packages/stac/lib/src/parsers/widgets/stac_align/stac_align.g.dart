@@ -10,8 +10,12 @@ _StacAlign _$StacAlignFromJson(Map<String, dynamic> json) => _StacAlign(
       alignment: $enumDecodeNullable(
               _$StacAlignmentDirectionalEnumMap, json['alignment']) ??
           StacAlignmentDirectional.center,
-      widthFactor: (json['widthFactor'] as num?)?.toDouble(),
-      heightFactor: (json['heightFactor'] as num?)?.toDouble(),
+      widthFactor: json['widthFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['widthFactor']),
+      heightFactor: json['heightFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['heightFactor']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_mouse_cursor/stac_mouse_cursor.dart';
 import 'package:stac/src/parsers/widgets/stac_visual_density/stac_visual_density.dart';
 
@@ -24,7 +25,7 @@ abstract class StacRadio with _$StacRadio {
     String? focusColor,
     String? hoverColor,
     String? overlayColor,
-    double? splashRadius,
+    StacDouble? splashRadius,
     MaterialTapTargetSize? materialTapTargetSize,
     StacVisualDensity? visualDensity,
     @Default(false) bool autofocus,
