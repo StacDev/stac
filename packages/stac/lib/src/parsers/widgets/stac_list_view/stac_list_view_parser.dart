@@ -26,20 +26,19 @@ class StacListViewParser extends StacParser<StacListView> {
       controller: controller,
       primary: model.primary,
       physics: model.physics?.parse,
-      shrinkWrap: false,
+      shrinkWrap: model.shrinkWrap,
       padding: model.padding?.parse,
       addAutomaticKeepAlives: model.addAutomaticKeepAlives,
       addRepaintBoundaries: model.addRepaintBoundaries,
       addSemanticIndexes: model.addSemanticIndexes,
       cacheExtent: model.cacheExtent?.parse,
-      // semanticChildCount: model.semanticChildCount,
       dragStartBehavior: model.dragStartBehavior,
       keyboardDismissBehavior: model.keyboardDismissBehavior,
       restorationId: model.restorationId,
       clipBehavior: model.clipBehavior,
       itemCount: model.children.length,
       itemBuilder: (context, index) =>
-          Center(child: Stac.fromJson(model.children[index], context)),
+          Stac.fromJson(model.children[index], context),
       separatorBuilder: (context, _) =>
           Stac.fromJson(model.separator, context) ?? const SizedBox(),
     );
