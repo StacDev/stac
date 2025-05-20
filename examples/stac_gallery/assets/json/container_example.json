@@ -8,27 +8,29 @@
     }
   },
   "body": {
-    "type": "center",
-    "child": {
-      "type": "listView",
-      "physics": "never",
-      "shrinkWrap": true,
-      "children": [
-        {
-          "type": "sizedBox",
-          "height": 52
-        },
-        {
+    "type": "listView",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 52
+      },
+      {
+        "type": "center",
+        "child": {
           "type": "container",
           "color": "#672BFF",
           "height": 250,
           "width": "maxFinite"
-        },
-        {
-          "type": "sizedBox",
-          "height": 52
-        },
-        {
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 52
+      },
+      {
+        "type": "center",
+        "child": {
           "type": "container",
           "color": "#FC5632",
           "height": 100,
@@ -46,12 +48,15 @@
               }
             }
           }
-        },
-        {
-          "type": "sizedBox",
-          "height": 52
-        },
-        {
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 52
+      },
+      {
+        "type": "center",
+        "child": {
           "type": "container",
           "color": "#FFFF00",
           "height": 250,
@@ -70,7 +75,7 @@
             }
           }
         }
-      ]
-    }
+      }
+    ]
   }
 }
