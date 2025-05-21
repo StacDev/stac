@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -111,7 +112,8 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       trackOutlineColor: WidgetStateProperty.all(
         model.trackOutlineColor?.parse(context),
       ),
-      trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
+      trackOutlineWidth:
+          WidgetStateProperty.all(model.trackOutlineWidth?.parse),
       thumbIcon: WidgetStateProperty.all(
         Stac.fromJson(model.thumbIcon, context) as Icon?,
       ),
@@ -121,7 +123,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       overlayColor: WidgetStateProperty.all(
         model.overlayColor?.parse(context),
       ),
-      splashRadius: model.splashRadius,
+      splashRadius: model.splashRadius?.parse,
       autofocus: model.autofocus,
       applyCupertinoTheme: model.applyCupertinoTheme,
     );
@@ -146,7 +148,8 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       trackOutlineColor: WidgetStateProperty.all(
         model.trackOutlineColor?.parse(context),
       ),
-      trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
+      trackOutlineWidth:
+          WidgetStateProperty.all(model.trackOutlineWidth?.parse),
       thumbIcon: WidgetStateProperty.all(
         Stac.fromJson(model.thumbIcon, context) as Icon?,
       ),
@@ -157,7 +160,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       overlayColor: WidgetStateProperty.all(
         model.overlayColor?.parse(context),
       ),
-      splashRadius: model.splashRadius,
+      splashRadius: model.splashRadius?.parse,
       autofocus: model.autofocus,
     );
   }

@@ -22,7 +22,7 @@ mixin _$StacText {
   TextDirection? get textDirection;
   bool? get softWrap;
   TextOverflow? get overflow;
-  double? get textScaleFactor;
+  StacDouble? get textScaleFactor;
   int? get maxLines;
   String? get semanticsLabel;
   TextWidthBasis? get textWidthBasis;
@@ -102,7 +102,7 @@ abstract mixin class $StacTextCopyWith<$Res> {
       TextDirection? textDirection,
       bool? softWrap,
       TextOverflow? overflow,
-      double? textScaleFactor,
+      StacDouble? textScaleFactor,
       int? maxLines,
       String? semanticsLabel,
       TextWidthBasis? textWidthBasis,
@@ -168,7 +168,7 @@ class _$StacTextCopyWithImpl<$Res> implements $StacTextCopyWith<$Res> {
       textScaleFactor: freezed == textScaleFactor
           ? _self.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       maxLines: freezed == maxLines
           ? _self.maxLines
           : maxLines // ignore: cast_nullable_to_non_nullable
@@ -245,7 +245,7 @@ class _StacText implements StacText {
   @override
   final TextOverflow? overflow;
   @override
-  final double? textScaleFactor;
+  final StacDouble? textScaleFactor;
   @override
   final int? maxLines;
   @override
@@ -336,7 +336,7 @@ abstract mixin class _$StacTextCopyWith<$Res>
       TextDirection? textDirection,
       bool? softWrap,
       TextOverflow? overflow,
-      double? textScaleFactor,
+      StacDouble? textScaleFactor,
       int? maxLines,
       String? semanticsLabel,
       TextWidthBasis? textWidthBasis,
@@ -403,7 +403,7 @@ class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
       textScaleFactor: freezed == textScaleFactor
           ? _self.textScaleFactor
           : textScaleFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       maxLines: freezed == maxLines
           ? _self.maxLines
           : maxLines // ignore: cast_nullable_to_non_nullable

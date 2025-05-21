@@ -17,7 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$StacAutoComplete {
   List<String> get options;
   Map<String, dynamic>? get onSelected;
-  double get optionsMaxHeight;
+  StacDouble get optionsMaxHeight;
   OptionsViewOpenDirection get optionsViewOpenDirection;
   String? get initialValue;
 
@@ -74,7 +74,7 @@ abstract mixin class $StacAutoCompleteCopyWith<$Res> {
   $Res call(
       {List<String> options,
       Map<String, dynamic>? onSelected,
-      double optionsMaxHeight,
+      StacDouble optionsMaxHeight,
       OptionsViewOpenDirection optionsViewOpenDirection,
       String? initialValue});
 }
@@ -110,7 +110,7 @@ class _$StacAutoCompleteCopyWithImpl<$Res>
       optionsMaxHeight: null == optionsMaxHeight
           ? _self.optionsMaxHeight
           : optionsMaxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       optionsViewOpenDirection: null == optionsViewOpenDirection
           ? _self.optionsViewOpenDirection
           : optionsViewOpenDirection // ignore: cast_nullable_to_non_nullable
@@ -129,7 +129,7 @@ class _StacAutoComplete implements StacAutoComplete {
   const _StacAutoComplete(
       {required final List<String> options,
       final Map<String, dynamic>? onSelected,
-      this.optionsMaxHeight = 200,
+      this.optionsMaxHeight = const StacDouble(200),
       this.optionsViewOpenDirection = OptionsViewOpenDirection.down,
       this.initialValue})
       : _options = options,
@@ -157,7 +157,7 @@ class _StacAutoComplete implements StacAutoComplete {
 
   @override
   @JsonKey()
-  final double optionsMaxHeight;
+  final StacDouble optionsMaxHeight;
   @override
   @JsonKey()
   final OptionsViewOpenDirection optionsViewOpenDirection;
@@ -223,7 +223,7 @@ abstract mixin class _$StacAutoCompleteCopyWith<$Res>
   $Res call(
       {List<String> options,
       Map<String, dynamic>? onSelected,
-      double optionsMaxHeight,
+      StacDouble optionsMaxHeight,
       OptionsViewOpenDirection optionsViewOpenDirection,
       String? initialValue});
 }
@@ -259,7 +259,7 @@ class __$StacAutoCompleteCopyWithImpl<$Res>
       optionsMaxHeight: null == optionsMaxHeight
           ? _self.optionsMaxHeight
           : optionsMaxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       optionsViewOpenDirection: null == optionsViewOpenDirection
           ? _self.optionsViewOpenDirection
           : optionsViewOpenDirection // ignore: cast_nullable_to_non_nullable

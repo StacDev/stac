@@ -15,10 +15,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacLinearProgressIndicator {
-  double? get value;
+  StacDouble? get value;
   String? get backgroundColor;
   String? get color;
-  double? get minHeight;
+  StacDouble? get minHeight;
   String? get semanticsLabel;
   String? get semanticsValue;
   StacBorderRadius get borderRadius;
@@ -73,10 +73,10 @@ abstract mixin class $StacLinearProgressIndicatorCopyWith<$Res> {
       _$StacLinearProgressIndicatorCopyWithImpl;
   @useResult
   $Res call(
-      {double? value,
+      {StacDouble? value,
       String? backgroundColor,
       String? color,
-      double? minHeight,
+      StacDouble? minHeight,
       String? semanticsLabel,
       String? semanticsValue,
       StacBorderRadius borderRadius});
@@ -109,7 +109,7 @@ class _$StacLinearProgressIndicatorCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ class _$StacLinearProgressIndicatorCopyWithImpl<$Res>
       minHeight: freezed == minHeight
           ? _self.minHeight
           : minHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       semanticsLabel: freezed == semanticsLabel
           ? _self.semanticsLabel
           : semanticsLabel // ignore: cast_nullable_to_non_nullable
@@ -163,13 +163,13 @@ class _StacLinearProgressIndicator implements StacLinearProgressIndicator {
       _$StacLinearProgressIndicatorFromJson(json);
 
   @override
-  final double? value;
+  final StacDouble? value;
   @override
   final String? backgroundColor;
   @override
   final String? color;
   @override
-  final double? minHeight;
+  final StacDouble? minHeight;
   @override
   final String? semanticsLabel;
   @override
@@ -234,10 +234,10 @@ abstract mixin class _$StacLinearProgressIndicatorCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? value,
+      {StacDouble? value,
       String? backgroundColor,
       String? color,
-      double? minHeight,
+      StacDouble? minHeight,
       String? semanticsLabel,
       String? semanticsValue,
       StacBorderRadius borderRadius});
@@ -271,7 +271,7 @@ class __$StacLinearProgressIndicatorCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -283,7 +283,7 @@ class __$StacLinearProgressIndicatorCopyWithImpl<$Res>
       minHeight: freezed == minHeight
           ? _self.minHeight
           : minHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       semanticsLabel: freezed == semanticsLabel
           ? _self.semanticsLabel
           : semanticsLabel // ignore: cast_nullable_to_non_nullable

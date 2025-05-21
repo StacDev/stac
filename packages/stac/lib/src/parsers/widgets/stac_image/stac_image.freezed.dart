@@ -19,8 +19,8 @@ mixin _$StacImage {
   StacAlignment get alignment;
   StacImageType get imageType;
   String? get color;
-  double? get width;
-  double? get height;
+  StacDouble? get width;
+  StacDouble? get height;
   BoxFit? get fit;
 
   /// Create a copy of StacImage
@@ -70,8 +70,8 @@ abstract mixin class $StacImageCopyWith<$Res> {
       StacAlignment alignment,
       StacImageType imageType,
       String? color,
-      double? width,
-      double? height,
+      StacDouble? width,
+      StacDouble? height,
       BoxFit? fit});
 }
 
@@ -115,11 +115,11 @@ class _$StacImageCopyWithImpl<$Res> implements $StacImageCopyWith<$Res> {
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       fit: freezed == fit
           ? _self.fit
           : fit // ignore: cast_nullable_to_non_nullable
@@ -153,9 +153,9 @@ class _StacImage implements StacImage {
   @override
   final String? color;
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? height;
+  final StacDouble? height;
   @override
   final BoxFit? fit;
 
@@ -214,8 +214,8 @@ abstract mixin class _$StacImageCopyWith<$Res>
       StacAlignment alignment,
       StacImageType imageType,
       String? color,
-      double? width,
-      double? height,
+      StacDouble? width,
+      StacDouble? height,
       BoxFit? fit});
 }
 
@@ -259,11 +259,11 @@ class __$StacImageCopyWithImpl<$Res> implements _$StacImageCopyWith<$Res> {
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       fit: freezed == fit
           ? _self.fit
           : fit // ignore: cast_nullable_to_non_nullable

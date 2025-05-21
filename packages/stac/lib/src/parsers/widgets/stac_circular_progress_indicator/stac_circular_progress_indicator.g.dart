@@ -9,11 +9,15 @@ part of 'stac_circular_progress_indicator.dart';
 _StacCircularProgressIndicator _$StacCircularProgressIndicatorFromJson(
         Map<String, dynamic> json) =>
     _StacCircularProgressIndicator(
-      value: (json['value'] as num?)?.toDouble(),
+      value: json['value'] == null ? null : StacDouble.fromJson(json['value']),
       backgroundColor: json['backgroundColor'] as String?,
       color: json['color'] as String?,
-      strokeWidth: (json['strokeWidth'] as num?)?.toDouble() ?? 4.0,
-      strokeAlign: (json['strokeAlign'] as num?)?.toDouble() ?? 0,
+      strokeWidth: json['strokeWidth'] == null
+          ? const StacDouble(4.0)
+          : StacDouble.fromJson(json['strokeWidth']),
+      strokeAlign: json['strokeAlign'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['strokeAlign']),
       semanticsLabel: json['semanticsLabel'] as String?,
       semanticsValue: json['semanticsValue'] as String?,
       strokeCap: $enumDecodeNullable(_$StrokeCapEnumMap, json['strokeCap']),

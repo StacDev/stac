@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/stac.dart';
 
 export 'stac_page_view_parser.dart';
@@ -23,7 +24,7 @@ abstract class StacPageView with _$StacPageView {
     @Default(true) bool padEnds,
     @Default(0) int initialPage,
     @Default(true) keepPage,
-    @Default(1.0) double viewportFraction,
+    @Default(StacDouble(1.0)) StacDouble viewportFraction,
     @Default([]) List<Map<String, dynamic>> children,
   }) = _StacPageView;
 

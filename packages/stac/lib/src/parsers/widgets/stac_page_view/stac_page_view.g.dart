@@ -25,7 +25,9 @@ _StacPageView _$StacPageViewFromJson(Map<String, dynamic> json) =>
       padEnds: json['padEnds'] as bool? ?? true,
       initialPage: (json['initialPage'] as num?)?.toInt() ?? 0,
       keepPage: json['keepPage'] ?? true,
-      viewportFraction: (json['viewportFraction'] as num?)?.toDouble() ?? 1.0,
+      viewportFraction: json['viewportFraction'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['viewportFraction']),
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??

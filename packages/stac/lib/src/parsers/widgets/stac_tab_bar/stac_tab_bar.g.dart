@@ -18,7 +18,9 @@ _StacTabBar _$StacTabBarFromJson(Map<String, dynamic> json) => _StacTabBar(
       indicatorColor: json['indicatorColor'] as String?,
       automaticIndicatorColorAdjustment:
           json['automaticIndicatorColorAdjustment'] as bool? ?? true,
-      indicatorWeight: (json['indicatorWeight'] as num?)?.toDouble() ?? 2.0,
+      indicatorWeight: json['indicatorWeight'] == null
+          ? const StacDouble(2.0)
+          : StacDouble.fromJson(json['indicatorWeight']),
       indicatorPadding: json['indicatorPadding'] == null
           ? null
           : StacEdgeInsets.fromJson(json['indicatorPadding']),

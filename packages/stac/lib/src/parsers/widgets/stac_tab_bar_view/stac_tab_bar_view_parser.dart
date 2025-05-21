@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -23,7 +24,7 @@ class StacTabBarViewParser extends StacParser<StacTabBarView> {
       controller: controller,
       physics: model.physics?.parse,
       dragStartBehavior: model.dragStartBehavior,
-      viewportFraction: model.viewportFraction,
+      viewportFraction: model.viewportFraction.parse,
       clipBehavior: model.clipBehavior,
       children: model.children
           .map((child) => Stac.fromJson(child, context) ?? const SizedBox())

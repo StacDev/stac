@@ -16,14 +16,14 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacPositioned {
   StacPositionedType? get positionedType;
-  double? get left;
-  double? get top;
-  double? get right;
-  double? get bottom;
-  double? get width;
-  double? get height;
-  double? get start;
-  double? get end;
+  StacDouble? get left;
+  StacDouble? get top;
+  StacDouble? get right;
+  StacDouble? get bottom;
+  StacDouble? get width;
+  StacDouble? get height;
+  StacDouble? get start;
+  StacDouble? get end;
   TextDirection get textDirection;
   StacRect? get rect;
   Map<String, dynamic>? get child;
@@ -91,14 +91,14 @@ abstract mixin class $StacPositionedCopyWith<$Res> {
   @useResult
   $Res call(
       {StacPositionedType? positionedType,
-      double? left,
-      double? top,
-      double? right,
-      double? bottom,
-      double? width,
-      double? height,
-      double? start,
-      double? end,
+      StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom,
+      StacDouble? width,
+      StacDouble? height,
+      StacDouble? start,
+      StacDouble? end,
       TextDirection textDirection,
       StacRect? rect,
       Map<String, dynamic>? child});
@@ -140,35 +140,35 @@ class _$StacPositionedCopyWithImpl<$Res>
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       start: freezed == start
           ? _self.start
           : start // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       end: freezed == end
           ? _self.end
           : end // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       textDirection: null == textDirection
           ? _self.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable
@@ -222,21 +222,21 @@ class _StacPositioned implements StacPositioned {
   @override
   final StacPositionedType? positionedType;
   @override
-  final double? left;
+  final StacDouble? left;
   @override
-  final double? top;
+  final StacDouble? top;
   @override
-  final double? right;
+  final StacDouble? right;
   @override
-  final double? bottom;
+  final StacDouble? bottom;
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? height;
+  final StacDouble? height;
   @override
-  final double? start;
+  final StacDouble? start;
   @override
-  final double? end;
+  final StacDouble? end;
   @override
   @JsonKey()
   final TextDirection textDirection;
@@ -321,14 +321,14 @@ abstract mixin class _$StacPositionedCopyWith<$Res>
   @useResult
   $Res call(
       {StacPositionedType? positionedType,
-      double? left,
-      double? top,
-      double? right,
-      double? bottom,
-      double? width,
-      double? height,
-      double? start,
-      double? end,
+      StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom,
+      StacDouble? width,
+      StacDouble? height,
+      StacDouble? start,
+      StacDouble? end,
       TextDirection textDirection,
       StacRect? rect,
       Map<String, dynamic>? child});
@@ -371,35 +371,35 @@ class __$StacPositionedCopyWithImpl<$Res>
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       start: freezed == start
           ? _self.start
           : start // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       end: freezed == end
           ? _self.end
           : end // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       textDirection: null == textDirection
           ? _self.textDirection
           : textDirection // ignore: cast_nullable_to_non_nullable

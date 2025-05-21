@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
@@ -16,10 +17,10 @@ class StacLinearProgressIndicatorParser
   @override
   Widget parse(BuildContext context, StacLinearProgressIndicator model) {
     return LinearProgressIndicator(
-      value: model.value,
+      value: model.value?.parse,
       backgroundColor: model.backgroundColor.toColor(context),
       color: model.color.toColor(context),
-      minHeight: model.minHeight,
+      minHeight: model.minHeight?.parse,
       semanticsLabel: model.semanticsLabel,
       semanticsValue: model.semanticsValue,
       borderRadius: model.borderRadius.parse,

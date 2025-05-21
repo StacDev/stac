@@ -20,7 +20,7 @@ mixin _$StacColumn {
   MainAxisSize get mainAxisSize;
   TextDirection? get textDirection;
   VerticalDirection get verticalDirection;
-  double get spacing;
+  StacDouble get spacing;
   List<Map<String, dynamic>> get children;
 
   /// Create a copy of StacColumn
@@ -82,7 +82,7 @@ abstract mixin class $StacColumnCopyWith<$Res> {
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
-      double spacing,
+      StacDouble spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -130,7 +130,7 @@ class _$StacColumnCopyWithImpl<$Res> implements $StacColumnCopyWith<$Res> {
       spacing: null == spacing
           ? _self.spacing
           : spacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       children: null == children
           ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ class _StacColumn implements StacColumn {
       this.mainAxisSize = MainAxisSize.max,
       this.textDirection,
       this.verticalDirection = VerticalDirection.down,
-      this.spacing = 0,
+      this.spacing = StacDouble.zero,
       final List<Map<String, dynamic>> children = const []})
       : _children = children;
   factory _StacColumn.fromJson(Map<String, dynamic> json) =>
@@ -170,7 +170,7 @@ class _StacColumn implements StacColumn {
   final VerticalDirection verticalDirection;
   @override
   @JsonKey()
-  final double spacing;
+  final StacDouble spacing;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -246,7 +246,7 @@ abstract mixin class _$StacColumnCopyWith<$Res>
       MainAxisSize mainAxisSize,
       TextDirection? textDirection,
       VerticalDirection verticalDirection,
-      double spacing,
+      StacDouble spacing,
       List<Map<String, dynamic>> children});
 }
 
@@ -294,7 +294,7 @@ class __$StacColumnCopyWithImpl<$Res> implements _$StacColumnCopyWith<$Res> {
       spacing: null == spacing
           ? _self.spacing
           : spacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       children: null == children
           ? _self._children
           : children // ignore: cast_nullable_to_non_nullable

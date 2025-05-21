@@ -31,9 +31,15 @@ _StacListTile _$StacListTileFromJson(Map<String, dynamic> json) =>
       tileColor: json['tileColor'] as String?,
       selectedTileColor: json['selectedTileColor'] as String?,
       enableFeedback: json['enableFeedback'] as bool?,
-      horizontalTitleGap: (json['horizontalTitleGap'] as num?)?.toDouble(),
-      minVerticalPadding: (json['minVerticalPadding'] as num?)?.toDouble(),
-      minLeadingWidth: (json['minLeadingWidth'] as num?)?.toDouble(),
+      horizontalTitleGap: json['horizontalTitleGap'] == null
+          ? null
+          : StacDouble.fromJson(json['horizontalTitleGap']),
+      minVerticalPadding: json['minVerticalPadding'] == null
+          ? null
+          : StacDouble.fromJson(json['minVerticalPadding']),
+      minLeadingWidth: json['minLeadingWidth'] == null
+          ? null
+          : StacDouble.fromJson(json['minLeadingWidth']),
     );
 
 Map<String, dynamic> _$StacListTileToJson(_StacListTile instance) =>

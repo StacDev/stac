@@ -584,7 +584,7 @@ class __$StacTableRowCopyWithImpl<$Res>
 /// @nodoc
 mixin _$StacTableBorder {
   String get color;
-  double get width;
+  StacDouble get width;
   BorderStyle get style;
   StacBorderRadius get borderRadius;
 
@@ -630,7 +630,7 @@ abstract mixin class $StacTableBorderCopyWith<$Res> {
   @useResult
   $Res call(
       {String color,
-      double width,
+      StacDouble width,
       BorderStyle style,
       StacBorderRadius borderRadius});
 
@@ -663,7 +663,7 @@ class _$StacTableBorderCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       style: null == style
           ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
@@ -691,7 +691,7 @@ class _$StacTableBorderCopyWithImpl<$Res>
 class _StacTableBorder implements StacTableBorder {
   const _StacTableBorder(
       {this.color = '#000000',
-      this.width = 1.0,
+      this.width = const StacDouble(1.0),
       this.style = BorderStyle.solid,
       this.borderRadius = const StacBorderRadius()});
   factory _StacTableBorder.fromJson(Map<String, dynamic> json) =>
@@ -702,7 +702,7 @@ class _StacTableBorder implements StacTableBorder {
   final String color;
   @override
   @JsonKey()
-  final double width;
+  final StacDouble width;
   @override
   @JsonKey()
   final BorderStyle style;
@@ -758,7 +758,7 @@ abstract mixin class _$StacTableBorderCopyWith<$Res>
   @useResult
   $Res call(
       {String color,
-      double width,
+      StacDouble width,
       BorderStyle style,
       StacBorderRadius borderRadius});
 
@@ -792,7 +792,7 @@ class __$StacTableBorderCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       style: null == style
           ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
@@ -818,7 +818,7 @@ class __$StacTableBorderCopyWithImpl<$Res>
 /// @nodoc
 mixin _$StacTableColumnWidth {
   StacTableColumnWidthType get type;
-  double? get value;
+  StacDouble? get value;
 
   /// Create a copy of StacTableColumnWidth
   /// with the given fields replaced by the non-null parameter values.
@@ -856,7 +856,7 @@ abstract mixin class $StacTableColumnWidthCopyWith<$Res> {
           $Res Function(StacTableColumnWidth) _then) =
       _$StacTableColumnWidthCopyWithImpl;
   @useResult
-  $Res call({StacTableColumnWidthType type, double? value});
+  $Res call({StacTableColumnWidthType type, StacDouble? value});
 }
 
 /// @nodoc
@@ -883,7 +883,7 @@ class _$StacTableColumnWidthCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }
@@ -900,7 +900,7 @@ class _StacTableColumnWidth implements StacTableColumnWidth {
   @JsonKey()
   final StacTableColumnWidthType type;
   @override
-  final double? value;
+  final StacDouble? value;
 
   /// Create a copy of StacTableColumnWidth
   /// with the given fields replaced by the non-null parameter values.
@@ -945,7 +945,7 @@ abstract mixin class _$StacTableColumnWidthCopyWith<$Res>
       __$StacTableColumnWidthCopyWithImpl;
   @override
   @useResult
-  $Res call({StacTableColumnWidthType type, double? value});
+  $Res call({StacTableColumnWidthType type, StacDouble? value});
 }
 
 /// @nodoc
@@ -972,7 +972,7 @@ class __$StacTableColumnWidthCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }

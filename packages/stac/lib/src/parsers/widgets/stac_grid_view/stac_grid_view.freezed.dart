@@ -22,14 +22,14 @@ mixin _$StacGridView {
   bool get shrinkWrap;
   StacEdgeInsets? get padding;
   int? get crossAxisCount;
-  double get mainAxisSpacing;
-  double get crossAxisSpacing;
-  double get childAspectRatio;
-  double? get mainAxisExtent;
+  StacDouble get mainAxisSpacing;
+  StacDouble get crossAxisSpacing;
+  StacDouble get childAspectRatio;
+  StacDouble? get mainAxisExtent;
   bool get addAutomaticKeepAlives;
   bool get addRepaintBoundaries;
   bool get addSemanticIndexes;
-  double? get cacheExtent;
+  StacDouble? get cacheExtent;
   List<Map<String, dynamic>> get children;
   int? get semanticChildCount;
   DragStartBehavior get dragStartBehavior;
@@ -140,14 +140,14 @@ abstract mixin class $StacGridViewCopyWith<$Res> {
       bool shrinkWrap,
       StacEdgeInsets? padding,
       int? crossAxisCount,
-      double mainAxisSpacing,
-      double crossAxisSpacing,
-      double childAspectRatio,
-      double? mainAxisExtent,
+      StacDouble mainAxisSpacing,
+      StacDouble crossAxisSpacing,
+      StacDouble childAspectRatio,
+      StacDouble? mainAxisExtent,
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
-      double? cacheExtent,
+      StacDouble? cacheExtent,
       List<Map<String, dynamic>> children,
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
@@ -224,19 +224,19 @@ class _$StacGridViewCopyWithImpl<$Res> implements $StacGridViewCopyWith<$Res> {
       mainAxisSpacing: null == mainAxisSpacing
           ? _self.mainAxisSpacing
           : mainAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       crossAxisSpacing: null == crossAxisSpacing
           ? _self.crossAxisSpacing
           : crossAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       childAspectRatio: null == childAspectRatio
           ? _self.childAspectRatio
           : childAspectRatio // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       mainAxisExtent: freezed == mainAxisExtent
           ? _self.mainAxisExtent
           : mainAxisExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       addAutomaticKeepAlives: null == addAutomaticKeepAlives
           ? _self.addAutomaticKeepAlives
           : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
@@ -252,7 +252,7 @@ class _$StacGridViewCopyWithImpl<$Res> implements $StacGridViewCopyWith<$Res> {
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       children: null == children
           ? _self.children
           : children // ignore: cast_nullable_to_non_nullable
@@ -306,9 +306,9 @@ class _StacGridView implements StacGridView {
       this.shrinkWrap = false,
       this.padding,
       this.crossAxisCount,
-      this.mainAxisSpacing = 0.0,
-      this.crossAxisSpacing = 0.0,
-      this.childAspectRatio = 1.0,
+      this.mainAxisSpacing = StacDouble.zero,
+      this.crossAxisSpacing = StacDouble.zero,
+      this.childAspectRatio = const StacDouble(1.0),
       this.mainAxisExtent,
       this.addAutomaticKeepAlives = true,
       this.addRepaintBoundaries = true,
@@ -344,15 +344,15 @@ class _StacGridView implements StacGridView {
   final int? crossAxisCount;
   @override
   @JsonKey()
-  final double mainAxisSpacing;
+  final StacDouble mainAxisSpacing;
   @override
   @JsonKey()
-  final double crossAxisSpacing;
+  final StacDouble crossAxisSpacing;
   @override
   @JsonKey()
-  final double childAspectRatio;
+  final StacDouble childAspectRatio;
   @override
-  final double? mainAxisExtent;
+  final StacDouble? mainAxisExtent;
   @override
   @JsonKey()
   final bool addAutomaticKeepAlives;
@@ -363,7 +363,7 @@ class _StacGridView implements StacGridView {
   @JsonKey()
   final bool addSemanticIndexes;
   @override
-  final double? cacheExtent;
+  final StacDouble? cacheExtent;
   final List<Map<String, dynamic>> _children;
   @override
   @JsonKey()
@@ -496,14 +496,14 @@ abstract mixin class _$StacGridViewCopyWith<$Res>
       bool shrinkWrap,
       StacEdgeInsets? padding,
       int? crossAxisCount,
-      double mainAxisSpacing,
-      double crossAxisSpacing,
-      double childAspectRatio,
-      double? mainAxisExtent,
+      StacDouble mainAxisSpacing,
+      StacDouble crossAxisSpacing,
+      StacDouble childAspectRatio,
+      StacDouble? mainAxisExtent,
       bool addAutomaticKeepAlives,
       bool addRepaintBoundaries,
       bool addSemanticIndexes,
-      double? cacheExtent,
+      StacDouble? cacheExtent,
       List<Map<String, dynamic>> children,
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
@@ -582,19 +582,19 @@ class __$StacGridViewCopyWithImpl<$Res>
       mainAxisSpacing: null == mainAxisSpacing
           ? _self.mainAxisSpacing
           : mainAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       crossAxisSpacing: null == crossAxisSpacing
           ? _self.crossAxisSpacing
           : crossAxisSpacing // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       childAspectRatio: null == childAspectRatio
           ? _self.childAspectRatio
           : childAspectRatio // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       mainAxisExtent: freezed == mainAxisExtent
           ? _self.mainAxisExtent
           : mainAxisExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       addAutomaticKeepAlives: null == addAutomaticKeepAlives
           ? _self.addAutomaticKeepAlives
           : addAutomaticKeepAlives // ignore: cast_nullable_to_non_nullable
@@ -610,7 +610,7 @@ class __$StacGridViewCopyWithImpl<$Res>
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       children: null == children
           ? _self._children
           : children // ignore: cast_nullable_to_non_nullable

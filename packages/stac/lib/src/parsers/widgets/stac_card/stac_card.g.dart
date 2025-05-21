@@ -10,7 +10,9 @@ _StacCard _$StacCardFromJson(Map<String, dynamic> json) => _StacCard(
       color: json['color'] as String?,
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
       shape: json['shape'] == null
           ? null
           : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),

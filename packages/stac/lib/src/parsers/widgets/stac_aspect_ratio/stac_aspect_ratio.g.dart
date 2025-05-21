@@ -8,7 +8,9 @@ part of 'stac_aspect_ratio.dart';
 
 _StacAspectRatio _$StacAspectRatioFromJson(Map<String, dynamic> json) =>
     _StacAspectRatio(
-      aspectRatio: (json['aspectRatio'] as num?)?.toDouble() ?? 1,
+      aspectRatio: json['aspectRatio'] == null
+          ? const StacDouble(1)
+          : StacDouble.fromJson(json['aspectRatio']),
       child: json['child'] as Map<String, dynamic>?,
     );
 

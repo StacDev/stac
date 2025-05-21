@@ -45,8 +45,8 @@ mixin _$StacTextFormField {
   bool get enableIMEPersonalizedLearning;
   bool get enableSuggestions;
   bool? get enabled;
-  double get cursorWidth;
-  double? get cursorHeight;
+  StacDouble get cursorWidth;
+  StacDouble? get cursorHeight;
   String? get cursorColor;
   String? get hintText;
   AutovalidateMode? get autovalidateMode;
@@ -229,8 +229,8 @@ abstract mixin class $StacTextFormFieldCopyWith<$Res> {
       bool enableIMEPersonalizedLearning,
       bool enableSuggestions,
       bool? enabled,
-      double cursorWidth,
-      double? cursorHeight,
+      StacDouble cursorWidth,
+      StacDouble? cursorHeight,
       String? cursorColor,
       String? hintText,
       AutovalidateMode? autovalidateMode,
@@ -417,11 +417,11 @@ class _$StacTextFormFieldCopyWithImpl<$Res>
       cursorWidth: null == cursorWidth
           ? _self.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cursorHeight: freezed == cursorHeight
           ? _self.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       cursorColor: freezed == cursorColor
           ? _self.cursorColor
           : cursorColor // ignore: cast_nullable_to_non_nullable
@@ -513,13 +513,16 @@ class _StacTextFormField implements StacTextFormField {
       this.maxLengthEnforcement,
       this.expands = false,
       this.keyboardAppearance,
-      this.scrollPadding =
-          const StacEdgeInsets(bottom: 20, top: 20, left: 20, right: 20),
+      this.scrollPadding = const StacEdgeInsets(
+          bottom: StacDouble(20),
+          top: StacDouble(20),
+          left: StacDouble(20),
+          right: StacDouble(20)),
       this.restorationId,
       this.enableIMEPersonalizedLearning = true,
       this.enableSuggestions = true,
       this.enabled,
-      this.cursorWidth = 2,
+      this.cursorWidth = const StacDouble(2),
       this.cursorHeight,
       this.cursorColor,
       this.hintText,
@@ -603,9 +606,9 @@ class _StacTextFormField implements StacTextFormField {
   final bool? enabled;
   @override
   @JsonKey()
-  final double cursorWidth;
+  final StacDouble cursorWidth;
   @override
-  final double? cursorHeight;
+  final StacDouble? cursorHeight;
   @override
   final String? cursorColor;
   @override
@@ -812,8 +815,8 @@ abstract mixin class _$StacTextFormFieldCopyWith<$Res>
       bool enableIMEPersonalizedLearning,
       bool enableSuggestions,
       bool? enabled,
-      double cursorWidth,
-      double? cursorHeight,
+      StacDouble cursorWidth,
+      StacDouble? cursorHeight,
       String? cursorColor,
       String? hintText,
       AutovalidateMode? autovalidateMode,
@@ -1003,11 +1006,11 @@ class __$StacTextFormFieldCopyWithImpl<$Res>
       cursorWidth: null == cursorWidth
           ? _self.cursorWidth
           : cursorWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cursorHeight: freezed == cursorHeight
           ? _self.cursorHeight
           : cursorHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       cursorColor: freezed == cursorColor
           ? _self.cursorColor
           : cursorColor // ignore: cast_nullable_to_non_nullable

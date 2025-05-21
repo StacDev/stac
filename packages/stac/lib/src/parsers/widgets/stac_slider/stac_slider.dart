@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_mouse_cursor/stac_mouse_cursor.dart';
 
 export 'stac_slider_parser.dart';
@@ -14,13 +15,13 @@ abstract class StacSlider with _$StacSlider {
   const factory StacSlider({
     String? id,
     @Default(StacSliderType.material) StacSliderType sliderType,
-    required double value,
-    double? secondaryTrackValue,
+    required StacDouble value,
+    StacDouble? secondaryTrackValue,
     Map<String, dynamic>? onChanged,
     Map<String, dynamic>? onChangeStart,
     Map<String, dynamic>? onChangeEnd,
-    @Default(0.0) double min,
-    @Default(1.0) double max,
+    @Default(StacDouble.zero) StacDouble min,
+    @Default(StacDouble(1.0)) StacDouble max,
     int? divisions,
     String? label,
     String? activeColor,

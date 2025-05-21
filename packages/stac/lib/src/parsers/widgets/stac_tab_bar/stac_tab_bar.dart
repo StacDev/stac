@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 import 'package:stac/src/utils/stac_scroll_physics.dart';
@@ -19,7 +20,7 @@ abstract class StacTabBar with _$StacTabBar {
     StacEdgeInsets? padding,
     String? indicatorColor,
     @Default(true) bool automaticIndicatorColorAdjustment,
-    @Default(2.0) double indicatorWeight,
+    @Default(StacDouble(2.0)) StacDouble indicatorWeight,
     StacEdgeInsets? indicatorPadding,
     TabBarIndicatorSize? indicatorSize,
     String? labelColor,

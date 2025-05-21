@@ -35,7 +35,7 @@ mixin _$StacInkWell {
   String? get overlayColor;
   String? get splashColor;
   Map<String, dynamic>? get splashFactory;
-  double? get radius;
+  StacDouble? get radius;
   StacBorderRadius? get borderRadius;
   StacBorder? get customBorder;
   bool get enableFeedback;
@@ -189,7 +189,7 @@ abstract mixin class $StacInkWellCopyWith<$Res> {
       String? overlayColor,
       String? splashColor,
       Map<String, dynamic>? splashFactory,
-      double? radius,
+      StacDouble? radius,
       StacBorderRadius? borderRadius,
       StacBorder? customBorder,
       bool enableFeedback,
@@ -334,7 +334,7 @@ class _$StacInkWellCopyWithImpl<$Res> implements $StacInkWellCopyWith<$Res> {
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       borderRadius: freezed == borderRadius
           ? _self.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable
@@ -632,7 +632,7 @@ class _StacInkWell implements StacInkWell {
   }
 
   @override
-  final double? radius;
+  final StacDouble? radius;
   @override
   final StacBorderRadius? borderRadius;
   @override
@@ -833,7 +833,7 @@ abstract mixin class _$StacInkWellCopyWith<$Res>
       String? overlayColor,
       String? splashColor,
       Map<String, dynamic>? splashFactory,
-      double? radius,
+      StacDouble? radius,
       StacBorderRadius? borderRadius,
       StacBorder? customBorder,
       bool enableFeedback,
@@ -981,7 +981,7 @@ class __$StacInkWellCopyWithImpl<$Res> implements _$StacInkWellCopyWith<$Res> {
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       borderRadius: freezed == borderRadius
           ? _self.borderRadius
           : borderRadius // ignore: cast_nullable_to_non_nullable

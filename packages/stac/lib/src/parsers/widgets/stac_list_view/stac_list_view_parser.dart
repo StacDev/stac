@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_list_view/stac_list_view.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -30,7 +31,7 @@ class StacListViewParser extends StacParser<StacListView> {
       addAutomaticKeepAlives: model.addAutomaticKeepAlives,
       addRepaintBoundaries: model.addRepaintBoundaries,
       addSemanticIndexes: model.addSemanticIndexes,
-      cacheExtent: model.cacheExtent,
+      cacheExtent: model.cacheExtent?.parse,
       dragStartBehavior: model.dragStartBehavior,
       keyboardDismissBehavior: model.keyboardDismissBehavior,
       restorationId: model.restorationId,

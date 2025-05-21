@@ -18,10 +18,10 @@ StacBorderRadius _$StacBorderRadiusFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StacBorderRadius {
-  double get topLeft;
-  double get topRight;
-  double get bottomLeft;
-  double get bottomRight;
+  StacDouble get topLeft;
+  StacDouble get topRight;
+  StacDouble get bottomLeft;
+  StacDouble get bottomRight;
 
   /// Create a copy of StacBorderRadius
   /// with the given fields replaced by the non-null parameter values.
@@ -66,7 +66,10 @@ abstract mixin class $StacBorderRadiusCopyWith<$Res> {
       _$StacBorderRadiusCopyWithImpl;
   @useResult
   $Res call(
-      {double topLeft, double topRight, double bottomLeft, double bottomRight});
+      {StacDouble topLeft,
+      StacDouble topRight,
+      StacDouble bottomLeft,
+      StacDouble bottomRight});
 }
 
 /// @nodoc
@@ -91,19 +94,19 @@ class _$StacBorderRadiusCopyWithImpl<$Res>
       topLeft: null == topLeft
           ? _self.topLeft
           : topLeft // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       topRight: null == topRight
           ? _self.topRight
           : topRight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomLeft: null == bottomLeft
           ? _self.bottomLeft
           : bottomLeft // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomRight: null == bottomRight
           ? _self.bottomRight
           : bottomRight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -112,25 +115,25 @@ class _$StacBorderRadiusCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacBorder implements StacBorderRadius {
   const _StacBorder(
-      {this.topLeft = 0.0,
-      this.topRight = 0.0,
-      this.bottomLeft = 0.0,
-      this.bottomRight = 0.0});
+      {this.topLeft = StacDouble.zero,
+      this.topRight = StacDouble.zero,
+      this.bottomLeft = StacDouble.zero,
+      this.bottomRight = StacDouble.zero});
   factory _StacBorder.fromJson(Map<String, dynamic> json) =>
       _$StacBorderFromJson(json);
 
   @override
   @JsonKey()
-  final double topLeft;
+  final StacDouble topLeft;
   @override
   @JsonKey()
-  final double topRight;
+  final StacDouble topRight;
   @override
   @JsonKey()
-  final double bottomLeft;
+  final StacDouble bottomLeft;
   @override
   @JsonKey()
-  final double bottomRight;
+  final StacDouble bottomRight;
 
   /// Create a copy of StacBorderRadius
   /// with the given fields replaced by the non-null parameter values.
@@ -181,7 +184,10 @@ abstract mixin class _$StacBorderCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double topLeft, double topRight, double bottomLeft, double bottomRight});
+      {StacDouble topLeft,
+      StacDouble topRight,
+      StacDouble bottomLeft,
+      StacDouble bottomRight});
 }
 
 /// @nodoc
@@ -205,19 +211,19 @@ class __$StacBorderCopyWithImpl<$Res> implements _$StacBorderCopyWith<$Res> {
       topLeft: null == topLeft
           ? _self.topLeft
           : topLeft // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       topRight: null == topRight
           ? _self.topRight
           : topRight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomLeft: null == bottomLeft
           ? _self.bottomLeft
           : bottomLeft // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       bottomRight: null == bottomRight
           ? _self.bottomRight
           : bottomRight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

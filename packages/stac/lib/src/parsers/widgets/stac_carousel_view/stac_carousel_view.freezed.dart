@@ -18,15 +18,15 @@ mixin _$StacCarouselView {
   StacCarouselViewType get carouselType;
   StacEdgeInsets? get padding;
   String? get backgroundColor;
-  double? get elevation;
+  StacDouble? get elevation;
   String? get overlayColor;
   bool get itemSnapping;
-  double get shrinkExtent;
+  StacDouble get shrinkExtent;
   Axis get scrollDirection;
   bool get reverse;
   Map<String, dynamic>? get onTap;
   bool get enableSplash;
-  double? get itemExtent;
+  StacDouble? get itemExtent;
   List<int>? get flexWeights;
   List<Map<String, dynamic>>? get children;
 
@@ -107,15 +107,15 @@ abstract mixin class $StacCarouselViewCopyWith<$Res> {
       {StacCarouselViewType carouselType,
       StacEdgeInsets? padding,
       String? backgroundColor,
-      double? elevation,
+      StacDouble? elevation,
       String? overlayColor,
       bool itemSnapping,
-      double shrinkExtent,
+      StacDouble shrinkExtent,
       Axis scrollDirection,
       bool reverse,
       Map<String, dynamic>? onTap,
       bool enableSplash,
-      double? itemExtent,
+      StacDouble? itemExtent,
       List<int>? flexWeights,
       List<Map<String, dynamic>>? children});
 
@@ -166,7 +166,7 @@ class _$StacCarouselViewCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       overlayColor: freezed == overlayColor
           ? _self.overlayColor
           : overlayColor // ignore: cast_nullable_to_non_nullable
@@ -178,7 +178,7 @@ class _$StacCarouselViewCopyWithImpl<$Res>
       shrinkExtent: null == shrinkExtent
           ? _self.shrinkExtent
           : shrinkExtent // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       scrollDirection: null == scrollDirection
           ? _self.scrollDirection
           : scrollDirection // ignore: cast_nullable_to_non_nullable
@@ -198,7 +198,7 @@ class _$StacCarouselViewCopyWithImpl<$Res>
       itemExtent: freezed == itemExtent
           ? _self.itemExtent
           : itemExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       flexWeights: freezed == flexWeights
           ? _self.flexWeights
           : flexWeights // ignore: cast_nullable_to_non_nullable
@@ -235,7 +235,7 @@ class _StacCarouselView implements StacCarouselView {
       this.elevation,
       this.overlayColor,
       this.itemSnapping = false,
-      this.shrinkExtent = 0.0,
+      this.shrinkExtent = StacDouble.zero,
       this.scrollDirection = Axis.horizontal,
       this.reverse = false,
       final Map<String, dynamic>? onTap,
@@ -257,7 +257,7 @@ class _StacCarouselView implements StacCarouselView {
   @override
   final String? backgroundColor;
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
   final String? overlayColor;
   @override
@@ -265,7 +265,7 @@ class _StacCarouselView implements StacCarouselView {
   final bool itemSnapping;
   @override
   @JsonKey()
-  final double shrinkExtent;
+  final StacDouble shrinkExtent;
   @override
   @JsonKey()
   final Axis scrollDirection;
@@ -286,7 +286,7 @@ class _StacCarouselView implements StacCarouselView {
   @JsonKey()
   final bool enableSplash;
   @override
-  final double? itemExtent;
+  final StacDouble? itemExtent;
   final List<int>? _flexWeights;
   @override
   List<int>? get flexWeights {
@@ -390,15 +390,15 @@ abstract mixin class _$StacCarouselViewCopyWith<$Res>
       {StacCarouselViewType carouselType,
       StacEdgeInsets? padding,
       String? backgroundColor,
-      double? elevation,
+      StacDouble? elevation,
       String? overlayColor,
       bool itemSnapping,
-      double shrinkExtent,
+      StacDouble shrinkExtent,
       Axis scrollDirection,
       bool reverse,
       Map<String, dynamic>? onTap,
       bool enableSplash,
-      double? itemExtent,
+      StacDouble? itemExtent,
       List<int>? flexWeights,
       List<Map<String, dynamic>>? children});
 
@@ -450,7 +450,7 @@ class __$StacCarouselViewCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       overlayColor: freezed == overlayColor
           ? _self.overlayColor
           : overlayColor // ignore: cast_nullable_to_non_nullable
@@ -462,7 +462,7 @@ class __$StacCarouselViewCopyWithImpl<$Res>
       shrinkExtent: null == shrinkExtent
           ? _self.shrinkExtent
           : shrinkExtent // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       scrollDirection: null == scrollDirection
           ? _self.scrollDirection
           : scrollDirection // ignore: cast_nullable_to_non_nullable
@@ -482,7 +482,7 @@ class __$StacCarouselViewCopyWithImpl<$Res>
       itemExtent: freezed == itemExtent
           ? _self.itemExtent
           : itemExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       flexWeights: freezed == flexWeights
           ? _self._flexWeights
           : flexWeights // ignore: cast_nullable_to_non_nullable

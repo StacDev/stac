@@ -21,7 +21,9 @@ _StacRow _$StacRowFromJson(Map<String, dynamic> json) => _StacRow(
       verticalDirection: $enumDecodeNullable(
               _$VerticalDirectionEnumMap, json['verticalDirection']) ??
           VerticalDirection.down,
-      spacing: (json['spacing'] as num?)?.toDouble() ?? 0,
+      spacing: json['spacing'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['spacing']),
       children: (json['children'] as List<dynamic>?)
               ?.map((e) => e as Map<String, dynamic>)
               .toList() ??

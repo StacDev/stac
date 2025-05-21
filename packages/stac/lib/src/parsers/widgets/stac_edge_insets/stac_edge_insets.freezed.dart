@@ -15,10 +15,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacEdgeInsets {
-  double? get left;
-  double? get top;
-  double? get right;
-  double? get bottom;
+  StacDouble? get left;
+  StacDouble? get top;
+  StacDouble? get right;
+  StacDouble? get bottom;
 
   /// Create a copy of StacEdgeInsets
   /// with the given fields replaced by the non-null parameter values.
@@ -58,7 +58,11 @@ abstract mixin class $StacEdgeInsetsCopyWith<$Res> {
           StacEdgeInsets value, $Res Function(StacEdgeInsets) _then) =
       _$StacEdgeInsetsCopyWithImpl;
   @useResult
-  $Res call({double? left, double? top, double? right, double? bottom});
+  $Res call(
+      {StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom});
 }
 
 /// @nodoc
@@ -83,19 +87,19 @@ class _$StacEdgeInsetsCopyWithImpl<$Res>
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }
@@ -108,13 +112,13 @@ class _StacEdgeInsets implements StacEdgeInsets {
       _$StacEdgeInsetsFromJson(json);
 
   @override
-  final double? left;
+  final StacDouble? left;
   @override
-  final double? top;
+  final StacDouble? top;
   @override
-  final double? right;
+  final StacDouble? right;
   @override
-  final double? bottom;
+  final StacDouble? bottom;
 
   /// Create a copy of StacEdgeInsets
   /// with the given fields replaced by the non-null parameter values.
@@ -160,7 +164,11 @@ abstract mixin class _$StacEdgeInsetsCopyWith<$Res>
       __$StacEdgeInsetsCopyWithImpl;
   @override
   @useResult
-  $Res call({double? left, double? top, double? right, double? bottom});
+  $Res call(
+      {StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom});
 }
 
 /// @nodoc
@@ -185,19 +193,19 @@ class __$StacEdgeInsetsCopyWithImpl<$Res>
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }

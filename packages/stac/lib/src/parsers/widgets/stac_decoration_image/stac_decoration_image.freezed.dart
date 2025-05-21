@@ -22,8 +22,8 @@ mixin _$StacDecorationImage {
   StacRect? get centerSlice;
   ImageRepeat get repeat;
   bool get matchTextDirection;
-  double get scale;
-  double get opacity;
+  StacDouble get scale;
+  StacDouble get opacity;
   FilterQuality get filterQuality;
   bool get invertColors;
   bool get isAntiAlias;
@@ -102,8 +102,8 @@ abstract mixin class $StacDecorationImageCopyWith<$Res> {
       StacRect? centerSlice,
       ImageRepeat repeat,
       bool matchTextDirection,
-      double scale,
-      double opacity,
+      StacDouble scale,
+      StacDouble opacity,
       FilterQuality filterQuality,
       bool invertColors,
       bool isAntiAlias});
@@ -169,11 +169,11 @@ class _$StacDecorationImageCopyWithImpl<$Res>
       scale: null == scale
           ? _self.scale
           : scale // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       opacity: null == opacity
           ? _self.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       filterQuality: null == filterQuality
           ? _self.filterQuality
           : filterQuality // ignore: cast_nullable_to_non_nullable
@@ -215,8 +215,8 @@ class _StacDecorationImage implements StacDecorationImage {
       this.centerSlice,
       this.repeat = ImageRepeat.noRepeat,
       this.matchTextDirection = false,
-      this.scale = 1.0,
-      this.opacity = 1.0,
+      this.scale = const StacDouble(1.0),
+      this.opacity = const StacDouble(1.0),
       this.filterQuality = FilterQuality.low,
       this.invertColors = false,
       this.isAntiAlias = false});
@@ -243,10 +243,10 @@ class _StacDecorationImage implements StacDecorationImage {
   final bool matchTextDirection;
   @override
   @JsonKey()
-  final double scale;
+  final StacDouble scale;
   @override
   @JsonKey()
-  final double opacity;
+  final StacDouble opacity;
   @override
   @JsonKey()
   final FilterQuality filterQuality;
@@ -338,8 +338,8 @@ abstract mixin class _$StacDecorationImageCopyWith<$Res>
       StacRect? centerSlice,
       ImageRepeat repeat,
       bool matchTextDirection,
-      double scale,
-      double opacity,
+      StacDouble scale,
+      StacDouble opacity,
       FilterQuality filterQuality,
       bool invertColors,
       bool isAntiAlias});
@@ -406,11 +406,11 @@ class __$StacDecorationImageCopyWithImpl<$Res>
       scale: null == scale
           ? _self.scale
           : scale // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       opacity: null == opacity
           ? _self.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       filterQuality: null == filterQuality
           ? _self.filterQuality
           : filterQuality // ignore: cast_nullable_to_non_nullable

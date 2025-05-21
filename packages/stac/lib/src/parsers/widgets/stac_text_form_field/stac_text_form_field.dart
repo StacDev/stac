@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_form_field_validator/stac_form_validator.dart';
 import 'package:stac/src/parsers/widgets/stac_input_decoration/stac_input_decoration.dart';
@@ -41,14 +42,18 @@ abstract class StacTextFormField with _$StacTextFormField {
     MaxLengthEnforcement? maxLengthEnforcement,
     @Default(false) bool expands,
     Brightness? keyboardAppearance,
-    @Default(StacEdgeInsets(bottom: 20, top: 20, left: 20, right: 20))
+    @Default(StacEdgeInsets(
+        bottom: StacDouble(20),
+        top: StacDouble(20),
+        left: StacDouble(20),
+        right: StacDouble(20)))
     StacEdgeInsets scrollPadding,
     String? restorationId,
     @Default(true) bool enableIMEPersonalizedLearning,
     @Default(true) bool enableSuggestions,
     bool? enabled,
-    @Default(2) double cursorWidth,
-    double? cursorHeight,
+    @Default(StacDouble(2)) StacDouble cursorWidth,
+    StacDouble? cursorHeight,
     String? cursorColor,
     String? hintText,
     AutovalidateMode? autovalidateMode,

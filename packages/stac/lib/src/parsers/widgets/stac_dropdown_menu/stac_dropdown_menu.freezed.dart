@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacDropdownMenu {
   bool get enabled;
-  double? get width;
-  double? get menuHeight;
+  StacDouble? get width;
+  StacDouble? get menuHeight;
   Map<String, dynamic>? get leadingIcon;
   Map<String, dynamic>? get trailingIcon;
   Map<String, dynamic>? get label;
@@ -143,8 +143,8 @@ abstract mixin class $StacDropdownMenuCopyWith<$Res> {
   @useResult
   $Res call(
       {bool enabled,
-      double? width,
-      double? menuHeight,
+      StacDouble? width,
+      StacDouble? menuHeight,
       Map<String, dynamic>? leadingIcon,
       Map<String, dynamic>? trailingIcon,
       Map<String, dynamic>? label,
@@ -217,11 +217,11 @@ class _$StacDropdownMenuCopyWithImpl<$Res>
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       menuHeight: freezed == menuHeight
           ? _self.menuHeight
           : menuHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       leadingIcon: freezed == leadingIcon
           ? _self.leadingIcon
           : leadingIcon // ignore: cast_nullable_to_non_nullable
@@ -403,9 +403,9 @@ class _StacDropdownMenu implements StacDropdownMenu {
   @JsonKey()
   final bool enabled;
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? menuHeight;
+  final StacDouble? menuHeight;
   final Map<String, dynamic>? _leadingIcon;
   @override
   Map<String, dynamic>? get leadingIcon {
@@ -607,8 +607,8 @@ abstract mixin class _$StacDropdownMenuCopyWith<$Res>
   @useResult
   $Res call(
       {bool enabled,
-      double? width,
-      double? menuHeight,
+      StacDouble? width,
+      StacDouble? menuHeight,
       Map<String, dynamic>? leadingIcon,
       Map<String, dynamic>? trailingIcon,
       Map<String, dynamic>? label,
@@ -685,11 +685,11 @@ class __$StacDropdownMenuCopyWithImpl<$Res>
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       menuHeight: freezed == menuHeight
           ? _self.menuHeight
           : menuHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       leadingIcon: freezed == leadingIcon
           ? _self._leadingIcon
           : leadingIcon // ignore: cast_nullable_to_non_nullable

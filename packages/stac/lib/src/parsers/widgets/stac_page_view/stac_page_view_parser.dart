@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_page_view/stac_page_view.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -40,7 +41,7 @@ class _StacPageViewWidgetState extends State<_StacPageViewWidget> {
 
     _pageController = PageController(
       initialPage: widget.model.initialPage,
-      viewportFraction: widget.model.viewportFraction,
+      viewportFraction: widget.model.viewportFraction.parse,
       keepPage: widget.model.keepPage,
     );
   }

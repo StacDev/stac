@@ -18,7 +18,7 @@ mixin _$StacInputBorder {
   StacInputBorderType get type;
   StacBorderRadius? get borderRadius;
   double get gapPadding;
-  double get width;
+  StacDouble get width;
   String? get color;
   StacGradient? get gradient;
 
@@ -70,7 +70,7 @@ abstract mixin class $StacInputBorderCopyWith<$Res> {
       {StacInputBorderType type,
       StacBorderRadius? borderRadius,
       double gapPadding,
-      double width,
+      StacDouble width,
       String? color,
       StacGradient? gradient});
 
@@ -114,7 +114,7 @@ class _$StacInputBorderCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _StacInputBorder implements StacInputBorder {
       {this.type = StacInputBorderType.underlineInputBorder,
       this.borderRadius,
       this.gapPadding = 4.0,
-      this.width = 0.0,
+      this.width = StacDouble.zero,
       this.color,
       this.gradient});
   factory _StacInputBorder.fromJson(Map<String, dynamic> json) =>
@@ -178,7 +178,7 @@ class _StacInputBorder implements StacInputBorder {
   final double gapPadding;
   @override
   @JsonKey()
-  final double width;
+  final StacDouble width;
   @override
   final String? color;
   @override
@@ -238,7 +238,7 @@ abstract mixin class _$StacInputBorderCopyWith<$Res>
       {StacInputBorderType type,
       StacBorderRadius? borderRadius,
       double gapPadding,
-      double width,
+      StacDouble width,
       String? color,
       StacGradient? gradient});
 
@@ -284,7 +284,7 @@ class __$StacInputBorderCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable

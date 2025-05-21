@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
@@ -13,9 +14,9 @@ class StacDividerParser extends StacParser<StacDivider> {
   @override
   Widget parse(BuildContext context, StacDivider model) {
     return Divider(
-      thickness: model.thickness,
+      thickness: model.thickness?.parse,
       color: model.color.toColor(context),
-      height: model.height,
+      height: model.height?.parse,
     );
   }
 

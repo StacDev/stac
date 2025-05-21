@@ -7,8 +7,11 @@ part of 'stac_divider.dart';
 // **************************************************************************
 
 _StacDivider _$StacDividerFromJson(Map<String, dynamic> json) => _StacDivider(
-      thickness: (json['thickness'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
+      thickness: json['thickness'] == null
+          ? null
+          : StacDouble.fromJson(json['thickness']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       color: json['color'] as String?,
     );
 

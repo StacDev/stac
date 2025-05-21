@@ -22,9 +22,9 @@ mixin _$StacCircleAvatar {
   Map<String, dynamic>? get onBackgroundImageError;
   Map<String, dynamic>? get onForegroundImageError;
   String? get foregroundColor;
-  double? get radius;
-  double? get minRadius;
-  double? get maxRadius;
+  StacDouble? get radius;
+  StacDouble? get minRadius;
+  StacDouble? get maxRadius;
 
   /// Create a copy of StacCircleAvatar
   /// with the given fields replaced by the non-null parameter values.
@@ -97,9 +97,9 @@ abstract mixin class $StacCircleAvatarCopyWith<$Res> {
       Map<String, dynamic>? onBackgroundImageError,
       Map<String, dynamic>? onForegroundImageError,
       String? foregroundColor,
-      double? radius,
-      double? minRadius,
-      double? maxRadius});
+      StacDouble? radius,
+      StacDouble? minRadius,
+      StacDouble? maxRadius});
 }
 
 /// @nodoc
@@ -158,15 +158,15 @@ class _$StacCircleAvatarCopyWithImpl<$Res>
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minRadius: freezed == minRadius
           ? _self.minRadius
           : minRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       maxRadius: freezed == maxRadius
           ? _self.maxRadius
           : maxRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }
@@ -232,11 +232,11 @@ class _StacCircleAvatar implements StacCircleAvatar {
   @override
   final String? foregroundColor;
   @override
-  final double? radius;
+  final StacDouble? radius;
   @override
-  final double? minRadius;
+  final StacDouble? minRadius;
   @override
-  final double? maxRadius;
+  final StacDouble? maxRadius;
 
   /// Create a copy of StacCircleAvatar
   /// with the given fields replaced by the non-null parameter values.
@@ -315,9 +315,9 @@ abstract mixin class _$StacCircleAvatarCopyWith<$Res>
       Map<String, dynamic>? onBackgroundImageError,
       Map<String, dynamic>? onForegroundImageError,
       String? foregroundColor,
-      double? radius,
-      double? minRadius,
-      double? maxRadius});
+      StacDouble? radius,
+      StacDouble? minRadius,
+      StacDouble? maxRadius});
 }
 
 /// @nodoc
@@ -376,15 +376,15 @@ class __$StacCircleAvatarCopyWithImpl<$Res>
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       minRadius: freezed == minRadius
           ? _self.minRadius
           : minRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       maxRadius: freezed == maxRadius
           ? _self.maxRadius
           : maxRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 }

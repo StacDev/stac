@@ -16,14 +16,14 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacRefreshIndicator {
   Map<String, dynamic>? get child;
-  double get displacement;
-  double get edgeOffset;
+  StacDouble get displacement;
+  StacDouble get edgeOffset;
   Map<String, dynamic>? get onRefresh;
   String? get color;
   String? get backgroundColor;
   String? get semanticsLabel;
   String? get semanticsValue;
-  double get strokeWidth;
+  StacDouble get strokeWidth;
   RefreshIndicatorTriggerMode get triggerMode;
 
   /// Create a copy of StacRefreshIndicator
@@ -90,14 +90,14 @@ abstract mixin class $StacRefreshIndicatorCopyWith<$Res> {
   @useResult
   $Res call(
       {Map<String, dynamic>? child,
-      double displacement,
-      double edgeOffset,
+      StacDouble displacement,
+      StacDouble edgeOffset,
       Map<String, dynamic>? onRefresh,
       String? color,
       String? backgroundColor,
       String? semanticsLabel,
       String? semanticsValue,
-      double strokeWidth,
+      StacDouble strokeWidth,
       RefreshIndicatorTriggerMode triggerMode});
 }
 
@@ -133,11 +133,11 @@ class _$StacRefreshIndicatorCopyWithImpl<$Res>
       displacement: null == displacement
           ? _self.displacement
           : displacement // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       edgeOffset: null == edgeOffset
           ? _self.edgeOffset
           : edgeOffset // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       onRefresh: freezed == onRefresh
           ? _self.onRefresh
           : onRefresh // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _$StacRefreshIndicatorCopyWithImpl<$Res>
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       triggerMode: null == triggerMode
           ? _self.triggerMode
           : triggerMode // ignore: cast_nullable_to_non_nullable
@@ -175,14 +175,15 @@ class _$StacRefreshIndicatorCopyWithImpl<$Res>
 class _StacRefreshIndicator implements StacRefreshIndicator {
   const _StacRefreshIndicator(
       {final Map<String, dynamic>? child,
-      this.displacement = 40,
-      this.edgeOffset = 0,
+      this.displacement = const StacDouble(40),
+      this.edgeOffset = StacDouble.zero,
       final Map<String, dynamic>? onRefresh,
       this.color,
       this.backgroundColor,
       this.semanticsLabel,
       this.semanticsValue,
-      this.strokeWidth = RefreshProgressIndicator.defaultStrokeWidth,
+      this.strokeWidth =
+          const StacDouble(RefreshProgressIndicator.defaultStrokeWidth),
       this.triggerMode = RefreshIndicatorTriggerMode.onEdge})
       : _child = child,
         _onRefresh = onRefresh;
@@ -201,10 +202,10 @@ class _StacRefreshIndicator implements StacRefreshIndicator {
 
   @override
   @JsonKey()
-  final double displacement;
+  final StacDouble displacement;
   @override
   @JsonKey()
-  final double edgeOffset;
+  final StacDouble edgeOffset;
   final Map<String, dynamic>? _onRefresh;
   @override
   Map<String, dynamic>? get onRefresh {
@@ -225,7 +226,7 @@ class _StacRefreshIndicator implements StacRefreshIndicator {
   final String? semanticsValue;
   @override
   @JsonKey()
-  final double strokeWidth;
+  final StacDouble strokeWidth;
   @override
   @JsonKey()
   final RefreshIndicatorTriggerMode triggerMode;
@@ -302,14 +303,14 @@ abstract mixin class _$StacRefreshIndicatorCopyWith<$Res>
   @useResult
   $Res call(
       {Map<String, dynamic>? child,
-      double displacement,
-      double edgeOffset,
+      StacDouble displacement,
+      StacDouble edgeOffset,
       Map<String, dynamic>? onRefresh,
       String? color,
       String? backgroundColor,
       String? semanticsLabel,
       String? semanticsValue,
-      double strokeWidth,
+      StacDouble strokeWidth,
       RefreshIndicatorTriggerMode triggerMode});
 }
 
@@ -345,11 +346,11 @@ class __$StacRefreshIndicatorCopyWithImpl<$Res>
       displacement: null == displacement
           ? _self.displacement
           : displacement // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       edgeOffset: null == edgeOffset
           ? _self.edgeOffset
           : edgeOffset // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       onRefresh: freezed == onRefresh
           ? _self._onRefresh
           : onRefresh // ignore: cast_nullable_to_non_nullable
@@ -373,7 +374,7 @@ class __$StacRefreshIndicatorCopyWithImpl<$Res>
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       triggerMode: null == triggerMode
           ? _self.triggerMode
           : triggerMode // ignore: cast_nullable_to_non_nullable

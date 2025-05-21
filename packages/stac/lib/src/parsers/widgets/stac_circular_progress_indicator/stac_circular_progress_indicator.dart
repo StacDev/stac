@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'stac_circular_progress_indicator_parser.dart';
 
@@ -11,11 +12,11 @@ part 'stac_circular_progress_indicator.g.dart';
 abstract class StacCircularProgressIndicator
     with _$StacCircularProgressIndicator {
   const factory StacCircularProgressIndicator({
-    double? value,
+    StacDouble? value,
     String? backgroundColor,
     String? color,
-    @Default(4.0) double strokeWidth,
-    @Default(0) double strokeAlign,
+    @Default(StacDouble(4.0)) StacDouble strokeWidth,
+    @Default(StacDouble.zero) StacDouble strokeAlign,
     String? semanticsLabel,
     String? semanticsValue,
     StrokeCap? strokeCap,

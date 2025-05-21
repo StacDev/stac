@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_alignment/stac_alignment.dart';
 import 'package:stac/src/parsers/widgets/stac_box_constraints/stac_box_constraints.dart';
 import 'package:stac/src/parsers/widgets/stac_box_decoration/stac_box_decoration.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 
 export 'stac_container_parser.dart';
@@ -19,8 +20,8 @@ abstract class StacContainer with _$StacContainer {
     StacBoxDecoration? decoration,
     StacBoxDecoration? foregroundDecoration,
     String? color,
-    double? width,
-    double? height,
+    StacDouble? width,
+    StacDouble? height,
     StacBoxConstraints? constraints,
     StacEdgeInsets? margin,
     Map<String, dynamic>? child,

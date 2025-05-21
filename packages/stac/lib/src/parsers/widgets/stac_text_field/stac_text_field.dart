@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_input_decoration/stac_input_decoration.dart';
 import 'package:stac/src/parsers/widgets/stac_input_formatters/stac_input_formatter.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
@@ -33,8 +34,8 @@ abstract class StacTextField with _$StacTextField {
     @Default(false) bool obscureText,
     @Default(true) bool enableSuggestions,
     bool? enabled,
-    @Default(2) double cursorWidth,
-    double? cursorHeight,
+    @Default(StacDouble(2)) StacDouble cursorWidth,
+    StacDouble? cursorHeight,
     String? cursorColor,
     String? hintText,
     @Default([]) List<StacInputFormatter> inputFormatters,

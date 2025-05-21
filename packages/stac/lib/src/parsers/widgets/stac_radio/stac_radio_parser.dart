@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_radio_group/stac_radio_group_scope.dart';
 import 'package:stac/src/parsers/widgets/stac_visual_density/stac_visual_density.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -104,7 +105,7 @@ class _RadioWidget extends StatelessWidget {
           overlayColor: WidgetStateProperty.all(
             model.overlayColor?.toColor(context),
           ),
-          splashRadius: model.splashRadius,
+          splashRadius: model.splashRadius?.parse,
           materialTapTargetSize: model.materialTapTargetSize,
           visualDensity: model.visualDensity?.parse,
           focusNode: focusNode,
@@ -138,7 +139,7 @@ class _RadioWidget extends StatelessWidget {
           overlayColor: WidgetStateProperty.all(
             model.overlayColor?.toColor(context),
           ),
-          splashRadius: model.splashRadius,
+          splashRadius: model.splashRadius?.parse,
           materialTapTargetSize: model.materialTapTargetSize,
           visualDensity: model.visualDensity?.parse,
           focusNode: focusNode,

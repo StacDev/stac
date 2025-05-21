@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_alignment_directional/stac_alignment_directional.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 
 export 'stac_align_parser.dart';
 
@@ -11,8 +12,8 @@ abstract class StacAlign with _$StacAlign {
   const factory StacAlign({
     @Default(StacAlignmentDirectional.center)
     StacAlignmentDirectional alignment,
-    double? widthFactor,
-    double? heightFactor,
+    StacDouble? widthFactor,
+    StacDouble? heightFactor,
     Map<String, dynamic>? child,
   }) = _StacAlign;
 

@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacSizedBox {
-  double? get width;
-  double? get height;
+  StacDouble? get width;
+  StacDouble? get height;
   Map<String, dynamic>? get child;
 
   /// Create a copy of StacSizedBox
@@ -57,7 +57,8 @@ abstract mixin class $StacSizedBoxCopyWith<$Res> {
           StacSizedBox value, $Res Function(StacSizedBox) _then) =
       _$StacSizedBoxCopyWithImpl;
   @useResult
-  $Res call({double? width, double? height, Map<String, dynamic>? child});
+  $Res call(
+      {StacDouble? width, StacDouble? height, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -80,11 +81,11 @@ class _$StacSizedBoxCopyWithImpl<$Res> implements $StacSizedBoxCopyWith<$Res> {
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -103,9 +104,9 @@ class _StacSizedBox implements StacSizedBox {
       _$StacSizedBoxFromJson(json);
 
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? height;
+  final StacDouble? height;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -160,7 +161,8 @@ abstract mixin class _$StacSizedBoxCopyWith<$Res>
       __$StacSizedBoxCopyWithImpl;
   @override
   @useResult
-  $Res call({double? width, double? height, Map<String, dynamic>? child});
+  $Res call(
+      {StacDouble? width, StacDouble? height, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -184,11 +186,11 @@ class __$StacSizedBoxCopyWithImpl<$Res>
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

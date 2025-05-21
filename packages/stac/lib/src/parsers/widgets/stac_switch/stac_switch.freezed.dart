@@ -27,14 +27,14 @@ mixin _$StacSwitch {
   String? get inactiveTrackColor;
   String? get onLabelColor;
   String? get offLabelColor;
-  double? get splashRadius;
+  StacDouble? get splashRadius;
   DragStartBehavior get dragStartBehavior;
   StacMaterialColor? get overlayColor;
   StacMaterialColor? get thumbColor;
   StacMaterialColor? get trackColor;
   MaterialTapTargetSize? get materialTapTargetSize;
   StacMaterialColor? get trackOutlineColor;
-  double? get trackOutlineWidth;
+  StacDouble? get trackOutlineWidth;
   Map<String, dynamic>? get thumbIcon;
   String? get inactiveThumbImage;
   String? get activeThumbImage;
@@ -161,14 +161,14 @@ abstract mixin class $StacSwitchCopyWith<$Res> {
       String? inactiveTrackColor,
       String? onLabelColor,
       String? offLabelColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       DragStartBehavior dragStartBehavior,
       StacMaterialColor? overlayColor,
       StacMaterialColor? thumbColor,
       StacMaterialColor? trackColor,
       MaterialTapTargetSize? materialTapTargetSize,
       StacMaterialColor? trackOutlineColor,
-      double? trackOutlineWidth,
+      StacDouble? trackOutlineWidth,
       Map<String, dynamic>? thumbIcon,
       String? inactiveThumbImage,
       String? activeThumbImage,
@@ -271,7 +271,7 @@ class _$StacSwitchCopyWithImpl<$Res> implements $StacSwitchCopyWith<$Res> {
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       dragStartBehavior: null == dragStartBehavior
           ? _self.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
@@ -299,7 +299,7 @@ class _$StacSwitchCopyWithImpl<$Res> implements $StacSwitchCopyWith<$Res> {
       trackOutlineWidth: freezed == trackOutlineWidth
           ? _self.trackOutlineWidth
           : trackOutlineWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       thumbIcon: freezed == thumbIcon
           ? _self.thumbIcon
           : thumbIcon // ignore: cast_nullable_to_non_nullable
@@ -450,7 +450,7 @@ class _StacSwitch implements StacSwitch {
   @override
   final String? offLabelColor;
   @override
-  final double? splashRadius;
+  final StacDouble? splashRadius;
   @override
   @JsonKey()
   final DragStartBehavior dragStartBehavior;
@@ -465,7 +465,7 @@ class _StacSwitch implements StacSwitch {
   @override
   final StacMaterialColor? trackOutlineColor;
   @override
-  final double? trackOutlineWidth;
+  final StacDouble? trackOutlineWidth;
   final Map<String, dynamic>? _thumbIcon;
   @override
   Map<String, dynamic>? get thumbIcon {
@@ -614,14 +614,14 @@ abstract mixin class _$StacSwitchCopyWith<$Res>
       String? inactiveTrackColor,
       String? onLabelColor,
       String? offLabelColor,
-      double? splashRadius,
+      StacDouble? splashRadius,
       DragStartBehavior dragStartBehavior,
       StacMaterialColor? overlayColor,
       StacMaterialColor? thumbColor,
       StacMaterialColor? trackColor,
       MaterialTapTargetSize? materialTapTargetSize,
       StacMaterialColor? trackOutlineColor,
-      double? trackOutlineWidth,
+      StacDouble? trackOutlineWidth,
       Map<String, dynamic>? thumbIcon,
       String? inactiveThumbImage,
       String? activeThumbImage,
@@ -728,7 +728,7 @@ class __$StacSwitchCopyWithImpl<$Res> implements _$StacSwitchCopyWith<$Res> {
       splashRadius: freezed == splashRadius
           ? _self.splashRadius
           : splashRadius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       dragStartBehavior: null == dragStartBehavior
           ? _self.dragStartBehavior
           : dragStartBehavior // ignore: cast_nullable_to_non_nullable
@@ -756,7 +756,7 @@ class __$StacSwitchCopyWithImpl<$Res> implements _$StacSwitchCopyWith<$Res> {
       trackOutlineWidth: freezed == trackOutlineWidth
           ? _self.trackOutlineWidth
           : trackOutlineWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       thumbIcon: freezed == thumbIcon
           ? _self._thumbIcon
           : thumbIcon // ignore: cast_nullable_to_non_nullable

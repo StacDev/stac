@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacVisualDensity {
-  double get horizontal;
-  double get vertical;
+  StacDouble get horizontal;
+  StacDouble get vertical;
 
   /// Create a copy of StacVisualDensity
   /// with the given fields replaced by the non-null parameter values.
@@ -56,7 +56,7 @@ abstract mixin class $StacVisualDensityCopyWith<$Res> {
           StacVisualDensity value, $Res Function(StacVisualDensity) _then) =
       _$StacVisualDensityCopyWithImpl;
   @useResult
-  $Res call({double horizontal, double vertical});
+  $Res call({StacDouble horizontal, StacDouble vertical});
 }
 
 /// @nodoc
@@ -79,11 +79,11 @@ class _$StacVisualDensityCopyWithImpl<$Res>
       horizontal: null == horizontal
           ? _self.horizontal
           : horizontal // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       vertical: null == vertical
           ? _self.vertical
           : vertical // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -96,9 +96,9 @@ class _StacVisualDensity implements StacVisualDensity {
       _$StacVisualDensityFromJson(json);
 
   @override
-  final double horizontal;
+  final StacDouble horizontal;
   @override
-  final double vertical;
+  final StacDouble vertical;
 
   /// Create a copy of StacVisualDensity
   /// with the given fields replaced by the non-null parameter values.
@@ -144,7 +144,7 @@ abstract mixin class _$StacVisualDensityCopyWith<$Res>
       __$StacVisualDensityCopyWithImpl;
   @override
   @useResult
-  $Res call({double horizontal, double vertical});
+  $Res call({StacDouble horizontal, StacDouble vertical});
 }
 
 /// @nodoc
@@ -167,11 +167,11 @@ class __$StacVisualDensityCopyWithImpl<$Res>
       horizontal: null == horizontal
           ? _self.horizontal
           : horizontal // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       vertical: null == vertical
           ? _self.vertical
           : vertical // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

@@ -85,7 +85,9 @@ Map<String, dynamic> _$StacTableRowToJson(_StacTableRow instance) =>
 _StacTableBorder _$StacTableBorderFromJson(Map<String, dynamic> json) =>
     _StacTableBorder(
       color: json['color'] as String? ?? '#000000',
-      width: (json['width'] as num?)?.toDouble() ?? 1.0,
+      width: json['width'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['width']),
       style: $enumDecodeNullable(_$BorderStyleEnumMap, json['style']) ??
           BorderStyle.solid,
       borderRadius: json['borderRadius'] == null
@@ -112,7 +114,7 @@ _StacTableColumnWidth _$StacTableColumnWidthFromJson(
       type: $enumDecodeNullable(
               _$StacTableColumnWidthTypeEnumMap, json['type']) ??
           StacTableColumnWidthType.flexColumnWidth,
-      value: (json['value'] as num?)?.toDouble(),
+      value: json['value'] == null ? null : StacDouble.fromJson(json['value']),
     );
 
 Map<String, dynamic> _$StacTableColumnWidthToJson(

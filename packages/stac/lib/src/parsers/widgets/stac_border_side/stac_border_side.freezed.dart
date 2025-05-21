@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacBorderSide {
   String? get color;
-  double get width;
-  double get strokeAlign;
+  StacDouble get width;
+  StacDouble get strokeAlign;
   BorderStyle get borderStyle;
 
   /// Create a copy of StacBorderSide
@@ -63,8 +63,8 @@ abstract mixin class $StacBorderSideCopyWith<$Res> {
   @useResult
   $Res call(
       {String? color,
-      double width,
-      double strokeAlign,
+      StacDouble width,
+      StacDouble strokeAlign,
       BorderStyle borderStyle});
 }
 
@@ -94,11 +94,11 @@ class _$StacBorderSideCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       borderStyle: null == borderStyle
           ? _self.borderStyle
           : borderStyle // ignore: cast_nullable_to_non_nullable
@@ -112,8 +112,8 @@ class _$StacBorderSideCopyWithImpl<$Res>
 class _StacBorderSide implements StacBorderSide {
   const _StacBorderSide(
       {this.color,
-      this.width = 0.0,
-      this.strokeAlign = 0.0,
+      this.width = StacDouble.zero,
+      this.strokeAlign = StacDouble.zero,
       this.borderStyle = BorderStyle.solid});
   factory _StacBorderSide.fromJson(Map<String, dynamic> json) =>
       _$StacBorderSideFromJson(json);
@@ -122,10 +122,10 @@ class _StacBorderSide implements StacBorderSide {
   final String? color;
   @override
   @JsonKey()
-  final double width;
+  final StacDouble width;
   @override
   @JsonKey()
-  final double strokeAlign;
+  final StacDouble strokeAlign;
   @override
   @JsonKey()
   final BorderStyle borderStyle;
@@ -179,8 +179,8 @@ abstract mixin class _$StacBorderSideCopyWith<$Res>
   @useResult
   $Res call(
       {String? color,
-      double width,
-      double strokeAlign,
+      StacDouble width,
+      StacDouble strokeAlign,
       BorderStyle borderStyle});
 }
 
@@ -210,11 +210,11 @@ class __$StacBorderSideCopyWithImpl<$Res>
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       borderStyle: null == borderStyle
           ? _self.borderStyle
           : borderStyle // ignore: cast_nullable_to_non_nullable

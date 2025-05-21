@@ -17,7 +17,7 @@ T _$identity<T>(T value) => value;
 mixin _$StacIcon {
   String get icon;
   IconType get iconType;
-  double? get size;
+  StacDouble? get size;
   String? get color;
   String? get semanticLabel;
   TextDirection? get textDirection;
@@ -67,7 +67,7 @@ abstract mixin class $StacIconCopyWith<$Res> {
   $Res call(
       {String icon,
       IconType iconType,
-      double? size,
+      StacDouble? size,
       String? color,
       String? semanticLabel,
       TextDirection? textDirection});
@@ -104,7 +104,7 @@ class _$StacIconCopyWithImpl<$Res> implements $StacIconCopyWith<$Res> {
       size: freezed == size
           ? _self.size
           : size // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -140,7 +140,7 @@ class _StacIcon implements StacIcon {
   @JsonKey()
   final IconType iconType;
   @override
-  final double? size;
+  final StacDouble? size;
   @override
   final String? color;
   @override
@@ -200,7 +200,7 @@ abstract mixin class _$StacIconCopyWith<$Res>
   $Res call(
       {String icon,
       IconType iconType,
-      double? size,
+      StacDouble? size,
       String? color,
       String? semanticLabel,
       TextDirection? textDirection});
@@ -237,7 +237,7 @@ class __$StacIconCopyWithImpl<$Res> implements _$StacIconCopyWith<$Res> {
       size: freezed == size
           ? _self.size
           : size // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable

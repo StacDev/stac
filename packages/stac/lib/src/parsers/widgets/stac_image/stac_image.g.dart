@@ -15,8 +15,9 @@ _StacImage _$StacImageFromJson(Map<String, dynamic> json) => _StacImage(
           $enumDecodeNullable(_$StacImageTypeEnumMap, json['imageType']) ??
               StacImageType.network,
       color: json['color'] as String?,
-      width: (json['width'] as num?)?.toDouble(),
-      height: (json['height'] as num?)?.toDouble(),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      height:
+          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       fit: $enumDecodeNullable(_$BoxFitEnumMap, json['fit']),
     );
 

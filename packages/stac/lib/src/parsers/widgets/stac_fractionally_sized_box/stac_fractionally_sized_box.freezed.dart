@@ -16,8 +16,8 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacFractionallySizedBox {
   StacAlignment? get alignment;
-  double? get widthFactor;
-  double? get heightFactor;
+  StacDouble? get widthFactor;
+  StacDouble? get heightFactor;
   Map<String, dynamic>? get child;
 
   /// Create a copy of StacFractionallySizedBox
@@ -64,8 +64,8 @@ abstract mixin class $StacFractionallySizedBoxCopyWith<$Res> {
   @useResult
   $Res call(
       {StacAlignment? alignment,
-      double? widthFactor,
-      double? heightFactor,
+      StacDouble? widthFactor,
+      StacDouble? heightFactor,
       Map<String, dynamic>? child});
 }
 
@@ -95,11 +95,11 @@ class _$StacFractionallySizedBoxCopyWithImpl<$Res>
       widthFactor: freezed == widthFactor
           ? _self.widthFactor
           : widthFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       heightFactor: freezed == heightFactor
           ? _self.heightFactor
           : heightFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -123,9 +123,9 @@ class _StacFractionallySizedBox implements StacFractionallySizedBox {
   @override
   final StacAlignment? alignment;
   @override
-  final double? widthFactor;
+  final StacDouble? widthFactor;
   @override
-  final double? heightFactor;
+  final StacDouble? heightFactor;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -187,8 +187,8 @@ abstract mixin class _$StacFractionallySizedBoxCopyWith<$Res>
   @useResult
   $Res call(
       {StacAlignment? alignment,
-      double? widthFactor,
-      double? heightFactor,
+      StacDouble? widthFactor,
+      StacDouble? heightFactor,
       Map<String, dynamic>? child});
 }
 
@@ -218,11 +218,11 @@ class __$StacFractionallySizedBoxCopyWithImpl<$Res>
       widthFactor: freezed == widthFactor
           ? _self.widthFactor
           : widthFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       heightFactor: freezed == heightFactor
           ? _self.heightFactor
           : heightFactor // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

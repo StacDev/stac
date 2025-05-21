@@ -26,7 +26,9 @@ _StacCheckBox _$StacCheckBoxFromJson(Map<String, dynamic> json) =>
           ? null
           : StacMaterialColor.fromJson(
               json['overlayColor'] as Map<String, dynamic>),
-      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      splashRadius: json['splashRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['splashRadius']),
       materialTapTargetSize: $enumDecodeNullable(
           _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
       autofocus: json['autofocus'] as bool? ?? false,

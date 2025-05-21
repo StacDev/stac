@@ -32,7 +32,9 @@ _StacScaffold _$StacScaffoldFromJson(Map<String, dynamic> json) =>
       extendBody: json['extendBody'] as bool? ?? false,
       extendBodyBehindAppBar: json['extendBodyBehindAppBar'] as bool? ?? false,
       drawerScrimColor: json['drawerScrimColor'] as String?,
-      drawerEdgeDragWidth: (json['drawerEdgeDragWidth'] as num?)?.toDouble(),
+      drawerEdgeDragWidth: json['drawerEdgeDragWidth'] == null
+          ? null
+          : StacDouble.fromJson(json['drawerEdgeDragWidth']),
       drawerEnableOpenDragGesture:
           json['drawerEnableOpenDragGesture'] as bool? ?? true,
       endDrawerEnableOpenDragGesture:

@@ -9,11 +9,15 @@ part of 'stac_box_shadow.dart';
 _StacBoxShadow _$StacBoxShadowFromJson(Map<String, dynamic> json) =>
     _StacBoxShadow(
       color: json['color'] as String?,
-      blurRadius: (json['blurRadius'] as num?)?.toDouble() ?? 0.0,
+      blurRadius: json['blurRadius'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['blurRadius']),
       offset: json['offset'] == null
-          ? const StacOffset(dx: 0, dy: 0)
+          ? const StacOffset(dx: StacDouble.zero, dy: StacDouble.zero)
           : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
-      spreadRadius: (json['spreadRadius'] as num?)?.toDouble() ?? 0.0,
+      spreadRadius: json['spreadRadius'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['spreadRadius']),
       blurStyle: $enumDecodeNullable(_$BlurStyleEnumMap, json['blurStyle']) ??
           BlurStyle.normal,
     );

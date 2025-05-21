@@ -21,8 +21,8 @@ mixin _$StacCustomScrollView {
   bool? get primary;
   StacScrollPhysics? get physics;
   bool get shrinkWrap;
-  double get anchor;
-  double? get cacheExtent;
+  StacDouble get anchor;
+  StacDouble? get cacheExtent;
   int? get semanticChildCount;
   DragStartBehavior get dragStartBehavior;
   ScrollViewKeyboardDismissBehavior get keyboardDismissBehavior;
@@ -110,8 +110,8 @@ abstract mixin class $StacCustomScrollViewCopyWith<$Res> {
       bool? primary,
       StacScrollPhysics? physics,
       bool shrinkWrap,
-      double anchor,
-      double? cacheExtent,
+      StacDouble anchor,
+      StacDouble? cacheExtent,
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
@@ -176,11 +176,11 @@ class _$StacCustomScrollViewCopyWithImpl<$Res>
       anchor: null == anchor
           ? _self.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       semanticChildCount: freezed == semanticChildCount
           ? _self.semanticChildCount
           : semanticChildCount // ignore: cast_nullable_to_non_nullable
@@ -219,7 +219,7 @@ class _StacCustomScrollView implements StacCustomScrollView {
       this.primary,
       this.physics,
       this.shrinkWrap = false,
-      this.anchor = 0.0,
+      this.anchor = StacDouble.zero,
       this.cacheExtent,
       this.semanticChildCount,
       this.dragStartBehavior = DragStartBehavior.start,
@@ -255,9 +255,9 @@ class _StacCustomScrollView implements StacCustomScrollView {
   final bool shrinkWrap;
   @override
   @JsonKey()
-  final double anchor;
+  final StacDouble anchor;
   @override
-  final double? cacheExtent;
+  final StacDouble? cacheExtent;
   @override
   final int? semanticChildCount;
   @override
@@ -362,8 +362,8 @@ abstract mixin class _$StacCustomScrollViewCopyWith<$Res>
       bool? primary,
       StacScrollPhysics? physics,
       bool shrinkWrap,
-      double anchor,
-      double? cacheExtent,
+      StacDouble anchor,
+      StacDouble? cacheExtent,
       int? semanticChildCount,
       DragStartBehavior dragStartBehavior,
       ScrollViewKeyboardDismissBehavior keyboardDismissBehavior,
@@ -428,11 +428,11 @@ class __$StacCustomScrollViewCopyWithImpl<$Res>
       anchor: null == anchor
           ? _self.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       cacheExtent: freezed == cacheExtent
           ? _self.cacheExtent
           : cacheExtent // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       semanticChildCount: freezed == semanticChildCount
           ? _self.semanticChildCount
           : semanticChildCount // ignore: cast_nullable_to_non_nullable

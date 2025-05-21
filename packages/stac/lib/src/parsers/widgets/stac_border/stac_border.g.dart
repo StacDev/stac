@@ -11,9 +11,12 @@ _StacBorder _$StacBorderFromJson(Map<String, dynamic> json) => _StacBorder(
       borderStyle:
           $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle']) ??
               BorderStyle.solid,
-      width: (json['width'] as num?)?.toDouble() ?? 1.0,
-      strokeAlign: (json['strokeAlign'] as num?)?.toDouble() ??
-          BorderSide.strokeAlignInside,
+      width: json['width'] == null
+          ? const StacDouble(1.0)
+          : StacDouble.fromJson(json['width']),
+      strokeAlign: json['strokeAlign'] == null
+          ? const StacDouble(BorderSide.strokeAlignInside)
+          : StacDouble.fromJson(json['strokeAlign']),
     );
 
 Map<String, dynamic> _$StacBorderToJson(_StacBorder instance) =>

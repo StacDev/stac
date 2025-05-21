@@ -18,7 +18,7 @@ mixin _$StacTab {
   String? get text;
   Map<String, dynamic>? get icon;
   StacEdgeInsets? get iconMargin;
-  double? get height;
+  StacDouble? get height;
   Map<String, dynamic>? get child;
 
   /// Create a copy of StacTab
@@ -69,7 +69,7 @@ abstract mixin class $StacTabCopyWith<$Res> {
       {String? text,
       Map<String, dynamic>? icon,
       StacEdgeInsets? iconMargin,
-      double? height,
+      StacDouble? height,
       Map<String, dynamic>? child});
 
   $StacEdgeInsetsCopyWith<$Res>? get iconMargin;
@@ -109,7 +109,7 @@ class _$StacTabCopyWithImpl<$Res> implements $StacTabCopyWith<$Res> {
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _StacTab implements StacTab {
   @override
   final StacEdgeInsets? iconMargin;
   @override
-  final double? height;
+  final StacDouble? height;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -226,7 +226,7 @@ abstract mixin class _$StacTabCopyWith<$Res> implements $StacTabCopyWith<$Res> {
       {String? text,
       Map<String, dynamic>? icon,
       StacEdgeInsets? iconMargin,
-      double? height,
+      StacDouble? height,
       Map<String, dynamic>? child});
 
   @override
@@ -267,7 +267,7 @@ class __$StacTabCopyWithImpl<$Res> implements _$StacTabCopyWith<$Res> {
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       child: freezed == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

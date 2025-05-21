@@ -9,10 +9,12 @@ part of 'stac_linear_progress_indicator.dart';
 _StacLinearProgressIndicator _$StacLinearProgressIndicatorFromJson(
         Map<String, dynamic> json) =>
     _StacLinearProgressIndicator(
-      value: (json['value'] as num?)?.toDouble(),
+      value: json['value'] == null ? null : StacDouble.fromJson(json['value']),
       backgroundColor: json['backgroundColor'] as String?,
       color: json['color'] as String?,
-      minHeight: (json['minHeight'] as num?)?.toDouble(),
+      minHeight: json['minHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['minHeight']),
       semanticsLabel: json['semanticsLabel'] as String?,
       semanticsValue: json['semanticsValue'] as String?,
       borderRadius: json['borderRadius'] == null

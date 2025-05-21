@@ -40,7 +40,9 @@ _StacChip _$StacChipFromJson(Map<String, dynamic> json) => _StacChip(
               json['visualDensity'] as Map<String, dynamic>),
       materialTapTargetSize: $enumDecodeNullable(
           _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
-      elevation: (json['elevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
       iconTheme: json['iconTheme'] == null

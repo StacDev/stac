@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/icon_utils.dart';
 import 'package:stac/src/utils/log.dart';
@@ -30,7 +31,7 @@ class StacIconParser extends StacParser<StacIcon> {
     if (iconData != null) {
       return Icon(
         iconData,
-        size: model.size,
+        size: model.size?.parse,
         color: model.color.toColor(context),
         semanticLabel: model.semanticLabel,
         textDirection: model.textDirection,

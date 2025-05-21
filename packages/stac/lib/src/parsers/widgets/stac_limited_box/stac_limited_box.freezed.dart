@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacLimitedBox {
-  double get maxHeight;
-  double get maxWidth;
+  StacDouble get maxHeight;
+  StacDouble get maxWidth;
   Map<String, dynamic>? get child;
 
   /// Create a copy of StacLimitedBox
@@ -59,7 +59,8 @@ abstract mixin class $StacLimitedBoxCopyWith<$Res> {
           StacLimitedBox value, $Res Function(StacLimitedBox) _then) =
       _$StacLimitedBoxCopyWithImpl;
   @useResult
-  $Res call({double maxHeight, double maxWidth, Map<String, dynamic>? child});
+  $Res call(
+      {StacDouble maxHeight, StacDouble maxWidth, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -83,11 +84,11 @@ class _$StacLimitedBoxCopyWithImpl<$Res>
       maxHeight: null == maxHeight
           ? _self.maxHeight
           : maxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxWidth: null == maxWidth
           ? _self.maxWidth
           : maxWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: freezed == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -100,8 +101,8 @@ class _$StacLimitedBoxCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacLimitedBox implements StacLimitedBox {
   const _StacLimitedBox(
-      {this.maxHeight = double.infinity,
-      this.maxWidth = double.infinity,
+      {this.maxHeight = StacDouble.infinity,
+      this.maxWidth = StacDouble.infinity,
       final Map<String, dynamic>? child})
       : _child = child;
   factory _StacLimitedBox.fromJson(Map<String, dynamic> json) =>
@@ -109,10 +110,10 @@ class _StacLimitedBox implements StacLimitedBox {
 
   @override
   @JsonKey()
-  final double maxHeight;
+  final StacDouble maxHeight;
   @override
   @JsonKey()
-  final double maxWidth;
+  final StacDouble maxWidth;
   final Map<String, dynamic>? _child;
   @override
   Map<String, dynamic>? get child {
@@ -169,7 +170,8 @@ abstract mixin class _$StacLimitedBoxCopyWith<$Res>
       __$StacLimitedBoxCopyWithImpl;
   @override
   @useResult
-  $Res call({double maxHeight, double maxWidth, Map<String, dynamic>? child});
+  $Res call(
+      {StacDouble maxHeight, StacDouble maxWidth, Map<String, dynamic>? child});
 }
 
 /// @nodoc
@@ -193,11 +195,11 @@ class __$StacLimitedBoxCopyWithImpl<$Res>
       maxHeight: null == maxHeight
           ? _self.maxHeight
           : maxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxWidth: null == maxWidth
           ? _self.maxWidth
           : maxWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: freezed == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

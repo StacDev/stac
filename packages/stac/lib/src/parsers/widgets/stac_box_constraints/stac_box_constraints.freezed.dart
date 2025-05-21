@@ -15,10 +15,10 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacBoxConstraints {
-  double get minWidth;
-  double get maxWidth;
-  double get minHeight;
-  double get maxHeight;
+  StacDouble get minWidth;
+  StacDouble get maxWidth;
+  StacDouble get minHeight;
+  StacDouble get maxHeight;
 
   /// Create a copy of StacBoxConstraints
   /// with the given fields replaced by the non-null parameter values.
@@ -64,7 +64,10 @@ abstract mixin class $StacBoxConstraintsCopyWith<$Res> {
       _$StacBoxConstraintsCopyWithImpl;
   @useResult
   $Res call(
-      {double minWidth, double maxWidth, double minHeight, double maxHeight});
+      {StacDouble minWidth,
+      StacDouble maxWidth,
+      StacDouble minHeight,
+      StacDouble maxHeight});
 }
 
 /// @nodoc
@@ -89,19 +92,19 @@ class _$StacBoxConstraintsCopyWithImpl<$Res>
       minWidth: null == minWidth
           ? _self.minWidth
           : minWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxWidth: null == maxWidth
           ? _self.maxWidth
           : maxWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       minHeight: null == minHeight
           ? _self.minHeight
           : minHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxHeight: null == maxHeight
           ? _self.maxHeight
           : maxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -118,13 +121,13 @@ class _StacBoxConstraints implements StacBoxConstraints {
       _$StacBoxConstraintsFromJson(json);
 
   @override
-  final double minWidth;
+  final StacDouble minWidth;
   @override
-  final double maxWidth;
+  final StacDouble maxWidth;
   @override
-  final double minHeight;
+  final StacDouble minHeight;
   @override
-  final double maxHeight;
+  final StacDouble maxHeight;
 
   /// Create a copy of StacBoxConstraints
   /// with the given fields replaced by the non-null parameter values.
@@ -176,7 +179,10 @@ abstract mixin class _$StacBoxConstraintsCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double minWidth, double maxWidth, double minHeight, double maxHeight});
+      {StacDouble minWidth,
+      StacDouble maxWidth,
+      StacDouble minHeight,
+      StacDouble maxHeight});
 }
 
 /// @nodoc
@@ -201,19 +207,19 @@ class __$StacBoxConstraintsCopyWithImpl<$Res>
       minWidth: null == minWidth
           ? _self.minWidth
           : minWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxWidth: null == maxWidth
           ? _self.maxWidth
           : maxWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       minHeight: null == minHeight
           ? _self.minHeight
           : minHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       maxHeight: null == maxHeight
           ? _self.maxHeight
           : maxHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

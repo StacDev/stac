@@ -10,15 +10,20 @@ _StacRefreshIndicator _$StacRefreshIndicatorFromJson(
         Map<String, dynamic> json) =>
     _StacRefreshIndicator(
       child: json['child'] as Map<String, dynamic>?,
-      displacement: (json['displacement'] as num?)?.toDouble() ?? 40,
-      edgeOffset: (json['edgeOffset'] as num?)?.toDouble() ?? 0,
+      displacement: json['displacement'] == null
+          ? const StacDouble(40)
+          : StacDouble.fromJson(json['displacement']),
+      edgeOffset: json['edgeOffset'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['edgeOffset']),
       onRefresh: json['onRefresh'] as Map<String, dynamic>?,
       color: json['color'] as String?,
       backgroundColor: json['backgroundColor'] as String?,
       semanticsLabel: json['semanticsLabel'] as String?,
       semanticsValue: json['semanticsValue'] as String?,
-      strokeWidth: (json['strokeWidth'] as num?)?.toDouble() ??
-          RefreshProgressIndicator.defaultStrokeWidth,
+      strokeWidth: json['strokeWidth'] == null
+          ? const StacDouble(RefreshProgressIndicator.defaultStrokeWidth)
+          : StacDouble.fromJson(json['strokeWidth']),
       triggerMode: $enumDecodeNullable(
               _$RefreshIndicatorTriggerModeEnumMap, json['triggerMode']) ??
           RefreshIndicatorTriggerMode.onEdge,

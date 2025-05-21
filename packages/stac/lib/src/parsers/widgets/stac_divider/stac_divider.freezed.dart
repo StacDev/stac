@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacDivider {
-  double? get thickness;
-  double? get height;
+  StacDouble? get thickness;
+  StacDouble? get height;
   String? get color;
 
   /// Create a copy of StacDivider
@@ -56,7 +56,7 @@ abstract mixin class $StacDividerCopyWith<$Res> {
           StacDivider value, $Res Function(StacDivider) _then) =
       _$StacDividerCopyWithImpl;
   @useResult
-  $Res call({double? thickness, double? height, String? color});
+  $Res call({StacDouble? thickness, StacDouble? height, String? color});
 }
 
 /// @nodoc
@@ -79,11 +79,11 @@ class _$StacDividerCopyWithImpl<$Res> implements $StacDividerCopyWith<$Res> {
       thickness: freezed == thickness
           ? _self.thickness
           : thickness // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
@@ -100,9 +100,9 @@ class _StacDivider implements StacDivider {
       _$StacDividerFromJson(json);
 
   @override
-  final double? thickness;
+  final StacDouble? thickness;
   @override
-  final double? height;
+  final StacDouble? height;
   @override
   final String? color;
 
@@ -150,7 +150,7 @@ abstract mixin class _$StacDividerCopyWith<$Res>
       __$StacDividerCopyWithImpl;
   @override
   @useResult
-  $Res call({double? thickness, double? height, String? color});
+  $Res call({StacDouble? thickness, StacDouble? height, String? color});
 }
 
 /// @nodoc
@@ -173,11 +173,11 @@ class __$StacDividerCopyWithImpl<$Res> implements _$StacDividerCopyWith<$Res> {
       thickness: freezed == thickness
           ? _self.thickness
           : thickness // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       color: freezed == color
           ? _self.color
           : color // ignore: cast_nullable_to_non_nullable

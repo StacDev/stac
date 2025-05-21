@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_mouse_cursor/stac_mouse_cursor.dart';
 import 'package:stac/stac.dart';
 
@@ -28,7 +29,7 @@ abstract class StacInkWell with _$StacInkWell {
     String? overlayColor,
     String? splashColor,
     Map<String, dynamic>? splashFactory,
-    double? radius,
+    StacDouble? radius,
     StacBorderRadius? borderRadius,
     StacBorder? customBorder,
     @Default(true) bool enableFeedback,

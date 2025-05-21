@@ -15,8 +15,8 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacSize {
-  double get width;
-  double get height;
+  StacDouble get width;
+  StacDouble get height;
 
   /// Create a copy of StacSize
   /// with the given fields replaced by the non-null parameter values.
@@ -52,7 +52,7 @@ abstract mixin class $StacSizeCopyWith<$Res> {
   factory $StacSizeCopyWith(StacSize value, $Res Function(StacSize) _then) =
       _$StacSizeCopyWithImpl;
   @useResult
-  $Res call({double width, double height});
+  $Res call({StacDouble width, StacDouble height});
 }
 
 /// @nodoc
@@ -74,11 +74,11 @@ class _$StacSizeCopyWithImpl<$Res> implements $StacSizeCopyWith<$Res> {
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       height: null == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }
@@ -91,9 +91,9 @@ class _StacSize implements StacSize {
       _$StacSizeFromJson(json);
 
   @override
-  final double width;
+  final StacDouble width;
   @override
-  final double height;
+  final StacDouble height;
 
   /// Create a copy of StacSize
   /// with the given fields replaced by the non-null parameter values.
@@ -136,7 +136,7 @@ abstract mixin class _$StacSizeCopyWith<$Res>
       __$StacSizeCopyWithImpl;
   @override
   @useResult
-  $Res call({double width, double height});
+  $Res call({StacDouble width, StacDouble height});
 }
 
 /// @nodoc
@@ -158,11 +158,11 @@ class __$StacSizeCopyWithImpl<$Res> implements _$StacSizeCopyWith<$Res> {
       width: null == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       height: null == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
     ));
   }
 }

@@ -21,7 +21,9 @@ _StacSwitch _$StacSwitchFromJson(Map<String, dynamic> json) => _StacSwitch(
       inactiveTrackColor: json['inactiveTrackColor'] as String?,
       onLabelColor: json['onLabelColor'] as String?,
       offLabelColor: json['offLabelColor'] as String?,
-      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      splashRadius: json['splashRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['splashRadius']),
       dragStartBehavior: $enumDecodeNullable(
               _$DragStartBehaviorEnumMap, json['dragStartBehavior']) ??
           DragStartBehavior.start,
@@ -43,7 +45,9 @@ _StacSwitch _$StacSwitchFromJson(Map<String, dynamic> json) => _StacSwitch(
           ? null
           : StacMaterialColor.fromJson(
               json['trackOutlineColor'] as Map<String, dynamic>),
-      trackOutlineWidth: (json['trackOutlineWidth'] as num?)?.toDouble(),
+      trackOutlineWidth: json['trackOutlineWidth'] == null
+          ? null
+          : StacDouble.fromJson(json['trackOutlineWidth']),
       thumbIcon: json['thumbIcon'] as Map<String, dynamic>?,
       inactiveThumbImage: json['inactiveThumbImage'] as String?,
       activeThumbImage: json['activeThumbImage'] as String?,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_rounded_rectangle_border/stac_rounded_rectangle_border.dart';
 import 'package:stac/src/parsers/widgets/stac_visual_density/stac_visual_density.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -33,7 +34,7 @@ class StacChipParser extends StacParser<StacChip> {
       padding: model.padding.parse,
       visualDensity: model.visualDensity?.parse,
       materialTapTargetSize: model.materialTapTargetSize,
-      elevation: model.elevation,
+      elevation: model.elevation?.parse,
       shadowColor: model.shadowColor.toColor(context),
       surfaceTintColor: model.surfaceTintColor.toColor(context),
       iconTheme: model.iconTheme?.parse(context),

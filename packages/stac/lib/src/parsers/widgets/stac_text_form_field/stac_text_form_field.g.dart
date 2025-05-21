@@ -49,15 +49,23 @@ _StacTextFormField _$StacTextFormFieldFromJson(Map<String, dynamic> json) =>
       keyboardAppearance:
           $enumDecodeNullable(_$BrightnessEnumMap, json['keyboardAppearance']),
       scrollPadding: json['scrollPadding'] == null
-          ? const StacEdgeInsets(bottom: 20, top: 20, left: 20, right: 20)
+          ? const StacEdgeInsets(
+              bottom: StacDouble(20),
+              top: StacDouble(20),
+              left: StacDouble(20),
+              right: StacDouble(20))
           : StacEdgeInsets.fromJson(json['scrollPadding']),
       restorationId: json['restorationId'] as String?,
       enableIMEPersonalizedLearning:
           json['enableIMEPersonalizedLearning'] as bool? ?? true,
       enableSuggestions: json['enableSuggestions'] as bool? ?? true,
       enabled: json['enabled'] as bool?,
-      cursorWidth: (json['cursorWidth'] as num?)?.toDouble() ?? 2,
-      cursorHeight: (json['cursorHeight'] as num?)?.toDouble(),
+      cursorWidth: json['cursorWidth'] == null
+          ? const StacDouble(2)
+          : StacDouble.fromJson(json['cursorWidth']),
+      cursorHeight: json['cursorHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['cursorHeight']),
       cursorColor: json['cursorColor'] as String?,
       hintText: json['hintText'] as String?,
       autovalidateMode: $enumDecodeNullable(

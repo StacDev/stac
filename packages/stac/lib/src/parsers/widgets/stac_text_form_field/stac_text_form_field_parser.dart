@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/parsers.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac/src/utils/log.dart';
@@ -85,8 +86,8 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
       enableIMEPersonalizedLearning: widget.model.enableIMEPersonalizedLearning,
       enableSuggestions: widget.model.enableSuggestions,
       enabled: widget.model.enabled,
-      cursorWidth: widget.model.cursorWidth,
-      cursorHeight: widget.model.cursorHeight,
+      cursorWidth: widget.model.cursorWidth.parse,
+      cursorHeight: widget.model.cursorHeight?.parse,
       cursorColor: widget.model.cursorColor?.toColor(context),
       style: widget.model.style?.parse(context),
       decoration: widget.model.decoration.parse(context),

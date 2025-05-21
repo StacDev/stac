@@ -9,8 +9,10 @@ part of 'stac_dropdown_menu.dart';
 _StacDropdownMenu _$StacDropdownMenuFromJson(Map<String, dynamic> json) =>
     _StacDropdownMenu(
       enabled: json['enabled'] as bool? ?? true,
-      width: (json['width'] as num?)?.toDouble(),
-      menuHeight: (json['menuHeight'] as num?)?.toDouble(),
+      width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
+      menuHeight: json['menuHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['menuHeight']),
       leadingIcon: json['leadingIcon'] as Map<String, dynamic>?,
       trailingIcon: json['trailingIcon'] as Map<String, dynamic>?,
       label: json['label'] as Map<String, dynamic>?,

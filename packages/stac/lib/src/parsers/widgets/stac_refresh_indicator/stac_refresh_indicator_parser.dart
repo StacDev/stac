@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_refresh_indicator/stac_refresh_indicator.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -45,8 +46,8 @@ class _RefreshIndicatorWidgetState extends State<_RefreshIndicatorWidget> {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      displacement: widget.model.displacement,
-      edgeOffset: widget.model.edgeOffset,
+      displacement: widget.model.displacement.parse,
+      edgeOffset: widget.model.edgeOffset.parse,
       onRefresh: () async {
         Response result =
             await Stac.onCallFromJson(widget.model.onRefresh, context);
@@ -69,7 +70,7 @@ class _RefreshIndicatorWidgetState extends State<_RefreshIndicatorWidget> {
       backgroundColor: widget.model.backgroundColor.toColor(context),
       semanticsLabel: widget.model.semanticsLabel,
       semanticsValue: widget.model.semanticsValue,
-      strokeWidth: widget.model.strokeWidth,
+      strokeWidth: widget.model.strokeWidth.parse,
       triggerMode: widget.model.triggerMode,
       child: Stac.fromJson(childWidgetJson, context) ?? const SizedBox(),
     );

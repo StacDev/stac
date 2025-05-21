@@ -19,7 +19,9 @@ _StacText _$StacTextFromJson(Map<String, dynamic> json) => _StacText(
           $enumDecodeNullable(_$TextDirectionEnumMap, json['textDirection']),
       softWrap: json['softWrap'] as bool?,
       overflow: $enumDecodeNullable(_$TextOverflowEnumMap, json['overflow']),
-      textScaleFactor: (json['textScaleFactor'] as num?)?.toDouble(),
+      textScaleFactor: json['textScaleFactor'] == null
+          ? null
+          : StacDouble.fromJson(json['textScaleFactor']),
       maxLines: (json['maxLines'] as num?)?.toInt(),
       semanticsLabel: json['semanticsLabel'] as String?,
       textWidthBasis:

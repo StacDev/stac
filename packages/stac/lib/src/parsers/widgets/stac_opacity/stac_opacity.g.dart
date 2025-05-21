@@ -7,7 +7,7 @@ part of 'stac_opacity.dart';
 // **************************************************************************
 
 _StacOpacity _$StacOpacityFromJson(Map<String, dynamic> json) => _StacOpacity(
-      opacity: (json['opacity'] as num).toDouble(),
+      opacity: StacDouble.fromJson(json['opacity']),
       child: json['child'] as Map<String, dynamic>,
     );
 

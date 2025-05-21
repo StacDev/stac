@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/button_utils.dart';
 
 export 'stac_scaffold_parser.dart';
@@ -26,7 +27,7 @@ abstract class StacScaffold with _$StacScaffold {
     @Default(false) bool extendBody,
     @Default(false) bool extendBodyBehindAppBar,
     String? drawerScrimColor,
-    double? drawerEdgeDragWidth,
+    StacDouble? drawerEdgeDragWidth,
     @Default(true) bool drawerEnableOpenDragGesture,
     @Default(true) bool endDrawerEnableOpenDragGesture,
     String? restorationId,

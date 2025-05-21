@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
@@ -43,7 +44,7 @@ extension StacTableBorderParser on StacTableBorder {
   TableBorder parse(BuildContext context) {
     return TableBorder.all(
       color: color.toColor(context) ?? Colors.black,
-      width: width,
+      width: width.parse,
       style: style,
       borderRadius: borderRadius.parse,
     );
@@ -54,13 +55,13 @@ extension StacTableColumnWidthParser on StacTableColumnWidth {
   TableColumnWidth get parse {
     switch (type) {
       case StacTableColumnWidthType.fixedColumnWidth:
-        return FixedColumnWidth(value!);
+        return FixedColumnWidth(value!.parse);
       case StacTableColumnWidthType.flexColumnWidth:
-        return FlexColumnWidth(value!);
+        return FlexColumnWidth(value!.parse);
       case StacTableColumnWidthType.fractionColumnWidth:
-        return FractionColumnWidth(value!);
+        return FractionColumnWidth(value!.parse);
       case StacTableColumnWidthType.intrinsicColumnWidth:
-        return IntrinsicColumnWidth(flex: value!);
+        return IntrinsicColumnWidth(flex: value!.parse);
     }
   }
 }

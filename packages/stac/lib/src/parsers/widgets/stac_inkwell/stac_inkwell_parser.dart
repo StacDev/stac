@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
@@ -17,6 +18,7 @@ class StacInkwellParser extends StacParser<StacInkWell> {
   @override
   Widget parse(BuildContext context, StacInkWell model) {
     return InkWell(
+      child: Stac.fromJson(model.child, context),
       onTap: model.onTap == null
           ? null
           : () => Stac.onCallFromJson(model.onTap, context),
@@ -60,7 +62,7 @@ class StacInkwellParser extends StacParser<StacInkWell> {
       overlayColor:
           WidgetStateProperty.all(model.overlayColor?.toColor(context)),
       splashColor: model.splashColor.toColor(context),
-      radius: model.radius,
+      radius: model.radius?.parse,
       borderRadius: model.borderRadius.parse,
       customBorder: model.customBorder?.parse(context),
       enableFeedback: model.enableFeedback,
@@ -69,7 +71,11 @@ class StacInkwellParser extends StacParser<StacInkWell> {
       onFocusChange: (_) => Stac.onCallFromJson(model.onFocusChange, context),
       autofocus: model.autofocus,
       hoverDuration: model.hoverDuration?.parse,
-      child: Stac.fromJson(model.child, context),
+
+      ///TODO : need to add support for
+      ///focusNode
+      ///splashFactory
+      ///statesController
     );
   }
 }

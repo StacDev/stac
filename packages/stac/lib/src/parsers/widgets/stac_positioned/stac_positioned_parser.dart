@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_positioned/stac_positioned.dart';
 import 'package:stac/src/parsers/widgets/stac_rect/stac_rect.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -21,19 +22,19 @@ class StacPositionedParser extends StacParser<StacPositioned> {
       case StacPositionedType.directional:
         return Positioned.directional(
             textDirection: model.textDirection,
-            top: model.top,
-            bottom: model.bottom,
-            height: model.height,
-            width: model.width,
-            start: model.start,
-            end: model.end,
+            top: model.top?.parse,
+            bottom: model.bottom?.parse,
+            height: model.height?.parse,
+            width: model.width?.parse,
+            start: model.start?.parse,
+            end: model.end?.parse,
             child: Stac.fromJson(model.child, context) ?? const SizedBox());
       case StacPositionedType.fill:
         return Positioned.fill(
-            left: model.left,
-            top: model.top,
-            right: model.right,
-            bottom: model.bottom,
+            left: model.left?.parse,
+            top: model.top?.parse,
+            right: model.right?.parse,
+            bottom: model.bottom?.parse,
             child: Stac.fromJson(model.child, context) ?? const SizedBox());
       case StacPositionedType.fromRect:
         return Positioned.fromRect(
@@ -41,12 +42,12 @@ class StacPositionedParser extends StacParser<StacPositioned> {
             child: Stac.fromJson(model.child, context) ?? const SizedBox());
       default:
         return Positioned(
-            left: model.left,
-            top: model.top,
-            right: model.right,
-            bottom: model.bottom,
-            height: model.height,
-            width: model.width,
+            left: model.left?.parse,
+            top: model.top?.parse,
+            right: model.right?.parse,
+            bottom: model.bottom?.parse,
+            height: model.height?.parse,
+            width: model.width?.parse,
             child: Stac.fromJson(model.child, context) ?? const SizedBox());
     }
   }

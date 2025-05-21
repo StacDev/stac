@@ -17,9 +17,12 @@ _StacSliverAppBar _$StacSliverAppBarFromJson(Map<String, dynamic> json) =>
           .toList(),
       flexibleSpace: json['flexibleSpace'] as Map<String, dynamic>?,
       bottom: json['bottom'] as Map<String, dynamic>?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
-      scrolledUnderElevation:
-          (json['scrolledUnderElevation'] as num?)?.toDouble(),
+      elevation: json['elevation'] == null
+          ? null
+          : StacDouble.fromJson(json['elevation']),
+      scrolledUnderElevation: json['scrolledUnderElevation'] == null
+          ? null
+          : StacDouble.fromJson(json['scrolledUnderElevation']),
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
       forceElevated: json['forceElevated'] as bool? ?? false,
@@ -36,20 +39,31 @@ _StacSliverAppBar _$StacSliverAppBarFromJson(Map<String, dynamic> json) =>
       primary: json['primary'] as bool? ?? true,
       centerTitle: json['centerTitle'] as bool?,
       excludeHeaderSemantics: json['excludeHeaderSemantics'] as bool? ?? false,
-      titleSpacing: (json['titleSpacing'] as num?)?.toDouble(),
-      collapsedHeight: (json['collapsedHeight'] as num?)?.toDouble(),
-      expandedHeight: (json['expandedHeight'] as num?)?.toDouble(),
+      titleSpacing: json['titleSpacing'] == null
+          ? null
+          : StacDouble.fromJson(json['titleSpacing']),
+      collapsedHeight: json['collapsedHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['collapsedHeight']),
+      expandedHeight: json['expandedHeight'] == null
+          ? null
+          : StacDouble.fromJson(json['expandedHeight']),
       floating: json['floating'] as bool? ?? false,
       pinned: json['pinned'] as bool? ?? true,
       snap: json['snap'] as bool? ?? false,
       stretch: json['stretch'] as bool? ?? false,
-      stretchTriggerOffset:
-          (json['stretchTriggerOffset'] as num?)?.toDouble() ?? 100.0,
+      stretchTriggerOffset: json['stretchTriggerOffset'] == null
+          ? const StacDouble(100.0)
+          : StacDouble.fromJson(json['stretchTriggerOffset']),
       shape: json['shape'] == null
           ? null
           : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
-      toolbarHeight: (json['toolbarHeight'] as num?)?.toDouble() ?? 64.0,
-      leadingWidth: (json['leadingWidth'] as num?)?.toDouble(),
+      toolbarHeight: json['toolbarHeight'] == null
+          ? const StacDouble(64.0)
+          : StacDouble.fromJson(json['toolbarHeight']),
+      leadingWidth: json['leadingWidth'] == null
+          ? null
+          : StacDouble.fromJson(json['leadingWidth']),
       toolbarTextStyle: json['toolbarTextStyle'] == null
           ? null
           : StacTextStyle.fromJson(json['toolbarTextStyle']),

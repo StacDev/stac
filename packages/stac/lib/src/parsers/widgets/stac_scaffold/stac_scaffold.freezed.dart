@@ -31,7 +31,7 @@ mixin _$StacScaffold {
   bool get extendBody;
   bool get extendBodyBehindAppBar;
   String? get drawerScrimColor;
-  double? get drawerEdgeDragWidth;
+  StacDouble? get drawerEdgeDragWidth;
   bool get drawerEnableOpenDragGesture;
   bool get endDrawerEnableOpenDragGesture;
   String? get restorationId;
@@ -150,7 +150,7 @@ abstract mixin class $StacScaffoldCopyWith<$Res> {
       bool extendBody,
       bool extendBodyBehindAppBar,
       String? drawerScrimColor,
-      double? drawerEdgeDragWidth,
+      StacDouble? drawerEdgeDragWidth,
       bool drawerEnableOpenDragGesture,
       bool endDrawerEnableOpenDragGesture,
       String? restorationId});
@@ -257,7 +257,7 @@ class _$StacScaffoldCopyWithImpl<$Res> implements $StacScaffoldCopyWith<$Res> {
       drawerEdgeDragWidth: freezed == drawerEdgeDragWidth
           ? _self.drawerEdgeDragWidth
           : drawerEdgeDragWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       drawerEnableOpenDragGesture: null == drawerEnableOpenDragGesture
           ? _self.drawerEnableOpenDragGesture
           : drawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable
@@ -413,7 +413,7 @@ class _StacScaffold implements StacScaffold {
   @override
   final String? drawerScrimColor;
   @override
-  final double? drawerEdgeDragWidth;
+  final StacDouble? drawerEdgeDragWidth;
   @override
   @JsonKey()
   final bool drawerEnableOpenDragGesture;
@@ -543,7 +543,7 @@ abstract mixin class _$StacScaffoldCopyWith<$Res>
       bool extendBody,
       bool extendBodyBehindAppBar,
       String? drawerScrimColor,
-      double? drawerEdgeDragWidth,
+      StacDouble? drawerEdgeDragWidth,
       bool drawerEnableOpenDragGesture,
       bool endDrawerEnableOpenDragGesture,
       String? restorationId});
@@ -651,7 +651,7 @@ class __$StacScaffoldCopyWithImpl<$Res>
       drawerEdgeDragWidth: freezed == drawerEdgeDragWidth
           ? _self.drawerEdgeDragWidth
           : drawerEdgeDragWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       drawerEnableOpenDragGesture: null == drawerEnableOpenDragGesture
           ? _self.drawerEnableOpenDragGesture
           : drawerEnableOpenDragGesture // ignore: cast_nullable_to_non_nullable

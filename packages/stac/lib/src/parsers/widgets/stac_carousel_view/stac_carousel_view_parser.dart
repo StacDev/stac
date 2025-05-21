@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/widgets/stac_carousel_view/stac_carousel_view.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -24,16 +25,16 @@ class StacCarouselViewParser extends StacParser<StacCarouselView> {
         return CarouselView(
           padding: model.padding.parse,
           backgroundColor: model.backgroundColor.toColor(context),
-          elevation: model.elevation,
+          elevation: model.elevation?.parse,
           overlayColor:
               WidgetStateProperty.all(model.overlayColor.toColor(context)),
           itemSnapping: model.itemSnapping,
-          shrinkExtent: model.shrinkExtent,
+          shrinkExtent: model.shrinkExtent.parse,
           scrollDirection: model.scrollDirection,
           reverse: model.reverse,
           onTap: (index) => Stac.fromJson(model.onTap, context),
           enableSplash: model.enableSplash,
-          itemExtent: model.itemExtent ?? 0,
+          itemExtent: model.itemExtent?.parse ?? 0,
           children: model.children
                   ?.map((e) => Stac.fromJson(e, context) ?? SizedBox())
                   .toList() ??
@@ -43,11 +44,11 @@ class StacCarouselViewParser extends StacParser<StacCarouselView> {
         return CarouselView.weighted(
           padding: model.padding.parse,
           backgroundColor: model.backgroundColor.toColor(context),
-          elevation: model.elevation,
+          elevation: model.elevation?.parse,
           overlayColor:
               WidgetStateProperty.all(model.overlayColor.toColor(context)),
           itemSnapping: model.itemSnapping,
-          shrinkExtent: model.shrinkExtent,
+          shrinkExtent: model.shrinkExtent.parse,
           scrollDirection: model.scrollDirection,
           reverse: model.reverse,
           onTap: (index) => Stac.fromJson(model.onTap, context),

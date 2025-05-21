@@ -21,7 +21,9 @@ _StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => _StacRadio(
       focusColor: json['focusColor'] as String?,
       hoverColor: json['hoverColor'] as String?,
       overlayColor: json['overlayColor'] as String?,
-      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+      splashRadius: json['splashRadius'] == null
+          ? null
+          : StacDouble.fromJson(json['splashRadius']),
       materialTapTargetSize: $enumDecodeNullable(
           _$MaterialTapTargetSizeEnumMap, json['materialTapTargetSize']),
       visualDensity: json['visualDensity'] == null

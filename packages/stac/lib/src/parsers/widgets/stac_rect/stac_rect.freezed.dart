@@ -19,13 +19,13 @@ mixin _$StacRect {
   StacOffset? get center;
   StacOffset? get a;
   StacOffset? get b;
-  double? get width;
-  double? get height;
-  double? get left;
-  double? get top;
-  double? get right;
-  double? get bottom;
-  double? get radius;
+  StacDouble? get width;
+  StacDouble? get height;
+  StacDouble? get left;
+  StacDouble? get top;
+  StacDouble? get right;
+  StacDouble? get bottom;
+  StacDouble? get radius;
 
   /// Create a copy of StacRect
   /// with the given fields replaced by the non-null parameter values.
@@ -77,13 +77,13 @@ abstract mixin class $StacRectCopyWith<$Res> {
       StacOffset? center,
       StacOffset? a,
       StacOffset? b,
-      double? width,
-      double? height,
-      double? left,
-      double? top,
-      double? right,
-      double? bottom,
-      double? radius});
+      StacDouble? width,
+      StacDouble? height,
+      StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom,
+      StacDouble? radius});
 
   $StacOffsetCopyWith<$Res>? get center;
   $StacOffsetCopyWith<$Res>? get a;
@@ -134,31 +134,31 @@ class _$StacRectCopyWithImpl<$Res> implements $StacRectCopyWith<$Res> {
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 
@@ -232,19 +232,19 @@ class _StacRect implements StacRect {
   @override
   final StacOffset? b;
   @override
-  final double? width;
+  final StacDouble? width;
   @override
-  final double? height;
+  final StacDouble? height;
   @override
-  final double? left;
+  final StacDouble? left;
   @override
-  final double? top;
+  final StacDouble? top;
   @override
-  final double? right;
+  final StacDouble? right;
   @override
-  final double? bottom;
+  final StacDouble? bottom;
   @override
-  final double? radius;
+  final StacDouble? radius;
 
   /// Create a copy of StacRect
   /// with the given fields replaced by the non-null parameter values.
@@ -303,13 +303,13 @@ abstract mixin class _$StacRectCopyWith<$Res>
       StacOffset? center,
       StacOffset? a,
       StacOffset? b,
-      double? width,
-      double? height,
-      double? left,
-      double? top,
-      double? right,
-      double? bottom,
-      double? radius});
+      StacDouble? width,
+      StacDouble? height,
+      StacDouble? left,
+      StacDouble? top,
+      StacDouble? right,
+      StacDouble? bottom,
+      StacDouble? radius});
 
   @override
   $StacOffsetCopyWith<$Res>? get center;
@@ -363,31 +363,31 @@ class __$StacRectCopyWithImpl<$Res> implements _$StacRectCopyWith<$Res> {
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       height: freezed == height
           ? _self.height
           : height // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       left: freezed == left
           ? _self.left
           : left // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       top: freezed == top
           ? _self.top
           : top // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       right: freezed == right
           ? _self.right
           : right // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       bottom: freezed == bottom
           ? _self.bottom
           : bottom // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       radius: freezed == radius
           ? _self.radius
           : radius // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
     ));
   }
 

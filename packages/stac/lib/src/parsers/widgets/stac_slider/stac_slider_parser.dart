@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -38,7 +39,7 @@ class __StacSliderState extends State<_StacSlider> {
 
   @override
   void initState() {
-    selectedValue = widget.model.value;
+    selectedValue = widget.model.value.parse;
     if (widget.model.id != null) {
       widget.formScope?.formData[widget.model.id!] = selectedValue;
     }
@@ -90,12 +91,12 @@ class __StacSliderState extends State<_StacSlider> {
   ) {
     return Slider(
       value: value,
-      secondaryTrackValue: model.secondaryTrackValue,
+      secondaryTrackValue: model.secondaryTrackValue?.parse,
       onChanged: (value) => _onChanged(value),
       onChangeStart: (value) => _onChangeStart(value),
       onChangeEnd: (value) => _onChangeEnd(value),
-      min: model.min,
-      max: model.max,
+      min: model.min.parse,
+      max: model.max.parse,
       divisions: model.divisions,
       label: model.label,
       activeColor: model.activeColor?.toColor(context),
@@ -119,12 +120,12 @@ class __StacSliderState extends State<_StacSlider> {
   ) {
     return Slider.adaptive(
       value: value,
-      secondaryTrackValue: model.secondaryTrackValue,
+      secondaryTrackValue: model.secondaryTrackValue?.parse,
       onChanged: (value) => _onChanged(value),
       onChangeStart: (value) => _onChangeStart(value),
       onChangeEnd: (value) => _onChangeEnd(value),
-      min: model.min,
-      max: model.max,
+      min: model.min.parse,
+      max: model.max.parse,
       divisions: model.divisions,
       label: model.label,
       activeColor: model.activeColor?.toColor(context),
@@ -151,8 +152,8 @@ class __StacSliderState extends State<_StacSlider> {
       onChanged: (value) => _onChanged(value),
       onChangeStart: (value) => _onChangeStart(value),
       onChangeEnd: (value) => _onChangeEnd(value),
-      min: model.min,
-      max: model.max,
+      min: model.min.parse,
+      max: model.max.parse,
       divisions: model.divisions,
       activeColor: model.activeColor?.toColor(context),
       thumbColor: model.thumbColor?.toColor(context) ?? CupertinoColors.white,

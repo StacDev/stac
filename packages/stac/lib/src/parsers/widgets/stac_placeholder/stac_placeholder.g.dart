@@ -8,9 +8,15 @@ part of 'stac_placeholder.dart';
 
 _StacPlaceholder _$StacPlaceholderFromJson(Map<String, dynamic> json) =>
     _StacPlaceholder(
-      fallbackWidth: (json['fallbackWidth'] as num?)?.toDouble() ?? 2.0,
-      fallbackHeight: (json['fallbackHeight'] as num?)?.toDouble() ?? 400.0,
-      strokeWidth: (json['strokeWidth'] as num?)?.toDouble() ?? 400.0,
+      fallbackWidth: json['fallbackWidth'] == null
+          ? const StacDouble(2.0)
+          : StacDouble.fromJson(json['fallbackWidth']),
+      fallbackHeight: json['fallbackHeight'] == null
+          ? const StacDouble(400.0)
+          : StacDouble.fromJson(json['fallbackHeight']),
+      strokeWidth: json['strokeWidth'] == null
+          ? const StacDouble(400.0)
+          : StacDouble.fromJson(json['strokeWidth']),
       color: json['color'] as String? ?? '#455A64',
       child: json['child'] as Map<String, dynamic>?,
     );

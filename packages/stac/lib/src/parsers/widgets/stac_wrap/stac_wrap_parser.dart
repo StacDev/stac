@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -19,9 +20,9 @@ class StacWrapParser extends StacParser<StacWrap> {
     return Wrap(
       direction: model.direction,
       alignment: model.alignment,
-      spacing: model.spacing,
+      spacing: model.spacing.parse,
       runAlignment: model.runAlignment,
-      runSpacing: model.runSpacing,
+      runSpacing: model.runSpacing.parse,
       crossAxisAlignment: model.crossAxisAlignment,
       textDirection: model.textDirection,
       verticalDirection: model.verticalDirection,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'stac_auto_complete.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -27,7 +28,7 @@ class StacAutoCompleteParser extends StacParser<StacAutoComplete> {
       },
       onSelected: (String val) =>
           Stac.onCallFromJson(model.onSelected, context),
-      optionsMaxHeight: model.optionsMaxHeight,
+      optionsMaxHeight: model.optionsMaxHeight.parse,
       optionsViewOpenDirection: model.optionsViewOpenDirection,
       initialValue: model.initialValue != null
           ? TextEditingValue(text: model.initialValue!)

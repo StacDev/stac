@@ -21,7 +21,7 @@ mixin _$StacTabBar {
   StacEdgeInsets? get padding;
   String? get indicatorColor;
   bool get automaticIndicatorColorAdjustment;
-  double get indicatorWeight;
+  StacDouble get indicatorWeight;
   StacEdgeInsets? get indicatorPadding;
   TabBarIndicatorSize? get indicatorSize;
   String? get labelColor;
@@ -128,7 +128,7 @@ abstract mixin class $StacTabBarCopyWith<$Res> {
       StacEdgeInsets? padding,
       String? indicatorColor,
       bool automaticIndicatorColorAdjustment,
-      double indicatorWeight,
+      StacDouble indicatorWeight,
       StacEdgeInsets? indicatorPadding,
       TabBarIndicatorSize? indicatorSize,
       String? labelColor,
@@ -208,7 +208,7 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
       indicatorWeight: null == indicatorWeight
           ? _self.indicatorWeight
           : indicatorWeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       indicatorPadding: freezed == indicatorPadding
           ? _self.indicatorPadding
           : indicatorPadding // ignore: cast_nullable_to_non_nullable
@@ -337,7 +337,7 @@ class _StacTabBar implements StacTabBar {
       this.padding,
       this.indicatorColor,
       this.automaticIndicatorColorAdjustment = true,
-      this.indicatorWeight = 2.0,
+      this.indicatorWeight = const StacDouble(2.0),
       this.indicatorPadding,
       this.indicatorSize,
       this.labelColor,
@@ -376,7 +376,7 @@ class _StacTabBar implements StacTabBar {
   final bool automaticIndicatorColorAdjustment;
   @override
   @JsonKey()
-  final double indicatorWeight;
+  final StacDouble indicatorWeight;
   @override
   final StacEdgeInsets? indicatorPadding;
   @override
@@ -502,7 +502,7 @@ abstract mixin class _$StacTabBarCopyWith<$Res>
       StacEdgeInsets? padding,
       String? indicatorColor,
       bool automaticIndicatorColorAdjustment,
-      double indicatorWeight,
+      StacDouble indicatorWeight,
       StacEdgeInsets? indicatorPadding,
       TabBarIndicatorSize? indicatorSize,
       String? labelColor,
@@ -587,7 +587,7 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
       indicatorWeight: null == indicatorWeight
           ? _self.indicatorWeight
           : indicatorWeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       indicatorPadding: freezed == indicatorPadding
           ? _self.indicatorPadding
           : indicatorPadding // ignore: cast_nullable_to_non_nullable

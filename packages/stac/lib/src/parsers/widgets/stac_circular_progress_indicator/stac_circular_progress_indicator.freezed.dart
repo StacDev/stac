@@ -15,11 +15,11 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacCircularProgressIndicator {
-  double? get value;
+  StacDouble? get value;
   String? get backgroundColor;
   String? get color;
-  double get strokeWidth;
-  double get strokeAlign;
+  StacDouble get strokeWidth;
+  StacDouble get strokeAlign;
   String? get semanticsLabel;
   String? get semanticsValue;
   StrokeCap? get strokeCap;
@@ -76,11 +76,11 @@ abstract mixin class $StacCircularProgressIndicatorCopyWith<$Res> {
       _$StacCircularProgressIndicatorCopyWithImpl;
   @useResult
   $Res call(
-      {double? value,
+      {StacDouble? value,
       String? backgroundColor,
       String? color,
-      double strokeWidth,
-      double strokeAlign,
+      StacDouble strokeWidth,
+      StacDouble strokeAlign,
       String? semanticsLabel,
       String? semanticsValue,
       StrokeCap? strokeCap});
@@ -112,7 +112,7 @@ class _$StacCircularProgressIndicatorCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -124,11 +124,11 @@ class _$StacCircularProgressIndicatorCopyWithImpl<$Res>
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       semanticsLabel: freezed == semanticsLabel
           ? _self.semanticsLabel
           : semanticsLabel // ignore: cast_nullable_to_non_nullable
@@ -152,8 +152,8 @@ class _StacCircularProgressIndicator implements StacCircularProgressIndicator {
       {this.value,
       this.backgroundColor,
       this.color,
-      this.strokeWidth = 4.0,
-      this.strokeAlign = 0,
+      this.strokeWidth = const StacDouble(4.0),
+      this.strokeAlign = StacDouble.zero,
       this.semanticsLabel,
       this.semanticsValue,
       this.strokeCap});
@@ -161,17 +161,17 @@ class _StacCircularProgressIndicator implements StacCircularProgressIndicator {
       _$StacCircularProgressIndicatorFromJson(json);
 
   @override
-  final double? value;
+  final StacDouble? value;
   @override
   final String? backgroundColor;
   @override
   final String? color;
   @override
   @JsonKey()
-  final double strokeWidth;
+  final StacDouble strokeWidth;
   @override
   @JsonKey()
-  final double strokeAlign;
+  final StacDouble strokeAlign;
   @override
   final String? semanticsLabel;
   @override
@@ -237,11 +237,11 @@ abstract mixin class _$StacCircularProgressIndicatorCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {double? value,
+      {StacDouble? value,
       String? backgroundColor,
       String? color,
-      double strokeWidth,
-      double strokeAlign,
+      StacDouble strokeWidth,
+      StacDouble strokeAlign,
       String? semanticsLabel,
       String? semanticsValue,
       StrokeCap? strokeCap});
@@ -273,7 +273,7 @@ class __$StacCircularProgressIndicatorCopyWithImpl<$Res>
       value: freezed == value
           ? _self.value
           : value // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       backgroundColor: freezed == backgroundColor
           ? _self.backgroundColor
           : backgroundColor // ignore: cast_nullable_to_non_nullable
@@ -285,11 +285,11 @@ class __$StacCircularProgressIndicatorCopyWithImpl<$Res>
       strokeWidth: null == strokeWidth
           ? _self.strokeWidth
           : strokeWidth // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       strokeAlign: null == strokeAlign
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       semanticsLabel: freezed == semanticsLabel
           ? _self.semanticsLabel
           : semanticsLabel // ignore: cast_nullable_to_non_nullable

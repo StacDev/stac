@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_list_tile/stac_list_tile.dart';
 import 'package:stac/src/utils/color_utils.dart';
@@ -40,9 +41,9 @@ class StacListTileParser extends StacParser<StacListTile> {
       tileColor: model.tileColor?.toColor(context),
       selectedTileColor: model.selectedTileColor?.toColor(context),
       enableFeedback: model.enableFeedback,
-      horizontalTitleGap: model.horizontalTitleGap,
-      minVerticalPadding: model.minVerticalPadding,
-      minLeadingWidth: model.minLeadingWidth,
+      horizontalTitleGap: model.horizontalTitleGap?.parse,
+      minVerticalPadding: model.minVerticalPadding?.parse,
+      minLeadingWidth: model.minLeadingWidth?.parse,
     );
   }
 }

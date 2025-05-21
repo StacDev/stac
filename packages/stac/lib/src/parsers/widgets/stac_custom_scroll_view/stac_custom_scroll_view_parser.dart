@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac/stac.dart';
 
@@ -22,8 +23,8 @@ class StacCustomScrollViewParser extends StacParser<StacCustomScrollView> {
       primary: model.primary,
       physics: model.physics?.parse,
       shrinkWrap: model.shrinkWrap,
-      anchor: model.anchor,
-      cacheExtent: model.cacheExtent,
+      anchor: model.anchor.parse,
+      cacheExtent: model.cacheExtent?.parse,
       semanticChildCount: model.semanticChildCount,
       dragStartBehavior: model.dragStartBehavior,
       keyboardDismissBehavior: model.keyboardDismissBehavior,

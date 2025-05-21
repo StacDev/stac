@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacOpacity {
-  double get opacity;
+  StacDouble get opacity;
   Map<String, dynamic> get child;
 
   /// Create a copy of StacOpacity
@@ -54,7 +54,7 @@ abstract mixin class $StacOpacityCopyWith<$Res> {
           StacOpacity value, $Res Function(StacOpacity) _then) =
       _$StacOpacityCopyWithImpl;
   @useResult
-  $Res call({double opacity, Map<String, dynamic> child});
+  $Res call({StacDouble opacity, Map<String, dynamic> child});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$StacOpacityCopyWithImpl<$Res> implements $StacOpacityCopyWith<$Res> {
       opacity: null == opacity
           ? _self.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: null == child
           ? _self.child
           : child // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ class _StacOpacity implements StacOpacity {
       _$StacOpacityFromJson(json);
 
   @override
-  final double opacity;
+  final StacDouble opacity;
   final Map<String, dynamic> _child;
   @override
   Map<String, dynamic> get child {
@@ -147,7 +147,7 @@ abstract mixin class _$StacOpacityCopyWith<$Res>
       __$StacOpacityCopyWithImpl;
   @override
   @useResult
-  $Res call({double opacity, Map<String, dynamic> child});
+  $Res call({StacDouble opacity, Map<String, dynamic> child});
 }
 
 /// @nodoc
@@ -169,7 +169,7 @@ class __$StacOpacityCopyWithImpl<$Res> implements _$StacOpacityCopyWith<$Res> {
       opacity: null == opacity
           ? _self.opacity
           : opacity // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       child: null == child
           ? _self._child
           : child // ignore: cast_nullable_to_non_nullable

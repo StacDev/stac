@@ -12,11 +12,15 @@ _StacWrap _$StacWrapFromJson(Map<String, dynamic> json) => _StacWrap(
       alignment:
           $enumDecodeNullable(_$WrapAlignmentEnumMap, json['alignment']) ??
               WrapAlignment.start,
-      spacing: (json['spacing'] as num?)?.toDouble() ?? 0.0,
+      spacing: json['spacing'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['spacing']),
       runAlignment:
           $enumDecodeNullable(_$WrapAlignmentEnumMap, json['runAlignment']) ??
               WrapAlignment.start,
-      runSpacing: (json['runSpacing'] as num?)?.toDouble() ?? 0.0,
+      runSpacing: json['runSpacing'] == null
+          ? StacDouble.zero
+          : StacDouble.fromJson(json['runSpacing']),
       crossAxisAlignment: $enumDecodeNullable(
               _$WrapCrossAlignmentEnumMap, json['crossAxisAlignment']) ??
           WrapCrossAlignment.start,

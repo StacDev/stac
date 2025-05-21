@@ -21,8 +21,8 @@ mixin _$StacSliverAppBar {
   List<Map<String, dynamic>>? get actions;
   Map<String, dynamic>? get flexibleSpace;
   Map<String, dynamic>? get bottom;
-  double? get elevation;
-  double? get scrolledUnderElevation;
+  StacDouble? get elevation;
+  StacDouble? get scrolledUnderElevation;
   String? get shadowColor;
   String? get surfaceTintColor;
   bool get forceElevated;
@@ -33,18 +33,18 @@ mixin _$StacSliverAppBar {
   bool get primary;
   bool? get centerTitle;
   bool get excludeHeaderSemantics;
-  double? get titleSpacing;
-  double? get collapsedHeight;
-  double? get expandedHeight;
+  StacDouble? get titleSpacing;
+  StacDouble? get collapsedHeight;
+  StacDouble? get expandedHeight;
   bool get floating;
   bool get pinned;
   bool get snap;
   bool get stretch;
-  double get stretchTriggerOffset;
+  StacDouble get stretchTriggerOffset;
   StacShapeBorder?
       get shape; // StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
-  double get toolbarHeight;
-  double? get leadingWidth;
+  StacDouble get toolbarHeight;
+  StacDouble? get leadingWidth;
   StacTextStyle? get toolbarTextStyle;
   StacTextStyle? get titleTextStyle;
   StacSystemUIOverlayStyle? get systemOverlayStyle;
@@ -193,8 +193,8 @@ abstract mixin class $StacSliverAppBarCopyWith<$Res> {
       List<Map<String, dynamic>>? actions,
       Map<String, dynamic>? flexibleSpace,
       Map<String, dynamic>? bottom,
-      double? elevation,
-      double? scrolledUnderElevation,
+      StacDouble? elevation,
+      StacDouble? scrolledUnderElevation,
       String? shadowColor,
       String? surfaceTintColor,
       bool forceElevated,
@@ -205,17 +205,17 @@ abstract mixin class $StacSliverAppBarCopyWith<$Res> {
       bool primary,
       bool? centerTitle,
       bool excludeHeaderSemantics,
-      double? titleSpacing,
-      double? collapsedHeight,
-      double? expandedHeight,
+      StacDouble? titleSpacing,
+      StacDouble? collapsedHeight,
+      StacDouble? expandedHeight,
       bool floating,
       bool pinned,
       bool snap,
       bool stretch,
-      double stretchTriggerOffset,
+      StacDouble stretchTriggerOffset,
       StacShapeBorder? shape,
-      double toolbarHeight,
-      double? leadingWidth,
+      StacDouble toolbarHeight,
+      StacDouble? leadingWidth,
       StacTextStyle? toolbarTextStyle,
       StacTextStyle? titleTextStyle,
       StacSystemUIOverlayStyle? systemOverlayStyle,
@@ -309,11 +309,11 @@ class _$StacSliverAppBarCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       scrolledUnderElevation: freezed == scrolledUnderElevation
           ? _self.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable
@@ -357,15 +357,15 @@ class _$StacSliverAppBarCopyWithImpl<$Res>
       titleSpacing: freezed == titleSpacing
           ? _self.titleSpacing
           : titleSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       collapsedHeight: freezed == collapsedHeight
           ? _self.collapsedHeight
           : collapsedHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       expandedHeight: freezed == expandedHeight
           ? _self.expandedHeight
           : expandedHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       floating: null == floating
           ? _self.floating
           : floating // ignore: cast_nullable_to_non_nullable
@@ -385,7 +385,7 @@ class _$StacSliverAppBarCopyWithImpl<$Res>
       stretchTriggerOffset: null == stretchTriggerOffset
           ? _self.stretchTriggerOffset
           : stretchTriggerOffset // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       shape: freezed == shape
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
@@ -393,11 +393,11 @@ class _$StacSliverAppBarCopyWithImpl<$Res>
       toolbarHeight: null == toolbarHeight
           ? _self.toolbarHeight
           : toolbarHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       leadingWidth: freezed == leadingWidth
           ? _self.leadingWidth
           : leadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       toolbarTextStyle: freezed == toolbarTextStyle
           ? _self.toolbarTextStyle
           : toolbarTextStyle // ignore: cast_nullable_to_non_nullable
@@ -554,9 +554,9 @@ class _StacSliverAppBar implements StacSliverAppBar {
       this.pinned = true,
       this.snap = false,
       this.stretch = false,
-      this.stretchTriggerOffset = 100.0,
+      this.stretchTriggerOffset = const StacDouble(100.0),
       this.shape,
-      this.toolbarHeight = 64.0,
+      this.toolbarHeight = const StacDouble(64.0),
       this.leadingWidth,
       this.toolbarTextStyle,
       this.titleTextStyle,
@@ -626,9 +626,9 @@ class _StacSliverAppBar implements StacSliverAppBar {
   }
 
   @override
-  final double? elevation;
+  final StacDouble? elevation;
   @override
-  final double? scrolledUnderElevation;
+  final StacDouble? scrolledUnderElevation;
   @override
   final String? shadowColor;
   @override
@@ -653,11 +653,11 @@ class _StacSliverAppBar implements StacSliverAppBar {
   @JsonKey()
   final bool excludeHeaderSemantics;
   @override
-  final double? titleSpacing;
+  final StacDouble? titleSpacing;
   @override
-  final double? collapsedHeight;
+  final StacDouble? collapsedHeight;
   @override
-  final double? expandedHeight;
+  final StacDouble? expandedHeight;
   @override
   @JsonKey()
   final bool floating;
@@ -672,15 +672,15 @@ class _StacSliverAppBar implements StacSliverAppBar {
   final bool stretch;
   @override
   @JsonKey()
-  final double stretchTriggerOffset;
+  final StacDouble stretchTriggerOffset;
   @override
   final StacShapeBorder? shape;
 // StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
   @override
   @JsonKey()
-  final double toolbarHeight;
+  final StacDouble toolbarHeight;
   @override
-  final double? leadingWidth;
+  final StacDouble? leadingWidth;
   @override
   final StacTextStyle? toolbarTextStyle;
   @override
@@ -842,8 +842,8 @@ abstract mixin class _$StacSliverAppBarCopyWith<$Res>
       List<Map<String, dynamic>>? actions,
       Map<String, dynamic>? flexibleSpace,
       Map<String, dynamic>? bottom,
-      double? elevation,
-      double? scrolledUnderElevation,
+      StacDouble? elevation,
+      StacDouble? scrolledUnderElevation,
       String? shadowColor,
       String? surfaceTintColor,
       bool forceElevated,
@@ -854,17 +854,17 @@ abstract mixin class _$StacSliverAppBarCopyWith<$Res>
       bool primary,
       bool? centerTitle,
       bool excludeHeaderSemantics,
-      double? titleSpacing,
-      double? collapsedHeight,
-      double? expandedHeight,
+      StacDouble? titleSpacing,
+      StacDouble? collapsedHeight,
+      StacDouble? expandedHeight,
       bool floating,
       bool pinned,
       bool snap,
       bool stretch,
-      double stretchTriggerOffset,
+      StacDouble stretchTriggerOffset,
       StacShapeBorder? shape,
-      double toolbarHeight,
-      double? leadingWidth,
+      StacDouble toolbarHeight,
+      StacDouble? leadingWidth,
       StacTextStyle? toolbarTextStyle,
       StacTextStyle? titleTextStyle,
       StacSystemUIOverlayStyle? systemOverlayStyle,
@@ -965,11 +965,11 @@ class __$StacSliverAppBarCopyWithImpl<$Res>
       elevation: freezed == elevation
           ? _self.elevation
           : elevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       scrolledUnderElevation: freezed == scrolledUnderElevation
           ? _self.scrolledUnderElevation
           : scrolledUnderElevation // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       shadowColor: freezed == shadowColor
           ? _self.shadowColor
           : shadowColor // ignore: cast_nullable_to_non_nullable
@@ -1013,15 +1013,15 @@ class __$StacSliverAppBarCopyWithImpl<$Res>
       titleSpacing: freezed == titleSpacing
           ? _self.titleSpacing
           : titleSpacing // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       collapsedHeight: freezed == collapsedHeight
           ? _self.collapsedHeight
           : collapsedHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       expandedHeight: freezed == expandedHeight
           ? _self.expandedHeight
           : expandedHeight // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       floating: null == floating
           ? _self.floating
           : floating // ignore: cast_nullable_to_non_nullable
@@ -1041,7 +1041,7 @@ class __$StacSliverAppBarCopyWithImpl<$Res>
       stretchTriggerOffset: null == stretchTriggerOffset
           ? _self.stretchTriggerOffset
           : stretchTriggerOffset // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       shape: freezed == shape
           ? _self.shape
           : shape // ignore: cast_nullable_to_non_nullable
@@ -1049,11 +1049,11 @@ class __$StacSliverAppBarCopyWithImpl<$Res>
       toolbarHeight: null == toolbarHeight
           ? _self.toolbarHeight
           : toolbarHeight // ignore: cast_nullable_to_non_nullable
-              as double,
+              as StacDouble,
       leadingWidth: freezed == leadingWidth
           ? _self.leadingWidth
           : leadingWidth // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as StacDouble?,
       toolbarTextStyle: freezed == toolbarTextStyle
           ? _self.toolbarTextStyle
           : toolbarTextStyle // ignore: cast_nullable_to_non_nullable
