@@ -18,7 +18,6 @@ class StacInkwellParser extends StacParser<StacInkWell> {
   @override
   Widget parse(BuildContext context, StacInkWell model) {
     return InkWell(
-      child: Stac.fromJson(model.child, context),
       onTap: model.onTap == null
           ? null
           : () => Stac.onCallFromJson(model.onTap, context),
@@ -71,11 +70,7 @@ class StacInkwellParser extends StacParser<StacInkWell> {
       onFocusChange: (_) => Stac.onCallFromJson(model.onFocusChange, context),
       autofocus: model.autofocus,
       hoverDuration: model.hoverDuration?.parse,
-
-      ///TODO : need to add support for
-      ///focusNode
-      ///splashFactory
-      ///statesController
+      child: Stac.fromJson(model.child, context),
     );
   }
 }

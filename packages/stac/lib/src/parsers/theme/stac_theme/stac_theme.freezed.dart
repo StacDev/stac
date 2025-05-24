@@ -36,7 +36,6 @@ mixin _$StacTheme {
   String? get highlightColor;
   String? get hintColor;
   String? get hoverColor;
-  String? get indicatorColor;
   String? get primaryColor;
   String? get primaryColorDark;
   String? get primaryColorLight;
@@ -140,8 +139,6 @@ mixin _$StacTheme {
                 other.hintColor == hintColor) &&
             (identical(other.hoverColor, hoverColor) ||
                 other.hoverColor == hoverColor) &&
-            (identical(other.indicatorColor, indicatorColor) ||
-                other.indicatorColor == indicatorColor) &&
             (identical(other.primaryColor, primaryColor) ||
                 other.primaryColor == primaryColor) &&
             (identical(other.primaryColorDark, primaryColorDark) ||
@@ -171,7 +168,8 @@ mixin _$StacTheme {
                 other.primaryIconTheme == primaryIconTheme) &&
             (identical(other.primaryTextTheme, primaryTextTheme) ||
                 other.primaryTextTheme == primaryTextTheme) &&
-            (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
+            (identical(other.textTheme, textTheme) ||
+                other.textTheme == textTheme) &&
             (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
             (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
             (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
@@ -221,7 +219,6 @@ mixin _$StacTheme {
         highlightColor,
         hintColor,
         hoverColor,
-        indicatorColor,
         primaryColor,
         primaryColorDark,
         primaryColorLight,
@@ -268,7 +265,7 @@ mixin _$StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -295,7 +292,6 @@ abstract mixin class $StacThemeCopyWith<$Res> {
       String? highlightColor,
       String? hintColor,
       String? hoverColor,
-      String? indicatorColor,
       String? primaryColor,
       String? primaryColorDark,
       String? primaryColorLight,
@@ -405,7 +401,6 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
     Object? highlightColor = freezed,
     Object? hintColor = freezed,
     Object? hoverColor = freezed,
-    Object? indicatorColor = freezed,
     Object? primaryColor = freezed,
     Object? primaryColorDark = freezed,
     Object? primaryColorLight = freezed,
@@ -517,10 +512,6 @@ class _$StacThemeCopyWithImpl<$Res> implements $StacThemeCopyWith<$Res> {
       hoverColor: freezed == hoverColor
           ? _self.hoverColor
           : hoverColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      indicatorColor: freezed == indicatorColor
-          ? _self.indicatorColor
-          : indicatorColor // ignore: cast_nullable_to_non_nullable
               as String?,
       primaryColor: freezed == primaryColor
           ? _self.primaryColor
@@ -1202,7 +1193,6 @@ class _StacTheme implements StacTheme {
       this.highlightColor,
       this.hintColor,
       this.hoverColor,
-      this.indicatorColor,
       this.primaryColor,
       this.primaryColorDark,
       this.primaryColorLight,
@@ -1288,8 +1278,6 @@ class _StacTheme implements StacTheme {
   final String? hintColor;
   @override
   final String? hoverColor;
-  @override
-  final String? indicatorColor;
   @override
   final String? primaryColor;
   @override
@@ -1454,8 +1442,6 @@ class _StacTheme implements StacTheme {
                 other.hintColor == hintColor) &&
             (identical(other.hoverColor, hoverColor) ||
                 other.hoverColor == hoverColor) &&
-            (identical(other.indicatorColor, indicatorColor) ||
-                other.indicatorColor == indicatorColor) &&
             (identical(other.primaryColor, primaryColor) ||
                 other.primaryColor == primaryColor) &&
             (identical(other.primaryColorDark, primaryColorDark) ||
@@ -1485,7 +1471,8 @@ class _StacTheme implements StacTheme {
                 other.primaryIconTheme == primaryIconTheme) &&
             (identical(other.primaryTextTheme, primaryTextTheme) ||
                 other.primaryTextTheme == primaryTextTheme) &&
-            (identical(other.textTheme, textTheme) || other.textTheme == textTheme) &&
+            (identical(other.textTheme, textTheme) ||
+                other.textTheme == textTheme) &&
             (identical(other.appBarTheme, appBarTheme) || other.appBarTheme == appBarTheme) &&
             (identical(other.badgeTheme, badgeTheme) || other.badgeTheme == badgeTheme) &&
             (identical(other.bannerTheme, bannerTheme) || other.bannerTheme == bannerTheme) &&
@@ -1535,7 +1522,6 @@ class _StacTheme implements StacTheme {
         highlightColor,
         hintColor,
         hoverColor,
-        indicatorColor,
         primaryColor,
         primaryColorDark,
         primaryColorLight,
@@ -1582,7 +1568,7 @@ class _StacTheme implements StacTheme {
 
   @override
   String toString() {
-    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, indicatorColor: $indicatorColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
+    return 'StacTheme(applyElevationOverlayColor: $applyElevationOverlayColor, inputDecorationTheme: $inputDecorationTheme, materialTapTargetSize: $materialTapTargetSize, platform: $platform, scrollbarTheme: $scrollbarTheme, useMaterial3: $useMaterial3, colorScheme: $colorScheme, brightness: $brightness, colorSchemeSeed: $colorSchemeSeed, canvasColor: $canvasColor, cardColor: $cardColor, disabledColor: $disabledColor, dividerColor: $dividerColor, focusColor: $focusColor, highlightColor: $highlightColor, hintColor: $hintColor, hoverColor: $hoverColor, primaryColor: $primaryColor, primaryColorDark: $primaryColorDark, primaryColorLight: $primaryColorLight, primarySwatch: $primarySwatch, scaffoldBackgroundColor: $scaffoldBackgroundColor, secondaryHeaderColor: $secondaryHeaderColor, shadowColor: $shadowColor, splashColor: $splashColor, unselectedWidgetColor: $unselectedWidgetColor, fontFamily: $fontFamily, fontFamilyFallback: $fontFamilyFallback, package: $package, iconTheme: $iconTheme, primaryIconTheme: $primaryIconTheme, primaryTextTheme: $primaryTextTheme, textTheme: $textTheme, appBarTheme: $appBarTheme, badgeTheme: $badgeTheme, bannerTheme: $bannerTheme, bottomAppBarTheme: $bottomAppBarTheme, bottomNavigationBarTheme: $bottomNavigationBarTheme, bottomSheetTheme: $bottomSheetTheme, buttonTheme: $buttonTheme, cardTheme: $cardTheme, checkboxTheme: $checkboxTheme, chipTheme: $chipTheme, datePickerTheme: $datePickerTheme, dialogTheme: $dialogTheme, dividerTheme: $dividerTheme, drawerTheme: $drawerTheme, elevatedButtonTheme: $elevatedButtonTheme, filledButtonTheme: $filledButtonTheme, floatingActionButtonTheme: $floatingActionButtonTheme, iconButtonTheme: $iconButtonTheme, listTileTheme: $listTileTheme, menuButtonTheme: $menuButtonTheme, navigationBarTheme: $navigationBarTheme, navigationDrawerTheme: $navigationDrawerTheme, outlinedButtonTheme: $outlinedButtonTheme, segmentedButtonTheme: $segmentedButtonTheme, tabBarTheme: $tabBarTheme, textButtonTheme: $textButtonTheme)';
   }
 }
 
@@ -1612,7 +1598,6 @@ abstract mixin class _$StacThemeCopyWith<$Res>
       String? highlightColor,
       String? hintColor,
       String? hoverColor,
-      String? indicatorColor,
       String? primaryColor,
       String? primaryColorDark,
       String? primaryColorLight,
@@ -1756,7 +1741,6 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
     Object? highlightColor = freezed,
     Object? hintColor = freezed,
     Object? hoverColor = freezed,
-    Object? indicatorColor = freezed,
     Object? primaryColor = freezed,
     Object? primaryColorDark = freezed,
     Object? primaryColorLight = freezed,
@@ -1868,10 +1852,6 @@ class __$StacThemeCopyWithImpl<$Res> implements _$StacThemeCopyWith<$Res> {
       hoverColor: freezed == hoverColor
           ? _self.hoverColor
           : hoverColor // ignore: cast_nullable_to_non_nullable
-              as String?,
-      indicatorColor: freezed == indicatorColor
-          ? _self.indicatorColor
-          : indicatorColor // ignore: cast_nullable_to_non_nullable
               as String?,
       primaryColor: freezed == primaryColor
           ? _self.primaryColor
