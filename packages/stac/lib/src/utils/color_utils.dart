@@ -36,6 +36,14 @@ Color? _parseThemeColor(String color, BuildContext context) {
       return Theme.of(context).colorScheme.primaryContainer;
     case StacColorType.onPrimaryContainer:
       return Theme.of(context).colorScheme.onPrimaryContainer;
+    case StacColorType.primaryFixed:
+      return Theme.of(context).colorScheme.primaryFixed;
+    case StacColorType.primaryFixedDim:
+      return Theme.of(context).colorScheme.primaryFixedDim;
+    case StacColorType.onPrimaryFixed:
+      return Theme.of(context).colorScheme.onPrimaryFixed;
+    case StacColorType.onPrimaryFixedVariant:
+      return Theme.of(context).colorScheme.onPrimaryFixedVariant;
     case StacColorType.secondary:
       return Theme.of(context).colorScheme.secondary;
     case StacColorType.onSecondary:
@@ -44,6 +52,14 @@ Color? _parseThemeColor(String color, BuildContext context) {
       return Theme.of(context).colorScheme.secondaryContainer;
     case StacColorType.onSecondaryContainer:
       return Theme.of(context).colorScheme.onSecondaryContainer;
+    case StacColorType.secondaryFixed:
+      return Theme.of(context).colorScheme.secondaryFixed;
+    case StacColorType.secondaryFixedDim:
+      return Theme.of(context).colorScheme.secondaryFixedDim;
+    case StacColorType.onSecondaryFixed:
+      return Theme.of(context).colorScheme.onSecondaryFixed;
+    case StacColorType.onSecondaryFixedVariant:
+      return Theme.of(context).colorScheme.onSecondaryFixedVariant;
     case StacColorType.tertiary:
       return Theme.of(context).colorScheme.tertiary;
     case StacColorType.onTertiary:
@@ -52,6 +68,14 @@ Color? _parseThemeColor(String color, BuildContext context) {
       return Theme.of(context).colorScheme.tertiaryContainer;
     case StacColorType.onTertiaryContainer:
       return Theme.of(context).colorScheme.onTertiaryContainer;
+    case StacColorType.tertiaryFixed:
+      return Theme.of(context).colorScheme.tertiaryFixed;
+    case StacColorType.tertiaryFixedDim:
+      return Theme.of(context).colorScheme.tertiaryFixedDim;
+    case StacColorType.onTertiaryFixed:
+      return Theme.of(context).colorScheme.onTertiaryFixed;
+    case StacColorType.onTertiaryFixedVariant:
+      return Theme.of(context).colorScheme.onTertiaryFixedVariant;
     case StacColorType.error:
       return Theme.of(context).colorScheme.error;
     case StacColorType.onError:
@@ -60,15 +84,23 @@ Color? _parseThemeColor(String color, BuildContext context) {
       return Theme.of(context).colorScheme.errorContainer;
     case StacColorType.onErrorContainer:
       return Theme.of(context).colorScheme.onErrorContainer;
-    case StacColorType.background:
-      return Theme.of(context).colorScheme.surface;
-    case StacColorType.onBackground:
-      return Theme.of(context).colorScheme.onSurface;
     case StacColorType.surface:
       return Theme.of(context).colorScheme.surface;
     case StacColorType.onSurface:
       return Theme.of(context).colorScheme.onSurface;
-    case StacColorType.surfaceVariant:
+    case StacColorType.surfaceDim:
+      return Theme.of(context).colorScheme.surfaceDim;
+    case StacColorType.surfaceBright:
+      return Theme.of(context).colorScheme.surfaceBright;
+    case StacColorType.surfaceContainerLowest:
+      return Theme.of(context).colorScheme.surfaceContainerLowest;
+    case StacColorType.surfaceContainerLow:
+      return Theme.of(context).colorScheme.surfaceContainerLow;
+    case StacColorType.surfaceContainer:
+      return Theme.of(context).colorScheme.surfaceContainer;
+    case StacColorType.surfaceContainerHigh:
+      return Theme.of(context).colorScheme.surfaceContainerHigh;
+    case StacColorType.surfaceContainerHighest:
       return Theme.of(context).colorScheme.surfaceContainerHighest;
     case StacColorType.onSurfaceVariant:
       return Theme.of(context).colorScheme.onSurfaceVariant;
@@ -88,8 +120,6 @@ Color? _parseThemeColor(String color, BuildContext context) {
       return Theme.of(context).colorScheme.inversePrimary;
     case StacColorType.surfaceTint:
       return Theme.of(context).colorScheme.surfaceTint;
-    case StacColorType.scaffoldBackgroundColor:
-      return Theme.of(context).scaffoldBackgroundColor;
     case StacColorType.none:
       return null;
   }
