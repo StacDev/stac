@@ -1,23 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/onboarding.dart';
+import 'package:movie_app/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
+import 'package:movie_app/widgets/anime_upcoming/anime_upcoming_parser.dart';
+import 'package:movie_app/widgets/frosted_box/frosted_box_parser.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
 import 'package:stac/stac.dart';
-
-final token =
-    "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YzNjN2I1OGQ5NjU5NzUwMmNjODAxNWRkZjNjNTY1MyIsIm5iZiI6MTc0NDY1NDUzNi4zMjgsInN1YiI6IjY3ZmQ1MGM4N2MyOWFlNWJjM2Q5NjEzNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oZWfMnM-eiPjHvlvjLbrZeQXCfm2lvgGiNx8xDovzW8";
 
 void main() async {
   final dio = Dio();
   dio.interceptors.add(
     InterceptorsWrapper(
       onRequest: (options, handler) {
-        options.headers['Authorization'] = 'Bearer $token';
         return handler.next(options);
       },
     ),
   );
 
-  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser()]);
+  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser(), AnimeUpcomingParser(), FrostedBoxParser(), AnimeScheduleItemParser()]);
 
   runApp(const MyApp());
 }
@@ -27,12 +27,25 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    StacTheme theme;
+
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+
+    // SystemChrome.setSystemUIOverlayStyle(
+    //   (isDarkMode ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light).copyWith(
+    //     statusBarColor: Theme.of(context).colorScheme.surface,
+    //     systemNavigationBarColor: Theme.of(context).colorScheme.surface,
+    //   ),
+    // );
+
     return StacApp(
-      title: 'Flutter Demo',
-      theme: StacTheme.fromJson(darkThemeJson),
+      title: 'Anime Db',
+      theme: StacTheme.fromJson(isDarkMode?darkThemeJson:lightThemeJson),
       homeBuilder:
           (context) =>
-              Stac.fromAssets('assets/jsons/screens/onboarding_screen.json'),
+              Stac.fromJson(onboardingScreenJson, context),
     );
   }
 }
@@ -49,13 +62,17 @@ final Map<String, dynamic> lightThemeJson = {
     "onBackground": "#010810",
     "surface": "#FFFFFF",
     "onSurface": "#010810",
-    "surfaceVariant": "#F6F7F8",
-    "onSurfaceVariant": "#65010810",
+    "surfaceBright": "#F6F7F8",
+    "onSurfaceVariant": "#A6010810",
     "error": "#FD1717",
     "onError": "#FFFFFF",
-    "outline": "#080110810",
-    "onOutline": "#120110810",
+    "outline": "#14010810",
+    "onOutline": "#12010810",
   },
+  "textTheme": textTheme,
+  "filledButtonTheme": filledButtonTheme,
+  "outlinedButtonTheme": outlinedButtonTheme,
+  "dividerTheme": dividerTheme,
 };
 
 final Map<String, dynamic> darkThemeJson = {
@@ -70,42 +87,51 @@ final Map<String, dynamic> darkThemeJson = {
     "onBackground": "#FFFFFF",
     "surface": "#050608",
     "onSurface": "#FFFFFF",
-    "surfaceVariant": "#101214",
-    "onSurfaceVariant": "#65FFFFFF",
+    "primaryContainer": "#101214",
+    "onSurfaceVariant": "#A6FFFFFF",
     "error": "#FF6565",
     "onError": "#050608",
-    "outline": "#08FFFFFF",
+    "outline": "#14FFFFFF",
     "onOutline": "#12FFFFFF",
   },
-  "textTheme": {
-    "displayLarge": {"fontSize": 48, "fontWeight": "w700", "height": 1.1},
-    "displayMedium": {"fontSize": 40, "fontWeight": "w700", "height": 1.1},
-    "displaySmall": {"fontSize": 34, "fontWeight": "w700", "height": 1.1},
-    "headlineLarge": {"fontSize": 30, "fontWeight": "w700", "height": 1.3},
-    "headlineMedium": {"fontSize": 26, "fontWeight": "w700", "height": 1.3},
-    "headlineSmall": {"fontSize": 23, "fontWeight": "w700", "height": 1.3},
-    "titleLarge": {"fontSize": 20, "fontWeight": "w500", "height": 1.3},
-    "titleMedium": {"fontSize": 18, "fontWeight": "w500", "height": 1.3},
-    "titleSmall": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
-    "labelLarge": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
-    "labelMedium": {"fontSize": 14, "fontWeight": "w600", "height": 1.3},
-    "labelSmall": {"fontSize": 12, "fontWeight": "w500", "height": 1.3},
-    "bodyLarge": {"fontSize": 18, "fontWeight": "w400", "height": 1.5},
-    "bodyMedium": {"fontSize": 16, "fontWeight": "w400", "height": 1.5},
-    "bodySmall": {"fontSize": 14, "fontWeight": "w400", "height": 1.5},
-  },
-  "filledButtonTheme": {
-    "minimumSize": {"width": 120, "height": 40},
-    "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
-    "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
-    "shape": {"borderRadius": 8},
-  },
-  "outlinedButtonTheme": {
-    "minimumSize": {"width": 120, "height": 40},
-    "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
-    "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
-    "side": {"color": "#95E183", "width": 1.0},
-    "shape": {"borderRadius": 8},
-  },
-  "dividerTheme": {"color": "#24FFFFFF", "thickness": 1},
+  "textTheme": textTheme,
+  "filledButtonTheme": filledButtonTheme,
+  "outlinedButtonTheme": outlinedButtonTheme,
+  "dividerTheme": dividerTheme,
 };
+
+final Map<String, dynamic> textTheme = {
+  "displayLarge": {"fontSize": 48, "fontWeight": "w700", "height": 1.1},
+  "displayMedium": {"fontSize": 40, "fontWeight": "w700", "height": 1.1},
+  "displaySmall": {"fontSize": 34, "fontWeight": "w700", "height": 1.1},
+  "headlineLarge": {"fontSize": 30, "fontWeight": "w700", "height": 1.3},
+  "headlineMedium": {"fontSize": 26, "fontWeight": "w700", "height": 1.3},
+  "headlineSmall": {"fontSize": 23, "fontWeight": "w700", "height": 1.3},
+  "titleLarge": {"fontSize": 20, "fontWeight": "w500", "height": 1.3},
+  "titleMedium": {"fontSize": 18, "fontWeight": "w500", "height": 1.3},
+  "titleSmall": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+  "labelLarge": {"fontSize": 16, "fontWeight": "w700", "height": 1.3},
+  "labelMedium": {"fontSize": 14, "fontWeight": "w600", "height": 1.3},
+  "labelSmall": {"fontSize": 12, "fontWeight": "w500", "height": 1.3},
+  "bodyLarge": {"fontSize": 18, "fontWeight": "w400", "height": 1.5},
+  "bodyMedium": {"fontSize": 16, "fontWeight": "w400", "height": 1.5},
+  "bodySmall": {"fontSize": 14, "fontWeight": "w400", "height": 1.5},
+};
+
+final Map<String, dynamic> filledButtonTheme = {
+  "minimumSize": {"width": 120, "height": 48},
+  "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+  "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
+  "shape": {"borderRadius": 8},
+};
+final Map<String, dynamic> outlinedButtonTheme = {
+  "minimumSize": {"width": 120, "height": 48},
+  "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+  "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
+  "side": {"color": "#95E183", "width": 1.0},
+  "shape": {"borderRadius": 8},
+};
+final Map<String, dynamic> dividerTheme = {
+  "color": "#24FFFFFF", "thickness": 1
+};
+

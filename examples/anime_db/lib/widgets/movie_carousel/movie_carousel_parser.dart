@@ -22,10 +22,10 @@ class MovieCarouselParser extends StacParser<MovieCarousel> {
           if (snapshot.hasError) {
             return Center(child: Text(snapshot.error.toString()));
           }
-          final movieData = snapshot.data?.data['results'] as List;
-          return MovieCarouselWidget(movies: movieData.take(5).toList());
+          final animeData = snapshot.data?.data['data']['Page']['media'] as List;
+          return MovieCarouselWidget(movies: animeData);
         }
-        return const Center(child: CircularProgressIndicator());
+        return const SizedBox(height: 223, child: Center(child: CircularProgressIndicator()),);
       },
     );
   }
@@ -57,104 +57,137 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 560,
-      child: Stack(
-        children: [
-          PageView.builder(
+    var brightness = MediaQuery.of(context).platformBrightness;
+    bool isDarkMode = brightness == Brightness.dark;
+
+    return Column(
+      children: [
+        SizedBox(
+          height: 198,
+          child: PageView.builder(
             controller: pageController,
             itemCount: widget.movies.length,
             itemBuilder: (context, index) {
-              return Stack(
-                children: [
-                  Image.network(
-                    'https://media.themoviedb.org/t/p/w440_and_h660_face/${widget.movies[index]['poster_path']}',
-                    fit: BoxFit.cover,
-                    height: double.maxFinite,
-                    width: double.maxFinite,
+              return Padding(
+                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
+                child: Container(
+                  padding: EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      borderRadius: const BorderRadius.all(Radius.circular(6)),
+                      color: Color(isDarkMode ? 0xFF101214 : 0xFFF4F6FA),
+                      border: Border.all(
+                          color: Color(isDarkMode ? 0xFFFFFF : 0x010810).withAlpha(30),
+                          width: 1
+                      )
                   ),
-                  Positioned(
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      height: 240,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.transparent, Colors.black],
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
+                  child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(4),
+                          child: Image.network(
+                            widget.movies[index]['bannerImage'] ?? widget.movies[index]['coverImage']["extraLarge"],
+                            fit: BoxFit.cover,
+                            height: 66,
+                            width: double.maxFinite,
+                          ),
                         ),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            widget.movies[index]['title'],
-                            style: Theme.of(context).textTheme.displaySmall,
-                            textAlign: TextAlign.center,
-                          ),
-                          const SizedBox(height: 16),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              FilledButton(
-                                onPressed: () {},
-                                child: Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.play_circle_fill,
-                                      size: 24,
-                                    ),
-                                    const SizedBox(width: 8),
-                                    const Text('Watch Trailer'),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: 16),
-                              OutlinedButton(
-                                onPressed: () {},
-                                child: Row(
-                                  children: [
-                                    const Icon(Icons.list, size: 24),
-                                    const SizedBox(width: 8),
-                                    const Text('Details'),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 48),
-                        ],
-                      ),
-                    ),
+                        SizedBox(height: 16,),
+                        Text(
+                          widget.movies[index]['title']['romaji'],
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleLarge,
+                        ),
+                        Text(
+                          "${widget.movies[index]['season'].toString().toCapitalized} ${widget.movies[index]['seasonYear']} · ${widget.movies[index]['episodes']} Episodes",
+                          style: Theme.of(context).textTheme.bodyMedium?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                        ),
+                        SizedBox(height: 12,),
+                        Row(
+                          children: getPills(widget.movies[index])
+                        )
+                      ]
                   ),
-                ],
+                ),
               );
             },
           ),
-          Positioned(
-            bottom: 16,
-            right: 0,
-            left: 0,
-            child: Center(
-              child: SmoothPageIndicator(
+        ),
+        SizedBox(height: 24,),
+        Padding(
+          padding: EdgeInsets.fromLTRB(20,0,18,0),
+          child: Row(
+            children: [
+              SmoothPageIndicator(
                 controller: pageController,
                 count: widget.movies.length,
                 effect: ExpandingDotsEffect(
-                  dotWidth: 8,
-                  dotHeight: 8,
-                  dotColor: Theme.of(
-                    context,
-                  ).colorScheme.onSurface.withAlpha(104),
+                  expansionFactor: 2,
+                  dotWidth: 12,
+                  dotHeight: 1.5,
+                  dotColor: Theme.of(context,).colorScheme.onSurface.withAlpha(102),
                   activeDotColor: Theme.of(context).colorScheme.primary,
                 ),
               ),
-            ),
+              SizedBox(width: 8,),
+              Expanded(child: Container(
+                height: 1,
+                color: Theme.of(context).colorScheme.outline.withAlpha(20),
+              ))
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  List<Widget> getPills(dynamic anime) {
+
+    List<Widget> pills = [];
+
+    pills.add(Container(
+      height: 20,
+      padding: EdgeInsets.symmetric(horizontal: 6),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(2)),
+        color: Theme.of(context).colorScheme.primary,
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(Icons.star, color: Theme.of(context).colorScheme.surface, size: 12,),
+          const SizedBox(width: 4,),
+          Text(
+            "${anime['averageScore']}",
+            style: Theme.of(context).textTheme.labelMedium?.apply(color: Theme.of(context).colorScheme.onPrimary),
           ),
         ],
       ),
-    );
+    ));
+    for(var i = 0; i < 2; i++){
+      if(anime["genres"][i] != null) {
+        pills.add(SizedBox(width: 6,));
+        pills.add(Container(
+          height: 20,
+          padding: EdgeInsets.symmetric(horizontal: 6),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(2)),
+            color: Theme.of(context).colorScheme.primary,
+          ),
+          child:
+              Text(
+                "${anime['genres'][i]}",
+                style: Theme.of(context).textTheme.labelMedium?.apply(color: Theme.of(context).colorScheme.onPrimary),
+              ),
+        ));
+      }
+    }
+    return pills;
   }
+}
+
+extension StringCasingExtension on String {
+  String get toCapitalized => length > 0 ?'${this[0].toUpperCase()}${substring(1).toLowerCase()}':'';
+  String get toTitleCase => replaceAll(RegExp(' +'), ' ').split(' ').map((str) => str.toCapitalized).join(' ');
 }

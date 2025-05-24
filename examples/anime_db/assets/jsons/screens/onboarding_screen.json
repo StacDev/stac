@@ -6,7 +6,7 @@
             {
                 "type": "image",
                 "imageType": "asset",
-                "src": "assets/images/image.png",
+                "src": "assets/images/kny.png",
                 "width": 10000,
                 "height": 10000,
                 "fit": "cover"
@@ -19,30 +19,14 @@
                 "child": {
                     "type": "container",
                     "width": 1000,
-                    "height": 500,
-                    "decoration": {
-                        "gradient": {
-                            "colors": [
-                                "#00050608",
-                                "#050608",
-                                "#050608"
-                            ],
-                            "begin": "topCenter",
-                            "end": "bottomCenter",
-                            "stops": [
-                                0.0,
-                                0.8,
-                                1.0
-                            ]
-                        }
-                    },
+                    "color": "#CC000000",
                     "child": {
                         "type": "padding",
                         "padding": {
-                            "left": 16,
-                            "right": 16,
-                            "top": 48,
-                            "bottom": 48
+                            "left": 20,
+                            "right": 20,
+                            "top": 40,
+                            "bottom": 56
                         },
                         "child": {
                             "type": "column",
@@ -51,11 +35,11 @@
                             "children": [
                                 {
                                     "type": "text",
-                                    "data": "Movie ",
-                                    "style": "displayMedium",
+                                    "data": "Anime ",
+                                    "style": "displaySmall",
                                     "children": [
                                         {
-                                            "data": "\nDatabase",
+                                            "data": "Db",
                                             "style": {
                                                 "color": "primary"
                                             }
@@ -64,16 +48,24 @@
                                 },
                                 {
                                     "type": "sizedBox",
-                                    "height": 24
+                                    "height": 10
                                 },
                                 {
                                     "type": "text",
-                                    "data": "Watch & enjoy a variety of award winning TV shows, movies, anime, and a lot more",
-                                    "style": "bodyMedium"
+                                    "data": "",
+                                    "style": "bodyLarge",
+                                    "children": [
+                                        {
+                                            "data": "Watch, enjoy and track all of your anime series, movies and OVA’s",
+                                            "style": {
+                                                "color": "onSurfaceVariant"
+                                            }
+                                        }
+                                    ]
                                 },
                                 {
                                     "type": "sizedBox",
-                                    "height": 64
+                                    "height": 56
                                 },
                                 {
                                     "type": "sizedBox",
@@ -83,7 +75,16 @@
                                         "type": "filledButton",
                                         "child": {
                                             "type": "text",
-                                            "data": "Get Started"
+                                            "data": "",
+                                            "style": "labelLarge",
+                                            "children": [
+                                                {
+                                                    "data": "Get Started",
+                                                    "style": {
+                                                        "color": "onPrimary"
+                                                    }
+                                                }
+                                            ]
                                         },
                                         "onPressed": {
                                             "actionType": "navigate",
