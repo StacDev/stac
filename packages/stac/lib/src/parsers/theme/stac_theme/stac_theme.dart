@@ -169,7 +169,7 @@ extension StacThemeParser on StacTheme {
       bottomNavigationBarTheme: bottomNavigationBarTheme?.parse(context),
       bottomSheetTheme: bottomSheetTheme?.parse(context),
       buttonTheme: buttonTheme?.parse(context),
-      // cardTheme: cardTheme?.parse(context),
+      cardTheme: cardTheme?.parse(context),
       checkboxTheme: checkboxTheme?.parse(context),
       chipTheme: chipTheme?.parse(context),
       datePickerTheme: datePickerTheme?.parse(context),
