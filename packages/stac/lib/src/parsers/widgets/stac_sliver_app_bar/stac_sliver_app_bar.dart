@@ -42,7 +42,6 @@ abstract class StacSliverAppBar with _$StacSliverAppBar {
     @Default(false) bool stretch,
     @Default(StacDouble(100.0)) StacDouble stretchTriggerOffset,
     StacShapeBorder? shape,
-    // StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
     @Default(StacDouble(64.0)) StacDouble toolbarHeight,
     StacDouble? leadingWidth,
     StacTextStyle? toolbarTextStyle,

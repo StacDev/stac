@@ -24,8 +24,8 @@ abstract class StacCardThemeData with _$StacCardThemeData {
 }
 
 extension StacCardThemeDataParser on StacCardThemeData {
-  CardTheme? parse(BuildContext context) {
-    return CardTheme(
+  CardThemeData? parse(BuildContext context) {
+    return CardThemeData(
       clipBehavior: clipBehavior,
       color: color.toColor(context),
       shadowColor: shadowColor.toColor(context),

@@ -41,8 +41,7 @@ mixin _$StacSliverAppBar {
   bool get snap;
   bool get stretch;
   StacDouble get stretchTriggerOffset;
-  StacShapeBorder?
-      get shape; // StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
+  StacShapeBorder? get shape;
   StacDouble get toolbarHeight;
   StacDouble? get leadingWidth;
   StacTextStyle? get toolbarTextStyle;
@@ -675,7 +674,6 @@ class _StacSliverAppBar implements StacSliverAppBar {
   final StacDouble stretchTriggerOffset;
   @override
   final StacShapeBorder? shape;
-// StacAsyncCallback? onStretchTrigger, TODO: Implement StacAsyncCallback
   @override
   @JsonKey()
   final StacDouble toolbarHeight;
