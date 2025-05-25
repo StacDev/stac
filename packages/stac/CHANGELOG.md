@@ -1,3 +1,15 @@
+## 1.0.0-dev.3
+
+* feat: Replace networkImage with CachedNetwork Image 
+* feat: add ClipRRect widget support 
+* fix: rename ItemTemplate → itemTemplate for consistency by @ayatsuno
+* feat: Add GestureDetector widget support with tap, drag and press handlers 
+* feat: Add Material 3 fixed color and new surface variants to color scheme 
+* feat: add ClipOval widget support by @vijaykarthiktk
+* feat: add support for inkwell widget by @AbhijithKonnayil 
+* feat: add variable support with setValue widget and action 
+* feat: add support to StacDouble class by @AbhijithKonnayil 
+
 ## 1.0.0-dev.2
 
 * feat: update stac theme with new ThemeData classes
