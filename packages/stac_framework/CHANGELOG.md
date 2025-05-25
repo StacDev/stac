@@ -1,3 +1,7 @@
+# 0.3.0
+
+* Add StacAction and StacWidget types
+
 # 0.2.2
 
 * Add pub.dev topics

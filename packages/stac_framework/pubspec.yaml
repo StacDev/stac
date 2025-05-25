@@ -1,6 +1,6 @@
 name: stac_framework
 description: The Stac Framework enables easy creation of parsers for widgets and actions, enhancing Stac's functionality and supporting custom implementations.
-version: 0.2.2
+version: 0.3.0
 homepage: https://github.com/StacDev/stac
 
 environment:
