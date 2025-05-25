@@ -1,3 +1,7 @@
+# 0.2.0
+
+* Bump webview_flutter and json_serializable versions.
+
 # 0.1.2
 
 * Add pub.dev topics

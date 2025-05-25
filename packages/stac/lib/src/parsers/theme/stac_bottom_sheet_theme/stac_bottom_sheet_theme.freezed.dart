@@ -66,8 +66,8 @@ mixin _$StacBottomSheetThemeData {
                 other.dragHandleColor == dragHandleColor) &&
             (identical(other.dragHandleSize, dragHandleSize) ||
                 other.dragHandleSize == dragHandleSize) &&
-            const DeepCollectionEquality()
-                .equals(other.clipBehavior, clipBehavior) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
             (identical(other.constraints, constraints) ||
                 other.constraints == constraints));
   }
@@ -87,7 +87,7 @@ mixin _$StacBottomSheetThemeData {
       showDragHandle,
       dragHandleColor,
       dragHandleSize,
-      const DeepCollectionEquality().hash(clipBehavior),
+      clipBehavior,
       constraints);
 
   @override
@@ -337,8 +337,8 @@ class _StacBottomSheetThemeData implements StacBottomSheetThemeData {
                 other.dragHandleColor == dragHandleColor) &&
             (identical(other.dragHandleSize, dragHandleSize) ||
                 other.dragHandleSize == dragHandleSize) &&
-            const DeepCollectionEquality()
-                .equals(other.clipBehavior, clipBehavior) &&
+            (identical(other.clipBehavior, clipBehavior) ||
+                other.clipBehavior == clipBehavior) &&
             (identical(other.constraints, constraints) ||
                 other.constraints == constraints));
   }
@@ -358,7 +358,7 @@ class _StacBottomSheetThemeData implements StacBottomSheetThemeData {
       showDragHandle,
       dragHandleColor,
       dragHandleSize,
-      const DeepCollectionEquality().hash(clipBehavior),
+      clipBehavior,
       constraints);
 
   @override
