@@ -414,14 +414,14 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "1.0.0-dev.2"
+    version: "1.0.0-dev.4"
   stac_framework:
     dependency: "direct overridden"
     description:
       path: "../../packages/stac_framework"
       relative: true
     source: path
-    version: "0.2.2"
+    version: "0.3.0"
   stack_trace:
     dependency: transitive
     description:
