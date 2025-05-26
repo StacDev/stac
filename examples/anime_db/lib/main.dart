@@ -87,7 +87,7 @@ final Map<String, dynamic> darkThemeJson = {
     "onBackground": "#FFFFFF",
     "surface": "#050608",
     "onSurface": "#FFFFFF",
-    "primaryContainer": "#101214",
+    "surfaceBright": "#101214",
     "onSurfaceVariant": "#A6FFFFFF",
     "error": "#FF6565",
     "onError": "#050608",

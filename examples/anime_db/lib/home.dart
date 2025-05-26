@@ -82,7 +82,11 @@ final Map<String, dynamic> homeBodyJson = {
         "type": "sizedBox",
         "height": 24,
       },
-      getAnimeCategoryView("Sci-Fi")
+      getAnimeCategoryView("Sci-Fi"),
+      {
+        "type": "sizedBox",
+        "height": 80,
+      },
     ]
   }
 };
