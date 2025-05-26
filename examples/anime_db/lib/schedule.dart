@@ -62,7 +62,7 @@ List<Map<String, dynamic>> getScheduleViewList() {
         "top": 20,
         "bottom": 0
       },
-      "color": i % 2 == 0 ? "primaryContainer" : "surface",
+      "color": i % 2 == 0 ? "surfaceBright" : "surface",
       "child": {
         "type" : "column",
         "crossAxisAlignment" : "stretch",
