@@ -9,7 +9,9 @@ enum StacFontWeight {
   w600,
   w700,
   w800,
-  w900;
+  w900,
+  normal,
+  bold;
 
   FontWeight get value {
     switch (this) {
@@ -39,6 +41,10 @@ enum StacFontWeight {
 
       case StacFontWeight.w900:
         return FontWeight.w900;
+      case StacFontWeight.normal:
+        return FontWeight.normal;
+      case StacFontWeight.bold:
+        return FontWeight.bold;
     }
   }
 }
