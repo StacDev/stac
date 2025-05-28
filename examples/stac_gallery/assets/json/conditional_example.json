@@ -1,0 +1,428 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Conditional Widget Example"
+        }
+    },
+    "body": {
+        "type": "singleChildScrollView",
+        "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Conditional Widgets allow you to render different UI based on conditions",
+                        "textAlign": "center",
+                        "style": {
+                            "fontSize": 16,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "divider",
+                    "height": 20
+                },
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Example 1: Simple Boolean Comparison",
+                        "style": {
+                            "fontSize": 18,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "conditional",
+                    "condition": "5 > 3",
+                    "ifTrue": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#E1F5FE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "check_circle",
+                                    "color": "#01579B"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Condition is TRUE: 5 is greater than 3",
+                                    "style": {
+                                        "color": "#01579B"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ifFalse": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#FFEBEE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "cancel",
+                                    "color": "#B71C1C"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Condition is FALSE: 5 is not greater than 3",
+                                    "style": {
+                                        "color": "#B71C1C"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "divider",
+                    "height": 20
+                },
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Example 2: String Comparison",
+                        "style": {
+                            "fontSize": 18,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "conditional",
+                    "condition": "Flutter == Flutter",
+                    "ifTrue": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#E8F5E9",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "check_circle",
+                                    "color": "#1B5E20"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Strings are equal",
+                                    "style": {
+                                        "color": "#1B5E20"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ifFalse": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#FFEBEE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "cancel",
+                                    "color": "#B71C1C"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Strings are not equal",
+                                    "style": {
+                                        "color": "#B71C1C"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "divider",
+                    "height": 20
+                },
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Example 3: Mathematical Expression",
+                        "style": {
+                            "fontSize": 18,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "conditional",
+                    "condition": "(10 + 5) * 2 == 30",
+                    "ifTrue": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#E8F5E9",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "check_circle",
+                                    "color": "#1B5E20"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "(10 + 5) * 2 equals 30",
+                                    "style": {
+                                        "color": "#1B5E20"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ifFalse": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#FFEBEE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "cancel",
+                                    "color": "#B71C1C"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "(10 + 5) * 2 does not equal 30",
+                                    "style": {
+                                        "color": "#B71C1C"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "divider",
+                    "height": 20
+                },
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Example 4: Logical Operators",
+                        "style": {
+                            "fontSize": 18,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "conditional",
+                    "condition": "true && (false || true)",
+                    "ifTrue": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#E8F5E9",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "check_circle",
+                                    "color": "#1B5E20"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Logical expression is TRUE",
+                                    "style": {
+                                        "color": "#1B5E20"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ifFalse": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#FFEBEE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "row",
+                            "mainAxisAlignment": "center",
+                            "children": [
+                                {
+                                    "type": "icon",
+                                    "icon": "cancel",
+                                    "color": "#B71C1C"
+                                },
+                                {
+                                    "type": "sizedBox",
+                                    "width": 8
+                                },
+                                {
+                                    "type": "text",
+                                    "data": "Logical expression is FALSE",
+                                    "style": {
+                                        "color": "#B71C1C"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "divider",
+                    "height": 20
+                },
+                {
+                    "type": "padding",
+                    "padding": 16,
+                    "child": {
+                        "type": "text",
+                        "data": "Example 5: Nested Conditionals",
+                        "style": {
+                            "fontSize": 18,
+                            "fontWeight": "w700"
+                        }
+                    }
+                },
+                {
+                    "type": "conditional",
+                    "condition": "3 < 5",
+                    "ifTrue": {
+                        "type": "conditional",
+                        "condition": "10 > 8",
+                        "ifTrue": {
+                            "type": "container",
+                            "padding": 16,
+                            "decoration": {
+                                "color": "#E1F5FE",
+                                "borderRadius": 8
+                            },
+                            "child": {
+                                "type": "text",
+                                "data": "Both conditions are TRUE: 3 < 5 AND 10 > 8",
+                                "textAlign": "center",
+                                "style": {
+                                    "color": "#01579B",
+                                    "fontWeight": "w700"
+                                }
+                            }
+                        },
+                        "ifFalse": {
+                            "type": "container",
+                            "padding": 16,
+                            "decoration": {
+                                "color": "#FFF3E0",
+                                "borderRadius": 8
+                            },
+                            "child": {
+                                "type": "text",
+                                "data": "First condition is TRUE, but second is FALSE",
+                                "textAlign": "center",
+                                "style": {
+                                    "color": "#E65100",
+                                    "fontWeight": "w700"
+                                }
+                            }
+                        }
+                    },
+                    "ifFalse": {
+                        "type": "container",
+                        "padding": 16,
+                        "decoration": {
+                            "color": "#FFEBEE",
+                            "borderRadius": 8
+                        },
+                        "child": {
+                            "type": "text",
+                            "data": "First condition is FALSE",
+                            "textAlign": "center",
+                            "style": {
+                                "color": "#B71C1C",
+                                "fontWeight": "w700"
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
