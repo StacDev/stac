@@ -1373,5 +1373,27 @@
         "assetPath": "assets/json/variable_example.json"
       }
     }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "code"
+    },
+    "title": {
+      "type": "text",
+      "data": "Conditional Rendering"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Use if-else conditions in STAC templates"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/conditional_example.json"
+      }
+    }
   }
 ]

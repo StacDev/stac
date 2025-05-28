@@ -17,6 +17,7 @@ enum WidgetType {
   circularProgressIndicator,
   coloredBox,
   column,
+  conditional,
   container,
   dropdownMenu,
   customScrollView,

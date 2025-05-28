@@ -27,6 +27,7 @@ export 'package:stac/src/parsers/widgets/stac_clip_oval/stac_clip_oval.dart';
 export 'package:stac/src/parsers/widgets/stac_clip_rrect/stac_clip_rrect.dart';
 export 'package:stac/src/parsers/widgets/stac_colored_box/stac_colored_box.dart';
 export 'package:stac/src/parsers/widgets/stac_column/stac_column.dart';
+export 'package:stac/src/parsers/widgets/stac_conditional/stac_conditional.dart';
 export 'package:stac/src/parsers/widgets/stac_container/stac_container.dart';
 export 'package:stac/src/parsers/widgets/stac_custom_scroll_view/stac_custom_scroll_view.dart';
 export 'package:stac/src/parsers/widgets/stac_decoration_image/stac_decoration_image.dart';

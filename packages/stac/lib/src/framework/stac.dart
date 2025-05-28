@@ -106,6 +106,7 @@ class Stac {
     const StacGestureDetectorParser(),
     const StacSetValueParser(),
     const StacInkwellParser(),
+    const StacConditionalParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[

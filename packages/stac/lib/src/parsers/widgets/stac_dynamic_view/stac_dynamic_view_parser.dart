@@ -217,10 +217,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
               // Extract the value from the data
               final dataValue = _extractNestedData(data, keys);
-              if (dataValue != null) {
-                processedValue = processedValue.replaceAll(
-                    placeholder, dataValue.toString());
-              }
+
+              processedValue =
+                  processedValue.replaceAll(placeholder, dataValue.toString());
             }
 
             template[key] = processedValue;
