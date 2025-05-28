@@ -6,6 +6,7 @@ import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 export 'stac_text_parser.dart';
 
 part 'stac_text.freezed.dart';
+
 part 'stac_text.g.dart';
 
 @freezed
