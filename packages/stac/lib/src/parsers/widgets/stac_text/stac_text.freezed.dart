@@ -495,6 +495,7 @@ class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
 mixin _$StacTextSpan {
   String? get data;
   StacTextStyle? get style;
+  StacTextStyle? get copyWithStyle;
   Map<String, dynamic>? get onTap;
 
   /// Create a copy of StacTextSpan
@@ -515,17 +516,19 @@ mixin _$StacTextSpan {
             other is StacTextSpan &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.style, style) || other.style == style) &&
+            (identical(other.copyWithStyle, copyWithStyle) ||
+                other.copyWithStyle == copyWithStyle) &&
             const DeepCollectionEquality().equals(other.onTap, onTap));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, data, style, const DeepCollectionEquality().hash(onTap));
+  int get hashCode => Object.hash(runtimeType, data, style, copyWithStyle,
+      const DeepCollectionEquality().hash(onTap));
 
   @override
   String toString() {
-    return 'StacTextSpan(data: $data, style: $style, onTap: $onTap)';
+    return 'StacTextSpan(data: $data, style: $style, copyWithStyle: $copyWithStyle, onTap: $onTap)';
   }
 }
 
@@ -535,9 +538,14 @@ abstract mixin class $StacTextSpanCopyWith<$Res> {
           StacTextSpan value, $Res Function(StacTextSpan) _then) =
       _$StacTextSpanCopyWithImpl;
   @useResult
-  $Res call({String? data, StacTextStyle? style, Map<String, dynamic>? onTap});
+  $Res call(
+      {String? data,
+      StacTextStyle? style,
+      StacTextStyle? copyWithStyle,
+      Map<String, dynamic>? onTap});
 
   $StacTextStyleCopyWith<$Res>? get style;
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle;
 }
 
 /// @nodoc
@@ -554,6 +562,7 @@ class _$StacTextSpanCopyWithImpl<$Res> implements $StacTextSpanCopyWith<$Res> {
   $Res call({
     Object? data = freezed,
     Object? style = freezed,
+    Object? copyWithStyle = freezed,
     Object? onTap = freezed,
   }) {
     return _then(_self.copyWith(
@@ -564,6 +573,10 @@ class _$StacTextSpanCopyWithImpl<$Res> implements $StacTextSpanCopyWith<$Res> {
       style: freezed == style
           ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      copyWithStyle: freezed == copyWithStyle
+          ? _self.copyWithStyle
+          : copyWithStyle // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       onTap: freezed == onTap
           ? _self.onTap
@@ -585,13 +598,30 @@ class _$StacTextSpanCopyWithImpl<$Res> implements $StacTextSpanCopyWith<$Res> {
       return _then(_self.copyWith(style: value));
     });
   }
+
+  /// Create a copy of StacTextSpan
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle {
+    if (_self.copyWithStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.copyWithStyle!, (value) {
+      return _then(_self.copyWith(copyWithStyle: value));
+    });
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _StacTextSpan implements StacTextSpan {
   const _StacTextSpan(
-      {this.data, this.style, final Map<String, dynamic>? onTap})
+      {this.data,
+      this.style,
+      this.copyWithStyle,
+      final Map<String, dynamic>? onTap})
       : _onTap = onTap;
   factory _StacTextSpan.fromJson(Map<String, dynamic> json) =>
       _$StacTextSpanFromJson(json);
@@ -600,6 +630,8 @@ class _StacTextSpan implements StacTextSpan {
   final String? data;
   @override
   final StacTextStyle? style;
+  @override
+  final StacTextStyle? copyWithStyle;
   final Map<String, dynamic>? _onTap;
   @override
   Map<String, dynamic>? get onTap {
@@ -632,17 +664,19 @@ class _StacTextSpan implements StacTextSpan {
             other is _StacTextSpan &&
             (identical(other.data, data) || other.data == data) &&
             (identical(other.style, style) || other.style == style) &&
+            (identical(other.copyWithStyle, copyWithStyle) ||
+                other.copyWithStyle == copyWithStyle) &&
             const DeepCollectionEquality().equals(other._onTap, _onTap));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, data, style, const DeepCollectionEquality().hash(_onTap));
+  int get hashCode => Object.hash(runtimeType, data, style, copyWithStyle,
+      const DeepCollectionEquality().hash(_onTap));
 
   @override
   String toString() {
-    return 'StacTextSpan(data: $data, style: $style, onTap: $onTap)';
+    return 'StacTextSpan(data: $data, style: $style, copyWithStyle: $copyWithStyle, onTap: $onTap)';
   }
 }
 
@@ -654,10 +688,16 @@ abstract mixin class _$StacTextSpanCopyWith<$Res>
       __$StacTextSpanCopyWithImpl;
   @override
   @useResult
-  $Res call({String? data, StacTextStyle? style, Map<String, dynamic>? onTap});
+  $Res call(
+      {String? data,
+      StacTextStyle? style,
+      StacTextStyle? copyWithStyle,
+      Map<String, dynamic>? onTap});
 
   @override
   $StacTextStyleCopyWith<$Res>? get style;
+  @override
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle;
 }
 
 /// @nodoc
@@ -675,6 +715,7 @@ class __$StacTextSpanCopyWithImpl<$Res>
   $Res call({
     Object? data = freezed,
     Object? style = freezed,
+    Object? copyWithStyle = freezed,
     Object? onTap = freezed,
   }) {
     return _then(_StacTextSpan(
@@ -685,6 +726,10 @@ class __$StacTextSpanCopyWithImpl<$Res>
       style: freezed == style
           ? _self.style
           : style // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
+      copyWithStyle: freezed == copyWithStyle
+          ? _self.copyWithStyle
+          : copyWithStyle // ignore: cast_nullable_to_non_nullable
               as StacTextStyle?,
       onTap: freezed == onTap
           ? _self._onTap
@@ -704,6 +749,20 @@ class __$StacTextSpanCopyWithImpl<$Res>
 
     return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
       return _then(_self.copyWith(style: value));
+    });
+  }
+
+  /// Create a copy of StacTextSpan
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle {
+    if (_self.copyWithStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.copyWithStyle!, (value) {
+      return _then(_self.copyWith(copyWithStyle: value));
     });
   }
 }

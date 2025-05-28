@@ -79,6 +79,9 @@ _StacTextSpan _$StacTextSpanFromJson(Map<String, dynamic> json) =>
       data: json['data'] as String?,
       style:
           json['style'] == null ? null : StacTextStyle.fromJson(json['style']),
+      copyWithStyle: json['copyWithStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['copyWithStyle']),
       onTap: json['onTap'] as Map<String, dynamic>?,
     );
 
@@ -86,5 +89,6 @@ Map<String, dynamic> _$StacTextSpanToJson(_StacTextSpan instance) =>
     <String, dynamic>{
       'data': instance.data,
       'style': instance.style,
+      'copyWithStyle': instance.copyWithStyle,
       'onTap': instance.onTap,
     };

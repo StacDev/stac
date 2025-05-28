@@ -35,6 +35,8 @@ abstract class StacTextSpan with _$StacTextSpan {
   const factory StacTextSpan({
     String? data,
     StacTextStyle? style,
+    StacTextStyle? copyWithStyle,
+
     Map<String, dynamic>? onTap,
   }) = _StacTextSpan;
 
