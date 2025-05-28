@@ -27,6 +27,9 @@ _StacText _$StacTextFromJson(Map<String, dynamic> json) => _StacText(
       textWidthBasis:
           $enumDecodeNullable(_$TextWidthBasisEnumMap, json['textWidthBasis']),
       selectionColor: json['selectionColor'] as String?,
+      copyWithStyle: json['copyWithStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['copyWithStyle']),
     );
 
 Map<String, dynamic> _$StacTextToJson(_StacText instance) => <String, dynamic>{
@@ -42,6 +45,7 @@ Map<String, dynamic> _$StacTextToJson(_StacText instance) => <String, dynamic>{
       'semanticsLabel': instance.semanticsLabel,
       'textWidthBasis': _$TextWidthBasisEnumMap[instance.textWidthBasis],
       'selectionColor': instance.selectionColor,
+      'copyWithStyle': instance.copyWithStyle,
     };
 
 const _$TextAlignEnumMap = {

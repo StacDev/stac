@@ -27,6 +27,7 @@ mixin _$StacText {
   String? get semanticsLabel;
   TextWidthBasis? get textWidthBasis;
   String? get selectionColor;
+  StacTextStyle? get copyWithStyle;
 
   /// Create a copy of StacText
   /// with the given fields replaced by the non-null parameter values.
@@ -63,7 +64,9 @@ mixin _$StacText {
             (identical(other.textWidthBasis, textWidthBasis) ||
                 other.textWidthBasis == textWidthBasis) &&
             (identical(other.selectionColor, selectionColor) ||
-                other.selectionColor == selectionColor));
+                other.selectionColor == selectionColor) &&
+            (identical(other.copyWithStyle, copyWithStyle) ||
+                other.copyWithStyle == copyWithStyle));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -81,11 +84,12 @@ mixin _$StacText {
       maxLines,
       semanticsLabel,
       textWidthBasis,
-      selectionColor);
+      selectionColor,
+      copyWithStyle);
 
   @override
   String toString() {
-    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor)';
+    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor, copyWithStyle: $copyWithStyle)';
   }
 }
 
@@ -106,9 +110,11 @@ abstract mixin class $StacTextCopyWith<$Res> {
       int? maxLines,
       String? semanticsLabel,
       TextWidthBasis? textWidthBasis,
-      String? selectionColor});
+      String? selectionColor,
+      StacTextStyle? copyWithStyle});
 
   $StacTextStyleCopyWith<$Res>? get style;
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle;
 }
 
 /// @nodoc
@@ -135,6 +141,7 @@ class _$StacTextCopyWithImpl<$Res> implements $StacTextCopyWith<$Res> {
     Object? semanticsLabel = freezed,
     Object? textWidthBasis = freezed,
     Object? selectionColor = freezed,
+    Object? copyWithStyle = freezed,
   }) {
     return _then(_self.copyWith(
       data: null == data
@@ -185,6 +192,10 @@ class _$StacTextCopyWithImpl<$Res> implements $StacTextCopyWith<$Res> {
           ? _self.selectionColor
           : selectionColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      copyWithStyle: freezed == copyWithStyle
+          ? _self.copyWithStyle
+          : copyWithStyle // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
     ));
   }
 
@@ -199,6 +210,20 @@ class _$StacTextCopyWithImpl<$Res> implements $StacTextCopyWith<$Res> {
 
     return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
       return _then(_self.copyWith(style: value));
+    });
+  }
+
+  /// Create a copy of StacText
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle {
+    if (_self.copyWithStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.copyWithStyle!, (value) {
+      return _then(_self.copyWith(copyWithStyle: value));
     });
   }
 }
@@ -218,7 +243,8 @@ class _StacText implements StacText {
       this.maxLines,
       this.semanticsLabel,
       this.textWidthBasis,
-      this.selectionColor})
+      this.selectionColor,
+      this.copyWithStyle})
       : _children = children;
   factory _StacText.fromJson(Map<String, dynamic> json) =>
       _$StacTextFromJson(json);
@@ -254,6 +280,8 @@ class _StacText implements StacText {
   final TextWidthBasis? textWidthBasis;
   @override
   final String? selectionColor;
+  @override
+  final StacTextStyle? copyWithStyle;
 
   /// Create a copy of StacText
   /// with the given fields replaced by the non-null parameter values.
@@ -295,7 +323,9 @@ class _StacText implements StacText {
             (identical(other.textWidthBasis, textWidthBasis) ||
                 other.textWidthBasis == textWidthBasis) &&
             (identical(other.selectionColor, selectionColor) ||
-                other.selectionColor == selectionColor));
+                other.selectionColor == selectionColor) &&
+            (identical(other.copyWithStyle, copyWithStyle) ||
+                other.copyWithStyle == copyWithStyle));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -313,11 +343,12 @@ class _StacText implements StacText {
       maxLines,
       semanticsLabel,
       textWidthBasis,
-      selectionColor);
+      selectionColor,
+      copyWithStyle);
 
   @override
   String toString() {
-    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor)';
+    return 'StacText(data: $data, children: $children, style: $style, textAlign: $textAlign, textDirection: $textDirection, softWrap: $softWrap, overflow: $overflow, textScaleFactor: $textScaleFactor, maxLines: $maxLines, semanticsLabel: $semanticsLabel, textWidthBasis: $textWidthBasis, selectionColor: $selectionColor, copyWithStyle: $copyWithStyle)';
   }
 }
 
@@ -340,10 +371,13 @@ abstract mixin class _$StacTextCopyWith<$Res>
       int? maxLines,
       String? semanticsLabel,
       TextWidthBasis? textWidthBasis,
-      String? selectionColor});
+      String? selectionColor,
+      StacTextStyle? copyWithStyle});
 
   @override
   $StacTextStyleCopyWith<$Res>? get style;
+  @override
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle;
 }
 
 /// @nodoc
@@ -370,6 +404,7 @@ class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
     Object? semanticsLabel = freezed,
     Object? textWidthBasis = freezed,
     Object? selectionColor = freezed,
+    Object? copyWithStyle = freezed,
   }) {
     return _then(_StacText(
       data: null == data
@@ -420,6 +455,10 @@ class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
           ? _self.selectionColor
           : selectionColor // ignore: cast_nullable_to_non_nullable
               as String?,
+      copyWithStyle: freezed == copyWithStyle
+          ? _self.copyWithStyle
+          : copyWithStyle // ignore: cast_nullable_to_non_nullable
+              as StacTextStyle?,
     ));
   }
 
@@ -434,6 +473,20 @@ class __$StacTextCopyWithImpl<$Res> implements _$StacTextCopyWith<$Res> {
 
     return $StacTextStyleCopyWith<$Res>(_self.style!, (value) {
       return _then(_self.copyWith(style: value));
+    });
+  }
+
+  /// Create a copy of StacText
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacTextStyleCopyWith<$Res>? get copyWithStyle {
+    if (_self.copyWithStyle == null) {
+      return null;
+    }
+
+    return $StacTextStyleCopyWith<$Res>(_self.copyWithStyle!, (value) {
+      return _then(_self.copyWith(copyWithStyle: value));
     });
   }
 }

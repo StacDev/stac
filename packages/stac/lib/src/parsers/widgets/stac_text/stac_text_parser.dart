@@ -34,7 +34,7 @@ class StacTextParser extends StacParser<StacText> {
             )
             .toList(),
       ),
-      style: model.style?.parse(context),
+      style: _getStyle(context, model),
       textAlign: model.textAlign,
       textDirection: model.textDirection,
       softWrap: model.softWrap,
@@ -46,6 +46,26 @@ class StacTextParser extends StacParser<StacText> {
       semanticsLabel: model.semanticsLabel,
       textWidthBasis: model.textWidthBasis,
       selectionColor: model.selectionColor.toColor(context),
+    );
+  }
+
+  TextStyle? _getStyle(BuildContext context, StacText model) {
+    final baseStyle = model.style?.parse(context);
+    final copyWithStyle = model.copyWithStyle;
+    if (copyWithStyle == null) return baseStyle;
+    return baseStyle?.copyWith(
+      inherit: copyWithStyle.inherit,
+      color: copyWithStyle.color.toColor(context),
+      backgroundColor: copyWithStyle.backgroundColor.toColor(context),
+      fontSize: copyWithStyle.fontSize?.parse,
+      fontWeight: copyWithStyle.fontWeight?.value,
+      fontStyle: copyWithStyle.fontStyle,
+      wordSpacing: copyWithStyle.wordSpacing?.parse,
+      height: copyWithStyle.height?.parse,
+      fontFamily: copyWithStyle.fontFamily,
+      fontFamilyFallback: copyWithStyle.fontFamilyFallback,
+      letterSpacing: copyWithStyle.letterSpacing?.parse,
+      textBaseline: copyWithStyle.textBaseline,
     );
   }
 }

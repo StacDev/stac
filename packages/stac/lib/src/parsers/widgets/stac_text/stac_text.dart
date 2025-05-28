@@ -23,6 +23,7 @@ abstract class StacText with _$StacText {
     String? semanticsLabel,
     TextWidthBasis? textWidthBasis,
     String? selectionColor,
+    StacTextStyle? copyWithStyle,
   }) = _StacText;
 
   factory StacText.fromJson(Map<String, dynamic> json) =>
