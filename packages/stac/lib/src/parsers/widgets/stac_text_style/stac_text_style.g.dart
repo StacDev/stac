@@ -61,6 +61,8 @@ const _$StacFontWeightEnumMap = {
   StacFontWeight.w700: 'w700',
   StacFontWeight.w800: 'w800',
   StacFontWeight.w900: 'w900',
+  StacFontWeight.normal: 'normal',
+  StacFontWeight.bold: 'bold',
 };
 
 const _$FontStyleEnumMap = {
