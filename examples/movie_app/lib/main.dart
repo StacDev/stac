@@ -30,8 +30,7 @@ class MyApp extends StatelessWidget {
     return StacApp(
       title: 'Flutter Demo',
       theme: StacTheme.fromJson(darkThemeJson),
-      homeBuilder:
-          (context) =>
+      homeBuilder: (context) =>
           Stac.fromAssets('assets/jsons/screens/onboarding_screen.json'),
     );
   }
