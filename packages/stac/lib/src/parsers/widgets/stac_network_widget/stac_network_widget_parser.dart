@@ -11,11 +11,16 @@ class StacNetworkWidgetParser extends StacParser<StacNetworkWidget> {
   String get type => WidgetType.networkWidget.name;
 
   @override
-  StacNetworkWidget getModel(Map<String, dynamic> json) =>
-      StacNetworkWidget.fromJson(json);
+  StacNetworkWidget getModel(Map<String, dynamic> json) => StacNetworkWidget.fromJson(json);
 
   @override
   Widget parse(BuildContext context, StacNetworkWidget model) {
-    return Stac.fromNetwork(context: context, request: model.request);
+    return Stac.fromNetwork(
+      context: context,
+      request: model.request,
+      loadingWidget: (context) {
+        return Stac.fromJson(model.loading, context) ?? SizedBox();
+      },
+    );
   }
 }

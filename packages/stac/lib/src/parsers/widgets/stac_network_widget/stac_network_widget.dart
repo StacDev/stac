@@ -10,8 +10,8 @@ part 'stac_network_widget.g.dart';
 abstract class StacNetworkWidget with _$StacNetworkWidget {
   const factory StacNetworkWidget({
     required StacNetworkRequest request,
+    Map<String, dynamic>? loading,
   }) = _StacNetworkWidget;
 
-  factory StacNetworkWidget.fromJson(Map<String, dynamic> json) =>
-      _$StacNetworkWidgetFromJson(json);
+  factory StacNetworkWidget.fromJson(Map<String, dynamic> json) => _$StacNetworkWidgetFromJson(json);
 }
