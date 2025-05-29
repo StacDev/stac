@@ -3,20 +3,44 @@ import 'package:stac/src/utils/color_type.dart';
 
 const String _hashtag = "#";
 const String _empty = "";
-const String _defaultOpacity = "ff";
+const String _transparencySeparator = "@";
 
 extension ColorExt on String? {
   Color? toColor(BuildContext context) {
     if (this?.isEmpty ?? true) return null;
 
-    final parsedColor = _parseThemeColor(this!, context);
-    if (parsedColor != null) {
-      return parsedColor;
-    } else if (this!.startsWith(_hashtag)) {
-      return _parseHexColor(this!);
-    } else {
-      return _parseNameColor(this!);
+    // Extract transparency if specified
+    String colorString = this!;
+    int opacity = 255; // Default: fully opaque
+
+    if (colorString.contains(_transparencySeparator)) {
+      final parts = colorString.split(_transparencySeparator);
+      colorString = parts[0];
+      // Parse transparency percentage (0-100) and convert to alpha value (0-255)
+      final opacityPercentage = int.tryParse(parts[1]);
+      if (opacityPercentage != null &&
+          opacityPercentage >= 0 &&
+          opacityPercentage <= 100) {
+        opacity = ((opacityPercentage) * 255 / 100).round();
+      }
     }
+
+    // Parse the color based on its format
+    Color? parsedColor;
+    if (colorString.startsWith(_hashtag)) {
+      parsedColor = _parseHexColor(colorString, opacity);
+    } else {
+      // Try theme color first, then named color
+      parsedColor = _parseThemeColor(colorString, context);
+      parsedColor ??=  _parseNameColor(colorString);
+    }
+
+    // Apply transparency if a valid color was parsed and transparency is not 255 (fully opaque)
+    if (parsedColor != null && opacity != 255) {
+      return parsedColor.withAlpha(opacity);
+    }
+
+    return parsedColor;
   }
 }
 
@@ -125,10 +149,13 @@ Color? _parseThemeColor(String color, BuildContext context) {
   }
 }
 
-Color _parseHexColor(String color) {
-  // Ex: #000000
+Color _parseHexColor(String color, [int alpha = 255]) {
+  // Ex: #000000 or #FF000000
   final buffer = StringBuffer();
-  if (color.length == 6 || color.length == 7) buffer.write(_defaultOpacity);
+  if (color.length == 6 || color.length == 7) {
+    // Add alpha channel
+    buffer.write(alpha.toRadixString(16).padLeft(2, '0'));
+  }
   buffer.write(color.replaceFirst(_hashtag, _empty));
   int? intColor = int.tryParse(buffer.toString(), radix: 16);
   intColor = intColor ?? 0x00000000;
