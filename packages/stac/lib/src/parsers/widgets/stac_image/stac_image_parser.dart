@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
@@ -30,8 +31,9 @@ class StacImageParser extends StacParser<StacImage> {
     }
   }
 
-  Widget _networkImage(StacImage model, BuildContext context) =>
-      CachedNetworkImage(
+  Widget _networkImage(StacImage model, BuildContext context) {
+    if (!model.src.contains(".svg")) {
+      return CachedNetworkImage(
         imageUrl: model.src,
         alignment: model.alignment.value,
         color: model.color?.toColor(context),
@@ -42,8 +44,26 @@ class StacImageParser extends StacParser<StacImage> {
           return const SizedBox();
         },
       );
+    } else {
+      return SvgPicture.network(
+        model.src,
+        alignment: model.alignment.value,
+        colorFilter: model.color != null
+            ? ColorFilter.mode(model.color.toColor(context)!, BlendMode.srcIn)
+            : null,
+        width: model.width?.parse,
+        height: model.height?.parse,
+        fit: model.fit ?? BoxFit.contain,
+        errorBuilder: (context, error, stackTrace) {
+          return const SizedBox();
+        },
+      );
+    }
+  }
 
-  Widget _fileImage(StacImage model, BuildContext context) => Image.file(
+  Widget _fileImage(StacImage model, BuildContext context) {
+    if (!model.src.contains(".svg")) {
+      return Image.file(
         File(model.src),
         alignment: model.alignment.value,
         color: model.color?.toColor(context),
@@ -54,8 +74,26 @@ class StacImageParser extends StacParser<StacImage> {
           return const SizedBox();
         },
       );
+    } else {
+      return SvgPicture.file(
+        File(model.src),
+        alignment: model.alignment.value,
+        colorFilter: model.color != null
+            ? ColorFilter.mode(model.color.toColor(context)!, BlendMode.srcIn)
+            : null,
+        width: model.width?.parse,
+        height: model.height?.parse,
+        fit: model.fit ?? BoxFit.contain,
+        errorBuilder: (context, error, stackTrace) {
+          return const SizedBox();
+        },
+      );
+    }
+  }
 
-  Widget _assetImage(StacImage model, BuildContext context) => Image.asset(
+  Widget _assetImage(StacImage model, BuildContext context) {
+    if (!model.src.endsWith(".svg")) {
+      return Image.asset(
         model.src,
         alignment: model.alignment.value,
         color: model.color?.toColor(context),
@@ -66,4 +104,20 @@ class StacImageParser extends StacParser<StacImage> {
           return const SizedBox();
         },
       );
+    } else {
+      return SvgPicture.asset(
+        model.src,
+        alignment: model.alignment.value,
+        colorFilter: model.color != null
+            ? ColorFilter.mode(model.color.toColor(context)!, BlendMode.srcIn)
+            : null,
+        width: model.width?.parse,
+        height: model.height?.parse,
+        fit: model.fit ?? BoxFit.contain,
+        errorBuilder: (context, error, stackTrace) {
+          return const SizedBox();
+        },
+      );
+    }
+  }
 }

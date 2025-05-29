@@ -104,6 +104,39 @@
                   "fit": "fill"
                 }
               ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/android.svg",
+                  "height": 100,
+                  "width": 100
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 20
+                },
+                {
+                  "type": "image",
+                  "imageType": "asset",
+                  "src": "assets/images/gallery.svg",
+                  "color": "primary",
+                  "height": 100,
+                  "width": 100
+                }
+              ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
             }
           ]
         }
