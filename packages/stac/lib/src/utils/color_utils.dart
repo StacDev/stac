@@ -32,7 +32,7 @@ extension ColorExt on String? {
     } else {
       // Try theme color first, then named color
       parsedColor = _parseThemeColor(colorString, context);
-      parsedColor ??=  _parseNameColor(colorString);
+      parsedColor ??= _parseNameColor(colorString);
     }
 
     // Apply transparency if a valid color was parsed and transparency is not 255 (fully opaque)
