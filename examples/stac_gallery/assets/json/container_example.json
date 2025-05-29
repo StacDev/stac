@@ -19,7 +19,7 @@
         "type": "center",
         "child": {
           "type": "container",
-          "color": "#672BFF",
+          "color": "primary@50",
           "height": 250,
           "width": "maxFinite"
         }
