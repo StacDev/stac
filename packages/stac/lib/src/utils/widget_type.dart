@@ -75,4 +75,5 @@ enum WidgetType {
   textField,
   textFormField,
   wrap,
+  visibility,
 }
