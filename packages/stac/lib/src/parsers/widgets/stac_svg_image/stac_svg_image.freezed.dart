@@ -13,7 +13,7 @@ part of 'stac_svg_image.dart';
 // dart format off
 T _$identity<T>(T value) => value;
 StacSvgImage _$StacSvgImageFromJson(Map<String, dynamic> json) {
-  switch (json['type']) {
+  switch (json['subtype']) {
     case 'asset':
       return StacSvgAsset.fromJson(json);
     case 'network':
@@ -26,8 +26,8 @@ StacSvgImage _$StacSvgImageFromJson(Map<String, dynamic> json) {
       return StacSvgString.fromJson(json);
 
     default:
-      throw CheckedFromJsonException(json, 'type', 'StacSvgImage',
-          'Invalid union type "${json['type']}"!');
+      throw CheckedFromJsonException(json, 'subtype', 'StacSvgImage',
+          'Invalid union type "${json['subtype']}"!');
   }
 }
 
@@ -176,7 +176,7 @@ class StacSvgAsset implements StacSvgImage {
   @override
   final StacDouble? height;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'subtype')
   final String $type;
 
   /// Create a copy of StacSvgImage
@@ -330,7 +330,7 @@ class StacSvgNetwork implements StacSvgImage {
   @override
   final StacDouble? height;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'subtype')
   final String $type;
 
   /// Create a copy of StacSvgImage
@@ -485,7 +485,7 @@ class StacSvgFile implements StacSvgImage {
   @override
   final StacDouble? height;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'subtype')
   final String $type;
 
   /// Create a copy of StacSvgImage
@@ -639,7 +639,7 @@ class StacSvgMemory implements StacSvgImage {
   @override
   final StacDouble? height;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'subtype')
   final String $type;
 
   /// Create a copy of StacSvgImage
@@ -794,7 +794,7 @@ class StacSvgString implements StacSvgImage {
   @override
   final StacDouble? height;
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'subtype')
   final String $type;
 
   /// Create a copy of StacSvgImage

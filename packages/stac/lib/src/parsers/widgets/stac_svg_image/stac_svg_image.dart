@@ -7,7 +7,7 @@ part 'stac_svg_image.freezed.dart';
 
 part 'stac_svg_image.g.dart';
 
-@Freezed(unionKey: 'type')
+@Freezed(unionKey: 'subtype')
 abstract class StacSvgImage with _$StacSvgImage {
   @FreezedUnionValue('asset')
   const factory StacSvgImage.asset({

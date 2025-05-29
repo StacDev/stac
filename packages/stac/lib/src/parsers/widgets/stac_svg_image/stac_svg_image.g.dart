@@ -17,7 +17,7 @@ StacSvgAsset _$StacSvgAssetFromJson(Map<String, dynamic> json) => StacSvgAsset(
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       height:
           json['height'] == null ? null : StacDouble.fromJson(json['height']),
-      $type: json['type'] as String?,
+      $type: json['subtype'] as String?,
     );
 
 Map<String, dynamic> _$StacSvgAssetToJson(StacSvgAsset instance) =>
@@ -28,7 +28,7 @@ Map<String, dynamic> _$StacSvgAssetToJson(StacSvgAsset instance) =>
       'colorFilter': instance.colorFilter,
       'width': instance.width,
       'height': instance.height,
-      'type': instance.$type,
+      'subtype': instance.$type,
     };
 
 StacSvgNetwork _$StacSvgNetworkFromJson(Map<String, dynamic> json) =>
@@ -43,7 +43,7 @@ StacSvgNetwork _$StacSvgNetworkFromJson(Map<String, dynamic> json) =>
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       height:
           json['height'] == null ? null : StacDouble.fromJson(json['height']),
-      $type: json['type'] as String?,
+      $type: json['subtype'] as String?,
     );
 
 Map<String, dynamic> _$StacSvgNetworkToJson(StacSvgNetwork instance) =>
@@ -54,7 +54,7 @@ Map<String, dynamic> _$StacSvgNetworkToJson(StacSvgNetwork instance) =>
       'colorFilter': instance.colorFilter,
       'width': instance.width,
       'height': instance.height,
-      'type': instance.$type,
+      'subtype': instance.$type,
     };
 
 StacSvgFile _$StacSvgFileFromJson(Map<String, dynamic> json) => StacSvgFile(
@@ -68,7 +68,7 @@ StacSvgFile _$StacSvgFileFromJson(Map<String, dynamic> json) => StacSvgFile(
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       height:
           json['height'] == null ? null : StacDouble.fromJson(json['height']),
-      $type: json['type'] as String?,
+      $type: json['subtype'] as String?,
     );
 
 Map<String, dynamic> _$StacSvgFileToJson(StacSvgFile instance) =>
@@ -79,7 +79,7 @@ Map<String, dynamic> _$StacSvgFileToJson(StacSvgFile instance) =>
       'colorFilter': instance.colorFilter,
       'width': instance.width,
       'height': instance.height,
-      'type': instance.$type,
+      'subtype': instance.$type,
     };
 
 StacSvgMemory _$StacSvgMemoryFromJson(Map<String, dynamic> json) =>
@@ -94,7 +94,7 @@ StacSvgMemory _$StacSvgMemoryFromJson(Map<String, dynamic> json) =>
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       height:
           json['height'] == null ? null : StacDouble.fromJson(json['height']),
-      $type: json['type'] as String?,
+      $type: json['subtype'] as String?,
     );
 
 Map<String, dynamic> _$StacSvgMemoryToJson(StacSvgMemory instance) =>
@@ -105,7 +105,7 @@ Map<String, dynamic> _$StacSvgMemoryToJson(StacSvgMemory instance) =>
       'colorFilter': instance.colorFilter,
       'width': instance.width,
       'height': instance.height,
-      'type': instance.$type,
+      'subtype': instance.$type,
     };
 
 StacSvgString _$StacSvgStringFromJson(Map<String, dynamic> json) =>
@@ -120,7 +120,7 @@ StacSvgString _$StacSvgStringFromJson(Map<String, dynamic> json) =>
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       height:
           json['height'] == null ? null : StacDouble.fromJson(json['height']),
-      $type: json['type'] as String?,
+      $type: json['subtype'] as String?,
     );
 
 Map<String, dynamic> _$StacSvgStringToJson(StacSvgString instance) =>
@@ -131,7 +131,7 @@ Map<String, dynamic> _$StacSvgStringToJson(StacSvgString instance) =>
       'colorFilter': instance.colorFilter,
       'width': instance.width,
       'height': instance.height,
-      'type': instance.$type,
+      'subtype': instance.$type,
     };
 
 StacColorFilterMode _$StacColorFilterModeFromJson(Map<String, dynamic> json) =>
