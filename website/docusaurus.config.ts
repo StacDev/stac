@@ -1,7 +1,7 @@
-import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import lightTheme from './theme/lightTheme';
+import type { Config } from '@docusaurus/types';
 import darkTheme from './theme/darkTheme';
+import lightTheme from './theme/lightTheme';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -54,9 +54,9 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/framework.png',
     metadata: [
-        {name: 'keywords', content: 'stac, flutter, server-driven-ui, sdui'},
-        {name: 'og:image', content: 'img/framework.png'},
-        {name: 'twitter:card', content: 'summary_large_image'},
+      { name: 'keywords', content: 'stac, flutter, server-driven-ui, sdui' },
+      { name: 'og:image', content: 'img/framework.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
     ],
     colorMode: {
       defaultMode: 'dark',
@@ -93,9 +93,17 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Docs',
-              to: '/docs/intro',
+              label: 'Get Started',
+              to: '/',
             },
+            {
+              "label": "Widgets",
+              "to": "/category/stac-widgets"
+            },
+            {
+              "label": "Actions",
+              "to": "/category/stac-actions"
+            }
           ],
         },
         {
