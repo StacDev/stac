@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+export 'stac_visibility_parser.dart';
+
 part 'stac_visibility.freezed.dart';
 part 'stac_visibility.g.dart';
 
