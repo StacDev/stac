@@ -20,7 +20,7 @@ dependencies:
   json_annotation: ^4.9.0
   logger: ^2.5.0
   dio: ^5.8.0+1
-  stac_framework: ^0.2.2
+  stac_framework: ^0.3.0
 
 dev_dependencies:
   flutter_test:
