@@ -7,11 +7,6 @@ export 'package:stac/src/parsers/stac_positioned/stac_positioned_parser.dart';
 part 'stac_positioned.freezed.dart';
 part 'stac_positioned.g.dart';
 
-/*
-* TODO :: Add support for fromRelativeRect
-*  enum StacPositionedType { directional, fill, fromRect, fromRelativeRect}
-*/
-
 enum StacPositionedType { directional, fill, fromRect }
 
 @freezed
