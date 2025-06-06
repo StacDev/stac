@@ -29,8 +29,8 @@ class StacDialogTheme with _$StacDialogTheme {
 }
 
 extension StacDialogThemeParser on StacDialogTheme {
-  DialogTheme? parse(BuildContext context) {
-    return DialogTheme(
+  DialogThemeData? parse(BuildContext context) {
+    return DialogThemeData(
       backgroundColor: backgroundColor.toColor(context),
       elevation: elevation,
       shadowColor: shadowColor.toColor(context),
