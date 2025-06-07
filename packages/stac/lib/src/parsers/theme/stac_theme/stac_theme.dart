@@ -174,7 +174,7 @@ extension StacThemeParser on StacTheme {
       checkboxTheme: checkboxTheme?.parse(context),
       chipTheme: chipTheme?.parse(context),
       datePickerTheme: datePickerTheme?.parse(context),
-      // dialogTheme: dialogTheme?.parse(context),
+      dialogTheme: dialogTheme?.parse(context)?.data,
       dividerTheme: dividerTheme?.parse(context),
       drawerTheme: drawerTheme?.parse(context),
       // DropdownMenuThemeData? dropdownMenuTheme,
