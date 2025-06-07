@@ -1395,5 +1395,27 @@
         "assetPath": "assets/json/conditional_example.json"
       }
     }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "code"
+    },
+    "title": {
+      "type": "text",
+      "data": "Backdrop Filter"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Use backdrop filters"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/backdrop_filter_example.json"
+      }
+    }
   }
 ]
