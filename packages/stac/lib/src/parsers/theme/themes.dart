@@ -11,3 +11,4 @@ export 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.d
 export 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
 export 'package:stac/src/parsers/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 export 'package:stac/src/parsers/theme/stac_theme/stac_theme.dart';
+export 'package:stac/src/parsers/theme/stac_snack_bar_theme_data/stac_snack_bar_theme_data.dart';
