@@ -8,14 +8,14 @@ part of 'stac_image_filter.dart';
 
 _StacImageFilter _$StacImageFilterFromJson(Map<String, dynamic> json) =>
     _StacImageFilter(
-      type: json['type'] as String,
+      type: $enumDecode(_$StacImageFilterTypeEnumMap, json['type']),
       sigmaX: json['sigmaX'] == null
-          ? const StacDouble(10.0)
+          ? const StacDouble(0.0)
           : StacDouble.fromJson(json['sigmaX']),
       sigmaY:
           json['sigmaY'] == null ? null : StacDouble.fromJson(json['sigmaY']),
       radiusX: json['radiusX'] == null
-          ? const StacDouble(1.0)
+          ? const StacDouble(0.0)
           : StacDouble.fromJson(json['radiusX']),
       radiusY:
           json['radiusY'] == null ? null : StacDouble.fromJson(json['radiusY']),
@@ -31,7 +31,7 @@ _StacImageFilter _$StacImageFilterFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$StacImageFilterToJson(_StacImageFilter instance) =>
     <String, dynamic>{
-      'type': instance.type,
+      'type': _$StacImageFilterTypeEnumMap[instance.type]!,
       'sigmaX': instance.sigmaX,
       'sigmaY': instance.sigmaY,
       'radiusX': instance.radiusX,
@@ -40,3 +40,11 @@ Map<String, dynamic> _$StacImageFilterToJson(_StacImageFilter instance) =>
       'inner': instance.inner,
       'outer': instance.outer,
     };
+
+const _$StacImageFilterTypeEnumMap = {
+  StacImageFilterType.blur: 'blur',
+  StacImageFilterType.matrix: 'matrix',
+  StacImageFilterType.dilate: 'dilate',
+  StacImageFilterType.erode: 'erode',
+  StacImageFilterType.compose: 'compose',
+};

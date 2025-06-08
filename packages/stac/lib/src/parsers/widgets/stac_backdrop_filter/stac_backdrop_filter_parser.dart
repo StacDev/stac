@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
-import 'package:stac/src/parsers/widgets/stac_image_filter/stac_image_filter_parser.dart';
+import 'package:stac/src/parsers/widgets/stac_image_filter/stac_image_filter.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -24,13 +24,14 @@ class StacBackdropFilterParser extends StacParser<StacBackdropFilter> {
       return child;
     }
 
-    final imageFilter = StacImageFilterParser.parse(model.filter);
+    final imageFilter = model.filter.parse();
     if (imageFilter == null) {
       return child;
     }
 
     return BackdropFilter(
       filter: imageFilter,
+      blendMode: model.blendMode,
       child: child,
     );
   }

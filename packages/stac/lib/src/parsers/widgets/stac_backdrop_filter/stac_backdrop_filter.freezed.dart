@@ -18,6 +18,7 @@ mixin _$StacBackdropFilter {
   StacImageFilter get filter;
   Map<String, dynamic>? get child;
   bool get enabled;
+  BlendMode get blendMode;
 
   /// Create a copy of StacBackdropFilter
   /// with the given fields replaced by the non-null parameter values.
@@ -37,17 +38,19 @@ mixin _$StacBackdropFilter {
             other is StacBackdropFilter &&
             (identical(other.filter, filter) || other.filter == filter) &&
             const DeepCollectionEquality().equals(other.child, child) &&
-            (identical(other.enabled, enabled) || other.enabled == enabled));
+            (identical(other.enabled, enabled) || other.enabled == enabled) &&
+            (identical(other.blendMode, blendMode) ||
+                other.blendMode == blendMode));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, filter, const DeepCollectionEquality().hash(child), enabled);
+  int get hashCode => Object.hash(runtimeType, filter,
+      const DeepCollectionEquality().hash(child), enabled, blendMode);
 
   @override
   String toString() {
-    return 'StacBackdropFilter(filter: $filter, child: $child, enabled: $enabled)';
+    return 'StacBackdropFilter(filter: $filter, child: $child, enabled: $enabled, blendMode: $blendMode)';
   }
 }
 
@@ -58,7 +61,10 @@ abstract mixin class $StacBackdropFilterCopyWith<$Res> {
       _$StacBackdropFilterCopyWithImpl;
   @useResult
   $Res call(
-      {StacImageFilter filter, Map<String, dynamic>? child, bool enabled});
+      {StacImageFilter filter,
+      Map<String, dynamic>? child,
+      bool enabled,
+      BlendMode blendMode});
 
   $StacImageFilterCopyWith<$Res> get filter;
 }
@@ -79,6 +85,7 @@ class _$StacBackdropFilterCopyWithImpl<$Res>
     Object? filter = null,
     Object? child = freezed,
     Object? enabled = null,
+    Object? blendMode = null,
   }) {
     return _then(_self.copyWith(
       filter: null == filter
@@ -93,6 +100,10 @@ class _$StacBackdropFilterCopyWithImpl<$Res>
           ? _self.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      blendMode: null == blendMode
+          ? _self.blendMode
+          : blendMode // ignore: cast_nullable_to_non_nullable
+              as BlendMode,
     ));
   }
 
@@ -113,7 +124,8 @@ class _StacBackdropFilter implements StacBackdropFilter {
   const _StacBackdropFilter(
       {required this.filter,
       final Map<String, dynamic>? child,
-      this.enabled = true})
+      this.enabled = true,
+      this.blendMode = BlendMode.srcOver})
       : _child = child;
   factory _StacBackdropFilter.fromJson(Map<String, dynamic> json) =>
       _$StacBackdropFilterFromJson(json);
@@ -133,6 +145,9 @@ class _StacBackdropFilter implements StacBackdropFilter {
   @override
   @JsonKey()
   final bool enabled;
+  @override
+  @JsonKey()
+  final BlendMode blendMode;
 
   /// Create a copy of StacBackdropFilter
   /// with the given fields replaced by the non-null parameter values.
@@ -156,17 +171,19 @@ class _StacBackdropFilter implements StacBackdropFilter {
             other is _StacBackdropFilter &&
             (identical(other.filter, filter) || other.filter == filter) &&
             const DeepCollectionEquality().equals(other._child, _child) &&
-            (identical(other.enabled, enabled) || other.enabled == enabled));
+            (identical(other.enabled, enabled) || other.enabled == enabled) &&
+            (identical(other.blendMode, blendMode) ||
+                other.blendMode == blendMode));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, filter,
-      const DeepCollectionEquality().hash(_child), enabled);
+      const DeepCollectionEquality().hash(_child), enabled, blendMode);
 
   @override
   String toString() {
-    return 'StacBackdropFilter(filter: $filter, child: $child, enabled: $enabled)';
+    return 'StacBackdropFilter(filter: $filter, child: $child, enabled: $enabled, blendMode: $blendMode)';
   }
 }
 
@@ -179,7 +196,10 @@ abstract mixin class _$StacBackdropFilterCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {StacImageFilter filter, Map<String, dynamic>? child, bool enabled});
+      {StacImageFilter filter,
+      Map<String, dynamic>? child,
+      bool enabled,
+      BlendMode blendMode});
 
   @override
   $StacImageFilterCopyWith<$Res> get filter;
@@ -201,6 +221,7 @@ class __$StacBackdropFilterCopyWithImpl<$Res>
     Object? filter = null,
     Object? child = freezed,
     Object? enabled = null,
+    Object? blendMode = null,
   }) {
     return _then(_StacBackdropFilter(
       filter: null == filter
@@ -215,6 +236,10 @@ class __$StacBackdropFilterCopyWithImpl<$Res>
           ? _self.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      blendMode: null == blendMode
+          ? _self.blendMode
+          : blendMode // ignore: cast_nullable_to_non_nullable
+              as BlendMode,
     ));
   }
 

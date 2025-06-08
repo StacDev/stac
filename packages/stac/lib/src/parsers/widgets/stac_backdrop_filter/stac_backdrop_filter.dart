@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_image_filter/stac_image_filter.dart';
 
@@ -12,6 +14,7 @@ abstract class StacBackdropFilter with _$StacBackdropFilter {
     required StacImageFilter filter,
     Map<String, dynamic>? child,
     @Default(true) bool enabled,
+    @Default(BlendMode.srcOver) BlendMode blendMode,
   }) = _StacBackdropFilter;
 
   factory StacBackdropFilter.fromJson(Map<String, dynamic> json) =>

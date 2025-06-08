@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacImageFilter {
-  String get type;
+  StacImageFilterType get type;
   StacDouble get sigmaX;
   StacDouble? get sigmaY;
   StacDouble get radiusX;
@@ -68,7 +68,7 @@ abstract mixin class $StacImageFilterCopyWith<$Res> {
       _$StacImageFilterCopyWithImpl;
   @useResult
   $Res call(
-      {String type,
+      {StacImageFilterType type,
       StacDouble sigmaX,
       StacDouble? sigmaY,
       StacDouble radiusX,
@@ -107,7 +107,7 @@ class _$StacImageFilterCopyWithImpl<$Res>
       type: null == type
           ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StacImageFilterType,
       sigmaX: null == sigmaX
           ? _self.sigmaX
           : sigmaX // ignore: cast_nullable_to_non_nullable
@@ -173,9 +173,9 @@ class _$StacImageFilterCopyWithImpl<$Res>
 class _StacImageFilter implements StacImageFilter {
   const _StacImageFilter(
       {required this.type,
-      this.sigmaX = const StacDouble(10.0),
+      this.sigmaX = const StacDouble(0.0),
       this.sigmaY,
-      this.radiusX = const StacDouble(1.0),
+      this.radiusX = const StacDouble(0.0),
       this.radiusY,
       final List<StacDouble>? matrix,
       this.inner,
@@ -185,7 +185,7 @@ class _StacImageFilter implements StacImageFilter {
       _$StacImageFilterFromJson(json);
 
   @override
-  final String type;
+  final StacImageFilterType type;
   @override
   @JsonKey()
   final StacDouble sigmaX;
@@ -261,7 +261,7 @@ abstract mixin class _$StacImageFilterCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String type,
+      {StacImageFilterType type,
       StacDouble sigmaX,
       StacDouble? sigmaY,
       StacDouble radiusX,
@@ -302,7 +302,7 @@ class __$StacImageFilterCopyWithImpl<$Res>
       type: null == type
           ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StacImageFilterType,
       sigmaX: null == sigmaX
           ? _self.sigmaX
           : sigmaX // ignore: cast_nullable_to_non_nullable
