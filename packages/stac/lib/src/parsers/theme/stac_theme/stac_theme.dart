@@ -24,6 +24,7 @@ import 'package:stac/src/parsers/theme/stac_material_color/stac_material_color.d
 import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data/stac_navigation_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_navigation_drawer_theme_data/stac_navigation_drawer_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data/stac_scrollbar_theme_data.dart';
+import 'package:stac/src/parsers/theme/stac_snack_bar_theme_data/stac_snack_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 import 'package:stac/src/parsers/theme/stac_text_theme/stac_text_theme.dart';
 import 'package:stac/src/utils/color_utils.dart';
@@ -109,7 +110,7 @@ abstract class StacTheme with _$StacTheme {
     // SearchViewThemeData? searchViewTheme,
     StacButtonStyle? segmentedButtonTheme,
     // SliderThemeData? sliderTheme,
-    // SnackBarThemeData? snackBarTheme,
+    StacSnackBarThemeData? snackBarTheme,
     // SwitchThemeData? switchTheme,
     StacTabBarThemeData? tabBarTheme,
     StacButtonStyle? textButtonTheme,
@@ -204,7 +205,7 @@ extension StacThemeParser on StacTheme {
       // SearchViewThemeData? searchViewTheme,
       // SegmentedButtonThemeData? segmentedButtonTheme,
       // SliderThemeData? sliderTheme,
-      // SnackBarThemeData? snackBarTheme,
+      snackBarTheme: snackBarTheme?.parse(context),
       // SwitchThemeData? switchTheme,
       // tabBarTheme: tabBarTheme?.parse(context),
       textButtonTheme: TextButtonThemeData(
