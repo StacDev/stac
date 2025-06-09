@@ -13,6 +13,7 @@ To know more about the BackdropFilter widget in Flutter, refer to the official d
 | `filter`  | `Map<String, dynamic>` | The image filter to apply to the existing painted content before painting the child.       |
 | `child`   | `Map<String, dynamic>?`| The widget to paint after applying the filter to the existing painted content.             |
 | `enabled` | `bool`                 | Whether the filter should be applied. When false, the child is drawn without a filter. Defaults to `true`. |
+| `blendMode` | `String?` | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
 
 ---
 
