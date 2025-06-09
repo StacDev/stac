@@ -15,7 +15,6 @@ enum StacImageFilterType {
   compose,
 }
 
-
 @freezed
 abstract class StacImageFilter with _$StacImageFilter {
   const factory StacImageFilter({
@@ -34,7 +33,7 @@ abstract class StacImageFilter with _$StacImageFilter {
 }
 
 extension StacImageFilterParser on StacImageFilter {
-  ImageFilter? parse() {
+  ImageFilter? get parse {
     switch (type) {
       case StacImageFilterType.blur:
         final sigmaX = this.sigmaX.parse;
@@ -59,8 +58,8 @@ extension StacImageFilterParser on StacImageFilter {
         return ImageFilter.erode(radiusX: radiusX, radiusY: radiusY);
 
       case StacImageFilterType.compose:
-        final inner = this.inner?.parse();
-        final outer = this.outer?.parse();
+        final inner = this.inner?.parse;
+        final outer = this.outer?.parse;
 
         if (inner != null && outer != null) {
           return ImageFilter.compose(inner: inner, outer: outer);

@@ -20,18 +20,10 @@ class StacBackdropFilterParser extends StacParser<StacBackdropFilter> {
   Widget parse(BuildContext context, StacBackdropFilter model) {
     final child = Stac.fromJson(model.child, context) ?? const SizedBox();
 
-    if (!model.enabled) {
-      return child;
-    }
-
-    final imageFilter = model.filter.parse();
-    if (imageFilter == null) {
-      return child;
-    }
-
     return BackdropFilter(
-      filter: imageFilter,
+      filter: model.filter.parse!,
       blendMode: model.blendMode,
+      enabled: model.enabled,
       child: child,
     );
   }
