@@ -11,9 +11,11 @@ _StacMultiAction _$StacMultiActionFromJson(Map<String, dynamic> json) =>
       actions: (json['actions'] as List<dynamic>?)
           ?.map((e) => e as Map<String, dynamic>?)
           .toList(),
+      sync: json['sync'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$StacMultiActionToJson(_StacMultiAction instance) =>
     <String, dynamic>{
       'actions': instance.actions,
+      'sync': instance.sync,
     };

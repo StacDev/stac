@@ -17,7 +17,13 @@ class StacMultiActionParser extends StacActionParser<StacMultiAction> {
       StacMultiAction.fromJson(json);
 
   @override
-  FutureOr onCall(BuildContext context, StacMultiAction model) {
-    model.actions?.forEach((json) => Stac.onCallFromJson(json, context));
+  FutureOr onCall(BuildContext context, StacMultiAction model) async {
+
+    final actions = model.actions ?? [];
+    for (var json in actions) {
+      model.sync
+          ? await Stac.onCallFromJson(json, context)
+          : Stac.onCallFromJson(json, context);
+    }
   }
 }

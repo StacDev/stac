@@ -9,6 +9,7 @@ part 'stac_multi_action.g.dart';
 abstract class StacMultiAction with _$StacMultiAction {
   const factory StacMultiAction({
     required List<Map<String, dynamic>?>? actions,
+    @Default(false) bool sync,
   }) = _StacMultiAction;
 
   factory StacMultiAction.fromJson(Map<String, dynamic> json) =>

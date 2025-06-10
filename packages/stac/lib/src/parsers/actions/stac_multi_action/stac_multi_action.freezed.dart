@@ -16,6 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StacMultiAction {
   List<Map<String, dynamic>?>? get actions;
+  bool get sync;
 
   /// Create a copy of StacMultiAction
   /// with the given fields replaced by the non-null parameter values.
@@ -33,17 +34,18 @@ mixin _$StacMultiAction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StacMultiAction &&
-            const DeepCollectionEquality().equals(other.actions, actions));
+            const DeepCollectionEquality().equals(other.actions, actions) &&
+            (identical(other.sync, sync) || other.sync == sync));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(actions));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(actions), sync);
 
   @override
   String toString() {
-    return 'StacMultiAction(actions: $actions)';
+    return 'StacMultiAction(actions: $actions, sync: $sync)';
   }
 }
 
@@ -53,7 +55,7 @@ abstract mixin class $StacMultiActionCopyWith<$Res> {
           StacMultiAction value, $Res Function(StacMultiAction) _then) =
       _$StacMultiActionCopyWithImpl;
   @useResult
-  $Res call({List<Map<String, dynamic>?>? actions});
+  $Res call({List<Map<String, dynamic>?>? actions, bool sync});
 }
 
 /// @nodoc
@@ -70,12 +72,17 @@ class _$StacMultiActionCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actions = freezed,
+    Object? sync = null,
   }) {
     return _then(_self.copyWith(
       actions: freezed == actions
           ? _self.actions
           : actions // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>?>?,
+      sync: null == sync
+          ? _self.sync
+          : sync // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -83,7 +90,8 @@ class _$StacMultiActionCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _StacMultiAction implements StacMultiAction {
-  const _StacMultiAction({required final List<Map<String, dynamic>?>? actions})
+  const _StacMultiAction(
+      {required final List<Map<String, dynamic>?>? actions, this.sync = false})
       : _actions = actions;
   factory _StacMultiAction.fromJson(Map<String, dynamic> json) =>
       _$StacMultiActionFromJson(json);
@@ -97,6 +105,10 @@ class _StacMultiAction implements StacMultiAction {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
+
+  @override
+  @JsonKey()
+  final bool sync;
 
   /// Create a copy of StacMultiAction
   /// with the given fields replaced by the non-null parameter values.
@@ -118,17 +130,18 @@ class _StacMultiAction implements StacMultiAction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StacMultiAction &&
-            const DeepCollectionEquality().equals(other._actions, _actions));
+            const DeepCollectionEquality().equals(other._actions, _actions) &&
+            (identical(other.sync, sync) || other.sync == sync));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_actions));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_actions), sync);
 
   @override
   String toString() {
-    return 'StacMultiAction(actions: $actions)';
+    return 'StacMultiAction(actions: $actions, sync: $sync)';
   }
 }
 
@@ -140,7 +153,7 @@ abstract mixin class _$StacMultiActionCopyWith<$Res>
       __$StacMultiActionCopyWithImpl;
   @override
   @useResult
-  $Res call({List<Map<String, dynamic>?>? actions});
+  $Res call({List<Map<String, dynamic>?>? actions, bool sync});
 }
 
 /// @nodoc
@@ -157,12 +170,17 @@ class __$StacMultiActionCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   $Res call({
     Object? actions = freezed,
+    Object? sync = null,
   }) {
     return _then(_StacMultiAction(
       actions: freezed == actions
           ? _self._actions
           : actions // ignore: cast_nullable_to_non_nullable
               as List<Map<String, dynamic>?>?,
+      sync: null == sync
+          ? _self.sync
+          : sync // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
