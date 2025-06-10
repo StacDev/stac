@@ -121,6 +121,7 @@ class Stac {
     const StacFormValidateParser(),
     const StacSnackBarParser(),
     const StacSetValueActionParser(),
+    const StacMultiActionParser(),
   ];
 
   static Future<void> initialize({

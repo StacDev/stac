@@ -8,4 +8,5 @@ enum ActionType {
   validateForm,
   showSnackBar,
   setValue,
+  multiAction,
 }

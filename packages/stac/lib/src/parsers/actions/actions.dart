@@ -7,3 +7,4 @@ export 'package:stac/src/parsers/actions/stac_network_request/stac_network_reque
 export 'package:stac/src/parsers/actions/stac_none_action/stac_none_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_set_value/stac_set_value_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_snack_bar/stac_snack_bar.dart';
+export 'package:stac/src/parsers/actions/stac_multi_action/stac_multi_action.dart';
