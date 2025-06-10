@@ -122,6 +122,7 @@ class Stac {
     const StacSnackBarParser(),
     const StacSetValueActionParser(),
     const StacMultiActionParser(),
+    const StacDelayActionParser(),
   ];
 
   static Future<void> initialize({

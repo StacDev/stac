@@ -9,4 +9,5 @@ enum ActionType {
   showSnackBar,
   setValue,
   multiAction,
+  delay,
 }

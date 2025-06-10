@@ -8,3 +8,4 @@ export 'package:stac/src/parsers/actions/stac_none_action/stac_none_action_parse
 export 'package:stac/src/parsers/actions/stac_set_value/stac_set_value_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_snack_bar/stac_snack_bar.dart';
 export 'package:stac/src/parsers/actions/stac_multi_action/stac_multi_action.dart';
+export 'package:stac/src/parsers/actions/stac_delay_action/stac_delay_action.dart';
