@@ -48,20 +48,20 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
         child: ListView.separated(
             itemCount: widget.airSchedule.length,
             scrollDirection: Axis.horizontal,
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             separatorBuilder: (BuildContext context, int index) => SizedBox(width: 12,),
             itemBuilder: (BuildContext context, int position) {
               return Container(
                 width: 300,
                 padding: EdgeInsets.all(1),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(6),
                   color: Theme.of(context).colorScheme.outlineVariant.withAlpha(30),
                 ),
                 child: Stack(
                     children: [
                       ClipRRect(
-                          borderRadius: BorderRadius.circular(3),
+                          borderRadius: BorderRadius.circular(5),
                           child: Image.network(
                             widget.airSchedule[position]['media']['bannerImage'] ?? widget.airSchedule[position]['media']['coverImage']['extraLarge'],
                             fit: BoxFit.cover,
@@ -76,7 +76,7 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
                           child: Container(
                             height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(3), bottomRight: Radius.circular(3)),
+                              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
                               gradient: LinearGradient(
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
@@ -89,22 +89,27 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
                               )
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Text(
                                     widget.airSchedule[position]['media']['title']['romaji'],
                                     overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context).textTheme.titleMedium,
+                                    style: Theme.of(context).textTheme.bodyLarge?.apply(fontWeightDelta: 2, letterSpacingDelta: -0.1,),
                                   ),
-                                  Text(
-                                    "${DateFormat(DateFormat.HOUR24_MINUTE).format(DateTime.fromMillisecondsSinceEpoch(widget.airSchedule[position]["airingAt"]*1000))} · Episode ${widget.airSchedule[position]["episode"]}",
-                                    style: Theme.of(context).textTheme.labelSmall?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant),
+                                  Transform.translate(
+                                    offset: const Offset(0, -2.0),
+                                    child: Text(
+                                      "${DateFormat(DateFormat.HOUR24_MINUTE).format(DateTime.fromMillisecondsSinceEpoch(widget.airSchedule[position]["airingAt"] * 1000))} · Episode ${widget.airSchedule[position]["episode"]}",
+                                      style: Theme.of(context).textTheme.bodySmall?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(166),),
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ],
-                              ),
+                              )
                             ),
                           )
                       ),

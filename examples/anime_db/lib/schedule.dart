@@ -17,24 +17,22 @@ final Map<String, dynamic> scheduleBodyJson = {
   "type": "column",
   "crossAxisAlignment" : "stretch",
   "children": [
-    getAppBar("Release ", "Schedule"),
+    getAppBar(title1: "Release ", title2: "Schedule"),
     {
       "type": "container",
       "height": 1,
-      "color": "outline",
+      "color": "outline@08",
     },
     {
       "type": "expanded",
       "child": {
-        "type": "listView",
-        "scrollDirection": "horizontal",
-        "shrinkWrap": true,
-        "separator": {
-          "type": "container",
-          "width": 1,
-          "color": "outline",
-        },
-        "children" : getScheduleViewList()
+        "type": "singleChildScrollView",
+        "scrollDirection": "vertical",
+        "child" : {
+          "type": "column",
+          "crossAxisAlignment" : "stretch",
+          "children": getScheduleViewList()
+        }
       }
     }
   ]
@@ -53,53 +51,61 @@ List<Map<String, dynamic>> getScheduleViewList() {
       airingAtEnd: (dateEnd.millisecondsSinceEpoch/1000).round(),
     ));
     Map<String, dynamic> view = {
-      "type": "container",
-      "width": 240,
-      "height" : 10000,
-      "padding": {
-        "left": 20,
-        "right": 20,
-        "top": 20,
-        "bottom": 0
-      },
-      "color": i % 2 == 0 ? "surfaceBright" : "surface",
-      "child": {
-        "type" : "column",
-        "crossAxisAlignment" : "stretch",
-        "children": [
-          {
-            "type": "text",
-            "data": "${DateFormat(DateFormat.WEEKDAY).format(date)} / ${DateFormat(DateFormat.DAY).format(date)}${getDayOfMonthSuffix(int.tryParse(DateFormat(DateFormat.DAY).format(date)) ?? 4)}",
-            "style": {"fontSize": 16, "fontWeight": "w500", "height": 1.3, "color": "onSurfaceVariant"},
-            "overflow": "ellipsis",
+      "type" : "row",
+      "crossAxisAlignment" : "start",
+      "children" : [
+        {
+          "type": "sizedBox",
+          "width": 16,
+        },
+        {
+          "type" : "container",
+          "padding": {"top": 16},
+          "width" : 29,
+          "child" : {
+            "type": "column",
+            "mainAxisSize": "min",
+            "crossAxisAlignment": "center",
+            "children" : [
+              {
+                "type": "text",
+                "data": DateFormat(DateFormat.WEEKDAY).format(date).substring(0, 3).toUpperCase(),
+                "style": {"fontFamily": "Figtree", "fontSize": 12, "fontWeight": "w500", "height": 1.3, "letterSpacing": 0}
+              },
+              {
+                "type": "text",
+                "data": DateFormat(DateFormat.DAY).format(date),
+                "style": "titleLarge"
+              }
+            ]
           },
-          {
-            "type" : "sizedBox",
-            "height": 16,
-          },
-          {
-            "type": "expanded",
-            "child":           {
+        },
+        {
+          "type": "sizedBox",
+          "width": 16,
+        },
+        {
+          "type": "expanded",
+          "child": {
+            "type": "container",
+            "padding": {
+              "left": 16,
+              "right": 16,
+              "top": 16,
+              "bottom": 8
+            },
+            "color": "surfaceBright",
+            "child": {
               "type": "dynamicView",
               "request": AniListAPIUtils.getAniListAPIRequest(
                 AniListAPIUtils.getAniListAPIQueryForAnimeAiringSchedule(
-                    count: 50,
-                    airingAtStart: (dateStart.millisecondsSinceEpoch/1000).round(),
-                    airingAtEnd: (dateEnd.millisecondsSinceEpoch/1000).round(),
-                ),
+                  count: 50,
+                  airingAtStart: (dateStart.millisecondsSinceEpoch / 1000).round(),
+                  airingAtEnd: (dateEnd.millisecondsSinceEpoch / 1000).round(),),
               ),
               "targetPath": "data.Page.airingSchedules",
               "template": {
-                "type": "listView",
-                "scrollDirection": "vertical",
-                "shrinkWrap": true,
-                "separator": {
-                  "type": "sizedBox",
-                  "height": 20
-                },
-                "padding": {
-                  "bottom": 80,
-                },
+                "type": "column",
                 "itemTemplate": {
                   "type": "gestureDetector",
                   "onTap": {
@@ -116,26 +122,34 @@ List<Map<String, dynamic>> getScheduleViewList() {
                     }
                   },
                   "child": {
-                    "type" : "sizedBox",
-                    "height" : 108,
-                    "child" : {
-                      "type" : "animeScheduleItem",
-                      "coverImgUrl" : "{{media.coverImage.extraLarge}}",
-                      "bannerImgUrl" : "{{media.bannerImage}}",
-                      "title" : "{{media.title.romaji}}",
-                      "airingTime" : "{{airingAt}}",
-                      "episode" : "{{episode}}",
-                      "duration" : "{{media.duration}}",
+                    "type": "sizedBox",
+                    "height": 62,
+                    "child": {
+                      "type": "animeScheduleItem",
+                      "coverImgUrl": "{{media.coverImage.large}}",
+                      "bannerImgUrl": "{{media.bannerImage}}",
+                      "title": "{{media.title.romaji}}",
+                      "airingTime": "{{airingAt}}",
+                      "episode": "{{episode}}",
+                      "duration": "{{media.duration}}",
                     }
                   }
                 }
               }
             }
           }
-        ]
-      }
+        }
+      ]
+    };
+    Map<String, dynamic> separator = {
+      "type": "container",
+      "color": "outline@8",
+      "height": 1
     };
     scheduleViewList.add(view);
+    if (i != 6) {
+      scheduleViewList.add(separator);
+    }
   }
   return scheduleViewList;
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:movie_app/home.dart';
 import 'package:movie_app/schedule.dart';
 
@@ -8,68 +9,62 @@ final Map<String, dynamic> navigationView = {
     "type": "scaffold",
     "extendBody": true,
     "body": {
-      "type": "stack",
+      "type": "bottomNavigationView",
       "children": [
-        {
-          "type": "bottomNavigationView",
-          "children": [
-            homeScreenJson,
-            scheduleScreenJson,
-          ]
-        },
-        {
-          "type": "positioned",
-          "left": 0,
-          "right": 0,
-          "bottom": 0,
-          "child": {
-            "type": "column",
-            "mainAxisSize": "min",
-            "crossAxisAlignment": "stretch",
-            "children": [
-              {
-                "type" : "container",
-                "color" : "outline",
-                "height": 1
-              },
-              {
-                "type": "sizedBox",
-                "height": 58,
-                "width": 10000,
-                "child": {
-                  "type": "frostedBox",
-                  "color": "surface",
-                  "alpha": 204,
-                  "blur": 12.0
-                }
-              },
-            ]
-          }
-        },
+        homeScreenJson,
+        scheduleScreenJson
       ]
     },
     "bottomNavigationBar": {
       "type": "bottomNavigationBar",
-      "backgroundColor": "#00000000",
+      "backgroundColor": "surface@95",
+      "selectedItemColor": "onSurface",
+      "selectedLabelStyle": "labelSmall",
+      "unselectedLabelStyle": "labelSmall",
       "iconSize": 22,
       "items": [
         {
           "type": "navigationBarItem",
           "label": "Home",
+          "activeIcon": {
+            "type": "image",
+            "imageType": "asset",
+            "src": "assets/images/house-simple.svg",
+            "color": "onSurface",
+            "height": 22,
+            "width": 22
+          },
           "icon": {
-            "type": "icon",
-            "icon": "home_outlined"
+            "type": "image",
+            "imageType": "asset",
+            "src": "assets/images/house-simple.svg",
+            "color": "onSurfaceVariant@65",
+            "height": 22,
+            "width": 22
           }
         },
         {
           "type": "navigationBarItem",
           "label": "Schedule",
+          "activeIcon": {
+            "type": "image",
+            "imageType": "asset",
+            "src": "assets/images/calendar-dots.svg",
+            "color": "onSurface",
+            "height": 22,
+            "width": 22
+          },
           "icon": {
-            "type": "icon",
-            "icon": "calendar_month_outlined"
+            "type": "image",
+            "imageType": "asset",
+            "src": "assets/images/calendar-dots.svg",
+            "color": "onSurfaceVariant@65",
+            "height": 22,
+            "width": 22
           }
         },
       ]
     }
   }
 };
+
