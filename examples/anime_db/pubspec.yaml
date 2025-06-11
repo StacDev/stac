@@ -39,6 +39,7 @@ dependencies:
   dio: ^5.8.0+1
   smooth_page_indicator: ^1.2.1
   intl: ^0.20.2
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +85,20 @@ flutter:
     - family: Figtree
       fonts:
         - asset: fonts/Figtree-VariableFont_wght.ttf
+        - asset: fonts/Figtree/Figtree-Light.ttf
+          weight: 300
+        - asset: fonts/Figtree/Figtree-Regular.ttf
+          weight: 400
+        - asset: fonts/Figtree/Figtree-Medium.ttf
+          weight: 500
+        - asset: fonts/Figtree/Figtree-SemiBold.ttf
+          weight: 600
+        - asset: fonts/Figtree/Figtree-Bold.ttf
+          weight: 700
+        - asset: fonts/Figtree/Figtree-ExtraBold.ttf
+          weight: 800
+        - asset: fonts/Figtree/Figtree-Black.ttf
+          weight: 900
         - asset: fonts/Figtree-Italic-VariableFont_wght.ttf
           style: italic
 
