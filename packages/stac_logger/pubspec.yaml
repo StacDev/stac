@@ -1,13 +1,8 @@
 name: stac_logger
-description: "A platform-agnostic logging package for Dart and Flutter with WASM compatibility."
+description: A lightweight and reusable logging utility for the Stac framework.
 version: 1.0.0
-homepage: https://github.com/divyanshub024/stac
-repository: https://github.com/divyanshub024/stac/tree/main/packages/stac_logger
-
-topics:
-  - logging
-  - wasm
-  - flutter
+homepage: https://github.com/StacDev/stac
+repository: https://github.com/StacDev/stac/tree/dev/packages/stac_logger
 
 environment:
   sdk: ^3.8.1
