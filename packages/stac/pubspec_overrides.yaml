@@ -1,4 +1,6 @@
-# melos_managed_dependency_overrides: stac_framework
+# melos_managed_dependency_overrides: stac_framework,stac_logger
 dependency_overrides:
   stac_framework:
     path: ../stac_framework
+  stac_logger:
+    path: ../stac_logger

@@ -1,5 +1,5 @@
 import 'package:flutter/services.dart';
-import 'package:stac/src/utils/log.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 enum InputFormatterType {
   allow,

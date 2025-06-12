@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/widgets/stac_dynamic_view/stac_dynamic_view.dart';
 import 'package:stac/src/services/stac_network_service.dart';
-import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacDynamicViewParser extends StacParser<StacDynamicView> {
   const StacDynamicViewParser();
