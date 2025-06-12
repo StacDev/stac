@@ -12,7 +12,6 @@ class Log {
   // The compiler will select the appropriate implementation at compile time
   static final LogInterface _logger = createLogger();
 
-
   static void d(dynamic message) => _logger.d(message);
 
   static void i(dynamic message) => _logger.i(message);
