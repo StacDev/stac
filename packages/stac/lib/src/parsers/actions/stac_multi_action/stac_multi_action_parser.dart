@@ -18,7 +18,6 @@ class StacMultiActionParser extends StacActionParser<StacMultiAction> {
 
   @override
   FutureOr onCall(BuildContext context, StacMultiAction model) async {
-
     final actions = model.actions ?? [];
     for (var json in actions) {
       model.sync
