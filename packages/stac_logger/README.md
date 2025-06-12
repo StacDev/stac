@@ -1,7 +1,6 @@
-# STAC Logger
+# Stac Logger
 
 A lightweight and reusable logging utility for the Stac framework. It switches between implementations—using Flutter's debugPrint on web/WASM platforms and the robust logger package on native platforms—ensuring optimal performance and compatibility across all environments.
-
 
 ## Getting started
 
