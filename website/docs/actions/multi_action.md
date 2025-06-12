@@ -11,6 +11,8 @@ The `StacMultiAction` allows you to execute multiple actions with ease.
 
 ## Multi Action JSON
 
+This example will allow you to show a snackbar through `StacShowSnackBarAction`, execute a network request through `StacNetworkRequest` and show another snackbar right after.
+
 ```json
 {
   "actionType": "multiAction",
