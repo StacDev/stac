@@ -734,6 +734,13 @@ packages:
       relative: true
     source: path
     version: "0.3.0"
+  stac_logger:
+    dependency: "direct overridden"
+    description:
+      path: "../../packages/stac_logger"
+      relative: true
+    source: path
+    version: "1.0.0"
   stac_webview:
     dependency: "direct main"
     description:

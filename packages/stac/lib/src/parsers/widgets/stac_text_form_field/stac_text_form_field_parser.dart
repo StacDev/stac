@@ -3,9 +3,9 @@ import 'package:stac/src/parsers/parsers.dart';
 import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
-import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacTextFormFieldParser extends StacParser<StacTextFormField> {
   const StacTextFormFieldParser();
