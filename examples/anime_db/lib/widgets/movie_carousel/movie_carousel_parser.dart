@@ -60,119 +60,125 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 424,
-          child: PageView.builder(
-            controller: pageController,
-            itemCount: widget.movies.length,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
-                child: Container(
-                  foregroundDecoration: BoxDecoration(
-                      borderRadius: const BorderRadius.all(Radius.circular(6)),
-                      border: Border.all(
-                          color: Theme.of(context).colorScheme.outline.withAlpha(20),
-                          width: 1
-                      )
-                  ),
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(1),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(5),
-                          child: Image.network(
-                            widget.movies[index]['coverImage']["extraLarge"],
-                            fit: BoxFit.cover,
-                            height: double.maxFinite,
-                            width: double.maxFinite,
+    return GestureDetector(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 424,
+            child: PageView.builder(
+              controller: pageController,
+              itemCount: widget.movies.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                  child: Container(
+                    foregroundDecoration: BoxDecoration(
+                        borderRadius: const BorderRadius.all(Radius.circular(6)),
+                        border: Border.all(
+                            color: Theme.of(context).colorScheme.outline.withAlpha(20),
+                            width: 1
+                        )
+                    ),
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.all(1),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: Image.network(
+                              widget.movies[index]['coverImage']["extraLarge"],
+                              fit: BoxFit.cover,
+                              height: double.maxFinite,
+                              width: double.maxFinite,
+                            ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                          left: 0,
-                          right: 0,
-                          bottom: 0,
-                          child: SizedBox(
-                            height: 107,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
-                              child: BackdropFilter(
-                                filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                  decoration: BoxDecoration(
-                                      color: Theme.of(context).colorScheme.surface.withAlpha(230)
+                        Positioned(
+                            left: 0,
+                            right: 0,
+                            bottom: 0,
+                            child: SizedBox(
+                              height: 107,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(6), bottomRight: Radius.circular(6)),
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                        color: Theme.of(context).colorScheme.surface.withAlpha(230)
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                      ),
-                      Positioned(
-                        left: 16,
-                        right: 16,
-                        bottom: 16,
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                widget.movies[index]['title']['romaji'],
-                                overflow: TextOverflow.ellipsis,
-                                style: Theme.of(context).textTheme.titleSmall?.apply(fontWeightDelta: 2, letterSpacingDelta: -0.1),
-                              ),
-                              Text(
-                                "${widget.movies[index]['season'].toString().toCapitalized} ${widget.movies[index]['seasonYear']} · ${widget.movies[index]['episodes'] ?? widget.movies[index]['nextAiringEpisode']['episode'] - 1} Episodes",
-                                style: Theme.of(context).textTheme.bodyMedium?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(166)),
-                              ),
-                              SizedBox(height: 7.5),
-                              Row(
-                                  children: getPills(widget.movies[index])
-                              )
-                            ]
+                            )
                         ),
-                      ),
-                    ],
+                        Positioned(
+                          left: 16,
+                          right: 16,
+                          bottom: 16,
+                          child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  widget.movies[index]['title']['romaji'],
+                                  overflow: TextOverflow.ellipsis,
+                                  style: Theme.of(context).textTheme.titleSmall?.apply(fontWeightDelta: 2, letterSpacingDelta: -0.1),
+                                ),
+                                Text(
+                                  "${widget.movies[index]['season'].toString().toCapitalized} ${widget.movies[index]['seasonYear']} · ${widget.movies[index]['episodes'] ?? widget.movies[index]['nextAiringEpisode']['episode'] - 1} Episodes",
+                                  style: Theme.of(context).textTheme.bodyMedium?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(166)),
+                                ),
+                                SizedBox(height: 7.5),
+                                Row(
+                                    children: getPills(widget.movies[index])
+                                )
+                              ]
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+          SizedBox(height: 16,),
+          Padding(
+            padding: EdgeInsets.fromLTRB(16,0,16,0),
+            child: Row(
+              children: [
+                Expanded(child: Container(
+                  height: 1,
+                  color: Theme.of(context).colorScheme.outline.withAlpha(20),
+                )),
+                SizedBox(width: 8,),
+                SmoothPageIndicator(
+                  controller: pageController,
+                  count: widget.movies.length,
+                  effect: ColorTransitionEffect(
+                    dotWidth: 24,
+                    dotHeight: 2,
+                    dotColor: Theme.of(context,).colorScheme.outlineVariant.withAlpha(30),
+                    activeDotColor: Theme.of(context).colorScheme.primary,
                   ),
                 ),
-              );
-            },
-          ),
-        ),
-        SizedBox(height: 16,),
-        Padding(
-          padding: EdgeInsets.fromLTRB(16,0,16,0),
-          child: Row(
-            children: [
-              Expanded(child: Container(
-                height: 1,
-                color: Theme.of(context).colorScheme.outline.withAlpha(20),
-              )),
-              SizedBox(width: 8,),
-              SmoothPageIndicator(
-                controller: pageController,
-                count: widget.movies.length,
-                effect: ColorTransitionEffect(
-                  dotWidth: 24,
-                  dotHeight: 2,
-                  dotColor: Theme.of(context,).colorScheme.outlineVariant.withAlpha(30),
-                  activeDotColor: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-              SizedBox(width: 8,),
-              Expanded(child: Container(
-                height: 1,
-                color: Theme.of(context).colorScheme.outline.withAlpha(20),
-              ))
-            ],
-          ),
-        )
-      ],
+                SizedBox(width: 8,),
+                Expanded(child: Container(
+                  height: 1,
+                  color: Theme.of(context).colorScheme.outline.withAlpha(20),
+                ))
+              ],
+            ),
+          )
+        ],
+      ),
+      onTap: () => {
+        StacRegistry.instance.setValue("anime_id", widget.movies[pageController.page!.toInt()]['id'].toString()),
+        Navigator.of(context).pushNamed('details')
+      },
     );
   }
 
@@ -198,7 +204,7 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
           ),
           const SizedBox(width: 4,),
           Text(
-            "${anime['averageScore']/10}",
+            "${anime['averageScore']}%",
             style: Theme.of(context).textTheme.bodySmall?.apply(color: Theme.of(context).colorScheme.onPrimary, fontWeightDelta: 2, letterSpacingDelta: -0.1),
           ),
         ],

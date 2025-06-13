@@ -1,4 +1,5 @@
 import 'package:movie_app/ani_list_api_utils.dart';
+import 'package:movie_app/details_screen.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
 
 final Map<String, dynamic> homeScreenJson = {
@@ -93,42 +94,42 @@ final Map<String, dynamic> homeBodyJson = {
         categoryTitle: "All-Time Popular",
         sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
       ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
-      getAnimeCategoryView(
-        categoryTitle: "Action",
-        genre: "Action",
-        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
-      ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
-      getAnimeCategoryView(
-        categoryTitle: "Slice of Life",
-        genre: "Slice of Life",
-        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
-      ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
-      getAnimeCategoryView(
-        categoryTitle: "Fantasy",
-        genre: "Fantasy",
-        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
-      ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
-      getAnimeCategoryView(
-        categoryTitle: "Sci-Fi",
-        genre: "Sci-Fi",
-        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
-      ),
+      // {
+      //   "type": "sizedBox",
+      //   "height": defaultCategoryViewSpacing,
+      // },
+      // getAnimeCategoryView(
+      //   categoryTitle: "Action",
+      //   genre: "Action",
+      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      // ),
+      // {
+      //   "type": "sizedBox",
+      //   "height": defaultCategoryViewSpacing,
+      // },
+      // getAnimeCategoryView(
+      //   categoryTitle: "Slice of Life",
+      //   genre: "Slice of Life",
+      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      // ),
+      // {
+      //   "type": "sizedBox",
+      //   "height": defaultCategoryViewSpacing,
+      // },
+      // getAnimeCategoryView(
+      //   categoryTitle: "Fantasy",
+      //   genre: "Fantasy",
+      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      // ),
+      // {
+      //   "type": "sizedBox",
+      //   "height": defaultCategoryViewSpacing,
+      // },
+      // getAnimeCategoryView(
+      //   categoryTitle: "Sci-Fi",
+      //   genre: "Sci-Fi",
+      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      // ),
       {
         "type": "sizedBox",
         "height": 80,
@@ -207,8 +208,9 @@ Map<String, dynamic> getAnimeCategoryView({
                   {"key": "anime_id", "value": "{{id}}"}
                 ],
                 "action": {
-                  "actionType": "none",
-                  "assetPath": "assets/jsons/screens/detail_screen.json"
+                  "actionType": "navigate",
+                  "routeName": "details",
+                  "navigationStyle": "pushNamed"
                 }
               },
               "child": {
@@ -240,11 +242,16 @@ Map<String, dynamic> getAnimeCategoryView({
                       "overflow": "ellipsis",
                     },
                     {
-                      "type" : "conditional",
-                      "condition" : "{{episodes}} == null",
-                      "ifTrue": getYearEpsText("{{seasonYear}}"),
-                      "ifFalse" : getYearEpsText("{{seasonYear}} · {{episodes}} Eps"),
-                    },
+                      "type": "conditional",
+                      "condition": "{{format}} == MOVIE",
+                      "ifTrue": getYearEpsText("{{seasonYear}} · Movie"),
+                      "ifFalse": {
+                        "type" : "conditional",
+                        "condition" : "{{episodes}} == null",
+                        "ifTrue": getYearEpsText("{{seasonYear}}"),
+                        "ifFalse" : getYearEpsText("{{seasonYear}} · {{episodes}} Eps"),
+                      },
+                    }
                   ],
                 }
               }

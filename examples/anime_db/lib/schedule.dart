@@ -126,6 +126,7 @@ List<Map<String, dynamic>> getScheduleViewList() {
                     "height": 62,
                     "child": {
                       "type": "animeScheduleItem",
+                      "id": "{{media.id}}",
                       "coverImgUrl": "{{media.coverImage.large}}",
                       "bannerImgUrl": "{{media.bannerImage}}",
                       "title": "{{media.title.romaji}}",

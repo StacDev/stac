@@ -51,14 +51,15 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
             padding: EdgeInsets.symmetric(horizontal: 16),
             separatorBuilder: (BuildContext context, int index) => SizedBox(width: 12,),
             itemBuilder: (BuildContext context, int position) {
-              return Container(
-                width: 300,
-                padding: EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: Theme.of(context).colorScheme.outlineVariant.withAlpha(30),
-                ),
-                child: Stack(
+              return GestureDetector(
+                child: Container(
+                  width: 300,
+                  padding: EdgeInsets.all(1),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(6),
+                    color: Theme.of(context).colorScheme.outlineVariant.withAlpha(30),
+                  ),
+                  child: Stack(
                     children: [
                       ClipRRect(
                           borderRadius: BorderRadius.circular(5),
@@ -76,46 +77,54 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
                           child: Container(
                             height: 80,
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(5), bottomRight: Radius.circular(5)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  stops: [0.0, 0.5, 1.0],
-                                  colors: [
-                                    Theme.of(context).colorScheme.surface.withAlpha(0),
-                                    Theme.of(context).colorScheme.surface.withAlpha(204),
-                                    Theme.of(context).colorScheme.surface.withAlpha(255),
-                                  ]
-                              )
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(5),
+                                    bottomRight: Radius.circular(5)),
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    stops: [0.0, 0.5, 1.0],
+                                    colors: [
+                                      Theme.of(context).colorScheme.surface.withAlpha(0),
+                                      Theme.of(context).colorScheme.surface.withAlpha(204),
+                                      Theme.of(context).colorScheme.surface.withAlpha(255),
+                                    ]
+                                )
                             ),
                             child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    widget.airSchedule[position]['media']['title']['romaji'],
-                                    overflow: TextOverflow.ellipsis,
-                                    style: Theme.of(context).textTheme.bodyLarge?.apply(fontWeightDelta: 2, letterSpacingDelta: -0.1,),
-                                  ),
-                                  Transform.translate(
-                                    offset: const Offset(0, -2.0),
-                                    child: Text(
-                                      "${DateFormat(DateFormat.HOUR24_MINUTE).format(DateTime.fromMillisecondsSinceEpoch(widget.airSchedule[position]["airingAt"] * 1000))} · Episode ${widget.airSchedule[position]["episode"]}",
-                                      style: Theme.of(context).textTheme.bodySmall?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(166),),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 8),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      widget.airSchedule[position]['media']['title']['romaji'],
                                       overflow: TextOverflow.ellipsis,
+                                      style: Theme.of(context).textTheme.bodyLarge?.apply(fontWeightDelta: 2, letterSpacingDelta: -0.1,),
                                     ),
-                                  ),
-                                ],
-                              )
+                                    Transform.translate(
+                                      offset: const Offset(0, -2.0),
+                                      child: Text(
+                                        "${DateFormat(DateFormat.HOUR24_MINUTE).format(DateTime.fromMillisecondsSinceEpoch(widget.airSchedule[position]["airingAt"] * 1000))} · Episode ${widget.airSchedule[position]["episode"]}",
+                                        style: Theme.of(context).textTheme.bodySmall?.apply(color: Theme.of(context).colorScheme.onSurfaceVariant.withAlpha(166),),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                  ],
+                                )
                             ),
                           )
                       ),
-
                     ],
+                  ),
                 ),
+                onTap: () =>
+                {
+                  StacRegistry.instance.setValue("anime_id", widget.airSchedule[position]['media']['id'].toString()),
+                  Navigator.of(context).pushNamed('details')
+                },
               );
             })
     );
