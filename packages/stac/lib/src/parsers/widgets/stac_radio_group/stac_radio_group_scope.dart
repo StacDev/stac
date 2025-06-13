@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:stac/src/utils/log.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacRadioGroupScope extends InheritedWidget {
   const StacRadioGroupScope({
