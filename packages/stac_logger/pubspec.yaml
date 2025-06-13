@@ -1,6 +1,6 @@
 name: stac_logger
 description: A lightweight and reusable logging utility for the Stac framework.
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/StacDev/stac
 repository: https://github.com/StacDev/stac/tree/dev/packages/stac_logger
 
