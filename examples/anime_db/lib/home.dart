@@ -94,15 +94,15 @@ final Map<String, dynamic> homeBodyJson = {
         categoryTitle: "All-Time Popular",
         sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
       ),
-      // {
-      //   "type": "sizedBox",
-      //   "height": defaultCategoryViewSpacing,
-      // },
-      // getAnimeCategoryView(
-      //   categoryTitle: "Action",
-      //   genre: "Action",
-      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
-      // ),
+      {
+        "type": "sizedBox",
+        "height": defaultCategoryViewSpacing,
+      },
+      getAnimeCategoryView(
+        categoryTitle: "Action",
+        genre: "Action",
+        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      ),
       // {
       //   "type": "sizedBox",
       //   "height": defaultCategoryViewSpacing,

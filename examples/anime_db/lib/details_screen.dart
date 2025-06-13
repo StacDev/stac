@@ -39,7 +39,7 @@ final Map<String, dynamic> topPanel = {
       "type": "image",
       "src": "{{coverImage.extraLarge}}",
       "width": 10000,
-      "height": 400,
+      "height": 500,
       "fit": "cover",
     },
     {
@@ -309,7 +309,7 @@ Map<String, dynamic> getDetailsTabs() {
         },
         {
           "type": "container",
-          "height": 572,
+          "height": 600,
           "child": {
             "type": "tabBarView",
             "children": [
@@ -324,9 +324,9 @@ Map<String, dynamic> getDetailsTabs() {
                 "child": {
                   "type": "column",
                   "children": [
-                    getAnimeRelationsView(),
+                    animeInfoView,
                     {"type": "sizedBox", "height": 24,},
-                    animeInfoView
+                    getAnimeRelationsView(),
                   ]
                 }
               },
@@ -377,7 +377,7 @@ Map<String, dynamic> getAnimeRelationsView() {
         {"type": "sizedBox", "height": 8,},
         {
           "type": "container",
-          "height": 242,
+          "height": 270,
           "child": {
             "type": "dynamicView",
             "request": AniListAPIUtils.getAniListAPIRequest(
