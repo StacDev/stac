@@ -33,6 +33,7 @@ mixin _$StacTabBar {
   bool? get enableFeedback;
   StacScrollPhysics? get physics;
   TabAlignment? get tabAlignment;
+  String? get dividerColor;
 
   /// Create a copy of StacTabBar
   /// with the given fields replaced by the non-null parameter values.
@@ -83,35 +84,39 @@ mixin _$StacTabBar {
                 other.enableFeedback == enableFeedback) &&
             (identical(other.physics, physics) || other.physics == physics) &&
             (identical(other.tabAlignment, tabAlignment) ||
-                other.tabAlignment == tabAlignment));
+                other.tabAlignment == tabAlignment) &&
+            (identical(other.dividerColor, dividerColor) ||
+                other.dividerColor == dividerColor));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tabs),
-      initialIndex,
-      isScrollable,
-      padding,
-      indicatorColor,
-      automaticIndicatorColorAdjustment,
-      indicatorWeight,
-      indicatorPadding,
-      indicatorSize,
-      labelColor,
-      labelStyle,
-      labelPadding,
-      unselectedLabelColor,
-      unselectedLabelStyle,
-      dragStartBehavior,
-      enableFeedback,
-      physics,
-      tabAlignment);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(tabs),
+        initialIndex,
+        isScrollable,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicatorSize,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        enableFeedback,
+        physics,
+        tabAlignment,
+        dividerColor
+      ]);
 
   @override
   String toString() {
-    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
+    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment, dividerColor: $dividerColor)';
   }
 }
 
@@ -139,7 +144,8 @@ abstract mixin class $StacTabBarCopyWith<$Res> {
       DragStartBehavior dragStartBehavior,
       bool? enableFeedback,
       StacScrollPhysics? physics,
-      TabAlignment? tabAlignment});
+      TabAlignment? tabAlignment,
+      String? dividerColor});
 
   $StacEdgeInsetsCopyWith<$Res>? get padding;
   $StacEdgeInsetsCopyWith<$Res>? get indicatorPadding;
@@ -178,6 +184,7 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
     Object? enableFeedback = freezed,
     Object? physics = freezed,
     Object? tabAlignment = freezed,
+    Object? dividerColor = freezed,
   }) {
     return _then(_self.copyWith(
       tabs: null == tabs
@@ -253,6 +260,10 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
           ? _self.tabAlignment
           : tabAlignment // ignore: cast_nullable_to_non_nullable
               as TabAlignment?,
+      dividerColor: freezed == dividerColor
+          ? _self.dividerColor
+          : dividerColor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -348,7 +359,8 @@ class _StacTabBar implements StacTabBar {
       this.dragStartBehavior = DragStartBehavior.start,
       this.enableFeedback,
       this.physics,
-      this.tabAlignment})
+      this.tabAlignment,
+      this.dividerColor})
       : _tabs = tabs;
   factory _StacTabBar.fromJson(Map<String, dynamic> json) =>
       _$StacTabBarFromJson(json);
@@ -400,6 +412,8 @@ class _StacTabBar implements StacTabBar {
   final StacScrollPhysics? physics;
   @override
   final TabAlignment? tabAlignment;
+  @override
+  final String? dividerColor;
 
   /// Create a copy of StacTabBar
   /// with the given fields replaced by the non-null parameter values.
@@ -455,35 +469,39 @@ class _StacTabBar implements StacTabBar {
                 other.enableFeedback == enableFeedback) &&
             (identical(other.physics, physics) || other.physics == physics) &&
             (identical(other.tabAlignment, tabAlignment) ||
-                other.tabAlignment == tabAlignment));
+                other.tabAlignment == tabAlignment) &&
+            (identical(other.dividerColor, dividerColor) ||
+                other.dividerColor == dividerColor));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_tabs),
-      initialIndex,
-      isScrollable,
-      padding,
-      indicatorColor,
-      automaticIndicatorColorAdjustment,
-      indicatorWeight,
-      indicatorPadding,
-      indicatorSize,
-      labelColor,
-      labelStyle,
-      labelPadding,
-      unselectedLabelColor,
-      unselectedLabelStyle,
-      dragStartBehavior,
-      enableFeedback,
-      physics,
-      tabAlignment);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(_tabs),
+        initialIndex,
+        isScrollable,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicatorSize,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        enableFeedback,
+        physics,
+        tabAlignment,
+        dividerColor
+      ]);
 
   @override
   String toString() {
-    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
+    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment, dividerColor: $dividerColor)';
   }
 }
 
@@ -513,7 +531,8 @@ abstract mixin class _$StacTabBarCopyWith<$Res>
       DragStartBehavior dragStartBehavior,
       bool? enableFeedback,
       StacScrollPhysics? physics,
-      TabAlignment? tabAlignment});
+      TabAlignment? tabAlignment,
+      String? dividerColor});
 
   @override
   $StacEdgeInsetsCopyWith<$Res>? get padding;
@@ -557,6 +576,7 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
     Object? enableFeedback = freezed,
     Object? physics = freezed,
     Object? tabAlignment = freezed,
+    Object? dividerColor = freezed,
   }) {
     return _then(_StacTabBar(
       tabs: null == tabs
@@ -632,6 +652,10 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
           ? _self.tabAlignment
           : tabAlignment // ignore: cast_nullable_to_non_nullable
               as TabAlignment?,
+      dividerColor: freezed == dividerColor
+          ? _self.dividerColor
+          : dividerColor // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
