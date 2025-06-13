@@ -72,33 +72,54 @@ class AniListAPIUtils {
       mediaArgs += ", seasonYear: $seasonYear";
     }
 
-    return "query {"
-        " Page(page: 1, perPage: $count) {"
-        "   media($mediaArgs) {"
-        "     id"
-        "     title {"
-        "       romaji"
-        "       english"
-        "       native"
-        "     }"
-        "     coverImage {"
-        "       extraLarge"
-        "     }"
-        "     bannerImage"
-        "     season"
-        "     episodes"
-        "     genres"
-        "     averageScore"
-        "     seasonYear"
-        "     status(version: 2)"
-        "     nextAiringEpisode {"
-        "       airingAt"
-        "       timeUntilAiring"
-        "       episode"
-        "     }"
-        "   }"
-        " }"
-        "}";
+    return """
+      query GetAnimeListPage {
+        Page(page: 1, perPage: $count) {
+          media($mediaArgs) {
+            id
+            title {
+              romaji
+              english
+              native
+            }
+            coverImage {
+              extraLarge
+            }
+            bannerImage
+            startDate {
+              year
+              month
+              day
+            }
+            endDate {
+              year
+              month
+              day
+            }
+            description(asHtml: false)
+            averageScore
+            episodes
+            duration
+            studios(isMain: true, sort: [ID]) {
+              nodes {
+                name
+              }
+            }
+            source(version: 3)
+            format
+            season
+            seasonYear
+            genres
+            status(version: 2)
+            nextAiringEpisode {
+              airingAt
+              timeUntilAiring
+              episode
+            }
+          }
+        }
+      }
+    """;
   }
 
   static String getAniListAPIQueryForAnimeAiringSchedule(
@@ -135,6 +156,93 @@ class AniListAPIUtils {
           "}";
   }
 
+  static String getQueryForAnimeById(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          id
+          title {
+            romaji
+            english
+            native
+          }
+          coverImage {
+            extraLarge
+          }
+          startDate {
+            year
+            month
+            day
+          }
+          endDate {
+            year
+            month
+            day
+          }
+          description(asHtml: false)
+          studios(isMain: true) {
+            edges {
+              isMain
+              node {
+                id
+                name
+              }
+            }
+          }
+          averageScore
+          episodes
+          duration
+          source(version: 3)
+          format
+          season
+          seasonYear
+        }
+      }
+    """;
+  }
+
+  static String getQueryForAnimeByIdRelationsOnly(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          relations {
+            edges {
+              id
+              relationType(version: 2)
+              node {
+                id
+                title {
+                  romaji
+                }
+                format
+                type
+                status(version: 2)
+                bannerImage
+                coverImage {
+                  large
+                }
+              }
+            }
+          }
+        }
+      }
+    """;
+  }
+
+  static String getQueryForAnimeByIdEpisodesOnly(int animeId) {
+    return """
+      query GetAnimeDetails {
+        Media(id: $animeId, type: ANIME) {
+          streamingEpisodes {
+            site
+            episodeTitle: title
+            thumbnail
+            url
+          }
+        }
+      }
+    """;
+  }
 
   static String getAnimeSeasonForMonth(int month) {
     if (month < 1 || month > 12) {

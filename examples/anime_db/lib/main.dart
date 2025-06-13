@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app/details_screen.dart';
 import 'package:movie_app/onboarding.dart';
+import 'package:movie_app/widgets/ani_list_description_text/ani_list_description_text_parser.dart';
 import 'package:movie_app/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
 import 'package:movie_app/widgets/anime_upcoming/anime_upcoming_parser.dart';
 import 'package:movie_app/widgets/frosted_box/frosted_box_parser.dart';
@@ -17,7 +19,7 @@ void main() async {
     ),
   );
 
-  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser(), AnimeUpcomingParser(), FrostedBoxParser(), AnimeScheduleItemParser()]);
+  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser(), AnimeUpcomingParser(), AniListDescriptionTextParser(), AnimeScheduleItemParser()]);
 
   runApp(const MyApp());
 }
@@ -43,6 +45,9 @@ class MyApp extends StatelessWidget {
     return StacApp(
       title: 'Anime Db',
       theme: StacTheme.fromJson(isDarkMode?darkThemeJson:lightThemeJson),
+      routes:{
+        "details": (context) => Stac.fromJson(getAnimeDetailsScreen(), context) ?? Text("details")
+      },
       homeBuilder:
           (context) =>
               Stac.fromJson(onboardingScreenJson, context),
@@ -120,16 +125,16 @@ final Map<String, dynamic> textTheme = {
 
 final Map<String, dynamic> filledButtonTheme = {
   "minimumSize": {"width": 120, "height": 48},
-  "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5},
   "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
-  "shape": {"borderRadius": 8},
+  "shape": {"borderRadius": 6},
 };
 final Map<String, dynamic> outlinedButtonTheme = {
   "minimumSize": {"width": 120, "height": 48},
-  "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
+  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5},
   "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
-  "side": {"color": "#95E183", "width": 1.0},
-  "shape": {"borderRadius": 8},
+  "side": {"color": "primary", "width": 1.0},
+  "shape": {"borderRadius": 6},
 };
 final Map<String, dynamic> dividerTheme = {
   "color": "#24FFFFFF", "thickness": 1
