@@ -1,7 +1,22 @@
 import 'package:stac_logger/src/log_interface.dart';
 
-import 'log_io.dart' // Default implementation for non-web platforms
-    if (dart.library.html) 'log_web.dart'; // Web/WASM implementation
+import 'log_stub.dart'
+    if (dart.library.io) 'log_io.dart'
+    if (dart.library.html) 'log_web.dart'
+    if (dart.library.wasm) 'log_web.dart';
+
+/// A reusable logging utility for the Stac framework.
+///
+/// Get Started
+/// ```dart
+/// import 'package:stac_logger/stac_logger.dart';
+///
+/// void main() {
+///   Log.d('Hello World');
+/// }
+/// ```
+///
+/// For information about Stac, visit [Stac](https://github.com/StacDev/stac).
 
 class Log {
   const Log._();

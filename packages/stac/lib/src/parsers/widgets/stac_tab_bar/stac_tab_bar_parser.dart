@@ -44,6 +44,8 @@ class StacTabBarParser extends StacParser<StacTabBar> {
       onTap: (_) {},
       physics: model.physics?.parse,
       tabAlignment: model.tabAlignment,
+      dividerColor: model.dividerColor.toColor(context),
+      dividerHeight: model.dividerHeight,
     );
   }
 }
