@@ -3,6 +3,12 @@
 StacBorderSide allows you to define the Flutter BorderSide class using JSON.
 To know more about the BorderSide class in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/painting/BorderSide-class.html).
 
+:::info
+
+BorderSide is used with the new individual border sides feature in [StacBorder](./border.md). You can now specify different border sides for top, right, bottom, and left individually.
+
+:::
+
 ## Properties
 
 | Property    | Type           | Description                                                                                      |
@@ -16,9 +22,13 @@ To know more about the BorderSide class in Flutter, refer to the [official docum
 
 ```json
 {
-    "color": "#428AF5",
-    "width": 1.0,
-    "style":"solid",
-    "strokeAlign": 1.0,
+  "color": "#428AF5",
+  "width": 1.0,
+  "style": "solid",
+  "strokeAlign": 1.0
 }
 ```
+
+## See Also
+
+- [Border](./border.md) - Learn about using individual border sides in StacBorder
