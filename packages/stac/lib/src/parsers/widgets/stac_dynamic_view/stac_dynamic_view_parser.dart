@@ -95,14 +95,53 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   dynamic _extractNestedData(dynamic data, List<String> keys) {
     dynamic current = data;
+    final RegExp arrayKeyRegex = RegExp(r'(\w+)\[(\d+)\]');
+
     for (final key in keys) {
-      if (current is Map && current.containsKey(key)) {
-        current = current[key];
+      Match? arrayMatch = arrayKeyRegex.firstMatch(key);
+
+      if (arrayMatch != null) {
+        final String actualKey = arrayMatch.group(1)!;
+        final int index = int.parse(arrayMatch.group(2)!);
+
+        if (current is Map && current.containsKey(actualKey)) {
+          dynamic potentialList = current[actualKey];
+          if (potentialList is List) {
+            if (index >= 0 && index < potentialList.length) {
+              current = potentialList[index];
+            } else {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        } else {
+          return null;
+        }
       } else {
-        return null;
+        if (current is Map && current.containsKey(key)) {
+          current = current[key];
+        } else if (current is List) {
+          try {
+            int index = int.parse(key);
+            if (index >= 0 && index < current.length) {
+              current = current[index];
+            } else {
+              return null;
+            }
+          } catch (e) {
+            return null;
+          }
+        } else {
+          return null;
+        }
       }
     }
-    return current;
+    if (current == null) {
+      return "null";
+    } else {
+      return current;
+    }
   }
 
   Map<String, dynamic> _applyDataToTemplate(
@@ -218,8 +257,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               // Extract the value from the data
               final dataValue = _extractNestedData(data, keys);
 
-              processedValue =
-                  processedValue.replaceAll(placeholder, dataValue.toString());
+              if (dataValue != null) {
+                processedValue = processedValue.replaceAll(
+                    placeholder, dataValue.toString());
+              }
             }
 
             template[key] = processedValue;
