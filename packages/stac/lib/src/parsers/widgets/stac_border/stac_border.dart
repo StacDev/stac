@@ -10,7 +10,7 @@ part 'stac_border.g.dart';
 @freezed
 abstract class StacBorder with _$StacBorder {
   const factory StacBorder({
-    // Legacy properties for backward compatibility (Border.all)
+    // Uniform border properties (applies to all sides)
     String? color,
     @Default(BorderStyle.solid) BorderStyle borderStyle,
     @Default(StacDouble(1.0)) StacDouble width,
@@ -41,7 +41,7 @@ extension StacBorderParser on StacBorder {
         left: left.parse(context),
       );
     } else {
-      // Fall back to legacy Border.all behavior for backward compatibility
+      // Fall back to uniform border behavior for all sides
       return Border.all(
         color: color.toColor(context) ?? const Color(0xFF000000),
         width: width.parse,

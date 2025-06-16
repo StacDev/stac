@@ -11,7 +11,7 @@ To know more about the Border class in Flutter, refer to the [official documenta
 
 ## Properties
 
-### Uniform Border (Legacy)
+### Uniform Border (All Sides)
 
 | Property    | Type           | Description                                                                                      |
 | ----------- | -------------- | ------------------------------------------------------------------------------------------------ |
@@ -31,7 +31,7 @@ To know more about the Border class in Flutter, refer to the [official documenta
 
 :::note
 
-When any individual border side is specified (`top`, `right`, `bottom`, or `left`), the system will use individual border mode and ignore the legacy uniform border properties (`color`, `width`, `borderStyle`, `strokeAlign`).
+When any individual border side is specified (`top`, `right`, `bottom`, or `left`), the system will use individual border mode and ignore the uniform border properties (`color`, `width`, `borderStyle`, `strokeAlign`).
 
 :::
 
@@ -148,55 +148,6 @@ You can specify only some sides, and the others will default to `BorderSide.none
         "fontSize": 16,
         "fontWeight": "bold"
       }
-    }
-  }
-}
-```
-
-## Migration Guide
-
-### From Legacy Border
-
-If you were using the legacy border format:
-
-```json
-{
-  "border": {
-    "color": "#FF0000",
-    "width": 2.0,
-    "borderStyle": "solid"
-  }
-}
-```
-
-This will continue to work exactly as before. No changes needed for backward compatibility.
-
-### To Individual Border Sides
-
-To use the new individual border sides feature:
-
-```json
-{
-  "border": {
-    "top": {
-      "color": "#FF0000",
-      "width": 2.0,
-      "borderStyle": "solid"
-    },
-    "right": {
-      "color": "#FF0000",
-      "width": 2.0,
-      "borderStyle": "solid"
-    },
-    "bottom": {
-      "color": "#FF0000",
-      "width": 2.0,
-      "borderStyle": "solid"
-    },
-    "left": {
-      "color": "#FF0000",
-      "width": 2.0,
-      "borderStyle": "solid"
     }
   }
 }
