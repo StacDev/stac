@@ -10,15 +10,13 @@ part 'stac_border_side.g.dart';
 abstract class StacBorderSide with _$StacBorderSide {
   const factory StacBorderSide({
     String? color,
-    @Default(StacDouble.zero) StacDouble width,
-    @Default(StacDouble.zero) StacDouble strokeAlign,
+    @Default(StacDouble(1.0)) StacDouble width,
+    @Default(StacDouble(BorderSide.strokeAlignInside)) StacDouble strokeAlign,
     @Default(BorderStyle.solid) BorderStyle borderStyle,
   }) = _StacBorderSide;
 
   static const none = StacBorderSide(
-    color: '000000',
     width: StacDouble.zero,
-    strokeAlign: StacDouble(-1.0),
     borderStyle: BorderStyle.none,
   );
 
@@ -30,9 +28,9 @@ extension StacBorderSideParser on StacBorderSide? {
   BorderSide parse(BuildContext context) {
     return BorderSide(
       color: this?.color.toColor(context) ?? const Color(0xFF000000),
-      width: this?.width.parse ?? 0.0,
+      width: this?.width.parse ?? 1.0,
       style: this?.borderStyle ?? BorderStyle.solid,
-      strokeAlign: this?.strokeAlign.parse ?? 0.0,
+      strokeAlign: this?.strokeAlign.parse ?? BorderSide.strokeAlignInside,
     );
   }
 }
