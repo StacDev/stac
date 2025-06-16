@@ -14,12 +14,13 @@ The `dynamicView` widget allows you to fetch data from an API and render it usin
 
 ## Properties
 
-| Property    | Type                | Required | Description                                                |
-|-------------|---------------------|----------|------------------------------------------------------------|
-| request     | `StacNetworkRequest`  | Yes      | API request configuration (url, method, headers, etc.)     |
-| template    | `Map<String, dynamic>` | Yes      | Template to render with data from the API response        |
-| targetPath  | `String`              | No       | Path to extract specific data from the API response        |
-| itemTemplate | `Map<String, dynamic>` | No       | Template to render each item in a list of items from the API response |
+| Property      | Type                   | Required | Description                                                           |
+| ------------- | ---------------------- | -------- | --------------------------------------------------------------------- |
+| request       | `StacNetworkRequest`   | Yes      | API request configuration (url, method, headers, etc.)                |
+| template      | `Map<String, dynamic>` | Yes      | Template to render with data from the API response                    |
+| targetPath    | `String`               | No       | Path to extract specific data from the API response                   |
+| itemTemplate  | `Map<String, dynamic>` | No       | Template to render each item in a list of items from the API response |
+| emptyTemplate | `Map<String, dynamic>` | No       | Template to render when the API response contains an empty list       |
 
 ## Basic Usage
 
@@ -76,7 +77,6 @@ Use double curly braces `{{placeholder}}` to insert data from the API response i
 
 ### List Example with itemTemplate
 
-
 When the API returns a list of items, use the `itemTemplate` property to define how each item should be rendered:
 
 ```json
@@ -104,6 +104,137 @@ When the API returns a list of items, use the `itemTemplate` property to define 
         "backgroundImage": "{{image}}"
       }
     }
+  }
+}
+```
+
+### Empty State Handling
+
+Use the `emptyTemplate` property to show a user-friendly message when the API returns an empty list:
+
+```json
+{
+  "type": "dynamicView",
+  "request": {
+    "url": "https://api.example.com/products",
+    "method": "get"
+  },
+  "targetPath": "products",
+  "template": {
+    "type": "gridView",
+    "crossAxisCount": 2,
+    "itemTemplate": {
+      "type": "card",
+      "child": {
+        "type": "column",
+        "children": [
+          {
+            "type": "image",
+            "src": "{{image_url}}"
+          },
+          {
+            "type": "text",
+            "data": "{{name}}"
+          },
+          {
+            "type": "text",
+            "data": "${{price}}"
+          }
+        ]
+      }
+    }
+  },
+  "emptyTemplate": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "mainAxisSize": "min",
+      "children": [
+        {
+          "type": "icon",
+          "icon": "shopping_cart",
+          "size": 64,
+          "color": "#9E9E9E"
+        },
+        {
+          "type": "container",
+          "height": 16
+        },
+        {
+          "type": "text",
+          "data": "No products available",
+          "style": {
+            "fontSize": 18,
+            "fontWeight": "bold",
+            "color": "#424242"
+          }
+        },
+        {
+          "type": "container",
+          "height": 8
+        },
+        {
+          "type": "text",
+          "data": "Check back later for new products!",
+          "style": {
+            "fontSize": 14,
+            "color": "#757575"
+          }
+        },
+        {
+          "type": "container",
+          "height": 24
+        },
+        {
+          "type": "elevatedButton",
+          "child": {
+            "type": "text",
+            "data": "Refresh"
+          },
+          "onPressed": {
+            "actionType": "navigate",
+            "route": "/refresh"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+## Empty Template Behavior
+
+The `emptyTemplate` is automatically triggered when:
+
+1. **Direct empty array**: The API response is an empty array `[]`
+2. **Empty array at target path**: The data at the specified `targetPath` is an empty array
+3. **Empty arrays in nested data**: The API response contains empty arrays within nested objects
+
+### Example API Responses that Trigger Empty Template
+
+**Scenario 1: Direct empty array**
+
+```json
+[]
+```
+
+**Scenario 2: Empty array at target path**
+
+```json
+{
+  "success": true,
+  "data": [],
+  "message": "No results found"
+}
+```
+
+**Scenario 3: Empty array in nested structure**
+
+```json
+{
+  "response": {
+    "users": [],
+    "total": 0
   }
 }
 ```
@@ -153,8 +284,11 @@ Add custom headers to your API requests:
 
 1. Use `targetPath` to extract only the data you need from complex API responses
 2. For list data, always use the `itemTemplate` property to define how each item should be rendered
-3. Keep templates modular and reusable when possible
-4. Use appropriate error handling in your UI design for cases when the API request fails
+3. **Always provide an `emptyTemplate`** for list-based views to handle empty API responses gracefully
+4. Design empty states that are informative and actionable - include clear messaging and relevant actions like refresh buttons
+5. Keep templates modular and reusable when possible
+6. Use appropriate error handling in your UI design for cases when the API request fails
+7. For empty states, use appropriate icons and colors that match your app's design system
 
 ## Limitations
 
