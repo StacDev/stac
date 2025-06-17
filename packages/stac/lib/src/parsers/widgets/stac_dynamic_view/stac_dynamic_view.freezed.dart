@@ -19,6 +19,8 @@ mixin _$StacDynamicView {
   String get targetPath;
   Map<String, dynamic> get template;
   String get resultTarget;
+  StacWidget? get loaderWidget;
+  StacWidget? get errorWidget;
 
   /// Create a copy of StacDynamicView
   /// with the given fields replaced by the non-null parameter values.
@@ -41,17 +43,27 @@ mixin _$StacDynamicView {
                 other.targetPath == targetPath) &&
             const DeepCollectionEquality().equals(other.template, template) &&
             (identical(other.resultTarget, resultTarget) ||
-                other.resultTarget == resultTarget));
+                other.resultTarget == resultTarget) &&
+            const DeepCollectionEquality()
+                .equals(other.loaderWidget, loaderWidget) &&
+            const DeepCollectionEquality()
+                .equals(other.errorWidget, errorWidget));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, request, targetPath,
-      const DeepCollectionEquality().hash(template), resultTarget);
+  int get hashCode => Object.hash(
+      runtimeType,
+      request,
+      targetPath,
+      const DeepCollectionEquality().hash(template),
+      resultTarget,
+      const DeepCollectionEquality().hash(loaderWidget),
+      const DeepCollectionEquality().hash(errorWidget));
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
@@ -65,7 +77,9 @@ abstract mixin class $StacDynamicViewCopyWith<$Res> {
       {StacNetworkRequest request,
       String targetPath,
       Map<String, dynamic> template,
-      String resultTarget});
+      String resultTarget,
+      StacWidget? loaderWidget,
+      StacWidget? errorWidget});
 
   $StacNetworkRequestCopyWith<$Res> get request;
 }
@@ -87,6 +101,8 @@ class _$StacDynamicViewCopyWithImpl<$Res>
     Object? targetPath = null,
     Object? template = null,
     Object? resultTarget = null,
+    Object? loaderWidget = freezed,
+    Object? errorWidget = freezed,
   }) {
     return _then(_self.copyWith(
       request: null == request
@@ -105,6 +121,14 @@ class _$StacDynamicViewCopyWithImpl<$Res>
           ? _self.resultTarget
           : resultTarget // ignore: cast_nullable_to_non_nullable
               as String,
+      loaderWidget: freezed == loaderWidget
+          ? _self.loaderWidget
+          : loaderWidget // ignore: cast_nullable_to_non_nullable
+              as StacWidget?,
+      errorWidget: freezed == errorWidget
+          ? _self.errorWidget
+          : errorWidget // ignore: cast_nullable_to_non_nullable
+              as StacWidget?,
     ));
   }
 
@@ -126,8 +150,12 @@ class _StacDynamicView implements StacDynamicView {
       {required this.request,
       this.targetPath = '',
       required final Map<String, dynamic> template,
-      this.resultTarget = ''})
-      : _template = template;
+      this.resultTarget = '',
+      final StacWidget? loaderWidget,
+      final StacWidget? errorWidget})
+      : _template = template,
+        _loaderWidget = loaderWidget,
+        _errorWidget = errorWidget;
   factory _StacDynamicView.fromJson(Map<String, dynamic> json) =>
       _$StacDynamicViewFromJson(json);
 
@@ -147,6 +175,25 @@ class _StacDynamicView implements StacDynamicView {
   @override
   @JsonKey()
   final String resultTarget;
+  final StacWidget? _loaderWidget;
+  @override
+  StacWidget? get loaderWidget {
+    final value = _loaderWidget;
+    if (value == null) return null;
+    if (_loaderWidget is EqualUnmodifiableMapView) return _loaderWidget;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
+  final StacWidget? _errorWidget;
+  @override
+  StacWidget? get errorWidget {
+    final value = _errorWidget;
+    if (value == null) return null;
+    if (_errorWidget is EqualUnmodifiableMapView) return _errorWidget;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
 
   /// Create a copy of StacDynamicView
   /// with the given fields replaced by the non-null parameter values.
@@ -173,17 +220,27 @@ class _StacDynamicView implements StacDynamicView {
                 other.targetPath == targetPath) &&
             const DeepCollectionEquality().equals(other._template, _template) &&
             (identical(other.resultTarget, resultTarget) ||
-                other.resultTarget == resultTarget));
+                other.resultTarget == resultTarget) &&
+            const DeepCollectionEquality()
+                .equals(other._loaderWidget, _loaderWidget) &&
+            const DeepCollectionEquality()
+                .equals(other._errorWidget, _errorWidget));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, request, targetPath,
-      const DeepCollectionEquality().hash(_template), resultTarget);
+  int get hashCode => Object.hash(
+      runtimeType,
+      request,
+      targetPath,
+      const DeepCollectionEquality().hash(_template),
+      resultTarget,
+      const DeepCollectionEquality().hash(_loaderWidget),
+      const DeepCollectionEquality().hash(_errorWidget));
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
@@ -199,7 +256,9 @@ abstract mixin class _$StacDynamicViewCopyWith<$Res>
       {StacNetworkRequest request,
       String targetPath,
       Map<String, dynamic> template,
-      String resultTarget});
+      String resultTarget,
+      StacWidget? loaderWidget,
+      StacWidget? errorWidget});
 
   @override
   $StacNetworkRequestCopyWith<$Res> get request;
@@ -222,6 +281,8 @@ class __$StacDynamicViewCopyWithImpl<$Res>
     Object? targetPath = null,
     Object? template = null,
     Object? resultTarget = null,
+    Object? loaderWidget = freezed,
+    Object? errorWidget = freezed,
   }) {
     return _then(_StacDynamicView(
       request: null == request
@@ -240,6 +301,14 @@ class __$StacDynamicViewCopyWithImpl<$Res>
           ? _self.resultTarget
           : resultTarget // ignore: cast_nullable_to_non_nullable
               as String,
+      loaderWidget: freezed == loaderWidget
+          ? _self._loaderWidget
+          : loaderWidget // ignore: cast_nullable_to_non_nullable
+              as StacWidget?,
+      errorWidget: freezed == errorWidget
+          ? _self._errorWidget
+          : errorWidget // ignore: cast_nullable_to_non_nullable
+              as StacWidget?,
     ));
   }
 

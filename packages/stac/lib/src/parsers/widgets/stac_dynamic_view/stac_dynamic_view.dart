@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:stac/src/parsers/actions/stac_network_request/stac_network_request.dart';
+import 'package:stac/stac.dart';
 
 export 'stac_dynamic_view_parser.dart';
 
@@ -15,6 +15,8 @@ abstract class StacDynamicView with _$StacDynamicView {
     @Default('') String targetPath,
     required Map<String, dynamic> template,
     @Default('') String resultTarget,
+    StacWidget? loaderWidget,
+    StacWidget? errorWidget,
   }) = _StacDynamicView;
 
   factory StacDynamicView.fromJson(Map<String, dynamic> json) =>
