@@ -26,7 +26,8 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       future: _fetchData(context, model),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Stac.fromJson(model.loaderWidget, context) ?? const Center(child: CircularProgressIndicator());
+          return Stac.fromJson(model.loaderWidget, context) ??
+              const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           Log.e(snapshot.error);
           return Stac.fromJson(model.errorWidget, context) ?? const SizedBox();
@@ -70,7 +71,8 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               }
             } catch (e) {
               Log.e('Error parsing API response: $e');
-              return Stac.fromJson(model.errorWidget, context) ?? const SizedBox();
+              return Stac.fromJson(model.errorWidget, context) ??
+                  const SizedBox();
             }
           }
           return const SizedBox();
