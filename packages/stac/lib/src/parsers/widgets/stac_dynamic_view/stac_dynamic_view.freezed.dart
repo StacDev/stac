@@ -67,7 +67,7 @@ mixin _$StacDynamicView {
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget, emptyTemplate: $emptyTemplate)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, emptyTemplate: $emptyTemplate, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
@@ -161,13 +161,13 @@ class _StacDynamicView implements StacDynamicView {
       this.targetPath = '',
       required final Map<String, dynamic> template,
       this.resultTarget = '',
+      final Map<String, dynamic>? emptyTemplate,
       final StacWidget? loaderWidget,
-      final StacWidget? errorWidget,
-      final Map<String, dynamic>? emptyTemplate})
+      final StacWidget? errorWidget})
       : _template = template,
+        _emptyTemplate = emptyTemplate,
         _loaderWidget = loaderWidget,
-        _errorWidget = errorWidget,
-        _emptyTemplate = emptyTemplate;
+        _errorWidget = errorWidget;
   factory _StacDynamicView.fromJson(Map<String, dynamic> json) =>
       _$StacDynamicViewFromJson(json);
 
@@ -193,6 +193,10 @@ class _StacDynamicView implements StacDynamicView {
     final value = _emptyTemplate;
     if (value == null) return null;
     if (_emptyTemplate is EqualUnmodifiableMapView) return _emptyTemplate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   final StacWidget? _loaderWidget;
   @override
   StacWidget? get loaderWidget {
@@ -255,14 +259,13 @@ class _StacDynamicView implements StacDynamicView {
       targetPath,
       const DeepCollectionEquality().hash(_template),
       resultTarget,
+      const DeepCollectionEquality().hash(_emptyTemplate),
       const DeepCollectionEquality().hash(_loaderWidget),
-      const DeepCollectionEquality().hash(_errorWidget),
-      const DeepCollectionEquality().hash(_emptyTemplate));
-
+      const DeepCollectionEquality().hash(_errorWidget));
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget, emptyTemplate: $emptyTemplate)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, emptyTemplate: $emptyTemplate, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
