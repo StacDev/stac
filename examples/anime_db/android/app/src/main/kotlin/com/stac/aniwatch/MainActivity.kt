@@ -1,4 +1,4 @@
-package com.example.movie_app
+package com.stac.aniwatch
 
 import io.flutter.embedding.android.FlutterActivity
 
