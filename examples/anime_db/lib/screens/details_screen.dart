@@ -1,5 +1,5 @@
 
-import 'package:movie_app/ani_list_api_utils.dart';
+import 'package:ani_watch/ani_list_api_utils.dart';
 import 'package:stac/stac.dart';
 
 Map<String, dynamic> getAnimeDetailsScreen() {
@@ -8,6 +8,7 @@ Map<String, dynamic> getAnimeDetailsScreen() {
     "body": {
       "type": "safeArea",
       "top": false,
+      "bottom": false,
       "child": {
         "type": "dynamicView",
         "request": AniListAPIUtils.getAniListAPIRequest(
@@ -113,7 +114,6 @@ final Map<String, dynamic> descriptionSection = {
     "crossAxisAlignment": "stretch",
     "mainAxisSize": "min",
     "children": [
-      {"type": "sizedBox", "height": 4},
       {
         "type": "conditional",
         "condition": "{{format}} == MOVIE",
@@ -193,7 +193,7 @@ final Map<String, dynamic> descriptionSection = {
             "style": {
               "minimumSize": {"width": 120, "height": 40},
               "textStyle": {"color": "onPrimary", "fontSize": 15, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
-              "padding": {"left": 20, "right": 20, "top": 8, "bottom": 8},
+              "padding": {"left": 20, "right": 20},
               "shape": {"borderRadius": 6},
               "backgroundColor" : "primary"
             },
@@ -210,7 +210,11 @@ final Map<String, dynamic> descriptionSection = {
                   "width": 20,
                 },
                 {"type": "sizedBox", "width": 8},
-                {"type": "text", "data": "Watch Now"}
+                {
+                  "type": "padding",
+                  "padding": {"bottom": 3},
+                  "child": {"type": "text", "data": "Watch Now"}
+                }
               ]
             },
             "onPressed": {
@@ -227,7 +231,7 @@ final Map<String, dynamic> descriptionSection = {
               "style": {
                 "minimumSize": {"width": 120, "height": 40},
                 "textStyle": {"color": "primary", "fontSize": 15, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
-                "padding": {"left": 20, "right": 20, "top": 8, "bottom": 8},
+                "padding": {"left": 20, "right": 20},
                 "shape": {"borderRadius": 6},
                 "side": {"color": "primary", "width": 1.0},
               },
@@ -244,7 +248,11 @@ final Map<String, dynamic> descriptionSection = {
                     "width": 20,
                   },
                   {"type": "sizedBox", "width": 6},
-                  {"type": "text", "data": "Add to Watchlist"}
+                  {
+                    "type": "padding",
+                    "padding": {"bottom": 3},
+                    "child": {"type": "text", "data": "Add to Watchlist"}
+                  }
                 ]
               },
               "onPressed": {

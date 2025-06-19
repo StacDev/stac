@@ -1,13 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/details_screen.dart';
-import 'package:movie_app/navigation_view.dart';
-import 'package:movie_app/onboarding.dart';
-import 'package:movie_app/widgets/ani_list_description_text/ani_list_description_text_parser.dart';
-import 'package:movie_app/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
-import 'package:movie_app/widgets/anime_upcoming/anime_upcoming_parser.dart';
-import 'package:movie_app/widgets/frosted_box/frosted_box_parser.dart';
-import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
+import 'package:ani_watch/screens/details_screen.dart';
+import 'package:ani_watch/screens/navigation_view.dart';
+import 'package:ani_watch/widgets/ani_list_description_text/ani_list_description_text_parser.dart';
+import 'package:ani_watch/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
+import 'package:ani_watch/widgets/anime_upcoming/anime_upcoming_parser.dart';
+import 'package:ani_watch/widgets/movie_carousel/movie_carousel_parser.dart';
 import 'package:stac/stac.dart';
 
 void main() async {

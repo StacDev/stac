@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
-import 'package:movie_app/widgets/animeScheduleItem/anime_schedule_item.dart';
+import 'package:ani_watch/widgets/animeScheduleItem/anime_schedule_item.dart';
 import 'package:stac/stac.dart';
 
 class AnimeScheduleItemParser extends StacParser<AnimeScheduleItem> {

@@ -1,4 +1,4 @@
-# movie_app
+# AniWatch
 
 A new Flutter project.
 

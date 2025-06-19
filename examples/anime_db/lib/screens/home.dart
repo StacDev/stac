@@ -1,6 +1,4 @@
-import 'package:movie_app/ani_list_api_utils.dart';
-import 'package:movie_app/details_screen.dart';
-import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
+import 'package:ani_watch/ani_list_api_utils.dart';
 
 final Map<String, dynamic> homeScreenJson = {
   "type": "scaffold",

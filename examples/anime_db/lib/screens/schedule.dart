@@ -1,8 +1,8 @@
 import 'dart:developer';
 
 import 'package:intl/intl.dart';
-import 'package:movie_app/ani_list_api_utils.dart';
-import 'package:movie_app/home.dart';
+import 'package:ani_watch/ani_list_api_utils.dart';
+import 'package:ani_watch/screens/home.dart';
 
 final Map<String, dynamic> scheduleScreenJson = {
   "type": "scaffold",
@@ -102,33 +102,17 @@ List<Map<String, dynamic>> getScheduleViewList() {
               "template": {
                 "type": "column",
                 "itemTemplate": {
-                  "type": "gestureDetector",
-                  "onTap": {
-                    "actionType": "setValue",
-                    "values": [
-                      {
-                        "key": "anime_id",
-                        "value": "{{id}}"
-                      }
-                    ],
-                    "action": {
-                      "actionType": "none",
-                      "assetPath": "assets/jsons/screens/detail_screen.json"
-                    }
-                  },
+                  "type": "sizedBox",
+                  "height": 62,
                   "child": {
-                    "type": "sizedBox",
-                    "height": 62,
-                    "child": {
-                      "type": "animeScheduleItem",
-                      "id": "{{media.id}}",
-                      "coverImgUrl": "{{media.coverImage.large}}",
-                      "bannerImgUrl": "{{media.bannerImage}}",
-                      "title": "{{media.title.romaji}}",
-                      "airingTime": "{{airingAt}}",
-                      "episode": "{{episode}}",
-                      "duration": "{{media.duration}}",
-                    }
+                    "type": "animeScheduleItem",
+                    "id": "{{media.id}}",
+                    "coverImgUrl": "{{media.coverImage.large}}",
+                    "bannerImgUrl": "{{media.bannerImage}}",
+                    "title": "{{media.title.romaji}}",
+                    "airingTime": "{{airingAt}}",
+                    "episode": "{{episode}}",
+                    "duration": "{{media.duration}}",
                   }
                 }
               }

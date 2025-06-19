@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/ani_list_description_text/ani_list_description_text.dart';
+import 'package:ani_watch/widgets/ani_list_description_text/ani_list_description_text.dart';
 import 'package:stac/stac.dart';
 
 class AniListDescriptionTextParser extends StacParser<AniListDescriptionText> {

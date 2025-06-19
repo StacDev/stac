@@ -1,4 +1,4 @@
-import 'package:movie_app/navigation_view.dart';
+import 'package:ani_watch/screens/navigation_view.dart';
 
 final Map<String, dynamic> onboardingScreenJson = {
   "type": "scaffold",

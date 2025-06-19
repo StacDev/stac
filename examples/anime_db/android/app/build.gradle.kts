@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.movie_app"
+    namespace = "com.stac.aniwatch"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

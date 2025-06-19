@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:movie_app/widgets/anime_upcoming/anime_upcoming.dart';
+import 'package:ani_watch/widgets/anime_upcoming/anime_upcoming.dart';
 import 'package:stac/stac.dart';
 
 class AnimeUpcomingParser extends StacParser<AnimeUpcoming> {
@@ -93,7 +93,7 @@ class _AnimeUpcomingWidgetState extends State<AnimeUpcomingWidget> {
                             ),
                             child: Padding(
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 8),
+                                    horizontal: 12, vertical: 8),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.end,
