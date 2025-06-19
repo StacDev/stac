@@ -19,14 +19,14 @@
                 "child": {
                     "type": "container",
                     "width": 1000,
-                    "color": "#CC000000",
+                    "color": "surfaceBright",
                     "child": {
                         "type": "padding",
                         "padding": {
                             "left": 20,
                             "right": 20,
                             "top": 40,
-                            "bottom": 56
+                            "bottom": 52
                         },
                         "child": {
                             "type": "column",
@@ -35,11 +35,11 @@
                             "children": [
                                 {
                                     "type": "text",
-                                    "data": "Anime ",
-                                    "style": "displaySmall",
+                                    "data": "Ani",
+                                    "style": {"fontSize": 34, "fontWeight": "w700", "height": 1.1, "letterSpacing": -0.4},
                                     "children": [
                                         {
-                                            "data": "Db",
+                                            "data": "Watch",
                                             "style": {
                                                 "color": "primary"
                                             }
@@ -58,7 +58,7 @@
                                         {
                                             "data": "Watch, enjoy and track all of your anime series, movies and OVA’s",
                                             "style": {
-                                                "color": "onSurfaceVariant"
+                                                "color": "onSurfaceVariant@65"
                                             }
                                         }
                                     ]
@@ -69,14 +69,14 @@
                                 },
                                 {
                                     "type": "sizedBox",
-                                    "height": 48,
+                                    "height": 52,
                                     "width": 1000,
                                     "child": {
                                         "type": "filledButton",
                                         "child": {
                                             "type": "text",
                                             "data": "",
-                                            "style": "labelLarge",
+                                            "style": "BodyLarge",
                                             "children": [
                                                 {
                                                     "data": "Get Started",
@@ -88,7 +88,8 @@
                                         },
                                         "onPressed": {
                                             "actionType": "navigate",
-                                            "assetPath": "assets/jsons/screens/home_screen.json"
+                                            "routeName": "mainNav",
+                                            "navigationStyle": "pushNamed"
                                         }
                                     }
                                 }

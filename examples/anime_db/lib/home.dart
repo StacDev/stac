@@ -58,7 +58,7 @@ final Map<String, dynamic> homeBodyJson = {
       },
       {
         "type": "sizedBox",
-        "height": 20,
+        "height": 8,
       },
       {
         "type": "animeUpcoming",

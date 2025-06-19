@@ -187,7 +187,7 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
     List<Widget> pills = [];
 
     pills.add(Container(
-      height: 21.5,
+      height: 21,
       padding: EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(Radius.circular(2)),
@@ -215,7 +215,7 @@ class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
         if (anime["genres"][i] != null) {
           pills.add(SizedBox(width: 6,));
           pills.add(Container(
-              height: 20,
+              height: 21,
               padding: EdgeInsets.symmetric(horizontal: 4),
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(2)),

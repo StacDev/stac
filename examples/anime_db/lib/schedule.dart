@@ -45,11 +45,6 @@ List<Map<String, dynamic>> getScheduleViewList() {
     date = date.add(Duration(days: i));
     var dateStart = date.subtract(Duration(hours: date.hour, minutes: date.minute, seconds: date.second));
     var dateEnd = dateStart.add(Duration(hours: 23, minutes: 59, seconds: 59));
-    log(AniListAPIUtils.getAniListAPIQueryForAnimeAiringSchedule(
-      count: 50,
-      airingAtStart: (dateStart.millisecondsSinceEpoch/1000).round(),
-      airingAtEnd: (dateEnd.millisecondsSinceEpoch/1000).round(),
-    ));
     Map<String, dynamic> view = {
       "type" : "row",
       "crossAxisAlignment" : "start",

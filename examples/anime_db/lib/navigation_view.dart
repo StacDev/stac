@@ -19,8 +19,8 @@ final Map<String, dynamic> navigationView = {
       "type": "bottomNavigationBar",
       "backgroundColor": "surface@95",
       "selectedItemColor": "onSurface",
-      "selectedLabelStyle": "labelSmall",
-      "unselectedLabelStyle": "labelSmall",
+      "selectedLabelStyle": {"color": "onSurface", "fontFamily": "Figtree", "fontSize": 13.5, "fontWeight": "w400", "height": 1.5, "letterSpacing": 0},
+      "unselectedLabelStyle": {"color": "onSurfaceVariant@65", "fontFamily": "Figtree", "fontSize": 13.5, "fontWeight": "w400", "height": 1.5, "letterSpacing": 0},
       "iconSize": 22,
       "items": [
         {

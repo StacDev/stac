@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/details_screen.dart';
+import 'package:movie_app/navigation_view.dart';
 import 'package:movie_app/onboarding.dart';
 import 'package:movie_app/widgets/ani_list_description_text/ani_list_description_text_parser.dart';
 import 'package:movie_app/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
@@ -35,22 +36,16 @@ class MyApp extends StatelessWidget {
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   (isDarkMode ? SystemUiOverlayStyle.dark : SystemUiOverlayStyle.light).copyWith(
-    //     statusBarColor: Theme.of(context).colorScheme.surface,
-    //     systemNavigationBarColor: Theme.of(context).colorScheme.surface,
-    //   ),
-    // );
-
     return StacApp(
       title: 'Anime Db',
       theme: StacTheme.fromJson(isDarkMode?darkThemeJson:lightThemeJson),
       routes:{
-        "details": (context) => Stac.fromJson(getAnimeDetailsScreen(), context) ?? Text("details")
+        "details": (context) => Stac.fromJson(getAnimeDetailsScreen(), context) ?? Text("details"),
+        "mainNav": (context) => Stac.fromJson(navigationView, context) ?? Text("mainNav")
       },
       homeBuilder:
           (context) =>
-              Stac.fromJson(onboardingScreenJson, context),
+              Stac.fromAssets("assets/jsons/screens/onboarding_screen.json"),
     );
   }
 }
@@ -124,15 +119,15 @@ final Map<String, dynamic> textTheme = {
 };
 
 final Map<String, dynamic> filledButtonTheme = {
-  "minimumSize": {"width": 120, "height": 48},
-  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5},
-  "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
+  "minimumSize": {"width": 120, "height": 52},
+  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+  "padding": {"left": 20, "right": 20, "top": 13, "bottom": 13},
   "shape": {"borderRadius": 6},
 };
 final Map<String, dynamic> outlinedButtonTheme = {
-  "minimumSize": {"width": 120, "height": 48},
-  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5},
-  "padding": {"left": 20, "right": 20, "top": 10, "bottom": 10},
+  "minimumSize": {"width": 120, "height": 52},
+  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+  "padding": {"left": 20, "right": 20, "top": 13, "bottom": 13},
   "side": {"color": "primary", "width": 1.0},
   "shape": {"borderRadius": 6},
 };
