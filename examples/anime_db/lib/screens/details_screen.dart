@@ -1,4 +1,3 @@
-
 import 'package:ani_watch/ani_list_api_utils.dart';
 import 'package:stac/stac.dart';
 
@@ -21,15 +20,11 @@ Map<String, dynamic> getAnimeDetailsScreen() {
           "type": "singleChildScrollView",
           "child": {
             "type": "column",
-            "children": [
-              topPanel,
-              descriptionSection,
-              getDetailsTabs(),
-            ],
+            "children": [topPanel, descriptionSection, getDetailsTabs()],
           },
         },
-      }
-    }
+      },
+    },
   };
 }
 
@@ -157,21 +152,35 @@ final Map<String, dynamic> descriptionSection = {
           {
             "type": "conditional",
             "condition": "{{season}} == FALL",
-            "ifTrue": getPill(getSeasonAssetPath("FALL"), "Fall {{seasonYear}}",),
+            "ifTrue": getPill(
+              getSeasonAssetPath("FALL"),
+              "Fall {{seasonYear}}",
+            ),
             "ifFalse": {
               "type": "conditional",
               "condition": "{{season}} == WINTER",
-              "ifTrue": getPill(getSeasonAssetPath("WINTER"), "Winter {{seasonYear}}",),
+              "ifTrue": getPill(
+                getSeasonAssetPath("WINTER"),
+                "Winter {{seasonYear}}",
+              ),
               "ifFalse": {
                 "type": "conditional",
                 "condition": "{{season}} == SUMMER",
-                "ifTrue": getPill(getSeasonAssetPath("SUMMER"), "Summer {{seasonYear}}",),
+                "ifTrue": getPill(
+                  getSeasonAssetPath("SUMMER"),
+                  "Summer {{seasonYear}}",
+                ),
                 "ifFalse": {
                   "type": "conditional",
                   "condition": "{{season}} == SPRING",
-                  "ifTrue": getPill(getSeasonAssetPath("SPRING"), "Spring {{seasonYear}}",
+                  "ifTrue": getPill(
+                    getSeasonAssetPath("SPRING"),
+                    "Spring {{seasonYear}}",
                   ),
-                  "ifFalse": getPill("assets/images/calendar-dots.svg", "{{seasonYear}}",),
+                  "ifFalse": getPill(
+                    "assets/images/calendar-dots.svg",
+                    "{{seasonYear}}",
+                  ),
                 },
               },
             },
@@ -192,10 +201,16 @@ final Map<String, dynamic> descriptionSection = {
             "type": "filledButton",
             "style": {
               "minimumSize": {"width": 120, "height": 40},
-              "textStyle": {"color": "onPrimary", "fontSize": 15, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+              "textStyle": {
+                "color": "onPrimary",
+                "fontSize": 15,
+                "fontWeight": "w600",
+                "height": 1.5,
+                "letterSpacing": -0.1,
+              },
               "padding": {"left": 20, "right": 20},
               "shape": {"borderRadius": 6},
-              "backgroundColor" : "primary"
+              "backgroundColor": "primary",
             },
             "child": {
               "type": "row",
@@ -213,15 +228,15 @@ final Map<String, dynamic> descriptionSection = {
                 {
                   "type": "padding",
                   "padding": {"bottom": 3},
-                  "child": {"type": "text", "data": "Watch Now"}
-                }
-              ]
+                  "child": {"type": "text", "data": "Watch Now"},
+                },
+              ],
             },
             "onPressed": {
               "actionType": "none",
               "routeName": "details",
-              "navigationStyle": "pushNamed"
-            }
+              "navigationStyle": "pushNamed",
+            },
           },
           {"type": "sizedBox", "width": 12},
           {
@@ -230,7 +245,13 @@ final Map<String, dynamic> descriptionSection = {
               "type": "outlinedButton",
               "style": {
                 "minimumSize": {"width": 120, "height": 40},
-                "textStyle": {"color": "primary", "fontSize": 15, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+                "textStyle": {
+                  "color": "primary",
+                  "fontSize": 15,
+                  "fontWeight": "w600",
+                  "height": 1.5,
+                  "letterSpacing": -0.1,
+                },
                 "padding": {"left": 20, "right": 20},
                 "shape": {"borderRadius": 6},
                 "side": {"color": "primary", "width": 1.0},
@@ -251,18 +272,18 @@ final Map<String, dynamic> descriptionSection = {
                   {
                     "type": "padding",
                     "padding": {"bottom": 3},
-                    "child": {"type": "text", "data": "Add to Watchlist"}
-                  }
-                ]
+                    "child": {"type": "text", "data": "Add to Watchlist"},
+                  },
+                ],
               },
               "onPressed": {
                 "actionType": "none",
                 "routeName": "details",
-                "navigationStyle": "pushNamed"
-              }
-            }
-          }
-        ]
+                "navigationStyle": "pushNamed",
+              },
+            },
+          },
+        ],
       },
       {"type": "sizedBox", "height": 16},
       {
@@ -271,10 +292,7 @@ final Map<String, dynamic> descriptionSection = {
         "decoration": {"color": "outline@8"},
       },
       {"type": "sizedBox", "height": 20},
-      {
-        "type": "aniListDescriptionText",
-        "data": "{{description}}",
-      },
+      {"type": "aniListDescriptionText", "data": "{{description}}"},
       {"type": "sizedBox", "height": 16},
     ],
   },
@@ -294,26 +312,23 @@ Map<String, dynamic> getDetailsTabs() {
             "type": "tabBar",
             "labelColor": "onSurface",
             "unselectedLabelColor": "onSurfaceVariant@65",
-            "labelStyle": {"fontFamily": "Figtree", "fontSize": 15, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+            "labelStyle": {
+              "fontFamily": "Figtree",
+              "fontSize": 15,
+              "fontWeight": "w600",
+              "height": 1.5,
+              "letterSpacing": -0.1,
+            },
             "unselectedLabelStyle": "bodyMedium",
             "dividerColor": "outline@8",
-            "labelPadding": {
-              "left": 16,
-              "right": 16,
-            },
+            "labelPadding": {"left": 16, "right": 16},
             "isScrollable": true,
             "tabAlignment": "start",
             "tabs": [
-              {
-                "type": "tab",
-                "text": "About"
-              },
-              {
-                "type": "tab",
-                "text": "Episodes"
-              },
-            ]
-          }
+              {"type": "tab", "text": "About"},
+              {"type": "tab", "text": "Episodes"},
+            ],
+          },
         },
         {
           "type": "container",
@@ -324,44 +339,35 @@ Map<String, dynamic> getDetailsTabs() {
               {
                 "type": "container",
 
-                "padding": {
-                  "top": 20,
-                  "bottom": 20
-                },
+                "padding": {"top": 20, "bottom": 20},
                 "color": "surfaceBright",
                 "child": {
                   "type": "column",
                   "children": [
                     animeInfoView,
-                    {"type": "sizedBox", "height": 24,},
+                    {"type": "sizedBox", "height": 24},
                     getAnimeRelationsView(),
-                  ]
-                }
+                  ],
+                },
               },
               {
                 "type": "container",
-                "padding": {
-                  "top": 20,
-                  "bottom": 20
-                },
+                "padding": {"top": 20, "bottom": 20},
                 "color": "surfaceBright",
-                "child": getAnimeEpisodesView()
+                "child": getAnimeEpisodesView(),
               },
-            ]
-          }
+            ],
+          },
         },
-      ]
-    }
+      ],
+    },
   };
 }
 
 Map<String, dynamic> getAnimeRelationsView() {
   return {
     "type": "padding",
-    "padding": {
-      "left": 16,
-      "right": 16,
-    },
+    "padding": {"left": 16, "right": 16},
     "child": {
       "type": "column",
       "mainAxisSize": "min",
@@ -371,18 +377,11 @@ Map<String, dynamic> getAnimeRelationsView() {
           "type": "text",
           "data": "Relations",
           "style": "bodyMedium",
-          "copyWithStyle": {
-            "fontWeight": "w600",
-            "letterSpacing": -0.1,
-          },
+          "copyWithStyle": {"fontWeight": "w600", "letterSpacing": -0.1},
         },
-        {"type": "sizedBox", "height": 8,},
-        {
-          "type": "container",
-          "height": 1,
-          "color": "outline@8",
-        },
-        {"type": "sizedBox", "height": 8,},
+        {"type": "sizedBox", "height": 8},
+        {"type": "container", "height": 1, "color": "outline@8"},
+        {"type": "sizedBox", "height": 8},
         {
           "type": "container",
           "height": 270,
@@ -407,36 +406,27 @@ Map<String, dynamic> getAnimeRelationsView() {
                 "decoration": {
                   "borderRadius": 6,
                   "color": "surface",
-                  "border": {
-                    "color": "outline@8",
-                    "width": 1
-                  },
+                  "border": {"color": "outline@8", "width": 1},
                 },
                 "child": {
                   "type": "row",
                   "children": [
                     {
                       "type": "clipRRect",
-                      "borderRadius": {
-                        "topLeft": 6,
-                        "bottomLeft": 6
-                      },
+                      "borderRadius": {"topLeft": 6, "bottomLeft": 6},
                       "child": {
                         "type": "image",
                         "imageType": "network",
                         "src": "{{node.coverImage.large}}",
                         "width": 56,
-                        "fit": "cover"
-                      }
+                        "fit": "cover",
+                      },
                     },
                     {
                       "type": "expanded",
                       "child": {
                         "type": "padding",
-                        "padding": {
-                          "left": 12,
-                          "right": 16,
-                        },
+                        "padding": {"left": 12, "right": 16},
                         "child": {
                           "type": "column",
                           "crossAxisAlignment": "stretch",
@@ -446,7 +436,7 @@ Map<String, dynamic> getAnimeRelationsView() {
                               "type": "text",
                               "data": "{{relationType}}",
                               "style": "labelSmall",
-                              "copyWithStyle": {"color": "primary",}
+                              "copyWithStyle": {"color": "primary"},
                             },
                             {
                               "type": "text",
@@ -457,26 +447,26 @@ Map<String, dynamic> getAnimeRelationsView() {
                               "copyWithStyle": {
                                 "fontWeight": "w600",
                                 "letterSpacing": -0.1,
-                              }
+                              },
                             },
                             {
                               "type": "text",
                               "data": "{{node.format}} · {{node.status}}",
                               "style": "bodySmall",
-                              "copyWithStyle": {"color": "onSurfaceVariant@65",}
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  ]
-                }
+                              "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                            },
+                          ],
+                        },
+                      },
+                    },
+                  ],
+                },
               },
-            }
+            },
           },
         },
-      ]
-    }
+      ],
+    },
   };
 }
 
@@ -491,12 +481,7 @@ Map<String, dynamic> getAnimeEpisodesView() {
     "targetPath": "data.Media.streamingEpisodes",
     "template": {
       "type": "listView",
-      "padding": {
-        "left": 16,
-        "right": 16,
-        "top": 0,
-        "bottom": 0
-      },
+      "padding": {"left": 16, "right": 16, "top": 0, "bottom": 0},
       "isPrimary": false,
       "reverse": true,
       "scrollDirection": "vertical",
@@ -508,36 +493,27 @@ Map<String, dynamic> getAnimeEpisodesView() {
         "decoration": {
           "borderRadius": 6,
           "color": "surface",
-          "border": {
-            "color": "outline@8",
-            "width": 1
-          },
+          "border": {"color": "outline@8", "width": 1},
         },
         "child": {
           "type": "row",
           "children": [
             {
               "type": "clipRRect",
-              "borderRadius": {
-                "topLeft": 6,
-                "bottomLeft": 6
-              },
+              "borderRadius": {"topLeft": 6, "bottomLeft": 6},
               "child": {
                 "type": "image",
                 "imageType": "network",
                 "src": "{{thumbnail}}",
                 "width": 114,
-                "fit": "cover"
-              }
+                "fit": "cover",
+              },
             },
             {
               "type": "expanded",
               "child": {
                 "type": "padding",
-                "padding": {
-                  "left": 12,
-                  "right": 16,
-                },
+                "padding": {"left": 12, "right": 16},
                 "child": {
                   "type": "column",
                   "crossAxisAlignment": "stretch",
@@ -552,25 +528,22 @@ Map<String, dynamic> getAnimeEpisodesView() {
                       "copyWithStyle": {
                         "fontWeight": "w600",
                         "letterSpacing": -0.1,
-                      }
+                      },
                     },
-                  ]
-                }
-              }
-            }
-          ]
-        }
+                  ],
+                },
+              },
+            },
+          ],
+        },
       },
-    }
+    },
   };
 }
 
 final Map<String, dynamic> animeInfoView = {
   "type": "padding",
-  "padding": {
-    "left": 16,
-    "right": 16,
-  },
+  "padding": {"left": 16, "right": 16},
   "child": {
     "type": "column",
     "crossAxisAlignment": "stretch",
@@ -580,18 +553,11 @@ final Map<String, dynamic> animeInfoView = {
         "type": "text",
         "data": "Anime Info",
         "style": "bodyMedium",
-        "copyWithStyle": {
-          "fontWeight": "w600",
-          "letterSpacing": -0.1,
-        },
+        "copyWithStyle": {"fontWeight": "w600", "letterSpacing": -0.1},
       },
-      {"type": "sizedBox", "height": 8,},
-      {
-        "type": "container",
-        "height": 1,
-        "color": "outline@8",
-      },
-      {"type": "sizedBox", "height": 8,},
+      {"type": "sizedBox", "height": 8},
+      {"type": "container", "height": 1, "color": "outline@8"},
+      {"type": "sizedBox", "height": 8},
       {
         "type": "column",
         "spacing": 8,
@@ -606,22 +572,20 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "Start Date",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
                   "type": "text",
-                  "data": "{{startDate.day}}/{{startDate.month}}/{{startDate.year}}",
-                  "style": "bodyMedium"
-                }
-              }
-            ]
+                  "data":
+                      "{{startDate.day}}/{{startDate.month}}/{{startDate.year}}",
+                  "style": "bodyMedium",
+                },
+              },
+            ],
           },
           {
             "type": "row",
@@ -633,13 +597,10 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "End Date",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
@@ -648,16 +609,17 @@ final Map<String, dynamic> animeInfoView = {
                   "ifTrue": {
                     "type": "text",
                     "data": "-",
-                    "style": "bodyMedium"
+                    "style": "bodyMedium",
                   },
                   "ifFalse": {
                     "type": "text",
-                    "data": "{{endDate.day}}/{{endDate.month}}/{{endDate.year}}",
-                    "style": "bodyMedium"
-                  }
-                }
-              }
-            ]
+                    "data":
+                        "{{endDate.day}}/{{endDate.month}}/{{endDate.year}}",
+                    "style": "bodyMedium",
+                  },
+                },
+              },
+            ],
           },
           {
             "type": "row",
@@ -669,22 +631,19 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "Format",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
                   "type": "text",
                   "data": "{{format}}",
-                  "style": "bodyMedium"
-                }
-              }
-            ]
+                  "style": "bodyMedium",
+                },
+              },
+            ],
           },
           {
             "type": "row",
@@ -696,13 +655,10 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "Episode Duration",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
@@ -711,16 +667,16 @@ final Map<String, dynamic> animeInfoView = {
                   "ifTrue": {
                     "type": "text",
                     "data": "-",
-                    "style": "bodyMedium"
+                    "style": "bodyMedium",
                   },
                   "ifFalse": {
                     "type": "text",
                     "data": "{{duration}} mins",
-                    "style": "bodyMedium"
-                  }
-                }
-              }
-            ]
+                    "style": "bodyMedium",
+                  },
+                },
+              },
+            ],
           },
           {
             "type": "row",
@@ -732,22 +688,19 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "Studio",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
                   "type": "text",
                   "data": "{{studios.edges[0].node.name}}",
-                  "style": "bodyMedium"
-                }
-              }
-            ]
+                  "style": "bodyMedium",
+                },
+              },
+            ],
           },
           {
             "type": "row",
@@ -759,28 +712,25 @@ final Map<String, dynamic> animeInfoView = {
                   "type": "text",
                   "data": "Source",
                   "style": "bodyMedium",
-                  "copyWithStyle": {"color": "onSurfaceVariant@65"}
-                }
+                  "copyWithStyle": {"color": "onSurfaceVariant@65"},
+                },
               },
-              {
-                "type": "sizedBox",
-                "width": 10
-              },
+              {"type": "sizedBox", "width": 10},
               {
                 "type": "expanded",
                 "child": {
                   "type": "text",
                   "data": "{{source}}",
-                  "style": "bodyMedium"
-                }
-              }
-            ]
-          }
-        ]
+                  "style": "bodyMedium",
+                },
+              },
+            ],
+          },
+        ],
       },
-      {"type": "sizedBox", "height": 8,},
-    ]
-  }
+      {"type": "sizedBox", "height": 8},
+    ],
+  },
 };
 
 Map<String, dynamic> getPill(String imgPath, String data) {

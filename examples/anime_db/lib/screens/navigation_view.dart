@@ -10,10 +10,7 @@ final Map<String, dynamic> navigationView = {
     "extendBody": true,
     "body": {
       "type": "bottomNavigationView",
-      "children": [
-        homeScreenJson,
-        scheduleScreenJson
-      ]
+      "children": [homeScreenJson, scheduleScreenJson],
     },
     "bottomNavigationBar": {
       "type": "container",
@@ -27,11 +24,7 @@ final Map<String, dynamic> navigationView = {
           "children": [
             {
               "type": "backdropFilter",
-              "filter": {
-                "type": "blur",
-                "sigmaX": 20.0,
-                "sigmaY": 20.0
-              },
+              "filter": {"type": "blur", "sigmaX": 20.0, "sigmaY": 20.0},
             },
             {
               "type": "bottomNavigationBar",
@@ -43,7 +36,7 @@ final Map<String, dynamic> navigationView = {
                 "fontSize": 12,
                 "fontWeight": "w400",
                 "height": 1.5,
-                "letterSpacing": 0
+                "letterSpacing": 0,
               },
               "unselectedLabelStyle": {
                 "color": "onSurfaceVariant@65",
@@ -51,7 +44,7 @@ final Map<String, dynamic> navigationView = {
                 "fontSize": 12,
                 "fontWeight": "w400",
                 "height": 1.5,
-                "letterSpacing": 0
+                "letterSpacing": 0,
               },
               "iconSize": 22,
               "items": [
@@ -64,7 +57,7 @@ final Map<String, dynamic> navigationView = {
                     "src": "assets/images/house-simple.svg",
                     "color": "onSurface",
                     "height": 22,
-                    "width": 22
+                    "width": 22,
                   },
                   "icon": {
                     "type": "image",
@@ -72,8 +65,8 @@ final Map<String, dynamic> navigationView = {
                     "src": "assets/images/house-simple.svg",
                     "color": "onSurfaceVariant@65",
                     "height": 22,
-                    "width": 22
-                  }
+                    "width": 22,
+                  },
                 },
                 {
                   "type": "navigationBarItem",
@@ -84,7 +77,7 @@ final Map<String, dynamic> navigationView = {
                     "src": "assets/images/calendar-dots.svg",
                     "color": "onSurface",
                     "height": 22,
-                    "width": 22
+                    "width": 22,
                   },
                   "icon": {
                     "type": "image",
@@ -92,26 +85,21 @@ final Map<String, dynamic> navigationView = {
                     "src": "assets/images/calendar-dots.svg",
                     "color": "onSurfaceVariant@65",
                     "height": 22,
-                    "width": 22
-                  }
-                }
-              ]
+                    "width": 22,
+                  },
+                },
+              ],
             },
             {
               "type": "positioned",
               "top": 0,
               "left": 0,
               "right": 0,
-              "child": {
-                "type": "container",
-                "height": 1,
-                "color": "outline@8"
-              }
+              "child": {"type": "container", "height": 1, "color": "outline@8"},
             },
-          ]
-        }
-      }
-    }
-  }
+          ],
+        },
+      },
+    },
+  },
 };
-

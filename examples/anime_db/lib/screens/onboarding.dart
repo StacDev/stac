@@ -11,7 +11,7 @@ final Map<String, dynamic> onboardingScreenJson = {
         "src": "assets/images/kny.png",
         "width": 10000,
         "height": 10000,
-        "fit": "cover"
+        "fit": "cover",
       },
       {
         "type": "positioned",
@@ -24,12 +24,7 @@ final Map<String, dynamic> onboardingScreenJson = {
           "color": "surfaceBright",
           "child": {
             "type": "padding",
-            "padding": {
-              "left": 20,
-              "right": 20,
-              "top": 40,
-              "bottom": 52
-            },
+            "padding": {"left": 20, "right": 20, "top": 40, "bottom": 52},
             "child": {
               "type": "column",
               "mainAxisAlignment": "end",
@@ -38,37 +33,33 @@ final Map<String, dynamic> onboardingScreenJson = {
                 {
                   "type": "text",
                   "data": "Ani",
-                  "style": {"fontSize": 34, "fontWeight": "w700", "height": 1.1, "letterSpacing": -0.4},
+                  "style": {
+                    "fontSize": 34,
+                    "fontWeight": "w700",
+                    "height": 1.1,
+                    "letterSpacing": -0.4,
+                  },
                   "children": [
                     {
                       "data": "Watch",
-                      "style": {
-                        "color": "primary"
-                      }
-                    }
-                  ]
+                      "style": {"color": "primary"},
+                    },
+                  ],
                 },
-                {
-                  "type": "sizedBox",
-                  "height": 10
-                },
+                {"type": "sizedBox", "height": 10},
                 {
                   "type": "text",
                   "data": "",
                   "style": "bodyLarge",
                   "children": [
                     {
-                      "data": "Watch, enjoy and track all of your anime series, movies and OVA’s",
-                      "style": {
-                        "color": "onSurfaceVariant@65"
-                      }
-                    }
-                  ]
+                      "data":
+                          "Watch, enjoy and track all of your anime series, movies and OVA’s",
+                      "style": {"color": "onSurfaceVariant@65"},
+                    },
+                  ],
                 },
-                {
-                  "type": "sizedBox",
-                  "height": 56
-                },
+                {"type": "sizedBox", "height": 56},
                 {
                   "type": "sizedBox",
                   "height": 52,
@@ -82,23 +73,21 @@ final Map<String, dynamic> onboardingScreenJson = {
                       "children": [
                         {
                           "data": "Get Started",
-                          "style": {
-                            "color": "onPrimary"
-                          }
-                        }
-                      ]
+                          "style": {"color": "onPrimary"},
+                        },
+                      ],
                     },
                     "onPressed": {
                       "actionType": "navigate",
-                      "widgetJson": navigationView
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-    ]
-  }
+                      "widgetJson": navigationView,
+                    },
+                  },
+                },
+              ],
+            },
+          },
+        },
+      },
+    ],
+  },
 };

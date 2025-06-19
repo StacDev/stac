@@ -18,7 +18,15 @@ void main() async {
     ),
   );
 
-  await Stac.initialize(dio: dio, parsers: [MovieCarouselParser(), AnimeUpcomingParser(), AniListDescriptionTextParser(), AnimeScheduleItemParser()]);
+  await Stac.initialize(
+    dio: dio,
+    parsers: [
+      MovieCarouselParser(),
+      AnimeUpcomingParser(),
+      AniListDescriptionTextParser(),
+      AnimeScheduleItemParser(),
+    ],
+  );
 
   runApp(const MyApp());
 }
@@ -28,7 +36,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     StacTheme theme;
 
     var brightness = MediaQuery.of(context).platformBrightness;
@@ -36,10 +43,15 @@ class MyApp extends StatelessWidget {
 
     return StacApp(
       title: 'Anime Db',
-      theme: StacTheme.fromJson(isDarkMode?darkThemeJson:lightThemeJson),
-      routes:{
-        "details": (context) => Stac.fromJson(getAnimeDetailsScreen(), context) ?? Text("details"),
-        "mainNav": (context) => Stac.fromJson(navigationView, context) ?? Text("mainNav")
+      theme: StacTheme.fromJson(isDarkMode ? darkThemeJson : lightThemeJson),
+      routes: {
+        "details":
+            (context) =>
+                Stac.fromJson(getAnimeDetailsScreen(), context) ??
+                Text("details"),
+        "mainNav":
+            (context) =>
+                Stac.fromJson(navigationView, context) ?? Text("mainNav"),
       },
       homeBuilder:
           (context) =>
@@ -99,37 +111,137 @@ final Map<String, dynamic> darkThemeJson = {
 };
 
 final Map<String, dynamic> textTheme = {
-  "displayLarge": {"fontFamily": "Figtree", "fontSize": 56, "fontWeight": "w700", "height": 1.1, "letterSpacing": -0.1},
-  "displayMedium": {"fontFamily": "Figtree", "fontSize": 48, "fontWeight": "w700", "height": 1.1, "letterSpacing": -0.1},
-  "displaySmall": {"fontFamily": "Figtree", "fontSize": 40, "fontWeight": "w700", "height": 1.1, "letterSpacing": -0.1},
-  "headlineLarge": {"fontFamily": "Figtree", "fontSize": 34, "fontWeight": "w700", "height": 1.3, "letterSpacing": -0.1},
-  "headlineMedium": {"fontFamily": "Figtree", "fontSize": 30, "fontWeight": "w700", "height": 1.3, "letterSpacing": -0.1},
-  "headlineSmall": {"fontFamily": "Figtree", "fontSize": 27, "fontWeight": "w700", "height": 1.3, "letterSpacing": -0.1},
-  "titleLarge": {"fontFamily": "Figtree", "fontSize": 24, "fontWeight": "w500", "height": 1.3, "letterSpacing": 0},
-  "titleMedium": {"fontFamily": "Figtree", "fontSize": 21, "fontWeight": "w500", "height": 1.3, "letterSpacing": 0},
-  "titleSmall": {"fontFamily": "Figtree", "fontSize": 19, "fontWeight": "w500", "height": 1.3, "letterSpacing": 0},
-  "labelLarge": {"fontFamily": "Figtree", "fontSize": 14, "fontWeight": "w700", "height": 1.3, "letterSpacing": 0.8},
-  "labelMedium": {"fontFamily": "Figtree", "fontSize": 12, "fontWeight": "w600", "height": 1.3, "letterSpacing": 0.8},
-  "labelSmall": {"fontFamily": "Figtree", "fontSize": 10, "fontWeight": "w500", "height": 1.3, "letterSpacing": 0.8},
-  "bodyLarge": {"fontFamily": "Figtree", "fontSize": 17, "fontWeight": "w400", "height": 1.5, "letterSpacing": 0},
-  "bodyMedium": {"fontFamily": "Figtree", "fontSize": 15, "fontWeight": "w400", "height": 1.5, "letterSpacing": 0},
-  "bodySmall": {"fontFamily": "Figtree", "fontSize": 13.5, "fontWeight": "w400", "height": 1.5, "letterSpacing": 0},
+  "displayLarge": {
+    "fontFamily": "Figtree",
+    "fontSize": 56,
+    "fontWeight": "w700",
+    "height": 1.1,
+    "letterSpacing": -0.1,
+  },
+  "displayMedium": {
+    "fontFamily": "Figtree",
+    "fontSize": 48,
+    "fontWeight": "w700",
+    "height": 1.1,
+    "letterSpacing": -0.1,
+  },
+  "displaySmall": {
+    "fontFamily": "Figtree",
+    "fontSize": 40,
+    "fontWeight": "w700",
+    "height": 1.1,
+    "letterSpacing": -0.1,
+  },
+  "headlineLarge": {
+    "fontFamily": "Figtree",
+    "fontSize": 34,
+    "fontWeight": "w700",
+    "height": 1.3,
+    "letterSpacing": -0.1,
+  },
+  "headlineMedium": {
+    "fontFamily": "Figtree",
+    "fontSize": 30,
+    "fontWeight": "w700",
+    "height": 1.3,
+    "letterSpacing": -0.1,
+  },
+  "headlineSmall": {
+    "fontFamily": "Figtree",
+    "fontSize": 27,
+    "fontWeight": "w700",
+    "height": 1.3,
+    "letterSpacing": -0.1,
+  },
+  "titleLarge": {
+    "fontFamily": "Figtree",
+    "fontSize": 24,
+    "fontWeight": "w500",
+    "height": 1.3,
+    "letterSpacing": 0,
+  },
+  "titleMedium": {
+    "fontFamily": "Figtree",
+    "fontSize": 21,
+    "fontWeight": "w500",
+    "height": 1.3,
+    "letterSpacing": 0,
+  },
+  "titleSmall": {
+    "fontFamily": "Figtree",
+    "fontSize": 19,
+    "fontWeight": "w500",
+    "height": 1.3,
+    "letterSpacing": 0,
+  },
+  "labelLarge": {
+    "fontFamily": "Figtree",
+    "fontSize": 14,
+    "fontWeight": "w700",
+    "height": 1.3,
+    "letterSpacing": 0.8,
+  },
+  "labelMedium": {
+    "fontFamily": "Figtree",
+    "fontSize": 12,
+    "fontWeight": "w600",
+    "height": 1.3,
+    "letterSpacing": 0.8,
+  },
+  "labelSmall": {
+    "fontFamily": "Figtree",
+    "fontSize": 10,
+    "fontWeight": "w500",
+    "height": 1.3,
+    "letterSpacing": 0.8,
+  },
+  "bodyLarge": {
+    "fontFamily": "Figtree",
+    "fontSize": 17,
+    "fontWeight": "w400",
+    "height": 1.5,
+    "letterSpacing": 0,
+  },
+  "bodyMedium": {
+    "fontFamily": "Figtree",
+    "fontSize": 15,
+    "fontWeight": "w400",
+    "height": 1.5,
+    "letterSpacing": 0,
+  },
+  "bodySmall": {
+    "fontFamily": "Figtree",
+    "fontSize": 13.5,
+    "fontWeight": "w400",
+    "height": 1.5,
+    "letterSpacing": 0,
+  },
 };
 
 final Map<String, dynamic> filledButtonTheme = {
   "minimumSize": {"width": 120, "height": 52},
-  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+  "textStyle": {
+    "fontSize": 16,
+    "fontWeight": "w600",
+    "height": 1.5,
+    "letterSpacing": -0.1,
+  },
   "padding": {"left": 20, "right": 20, "top": 13, "bottom": 13},
   "shape": {"borderRadius": 6},
 };
 final Map<String, dynamic> outlinedButtonTheme = {
   "minimumSize": {"width": 120, "height": 52},
-  "textStyle": {"fontSize": 16, "fontWeight": "w600", "height": 1.5, "letterSpacing": -0.1},
+  "textStyle": {
+    "fontSize": 16,
+    "fontWeight": "w600",
+    "height": 1.5,
+    "letterSpacing": -0.1,
+  },
   "padding": {"left": 20, "right": 20, "top": 13, "bottom": 13},
   "side": {"color": "primary", "width": 1.0},
   "shape": {"borderRadius": 6},
 };
 final Map<String, dynamic> dividerTheme = {
-  "color": "#24FFFFFF", "thickness": 1
+  "color": "#24FFFFFF",
+  "thickness": 1,
 };
-

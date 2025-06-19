@@ -1,4 +1,3 @@
-
 class AniListDescriptionText {
   AniListDescriptionText({required this.data});
   final String data;
@@ -8,8 +7,6 @@ class AniListDescriptionText {
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'data': data,
-    };
+    return {'data': data};
   }
 }

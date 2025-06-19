@@ -15,8 +15,8 @@ class AniListDescriptionTextParser extends StacParser<AniListDescriptionText> {
   @override
   Widget parse(BuildContext context, AniListDescriptionText model) {
     return Text(
-        _htmlToPlainText(model.data),
-        style: Theme.of(context).textTheme.bodyMedium,
+      _htmlToPlainText(model.data),
+      style: Theme.of(context).textTheme.bodyMedium,
     );
   }
 

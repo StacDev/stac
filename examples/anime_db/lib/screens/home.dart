@@ -2,11 +2,7 @@ import 'package:ani_watch/ani_list_api_utils.dart';
 
 final Map<String, dynamic> homeScreenJson = {
   "type": "scaffold",
-  "body": {
-    "type": "safeArea",
-    "bottom": false,
-    "child": homeBodyJson,
-  }
+  "body": {"type": "safeArea", "bottom": false, "child": homeBodyJson},
 };
 
 final double defaultCategoryViewSpacing = 24.0;
@@ -20,82 +16,62 @@ final Map<String, dynamic> homeBodyJson = {
         "type": "movieCarousel",
         "request": AniListAPIUtils.getAniListAPIRequest(
           AniListAPIUtils.getAniListAPIQueryForAnimeList(
-              count : 5,
-              sortType : AniListAPIUtils.SORT_TRENDING_DESC
+            count: 5,
+            sortType: AniListAPIUtils.SORT_TRENDING_DESC,
           ),
-        )
+        ),
       },
-      {
-        "type": "sizedBox",
-        "height": 20,
-      },
+      {"type": "sizedBox", "height": 20},
       {
         "type": "row",
         "children": [
-          {
-            "type": "sizedBox",
-            "width": 16,
-          },
+          {"type": "sizedBox", "width": 16},
           {
             "type": "text",
             "data": "",
             "textAlign": "start",
             "style": "bodyMedium",
-            "copyWithStyle" : {"fontWeight" : "w600", "letterSpacing": -0.1},
+            "copyWithStyle": {"fontWeight": "w600", "letterSpacing": -0.1},
             "overflow": "ellipsis",
             "children": [
               {
                 "data": "Upcoming",
-                "style": {
-                  "color": "onSurfaceVariant@65"
-                }
-              }
-            ]
-          }
-        ]
+                "style": {"color": "onSurfaceVariant@65"},
+              },
+            ],
+          },
+        ],
       },
-      {
-        "type": "sizedBox",
-        "height": 8,
-      },
+      {"type": "sizedBox", "height": 8},
       {
         "type": "animeUpcoming",
         "request": AniListAPIUtils.getAniListAPIRequest(
-          AniListAPIUtils.getAniListAPIQueryForAnimeAiringSchedule(count : 10, notYetAired: true),
-        )
+          AniListAPIUtils.getAniListAPIQueryForAnimeAiringSchedule(
+            count: 10,
+            notYetAired: true,
+          ),
+        ),
       },
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
+      {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "Popular This Season",
         season: AniListAPIUtils.getAnimeSeason(),
         seasonYear: AniListAPIUtils.getAnimeSeasonYear(),
         sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
       ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
+      {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "Upcoming Next Season",
         season: AniListAPIUtils.getNextAnimeSeason(),
         seasonYear: AniListAPIUtils.getNextAnimeSeasonYear(),
         sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
       ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
+      {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "All-Time Popular",
         sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
       ),
-      {
-        "type": "sizedBox",
-        "height": defaultCategoryViewSpacing,
-      },
+      {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "Action",
         genre: "Action",
@@ -128,15 +104,10 @@ final Map<String, dynamic> homeBodyJson = {
       //   genre: "Sci-Fi",
       //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
       // ),
-      {
-        "type": "sizedBox",
-        "height": 80,
-      },
-    ]
-  }
+      {"type": "sizedBox", "height": 80},
+    ],
+  },
 };
-
-
 
 Map<String, dynamic> getAnimeCategoryView({
   required String categoryTitle,
@@ -153,30 +124,24 @@ Map<String, dynamic> getAnimeCategoryView({
       {
         "type": "row",
         "children": [
-          {
-            "type": "sizedBox",
-            "width": 16,
-          },
+          {"type": "sizedBox", "width": 16},
           {
             "type": "text",
             "data": "",
             "textAlign": "start",
             "style": "bodyMedium",
-            "copyWithStyle" : {"fontWeight" : "w600", "letterSpacing": -0.1},
+            "copyWithStyle": {"fontWeight": "w600", "letterSpacing": -0.1},
             "overflow": "ellipsis",
             "children": [
               {
                 "data": categoryTitle,
-                "style": {"color": "onSurfaceVariant@65"}
-              }
-            ]
-          }
-        ]
+                "style": {"color": "onSurfaceVariant@65"},
+              },
+            ],
+          },
+        ],
       },
-      {
-        "type": "sizedBox",
-        "height": 10,
-      },
+      {"type": "sizedBox", "height": 10},
       {
         "type": "sizedBox",
         "height": 245,
@@ -203,13 +168,13 @@ Map<String, dynamic> getAnimeCategoryView({
               "onTap": {
                 "actionType": "setValue",
                 "values": [
-                  {"key": "anime_id", "value": "{{id}}"}
+                  {"key": "anime_id", "value": "{{id}}"},
                 ],
                 "action": {
                   "actionType": "navigate",
                   "routeName": "details",
-                  "navigationStyle": "pushNamed"
-                }
+                  "navigationStyle": "pushNamed",
+                },
               },
               "child": {
                 "type": "sizedBox",
@@ -228,15 +193,18 @@ Map<String, dynamic> getAnimeCategoryView({
                         "src": "{{coverImage.extraLarge}}",
                         "width": 132,
                         "height": 196,
-                        "fit": "cover"
-                      }
+                        "fit": "cover",
+                      },
                     },
                     {"type": "sizedBox", "height": 6},
                     {
                       "type": "text",
                       "data": "{{title.romaji}}",
                       "style": "bodyMedium",
-                      "copyWithStyle" : {"fontWeight" : "w600", "letterSpacing": -0.1},
+                      "copyWithStyle": {
+                        "fontWeight": "w600",
+                        "letterSpacing": -0.1,
+                      },
                       "overflow": "ellipsis",
                     },
                     {
@@ -244,20 +212,22 @@ Map<String, dynamic> getAnimeCategoryView({
                       "condition": "{{format}} == MOVIE",
                       "ifTrue": getYearEpsText("{{seasonYear}} · Movie"),
                       "ifFalse": {
-                        "type" : "conditional",
-                        "condition" : "{{episodes}} == null",
+                        "type": "conditional",
+                        "condition": "{{episodes}} == null",
                         "ifTrue": getYearEpsText("{{seasonYear}}"),
-                        "ifFalse" : getYearEpsText("{{seasonYear}} · {{episodes}} Eps"),
+                        "ifFalse": getYearEpsText(
+                          "{{seasonYear}} · {{episodes}} Eps",
+                        ),
                       },
-                    }
+                    },
                   ],
-                }
-              }
-            }
-          }
-        }
-      }
-    ]
+                },
+              },
+            },
+          },
+        },
+      },
+    ],
   };
 }
 
@@ -270,12 +240,11 @@ Map<String, dynamic> getYearEpsText(String data) {
     "children": [
       {
         "data": data,
-        "style": {"color": "onSurfaceVariant@65"}
-      }
-    ]
+        "style": {"color": "onSurfaceVariant@65"},
+      },
+    ],
   };
 }
-
 
 Map<String, dynamic> getAppBar({
   String? title1,
@@ -288,21 +257,32 @@ Map<String, dynamic> getAppBar({
     titleWidget = {
       "type": "text",
       "data": "Ani",
-      "style": {"fontSize": 24, "fontWeight": "w700", "height": 1.3, "letterSpacing": -0.4},
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "w700",
+        "height": 1.3,
+        "letterSpacing": -0.4,
+      },
       "children": [
-        {"data": "Watch", "style": {"color": "primary"}}
-      ]
+        {
+          "data": "Watch",
+          "style": {"color": "primary"},
+        },
+      ],
     };
   } else {
     titleWidget = {
       "type": "text",
       "data": title1 ?? "Title",
       "style": "titleSmall",
-      "copyWithStyle" : {"fontWeight" : "w600", "letterSpacing": -0.1},
+      "copyWithStyle": {"fontWeight": "w600", "letterSpacing": -0.1},
       "children": [
         if (title2 != null && title2.isNotEmpty)
-          {"data": title2, "style": {"color": "primary"}}
-      ]
+          {
+            "data": title2,
+            "style": {"color": "primary"},
+          },
+      ],
     };
   }
 
@@ -312,10 +292,7 @@ Map<String, dynamic> getAppBar({
     "width": 1000,
     "child": {
       "type": "padding",
-      "padding": {
-        "left": 16,
-        "right": 16,
-      },
+      "padding": {"left": 16, "right": 16},
       "child": {
         "type": "row",
         "children": [
@@ -327,7 +304,7 @@ Map<String, dynamic> getAppBar({
             "src": "assets/images/bell-simple.svg",
             "color": "onSurfaceVariant@65",
             "height": 22,
-            "width": 22
+            "width": 22,
           },
           {"type": "sizedBox", "width": 14},
           {
@@ -336,10 +313,10 @@ Map<String, dynamic> getAppBar({
             "src": "assets/images/user.svg",
             "color": "onSurfaceVariant@65",
             "height": 22,
-            "width": 22
+            "width": 22,
           },
-        ]
-      }
-    }
+        ],
+      },
+    },
   };
 }

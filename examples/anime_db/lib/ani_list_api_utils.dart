@@ -43,11 +43,9 @@ class AniListAPIUtils {
       "method": "post",
       "headers": {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
       },
-      "body": {
-        "query": query
-      }
+      "body": {"query": query},
     };
   }
 
@@ -122,38 +120,35 @@ class AniListAPIUtils {
     """;
   }
 
-  static String getAniListAPIQueryForAnimeAiringSchedule(
-      {required int count, bool? notYetAired, int? airingAtStart, int? airingAtEnd}) {
-    return
-      "query Page {"
-          " Page(page: 1, perPage: $count) {"
-          "  airingSchedules(sort: TIME${notYetAired != null
-          ? ", notYetAired: $notYetAired"
-          : ""}${airingAtStart != null
-          ? ", airingAt_greater: $airingAtStart"
-          : ""}${airingAtEnd != null
-          ? ", airingAt_lesser: $airingAtEnd"
-          : ""}) {"
-          "    airingAt"
-          "    episode"
-          "    timeUntilAiring"
-          "    media {"
-          "      id"
-          "      title {"
-          "        romaji"
-          "        english"
-          "        native"
-          "      }"
-          "      coverImage {"
-          "        extraLarge"
-          "        large"
-          "      }"
-          "      bannerImage"
-          "      duration"
-          "    }"
-          "  }"
-          " }"
-          "}";
+  static String getAniListAPIQueryForAnimeAiringSchedule({
+    required int count,
+    bool? notYetAired,
+    int? airingAtStart,
+    int? airingAtEnd,
+  }) {
+    return "query Page {"
+        " Page(page: 1, perPage: $count) {"
+        "  airingSchedules(sort: TIME${notYetAired != null ? ", notYetAired: $notYetAired" : ""}${airingAtStart != null ? ", airingAt_greater: $airingAtStart" : ""}${airingAtEnd != null ? ", airingAt_lesser: $airingAtEnd" : ""}) {"
+        "    airingAt"
+        "    episode"
+        "    timeUntilAiring"
+        "    media {"
+        "      id"
+        "      title {"
+        "        romaji"
+        "        english"
+        "        native"
+        "      }"
+        "      coverImage {"
+        "        extraLarge"
+        "        large"
+        "      }"
+        "      bannerImage"
+        "      duration"
+        "    }"
+        "  }"
+        " }"
+        "}";
   }
 
   static String getQueryForAnimeById(int animeId) {
@@ -296,4 +291,3 @@ class AniListAPIUtils {
     }
   }
 }
-
