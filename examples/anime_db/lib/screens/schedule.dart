@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:intl/intl.dart';
 import 'package:ani_watch/ani_list_api_utils.dart';
 import 'package:ani_watch/screens/home.dart';

@@ -2,38 +2,38 @@ class AniListAPIUtils {
   // --- Sort Types ---
 
   // General & Popularity Based
-  static const String SORT_ID = "ID";
-  static const String SORT_ID_DESC = "ID_DESC";
-  static const String SORT_POPULARITY = "POPULARITY";
-  static const String SORT_POPULARITY_DESC = "POPULARITY_DESC";
-  static const String SORT_TRENDING = "TRENDING";
-  static const String SORT_TRENDING_DESC = "TRENDING_DESC";
-  static const String SORT_FAVOURITES = "FAVOURITES";
-  static const String SORT_FAVOURITES_DESC = "FAVOURITES_DESC";
+  static const String sortId = "ID";
+  static const String sortIdDesc = "ID_DESC";
+  static const String sortPopularity = "POPULARITY";
+  static const String sortPopularityDesc = "POPULARITY_DESC";
+  static const String sortTrending = "TRENDING";
+  static const String sortTrendingDesc = "TRENDING_DESC";
+  static const String sortFavourites = "FAVOURITES";
+  static const String sortFavouritesDesc = "FAVOURITES_DESC";
 
   // Score & Rating Based
-  static const String SORT_SCORE = "SCORE";
-  static const String SORT_SCORE_DESC = "SCORE_DESC";
-  static const String SORT_MEAN_SCORE = "MEAN_SCORE";
-  static const String SORT_MEAN_SCORE_DESC = "MEAN_SCORE_DESC";
+  static const String sortScore = "SCORE";
+  static const String sortScoreDesc = "SCORE_DESC";
+  static const String sortMeanScore = "MEAN_SCORE";
+  static const String sortMeanScoreDesc = "MEAN_SCORE_DESC";
 
   // Date & Time Based
-  static const String SORT_START_DATE = "START_DATE";
-  static const String SORT_START_DATE_DESC = "START_DATE_DESC";
-  static const String SORT_END_DATE = "END_DATE";
-  static const String SORT_END_DATE_DESC = "END_DATE_DESC";
+  static const String sortStartDate = "START_DATE";
+  static const String sortStartDateDesc = "START_DATE_DESC";
+  static const String sortEndDate = "END_DATE";
+  static const String sortEndDateDesc = "END_DATE_DESC";
 
   // Alphabetical
-  static const String SORT_TITLE_ROMAJI = "TITLE_ROMAJI";
-  static const String SORT_TITLE_ROMAJI_DESC = "TITLE_ROMAJI_DESC";
-  static const String SORT_TITLE_ENGLISH = "TITLE_ENGLISH";
-  static const String SORT_TITLE_ENGLISH_DESC = "TITLE_ENGLISH_DESC";
-  static const String SORT_TITLE_NATIVE = "TITLE_NATIVE";
-  static const String SORT_TITLE_NATIVE_DESC = "TITLE_NATIVE_DESC";
+  static const String sortTitleRomaji = "TITLE_ROMAJI";
+  static const String sortTitleRomajiDesc = "TITLE_ROMAJI_DESC";
+  static const String sortTitleEnglish = "TITLE_ENGLISH";
+  static const String sortTitleEnglishDesc = "TITLE_ENGLISH_DESC";
+  static const String sortTitleNative = "TITLE_NATIVE";
+  static const String sortTitleNativeDesc = "TITLE_NATIVE_DESC";
 
   // Content Specific (Anime)
-  static const String SORT_EPISODES = "EPISODES";
-  static const String SORT_EPISODES_DESC = "EPISODES_DESC";
+  static const String sortEpisodes = "EPISODES";
+  static const String sortEpisodesDesc = "EPISODES_DESC";
 
   // --- API Query Generation ---
 

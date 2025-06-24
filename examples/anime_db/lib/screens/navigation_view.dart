@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:ani_watch/screens/home.dart';
 import 'package:ani_watch/screens/schedule.dart';
 

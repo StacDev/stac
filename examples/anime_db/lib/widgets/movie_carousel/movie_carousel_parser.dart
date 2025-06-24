@@ -6,18 +6,18 @@ import 'package:ani_watch/widgets/movie_carousel/movie_carousel.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stac/stac.dart';
 
-class MovieCarouselParser extends StacParser<MovieCarousel> {
-  const MovieCarouselParser();
+class AnimeHomeCarouselParser extends StacParser<AnimeHomeCarousel> {
+  const AnimeHomeCarouselParser();
 
   @override
-  String get type => 'movieCarousel';
+  String get type => 'AnimeHomeCarousel';
 
   @override
-  MovieCarousel getModel(Map<String, dynamic> json) =>
-      MovieCarousel.fromJson(json);
+  AnimeHomeCarousel getModel(Map<String, dynamic> json) =>
+      AnimeHomeCarousel.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, MovieCarousel model) {
+  Widget parse(BuildContext context, AnimeHomeCarousel model) {
     return FutureBuilder(
       future: StacNetworkService.request(context, model.request),
       builder: (context, snapshot) {
@@ -27,7 +27,7 @@ class MovieCarouselParser extends StacParser<MovieCarousel> {
           }
           final animeData =
               snapshot.data?.data['data']['Page']['media'] as List;
-          return MovieCarouselWidget(movies: animeData);
+          return AnimeHomeCarouselWidget(movies: animeData);
         }
         return const SizedBox(
           height: 223,
@@ -38,16 +38,17 @@ class MovieCarouselParser extends StacParser<MovieCarousel> {
   }
 }
 
-class MovieCarouselWidget extends StatefulWidget {
-  const MovieCarouselWidget({super.key, required this.movies});
+class AnimeHomeCarouselWidget extends StatefulWidget {
+  const AnimeHomeCarouselWidget({super.key, required this.movies});
 
   final List<dynamic> movies;
 
   @override
-  State<MovieCarouselWidget> createState() => _MovieCarouselWidgetState();
+  State<AnimeHomeCarouselWidget> createState() =>
+      _AnimeHomeCarouselWidgetState();
 }
 
-class _MovieCarouselWidgetState extends State<MovieCarouselWidget> {
+class _AnimeHomeCarouselWidgetState extends State<AnimeHomeCarouselWidget> {
   late PageController pageController;
 
   @override

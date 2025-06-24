@@ -13,11 +13,11 @@ final Map<String, dynamic> homeBodyJson = {
     "children": [
       getAppBar(isMainAppBar: true),
       {
-        "type": "movieCarousel",
+        "type": "AnimeHomeCarousel",
         "request": AniListAPIUtils.getAniListAPIRequest(
           AniListAPIUtils.getAniListAPIQueryForAnimeList(
             count: 5,
-            sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+            sortType: AniListAPIUtils.sortTrendingDesc,
           ),
         ),
       },
@@ -57,25 +57,25 @@ final Map<String, dynamic> homeBodyJson = {
         categoryTitle: "Popular This Season",
         season: AniListAPIUtils.getAnimeSeason(),
         seasonYear: AniListAPIUtils.getAnimeSeasonYear(),
-        sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
+        sortType: AniListAPIUtils.sortPopularityDesc,
       ),
       {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "Upcoming Next Season",
         season: AniListAPIUtils.getNextAnimeSeason(),
         seasonYear: AniListAPIUtils.getNextAnimeSeasonYear(),
-        sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
+        sortType: AniListAPIUtils.sortPopularityDesc,
       ),
       {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "All-Time Popular",
-        sortType: AniListAPIUtils.SORT_POPULARITY_DESC,
+        sortType: AniListAPIUtils.sortPopularityDesc,
       ),
       {"type": "sizedBox", "height": defaultCategoryViewSpacing},
       getAnimeCategoryView(
         categoryTitle: "Action",
         genre: "Action",
-        sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+        sortType: AniListAPIUtils.sortTrendingDesc,
       ),
       // {
       //   "type": "sizedBox",
@@ -84,7 +84,7 @@ final Map<String, dynamic> homeBodyJson = {
       // getAnimeCategoryView(
       //   categoryTitle: "Slice of Life",
       //   genre: "Slice of Life",
-      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      //   sortType: AniListAPIUtils.sortTrendingDesc,
       // ),
       // {
       //   "type": "sizedBox",
@@ -93,7 +93,7 @@ final Map<String, dynamic> homeBodyJson = {
       // getAnimeCategoryView(
       //   categoryTitle: "Fantasy",
       //   genre: "Fantasy",
-      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      //   sortType: AniListAPIUtils.sortTrendingDesc,
       // ),
       // {
       //   "type": "sizedBox",
@@ -102,7 +102,7 @@ final Map<String, dynamic> homeBodyJson = {
       // getAnimeCategoryView(
       //   categoryTitle: "Sci-Fi",
       //   genre: "Sci-Fi",
-      //   sortType: AniListAPIUtils.SORT_TRENDING_DESC,
+      //   sortType: AniListAPIUtils.sortTrendingDesc,
       // ),
       {"type": "sizedBox", "height": 80},
     ],
@@ -114,7 +114,7 @@ Map<String, dynamic> getAnimeCategoryView({
   String? genre,
   String? season,
   int? seasonYear,
-  String sortType = AniListAPIUtils.SORT_TRENDING_DESC,
+  String sortType = AniListAPIUtils.sortTrendingDesc,
 }) {
   return {
     "type": "column",

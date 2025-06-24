@@ -1,14 +1,14 @@
-import 'dart:ui';
-
 import 'package:stac/stac.dart';
 
-class MovieCarousel {
-  MovieCarousel({required this.request});
+class AnimeHomeCarousel {
+  AnimeHomeCarousel({required this.request});
 
   final StacNetworkRequest request;
 
-  factory MovieCarousel.fromJson(Map<String, dynamic> json) {
-    return MovieCarousel(request: StacNetworkRequest.fromJson(json['request']));
+  factory AnimeHomeCarousel.fromJson(Map<String, dynamic> json) {
+    return AnimeHomeCarousel(
+      request: StacNetworkRequest.fromJson(json['request']),
+    );
   }
 
   Map<String, dynamic> toJson() {

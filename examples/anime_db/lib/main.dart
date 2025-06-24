@@ -21,7 +21,7 @@ void main() async {
   await Stac.initialize(
     dio: dio,
     parsers: [
-      MovieCarouselParser(),
+      AnimeHomeCarouselParser(),
       AnimeUpcomingParser(),
       AniListDescriptionTextParser(),
       AnimeScheduleItemParser(),
@@ -36,8 +36,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    StacTheme theme;
-
     var brightness = MediaQuery.of(context).platformBrightness;
     bool isDarkMode = brightness == Brightness.dark;
 

@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 class AnimeScheduleItem {
   AnimeScheduleItem({
     required this.id,
