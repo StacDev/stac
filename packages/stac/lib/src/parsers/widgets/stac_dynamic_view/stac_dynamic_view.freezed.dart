@@ -19,6 +19,7 @@ mixin _$StacDynamicView {
   String get targetPath;
   Map<String, dynamic> get template;
   String get resultTarget;
+  Map<String, dynamic>? get emptyTemplate;
   StacWidget? get loaderWidget;
   StacWidget? get errorWidget;
 
@@ -45,6 +46,8 @@ mixin _$StacDynamicView {
             (identical(other.resultTarget, resultTarget) ||
                 other.resultTarget == resultTarget) &&
             const DeepCollectionEquality()
+                .equals(other.emptyTemplate, emptyTemplate) &&
+            const DeepCollectionEquality()
                 .equals(other.loaderWidget, loaderWidget) &&
             const DeepCollectionEquality()
                 .equals(other.errorWidget, errorWidget));
@@ -58,12 +61,13 @@ mixin _$StacDynamicView {
       targetPath,
       const DeepCollectionEquality().hash(template),
       resultTarget,
+      const DeepCollectionEquality().hash(emptyTemplate),
       const DeepCollectionEquality().hash(loaderWidget),
       const DeepCollectionEquality().hash(errorWidget));
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, emptyTemplate: $emptyTemplate, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
@@ -78,6 +82,7 @@ abstract mixin class $StacDynamicViewCopyWith<$Res> {
       String targetPath,
       Map<String, dynamic> template,
       String resultTarget,
+      Map<String, dynamic>? emptyTemplate,
       StacWidget? loaderWidget,
       StacWidget? errorWidget});
 
@@ -101,6 +106,7 @@ class _$StacDynamicViewCopyWithImpl<$Res>
     Object? targetPath = null,
     Object? template = null,
     Object? resultTarget = null,
+    Object? emptyTemplate = freezed,
     Object? loaderWidget = freezed,
     Object? errorWidget = freezed,
   }) {
@@ -121,6 +127,10 @@ class _$StacDynamicViewCopyWithImpl<$Res>
           ? _self.resultTarget
           : resultTarget // ignore: cast_nullable_to_non_nullable
               as String,
+      emptyTemplate: freezed == emptyTemplate
+          ? _self.emptyTemplate
+          : emptyTemplate // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       loaderWidget: freezed == loaderWidget
           ? _self.loaderWidget
           : loaderWidget // ignore: cast_nullable_to_non_nullable
@@ -151,9 +161,11 @@ class _StacDynamicView implements StacDynamicView {
       this.targetPath = '',
       required final Map<String, dynamic> template,
       this.resultTarget = '',
+      final Map<String, dynamic>? emptyTemplate,
       final StacWidget? loaderWidget,
       final StacWidget? errorWidget})
       : _template = template,
+        _emptyTemplate = emptyTemplate,
         _loaderWidget = loaderWidget,
         _errorWidget = errorWidget;
   factory _StacDynamicView.fromJson(Map<String, dynamic> json) =>
@@ -175,6 +187,16 @@ class _StacDynamicView implements StacDynamicView {
   @override
   @JsonKey()
   final String resultTarget;
+  final Map<String, dynamic>? _emptyTemplate;
+  @override
+  Map<String, dynamic>? get emptyTemplate {
+    final value = _emptyTemplate;
+    if (value == null) return null;
+    if (_emptyTemplate is EqualUnmodifiableMapView) return _emptyTemplate;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(value);
+  }
+
   final StacWidget? _loaderWidget;
   @override
   StacWidget? get loaderWidget {
@@ -222,6 +244,8 @@ class _StacDynamicView implements StacDynamicView {
             (identical(other.resultTarget, resultTarget) ||
                 other.resultTarget == resultTarget) &&
             const DeepCollectionEquality()
+                .equals(other._emptyTemplate, _emptyTemplate) &&
+            const DeepCollectionEquality()
                 .equals(other._loaderWidget, _loaderWidget) &&
             const DeepCollectionEquality()
                 .equals(other._errorWidget, _errorWidget));
@@ -235,12 +259,13 @@ class _StacDynamicView implements StacDynamicView {
       targetPath,
       const DeepCollectionEquality().hash(_template),
       resultTarget,
+      const DeepCollectionEquality().hash(_emptyTemplate),
       const DeepCollectionEquality().hash(_loaderWidget),
       const DeepCollectionEquality().hash(_errorWidget));
 
   @override
   String toString() {
-    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
+    return 'StacDynamicView(request: $request, targetPath: $targetPath, template: $template, resultTarget: $resultTarget, emptyTemplate: $emptyTemplate, loaderWidget: $loaderWidget, errorWidget: $errorWidget)';
   }
 }
 
@@ -257,6 +282,7 @@ abstract mixin class _$StacDynamicViewCopyWith<$Res>
       String targetPath,
       Map<String, dynamic> template,
       String resultTarget,
+      Map<String, dynamic>? emptyTemplate,
       StacWidget? loaderWidget,
       StacWidget? errorWidget});
 
@@ -281,6 +307,7 @@ class __$StacDynamicViewCopyWithImpl<$Res>
     Object? targetPath = null,
     Object? template = null,
     Object? resultTarget = null,
+    Object? emptyTemplate = freezed,
     Object? loaderWidget = freezed,
     Object? errorWidget = freezed,
   }) {
@@ -301,6 +328,10 @@ class __$StacDynamicViewCopyWithImpl<$Res>
           ? _self.resultTarget
           : resultTarget // ignore: cast_nullable_to_non_nullable
               as String,
+      emptyTemplate: freezed == emptyTemplate
+          ? _self._emptyTemplate
+          : emptyTemplate // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       loaderWidget: freezed == loaderWidget
           ? _self._loaderWidget
           : loaderWidget // ignore: cast_nullable_to_non_nullable

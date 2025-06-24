@@ -55,6 +55,13 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               Log.d("data: $data");
 
               if (data != null) {
+                // Check if data is an empty list and we have an empty template
+                if (_isEmptyList(data) && model.emptyTemplate != null) {
+                  Log.d("Data is empty list, using empty template");
+                  return Stac.fromJson(model.emptyTemplate!, context) ??
+                      const SizedBox();
+                }
+
                 // Prepare data for template based on resultTarget
                 final dataForTemplate = model.resultTarget.isNotEmpty
                     ? {model.resultTarget: data}
@@ -173,6 +180,16 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
 
       if (listForIteration != null) {
+        // Check if the list is empty
+        if (listForIteration is List && listForIteration.isEmpty) {
+          Log.d(
+              "List for iteration is empty, removing itemTemplate and children");
+          resolvedTemplate.remove(itemTemplateKey);
+          // Clear children or set to empty list
+          resolvedTemplate['children'] = [];
+          return resolvedTemplate;
+        }
+
         resolvedTemplate
             .remove(itemTemplateKey); // Remove from outer template structure
         final processedChildItems = <Map<String, dynamic>>[];
@@ -278,5 +295,33 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
     }
     return template;
+  }
+
+  /// Helper method to check if the data represents an empty list.
+  /// This method checks various scenarios:
+  /// 1. Direct empty list
+  /// 2. Empty list at the target path (if resultTarget is specified)
+  /// 3. Empty list in nested data structures
+  bool _isEmptyList(dynamic data) {
+    // Direct empty list check
+    if (data is List && data.isEmpty) {
+      return true;
+    }
+
+    // If data is a Map, check if it contains empty lists
+    if (data is Map) {
+      // Check all values in the map for empty lists
+      for (final value in data.values) {
+        if (value is List && value.isEmpty) {
+          return true;
+        }
+        // Recursively check nested maps
+        if (value is Map && _isEmptyList(value)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }
