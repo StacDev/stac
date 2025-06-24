@@ -446,7 +446,7 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "1.0.0-dev.4"
+    version: "1.0.0-dev.5"
   stac_framework:
     dependency: "direct overridden"
     description:
