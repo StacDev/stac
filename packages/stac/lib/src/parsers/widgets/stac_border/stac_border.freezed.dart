@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacBorder {
-// Legacy properties for backward compatibility (Border.all)
+// Uniform border properties (applies to all sides)
   String? get color;
   BorderStyle get borderStyle;
   StacDouble get width;
@@ -214,7 +214,7 @@ class _StacBorder implements StacBorder {
   factory _StacBorder.fromJson(Map<String, dynamic> json) =>
       _$StacBorderFromJson(json);
 
-// Legacy properties for backward compatibility (Border.all)
+// Uniform border properties (applies to all sides)
   @override
   final String? color;
   @override
