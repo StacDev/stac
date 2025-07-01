@@ -15,10 +15,15 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacBorder {
+// Legacy properties for backward compatibility (Border.all)
   String? get color;
   BorderStyle get borderStyle;
   StacDouble get width;
-  StacDouble get strokeAlign;
+  StacDouble get strokeAlign; // Individual border sides
+  StacBorderSide? get top;
+  StacBorderSide? get right;
+  StacBorderSide? get bottom;
+  StacBorderSide? get left;
 
   /// Create a copy of StacBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -40,17 +45,21 @@ mixin _$StacBorder {
                 other.borderStyle == borderStyle) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.strokeAlign, strokeAlign) ||
-                other.strokeAlign == strokeAlign));
+                other.strokeAlign == strokeAlign) &&
+            (identical(other.top, top) || other.top == top) &&
+            (identical(other.right, right) || other.right == right) &&
+            (identical(other.bottom, bottom) || other.bottom == bottom) &&
+            (identical(other.left, left) || other.left == left));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, color, borderStyle, width, strokeAlign);
+  int get hashCode => Object.hash(runtimeType, color, borderStyle, width,
+      strokeAlign, top, right, bottom, left);
 
   @override
   String toString() {
-    return 'StacBorder(color: $color, borderStyle: $borderStyle, width: $width, strokeAlign: $strokeAlign)';
+    return 'StacBorder(color: $color, borderStyle: $borderStyle, width: $width, strokeAlign: $strokeAlign, top: $top, right: $right, bottom: $bottom, left: $left)';
   }
 }
 
@@ -64,7 +73,16 @@ abstract mixin class $StacBorderCopyWith<$Res> {
       {String? color,
       BorderStyle borderStyle,
       StacDouble width,
-      StacDouble strokeAlign});
+      StacDouble strokeAlign,
+      StacBorderSide? top,
+      StacBorderSide? right,
+      StacBorderSide? bottom,
+      StacBorderSide? left});
+
+  $StacBorderSideCopyWith<$Res>? get top;
+  $StacBorderSideCopyWith<$Res>? get right;
+  $StacBorderSideCopyWith<$Res>? get bottom;
+  $StacBorderSideCopyWith<$Res>? get left;
 }
 
 /// @nodoc
@@ -83,6 +101,10 @@ class _$StacBorderCopyWithImpl<$Res> implements $StacBorderCopyWith<$Res> {
     Object? borderStyle = null,
     Object? width = null,
     Object? strokeAlign = null,
+    Object? top = freezed,
+    Object? right = freezed,
+    Object? bottom = freezed,
+    Object? left = freezed,
   }) {
     return _then(_self.copyWith(
       color: freezed == color
@@ -101,7 +123,79 @@ class _$StacBorderCopyWithImpl<$Res> implements $StacBorderCopyWith<$Res> {
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
               as StacDouble,
+      top: freezed == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      right: freezed == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      bottom: freezed == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      left: freezed == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
     ));
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get top {
+    if (_self.top == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.top!, (value) {
+      return _then(_self.copyWith(top: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get right {
+    if (_self.right == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.right!, (value) {
+      return _then(_self.copyWith(right: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get bottom {
+    if (_self.bottom == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.bottom!, (value) {
+      return _then(_self.copyWith(bottom: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get left {
+    if (_self.left == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.left!, (value) {
+      return _then(_self.copyWith(left: value));
+    });
   }
 }
 
@@ -112,10 +206,15 @@ class _StacBorder implements StacBorder {
       {this.color,
       this.borderStyle = BorderStyle.solid,
       this.width = const StacDouble(1.0),
-      this.strokeAlign = const StacDouble(BorderSide.strokeAlignInside)});
+      this.strokeAlign = const StacDouble(BorderSide.strokeAlignInside),
+      this.top,
+      this.right,
+      this.bottom,
+      this.left});
   factory _StacBorder.fromJson(Map<String, dynamic> json) =>
       _$StacBorderFromJson(json);
 
+// Legacy properties for backward compatibility (Border.all)
   @override
   final String? color;
   @override
@@ -127,6 +226,15 @@ class _StacBorder implements StacBorder {
   @override
   @JsonKey()
   final StacDouble strokeAlign;
+// Individual border sides
+  @override
+  final StacBorderSide? top;
+  @override
+  final StacBorderSide? right;
+  @override
+  final StacBorderSide? bottom;
+  @override
+  final StacBorderSide? left;
 
   /// Create a copy of StacBorder
   /// with the given fields replaced by the non-null parameter values.
@@ -153,17 +261,21 @@ class _StacBorder implements StacBorder {
                 other.borderStyle == borderStyle) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.strokeAlign, strokeAlign) ||
-                other.strokeAlign == strokeAlign));
+                other.strokeAlign == strokeAlign) &&
+            (identical(other.top, top) || other.top == top) &&
+            (identical(other.right, right) || other.right == right) &&
+            (identical(other.bottom, bottom) || other.bottom == bottom) &&
+            (identical(other.left, left) || other.left == left));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, color, borderStyle, width, strokeAlign);
+  int get hashCode => Object.hash(runtimeType, color, borderStyle, width,
+      strokeAlign, top, right, bottom, left);
 
   @override
   String toString() {
-    return 'StacBorder(color: $color, borderStyle: $borderStyle, width: $width, strokeAlign: $strokeAlign)';
+    return 'StacBorder(color: $color, borderStyle: $borderStyle, width: $width, strokeAlign: $strokeAlign, top: $top, right: $right, bottom: $bottom, left: $left)';
   }
 }
 
@@ -179,7 +291,20 @@ abstract mixin class _$StacBorderCopyWith<$Res>
       {String? color,
       BorderStyle borderStyle,
       StacDouble width,
-      StacDouble strokeAlign});
+      StacDouble strokeAlign,
+      StacBorderSide? top,
+      StacBorderSide? right,
+      StacBorderSide? bottom,
+      StacBorderSide? left});
+
+  @override
+  $StacBorderSideCopyWith<$Res>? get top;
+  @override
+  $StacBorderSideCopyWith<$Res>? get right;
+  @override
+  $StacBorderSideCopyWith<$Res>? get bottom;
+  @override
+  $StacBorderSideCopyWith<$Res>? get left;
 }
 
 /// @nodoc
@@ -198,6 +323,10 @@ class __$StacBorderCopyWithImpl<$Res> implements _$StacBorderCopyWith<$Res> {
     Object? borderStyle = null,
     Object? width = null,
     Object? strokeAlign = null,
+    Object? top = freezed,
+    Object? right = freezed,
+    Object? bottom = freezed,
+    Object? left = freezed,
   }) {
     return _then(_StacBorder(
       color: freezed == color
@@ -216,7 +345,79 @@ class __$StacBorderCopyWithImpl<$Res> implements _$StacBorderCopyWith<$Res> {
           ? _self.strokeAlign
           : strokeAlign // ignore: cast_nullable_to_non_nullable
               as StacDouble,
+      top: freezed == top
+          ? _self.top
+          : top // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      right: freezed == right
+          ? _self.right
+          : right // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      bottom: freezed == bottom
+          ? _self.bottom
+          : bottom // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
+      left: freezed == left
+          ? _self.left
+          : left // ignore: cast_nullable_to_non_nullable
+              as StacBorderSide?,
     ));
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get top {
+    if (_self.top == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.top!, (value) {
+      return _then(_self.copyWith(top: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get right {
+    if (_self.right == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.right!, (value) {
+      return _then(_self.copyWith(right: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get bottom {
+    if (_self.bottom == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.bottom!, (value) {
+      return _then(_self.copyWith(bottom: value));
+    });
+  }
+
+  /// Create a copy of StacBorder
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBorderSideCopyWith<$Res>? get left {
+    if (_self.left == null) {
+      return null;
+    }
+
+    return $StacBorderSideCopyWith<$Res>(_self.left!, (value) {
+      return _then(_self.copyWith(left: value));
+    });
   }
 }
 

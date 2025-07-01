@@ -34,6 +34,8 @@ abstract class StacTabBar with _$StacTabBar {
     bool? enableFeedback,
     StacScrollPhysics? physics,
     TabAlignment? tabAlignment,
+    String? dividerColor,
+    double? dividerHeight,
   }) = _StacTabBar;
 
   factory StacTabBar.fromJson(Map<String, dynamic> json) =>

@@ -1,8 +1,10 @@
-# melos_managed_dependency_overrides: stac,stac_framework,stac_webview
+# melos_managed_dependency_overrides: stac,stac_framework,stac_webview,stac_logger
 dependency_overrides:
   stac:
     path: ../../packages/stac
   stac_framework:
     path: ../../packages/stac_framework
+  stac_logger:
+    path: ../../packages/stac_logger
   stac_webview:
     path: ../../packages/stac_webview

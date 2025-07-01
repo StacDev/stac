@@ -1,0 +1,159 @@
+# Border
+
+StacBorder allows you to define the Flutter Border class using JSON with support for both uniform borders (all sides) and individual border sides.
+To know more about the Border class in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/painting/Border-class.html).
+
+## Features
+
+- **Uniform Border**: Apply the same border to all sides (backward compatible)
+- **Individual Border Sides**: Specify different borders for top, right, bottom, and left sides
+- **Automatic Detection**: The system automatically detects whether to use uniform or individual borders
+
+## Properties
+
+### Uniform Border (All Sides)
+
+| Property    | Type           | Description                                                                                      |
+| ----------- | -------------- | ------------------------------------------------------------------------------------------------ |
+| color       | `String?`      | Defines color of the border for all sides.                                                       |
+| width       | `StacDouble?`  | Defines thickness of the border for all sides (logical px).                                      |
+| borderStyle | `BorderStyle?` | Defines the style of the border for all sides. Can be `solid` or `none`. Defaults to `solid`.    |
+| strokeAlign | `StacDouble?`  | Defines the relative position of the stroke on values range from -1.0 (inside) to 1.0 (outside). |
+
+### Individual Border Sides
+
+| Property | Type              | Description                             |
+| -------- | ----------------- | --------------------------------------- |
+| top      | `StacBorderSide?` | Defines the border for the top side.    |
+| right    | `StacBorderSide?` | Defines the border for the right side.  |
+| bottom   | `StacBorderSide?` | Defines the border for the bottom side. |
+| left     | `StacBorderSide?` | Defines the border for the left side.   |
+
+:::note
+
+When any individual border side is specified (`top`, `right`, `bottom`, or `left`), the system will use individual border mode and ignore the uniform border properties (`color`, `width`, `borderStyle`, `strokeAlign`).
+
+:::
+
+## Examples
+
+### Uniform Border (All Sides)
+
+```json
+{
+  "border": {
+    "color": "#FF0000",
+    "width": 2.0,
+    "borderStyle": "solid",
+    "strokeAlign": 0.0
+  }
+}
+```
+
+### Individual Border Sides
+
+```json
+{
+  "border": {
+    "top": {
+      "color": "#FF0000",
+      "width": 2.0,
+      "borderStyle": "solid",
+      "strokeAlign": 0.0
+    },
+    "right": {
+      "color": "#00FF00",
+      "width": 1.0,
+      "borderStyle": "solid"
+    },
+    "bottom": {
+      "color": "#0000FF",
+      "width": 3.0,
+      "borderStyle": "solid"
+    },
+    "left": {
+      "color": "#FFFF00",
+      "width": 1.5,
+      "borderStyle": "solid"
+    }
+  }
+}
+```
+
+### Partial Border Sides
+
+You can specify only some sides, and the others will default to `BorderSide.none`:
+
+```json
+{
+  "border": {
+    "top": {
+      "color": "#FF0000",
+      "width": 2.0,
+      "borderStyle": "solid"
+    },
+    "bottom": {
+      "color": "#0000FF",
+      "width": 2.0,
+      "borderStyle": "solid"
+    }
+  }
+}
+```
+
+### Complete Container Example
+
+```json
+{
+  "type": "container",
+  "width": 200,
+  "height": 100,
+  "decoration": {
+    "color": "#F0F0F0",
+    "border": {
+      "top": {
+        "color": "#FF0000",
+        "width": 3.0,
+        "borderStyle": "solid"
+      },
+      "right": {
+        "color": "#00FF00",
+        "width": 2.0,
+        "borderStyle": "solid"
+      },
+      "bottom": {
+        "color": "#0000FF",
+        "width": 3.0,
+        "borderStyle": "solid"
+      },
+      "left": {
+        "color": "#FFFF00",
+        "width": 2.0,
+        "borderStyle": "solid"
+      }
+    },
+    "borderRadius": {
+      "topLeft": 8.0,
+      "topRight": 8.0,
+      "bottomLeft": 8.0,
+      "bottomRight": 8.0
+    }
+  },
+  "child": {
+    "type": "center",
+    "child": {
+      "type": "text",
+      "data": "Custom Borders",
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "bold"
+      }
+    }
+  }
+}
+```
+
+## See Also
+
+- [Border Side](./border_side.md) - Learn about StacBorderSide properties
+- [Border Radius](./border_radius.md) - Learn about border radius configuration

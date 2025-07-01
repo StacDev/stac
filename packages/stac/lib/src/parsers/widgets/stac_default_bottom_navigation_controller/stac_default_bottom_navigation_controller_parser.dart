@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/widgets/stac_default_bottom_navigation_controller/stac_default_bottom_navigation_controller.dart';
-import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacDefaultBottomNavigationControllerParser
     extends StacParser<StacDefaultBottomNavigationController> {

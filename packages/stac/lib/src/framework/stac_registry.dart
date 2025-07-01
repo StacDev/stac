@@ -1,4 +1,4 @@
-import 'package:stac/src/utils/log.dart';
+import 'package:stac_logger/stac_logger.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacRegistry {

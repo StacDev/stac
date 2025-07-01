@@ -116,7 +116,7 @@
               "children": [
                 {
                   "type": "image",
-                  "src": "https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/android.svg",
+                  "src": "http://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg",
                   "height": 100,
                   "width": 100
                 },

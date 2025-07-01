@@ -112,8 +112,8 @@ class _$StacBorderSideCopyWithImpl<$Res>
 class _StacBorderSide implements StacBorderSide {
   const _StacBorderSide(
       {this.color,
-      this.width = StacDouble.zero,
-      this.strokeAlign = StacDouble.zero,
+      this.width = const StacDouble(1.0),
+      this.strokeAlign = const StacDouble(BorderSide.strokeAlignInside),
       this.borderStyle = BorderStyle.solid});
   factory _StacBorderSide.fromJson(Map<String, dynamic> json) =>
       _$StacBorderSideFromJson(json);
