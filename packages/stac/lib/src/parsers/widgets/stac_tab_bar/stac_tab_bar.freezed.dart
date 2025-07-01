@@ -23,6 +23,7 @@ mixin _$StacTabBar {
   bool get automaticIndicatorColorAdjustment;
   StacDouble get indicatorWeight;
   StacEdgeInsets? get indicatorPadding;
+  StacBoxDecoration? get indicator;
   TabBarIndicatorSize? get indicatorSize;
   String? get labelColor;
   StacTextStyle? get labelStyle;
@@ -65,6 +66,8 @@ mixin _$StacTabBar {
                 other.indicatorWeight == indicatorWeight) &&
             (identical(other.indicatorPadding, indicatorPadding) ||
                 other.indicatorPadding == indicatorPadding) &&
+            (identical(other.indicator, indicator) ||
+                other.indicator == indicator) &&
             (identical(other.indicatorSize, indicatorSize) ||
                 other.indicatorSize == indicatorSize) &&
             (identical(other.labelColor, labelColor) ||
@@ -88,30 +91,32 @@ mixin _$StacTabBar {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(tabs),
-      initialIndex,
-      isScrollable,
-      padding,
-      indicatorColor,
-      automaticIndicatorColorAdjustment,
-      indicatorWeight,
-      indicatorPadding,
-      indicatorSize,
-      labelColor,
-      labelStyle,
-      labelPadding,
-      unselectedLabelColor,
-      unselectedLabelStyle,
-      dragStartBehavior,
-      enableFeedback,
-      physics,
-      tabAlignment);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(tabs),
+        initialIndex,
+        isScrollable,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        enableFeedback,
+        physics,
+        tabAlignment
+      ]);
 
   @override
   String toString() {
-    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
+    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicator: $indicator, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
   }
 }
 
@@ -130,6 +135,7 @@ abstract mixin class $StacTabBarCopyWith<$Res> {
       bool automaticIndicatorColorAdjustment,
       StacDouble indicatorWeight,
       StacEdgeInsets? indicatorPadding,
+      StacBoxDecoration? indicator,
       TabBarIndicatorSize? indicatorSize,
       String? labelColor,
       StacTextStyle? labelStyle,
@@ -143,6 +149,7 @@ abstract mixin class $StacTabBarCopyWith<$Res> {
 
   $StacEdgeInsetsCopyWith<$Res>? get padding;
   $StacEdgeInsetsCopyWith<$Res>? get indicatorPadding;
+  $StacBoxDecorationCopyWith<$Res>? get indicator;
   $StacTextStyleCopyWith<$Res>? get labelStyle;
   $StacEdgeInsetsCopyWith<$Res>? get labelPadding;
   $StacTextStyleCopyWith<$Res>? get unselectedLabelStyle;
@@ -168,6 +175,7 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
     Object? automaticIndicatorColorAdjustment = null,
     Object? indicatorWeight = null,
     Object? indicatorPadding = freezed,
+    Object? indicator = freezed,
     Object? indicatorSize = freezed,
     Object? labelColor = freezed,
     Object? labelStyle = freezed,
@@ -213,6 +221,10 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
           ? _self.indicatorPadding
           : indicatorPadding // ignore: cast_nullable_to_non_nullable
               as StacEdgeInsets?,
+      indicator: freezed == indicator
+          ? _self.indicator
+          : indicator // ignore: cast_nullable_to_non_nullable
+              as StacBoxDecoration?,
       indicatorSize: freezed == indicatorSize
           ? _self.indicatorSize
           : indicatorSize // ignore: cast_nullable_to_non_nullable
@@ -281,6 +293,20 @@ class _$StacTabBarCopyWithImpl<$Res> implements $StacTabBarCopyWith<$Res> {
 
     return $StacEdgeInsetsCopyWith<$Res>(_self.indicatorPadding!, (value) {
       return _then(_self.copyWith(indicatorPadding: value));
+    });
+  }
+
+  /// Create a copy of StacTabBar
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBoxDecorationCopyWith<$Res>? get indicator {
+    if (_self.indicator == null) {
+      return null;
+    }
+
+    return $StacBoxDecorationCopyWith<$Res>(_self.indicator!, (value) {
+      return _then(_self.copyWith(indicator: value));
     });
   }
 
@@ -339,6 +365,7 @@ class _StacTabBar implements StacTabBar {
       this.automaticIndicatorColorAdjustment = true,
       this.indicatorWeight = const StacDouble(2.0),
       this.indicatorPadding,
+      this.indicator,
       this.indicatorSize,
       this.labelColor,
       this.labelStyle,
@@ -379,6 +406,8 @@ class _StacTabBar implements StacTabBar {
   final StacDouble indicatorWeight;
   @override
   final StacEdgeInsets? indicatorPadding;
+  @override
+  final StacBoxDecoration? indicator;
   @override
   final TabBarIndicatorSize? indicatorSize;
   @override
@@ -437,6 +466,8 @@ class _StacTabBar implements StacTabBar {
                 other.indicatorWeight == indicatorWeight) &&
             (identical(other.indicatorPadding, indicatorPadding) ||
                 other.indicatorPadding == indicatorPadding) &&
+            (identical(other.indicator, indicator) ||
+                other.indicator == indicator) &&
             (identical(other.indicatorSize, indicatorSize) ||
                 other.indicatorSize == indicatorSize) &&
             (identical(other.labelColor, labelColor) ||
@@ -460,30 +491,32 @@ class _StacTabBar implements StacTabBar {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_tabs),
-      initialIndex,
-      isScrollable,
-      padding,
-      indicatorColor,
-      automaticIndicatorColorAdjustment,
-      indicatorWeight,
-      indicatorPadding,
-      indicatorSize,
-      labelColor,
-      labelStyle,
-      labelPadding,
-      unselectedLabelColor,
-      unselectedLabelStyle,
-      dragStartBehavior,
-      enableFeedback,
-      physics,
-      tabAlignment);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(_tabs),
+        initialIndex,
+        isScrollable,
+        padding,
+        indicatorColor,
+        automaticIndicatorColorAdjustment,
+        indicatorWeight,
+        indicatorPadding,
+        indicator,
+        indicatorSize,
+        labelColor,
+        labelStyle,
+        labelPadding,
+        unselectedLabelColor,
+        unselectedLabelStyle,
+        dragStartBehavior,
+        enableFeedback,
+        physics,
+        tabAlignment
+      ]);
 
   @override
   String toString() {
-    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
+    return 'StacTabBar(tabs: $tabs, initialIndex: $initialIndex, isScrollable: $isScrollable, padding: $padding, indicatorColor: $indicatorColor, automaticIndicatorColorAdjustment: $automaticIndicatorColorAdjustment, indicatorWeight: $indicatorWeight, indicatorPadding: $indicatorPadding, indicator: $indicator, indicatorSize: $indicatorSize, labelColor: $labelColor, labelStyle: $labelStyle, labelPadding: $labelPadding, unselectedLabelColor: $unselectedLabelColor, unselectedLabelStyle: $unselectedLabelStyle, dragStartBehavior: $dragStartBehavior, enableFeedback: $enableFeedback, physics: $physics, tabAlignment: $tabAlignment)';
   }
 }
 
@@ -504,6 +537,7 @@ abstract mixin class _$StacTabBarCopyWith<$Res>
       bool automaticIndicatorColorAdjustment,
       StacDouble indicatorWeight,
       StacEdgeInsets? indicatorPadding,
+      StacBoxDecoration? indicator,
       TabBarIndicatorSize? indicatorSize,
       String? labelColor,
       StacTextStyle? labelStyle,
@@ -519,6 +553,8 @@ abstract mixin class _$StacTabBarCopyWith<$Res>
   $StacEdgeInsetsCopyWith<$Res>? get padding;
   @override
   $StacEdgeInsetsCopyWith<$Res>? get indicatorPadding;
+  @override
+  $StacBoxDecorationCopyWith<$Res>? get indicator;
   @override
   $StacTextStyleCopyWith<$Res>? get labelStyle;
   @override
@@ -547,6 +583,7 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
     Object? automaticIndicatorColorAdjustment = null,
     Object? indicatorWeight = null,
     Object? indicatorPadding = freezed,
+    Object? indicator = freezed,
     Object? indicatorSize = freezed,
     Object? labelColor = freezed,
     Object? labelStyle = freezed,
@@ -592,6 +629,10 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
           ? _self.indicatorPadding
           : indicatorPadding // ignore: cast_nullable_to_non_nullable
               as StacEdgeInsets?,
+      indicator: freezed == indicator
+          ? _self.indicator
+          : indicator // ignore: cast_nullable_to_non_nullable
+              as StacBoxDecoration?,
       indicatorSize: freezed == indicatorSize
           ? _self.indicatorSize
           : indicatorSize // ignore: cast_nullable_to_non_nullable
@@ -660,6 +701,20 @@ class __$StacTabBarCopyWithImpl<$Res> implements _$StacTabBarCopyWith<$Res> {
 
     return $StacEdgeInsetsCopyWith<$Res>(_self.indicatorPadding!, (value) {
       return _then(_self.copyWith(indicatorPadding: value));
+    });
+  }
+
+  /// Create a copy of StacTabBar
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StacBoxDecorationCopyWith<$Res>? get indicator {
+    if (_self.indicator == null) {
+      return null;
+    }
+
+    return $StacBoxDecorationCopyWith<$Res>(_self.indicator!, (value) {
+      return _then(_self.copyWith(indicator: value));
     });
   }
 

@@ -4,6 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stac/src/parsers/widgets/stac_double/stac_double.dart';
 import 'package:stac/src/parsers/widgets/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
+import 'package:stac/src/parsers/widgets/stac_box_decoration/stac_box_decoration.dart';
 import 'package:stac/src/utils/stac_scroll_physics.dart';
 
 export 'stac_tab_bar_parser.dart';
@@ -22,6 +23,7 @@ abstract class StacTabBar with _$StacTabBar {
     @Default(true) bool automaticIndicatorColorAdjustment,
     @Default(StacDouble(2.0)) StacDouble indicatorWeight,
     StacEdgeInsets? indicatorPadding,
+    StacBoxDecoration? indicator,
     TabBarIndicatorSize? indicatorSize,
     String? labelColor,
     StacTextStyle? labelStyle,

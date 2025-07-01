@@ -6,6 +6,7 @@ import 'package:stac/src/parsers/widgets/stac_tab_bar/stac_tab_bar.dart';
 import 'package:stac/src/parsers/widgets/stac_text_style/stac_text_style.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac/src/parsers/widgets/stac_box_decoration/stac_box_decoration.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacTabBarParser extends StacParser<StacTabBar> {
@@ -33,6 +34,7 @@ class StacTabBarParser extends StacParser<StacTabBar> {
           model.automaticIndicatorColorAdjustment,
       indicatorWeight: model.indicatorWeight.parse,
       indicatorPadding: model.indicatorPadding.parse,
+      indicator: model.indicator?.parse(context),
       indicatorSize: model.indicatorSize,
       labelColor: model.labelColor.toColor(context),
       labelStyle: model.labelStyle?.parse(context),
