@@ -76,4 +76,5 @@ enum WidgetType {
   textFormField,
   wrap,
   visibility,
+  verticalDivider,
 }
