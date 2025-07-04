@@ -17,21 +17,12 @@ class StacVerticalDividerParser extends StacParser<StacVerticalDivider> {
 
   @override
   Widget parse(BuildContext context, StacVerticalDivider model) {
-    final Widget divider = VerticalDivider(
-      width: model.width?.parse ?? 1.0,
-      thickness: model.thickness?.parse ?? 1.0,
+    return VerticalDivider(
+      width: model.width?.parse,
+      thickness: model.thickness?.parse,
       indent: model.indent?.parse,
       endIndent: model.endIndent?.parse,
       color: model.color?.toColor(context),
     );
-
-    if (model.height != null) {
-      return SizedBox(
-        height: model.height!.parse,
-        child: divider,
-      );
-    }
-
-    return divider;
   }
 }

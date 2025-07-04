@@ -7,30 +7,21 @@ To know more about the vertical divider widget in Flutter, refer to the [officia
 
 | Property   | Type         | Description                                        |
 |------------|--------------|----------------------------------------------------|
-| width      | `StacDouble?`  | The width of the divider. Defaults to `1.0`.       |
-| thickness  | `StacDouble?`  | The thickness of the divider. Defaults to `1.0`.   |
+| width      | `StacDouble?`  | The width of the divider.                          |
+| thickness  | `StacDouble?`  | The thickness of the divider.                      |
 | indent     | `StacDouble?`  | The amount of space to indent the divider.         |
 | endIndent  | `StacDouble?`  | The amount of space to indent the divider at the end. |
 | color      | `String?`    | The color of the divider.                          |
-| height     | `StacDouble?`  | The height of the divider.                         |
 
 ## Example JSON
 
 ```json
 {
   "type": "verticalDivider",
-  "width": {
-    "value": 2.0
-  },
-  "thickness": {
-    "value": 2.0
-  },
-  "indent": {
-    "value": 10.0
-  },
-  "endIndent": {
-    "value": 10.0
-  },
-  "color": "#FF0000"
+  "width": 20,
+  "thickness": 4,
+  "indent": 10,
+  "endIndent": 10,
+  "color": "#21814C"
 }
 ```

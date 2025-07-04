@@ -8,8 +8,6 @@ part of 'stac_vertical_divider.dart';
 
 _StacVerticalDivider _$StacVerticalDividerFromJson(Map<String, dynamic> json) =>
     _StacVerticalDivider(
-      height:
-          json['height'] == null ? null : StacDouble.fromJson(json['height']),
       width: json['width'] == null ? null : StacDouble.fromJson(json['width']),
       thickness: json['thickness'] == null
           ? null
@@ -25,7 +23,6 @@ _StacVerticalDivider _$StacVerticalDividerFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$StacVerticalDividerToJson(
         _StacVerticalDivider instance) =>
     <String, dynamic>{
-      'height': instance.height,
       'width': instance.width,
       'thickness': instance.thickness,
       'indent': instance.indent,

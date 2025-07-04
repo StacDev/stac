@@ -9,12 +9,13 @@
   },
   "body": {
     "type": "listView",
-    "children": [{
-      "type": "divider",
-      "thickness": 5,
-      "height": 5,
-      "color": "#672BFF"
-    },
+    "children": [
+      {
+        "type": "divider",
+        "thickness": 5,
+        "height": 5,
+        "color": "#672BFF"
+      },
       {
         "type": "sizedBox",
         "height": 20
@@ -34,6 +35,23 @@
         "thickness": 2,
         "height": 2,
         "color": "#32FC88"
-      }]
+      },
+      {
+        "type": "sizedBox",
+        "height": 20
+      },
+      {
+        "type": "sizedBox",
+        "height": 200,
+        "child": {
+          "type": "verticalDivider",
+          "width": 20,
+          "thickness": 4,
+          "indent": 10,
+          "endIndent": 10,
+          "color": "#21814C"
+        }
+      }
+    ]
   }
 }

@@ -15,7 +15,6 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$StacVerticalDivider {
-  StacDouble? get height;
   StacDouble? get width;
   StacDouble? get thickness;
   StacDouble? get indent;
@@ -38,7 +37,6 @@ mixin _$StacVerticalDivider {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is StacVerticalDivider &&
-            (identical(other.height, height) || other.height == height) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.thickness, thickness) ||
                 other.thickness == thickness) &&
@@ -50,12 +48,12 @@ mixin _$StacVerticalDivider {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, height, width, thickness, indent, endIndent, color);
+  int get hashCode =>
+      Object.hash(runtimeType, width, thickness, indent, endIndent, color);
 
   @override
   String toString() {
-    return 'StacVerticalDivider(height: $height, width: $width, thickness: $thickness, indent: $indent, endIndent: $endIndent, color: $color)';
+    return 'StacVerticalDivider(width: $width, thickness: $thickness, indent: $indent, endIndent: $endIndent, color: $color)';
   }
 }
 
@@ -66,8 +64,7 @@ abstract mixin class $StacVerticalDividerCopyWith<$Res> {
       _$StacVerticalDividerCopyWithImpl;
   @useResult
   $Res call(
-      {StacDouble? height,
-      StacDouble? width,
+      {StacDouble? width,
       StacDouble? thickness,
       StacDouble? indent,
       StacDouble? endIndent,
@@ -87,7 +84,6 @@ class _$StacVerticalDividerCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? height = freezed,
     Object? width = freezed,
     Object? thickness = freezed,
     Object? indent = freezed,
@@ -95,10 +91,6 @@ class _$StacVerticalDividerCopyWithImpl<$Res>
     Object? color = freezed,
   }) {
     return _then(_self.copyWith(
-      height: freezed == height
-          ? _self.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as StacDouble?,
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -127,17 +119,10 @@ class _$StacVerticalDividerCopyWithImpl<$Res>
 @JsonSerializable()
 class _StacVerticalDivider implements StacVerticalDivider {
   const _StacVerticalDivider(
-      {this.height,
-      this.width,
-      this.thickness,
-      this.indent,
-      this.endIndent,
-      this.color});
+      {this.width, this.thickness, this.indent, this.endIndent, this.color});
   factory _StacVerticalDivider.fromJson(Map<String, dynamic> json) =>
       _$StacVerticalDividerFromJson(json);
 
-  @override
-  final StacDouble? height;
   @override
   final StacDouble? width;
   @override
@@ -170,7 +155,6 @@ class _StacVerticalDivider implements StacVerticalDivider {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StacVerticalDivider &&
-            (identical(other.height, height) || other.height == height) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.thickness, thickness) ||
                 other.thickness == thickness) &&
@@ -182,12 +166,12 @@ class _StacVerticalDivider implements StacVerticalDivider {
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, height, width, thickness, indent, endIndent, color);
+  int get hashCode =>
+      Object.hash(runtimeType, width, thickness, indent, endIndent, color);
 
   @override
   String toString() {
-    return 'StacVerticalDivider(height: $height, width: $width, thickness: $thickness, indent: $indent, endIndent: $endIndent, color: $color)';
+    return 'StacVerticalDivider(width: $width, thickness: $thickness, indent: $indent, endIndent: $endIndent, color: $color)';
   }
 }
 
@@ -200,8 +184,7 @@ abstract mixin class _$StacVerticalDividerCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {StacDouble? height,
-      StacDouble? width,
+      {StacDouble? width,
       StacDouble? thickness,
       StacDouble? indent,
       StacDouble? endIndent,
@@ -221,7 +204,6 @@ class __$StacVerticalDividerCopyWithImpl<$Res>
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? height = freezed,
     Object? width = freezed,
     Object? thickness = freezed,
     Object? indent = freezed,
@@ -229,10 +211,6 @@ class __$StacVerticalDividerCopyWithImpl<$Res>
     Object? color = freezed,
   }) {
     return _then(_StacVerticalDivider(
-      height: freezed == height
-          ? _self.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as StacDouble?,
       width: freezed == width
           ? _self.width
           : width // ignore: cast_nullable_to_non_nullable

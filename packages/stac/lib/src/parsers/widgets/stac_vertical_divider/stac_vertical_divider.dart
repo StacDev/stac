@@ -9,7 +9,6 @@ part 'stac_vertical_divider.g.dart';
 @freezed
 abstract class StacVerticalDivider with _$StacVerticalDivider {
   const factory StacVerticalDivider({
-    StacDouble? height,
     StacDouble? width,
     StacDouble? thickness,
     StacDouble? indent,

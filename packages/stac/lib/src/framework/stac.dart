@@ -109,6 +109,7 @@ class Stac {
     const StacConditionalParser(),
     const StacVisibilityParser(),
     const StacBackdropFilterParser(),
+    const StacVerticalDividerParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
