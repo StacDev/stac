@@ -13,6 +13,28 @@
       "url": "https://dummyjson.com/users/1",
       "method": "get"
     },
+    "loaderWidget": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "children": [
+          {
+            "type": "text",
+            "data": "Loading..."
+          },
+          {
+            "type": "circularProgressIndicator"
+          }
+        ]
+      }
+    },
+    "errorWidget": {
+      "type": "center",
+      "child": {
+        "type": "text",
+        "data": "Error fetching user profile"
+      }
+    },
     "template": {
       "type": "column",
       "children": [

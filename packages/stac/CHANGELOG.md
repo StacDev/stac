@@ -1,3 +1,16 @@
+## 1.0.0-dev.5
+
+* feat: WASM compatibility for Web/WASM platform support
+* feat: Implemented conditional widget with expression evaluation for dynamic UI logic
+* feat: Added SVG file rendering capability to StacImage by @Potatomonsta
+* feat: Added TextStyle.copyWith() functionality via copyWithStyle property by @Abdalqader27
+* feat: Implemented border side customization in BoxDecoration by @MohamedAbd0
+* feat: Added multi_action_parser support for advanced interaction handling by @antonioacademy10 
+* feat: Integrated SnackBarThemeData for consistent styling by @Potatomonsta
+* feat: Implemented BackdropFilter widget by @manav-m 
+* feat: Introduced color transparency using @ notation (e.g. "primary@50")
+* feat: Added support for Visibility widget by @Abdalqader27
+
 ## 1.0.0-dev.4
 
 * chore: update pub dependencies
