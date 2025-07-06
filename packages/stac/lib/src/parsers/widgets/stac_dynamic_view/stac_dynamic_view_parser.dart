@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/widgets/stac_dynamic_view/stac_dynamic_view.dart';
 import 'package:stac/src/services/stac_network_service.dart';
-import 'package:stac/src/utils/log.dart';
 import 'package:stac/src/utils/widget_type.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacDynamicViewParser extends StacParser<StacDynamicView> {
   const StacDynamicViewParser();
@@ -26,10 +26,11 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       future: _fetchData(context, model),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
+          return Stac.fromJson(model.loaderWidget, context) ??
+              const Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
           Log.e(snapshot.error);
-          return const SizedBox();
+          return Stac.fromJson(model.errorWidget, context) ?? const SizedBox();
         } else if (snapshot.hasData) {
           final response = snapshot.data;
           if (response != null) {
@@ -54,6 +55,13 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               Log.d("data: $data");
 
               if (data != null) {
+                // Check if data is an empty list and we have an empty template
+                if (_isEmptyList(data) && model.emptyTemplate != null) {
+                  Log.d("Data is empty list, using empty template");
+                  return Stac.fromJson(model.emptyTemplate!, context) ??
+                      const SizedBox();
+                }
+
                 // Prepare data for template based on resultTarget
                 final dataForTemplate = model.resultTarget.isNotEmpty
                     ? {model.resultTarget: data}
@@ -70,7 +78,8 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               }
             } catch (e) {
               Log.e('Error parsing API response: $e');
-              return SizedBox();
+              return Stac.fromJson(model.errorWidget, context) ??
+                  const SizedBox();
             }
           }
           return const SizedBox();
@@ -95,14 +104,53 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   dynamic _extractNestedData(dynamic data, List<String> keys) {
     dynamic current = data;
+    final RegExp arrayKeyRegex = RegExp(r'(\w+)\[(\d+)\]');
+
     for (final key in keys) {
-      if (current is Map && current.containsKey(key)) {
-        current = current[key];
+      Match? arrayMatch = arrayKeyRegex.firstMatch(key);
+
+      if (arrayMatch != null) {
+        final String actualKey = arrayMatch.group(1)!;
+        final int index = int.parse(arrayMatch.group(2)!);
+
+        if (current is Map && current.containsKey(actualKey)) {
+          dynamic potentialList = current[actualKey];
+          if (potentialList is List) {
+            if (index >= 0 && index < potentialList.length) {
+              current = potentialList[index];
+            } else {
+              return null;
+            }
+          } else {
+            return null;
+          }
+        } else {
+          return null;
+        }
       } else {
-        return null;
+        if (current is Map && current.containsKey(key)) {
+          current = current[key];
+        } else if (current is List) {
+          try {
+            int index = int.parse(key);
+            if (index >= 0 && index < current.length) {
+              current = current[index];
+            } else {
+              return null;
+            }
+          } catch (e) {
+            return null;
+          }
+        } else {
+          return null;
+        }
       }
     }
-    return current;
+    if (current == null) {
+      return "null";
+    } else {
+      return current;
+    }
   }
 
   Map<String, dynamic> _applyDataToTemplate(
@@ -132,6 +180,16 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
 
       if (listForIteration != null) {
+        // Check if the list is empty
+        if (listForIteration is List && listForIteration.isEmpty) {
+          Log.d(
+              "List for iteration is empty, removing itemTemplate and children");
+          resolvedTemplate.remove(itemTemplateKey);
+          // Clear children or set to empty list
+          resolvedTemplate['children'] = [];
+          return resolvedTemplate;
+        }
+
         resolvedTemplate
             .remove(itemTemplateKey); // Remove from outer template structure
         final processedChildItems = <Map<String, dynamic>>[];
@@ -218,8 +276,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
               // Extract the value from the data
               final dataValue = _extractNestedData(data, keys);
 
-              processedValue =
-                  processedValue.replaceAll(placeholder, dataValue.toString());
+              if (dataValue != null) {
+                processedValue = processedValue.replaceAll(
+                    placeholder, dataValue.toString());
+              }
             }
 
             template[key] = processedValue;
@@ -235,5 +295,33 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
     }
     return template;
+  }
+
+  /// Helper method to check if the data represents an empty list.
+  /// This method checks various scenarios:
+  /// 1. Direct empty list
+  /// 2. Empty list at the target path (if resultTarget is specified)
+  /// 3. Empty list in nested data structures
+  bool _isEmptyList(dynamic data) {
+    // Direct empty list check
+    if (data is List && data.isEmpty) {
+      return true;
+    }
+
+    // If data is a Map, check if it contains empty lists
+    if (data is Map) {
+      // Check all values in the map for empty lists
+      for (final value in data.values) {
+        if (value is List && value.isEmpty) {
+          return true;
+        }
+        // Recursively check nested maps
+        if (value is Map && _isEmptyList(value)) {
+          return true;
+        }
+      }
+    }
+
+    return false;
   }
 }

@@ -15,6 +15,7 @@ To know more about the TabBar widget in Flutter, refer to the [official document
 | automaticIndicatorColorAdjustment    | `bool`                        | Whether to automatically adjust the indicator color. Defaults to `true`.    |
 | indicatorWeight                      | `double`                      | The thickness of the tab indicator. Defaults to `2.0`.                      |
 | indicatorPadding                     | `StacEdgeInsets?`            | The padding for the tab indicator.                                          |
+| indicator                            | `StacBoxDecoration?`         | The decoration for the tab indicator.                                       |
 | indicatorSize                        | `TabBarIndicatorSize?`        | The size of the tab indicator.                                              |
 | labelColor                           | `String?`                     | The color of the selected tab label.                                        |
 | labelStyle                           | `StacTextStyle?`             | The text style of the selected tab label.                                   |

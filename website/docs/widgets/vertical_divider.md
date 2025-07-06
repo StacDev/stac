@@ -1,0 +1,27 @@
+# Vertical Divider
+
+The Stac Vertical Divider allows you to build a Flutter vertical divider widget using JSON.
+To know more about the vertical divider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/VerticalDivider-class.html).
+
+## Properties
+
+| Property   | Type         | Description                                        |
+|------------|--------------|----------------------------------------------------|
+| width      | `StacDouble?`  | The width of the divider.                          |
+| thickness  | `StacDouble?`  | The thickness of the divider.                      |
+| indent     | `StacDouble?`  | The amount of space to indent the divider.         |
+| endIndent  | `StacDouble?`  | The amount of space to indent the divider at the end. |
+| color      | `String?`    | The color of the divider.                          |
+
+## Example JSON
+
+```json
+{
+  "type": "verticalDivider",
+  "width": 20,
+  "thickness": 4,
+  "indent": 10,
+  "endIndent": 10,
+  "color": "#21814C"
+}
+```

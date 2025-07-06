@@ -24,6 +24,10 @@ _StacTabBar _$StacTabBarFromJson(Map<String, dynamic> json) => _StacTabBar(
       indicatorPadding: json['indicatorPadding'] == null
           ? null
           : StacEdgeInsets.fromJson(json['indicatorPadding']),
+      indicator: json['indicator'] == null
+          ? null
+          : StacBoxDecoration.fromJson(
+              json['indicator'] as Map<String, dynamic>),
       indicatorSize: $enumDecodeNullable(
           _$TabBarIndicatorSizeEnumMap, json['indicatorSize']),
       labelColor: json['labelColor'] as String?,
@@ -44,6 +48,8 @@ _StacTabBar _$StacTabBarFromJson(Map<String, dynamic> json) => _StacTabBar(
       physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
       tabAlignment:
           $enumDecodeNullable(_$TabAlignmentEnumMap, json['tabAlignment']),
+      dividerColor: json['dividerColor'] as String?,
+      dividerHeight: (json['dividerHeight'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$StacTabBarToJson(_StacTabBar instance) =>
@@ -57,6 +63,7 @@ Map<String, dynamic> _$StacTabBarToJson(_StacTabBar instance) =>
           instance.automaticIndicatorColorAdjustment,
       'indicatorWeight': instance.indicatorWeight,
       'indicatorPadding': instance.indicatorPadding,
+      'indicator': instance.indicator,
       'indicatorSize': _$TabBarIndicatorSizeEnumMap[instance.indicatorSize],
       'labelColor': instance.labelColor,
       'labelStyle': instance.labelStyle,
@@ -68,6 +75,8 @@ Map<String, dynamic> _$StacTabBarToJson(_StacTabBar instance) =>
       'enableFeedback': instance.enableFeedback,
       'physics': _$StacScrollPhysicsEnumMap[instance.physics],
       'tabAlignment': _$TabAlignmentEnumMap[instance.tabAlignment],
+      'dividerColor': instance.dividerColor,
+      'dividerHeight': instance.dividerHeight,
     };
 
 const _$TabBarIndicatorSizeEnumMap = {

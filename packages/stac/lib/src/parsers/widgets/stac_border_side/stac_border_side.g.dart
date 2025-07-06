@@ -10,10 +10,10 @@ _StacBorderSide _$StacBorderSideFromJson(Map<String, dynamic> json) =>
     _StacBorderSide(
       color: json['color'] as String?,
       width: json['width'] == null
-          ? StacDouble.zero
+          ? const StacDouble(1.0)
           : StacDouble.fromJson(json['width']),
       strokeAlign: json['strokeAlign'] == null
-          ? StacDouble.zero
+          ? const StacDouble(BorderSide.strokeAlignInside)
           : StacDouble.fromJson(json['strokeAlign']),
       borderStyle:
           $enumDecodeNullable(_$BorderStyleEnumMap, json['borderStyle']) ??

@@ -1,0 +1,376 @@
+{
+  "type": "scaffold",
+  "appBar": {
+      "type": "appBar",
+      "title": {
+          "type": "text",
+          "data": "Backdrop Filter Example"
+      }
+  },
+  "body": {
+      "type": "singleChildScrollView",
+      "child": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "center",
+          "children": [
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Backdrop filters apply visual effects to everything behind a widget.",
+                      "textAlign": "center",
+                      "style": {
+                          "fontSize": 16,
+                          "fontWeight": "w700"
+                      }
+                  }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Blur Filter with sigmaX: 10.0, sigmaY: 10.0",
+                      "style": {
+                          "fontSize": 18
+                        }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "blur",
+                          "sigmaX": 10.0,
+                          "sigmaY": 10.0
+                        },
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Dilate Filter with radiusX: 2.0, radiusY: 2.0",
+                      "style": {
+                          "fontSize": 18
+                      }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "dilate",
+                          "radiusX": 2.0,
+                          "radiusY": 2.0
+                        },
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Erode Filter with radiusX: 2.0, radiusY: 2.0",
+                      "style": {
+                          "fontSize": 18
+                      }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "erode",
+                          "radiusX": 2.0,
+                          "radiusY": 2.0
+                        },
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Frosted Glass Effect with sigmaX: 15.0, sigmaY: 15.0",
+                      "style": {
+                          "fontSize": 18
+                      }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "blur",
+                          "sigmaX": 15.0,
+                          "sigmaY": 15.0
+                        },
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Compose Filter (Blur + Dilate)",
+                      "style": {
+                          "fontSize": 18
+                      }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "compose",
+                          "outer": {
+                            "type": "blur",
+                            "sigmaX": 5.0,
+                            "sigmaY": 5.0
+                          },
+                          "inner": {
+                            "type": "dilate",
+                            "radiusX": 2.0,
+                            "radiusY": 2.0
+                          }
+                        },
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              },
+              {
+                  "type": "padding",
+                  "padding": 16,
+                  "child": {
+                      "type": "text",
+                      "data": "Blur Filter with BlendMode dstOver",
+                      "style": {
+                          "fontSize": 18
+                      }
+                  }
+              },
+              {
+                "type": "clipRRect",
+                "borderRadius": {
+                  "all": 16
+                },
+                "child": {
+                  "type": "sizedBox",
+                  "height": 200,
+                  "width": 300,
+                  "child": {
+                    "type": "stack",
+                    "fit": "expand",
+                    "children": [
+                      {
+                        "type": "container",
+                        "decoration": {
+                          "image": {
+                            "src": "https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg",
+                            "fit": "cover"
+                          }
+                        }
+                      },
+                      {
+                        "type": "backdropFilter",
+                        "filter": {
+                          "type": "blur",
+                          "radiusX": 10.0,
+                          "radiusY": 10.0
+                        },
+                        "blendMode": "dstOver",
+                        "child": {
+                          "type": "container",
+                          "decoration": {
+                            "color": "#80FFFFFF"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                  "type": "divider",
+                  "height": 20
+              }
+            ]
+          }
+      }
+  }

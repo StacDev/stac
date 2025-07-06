@@ -726,7 +726,7 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "1.0.0-dev.4"
+    version: "1.0.0-dev.5"
   stac_framework:
     dependency: "direct overridden"
     description:
@@ -734,6 +734,13 @@ packages:
       relative: true
     source: path
     version: "0.3.0"
+  stac_logger:
+    dependency: "direct overridden"
+    description:
+      path: "../../packages/stac_logger"
+      relative: true
+    source: path
+    version: "1.1.0"
   stack_trace:
     dependency: transitive
     description:

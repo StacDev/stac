@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:stac/src/utils/log.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacFormScope extends InheritedWidget {
   const StacFormScope({

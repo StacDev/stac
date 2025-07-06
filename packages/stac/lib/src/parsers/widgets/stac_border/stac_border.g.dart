@@ -17,6 +17,18 @@ _StacBorder _$StacBorderFromJson(Map<String, dynamic> json) => _StacBorder(
       strokeAlign: json['strokeAlign'] == null
           ? const StacDouble(BorderSide.strokeAlignInside)
           : StacDouble.fromJson(json['strokeAlign']),
+      top: json['top'] == null
+          ? null
+          : StacBorderSide.fromJson(json['top'] as Map<String, dynamic>),
+      right: json['right'] == null
+          ? null
+          : StacBorderSide.fromJson(json['right'] as Map<String, dynamic>),
+      bottom: json['bottom'] == null
+          ? null
+          : StacBorderSide.fromJson(json['bottom'] as Map<String, dynamic>),
+      left: json['left'] == null
+          ? null
+          : StacBorderSide.fromJson(json['left'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacBorderToJson(_StacBorder instance) =>
@@ -25,6 +37,10 @@ Map<String, dynamic> _$StacBorderToJson(_StacBorder instance) =>
       'borderStyle': _$BorderStyleEnumMap[instance.borderStyle]!,
       'width': instance.width,
       'strokeAlign': instance.strokeAlign,
+      'top': instance.top,
+      'right': instance.right,
+      'bottom': instance.bottom,
+      'left': instance.left,
     };
 
 const _$BorderStyleEnumMap = {

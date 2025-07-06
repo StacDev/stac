@@ -4,6 +4,7 @@ enum WidgetType {
   appBar,
   aspectRatio,
   autocomplete,
+  backdropFilter,
   bottomNavigationBar,
   bottomNavigationView,
   card,
@@ -77,4 +78,5 @@ enum WidgetType {
   textFormField,
   wrap,
   visibility,
+  verticalDivider,
 }
