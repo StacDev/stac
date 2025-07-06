@@ -158,6 +158,29 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "material",
+      "icon": "menu"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Drawer"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design panel that slides in horizontally from the edge of a Scaffold"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/drawer_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "format_align_center"
     },
     "title": {

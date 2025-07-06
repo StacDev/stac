@@ -19,6 +19,7 @@ enum WidgetType {
   column,
   conditional,
   container,
+  drawer,
   dropdownMenu,
   customScrollView,
   defaultBottomNavigationController,

@@ -87,6 +87,7 @@ class Stac {
     const StacCarouselViewParser(),
     const StacColoredBoxParser(),
     const StacDividerParser(),
+    const StacDrawerParser(),
     const StacCircularProgressIndicatorParser(),
     const StacLinearProgressIndicatorParser(),
     const StacHeroParser(),
