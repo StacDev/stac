@@ -387,7 +387,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Stac.fromNetwork(
-        StacRequest(
+        StacNetworkRequest(
           url: _url,
           method: Method.get,
         ),
