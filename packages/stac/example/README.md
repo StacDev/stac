@@ -288,7 +288,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Stac.fromNetwork(
-        StacRequest(
+        StacNetworkRequest(
           url: _url,
           method: Method.get,
         ),
@@ -312,4 +312,3 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/main/examples/
 
 
 [form_screen]: https://github.com/StacDev/stac/blob/main/assets/form_screen_image.png
-

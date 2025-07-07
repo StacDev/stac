@@ -440,7 +440,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Stac.fromNetwork(
-        StacRequest(
+        StacNetworkRequest(
           url: _url,
           method: Method.get,
         ),
@@ -455,5 +455,3 @@ That's it with just few lines of code your SDUI app is up and running.
 <img src="/img/form_screen_image.png" alt="Form screen example"/>
 
 For more detailed examples and advanced usage, refer to the [Stac Gallery App](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery).
-
-
