@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:ani_watch/widgets/movie_carousel/movie_carousel.dart';
+import 'package:ani_watch/widgets/movie_carousel/anime_home_carousel.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stac/stac.dart';
 
@@ -74,6 +74,19 @@ class _AnimeHomeCarouselWidgetState extends State<AnimeHomeCarouselWidget> {
               controller: pageController,
               itemCount: widget.movies.length,
               itemBuilder: (context, index) {
+                var episodeText = "";
+                try {
+                  if (widget.movies[index]['episodes'] != null) {
+                    episodeText = "${widget.movies[index]['episodes']}";
+                  } else if (widget
+                          .movies[index]['nextAiringEpisode']['episode'] !=
+                      null) {
+                    episodeText =
+                        "${widget.movies[index]['nextAiringEpisode']['episode'] - 1}";
+                  }
+                } on Exception {
+                  episodeText = "";
+                }
                 return Padding(
                   padding: EdgeInsets.symmetric(vertical: 0, horizontal: 16),
                   child: Container(
@@ -148,7 +161,7 @@ class _AnimeHomeCarouselWidgetState extends State<AnimeHomeCarouselWidget> {
                                 ),
                               ),
                               Text(
-                                "${widget.movies[index]['season'].toString().toCapitalized} ${widget.movies[index]['seasonYear']} · ${widget.movies[index]['episodes'] ?? widget.movies[index]['nextAiringEpisode']['episode'] - 1} Episodes",
+                                "${widget.movies[index]['season'].toString().toCapitalized} ${widget.movies[index]['seasonYear']}${episodeText.isEmpty ? "" : " · $episodeText Episodes"}",
                                 style: Theme.of(
                                   context,
                                 ).textTheme.bodyMedium?.apply(

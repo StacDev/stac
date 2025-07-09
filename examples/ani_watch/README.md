@@ -1,16 +1,17 @@
-# AniWatch
+# AniWatch 📺
 
-A new Flutter project.
+AniWatch is a sample Flutter application built to demonstrate the capabilities of the **Stac** Server-Driven UI (SDUI) framework. The app allows users to browse through a catalog of Anime shows, view their airing schedules, and access detailed information about each series.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+*   Browse a list/grid of Anime shows.
+*   View detailed information for each Anime, including synopsis, genres, ratings, etc. (content driven by Stac).
+*   Check airing schedules for ongoing and upcoming Anime.
+*   Dynamic UI rendering powered by the Stac SDUI framework.
 
-A few resources to get you started if this is your first Flutter project:
+## Purpose
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+This project primarily serves as an example of how to:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+*   Integrate the Stac SDUI framework into a Flutter application.
+*   Manage navigation and data flow in an SDUI architecture.

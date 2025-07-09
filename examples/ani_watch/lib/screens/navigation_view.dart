@@ -1,5 +1,6 @@
 import 'package:ani_watch/screens/home.dart';
 import 'package:ani_watch/screens/schedule.dart';
+import 'package:flutter/foundation.dart';
 
 final Map<String, dynamic> navigationView = {
   "type": "defaultBottomNavigationController",
@@ -13,7 +14,7 @@ final Map<String, dynamic> navigationView = {
     },
     "bottomNavigationBar": {
       "type": "container",
-      "height": 60,
+      "height": getMobilePlatformSpecificValue(),
       "padding": 0,
       "child": {
         "type": "clipRRect",
@@ -102,3 +103,11 @@ final Map<String, dynamic> navigationView = {
     },
   },
 };
+
+int getMobilePlatformSpecificValue() {
+  if (defaultTargetPlatform == TargetPlatform.iOS) {
+    return 86;
+  } else {
+    return 60;
+  }
+}

@@ -7,8 +7,8 @@
                 "type": "image",
                 "imageType": "asset",
                 "src": "assets/images/kny.png",
-                "width": 10000,
-                "height": 10000,
+                "width": "maxFinite",
+                "height": "maxFinite",
                 "fit": "cover"
             },
             {
@@ -52,16 +52,9 @@
                                 },
                                 {
                                     "type": "text",
-                                    "data": "",
+                                    "data": "Watch, enjoy and track all of your anime series, movies and OVA’s",
                                     "style": "bodyLarge",
-                                    "children": [
-                                        {
-                                            "data": "Watch, enjoy and track all of your anime series, movies and OVA’s",
-                                            "style": {
-                                                "color": "onSurfaceVariant@65"
-                                            }
-                                        }
-                                    ]
+                                    "copyWithStyle": {"color": "onSurfaceVariant@65"}
                                 },
                                 {
                                     "type": "sizedBox",

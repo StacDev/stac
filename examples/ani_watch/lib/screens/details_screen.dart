@@ -483,7 +483,6 @@ Map<String, dynamic> getAnimeEpisodesView() {
       "type": "listView",
       "padding": {"left": 16, "right": 16, "top": 0, "bottom": 0},
       "isPrimary": false,
-      "reverse": true,
       "scrollDirection": "vertical",
       "shrinkWrap": true,
       "separator": {"type": "sizedBox", "height": 10},

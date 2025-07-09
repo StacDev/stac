@@ -5,7 +5,7 @@ import 'package:ani_watch/screens/navigation_view.dart';
 import 'package:ani_watch/widgets/ani_list_description_text/ani_list_description_text_parser.dart';
 import 'package:ani_watch/widgets/animeScheduleItem/anime_schedule_item_parser.dart';
 import 'package:ani_watch/widgets/anime_upcoming/anime_upcoming_parser.dart';
-import 'package:ani_watch/widgets/movie_carousel/movie_carousel_parser.dart';
+import 'package:ani_watch/widgets/movie_carousel/anime_home_carousel_parser.dart';
 import 'package:stac/stac.dart';
 
 void main() async {
