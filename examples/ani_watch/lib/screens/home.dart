@@ -77,33 +77,6 @@ final Map<String, dynamic> homeBodyJson = {
         genre: "Action",
         sortType: AniListAPIUtils.sortTrendingDesc,
       ),
-      // {
-      //   "type": "sizedBox",
-      //   "height": defaultCategoryViewSpacing,
-      // },
-      // getAnimeCategoryView(
-      //   categoryTitle: "Slice of Life",
-      //   genre: "Slice of Life",
-      //   sortType: AniListAPIUtils.sortTrendingDesc,
-      // ),
-      // {
-      //   "type": "sizedBox",
-      //   "height": defaultCategoryViewSpacing,
-      // },
-      // getAnimeCategoryView(
-      //   categoryTitle: "Fantasy",
-      //   genre: "Fantasy",
-      //   sortType: AniListAPIUtils.sortTrendingDesc,
-      // ),
-      // {
-      //   "type": "sizedBox",
-      //   "height": defaultCategoryViewSpacing,
-      // },
-      // getAnimeCategoryView(
-      //   categoryTitle: "Sci-Fi",
-      //   genre: "Sci-Fi",
-      //   sortType: AniListAPIUtils.sortTrendingDesc,
-      // ),
       {"type": "sizedBox", "height": 80},
     ],
   },

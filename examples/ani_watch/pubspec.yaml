@@ -100,8 +100,6 @@ flutter:
           weight: 800
         - asset: fonts/Figtree/Figtree-Black.ttf
           weight: 900
-        - asset: fonts/Figtree-Italic-VariableFont_wght.ttf
-          style: italic
 
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
