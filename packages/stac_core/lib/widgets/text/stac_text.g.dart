@@ -8,14 +8,17 @@ part of 'stac_text.dart';
 
 StacText _$StacTextFromJson(Map<String, dynamic> json) => StacText(
   data: json['data'] as String,
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
-          .toList() ??
-      const [],
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
+      .toList(),
   style: json['style'] == null
       ? null
       : StacTextStyle.fromJson(json['style'] as Map<String, dynamic>),
+  copyWithStyle: json['copyWithStyle'] == null
+      ? null
+      : StacCustomTextStyle.fromJson(
+          json['copyWithStyle'] as Map<String, dynamic>,
+        ),
   textAlign: $enumDecodeNullable(_$StacTextAlignEnumMap, json['textAlign']),
   textDirection: $enumDecodeNullable(
     _$StacTextDirectionEnumMap,
@@ -35,8 +38,9 @@ StacText _$StacTextFromJson(Map<String, dynamic> json) => StacText(
 
 Map<String, dynamic> _$StacTextToJson(StacText instance) => <String, dynamic>{
   'data': instance.data,
-  'children': instance.children.map((e) => e.toJson()).toList(),
+  'children': instance.children?.map((e) => e.toJson()).toList(),
   'style': instance.style?.toJson(),
+  'copyWithStyle': instance.copyWithStyle?.toJson(),
   'textAlign': _$StacTextAlignEnumMap[instance.textAlign],
   'textDirection': _$StacTextDirectionEnumMap[instance.textDirection],
   'softWrap': instance.softWrap,

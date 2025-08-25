@@ -5,6 +5,7 @@ import 'package:stac/src/parsers/painting/stac_text_style_parser.dart';
 import 'package:stac/src/parsers/types/type_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac_core/painting/stac_text_style/stac_text_style.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_core/widgets/text/stac_text.dart';
 
@@ -21,7 +22,7 @@ class StacTextParser extends StacParser<StacText> {
   Widget parse(BuildContext context, StacText model) {
     return Text.rich(
       _buildTextSpan(context, model),
-      style: model.style?.parse(context),
+      style: _resolveStyle(context, model.style, model.copyWithStyle),
       textAlign: model.textAlign?.parse,
       textDirection: model.textDirection?.parse,
       softWrap: model.softWrap,
@@ -37,18 +38,53 @@ class StacTextParser extends StacParser<StacText> {
   }
 
   TextSpan _buildTextSpan(BuildContext context, StacText model) {
+    var children = model.children ?? [];
     return TextSpan(
       text: model.data,
-      children: model.children.map((child) {
+      children: children.map((child) {
         return TextSpan(
-          text: child.text,
-          style: model.style?.parse(context),
+          text: child.data,
+          style: child.style?.parse(context),
           recognizer: child.onTap != null
               ? (TapGestureRecognizer()
                 ..onTap = () => Stac.onCallFromJson(child.onTap, context))
               : null,
         );
       }).toList(),
+    );
+  }
+
+  TextStyle? _resolveStyle(
+    BuildContext context,
+    StacTextStyle? base,
+    StacCustomTextStyle? override,
+  ) {
+    final baseStyle = base?.parse(context);
+    if (override == null) return baseStyle;
+
+    final overrideParsed = override.parse(context);
+    if (overrideParsed == null) return baseStyle;
+    if (baseStyle == null) return overrideParsed;
+
+    return baseStyle.copyWith(
+      inherit: override.inherit,
+      color: overrideParsed.color,
+      backgroundColor: overrideParsed.backgroundColor,
+      fontSize: overrideParsed.fontSize,
+      fontWeight: overrideParsed.fontWeight,
+      fontStyle: overrideParsed.fontStyle,
+      letterSpacing: overrideParsed.letterSpacing,
+      wordSpacing: overrideParsed.wordSpacing,
+      textBaseline: overrideParsed.textBaseline,
+      height: overrideParsed.height,
+      leadingDistribution: overrideParsed.leadingDistribution,
+      decorationColor: overrideParsed.decorationColor,
+      decorationStyle: overrideParsed.decorationStyle,
+      decorationThickness: overrideParsed.decorationThickness,
+      debugLabel: overrideParsed.debugLabel,
+      fontFamily: overrideParsed.fontFamily,
+      fontFamilyFallback: overrideParsed.fontFamilyFallback,
+      overflow: overrideParsed.overflow,
     );
   }
 }

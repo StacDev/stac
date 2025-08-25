@@ -6,9 +6,9 @@ part of 'stac_text_style.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StacTextStyle _$StacTextStyleFromJson(
+StacCustomTextStyle _$StacCustomTextStyleFromJson(
   Map<String, dynamic> json,
-) => StacTextStyle(
+) => StacCustomTextStyle(
   inherit: json['inherit'] as bool?,
   color: json['color'] as String?,
   backgroundColor: json['backgroundColor'] as String?,
@@ -41,9 +41,10 @@ StacTextStyle _$StacTextStyleFromJson(
   overflow: $enumDecodeNullable(_$StacTextOverflowEnumMap, json['overflow']),
 );
 
-Map<String, dynamic> _$StacTextStyleToJson(
-  StacTextStyle instance,
+Map<String, dynamic> _$StacCustomTextStyleToJson(
+  StacCustomTextStyle instance,
 ) => <String, dynamic>{
+  'type': _$StacTextStyleTypeEnumMap[instance.type]!,
   'inherit': instance.inherit,
   'color': instance.color,
   'backgroundColor': instance.backgroundColor,
@@ -108,4 +109,38 @@ const _$StacTextOverflowEnumMap = {
   StacTextOverflow.fade: 'fade',
   StacTextOverflow.ellipsis: 'ellipsis',
   StacTextOverflow.visible: 'visible',
+};
+
+const _$StacTextStyleTypeEnumMap = {
+  StacTextStyleType.custom: 'custom',
+  StacTextStyleType.theme: 'theme',
+};
+
+StacThemeTextStyle _$StacThemeTextStyleFromJson(Map<String, dynamic> json) =>
+    StacThemeTextStyle(
+      textTheme: $enumDecode(_$StacMaterialTextStyleEnumMap, json['textTheme']),
+    );
+
+Map<String, dynamic> _$StacThemeTextStyleToJson(StacThemeTextStyle instance) =>
+    <String, dynamic>{
+      'type': _$StacTextStyleTypeEnumMap[instance.type]!,
+      'textTheme': _$StacMaterialTextStyleEnumMap[instance.textTheme]!,
+    };
+
+const _$StacMaterialTextStyleEnumMap = {
+  StacMaterialTextStyle.displayLarge: 'displayLarge',
+  StacMaterialTextStyle.displayMedium: 'displayMedium',
+  StacMaterialTextStyle.displaySmall: 'displaySmall',
+  StacMaterialTextStyle.headlineLarge: 'headlineLarge',
+  StacMaterialTextStyle.headlineMedium: 'headlineMedium',
+  StacMaterialTextStyle.headlineSmall: 'headlineSmall',
+  StacMaterialTextStyle.titleLarge: 'titleLarge',
+  StacMaterialTextStyle.titleMedium: 'titleMedium',
+  StacMaterialTextStyle.titleSmall: 'titleSmall',
+  StacMaterialTextStyle.bodyLarge: 'bodyLarge',
+  StacMaterialTextStyle.bodyMedium: 'bodyMedium',
+  StacMaterialTextStyle.bodySmall: 'bodySmall',
+  StacMaterialTextStyle.labelLarge: 'labelLarge',
+  StacMaterialTextStyle.labelMedium: 'labelMedium',
+  StacMaterialTextStyle.labelSmall: 'labelSmall',
 };

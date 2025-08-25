@@ -189,7 +189,7 @@ extension StacThemeParser on StacTheme {
       iconButtonTheme:
           IconButtonThemeData(style: iconButtonTheme?.parseIconButton(context)),
       listTileTheme: listTileTheme?.parse(context),
-      // MenuBarThemeData? menuBarTheme,
+      // MenuBarThemeDa ta? menuBarTheme,
       menuButtonTheme: MenuButtonThemeData(
         style: menuButtonTheme?.parseElevatedButton(context),
       ),

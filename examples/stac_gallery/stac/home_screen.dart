@@ -12,7 +12,7 @@ StacWidget homeScreen() {
         child: StacCenter(
           child: StacText(
             data: 'Hello World - UPDATED!',
-            style: StacTextStyle(
+            style: StacCustomTextStyle(
               fontSize: 17,
               fontWeight: StacFontWeight.bold,
             ),

@@ -6,9 +6,9 @@ part 'stac_text_span.g.dart';
 
 @JsonSerializable()
 class StacTextSpan implements StacElement {
-  StacTextSpan({this.text, this.style, this.children = const [], this.onTap});
+  StacTextSpan({this.data, this.style, this.children = const [], this.onTap});
 
-  final String? text;
+  final String? data;
   final StacTextStyle? style;
   final List<StacTextSpan> children;
   final Map<String, dynamic>? onTap;

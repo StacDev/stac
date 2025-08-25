@@ -98,14 +98,14 @@ final Map<String, dynamic> darkThemeJson = {
     "minimumSize": {"width": 120, "height": 40},
     "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
     "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
-    "shape": {"borderRadius": 8},
+    "shape": {"type": "roundedRectangleBorder", "borderRadius": 8},
   },
   "outlinedButtonTheme": {
     "minimumSize": {"width": 120, "height": 40},
     "textStyle": {"fontSize": 16, "fontWeight": "w500", "height": 1.3},
     "padding": {"left": 10, "right": 10, "top": 8, "bottom": 8},
     "side": {"color": "#95E183", "width": 1.0},
-    "shape": {"borderRadius": 8},
+    "shape": {"type": "roundedRectangleBorder", "borderRadius": 8},
   },
   "dividerTheme": {"color": "#24FFFFFF", "thickness": 1},
 };

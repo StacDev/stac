@@ -52,7 +52,10 @@
                                 {
                                     "type": "text",
                                     "data": "Movie ",
-                                    "style": "displayMedium",
+                                    "style": {
+                                        "type": "theme",
+                                        "textTheme": "displayMedium"
+                                    },
                                     "children": [
                                         {
                                             "data": "\nDatabase",
@@ -69,7 +72,10 @@
                                 {
                                     "type": "text",
                                     "data": "Watch & enjoy a variety of award winning TV shows, movies, anime, and a lot more",
-                                    "style": "bodyMedium"
+                                    "style": {
+                                        "type": "theme",
+                                        "textTheme": "bodyMedium"
+                                    }
                                 },
                                 {
                                     "type": "sizedBox",

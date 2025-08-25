@@ -36,7 +36,10 @@
                                             {
                                                 "type": "text",
                                                 "data": "Now Playing",
-                                                "style": "labelLarge"
+                                                "style": {
+                                                    "type": "theme",
+                                                    "textTheme": "labelLarge"
+                                                }
                                             }
                                         ]
                                     }
@@ -112,7 +115,10 @@
                                             {
                                                 "type": "text",
                                                 "data": "Popular Movies",
-                                                "style": "labelLarge"
+                                                "style": {
+                                                    "type": "theme",
+                                                    "textTheme": "labelLarge"
+                                                }
                                             }
                                         ]
                                     }
@@ -188,7 +194,10 @@
                                             {
                                                 "type": "text",
                                                 "data": "Trending Movies",
-                                                "style": "labelLarge"
+                                                "style": {
+                                                    "type": "theme",
+                                                    "textTheme": "labelLarge"
+                                                }
                                             }
                                         ]
                                     }
@@ -264,7 +273,10 @@
                                             {
                                                 "type": "text",
                                                 "data": "Top Rated",
-                                                "style": "labelLarge"
+                                                "style": {
+                                                    "type": "theme",
+                                                    "textTheme": "labelLarge"
+                                                }
                                             }
                                         ]
                                     }
@@ -340,7 +352,10 @@
                                             {
                                                 "type": "text",
                                                 "data": "Upcoming Movies",
-                                                "style": "labelLarge"
+                                                "style": {
+                                                    "type": "theme",
+                                                    "style": "labelLarge"
+                                                }
                                             }
                                         ]
                                     }

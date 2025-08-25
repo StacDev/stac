@@ -90,7 +90,7 @@
                                             "child": {
                                                 "type": "text",
                                                 "data": "{{title}}",
-                                                "style": "headlineMedium",
+                                                "style": {"type": "theme", "textTheme": "headlineMedium"},
                                                 "overflow": "ellipsis"
                                             }
                                         },
@@ -141,7 +141,7 @@
                                 {
                                     "type": "text",
                                     "data": "{{release_date}} · {{runtime}} mins",
-                                    "style": "bodySmall",
+                                    "style": {"type": "theme", "textTheme": "bodySmall"},
                                     "textAlign": "left"
                                 },
                                 {
@@ -216,7 +216,7 @@
                                         {
                                             "type": "text",
                                             "data": "About",
-                                            "style": "bodyMedium"
+                                            "style": {"type": "theme", "textTheme": "bodyMedium"}
                                         },
                                         {
                                             "type": "sizedBox",
@@ -237,7 +237,7 @@
                                 {
                                     "type": "text",
                                     "data": "{{overview}}",
-                                    "style": "bodyMedium"
+                                    "style": {"type": "theme", "textTheme": "bodyMedium"}
                                 },
                                 {
                                     "type": "sizedBox",
@@ -304,13 +304,13 @@
                                                                 {
                                                                     "type": "text",
                                                                     "data": "{{name}}",
-                                                                    "style": "titleSmall",
+                                                                    "style": {"type": "theme", "textTheme": "titleSmall"},
                                                                     "overflow": "ellipsis"
                                                                 },
                                                                 {
                                                                     "type": "text",
                                                                     "data": "{{character}}",
-                                                                    "style": "bodySmall",
+                                                                    "style": {"type": "theme", "textTheme": "bodySmall"},
                                                                     "overflow": "ellipsis"
                                                                 }
                                                             ]

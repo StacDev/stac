@@ -28,7 +28,7 @@ StacWidget homeScreen() {
         ),
         child: StacText(
           data: 'Hello, Stac!!',
-          style: StacTextStyle(
+          style: StacTextStyle.custom(
             color: StacColors.white,
             fontSize: fontSize,
             fontWeight: StacFontWeight.bold,
