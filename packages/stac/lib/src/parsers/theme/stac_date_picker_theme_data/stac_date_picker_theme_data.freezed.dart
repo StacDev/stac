@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -463,6 +462,388 @@ class _$StacDatePickerThemeDataCopyWithImpl<$Res>
         (value) {
       return _then(_self.copyWith(inputDecorationTheme: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [StacDatePickerThemeData].
+extension StacDatePickerThemeDataPatterns on StacDatePickerThemeData {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_StacDatePickerThemeData value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_StacDatePickerThemeData value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_StacDatePickerThemeData value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            StacShapeBorder? shape,
+            String? headerBackgroundColor,
+            String? headerForegroundColor,
+            StacTextStyle? headerHeadlineStyle,
+            StacTextStyle? headerHelpStyle,
+            StacTextStyle? weekdayStyle,
+            StacTextStyle? dayStyle,
+            String? dayForegroundColor,
+            String? dayBackgroundColor,
+            String? dayOverlayColor,
+            StacShapeBorder? dayShape,
+            String? todayForegroundColor,
+            String? todayBackgroundColor,
+            StacBorderSide? todayBorder,
+            StacTextStyle? yearStyle,
+            String? yearForegroundColor,
+            String? yearBackgroundColor,
+            String? yearOverlayColor,
+            String? rangePickerBackgroundColor,
+            double? rangePickerElevation,
+            String? rangePickerShadowColor,
+            String? rangePickerSurfaceTintColor,
+            StacShapeBorder? rangePickerShape,
+            String? rangePickerHeaderBackgroundColor,
+            String? rangePickerHeaderForegroundColor,
+            StacTextStyle? rangePickerHeaderHeadlineStyle,
+            StacTextStyle? rangePickerHeaderHelpStyle,
+            String? rangeSelectionBackgroundColor,
+            String? rangeSelectionOverlayColor,
+            String? dividerColor,
+            StacInputDecorationTheme? inputDecorationTheme,
+            StacButtonStyle? cancelButtonStyle,
+            StacButtonStyle? confirmButtonStyle)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData() when $default != null:
+        return $default(
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.shape,
+            _that.headerBackgroundColor,
+            _that.headerForegroundColor,
+            _that.headerHeadlineStyle,
+            _that.headerHelpStyle,
+            _that.weekdayStyle,
+            _that.dayStyle,
+            _that.dayForegroundColor,
+            _that.dayBackgroundColor,
+            _that.dayOverlayColor,
+            _that.dayShape,
+            _that.todayForegroundColor,
+            _that.todayBackgroundColor,
+            _that.todayBorder,
+            _that.yearStyle,
+            _that.yearForegroundColor,
+            _that.yearBackgroundColor,
+            _that.yearOverlayColor,
+            _that.rangePickerBackgroundColor,
+            _that.rangePickerElevation,
+            _that.rangePickerShadowColor,
+            _that.rangePickerSurfaceTintColor,
+            _that.rangePickerShape,
+            _that.rangePickerHeaderBackgroundColor,
+            _that.rangePickerHeaderForegroundColor,
+            _that.rangePickerHeaderHeadlineStyle,
+            _that.rangePickerHeaderHelpStyle,
+            _that.rangeSelectionBackgroundColor,
+            _that.rangeSelectionOverlayColor,
+            _that.dividerColor,
+            _that.inputDecorationTheme,
+            _that.cancelButtonStyle,
+            _that.confirmButtonStyle);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            StacShapeBorder? shape,
+            String? headerBackgroundColor,
+            String? headerForegroundColor,
+            StacTextStyle? headerHeadlineStyle,
+            StacTextStyle? headerHelpStyle,
+            StacTextStyle? weekdayStyle,
+            StacTextStyle? dayStyle,
+            String? dayForegroundColor,
+            String? dayBackgroundColor,
+            String? dayOverlayColor,
+            StacShapeBorder? dayShape,
+            String? todayForegroundColor,
+            String? todayBackgroundColor,
+            StacBorderSide? todayBorder,
+            StacTextStyle? yearStyle,
+            String? yearForegroundColor,
+            String? yearBackgroundColor,
+            String? yearOverlayColor,
+            String? rangePickerBackgroundColor,
+            double? rangePickerElevation,
+            String? rangePickerShadowColor,
+            String? rangePickerSurfaceTintColor,
+            StacShapeBorder? rangePickerShape,
+            String? rangePickerHeaderBackgroundColor,
+            String? rangePickerHeaderForegroundColor,
+            StacTextStyle? rangePickerHeaderHeadlineStyle,
+            StacTextStyle? rangePickerHeaderHelpStyle,
+            String? rangeSelectionBackgroundColor,
+            String? rangeSelectionOverlayColor,
+            String? dividerColor,
+            StacInputDecorationTheme? inputDecorationTheme,
+            StacButtonStyle? cancelButtonStyle,
+            StacButtonStyle? confirmButtonStyle)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData():
+        return $default(
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.shape,
+            _that.headerBackgroundColor,
+            _that.headerForegroundColor,
+            _that.headerHeadlineStyle,
+            _that.headerHelpStyle,
+            _that.weekdayStyle,
+            _that.dayStyle,
+            _that.dayForegroundColor,
+            _that.dayBackgroundColor,
+            _that.dayOverlayColor,
+            _that.dayShape,
+            _that.todayForegroundColor,
+            _that.todayBackgroundColor,
+            _that.todayBorder,
+            _that.yearStyle,
+            _that.yearForegroundColor,
+            _that.yearBackgroundColor,
+            _that.yearOverlayColor,
+            _that.rangePickerBackgroundColor,
+            _that.rangePickerElevation,
+            _that.rangePickerShadowColor,
+            _that.rangePickerSurfaceTintColor,
+            _that.rangePickerShape,
+            _that.rangePickerHeaderBackgroundColor,
+            _that.rangePickerHeaderForegroundColor,
+            _that.rangePickerHeaderHeadlineStyle,
+            _that.rangePickerHeaderHelpStyle,
+            _that.rangeSelectionBackgroundColor,
+            _that.rangeSelectionOverlayColor,
+            _that.dividerColor,
+            _that.inputDecorationTheme,
+            _that.cancelButtonStyle,
+            _that.confirmButtonStyle);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            StacShapeBorder? shape,
+            String? headerBackgroundColor,
+            String? headerForegroundColor,
+            StacTextStyle? headerHeadlineStyle,
+            StacTextStyle? headerHelpStyle,
+            StacTextStyle? weekdayStyle,
+            StacTextStyle? dayStyle,
+            String? dayForegroundColor,
+            String? dayBackgroundColor,
+            String? dayOverlayColor,
+            StacShapeBorder? dayShape,
+            String? todayForegroundColor,
+            String? todayBackgroundColor,
+            StacBorderSide? todayBorder,
+            StacTextStyle? yearStyle,
+            String? yearForegroundColor,
+            String? yearBackgroundColor,
+            String? yearOverlayColor,
+            String? rangePickerBackgroundColor,
+            double? rangePickerElevation,
+            String? rangePickerShadowColor,
+            String? rangePickerSurfaceTintColor,
+            StacShapeBorder? rangePickerShape,
+            String? rangePickerHeaderBackgroundColor,
+            String? rangePickerHeaderForegroundColor,
+            StacTextStyle? rangePickerHeaderHeadlineStyle,
+            StacTextStyle? rangePickerHeaderHelpStyle,
+            String? rangeSelectionBackgroundColor,
+            String? rangeSelectionOverlayColor,
+            String? dividerColor,
+            StacInputDecorationTheme? inputDecorationTheme,
+            StacButtonStyle? cancelButtonStyle,
+            StacButtonStyle? confirmButtonStyle)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacDatePickerThemeData() when $default != null:
+        return $default(
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.shape,
+            _that.headerBackgroundColor,
+            _that.headerForegroundColor,
+            _that.headerHeadlineStyle,
+            _that.headerHelpStyle,
+            _that.weekdayStyle,
+            _that.dayStyle,
+            _that.dayForegroundColor,
+            _that.dayBackgroundColor,
+            _that.dayOverlayColor,
+            _that.dayShape,
+            _that.todayForegroundColor,
+            _that.todayBackgroundColor,
+            _that.todayBorder,
+            _that.yearStyle,
+            _that.yearForegroundColor,
+            _that.yearBackgroundColor,
+            _that.yearOverlayColor,
+            _that.rangePickerBackgroundColor,
+            _that.rangePickerElevation,
+            _that.rangePickerShadowColor,
+            _that.rangePickerSurfaceTintColor,
+            _that.rangePickerShape,
+            _that.rangePickerHeaderBackgroundColor,
+            _that.rangePickerHeaderForegroundColor,
+            _that.rangePickerHeaderHeadlineStyle,
+            _that.rangePickerHeaderHelpStyle,
+            _that.rangeSelectionBackgroundColor,
+            _that.rangeSelectionOverlayColor,
+            _that.dividerColor,
+            _that.inputDecorationTheme,
+            _that.cancelButtonStyle,
+            _that.confirmButtonStyle);
+      case _:
+        return null;
+    }
   }
 }
 

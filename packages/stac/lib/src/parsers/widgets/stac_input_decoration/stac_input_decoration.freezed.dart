@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -653,6 +652,466 @@ class _$StacInputDecorationCopyWithImpl<$Res>
     return $StacInputBorderCopyWith<$Res>(_self.border!, (value) {
       return _then(_self.copyWith(border: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [StacInputDecoration].
+extension StacInputDecorationPatterns on StacInputDecoration {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_StacInputDecoration value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_StacInputDecoration value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_StacInputDecoration value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            Map<String, dynamic>? icon,
+            String? iconColor,
+            Map<String, dynamic>? label,
+            String? labelText,
+            StacTextStyle? labelStyle,
+            StacTextStyle? floatingLabelStyle,
+            String? helperText,
+            StacTextStyle? helperStyle,
+            String? hintText,
+            StacTextStyle? hintStyle,
+            int? helperMaxLines,
+            TextDirection? hintTextDirection,
+            int? hintMaxLines,
+            String? errorText,
+            StacTextStyle? errorStyle,
+            int? errorMaxLines,
+            FloatingLabelBehavior? floatingLabelBehavior,
+            StacFloatingLabelAlignment? floatingLabelAlignment,
+            bool isCollapsed,
+            bool isDense,
+            StacEdgeInsets? contentPadding,
+            Map<String, dynamic>? prefixIcon,
+            StacBoxConstraints? prefixIconConstraints,
+            Map<String, dynamic>? prefix,
+            String? prefixText,
+            StacTextStyle? prefixStyle,
+            String? prefixIconColor,
+            Map<String, dynamic>? suffix,
+            Map<String, dynamic>? suffixIcon,
+            StacBoxConstraints? suffixIconConstraints,
+            String? suffixText,
+            StacTextStyle? suffixStyle,
+            String? suffixIconColor,
+            Map<String, dynamic>? counter,
+            String? counterText,
+            StacTextStyle? counterStyle,
+            bool? filled,
+            String? fillColor,
+            String? hoverColor,
+            String? focusColor,
+            StacInputBorder? errorBorder,
+            StacInputBorder? focusedBorder,
+            StacInputBorder? focusedErrorBorder,
+            StacInputBorder? disabledBorder,
+            StacInputBorder? enabledBorder,
+            StacInputBorder? border,
+            bool enabled,
+            String? semanticCounterText,
+            bool alignLabelWithHint,
+            StacBoxConstraints? constraints)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration() when $default != null:
+        return $default(
+            _that.icon,
+            _that.iconColor,
+            _that.label,
+            _that.labelText,
+            _that.labelStyle,
+            _that.floatingLabelStyle,
+            _that.helperText,
+            _that.helperStyle,
+            _that.hintText,
+            _that.hintStyle,
+            _that.helperMaxLines,
+            _that.hintTextDirection,
+            _that.hintMaxLines,
+            _that.errorText,
+            _that.errorStyle,
+            _that.errorMaxLines,
+            _that.floatingLabelBehavior,
+            _that.floatingLabelAlignment,
+            _that.isCollapsed,
+            _that.isDense,
+            _that.contentPadding,
+            _that.prefixIcon,
+            _that.prefixIconConstraints,
+            _that.prefix,
+            _that.prefixText,
+            _that.prefixStyle,
+            _that.prefixIconColor,
+            _that.suffix,
+            _that.suffixIcon,
+            _that.suffixIconConstraints,
+            _that.suffixText,
+            _that.suffixStyle,
+            _that.suffixIconColor,
+            _that.counter,
+            _that.counterText,
+            _that.counterStyle,
+            _that.filled,
+            _that.fillColor,
+            _that.hoverColor,
+            _that.focusColor,
+            _that.errorBorder,
+            _that.focusedBorder,
+            _that.focusedErrorBorder,
+            _that.disabledBorder,
+            _that.enabledBorder,
+            _that.border,
+            _that.enabled,
+            _that.semanticCounterText,
+            _that.alignLabelWithHint,
+            _that.constraints);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            Map<String, dynamic>? icon,
+            String? iconColor,
+            Map<String, dynamic>? label,
+            String? labelText,
+            StacTextStyle? labelStyle,
+            StacTextStyle? floatingLabelStyle,
+            String? helperText,
+            StacTextStyle? helperStyle,
+            String? hintText,
+            StacTextStyle? hintStyle,
+            int? helperMaxLines,
+            TextDirection? hintTextDirection,
+            int? hintMaxLines,
+            String? errorText,
+            StacTextStyle? errorStyle,
+            int? errorMaxLines,
+            FloatingLabelBehavior? floatingLabelBehavior,
+            StacFloatingLabelAlignment? floatingLabelAlignment,
+            bool isCollapsed,
+            bool isDense,
+            StacEdgeInsets? contentPadding,
+            Map<String, dynamic>? prefixIcon,
+            StacBoxConstraints? prefixIconConstraints,
+            Map<String, dynamic>? prefix,
+            String? prefixText,
+            StacTextStyle? prefixStyle,
+            String? prefixIconColor,
+            Map<String, dynamic>? suffix,
+            Map<String, dynamic>? suffixIcon,
+            StacBoxConstraints? suffixIconConstraints,
+            String? suffixText,
+            StacTextStyle? suffixStyle,
+            String? suffixIconColor,
+            Map<String, dynamic>? counter,
+            String? counterText,
+            StacTextStyle? counterStyle,
+            bool? filled,
+            String? fillColor,
+            String? hoverColor,
+            String? focusColor,
+            StacInputBorder? errorBorder,
+            StacInputBorder? focusedBorder,
+            StacInputBorder? focusedErrorBorder,
+            StacInputBorder? disabledBorder,
+            StacInputBorder? enabledBorder,
+            StacInputBorder? border,
+            bool enabled,
+            String? semanticCounterText,
+            bool alignLabelWithHint,
+            StacBoxConstraints? constraints)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration():
+        return $default(
+            _that.icon,
+            _that.iconColor,
+            _that.label,
+            _that.labelText,
+            _that.labelStyle,
+            _that.floatingLabelStyle,
+            _that.helperText,
+            _that.helperStyle,
+            _that.hintText,
+            _that.hintStyle,
+            _that.helperMaxLines,
+            _that.hintTextDirection,
+            _that.hintMaxLines,
+            _that.errorText,
+            _that.errorStyle,
+            _that.errorMaxLines,
+            _that.floatingLabelBehavior,
+            _that.floatingLabelAlignment,
+            _that.isCollapsed,
+            _that.isDense,
+            _that.contentPadding,
+            _that.prefixIcon,
+            _that.prefixIconConstraints,
+            _that.prefix,
+            _that.prefixText,
+            _that.prefixStyle,
+            _that.prefixIconColor,
+            _that.suffix,
+            _that.suffixIcon,
+            _that.suffixIconConstraints,
+            _that.suffixText,
+            _that.suffixStyle,
+            _that.suffixIconColor,
+            _that.counter,
+            _that.counterText,
+            _that.counterStyle,
+            _that.filled,
+            _that.fillColor,
+            _that.hoverColor,
+            _that.focusColor,
+            _that.errorBorder,
+            _that.focusedBorder,
+            _that.focusedErrorBorder,
+            _that.disabledBorder,
+            _that.enabledBorder,
+            _that.border,
+            _that.enabled,
+            _that.semanticCounterText,
+            _that.alignLabelWithHint,
+            _that.constraints);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            Map<String, dynamic>? icon,
+            String? iconColor,
+            Map<String, dynamic>? label,
+            String? labelText,
+            StacTextStyle? labelStyle,
+            StacTextStyle? floatingLabelStyle,
+            String? helperText,
+            StacTextStyle? helperStyle,
+            String? hintText,
+            StacTextStyle? hintStyle,
+            int? helperMaxLines,
+            TextDirection? hintTextDirection,
+            int? hintMaxLines,
+            String? errorText,
+            StacTextStyle? errorStyle,
+            int? errorMaxLines,
+            FloatingLabelBehavior? floatingLabelBehavior,
+            StacFloatingLabelAlignment? floatingLabelAlignment,
+            bool isCollapsed,
+            bool isDense,
+            StacEdgeInsets? contentPadding,
+            Map<String, dynamic>? prefixIcon,
+            StacBoxConstraints? prefixIconConstraints,
+            Map<String, dynamic>? prefix,
+            String? prefixText,
+            StacTextStyle? prefixStyle,
+            String? prefixIconColor,
+            Map<String, dynamic>? suffix,
+            Map<String, dynamic>? suffixIcon,
+            StacBoxConstraints? suffixIconConstraints,
+            String? suffixText,
+            StacTextStyle? suffixStyle,
+            String? suffixIconColor,
+            Map<String, dynamic>? counter,
+            String? counterText,
+            StacTextStyle? counterStyle,
+            bool? filled,
+            String? fillColor,
+            String? hoverColor,
+            String? focusColor,
+            StacInputBorder? errorBorder,
+            StacInputBorder? focusedBorder,
+            StacInputBorder? focusedErrorBorder,
+            StacInputBorder? disabledBorder,
+            StacInputBorder? enabledBorder,
+            StacInputBorder? border,
+            bool enabled,
+            String? semanticCounterText,
+            bool alignLabelWithHint,
+            StacBoxConstraints? constraints)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacInputDecoration() when $default != null:
+        return $default(
+            _that.icon,
+            _that.iconColor,
+            _that.label,
+            _that.labelText,
+            _that.labelStyle,
+            _that.floatingLabelStyle,
+            _that.helperText,
+            _that.helperStyle,
+            _that.hintText,
+            _that.hintStyle,
+            _that.helperMaxLines,
+            _that.hintTextDirection,
+            _that.hintMaxLines,
+            _that.errorText,
+            _that.errorStyle,
+            _that.errorMaxLines,
+            _that.floatingLabelBehavior,
+            _that.floatingLabelAlignment,
+            _that.isCollapsed,
+            _that.isDense,
+            _that.contentPadding,
+            _that.prefixIcon,
+            _that.prefixIconConstraints,
+            _that.prefix,
+            _that.prefixText,
+            _that.prefixStyle,
+            _that.prefixIconColor,
+            _that.suffix,
+            _that.suffixIcon,
+            _that.suffixIconConstraints,
+            _that.suffixText,
+            _that.suffixStyle,
+            _that.suffixIconColor,
+            _that.counter,
+            _that.counterText,
+            _that.counterStyle,
+            _that.filled,
+            _that.fillColor,
+            _that.hoverColor,
+            _that.focusColor,
+            _that.errorBorder,
+            _that.focusedBorder,
+            _that.focusedErrorBorder,
+            _that.disabledBorder,
+            _that.enabledBorder,
+            _that.border,
+            _that.enabled,
+            _that.semanticCounterText,
+            _that.alignLabelWithHint,
+            _that.constraints);
+      case _:
+        return null;
+    }
   }
 }
 

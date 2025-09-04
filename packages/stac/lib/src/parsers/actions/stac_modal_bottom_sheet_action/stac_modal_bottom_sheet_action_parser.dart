@@ -32,7 +32,7 @@ class StacModalBottomSheetActionParser
       return _showModalBottomSheet(
         context,
         model,
-        Stac.fromAssets(model.assetPath!) ?? const SizedBox(),
+        Stac.fromAssets(model.assetPath!),
       );
     } else if (model.request != null) {
       return _showModalBottomSheet(

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/types/type_parser.dart';
 import 'package:stac/src/parsers/painting/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/painting/stac_text_style_parser.dart';
+import 'package:stac/src/parsers/types/type_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac_core/widgets/text_form_field/stac_text_form_field.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
-import 'package:stac_core/widgets/text_form_field/stac_text_form_field.dart';
 
 class StacTextFormFieldParser extends StacParser<StacTextFormField> {
   const StacTextFormFieldParser();
@@ -74,7 +74,7 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
       autofocus: widget.model.autofocus ?? false,
       autovalidateMode: widget.model.autovalidateMode?.parse,
       obscuringCharacter: widget.model.obscuringCharacter ?? '•',
-      maxLines: widget.model.maxLines,
+      maxLines: widget.model.maxLines ?? 1,
       minLines: widget.model.minLines,
       maxLength: widget.model.maxLength,
       obscureText: _obscureText,

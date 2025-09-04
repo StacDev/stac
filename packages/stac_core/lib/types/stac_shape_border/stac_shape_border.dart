@@ -50,18 +50,44 @@ abstract class StacShapeBorder implements StacElement {
   /// This factory method delegates to the appropriate subclass
   /// based on the "type" field in the JSON.
   factory StacShapeBorder.fromJson(Map<String, dynamic> json) {
-    final typeString = json['type'];
+    final dynamic rawType = json['type'];
+    final String? typeString = rawType is String ? rawType : null;
 
-    // Convert string to enum
-    late StacShapeBorderType type;
-    for (final enumValue in StacShapeBorderType.values) {
-      if (enumValue.name == typeString) {
-        type = enumValue;
-        break;
+    // Resolve string to enum; support missing or alias values and provide a safe default
+    StacShapeBorderType? resolvedType;
+
+    if (typeString != null) {
+      for (final enumValue in StacShapeBorderType.values) {
+        if (enumValue.name == typeString) {
+          resolvedType = enumValue;
+          break;
+        }
       }
+
+      // Fallback aliases (legacy/short names)
+      resolvedType ??= () {
+        switch (typeString) {
+          case 'roundedRectangle':
+          case 'roundedRectangleBorder':
+            return StacShapeBorderType.roundedRectangleBorder;
+          case 'circle':
+          case 'circleBorder':
+            return StacShapeBorderType.circleBorder;
+          case 'continuousRectangle':
+          case 'continuousRectangleBorder':
+            return StacShapeBorderType.continuousRectangleBorder;
+          case 'beveledRectangle':
+          case 'beveledRectangleBorder':
+            return StacShapeBorderType.beveledRectangleBorder;
+        }
+        return null;
+      }();
     }
 
-    switch (type) {
+    // If still unknown or missing, default to rounded rectangle (most common)
+    resolvedType ??= StacShapeBorderType.roundedRectangleBorder;
+
+    switch (resolvedType) {
       case StacShapeBorderType.roundedRectangleBorder:
         return StacRoundedRectangleBorder.fromJson(json);
       case StacShapeBorderType.circleBorder:

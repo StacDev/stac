@@ -7,9 +7,9 @@ import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/types/type_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac/src/utils/widget_type.dart';
-import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_core/core/core.dart';
 import 'package:stac_core/widgets/refresh_indicator/stac_refresh_indicator.dart';
+import 'package:stac_framework/stac_framework.dart';
 
 class StacRefreshIndicatorParser extends StacParser<StacRefreshIndicator> {
   const StacRefreshIndicatorParser();

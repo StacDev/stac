@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -186,6 +185,226 @@ class _$StacNavigationBarThemeDataCopyWithImpl<$Res>
     return $StacIconThemeDataCopyWith<$Res>(_self.iconTheme!, (value) {
       return _then(_self.copyWith(iconTheme: value));
     });
+  }
+}
+
+/// Adds pattern-matching-related methods to [StacNavigationBarThemeData].
+extension StacNavigationBarThemeDataPatterns on StacNavigationBarThemeData {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_StacNavigationBarThemeData value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_StacNavigationBarThemeData value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_StacNavigationBarThemeData value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            double? height,
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            String? indicatorColor,
+            StacBorder? indicatorShape,
+            StacTextStyle? labelTextStyle,
+            StacIconThemeData? iconTheme,
+            NavigationDestinationLabelBehavior? labelBehavior)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData() when $default != null:
+        return $default(
+            _that.height,
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.indicatorColor,
+            _that.indicatorShape,
+            _that.labelTextStyle,
+            _that.iconTheme,
+            _that.labelBehavior);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            double? height,
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            String? indicatorColor,
+            StacBorder? indicatorShape,
+            StacTextStyle? labelTextStyle,
+            StacIconThemeData? iconTheme,
+            NavigationDestinationLabelBehavior? labelBehavior)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData():
+        return $default(
+            _that.height,
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.indicatorColor,
+            _that.indicatorShape,
+            _that.labelTextStyle,
+            _that.iconTheme,
+            _that.labelBehavior);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            double? height,
+            String? backgroundColor,
+            double? elevation,
+            String? shadowColor,
+            String? surfaceTintColor,
+            String? indicatorColor,
+            StacBorder? indicatorShape,
+            StacTextStyle? labelTextStyle,
+            StacIconThemeData? iconTheme,
+            NavigationDestinationLabelBehavior? labelBehavior)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _StacNavigationBarThemeData() when $default != null:
+        return $default(
+            _that.height,
+            _that.backgroundColor,
+            _that.elevation,
+            _that.shadowColor,
+            _that.surfaceTintColor,
+            _that.indicatorColor,
+            _that.indicatorShape,
+            _that.labelTextStyle,
+            _that.iconTheme,
+            _that.labelBehavior);
+      case _:
+        return null;
+    }
   }
 }
 

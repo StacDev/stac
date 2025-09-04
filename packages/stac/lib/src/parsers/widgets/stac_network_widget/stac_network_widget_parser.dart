@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:stac/src/framework/framework.dart';
-import 'package:stac_core/widgets/network_widget/stac_network_widget.dart';
 import 'package:stac/src/utils/widget_type.dart';
+import 'package:stac_core/widgets/network_widget/stac_network_widget.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacNetworkWidgetParser extends StacParser<StacNetworkWidget> {

@@ -69,8 +69,7 @@ class ExampleScreenParser extends StacParser<ExampleScreen> {
                 ),
               ],
             ),
-            child: Stac.fromAssets(model.assetPath) ??
-                const Center(child: CircularProgressIndicator()),
+            child: Stac.fromAssets(model.assetPath),
           ),
         );
       },

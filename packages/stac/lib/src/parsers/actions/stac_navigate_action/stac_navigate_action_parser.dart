@@ -25,6 +25,14 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
       widget = Stac.fromNetwork(context: context, request: model.request!);
     } else if (model.assetPath != null) {
       widget = Stac.fromAssets(model.assetPath!);
+    } else if (model.routeName != null &&
+        (model.navigationStyle == null ||
+            model.navigationStyle == NavigationStyle.push ||
+            model.navigationStyle == NavigationStyle.pushReplacement ||
+            model.navigationStyle == NavigationStyle.pushAndRemoveAll)) {
+      // If a routeName is provided and we're using a push-style navigation,
+      // render the remote screen using the Stac(routeName) widget.
+      widget = Stac(routeName: model.routeName!);
     }
     return _navigate(
       context: context,
