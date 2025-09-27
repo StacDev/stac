@@ -45,7 +45,7 @@ Here we are using the freezed package to create the data class. But you can use 
 
 ```dart
 @freezed
-class CustomButton with _$CustomButton {
+abstract class CustomButton with _$CustomButton {
   const factory CustomButton({
     required String text,
     required String color,

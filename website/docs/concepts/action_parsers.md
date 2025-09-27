@@ -36,7 +36,7 @@ For this JSON Structure, we can create a data class to represent the custom acti
 
 ```dart
 @freezed
-class PrintAction with _$PrintAction {
+abstract class PrintAction with _$PrintAction {
   const factory PrintAction({
     required String message,
   }) = _PrintAction;
