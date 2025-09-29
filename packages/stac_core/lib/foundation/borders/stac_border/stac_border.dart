@@ -83,6 +83,92 @@ class StacBorder implements StacElement {
   /// The left border side with individual styling.
   final StacBorderSide? left;
 
+  /// Creates a uniform border applied to all sides.
+  ///
+  /// This factory method creates a border with the same styling applied
+  /// to all four sides (top, right, bottom, left).
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorder.all(
+  ///   color: StacColors.blue,
+  ///   width: 2.0,
+  ///   borderStyle: StacBorderStyle.solid,
+  /// )
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "color": "#2196F3",
+  ///   "width": 2.0,
+  ///   "borderStyle": "solid"
+  /// }
+  /// ```
+  /// {@end-tool}
+  factory StacBorder.all({
+    StacColor? color,
+    StacBorderStyle? borderStyle,
+    double? width,
+    double? strokeAlign,
+  }) {
+    return StacBorder(
+      color: color,
+      borderStyle: borderStyle,
+      width: width,
+      strokeAlign: strokeAlign,
+    );
+  }
+
+  /// Creates a symmetric border with different styling for horizontal and vertical sides.
+  ///
+  /// This factory method creates a border where horizontal sides (left, right)
+  /// have the same styling, and vertical sides (top, bottom) have the same styling.
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorder.symmetric(
+  ///   horizontal: StacBorderSide(
+  ///     color: StacColors.blue,
+  ///     width: 2.0,
+  ///     borderStyle: StacBorderStyle.solid,
+  ///   ),
+  ///   vertical: StacBorderSide(
+  ///     color: StacColors.red,
+  ///     width: 1.0,
+  ///     borderStyle: StacBorderStyle.solid,
+  ///   ),
+  /// )
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "top": {"color": "#F44336", "width": 1.0, "borderStyle": "solid"},
+  ///   "bottom": {"color": "#F44336", "width": 1.0, "borderStyle": "solid"},
+  ///   "left": {"color": "#2196F3", "width": 2.0, "borderStyle": "solid"},
+  ///   "right": {"color": "#2196F3", "width": 2.0, "borderStyle": "solid"}
+  /// }
+  /// ```
+  /// {@end-tool}
+  factory StacBorder.symmetric({
+    StacBorderSide? horizontal,
+    StacBorderSide? vertical,
+  }) {
+    return StacBorder(
+      top: vertical,
+      bottom: vertical,
+      left: horizontal,
+      right: horizontal,
+    );
+  }
+
   /// Creates a [StacBorder] from a JSON map.
   factory StacBorder.fromJson(Map<String, dynamic> json) =>
       _$StacBorderFromJson(json);
