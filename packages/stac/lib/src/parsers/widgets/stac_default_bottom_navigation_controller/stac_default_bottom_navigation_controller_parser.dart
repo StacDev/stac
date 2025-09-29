@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/framework/framework.dart';
-import 'package:stac/src/parsers/widgets/stac_default_bottom_navigation_controller/stac_default_bottom_navigation_controller.dart';
+import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
@@ -18,9 +17,7 @@ class StacDefaultBottomNavigationControllerParser
 
   @override
   Widget parse(
-    BuildContext context,
-    StacDefaultBottomNavigationController model,
-  ) {
+      BuildContext context, StacDefaultBottomNavigationController model) {
     return _DefaultBottomNavigationControllerWidget(model: model);
   }
 }
@@ -31,6 +28,7 @@ class _DefaultBottomNavigationControllerWidget extends StatefulWidget {
   });
 
   final StacDefaultBottomNavigationController model;
+
   @override
   State<_DefaultBottomNavigationControllerWidget> createState() =>
       _DefaultBottomNavigationControllerWidgetState();
@@ -61,15 +59,18 @@ class _DefaultBottomNavigationControllerWidgetState
     return BottomNavigationScope(
       length: widget.model.length,
       controller: _controller,
-      child: Builder(
-        builder: (context) =>
-            Stac.fromJson(widget.model.child, context) ?? const SizedBox(),
-      ),
+      child: widget.model.child.parse(context) ?? const SizedBox(),
     );
   }
 }
 
+/// An inherited widget that provides bottom navigation state to descendant widgets.
+///
+/// This widget is typically created by [StacDefaultBottomNavigationController]
+/// and provides access to the [BottomNavigationController] and navigation length
+/// to child widgets like [StacBottomNavigationBar] and [StacBottomNavigationView].
 class BottomNavigationScope extends InheritedWidget {
+  /// Creates a [BottomNavigationScope] with the specified properties.
   const BottomNavigationScope({
     super.key,
     required super.child,
@@ -77,9 +78,15 @@ class BottomNavigationScope extends InheritedWidget {
     required this.controller,
   });
 
+  /// The number of bottom navigation items.
   final int length;
+
+  /// The controller that manages the current navigation index.
   final BottomNavigationController controller;
 
+  /// Returns the [BottomNavigationScope] from the widget tree.
+  ///
+  /// Returns null if no [BottomNavigationScope] is found in the widget tree.
   static BottomNavigationScope? of(BuildContext context) {
     final BottomNavigationScope? result =
         context.dependOnInheritedWidgetOfExactType<BottomNavigationScope>();
@@ -88,7 +95,8 @@ class BottomNavigationScope extends InheritedWidget {
       return result;
     } else {
       Log.e(
-          "BottomNavigationScope.of() called with a context that does not contain a BottomNavigationScope.");
+        "BottomNavigationScope.of() called with a context that does not contain a BottomNavigationScope.",
+      );
       return null;
     }
   }
@@ -99,17 +107,28 @@ class BottomNavigationScope extends InheritedWidget {
   }
 }
 
+/// A controller that manages the state of a bottom navigation bar.
+///
+/// This controller tracks the current selected index and notifies listeners
+/// when the index changes. It is used by [BottomNavigationScope] to coordinate
+/// between [StacBottomNavigationBar] and [StacBottomNavigationView].
 class BottomNavigationController extends ChangeNotifier {
-  BottomNavigationController({
-    this.initialIndex = 0,
-    required this.length,
-  }) : _index = initialIndex;
+  /// Creates a [BottomNavigationController] with the specified properties.
+  BottomNavigationController({this.initialIndex = 0, required this.length})
+      : _index = initialIndex;
 
+  /// The initial index when the controller is created.
   final int initialIndex;
+
+  /// The number of navigation items.
   final int length;
 
   int _index = 0;
+
+  /// The current selected index.
   int get index => _index;
+
+  /// Sets the current selected index.
   set index(int value) => _changeIndex(value);
 
   void _changeIndex(int value) {
