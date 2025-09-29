@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -22,6 +23,6 @@ class StacSetValueActionParser extends StacActionParser<StacSetValueAction> {
     for (final value in model.values ?? []) {
       StacRegistry.instance.setValue(value['key'] as String, value['value']);
     }
-    return Stac.onCallFromJson(model.action, context);
+    return model.action.parse(context);
   }
 }

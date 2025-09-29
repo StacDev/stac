@@ -47,7 +47,7 @@ class StacSetValueAction extends StacAction {
   final List<Map<String, dynamic>>? values;
 
   /// An optional action to execute after the values are written.
-  final Map<String, dynamic>? action;
+  final StacAction? action;
 
   /// Action type identifier.
   @override
