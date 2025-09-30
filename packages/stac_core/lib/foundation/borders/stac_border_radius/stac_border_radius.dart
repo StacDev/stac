@@ -65,6 +65,146 @@ class StacBorderRadius implements StacElement {
         bottomRight: radius,
       );
 
+  /// Creates a border radius with individual values for each corner.
+  ///
+  /// This factory method allows you to specify different radius values
+  /// for each corner individually.
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorderRadius.only(
+  ///   topLeft: 8.0,
+  ///   topRight: 4.0,
+  ///   bottomLeft: 4.0,
+  ///   bottomRight: 8.0,
+  /// )
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "topLeft": 8.0,
+  ///   "topRight": 4.0,
+  ///   "bottomLeft": 4.0,
+  ///   "bottomRight": 8.0
+  /// }
+  /// ```
+  /// {@end-tool}
+  const StacBorderRadius.only({
+    double? topLeft,
+    double? topRight,
+    double? bottomLeft,
+    double? bottomRight,
+  }) : this(
+         topLeft: topLeft,
+         topRight: topRight,
+         bottomLeft: bottomLeft,
+         bottomRight: bottomRight,
+       );
+
+  /// Creates a border radius with symmetric horizontal corners.
+  ///
+  /// This factory method creates a border radius where left corners
+  /// have the same radius and right corners have the same radius.
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorderRadius.horizontal(
+  ///   left: 8.0,
+  ///   right: 4.0,
+  /// )
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "topLeft": 8.0,
+  ///   "topRight": 4.0,
+  ///   "bottomLeft": 8.0,
+  ///   "bottomRight": 4.0
+  /// }
+  /// ```
+  /// {@end-tool}
+  const StacBorderRadius.horizontal({double? left, double? right})
+    : this(
+        topLeft: left,
+        topRight: right,
+        bottomLeft: left,
+        bottomRight: right,
+      );
+
+  /// Creates a border radius with symmetric vertical corners.
+  ///
+  /// This factory method creates a border radius where top corners
+  /// have the same radius and bottom corners have the same radius.
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorderRadius.vertical(
+  ///   top: 8.0,
+  ///   bottom: 4.0,
+  /// )
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "topLeft": 8.0,
+  ///   "topRight": 8.0,
+  ///   "bottomLeft": 4.0,
+  ///   "bottomRight": 4.0
+  /// }
+  /// ```
+  /// {@end-tool}
+  const StacBorderRadius.vertical({double? top, double? bottom})
+    : this(
+        topLeft: top,
+        topRight: top,
+        bottomLeft: bottom,
+        bottomRight: bottom,
+      );
+
+  /// Creates a circular border radius.
+  ///
+  /// This factory method creates a border radius that forms a perfect circle
+  /// when applied to a square widget. For non-square widgets, it creates
+  /// an elliptical shape.
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBorderRadius.circular(20.0)
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "topLeft": 20.0,
+  ///   "topRight": 20.0,
+  ///   "bottomLeft": 20.0,
+  ///   "bottomRight": 20.0
+  /// }
+  /// ```
+  /// {@end-tool}
+  const StacBorderRadius.circular(double radius)
+    : this(
+        topLeft: radius,
+        topRight: radius,
+        bottomLeft: radius,
+        bottomRight: radius,
+      );
+
   /// The radius for the top-left corner in logical pixels.
   ///
   /// If null, no radius will be applied to this corner.
