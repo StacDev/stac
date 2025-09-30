@@ -4,6 +4,49 @@
 /// or theme color names (e.g., 'primary', 'secondary').
 typedef StacColor = String;
 
+/// Extension on [StacColor] to provide additional functionality.
+extension StacColorExtension on StacColor {
+  /// Creates a new color with the specified opacity.
+  ///
+  /// This method appends the opacity value to the color string in the format
+  /// `@<opacity>` where opacity is expressed as a percentage (0-100).
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacColors.primary.withOpacity(0.8)  // Returns "primary@80"
+  /// StacColors.blue.withOpacity(0.5)     // Returns "blue@50"
+  /// '#FF0000'.withOpacity(0.3)           // Returns "#FF0000@30"
+  /// ```
+  /// {@end-tool}
+  ///
+  /// {@tool snippet}
+  /// JSON Example:
+  /// ```json
+  /// {
+  ///   "color": "primary@80",
+  ///   "backgroundColor": "secondary@50"
+  /// }
+  /// ```
+  /// {@end-tool}
+  ///
+  /// The opacity value should be between 0.0 (completely transparent) and 1.0
+  /// (completely opaque). Values outside this range will be clamped.
+  StacColor withOpacity(double opacity) {
+    // Clamp opacity to valid range (0.0 to 1.0)
+    final clampedOpacity = opacity.clamp(0.0, 1.0);
+
+    // Convert to percentage (0-100) and round to nearest integer
+    final opacityPercentage = (clampedOpacity * 100).round();
+
+    // Remove any existing opacity suffix by splitting on '@' and taking the first part
+    final baseColor = split('@').first;
+
+    // Return the base color string with new opacity suffix
+    return '$baseColor@$opacityPercentage';
+  }
+}
+
 /// A collection of predefined colors for the Stac framework.
 ///
 /// This class provides a comprehensive set of Material Design colors,
