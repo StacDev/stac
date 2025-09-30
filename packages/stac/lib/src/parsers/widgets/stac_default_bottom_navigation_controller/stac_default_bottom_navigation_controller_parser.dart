@@ -17,7 +17,9 @@ class StacDefaultBottomNavigationControllerParser
 
   @override
   Widget parse(
-      BuildContext context, StacDefaultBottomNavigationController model) {
+    BuildContext context,
+    StacDefaultBottomNavigationController model,
+  ) {
     return _DefaultBottomNavigationControllerWidget(model: model);
   }
 }

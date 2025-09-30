@@ -21,6 +21,17 @@ class StacBottomNavigationBarParser
 
   @override
   Widget parse(BuildContext context, StacBottomNavigationBar model) {
+    return _BottomNavigationBarWidget(model: model);
+  }
+}
+
+class _BottomNavigationBarWidget extends StatelessWidget {
+  const _BottomNavigationBarWidget({required this.model});
+
+  final StacBottomNavigationBar model;
+
+  @override
+  Widget build(BuildContext context) {
     final controller = BottomNavigationScope.of(context)?.controller;
 
     return BottomNavigationBar(

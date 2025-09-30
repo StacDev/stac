@@ -17,6 +17,17 @@ class StacBottomNavigationViewParser
 
   @override
   Widget parse(BuildContext context, StacBottomNavigationView model) {
+    return _BottomNavigationViewWidget(model: model);
+  }
+}
+
+class _BottomNavigationViewWidget extends StatelessWidget {
+  const _BottomNavigationViewWidget({required this.model});
+
+  final StacBottomNavigationView model;
+
+  @override
+  Widget build(BuildContext context) {
     final controller = BottomNavigationScope.of(context)?.controller;
     if (model.children.isEmpty) return const SizedBox();
     final index = controller?.index ?? 0;
