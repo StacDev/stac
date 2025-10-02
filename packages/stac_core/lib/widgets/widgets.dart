@@ -60,6 +60,7 @@ export 'refresh_indicator/stac_refresh_indicator.dart';
 export 'row/stac_row.dart';
 export 'safe_area/stac_safe_area.dart';
 export 'scaffold/stac_scaffold.dart';
+export 'set_value/stac_set_value.dart';
 export 'single_child_scroll_view/stac_single_child_scroll_view.dart';
 export 'sized_box/stac_sized_box.dart';
 export 'slider/stac_slider.dart';

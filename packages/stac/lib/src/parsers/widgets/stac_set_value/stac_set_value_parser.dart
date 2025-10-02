@@ -4,8 +4,6 @@ import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
-import 'stac_set_value.dart';
-
 class StacSetValueParser extends StacParser<StacSetValue> {
   const StacSetValueParser();
 
