@@ -51,8 +51,15 @@ class _SetValueWidgetState extends State<_SetValueWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.model.child == null) {
+      return const SizedBox();
+    }
+
+    // Convert the StacWidget to JSON, resolve variables, then parse it back
+    final childJson = widget.model.child!.toJson();
+
     final resolvedJson = resolveVariablesInJson(
-      widget.model.child,
+      childJson,
       _stacRegistry,
     );
 
