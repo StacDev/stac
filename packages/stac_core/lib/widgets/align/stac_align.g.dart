@@ -7,12 +7,10 @@ part of 'stac_align.dart';
 // **************************************************************************
 
 StacAlign _$StacAlignFromJson(Map<String, dynamic> json) => StacAlign(
-  alignment:
-      $enumDecodeNullable(
-        _$StacAlignmentDirectionalEnumMap,
-        json['alignment'],
-      ) ??
-      StacAlignmentDirectional.center,
+  alignment: $enumDecodeNullable(
+    _$StacAlignmentDirectionalEnumMap,
+    json['alignment'],
+  ),
   widthFactor: const DoubleConverter().fromJson(json['widthFactor']),
   heightFactor: const DoubleConverter().fromJson(json['heightFactor']),
   child: json['child'] == null
@@ -21,7 +19,7 @@ StacAlign _$StacAlignFromJson(Map<String, dynamic> json) => StacAlign(
 );
 
 Map<String, dynamic> _$StacAlignToJson(StacAlign instance) => <String, dynamic>{
-  'alignment': _$StacAlignmentDirectionalEnumMap[instance.alignment]!,
+  'alignment': _$StacAlignmentDirectionalEnumMap[instance.alignment],
   'widthFactor': const DoubleConverter().toJson(instance.widthFactor),
   'heightFactor': const DoubleConverter().toJson(instance.heightFactor),
   'child': instance.child?.toJson(),
