@@ -15,27 +15,24 @@
     },
     "favicon": "/favicon.svg",
     "navigation": {
-        "tabs": [
+        "groups": [
             {
-                "tab": "Documentation",
-                "groups": [
-                    {
-                        "group": "Getting Started",
-                        "pages": [
-                            "index",
-                            "why_stac"
-                        ]
-                    },
-                    {
-                        "group": "Concepts",
-                        "pages": [
-                            "concepts/action_parsers",
-                            "concepts/parsers",
-                            "concepts/theming"
-                        ]
-                    }
+                "group": "Getting Started",
+                "pages": [
+                    "index",
+                    "why_stac"
                 ]
             },
+            {
+                "group": "Concepts",
+                "pages": [
+                    "concepts/action_parsers",
+                    "concepts/parsers",
+                    "concepts/theming"
+                ]
+            }
+        ],
+        "tabs": [
             {
                 "tab": "Widgets",
                 "groups": [

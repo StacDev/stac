@@ -18,8 +18,8 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-.navbar{
- background-color: #FFFFFF;
+.navbar {
+  background-color: #FFFFFF;
 }
 
 .footer {
@@ -47,6 +47,6 @@ html[data-theme='dark'] footer {
   --ifm-footer-link-color: #FFFFFF;
 }
 
-html[data-theme='dark'] .navbar{
- background-color: #16181A;
+html[data-theme='dark'] .navbar {
+  background-color: #16181A;
 }

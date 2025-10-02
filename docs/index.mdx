@@ -1,97 +1,153 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Get Started 🚀"
+description: "Welcome to Stac, a Server-Driven UI (SDUI) framework for Flutter"
 ---
 
-## Setting up
+# Get Started 🚀
 
-Get your documentation site up and running in minutes.
+Welcome to **Stac** (formerly Mirai), a Server-Driven UI (SDUI) framework for Flutter. Stac empowers developers to build dynamic, cross-platform applications by utilizing JSON in real time. This innovative approach to UI development allows for flexible, efficient, and seamless updates, minimizing the need for frequent AppStore/PlayStore releases and ensuring your application always looks and feels fresh.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+## Packages
 
-## Make it yours
+The Stac ecosystem consists of the following packages:
 
-Design a docs site that looks great and empowers your users.
+| Package | Description | Link |
+|---------|-------------|------|
+| [stac](https://github.com/StacDev/stac/tree/dev/packages/stac) | The core package that provides the foundation for building server-driven UIs in Flutter. | [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac) |
+| [stac_framework](https://github.com/StacDev/stac/tree/dev/packages/stac_framework) | A framework that extends the functionality of the core package and provides additional features for building server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_framework.svg)](https://pub.dev/packages/stac_framework) |
+| [stac_webview](https://github.com/StacDev/stac/tree/dev/packages/stac_webview) | A package that enables you to embed web views in your server-driven UIs. | [![pub package](https://img.shields.io/pub/v/stac_webview.svg)](https://pub.dev/packages/stac_webview) |
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+## Installation
 
-## Create beautiful pages
+To get started with Stac, follow the installation instructions below:
 
-Everything you need to create world-class documentation.
+1. Add the Stac dependency to your `pubspec.yaml` file:
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+Run this command:
 
-## Need inspiration?
+```bash
+flutter pub add stac
+```
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+This will add stac into your package's pubspec.yaml (and run an implicit flutter pub get):
+
+Alternatively, you can manually add the dependency to your app from within your pubspec.yaml:
+
+```yaml
+dependencies:
+  stac: ^<latest-version>
+```
+
+<Note>
+Please replace `<latest-version>` with the latest version of Stac. You can find the latest version on the [Stac pub.dev page](https://pub.dev/packages/stac).
+</Note>
+
+2. Run the following command in your terminal to install the package:
+
+```bash
+flutter pub get
+```
+
+3. Import the Stac package in your Dart file:
+
+```dart
+import 'package:stac/stac.dart';
+```
+
+Now, you're ready to start using Stac in your Flutter project.
+
+## How to use Stac?
+
+Now that you have successfully installed Stac, let's dive into how you can use it to build dynamic, server-driven UIs in your Flutter project.
+
+## 1. Import the Stac package
+
+To start using Stac, you need to import the package in your Dart file. Add the following import statement to your `main.dart`:
+
+```dart
+import 'package:stac/stac.dart';
+```
+
+This import allows you to access all the classes and functions provided by Stac.
+
+## 2. Initialize Stac
+
+In the `main` function, initialize Stac to set up the necessary configurations and prepare your app for rendering UI from JSON.
+
+### Basic Initialization
+```dart
+void main() async {
+  await Stac.initialize();
+  runApp(const MyApp());
+}
+```
+
+## 3. Use Stac to Render UI
+
+You can use `Stac.fromJson` to load and render the UI from a JSON object. Here's how you can integrate it into your Flutter app:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+void main() async {
+  await Stac.initialize();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'StacDemo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Stac.fromJson(json, context),
+    );
+  }
+}
+```
+
+### Rendering UI from JSON File in Assets
+
+You can also use `Stac.fromAssets` to load and render the UI from a JSON file stored in the assets folder:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'StacDemo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: Stac.fromAsset('assets/ui.json', context),
+  );
+}
+```
+
+### Rendering UI from Network
+
+Alternatively, use the `Stac.fromNetwork` method to load and render the UI from a JSON file stored on a server:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+  return MaterialApp(
+    title: 'StacDemo',
+    theme: ThemeData(
+      primarySwatch: Colors.blue,
+    ),
+    home: Stac.fromNetwork(
+      request: StacNetworkRequest(
+        url: 'https://example.com/ui.json',
+      ), 
+      context: context,
+    ),
+  );
+}
+```
+
+By following these steps, you can effectively integrate Stac into your Flutter project and start building dynamic, server-driven UIs.
