@@ -52,10 +52,10 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/framework.png',
+    image: 'img/stac_banner.png',
     metadata: [
       { name: 'keywords', content: 'stac, flutter, server-driven-ui, sdui' },
-      { name: 'og:image', content: 'img/framework.png' },
+      { name: 'og:image', content: 'img/stac_banner.png' },
       { name: 'twitter:card', content: 'summary_large_image' },
     ],
     colorMode: {
