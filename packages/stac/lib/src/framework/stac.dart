@@ -3,6 +3,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/services/stac_cloud.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
@@ -15,6 +16,17 @@ typedef ErrorWidgetBuilder = Widget Function(
 );
 
 typedef LoadingWidgetBuilder = Widget Function(BuildContext context);
+
+/// Global parse-error widget builder for Stac.
+///
+/// Allows apps to provide a custom widget when parsing a Stac widget/action
+/// fails. The builder receives useful context like the widget/action type,
+/// original JSON and stack trace (when available).
+/// A simple error widget builder: provide a context and structured details.
+typedef StacErrorWidgetBuilder = Widget Function(
+  BuildContext context,
+  StacError details,
+);
 
 class Stac extends StatelessWidget {
   const Stac({
@@ -34,6 +46,9 @@ class Stac extends StatelessWidget {
     List<StacActionParser> actionParsers = const [],
     Dio? dio,
     bool override = false,
+    bool showErrorWidgets = true,
+    bool logStackTraces = true,
+    StacErrorWidgetBuilder? errorWidgetBuilder,
   }) async {
     return StacService.initialize(
       options: options,
@@ -41,6 +56,9 @@ class Stac extends StatelessWidget {
       actionParsers: actionParsers,
       dio: dio,
       override: override,
+      showErrorWidgets: showErrorWidgets,
+      logStackTraces: logStackTraces,
+      errorWidgetBuilder: errorWidgetBuilder,
     );
   }
 

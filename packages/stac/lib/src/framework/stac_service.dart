@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
 import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac.dart';
+import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/actions/stac_form_validate/stac_form_validate_parser.dart';
 import 'package:stac/src/parsers/actions/stac_get_form_value/stac_get_form_value_parser.dart';
@@ -13,7 +15,6 @@ import 'package:stac/src/parsers/parsers.dart';
 import 'package:stac/src/parsers/widgets/stac_app_bar/stac_app_bar_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
-import 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
@@ -22,8 +23,29 @@ import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
 
-/// Internal service that holds parsers, actions and helper methods for Stac.
+/// Internal service that manages Stac parsers, actions, and rendering.
+///
+/// This service is the core of the Stac framework, responsible for:
+/// - Registering and managing widget and action parsers
+/// - Converting JSON to Flutter widgets
+/// - Handling errors with proper error widgets
+/// - Loading widgets from network and assets
+///
+/// Initialize with [initialize] before using any Stac widgets:
+/// ```dart
+/// await StacService.initialize(
+///   parsers: [...],
+///   actionParsers: [...],
+///   showErrorWidgets: true,
+/// );
+/// ```
 class StacService {
+  // Error message constants
+  static const String _errorWidgetTypeNotSupported =
+      'Widget type not found or not supported';
+  static const String _errorActionTypeNotSupported =
+      'Action type not found or not supported';
+
   static final _parsers = <StacParser>[
     const StacContainerParser(),
     const StacTextParser(),
@@ -124,12 +146,21 @@ class StacService {
   static StacOptions? _options;
   static StacOptions? get options => _options;
 
+  static bool _showErrorWidgets = true;
+  static bool _logStackTraces = true;
+
+  // Optional global parse-error widget builder supplied by the app.
+  static StacErrorWidgetBuilder? _errorWidgetBuilder;
+
   static Future<void> initialize({
     StacOptions? options,
     List<StacParser> parsers = const [],
     List<StacActionParser> actionParsers = const [],
     Dio? dio,
     bool override = false,
+    bool showErrorWidgets = true,
+    bool logStackTraces = true,
+    StacErrorWidgetBuilder? errorWidgetBuilder,
   }) async {
     _options = options;
     _parsers.addAll(parsers);
@@ -137,6 +168,9 @@ class StacService {
     StacRegistry.instance.registerAll(_parsers, override);
     StacRegistry.instance.registerAllActions(_actionParsers, override);
     StacNetworkService.initialize(dio ?? Dio());
+    _showErrorWidgets = showErrorWidgets;
+    _logStackTraces = logStackTraces;
+    _errorWidgetBuilder = errorWidgetBuilder;
   }
 
   static Widget? fromJson(
@@ -144,26 +178,67 @@ class StacService {
     BuildContext context,
   ) {
     try {
-      if (json != null) {
-        String widgetType = json['type'];
-        StacParser? stacParser = StacRegistry.instance.getParser(widgetType);
-
-        if (stacParser != null) {
-          Map<String, dynamic> resolvedJson;
-          if (widgetType == WidgetType.setValue.name) {
-            resolvedJson = json;
-          } else {
-            resolvedJson = resolveVariablesInJson(json, StacRegistry.instance);
-          }
-          final model = stacParser.getModel(resolvedJson);
-
-          return stacParser.parse(context, model);
-        } else {
-          Log.w('Widget type [$widgetType] not supported');
-        }
+      if (json == null) {
+        return null;
       }
-    } catch (e) {
-      Log.e(e);
+
+      // Safely extract widget type with validation
+      final widgetType = json['type'];
+      if (widgetType == null) {
+        throw FormatException('Missing required "type" field in JSON');
+      }
+
+      if (widgetType is! String) {
+        throw TypeError();
+      }
+
+      final stacParser = StacRegistry.instance.getParser(widgetType);
+
+      if (stacParser == null) {
+        Log.w('Widget type [$widgetType] not supported');
+
+        // Return error widget if enabled (debug-only)
+        if (_showErrorWidgets && kDebugMode) {
+          return _buildErrorWidget(
+            context: context,
+            error: StacError(
+              type: widgetType,
+              error: Exception(_errorWidgetTypeNotSupported),
+              json: json,
+            ),
+          );
+        }
+        return null;
+      }
+
+      // Resolve variables in JSON (skip for setValue to avoid recursion)
+      final resolvedJson = widgetType == WidgetType.setValue.name
+          ? json
+          : resolveVariablesInJson(json, StacRegistry.instance);
+
+      final model = stacParser.getModel(resolvedJson);
+      return stacParser.parse(context, model);
+    } catch (e, stackTrace) {
+      // Log error with full context
+      _logError(
+        category: 'Widget Parse Error',
+        type: json?['type']?.toString(),
+        error: e,
+        stackTrace: stackTrace,
+      );
+
+      // Return error widget if enabled (debug-only)
+      if (_showErrorWidgets && kDebugMode) {
+        return _buildErrorWidget(
+          context: context,
+          error: StacError(
+            type: json?['type']?.toString(),
+            error: e,
+            json: json,
+            stackTrace: stackTrace,
+          ),
+        );
+      }
     }
     return null;
   }
@@ -173,30 +248,53 @@ class StacService {
     required BuildContext context,
   }) {
     try {
-      String widgetType = widget.type;
-      StacParser? stacParser = StacRegistry.instance.getParser(widgetType);
+      final widgetType = widget.type;
+      final stacParser = StacRegistry.instance.getParser(widgetType);
 
-      if (stacParser != null) {
-        Map<String, dynamic> resolvedJson;
-        if (widgetType == WidgetType.setValue.name) {
-          resolvedJson = widget.toJson();
-        } else {
-          resolvedJson = resolveVariablesInJson(
-            widget.toJson(),
-            StacRegistry.instance,
+      if (stacParser == null) {
+        Log.w('Widget type [$widgetType] not supported');
+
+        // Return error widget if enabled (debug-only)
+        if (_showErrorWidgets && kDebugMode) {
+          return _buildErrorWidget(
+            context: context,
+            error: StacError(
+              type: widgetType,
+              error: Exception(_errorWidgetTypeNotSupported),
+              json: widget.toJson(),
+            ),
           );
         }
-
-        Log.d(resolvedJson);
-        final model = stacParser.getModel(resolvedJson);
-
-        return stacParser.parse(context, model);
-      } else {
-        Log.w('Widget type [$widgetType] not supported');
+        return null;
       }
-    } catch (e) {
-      Log.e('error in ${widget.type}');
-      Log.e(e);
+
+      // Resolve variables in JSON (skip for setValue to avoid recursion)
+      final resolvedJson = widgetType == WidgetType.setValue.name
+          ? widget.toJson()
+          : resolveVariablesInJson(widget.toJson(), StacRegistry.instance);
+
+      final model = stacParser.getModel(resolvedJson);
+      return stacParser.parse(context, model);
+    } catch (e, stackTrace) {
+      _logError(
+        category: 'Widget Parse Error',
+        type: widget.type,
+        error: e,
+        stackTrace: stackTrace,
+      );
+
+      // Return error widget if enabled (debug-only)
+      if (_showErrorWidgets && kDebugMode) {
+        return _buildErrorWidget(
+          context: context,
+          error: StacError(
+            type: widget.type,
+            error: e,
+            json: widget.toJson(),
+            stackTrace: stackTrace,
+          ),
+        );
+      }
     }
     return null;
   }
@@ -206,19 +304,47 @@ class StacService {
     BuildContext context,
   ) {
     try {
-      if (json != null && json['actionType'] != null) {
-        String actionType = json['actionType'];
-        StacActionParser? stacActionParser =
-            StacRegistry.instance.getActionParser(actionType);
-        if (stacActionParser != null) {
-          final model = stacActionParser.getModel(json);
-          return stacActionParser.onCall(context, model);
-        } else {
-          Log.w('Action type [$actionType] not supported');
-        }
+      if (json == null) {
+        return null;
       }
-    } catch (e) {
-      Log.e(e);
+
+      // Safely extract action type with validation
+      final actionType = json['actionType'];
+      if (actionType == null) {
+        throw FormatException('Missing required "actionType" field in JSON');
+      }
+
+      if (actionType is! String) {
+        throw TypeError();
+      }
+
+      final stacActionParser =
+          StacRegistry.instance.getActionParser(actionType);
+
+      if (stacActionParser == null) {
+        Log.w('Action type [$actionType] not supported');
+
+        // Optionally show error widget for actions too (consistency)
+        if (_showErrorWidgets && kDebugMode) {
+          // Actions don't return widgets, so just log the error
+          _logError(
+            category: 'Action Parse Error',
+            type: actionType,
+            error: Exception(_errorActionTypeNotSupported),
+          );
+        }
+        return null;
+      }
+
+      final model = stacActionParser.getModel(json);
+      return stacActionParser.onCall(context, model);
+    } catch (e, stackTrace) {
+      _logError(
+        category: 'Action Parse Error',
+        type: json?['actionType']?.toString(),
+        error: e,
+        stackTrace: stackTrace,
+      );
     }
     return null;
   }
@@ -245,10 +371,24 @@ class StacService {
               final json = jsonDecode(snapshot.data.toString());
               return StacService.fromJson(json, context) ?? const SizedBox();
             } else if (snapshot.hasError) {
-              Log.e(snapshot.error);
+              _logError(
+                category: 'Network Request Error',
+                type: 'network',
+                error: snapshot.error ?? 'Unknown network error',
+                stackTrace: snapshot.stackTrace,
+              );
+
               if (errorWidget != null) {
-                final widget = errorWidget(context, snapshot.error);
-                return widget;
+                return errorWidget(context, snapshot.error);
+              } else if (_showErrorWidgets && kDebugMode) {
+                return _buildErrorWidget(
+                  context: context,
+                  error: StacError(
+                    type: 'network',
+                    error: snapshot.error ?? 'Unknown network error',
+                    stackTrace: snapshot.stackTrace,
+                  ),
+                );
               }
             }
             break;
@@ -281,10 +421,24 @@ class StacService {
               final json = jsonDecode(snapshot.data.toString());
               return StacService.fromJson(json, context) ?? const SizedBox();
             } else if (snapshot.hasError) {
-              Log.e(snapshot.error);
+              _logError(
+                category: 'Asset Load Error',
+                type: 'asset',
+                error: snapshot.error ?? 'Unknown asset load error',
+                stackTrace: snapshot.stackTrace,
+              );
+
               if (errorWidget != null) {
-                final widget = errorWidget(context, snapshot.error);
-                return widget;
+                return errorWidget(context, snapshot.error);
+              } else if (_showErrorWidgets && kDebugMode) {
+                return _buildErrorWidget(
+                  context: context,
+                  error: StacError(
+                    type: 'asset',
+                    error: snapshot.error ?? 'Unknown asset load error',
+                    stackTrace: snapshot.stackTrace,
+                  ),
+                );
               }
             }
             break;
@@ -294,5 +448,47 @@ class StacService {
         return const SizedBox();
       },
     );
+  }
+
+  /// Centralized error logging with consistent formatting.
+  static void _logError({
+    required String category,
+    String? type,
+    required Object error,
+    StackTrace? stackTrace,
+  }) {
+    // Build compact error message
+    final buffer = StringBuffer('[Stac $category]');
+
+    if (type != null) {
+      buffer.write(' Type: "$type"');
+    }
+
+    buffer.write(' - $error');
+
+    Log.e(buffer.toString());
+
+    // Log stack trace separately if available and enabled
+    if (_logStackTraces && stackTrace != null) {
+      Log.e('Stack trace:\n$stackTrace');
+    }
+  }
+
+  /// Builds an error widget with contextual information.
+  ///
+  /// Uses the custom [StacErrorWidgetBuilder] if provided during initialization,
+  /// otherwise falls back to the default [StacErrorWidget].
+  ///
+  /// Only shown in debug mode when [_showErrorWidgets] is true.
+  static Widget _buildErrorWidget({
+    required BuildContext context,
+    required StacError error,
+  }) {
+    // Prefer custom builder if provided
+    if (_errorWidgetBuilder != null) {
+      return _errorWidgetBuilder!(context, error);
+    }
+
+    return StacErrorWidget(error: error);
   }
 }

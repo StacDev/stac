@@ -9,7 +9,6 @@ import 'package:stac/src/parsers/foundation/ui_components/stac_list_tile_style_p
 import 'package:stac/src/parsers/foundation/ui_components/stac_list_tile_title_alignment_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/widgets/list_tile/stac_list_tile.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacListTileParser extends StacParser<StacListTile> {

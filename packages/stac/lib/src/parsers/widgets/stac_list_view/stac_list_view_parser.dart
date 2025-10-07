@@ -8,7 +8,6 @@ import 'package:stac/src/parsers/foundation/interaction/stac_scroll_view_keyboar
 import 'package:stac/src/parsers/foundation/layout/stac_axis_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/widgets/list_view/stac_list_view.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacListViewParser extends StacParser<StacListView> {

@@ -5,7 +5,6 @@ import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_hit_test_behavior_parser.dart';
 import 'package:stac_core/stac_core.dart';
-import 'package:stac_core/widgets/gesture_detector/stac_gesture_detector.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacGestureDetectorParser extends StacParser<StacGestureDetector> {
