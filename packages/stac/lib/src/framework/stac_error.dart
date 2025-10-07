@@ -24,8 +24,8 @@ import 'package:flutter/material.dart';
 ///
 /// // Using with error widget builder
 /// Stac.initialize(
-///   errorWidgetBuilder: (context, details) {
-///     return Text('Error in ${details.type}: ${details.error}');
+///   errorWidgetBuilder: (context, errorDetails) {
+///     return Text('Error in ${errorDetails.type}: ${errorDetails.error}');
 ///   },
 /// );
 /// ```
@@ -96,12 +96,15 @@ class StacError {
 /// A widget that displays detailed error information when Stac fails to parse JSON.
 ///
 /// Shown when parsing fails, providing developers with context about what went wrong,
-/// including the error type, message, JSON payload, and stack trace when available.
+/// including the error type, message, and JSON payload when available.
 ///
 /// Features:
-/// - Expandable error details with JSON and stack trace
-/// - Context-aware troubleshooting tips
+/// - Expandable error details with JSON payload
+/// - Context-aware troubleshooting tips based on error type
 /// - Copy-friendly selectable text for debugging
+///
+/// Note: Stack traces are logged to the console but not displayed in the UI.
+/// Use a custom [StacErrorWidgetBuilder] if you need to display stack traces.
 ///
 /// Example:
 /// ```dart
@@ -110,17 +113,16 @@ class StacError {
 ///     type: 'container',
 ///     error: FormatException('Invalid value'),
 ///     json: {'type': 'container', 'padding': 'invalid'},
-///     stackTrace: StackTrace.current,
 ///   ),
 /// )
 /// ```
 class StacErrorWidget extends StatefulWidget {
   const StacErrorWidget({
     super.key,
-    required this.error,
+    required this.errorDetails,
   });
 
-  final StacError error;
+  final StacError errorDetails;
 
   @override
   State<StacErrorWidget> createState() => _StacErrorWidgetState();
@@ -195,8 +197,8 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
           const SizedBox(height: 8),
 
           // Type information (always visible, null-safe)
-          if (widget.error.type != null) ...[
-            _buildInfoRow('Type', widget.error.type!),
+          if (widget.errorDetails.type != null) ...[
+            _buildInfoRow('Type', widget.errorDetails.type!),
             const SizedBox(height: 4),
           ],
 
@@ -215,7 +217,7 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    widget.error.error.toString(),
+                    widget.errorDetails.error.toString(),
                     style: const TextStyle(
                       color: _errorRed,
                       fontSize: 13,
@@ -233,12 +235,12 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
             const SizedBox(height: 8),
 
             // JSON data
-            if (widget.error.json != null) ...[
+            if (widget.errorDetails.json != null) ...[
               _buildExpandableSection(
                 title: 'JSON Data',
                 section: _ExpandableSection.json,
                 child: _buildCodeBlock(
-                  _formatJson(widget.error.json!),
+                  _formatJson(widget.errorDetails.json!),
                 ),
               ),
               const SizedBox(height: 8),
@@ -398,8 +400,9 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
   }
 
   String _getTroubleshootingTips() {
-    final errorStr = widget.error.error.toString().toLowerCase();
-    final errorType = widget.error.error.runtimeType.toString().toLowerCase();
+    final errorStr = widget.errorDetails.error.toString().toLowerCase();
+    final errorType =
+        widget.errorDetails.error.runtimeType.toString().toLowerCase();
 
     // Check for unregistered widget/action types
     if (errorStr.contains('type') && errorStr.contains('not found')) {

@@ -22,10 +22,18 @@ typedef LoadingWidgetBuilder = Widget Function(BuildContext context);
 /// Allows apps to provide a custom widget when parsing a Stac widget/action
 /// fails. The builder receives useful context like the widget/action type,
 /// original JSON and stack trace (when available).
-/// A simple error widget builder: provide a context and structured details.
+///
+/// Example:
+/// ```dart
+/// Stac.initialize(
+///   errorWidgetBuilder: (context, errorDetails) {
+///     return Text('Error in ${errorDetails.type}: ${errorDetails.error}');
+///   },
+/// );
+/// ```
 typedef StacErrorWidgetBuilder = Widget Function(
   BuildContext context,
-  StacError details,
+  StacError errorDetails,
 );
 
 class Stac extends StatelessWidget {

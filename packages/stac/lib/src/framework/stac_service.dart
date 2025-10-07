@@ -489,6 +489,6 @@ class StacService {
       return _errorWidgetBuilder!(context, error);
     }
 
-    return StacErrorWidget(error: error);
+    return StacErrorWidget(errorDetails: error);
   }
 }
