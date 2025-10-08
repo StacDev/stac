@@ -3,8 +3,8 @@
     "theme": "mint",
     "name": "Stac",
     "colors": {
-        "primary": "#16A34A",
-        "light": "#07C983",
+        "primary": "#15803d",
+        "light": "#50D59D",
         "dark": "#15803D"
     },
     "background": {
@@ -13,16 +13,21 @@
             "dark": "#0B0B0D"
         }
     },
-    "favicon": "/favicon.svg",
+    "favicon": "/favicon.ico",
+    "icons": {
+        "library": "lucide"
+    },
     "navigation": {
         "tabs": [
             {
-                "tab": "Documentation",
+                "tab": "Overview",
                 "groups": [
                     {
-                        "group": "Getting Started",
+                        "group": "Get Started",
+                        "icon": "rocket",
                         "pages": [
-                            "index",
+                            "introduction",
+                            "quickstart",
                             "why_stac"
                         ]
                     },
@@ -169,35 +174,6 @@
                             "actions/delay_action",
                             "actions/multi_action",
                             "actions/none"
-                        ]
-                    }
-                ]
-            },
-            {
-                "tab": "Styles",
-                "groups": [
-                    {
-                        "group": "Color & Theming",
-                        "pages": [
-                            "styles/colors"
-                        ]
-                    },
-                    {
-                        "group": "Layout Styles",
-                        "pages": [
-                            "styles/border",
-                            "styles/border_radius",
-                            "styles/border_side",
-                            "styles/box_fit",
-                            "styles/clip_behavior",
-                            "styles/stac_alignment_directional"
-                        ]
-                    },
-                    {
-                        "group": "Table Styles",
-                        "pages": [
-                            "styles/table_border",
-                            "styles/table_column_width"
                         ]
                     }
                 ]
