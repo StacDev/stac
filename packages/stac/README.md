@@ -14,47 +14,83 @@
 
 [Stac][stac_website] (formerly Mirai) is a powerful Server-Driven UI (SDUI) framework for Flutter, enabling you to build beautiful, cross-platform applications dynamically using JSON in real time.
 
-Whether you’re building apps for mobile, web, or desktop, Stac simplifies UI delivery and enhances flexibility without requiring redeployment for every design change.
+Whether you're building apps for mobile, web, desktop, or WASM, Stac simplifies UI delivery and enhances flexibility without requiring redeployment for every design change.
 
-- 🛠️ Build Dynamic UIs: Update your app’s UI instantly with JSON configurations.
-- 🌍 Cross-Platform: Write once, render anywhere – Flutter does the rest.
-- ⚡ Fast Iterations: Make changes on the server and see them live in your app.
+## ✨ Key Features
+
+- 🛠️ **90+ Built-in Widgets** – Comprehensive support for Material Design widgets
+- 🎬 **11+ Action Handlers** – Navigate, network requests, dialogs, forms, and more
+- 🎨 **Complete Theme Support** – JSON-driven theme customization with StacTheme
+- 🌍 **Cross-Platform** – Write once, render on mobile, web, desktop, and WASM
+- ⚡ **Fast Iterations** – Update UI instantly without redeployment
+- 🔧 **Custom Parsers** – Extend with your own widgets and actions
+- 🎯 **Variable Resolution** – Dynamic expressions and state management
+- 📝 **Form Support** – Built-in form validation and value management
+- 🚨 **Error Handling** – Customizable error widgets for better debugging
+- 🖼️ **Rich Media** – Support for images, SVG, and cached network images
 
 ### 🌟 Explore Stac in Action
-- 🧪 [Try Stac Playground](https://playground.stac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI.
-- 📚 [Read the Documentation](https://docs.stac.dev/) – Get started with detailed guides and examples.
+- 🧪 [Try Stac Playground](https://playground.stac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI
+- 📚 [Read the Documentation](https://docs.stac.dev/) – Get started with detailed guides and examples
+- 💬 [Join Discord](https://discord.com/invite/vTGsVRK86V) – Connect with the community
 
 Developed with 💙 by Stac.
 
+## 📋 Requirements
+
+- Flutter SDK: `>=3.35.0`
+- Dart SDK: `>=3.0.0 <4.0.0`
+
 ## Installation 🚀
 
-First, we need to add Stac to our pubspec.yaml file.
-
-Install the plugin by running the following command from the project root:
+Add Stac to your project by running:
 
 ```bash
 flutter pub add stac
 ```
 
-## Usage 🧑‍💻
+## 🚀 Quick Start
 
-Now that we have successfully installed Stac, we can import Stac in main.dart.
+### Step 1: Import Stac
 
 ```dart
 import 'package:stac/stac.dart';
 ```
 
-Next, within main function initialize Stac.
+### Step 2: Initialize Stac
+
+Initialize Stac in your `main()` function before running your app:
 
 ```dart
 void main() async {
   await Stac.initialize();
-
   runApp(const MyApp());
 }
 ```
 
-You can also specify your custom Parsers in `Stac.initialize` and `Dio` instance.
+### Step 3: Use StacApp
+
+Replace `MaterialApp` with `StacApp` and load your UI using one of the available methods:
+
+```dart
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StacApp(
+      title: 'Stac Demo',
+      homeBuilder: (context) => Stac.fromJson(jsonMap, context),
+    );
+  }
+}
+```
+
+That's it! Your Server-Driven UI app is now up and running.
+
+## ⚙️ Advanced Configuration
+
+You can configure Stac with custom parsers, error handling, and a custom `Dio` instance:
 
 ```dart
 void main() async {
@@ -64,38 +100,119 @@ void main() async {
     parsers: const [
       ExampleScreenParser(),
     ],
+    actionParsers: const [
+      CustomActionParser(),
+    ],
     dio: dio,
+    showErrorWidgets: true, // Show error widgets in debug mode
+    logStackTraces: true, // Log stack traces for debugging
+    errorWidgetBuilder: (context, error) {
+      // Custom error widget
+      return Text('Error in ${error.type}: ${error.error}');
+    },
   );
 
   runApp(const MyApp());
 }
 ```
 
-Finally, replace your MaterialApp with StacApp. And call your json with Stac.fromJson(json, context).
+## 📲 Loading UI
+
+Stac provides three methods to load your UI:
+
+### From JSON Map
+```dart
+Stac.fromJson(jsonMap, context)
+```
+
+### From Network
+```dart
+Stac.fromNetwork(
+  context: context,
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/screen',
+    method: Method.get,
+    headers: {'Authorization': 'Bearer token'},
+    queryParameters: {'param': 'value'},
+  ),
+)
+```
+
+### From Assets
+```dart
+Stac.fromAssets('assets/screen.json')
+```
+
+You can also provide custom loading and error widgets:
 
 ```dart
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
-
-void main() async {
-  await Stac.initialize();
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StacApp(
-      title: 'Stac Demo',
-      homeBuilder: (context) => Stac.fromJson(json, context),
-    );
-  }
-}
-
+Stac.fromNetwork(
+  context: context,
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/screen',
+    method: Method.get,
+  ),
+  loadingWidget: (context) => CircularProgressIndicator(),
+  errorWidget: (context, error) => Text('Failed to load: $error'),
+)
 ```
+
+## 📦 What's Included
+
+### Widgets (90+)
+
+Stac supports a comprehensive set of Flutter Material Design widgets out of the box:
+
+**Layout Widgets:** Container, Column, Row, Stack, Positioned, Center, Align, Padding, SizedBox, Spacer, Expanded, Flexible, Wrap, FittedBox, AspectRatio, FractionallySizedBox, LimitedBox
+
+**Scrollable Widgets:** ListView, GridView, SingleChildScrollView, PageView, CustomScrollView, RefreshIndicator, CarouselView
+
+**UI Components:** Text, Icon, Image (with SVG and cached network support), Card, Chip, Divider, VerticalDivider, CircularProgressIndicator, LinearProgressIndicator, Placeholder
+
+**Interactive Widgets:** ElevatedButton, TextButton, OutlinedButton, FilledButton, IconButton, FloatingActionButton, GestureDetector, InkWell, Switch, Checkbox, Radio, RadioGroup, Slider
+
+**Input Widgets:** TextField, TextFormField, DropdownMenu, AutoComplete
+
+**App Structure:** Scaffold, AppBar, SliverAppBar, Drawer, BottomNavigationBar, BottomNavigationView, TabBar, TabBarView, Tab
+
+**Dialogs & Overlays:** AlertDialog, BackdropFilter
+
+**Other Widgets:** Hero, Visibility, Conditional, Opacity, ColoredBox, ClipRRect, ClipOval, CircleAvatar, ListTile, Table, TableCell, SafeArea, Form, DynamicView, NetworkWidget
+
+### Actions (11+)
+
+Handle user interactions and app logic with built-in action handlers:
+
+- **Navigate Action** – Navigate between screens
+- **Network Request** – Make HTTP requests (GET, POST, PUT, DELETE)
+- **Dialog Action** – Show alert dialogs
+- **Modal Bottom Sheet** – Display bottom sheets
+- **Snack Bar** – Show snack bar messages
+- **Set Value** – Update variables and state
+- **Get Form Value** – Retrieve form field values
+- **Form Validate** – Validate form inputs
+- **Multi Action** – Execute multiple actions sequentially
+- **Delay Action** – Add delays between actions
+- **None Action** – No-op action
+
+### Theme Support
+
+Customize your app's appearance with JSON-driven themes:
+
+- Complete MaterialTheme support via `StacTheme`
+- All theme components: ColorScheme, TextTheme, AppBarTheme, ButtonTheme, CardTheme, etc.
+- Dark mode support
+- Material 3 colors and surface variants
+- Color transparency with `@` notation (e.g., `"primary@50"`)
+
+### Additional Features
+
+- **Variable Resolution:** Use dynamic expressions with `${variable}` syntax
+- **Conditional Rendering:** Conditionally show/hide widgets based on expressions
+- **Form Management:** Built-in form state management and validation
+- **Custom Parsers:** Extend Stac with your own widgets and actions
+- **Error Handling:** Customizable error widgets for better debugging
+- **Expression Evaluation:** Support for dynamic logic in JSON
 
 ## Example
 
@@ -372,7 +489,8 @@ Here is an example of a basic form screen build with Stac.
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
-void main() {
+void main() async {
+  await Stac.initialize();
   runApp(const MyApp());
 }
 
@@ -383,12 +501,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StacApp(
       title: 'Stac Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Stac.fromNetwork(
-        StacNetworkRequest(
-          url: _url,
+      homeBuilder: (context) => Stac.fromNetwork(
+        context: context,
+        request: StacNetworkRequest(
+          url: 'https://api.example.com/form-screen',
           method: Method.get,
         ),
       ),
@@ -397,19 +513,32 @@ class MyApp extends StatelessWidget {
 }
 ```
 
->Note:
->
->Stac provides multiple methods to parse JSONs into Flutter widgets. You can use `Stac.fromNetwork()`,  `Stac.fromJson()` & `Stac.fromAsset()`
+>**Note:** Stac provides multiple methods to load UI: `Stac.fromNetwork()`, `Stac.fromJson()`, and `Stac.fromAssets()`
 
 That's it with just few lines of code your SDUI app is up and running.
 
 ![Form Screen][form_screen]
 
-### More examples
+### More Examples
 
-Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery) app for more such examples.
+Check out these resources for more examples and inspiration:
+
+- 📱 [Stac Gallery App](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery) – A showcase of all Stac widgets and features
+- 📝 [Counter Example](https://github.com/StacDev/stac/tree/dev/examples/counter_example) – Simple counter app built with Stac
+- 🎬 [Movie App Example](https://github.com/StacDev/stac/tree/dev/examples/movie_app) – Complete movie browsing app
+- 📚 [Documentation](https://docs.stac.dev/) – Full documentation with detailed examples for all widgets and actions
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](https://github.com/StacDev/stac/blob/dev/CONTRIBUTING.md) for details.
+
+### Code of Conduct
+
+Please read our [Code of Conduct](https://github.com/StacDev/stac/blob/dev/CODE_OF_CONDUCT.md) before contributing.
 
 ## Contributors ✨
+
+Thanks to all our amazing contributors!
 
 <a href="https://github.com/StacDev/stac/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=StacDev/stac" alt="Stac Contributors"/>
@@ -425,10 +554,23 @@ Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/s
   <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg" alt="BettrDo" height="100"/>
 </a>
 
-## Maintainers
+## 📖 Resources
 
-- [Divyanshu Bhargava][divyanshu_github]
-- [Rahul Bisht][rahul_linkedin]
+- 📘 [Official Documentation](https://docs.stac.dev/)
+- 🎮 [Playground](https://playground.stac.dev/)
+- 🌐 [Website](https://stac.dev/)
+- 💬 [Discord Community](https://discord.com/invite/vTGsVRK86V)
+- 📦 [pub.dev Package](https://pub.dev/packages/stac)
+- 🐙 [GitHub Repository](https://github.com/StacDev/stac)
+
+## 👥 Maintainers
+
+- [Divyanshu Bhargava][divyanshu_github] – Core Developer
+- [Rahul Bisht][rahul_linkedin] – Core Developer
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 [github_stars]: https://img.shields.io/github/stars/StacDev/stac
 [github_stars_link]: https://github.com/StacDev/stac/stargazers 
