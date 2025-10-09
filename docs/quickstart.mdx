@@ -1,5 +1,153 @@
 ---
 title: "Quickstart"
-description: "Welcome to Stac, a Server-Driven UI (SDUI) framework for Flutter"
+description: "Get your first Stac app running in under 5 minutes. This guide covers CLI setup, Stac Cloud integration, and building your first server-driven UI."
 ---
 
+## Prerequisites
+
+- Flutter SDK: `>=3.35.0`
+- Dart SDK: `>=3.0.0 <4.0.0`
+
+## Sign up
+
+The first thing you'll need to do is sign up for a Stac account. It's free and only takes a few seconds.
+
+To create an account, head over to our Console and sign in with Google: [console.stac.dev](https://console.stac.dev).
+
+## Install Stac CLI
+
+The Stac CLI helps you scaffold projects, manage screens, and deploy to Stac Cloud.
+
+<Tabs>
+<Tab title="macOS / Linux">
+Open your terminal and run:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+```
+
+</Tab>
+<Tab title="Windows">
+Open your powershell and run:
+```bash
+irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+```
+
+</Tab>
+</Tabs>
+
+Verify installation:
+
+```bash
+stac --version
+```
+
+## Login to Stac
+
+To login to Stac, you'll need to run `stac login`.
+
+```bash
+stac login
+```
+
+## Integrate Stac
+
+To integrate Stac into your Flutter project, you'll need to run `stac init` in your project.
+
+```bash
+stac init
+```
+You'll be prompted to select an option. You can either choose to use an existing project or create a new one.
+
+```bash
+example_app % stac init
+
+
+           ######   ########    ####      ######  
+          ##    ##     ##      ##  ##    ##    ## 
+          ##           ##     ##    ##   ##       
+           #####       ##     ########   ##       
+                ##     ##     ##    ##   ##       
+          ##    ##     ##     ##    ##   ##    ## 
+           ######      ##     ##    ##    ######  
+
+
+[INFO] Initializing Stac project in this directory: 
+ /Users/divy/StudioProjects/stac_app/example_app
+? Please select an option: ›                                                                                                                                                             
+❯ Use an existing project                                                                                                                                                                
+  Create a new project                                                                                                                                                                   
+  Don't set up a default project  
+```
+
+We'll go ahead and select create a new project. Let's name it `stac demo` and hit enter.
+
+```bash
+✔ Please select an option: · Create a new project                                                                                                                                        
+✔ Enter project name: · stac demo                                                                                                                                                        
+✔ Enter project description (optional): ·                                                                                                                                                
+[INFO] Initializing project: stac demo
+```
+
+<Note>If you are not sure about other options, you can always hit enter to skip.</Note>
+
+Stac will now initialize the project and you'll see a message saying
+
+```bash
+[SUCCESS] ✓ Added dependency: stac_core
+[SUCCESS] ✓ Project initialized successfully!
+[INFO] Next steps:
+[INFO]   1. Add your Stac widgets definitions to /stac
+[INFO]   2. Run "stac build" to convert Dart to JSON
+[INFO]   3. Run "stac deploy" to deploy to cloud
+```
+
+`stac init` will add the following files to your project:
+- `stac/hello_world.dart` - Create a hello world example widget. All your widgets should be defined in this `stac` folder.
+- Add `stac` and `stac_core` to your `pubspec.yaml` file.
+- Creates `default_stac_options.dart` file which contains the StacOptions for the project.
+
+
+## Initialize Stac
+
+Now that our stac project is setup, headover to `main.dart` file and initialize Stac.
+
+```dart
+import 'package:example_app/default_stac_options.dart';
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+void main() async {
+  await Stac.initialize(options: defaultStacOptions);
+  runApp(const MyApp());
+}
+```
+
+Now that stac is initalize our app is ready to be dynamic and server driven.
+
+## Build Stac Widgets
+
+Let's headover to `stac/hello_world.dart` file and build the widget. We'll be using the `@StacScreen` annotation to mark the widget as a screen.
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'hello_world')
+StacWidget helloWorld() {
+  return StacScaffold(
+    body: StacCenter(child: StacText(data: 'Hello, world!')),
+  );
+}
+```
+
+Stac follows the same convention as Flutter for building widgets. For example, if you want to use `scaffold` widget, you can use `StacScaffold` widget.
+
+## Deploy Stac Widgets
+
+Now that we have our widget built, we can deploy it to Stac Cloud.
+
+```bash
+stac deploy
+```
+
+This will deploy the widget to Stac Cloud and you'll see a message saying
