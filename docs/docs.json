@@ -28,7 +28,9 @@
                         "pages": [
                             "introduction",
                             "quickstart",
-                            "why_stac"
+                            "why_stac",
+                            "cli",
+                            "project_structure"
                         ]
                     },
                     {
