@@ -189,13 +189,13 @@
         "links": [
             {
                 "label": "Support",
-                "href": "mailto:hi@mintlify.com"
+                "href": "mailto:support@stac.dev"
             }
         ],
         "primary": {
             "type": "button",
-            "label": "Dashboard",
-            "href": "https://dashboard.mintlify.com"
+            "label": "Go to Console",
+            "href": "https://console.stac.dev/"
         }
     },
     "contextual": {
@@ -212,9 +212,9 @@
     },
     "footer": {
         "socials": {
-            "x": "https://x.com/mintlify",
-            "github": "https://github.com/mintlify",
-            "linkedin": "https://linkedin.com/company/mintlify"
+            "x": "https://x.com/stac_dev",
+            "github": "https://github.com/StacDev/stac",
+            "linkedin": "https://www.linkedin.com/company/stacdev"
         }
     }
 }
