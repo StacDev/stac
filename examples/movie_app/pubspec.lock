@@ -453,7 +453,7 @@ packages:
       path: "../../packages/stac_core"
       relative: true
     source: path
-    version: "0.2.0"
+    version: "1.0.0"
   stac_framework:
     dependency: "direct overridden"
     description:
