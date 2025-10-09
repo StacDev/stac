@@ -1,0 +1,23 @@
+---
+title: "Project Structure"
+description: "Learn how a typical Stac-powered Flutter app is organized"
+---
+
+This guide explains the overall structure of a Stac project. It covers where the UI is defined, how parsers are organized, and how themes and routes fit together.
+
+
+```
+├─ flutter_project
+├── lib/
+│   ├── app/                        # Feature-specific code (optional)
+│   ├── default_stac_options.dart   # Default StacOptions for Stac configuration
+│   └── main.dart                   # Entry point for stac initialize
+├── stac/
+│   └── hello_world.dart            # Stac widgets
+├── pubspec.lock
+└── pubspec.yaml
+```
+
+- **default_stac_options.dart** contains the StacOptions for the project.
+- **main.dart** is the entry point for the Flutter app and Stac initialization.
+- **stac/** contains the Stac widgets.
