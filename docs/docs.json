@@ -28,7 +28,6 @@
                         "pages": [
                             "introduction",
                             "quickstart",
-                            "why_stac",
                             "cli",
                             "project_structure"
                         ]
