@@ -60,15 +60,14 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - 🐙 **[GitHub](https://github.com/StacDev/stac)** – Report issues and contribute
 - 🐦 **[Twitter](https://twitter.com/stacdev)** – Follow us for updates
 
-## Contributors
+---
 
-Thanks to all our amazing contributors!
-
+<p align="center">Developed with 💙 by the Stac team< and our amazing community/p>
+<p align="center">
 <a href="https://github.com/StacDev/stac/graphs/contributors">
-  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/contributor_banner.png" alt="Stac Contributors" width="100%"/>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dv/update-readme/assets/contributor_banner.png" alt="Stac Contributors"/>
 </a>
-
-**Developed with 💙 by the Stac team.**
+</p>
 
 
 [github_stars]: https://img.shields.io/github/stars/StacDev/stac
