@@ -2,433 +2,74 @@
   <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
 </p>
 
-[![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac)
-[![License: MIT][license_badge]][license_link]
-[![GitHub Stars](https://img.shields.io/github/stars/StacDev/stac)](https://github.com/StacDev/stac/stargazers)
-[![Discord](https://img.shields.io/discord/1326481685579173888.svg?logo=discord&color=blue)](https://discord.com/invite/vTGsVRK86V)
-[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
+<p align="center">
+  <a href="https://pub.dev/packages/stac"><img src="https://img.shields.io/pub/v/stac?label=pub.dev&labelColor=0F172A&logo=dart&logoColor=fff&color=0EA5E9&style=flat" alt="pub"></a>
+  <a href="https://github.com/StacDev/stac"><img src="https://img.shields.io/github/stars/StacDev/stac?style=flat&label=stars&labelColor=0F172A&color=8B5CF6&logo=github&logoColor=fff" alt="github"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-22C55E.svg?labelColor=0F172A&style=flat" alt="license"></a>
+  <a href="https://discord.com/invite/vTGsVRK86V"><img src="https://img.shields.io/discord/1326481685579173888?logo=discord&logoColor=fff&labelColor=0F172A&color=5865F2&style=flat" alt="discord"></a>
+  <a href="https://github.com/StacDev/stac"><img src="https://img.shields.io/github/contributors/StacDev/stac?logo=github&logoColor=fff&labelColor=0F172A&color=F59E0B&style=flat" alt="contributors"></a>
+  <a href="https://github.com/invertase/melos"><img src="https://img.shields.io/badge/maintained%20with-melos-F472B6.svg?labelColor=0F172A&style=flat" alt="melos"></a>
+</p>
 
+<p align="center">
+  <a href="https://stac.dev/">Website</a> •
+  <a href="https://console.stac.dev/">Console</a> •
+  <a href="https://docs.stac.dev/quickstart">Quickstart</a> •
+  <a href="https://docs.stac.dev/">Documentation</a> •
+  <a href="https://discord.com/invite/vTGsVRK86V">Community & Support</a> •
+  <a href="https://github.com/StacDev/stac">GitHub</a>
+</p>
 
----
-# 🚀 Stac – Server-Driven UI Framework for Flutter
+# Stac
 
-[Stac][stac_website] (formerly Mirai) is a powerful Server-Driven UI (SDUI) framework for Flutter, enabling you to build beautiful, cross-platform applications dynamically using JSON in real time.
+**Stac** is a **Server-Driven UI (SDUI) framework for Flutter** that allows you to build, update, and deliver dynamic user interfaces without redeploying your app.
+Instead of hard-coding every widget in Flutter, you define your UI as **Stac Widgets** that render at runtime from JSON.
 
-Whether you’re building apps for mobile, web, or desktop, Stac simplifies UI delivery and enhances flexibility without requiring redeployment for every design change.
+This approach separates your app's presentation layer from its business logic, enabling teams to:
 
-- 🛠️ Build Dynamic UIs: Update your app’s UI instantly with JSON configurations.
-- 🌍 Cross-Platform: Write once, render anywhere – Flutter does the rest.
-- ⚡ Fast Iterations: Make changes on the server and see them live in your app.
+- **Ship updates instantly.** Just update your StacWidgets and push them to Stac Cloud.
+- **Feature Experimentation** (A/B testing, personalization, etc.) without new releases.
+- **Maintain consistency** across platforms using a unified schema.
+- **Empower non-developers** (like designers or PMs) to manage layout and content.
 
-### 🌟 Explore Stac in Action
-- 🧪 [Try Stac Playground](https://playground.stac.dev/) – A sandbox environment for experimenting with Stac Dynamic UI.
-- 📚 [Read the Documentation](https://docs.stac.dev/) – Get started with detailed guides and examples.
+## Features
 
-Developed with 💙 by Stac.
+- 🚀 Instant updates: Ship UI without app store releases.
+- 🧩 JSON‑driven UI: Define widgets in JSON; render natively.
+- 📦 Dart to JSON: Write Stac widgets in Dart and deploy to Stac Cloud.
+- 🎛 Actions & navigation: Control routes and API calls from the backend.
+- 📝 Forms & validation: Built-in form state and validation rules.
+- 🎨 Theming: Brand and layout via JSON with Stac Theme.
+- 🔌 Extensible: Add custom widgets, actions, and native integrations.
 
-## Installation 🚀
+## Documentation
 
-First, we need to add Stac to our pubspec.yaml file.
+- 📚 **[Full Documentation](https://docs.stac.dev/)** – Complete guides and API reference
+- 🚀 **[Quick Start](https://docs.stac.dev/get_started/quick_start)** – Get up and running in minutes
+- 🛠️ **[Stac CLI](https://docs.stac.dev/cli)** – Command-line tools for development
+- 🎛️ **[Stac Console](https://console.stac.dev/)** – Web interface for managing your app
+- 🤝 **[Contributing](https://github.com/StacDev/stac/blob/main/CONTRIBUTING.md)** – Help build Stac
 
-Install the plugin by running the following command from the project root:
+## License
 
-```bash
-flutter pub add stac
-```
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/StacDev/stac/blob/dev/LICENSE) file for details.
 
-## Usage 🧑‍💻
+## Join our community
 
-Now that we have successfully installed Stac, we can import Stac in main.dart.
+- 💬 **[Discord](https://discord.com/invite/vTGsVRK86V)** – Chat with the community and get help
+- 🐙 **[GitHub](https://github.com/StacDev/stac)** – Report issues and contribute
+- 🐦 **[Twitter](https://twitter.com/stacdev)** – Follow us for updates
 
-```dart
-import 'package:stac/stac.dart';
-```
+## Contributors
 
-Next, within main function initialize Stac.
-
-```dart
-void main() async {
-  await Stac.initialize();
-
-  runApp(const MyApp());
-}
-```
-
-You can also specify your custom Parsers in `Stac.initialize` and `Dio` instance.
-
-```dart
-void main() async {
-  final dio = Dio();
-
-  await Stac.initialize(
-    parsers: const [
-      ExampleScreenParser(),
-    ],
-    dio: dio,
-  );
-
-  runApp(const MyApp());
-}
-```
-
-Finally, replace your MaterialApp with StacApp. And call your json with Stac.fromJson(json, context).
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
-
-void main() async {
-  await Stac.initialize();
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StacApp(
-      title: 'Stac Demo',
-      homeBuilder: (context) => Stac.fromJson(json, context),
-    );
-  }
-}
-
-```
-
-## Example
-
-Here is an example of a basic form screen build with Stac.
-
-### Server
-
-```json
-{
-  "type": "scaffold",
-  "appBar": {
-    "type": "appBar",
-    "title": {
-      "type": "text",
-      "data": "Text Field",
-      "style": {
-        "color": "#ffffff",
-        "fontSize": 21
-      }
-    },
-    "backgroundColor": "#4D00E9"
-  },
-  "backgroundColor": "#ffffff",
-  "body": {
-    "type": "singleChildScrollView",
-    "child": {
-      "type": "container",
-      "padding": {
-        "left": 12,
-        "right": 12,
-        "top": 12,
-        "bottom": 12
-      },
-      "child": {
-        "type": "column",
-        "mainAxisAlignment": "center",
-        "crossAxisAlignment": "center",
-        "children": [
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "textField",
-            "maxLines": 1,
-            "keyboardType": "text",
-            "textInputAction": "done",
-            "textAlign": "start",
-            "textCapitalization": "none",
-            "textDirection": "ltr",
-            "textAlignVertical": "top",
-            "obscureText": false,
-            "cursorColor": "#FC3F1B",
-            "style": {
-              "color": "#000000"
-            },
-            "decoration": {
-              "hintText": "What do people call you?",
-              "filled": true,
-              "icon": {
-                "type": "icon",
-                "iconType": "cupertino",
-                "icon": "person_solid",
-                "size": 24
-              },
-              "hintStyle": {
-                "color": "#797979"
-              },
-              "labelText": "Name*",
-              "fillColor": "#F2F2F2"
-            },
-            "readOnly": false,
-            "enabled": true
-          },
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "textField",
-            "maxLines": 1,
-            "keyboardType": "text",
-            "textInputAction": "done",
-            "textAlign": "start",
-            "textCapitalization": "none",
-            "textDirection": "ltr",
-            "textAlignVertical": "top",
-            "obscureText": false,
-            "cursorColor": "#FC3F1B",
-            "style": {
-              "color": "#000000"
-            },
-            "decoration": {
-              "hintText": "Where can we reach you?",
-              "filled": true,
-              "icon": {
-                "type": "icon",
-                "iconType": "cupertino",
-                "icon": "phone_solid",
-                "size": 24
-              },
-              "hintStyle": {
-                "color": "#797979"
-              },
-              "labelText": "Phone number*",
-              "fillColor": "#F2F2F2"
-            },
-            "readOnly": false,
-            "enabled": true
-          },
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "textField",
-            "maxLines": 1,
-            "keyboardType": "text",
-            "textInputAction": "done",
-            "textAlign": "start",
-            "textCapitalization": "none",
-            "textDirection": "ltr",
-            "textAlignVertical": "top",
-            "obscureText": false,
-            "cursorColor": "#FC3F1B",
-            "style": {
-              "color": "#000000"
-            },
-            "decoration": {
-              "hintText": "Your email address",
-              "filled": true,
-              "icon": {
-                "type": "icon",
-                "iconType": "material",
-                "icon": "email",
-                "size": 24
-              },
-              "hintStyle": {
-                "color": "#797979"
-              },
-              "labelText": "Email",
-              "fillColor": "#F2F2F2"
-            },
-            "readOnly": false,
-            "enabled": true
-          },
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "sizedBox",
-            "height": 100,
-            "child": {
-              "type": "textField",
-              "expands": true,
-              "cursorColor": "#FC3F1B",
-              "style": {
-                "color": "#000000"
-              },
-              "decoration": {
-                "filled": true,
-                "hintStyle": {
-                  "color": "#797979"
-                },
-                "labelText": "Life story",
-                "fillColor": "#F2F2F2"
-              },
-              "readOnly": false,
-              "enabled": true
-            }
-          },
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "textField",
-            "maxLines": 1,
-            "keyboardType": "text",
-            "textInputAction": "done",
-            "textAlign": "start",
-            "textCapitalization": "none",
-            "textDirection": "ltr",
-            "textAlignVertical": "top",
-            "obscureText": true,
-            "cursorColor": "#FC3F1B",
-            "style": {
-              "color": "#000000"
-            },
-            "decoration": {
-              "filled": true,
-              "suffixIcon": {
-                "type": "icon",
-                "iconType": "cupertino",
-                "icon": "eye",
-                "size": 24
-              },
-              "hintStyle": {
-                "color": "#797979"
-              },
-              "labelText": "Password*",
-              "fillColor": "#F2F2F2"
-            },
-            "readOnly": false,
-            "enabled": true
-          },
-          {
-            "type": "sizedBox",
-            "height": 24
-          },
-          {
-            "type": "textField",
-            "maxLines": 1,
-            "keyboardType": "text",
-            "textInputAction": "done",
-            "textAlign": "start",
-            "textCapitalization": "none",
-            "textDirection": "ltr",
-            "textAlignVertical": "top",
-            "obscureText": true,
-            "cursorColor": "#FC3F1B",
-            "style": {
-              "color": "#000000"
-            },
-            "decoration": {
-              "filled": true,
-              "suffixIcon": {
-                "type": "icon",
-                "iconType": "cupertino",
-                "icon": "eye",
-                "size": 24
-              },
-              "hintStyle": {
-                "color": "#797979"
-              },
-              "labelText": "Re-type password*",
-              "fillColor": "#F2F2F2"
-            },
-            "readOnly": false,
-            "enabled": true
-          },
-          {
-            "type": "sizedBox",
-            "height": 48
-          },
-          {
-            "type": "elevatedButton",
-            "child": {
-              "type": "text",
-              "data": "Submit"
-            },
-            "style": {
-              "backgroundColor": "#4D00E9",
-              "padding": {
-                "top": 8,
-                "left": 12,
-                "right": 12,
-                "bottom": 8
-              }
-            },
-            "onPressed": {}
-          }
-        ]
-      }
-    }
-  }
-}
-```
-
-### Flutter
-
-```dart
-import 'package:flutter/material.dart';
-import 'package:stac/stac.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StacApp(
-      title: 'Stac Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Stac.fromNetwork(
-        StacNetworkRequest(
-          url: _url,
-          method: Method.get,
-        ),
-      ),
-    );
-  }
-}
-```
-
->Note:
->
->Stac provides multiple methods to parse JSONs into Flutter widgets. You can use `Stac.fromNetwork()`,  `Stac.fromJson()` & `Stac.fromAsset()`
-
-That's it with just few lines of code your SDUI app is up and running.
-
-![Form Screen][form_screen]
-
-### More examples
-
-Check out the [Stac Gallery](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery) app for more such examples.
-
-## Contributors ✨
+Thanks to all our amazing contributors!
 
 <a href="https://github.com/StacDev/stac/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=StacDev/stac" alt="Stac Contributors"/>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/contributor_banner.png" alt="Stac Contributors" width="100%"/>
 </a>
 
-## Companies/Products using Stac ✨
+**Developed with 💙 by the Stac team.**
 
-<a href="https://jobhunt.work/">
-  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/jobhunt.jpg" alt="Job Hunt" height="100"/>
-</a>
-
-<a href="https://bettrdo.com/">
-  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg" alt="BettrDo" height="100"/>
-</a>
-
-## Maintainers
-
-- [Divyanshu Bhargava][divyanshu_github]
-- [Rahul Bisht][rahul_linkedin]
 
 [github_stars]: https://img.shields.io/github/stars/StacDev/stac
 [github_stars_link]: https://github.com/StacDev/stac/stargazers 
