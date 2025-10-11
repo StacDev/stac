@@ -60,7 +60,6 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - 🐙 **[GitHub](https://github.com/StacDev/stac)** – Report issues and contribute
 - 🐦 **[Twitter](https://twitter.com/stacdev)** – Follow us for updates
 
----
 </br>
 <p align="center"> Developed with 💙 by the Stac team and our amazing community</p>
 
