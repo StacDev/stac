@@ -61,8 +61,9 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 - 🐦 **[Twitter](https://twitter.com/stacdev)** – Follow us for updates
 
 ---
+</br>
+<p align="center"> Developed with 💙 by the Stac team and our amazing community</p>
 
-<p align="center">Developed with 💙 by the Stac team< and our amazing community/p>
 <p align="center">
 <a href="https://github.com/StacDev/stac/graphs/contributors">
   <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dv/update-readme/assets/contributor_banner.png" alt="Stac Contributors"/>
