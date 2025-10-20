@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "Stac",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Stac 로고",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "문서",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Playground": {
+    "message": "Playground",
+    "description": "Navbar item with label Playground"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "Stac 액션",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "description": "Stac이 제공하는 다양한 액션을 학습합니다"
+  }
+}

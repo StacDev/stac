@@ -1,0 +1,46 @@
+{
+  "link.title.Docs": {
+    "message": "문서",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "커뮤니티",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "더보기",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Get Started": {
+    "message": "시작하기",
+    "description": "The label of footer link with label=Get Started linking to /"
+  },
+  "link.item.label.Widgets": {
+    "message": "위젯",
+    "description": "The label of footer link with label=Widgets linking to /category/stac-widgets"
+  },
+  "link.item.label.Actions": {
+    "message": "액션",
+    "description": "The label of footer link with label=Actions linking to /category/stac-actions"
+  },
+  "link.item.label.Website": {
+    "message": "웹사이트",
+    "description": "The label of footer link with label=Website linking to https://stac.dev/"
+  },
+  "link.item.label.LinkedIn": {
+    "message": "LinkedIn",
+    "description": "The label of footer link with label=LinkedIn linking to https://www.linkedin.com/company/stacdev"
+  },
+  "link.item.label.X": {
+    "message": "X",
+    "description": "The label of footer link with label=X linking to https://x.com/stac_dev"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/StacDev/stac"
+  },
+  "copyright": {
+    "message": "Copyright © 2025 Stac",
+    "description": "The footer copyright"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "version.label": {
+    "message": "최신",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.Concepts": {
+    "message": "핵심 개념",
+    "description": "The label for category Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Concepts.link.generated-index.description": {
+    "message": "Stac의 핵심 개념을 학습합니다.",
+    "description": "The generated-index page description for category Concepts in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Widgets": {
+    "message": "Stac 위젯",
+    "description": "The label for category Stac Widgets in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Widgets.link.generated-index.description": {
+    "message": "Stac이 제공하는 다양한 위젯을 학습합니다",
+    "description": "The generated-index page description for category Stac Widgets in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Actions": {
+    "message": "Stac 액션",
+    "description": "The label for category Stac Actions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Actions.link.generated-index.description": {
+    "message": "Stac이 제공하는 다양한 액션을 학습합니다",
+    "description": "The generated-index page description for category Stac Actions in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Styles": {
+    "message": "Stac 스타일",
+    "description": "The label for category Stac Styles in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Stac Styles.link.generated-index.description": {
+    "message": "Stac이 제공하는 다양한 스타일을 학습합니다",
+    "description": "The generated-index page description for category Stac Styles in sidebar tutorialSidebar"
+  }
+}
