@@ -24,7 +24,7 @@ Flutter의 list tile 위젯에 대한 자세한 내용은 [공식 문서](https:
 | selected           | `bool`                | 이 tile이 활성화되어 있으면 아이콘과 텍스트가 동일한 색상으로 렌더링됩니다.                              |
 | focusColor         | `String`              | 입력 포커스가 있을 때 tile의 Material 색상입니다.                                                  |
 | hoverColor         | `String`              | 포인터가 위에 있을 때 tile의 Material 색상입니다.                                           |
-| autoFocus          | `String`              | 해당 범위에서 현재 포커스된 다른 노드가 없을 때 이 위젯이 초기 포커스로 선택될 경우 true입니다. |
+| autoFocus          | `bool`                | 해당 범위에서 현재 포커스된 다른 노드가 없을 때 이 위젯이 초기 포커스로 선택될 경우 true입니다. |
 | tileColor          | `String`              | selected가 false일 때 ListTile의 배경색을 정의합니다.                                                |
 | selectedTileColor  | `String`              | selected가 true일 때 ListTile의 배경색을 정의합니다.                                                 |
 | enableFeedback     | `bool`                | 감지된 제스처가 음향 및/또는 햅틱 피드백을 제공해야 하는지 여부입니다.                                       |

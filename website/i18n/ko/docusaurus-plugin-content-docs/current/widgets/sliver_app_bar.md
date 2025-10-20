@@ -18,7 +18,6 @@ Flutter의 app bar 위젯에 대해 자세히 알아보려면
 | surfaceTintColor       | `String?`                    | 앱 바의 표면 틴트 색상입니다.                                                          |
 | actions                | `List<Map<String, dynamic>>` | 타이틀 뒤에 행으로 표시할 위젯 리스트입니다. 기본값은 빈 리스트입니다.             |
 | bottom                 | `Map<String, dynamic>?`      | 앱 바의 하단 위젯입니다.                                                               |
-| titleSpacing           | `double?`                    | 타이틀 주위의 간격입니다.                                                                   |
 | toolbarOpacity         | `double`                     | 툴바의 불투명도입니다. 기본값은 `1.0`입니다.                                                  |
 | bottomOpacity          | `double`                     | 하단 위젯의 불투명도입니다. 기본값은 `1.0`입니다.                                            |
 | toolbarHeight          | `double?`                    | 툴바의 높이입니다.                                                                      |
