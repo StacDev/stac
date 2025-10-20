@@ -7,7 +7,7 @@ Stac `Placeholder` 위젯을 사용하면 JSON을 사용하여 Flutter Placehold
 
 ---
 
-## Properties
+## 속성
 
 | Property         | Type                    | Description                                                                                             |
 |------------------|-------------------------|---------------------------------------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ Stac `Placeholder` 위젯을 사용하면 JSON을 사용하여 Flutter Placehold
 
 ---
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

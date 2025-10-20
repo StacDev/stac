@@ -3,7 +3,7 @@
 StacTableRow를 사용하면 JSON을 사용하여 Flutter TableRow 위젯을 정의할 수 있습니다.
 Flutter의 TableRow 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/TableRow-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property   | Type                         | Description                                                                                                                                             |
 |------------|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,5 +62,5 @@ Flutter의 TableRow 위젯에 대해 자세히 알아보려면 [공식 문서](h
         }
     }
     ]
-},
+}
 ```

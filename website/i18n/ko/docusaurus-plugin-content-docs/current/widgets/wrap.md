@@ -3,7 +3,7 @@
 Stac wrap을 사용하면 JSON을 사용하여 Flutter wrap 위젯을 빌드할 수 있습니다.
 Flutter의 wrap 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Wrap-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property           | Type                         | Description                                                                                                           |
 |--------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ Flutter의 wrap 위젯에 대해 자세히 알아보려면 [공식 문서](https
 | clipBehavior       | `Clip`                       | 이 옵션에 따라 콘텐츠가 클리핑됩니다(또는 클리핑되지 않습니다).                                                        | 
 | children           | `List<Map<String, dynamic>>` | 트리에서 이 위젯 아래의 위젯들입니다.                                                                            |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

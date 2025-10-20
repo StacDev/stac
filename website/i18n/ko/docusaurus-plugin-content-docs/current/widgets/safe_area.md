@@ -3,7 +3,7 @@
 Stac `SafeArea`를 사용하면 JSON을 사용하여 Flutter SafeArea 위젯을 빌드할 수 있습니다.
 Flutter의 SafeArea 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/SafeArea-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                  | Type                   | Description                                                                                                                                           |
 |---------------------------|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -15,7 +15,7 @@ Flutter의 SafeArea 위젯에 대해 자세히 알아보려면 [공식 문서](h
 | minimum                   | `StacEdgeInsets`      | 적용할 최소 패딩입니다.                                                                                                        |
 | maintainBottomViewPadding | `bool`                 | SafeArea가 하단 MediaQueryData.padding 대신 하단 MediaQueryData.viewPadding을 유지해야 하는지 지정합니다. 기본값은 false입니다. |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

@@ -4,7 +4,7 @@ Stac CustomScrollView를 사용하면 JSON을 통해 Flutter CustomScrollView wi
 Flutter의 CustomScrollView widget에 대한 자세한 내용은
 [공식 문서](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | 속성                     | 타입                                | 설명                                                                                                      |
 |-------------------------|-------------------------------------|----------------------------------------------------------------------------------------------------------|
@@ -19,7 +19,7 @@ Flutter의 CustomScrollView widget에 대한 자세한 내용은
 | restorationId           | `String?`                           | scroll view의 상태를 저장하고 복원하기 위한 복원 ID입니다.                                                         |
 | keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | scroll view가 키보드를 해제하는 방법을 구성합니다. 기본값은 `ScrollViewKeyboardDismissBehavior.manual`입니다.         |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {
@@ -40,7 +40,7 @@ Flutter의 CustomScrollView widget에 대한 자세한 내용은
         },
         "onPressed": {}
       },
-      "backgroundColor": "primary",
+      "backgroundColor": "primary"
     }
   ]
 }

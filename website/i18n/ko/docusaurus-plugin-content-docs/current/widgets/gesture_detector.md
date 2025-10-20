@@ -34,17 +34,17 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 }
 ```
 
-## Properties
+## 속성
 
 ### 자식 Widget
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `child` | Widget | 제스처에 반응할 widget입니다 |
 
 ### 탭 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onTapDown` | Action | 포인터가 화면에 접촉할 때 호출됩니다 |
 | `onTapUp` | Action | 포인터가 화면 접촉을 멈출 때 호출됩니다 |
@@ -56,7 +56,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### 보조 및 3차 탭 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onSecondaryTap` | Action | 보조 탭이 발생할 때 호출됩니다 (예: 마우스 오른쪽 클릭) |
 | `onSecondaryTapDown` | Action | 보조 포인터가 화면에 접촉할 때 호출됩니다 |
@@ -68,7 +68,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### 롱 프레스 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onLongPressDown` | Action | 포인터가 잠재적인 롱 프레스에서 화면에 접촉할 때 호출됩니다 |
 | `onLongPressCancel` | Action | 롱 프레스가 취소될 때 호출됩니다 |
@@ -80,7 +80,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### 보조 및 3차 롱 프레스 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onSecondaryLongPressDown` | Action | 보조 포인터가 잠재적인 롱 프레스에서 화면에 접촉할 때 호출됩니다 |
 | `onSecondaryLongPressCancel` | Action | 보조 롱 프레스가 취소될 때 호출됩니다 |
@@ -99,7 +99,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### 드래그 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onVerticalDragDown` | Action | 포인터가 화면에 접촉하고 수직 드래그를 시작할 수 있을 때 호출됩니다 |
 | `onVerticalDragStart` | Action | 포인터가 수직 드래그를 시작할 때 호출됩니다 |
@@ -114,7 +114,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### Force Press 제스처
 
-| 속성 | 타입 | 설명 |
+| Property | Type | Description |
 |----------|------|-------------|
 | `onForcePressStart` | Action | force press가 시작될 때 호출됩니다 |
 | `onForcePressPeak` | Action | force press가 최대 압력에 도달할 때 호출됩니다 |
@@ -123,12 +123,12 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 ### 기타 속성
 
-| 속성 | 타입 | 기본값 | 설명 |
+| Property | Type | 기본값 | Description |
 |----------|------|---------|-------------|
 | `excludeFromSemantics` | boolean | false | 시맨틱 트리에서 제스처를 제외할지 여부입니다 |
 | `dragStartBehavior` | string | "start" | 드래그가 공식적으로 시작되는 시점을 결정합니다 ("start" 또는 "down") |
 
-## Example JSON
+## 예제 JSON
 
 ### 간단한 탭 예제
 
@@ -205,4 +205,4 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 
 Stac GestureDetector의 각 제스처 콜백은 제스처가 감지되었을 때 수행할 작업을 정의하는 action 객체를 허용합니다. 이는 내비게이션 작업, 다이얼로그 표시, 커스텀 함수 실행 또는 Stac 애플리케이션에서 지원하는 기타 작업일 수 있습니다.
 
-Action에 대한 자세한 내용은 [Actions 문서](../actions/overview.md)를 참조하세요.
+Action에 대한 자세한 내용은 [Actions 문서](../actions/)를 참조하세요.

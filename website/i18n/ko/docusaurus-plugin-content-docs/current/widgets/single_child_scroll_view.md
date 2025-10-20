@@ -3,7 +3,7 @@
 Stac SingleChildScrollView를 사용하면 JSON을 사용하여 Flutter SingleChildScrollView 위젯을 빌드할 수 있습니다.
 Flutter의 SingleChildScrollView 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/SingleChildScrollView-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                | Type                                | Description                                                                                                         |
 |-------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ Flutter의 SingleChildScrollView 위젯에 대해 자세히 알아보려면 [공
 | restorationId           | `String?`                           | 스크롤 뷰의 상태를 저장하고 복원하기 위한 복원 ID입니다.                                                |
 | keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | 스크롤 뷰가 키보드를 닫는 방법을 구성합니다. 기본값은 `ScrollViewKeyboardDismissBehavior.manual`입니다. |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

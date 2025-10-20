@@ -4,7 +4,7 @@
 Flutter의 `InkWell` 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/InkWell-class.html)를 참조하세요.
 
 
-## Properties
+## 속성
 | Property                | Type                         | Description                                                                 |
 |-------------------------|------------------------------|-----------------------------------------------------------------------------|
 | `child`                 | `Map<String, dynamic>?`      | 이 InkWell 아래의 위젯입니다.     |
@@ -36,7 +36,7 @@ Flutter의 `InkWell` 위젯에 대한 자세한 내용은 [공식 문서](https:
 | `autofocus`             | `@Default(false) bool`       | 위젯이 빌드될 때 자동으로 포커스됩니다.                            |
 | `hoverDuration`         | `StacDuration?`              | 호버 애니메이션 효과의 지속 시간입니다.                                   |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

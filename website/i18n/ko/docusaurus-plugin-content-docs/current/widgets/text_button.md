@@ -3,7 +3,7 @@
 Stac Text Button을 사용하면 JSON을 사용하여 Flutter text button 위젯을 빌드할 수 있습니다.
 Flutter의 text button 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/TextButton-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property         | Type                    | Description                                                                        |
 |------------------|-------------------------|------------------------------------------------------------------------------------|
@@ -17,7 +17,7 @@ Flutter의 text button 위젯에 대해 자세히 알아보려면 [공식 문서
 | isSemanticButton | `bool`                  | 이 하위 트리가 버튼을 나타내는지 결정합니다. 기본값은 `true`입니다.            |
 | child            | `Map<String, dynamic>`  | 버튼 내부에 표시할 위젯입니다.                                           |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

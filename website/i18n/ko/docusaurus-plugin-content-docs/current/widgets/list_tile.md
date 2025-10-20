@@ -3,7 +3,7 @@
 Stac list tile을 사용하면 JSON을 통해 Flutter list tile 위젯을 생성할 수 있습니다.
 Flutter의 list tile 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/ListTile-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property           | Type                  | Description                                                                                                     |
 |--------------------|-----------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ Flutter의 list tile 위젯에 대한 자세한 내용은 [공식 문서](https:
 | minVerticalPadding | `double`              | 제목 및 부제목 위젯의 상하단에 대한 최소 패딩입니다.                                    |
 | minLeadingWidth    | `double`              | ListTile.leading 위젯에 할당된 최소 너비입니다.                                                    |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

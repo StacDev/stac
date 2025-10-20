@@ -3,7 +3,7 @@
 Stac TabBar를 사용하면 JSON을 사용하여 Flutter TabBar 위젯을 빌드할 수 있습니다.
 Flutter의 TabBar 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/TabBar-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                             | Type                          | Description                                                                 |
 |--------------------------------------|-------------------------------|-----------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ Flutter의 TabBar 위젯에 대해 자세히 알아보려면 [공식 문서](htt
 Stac DefaultTabController를 사용하면 JSON을 사용하여 Flutter DefaultTabController 위젯을 빌드할 수 있습니다.
 Flutter의 DefaultTabController 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/DefaultTabController-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property     | Type                   | Description                                             |
 |--------------|------------------------|---------------------------------------------------------|
@@ -45,7 +45,7 @@ Flutter의 DefaultTabController 위젯에 대해 자세히 알아보려면 [공�
 Stac Tab을 사용하면 JSON을 사용하여 Flutter Tab 위젯을 빌드할 수 있습니다.
 Flutter의 Tab 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Tab-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property    | Type                    | Description                                      |
 |-------------|-------------------------|--------------------------------------------------|
@@ -61,7 +61,7 @@ Flutter의 Tab 위젯에 대해 자세히 알아보려면 [공식 문서](https:
 Stac TabBarView를 사용하면 JSON을 사용하여 Flutter TabBarView 위젯을 빌드할 수 있습니다.
 Flutter의 TabBarView 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/TabBarView-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property          | Type                         | Description                                                                   |
 |-------------------|------------------------------|-------------------------------------------------------------------------------|
@@ -72,7 +72,7 @@ Flutter의 TabBarView 위젯에 대해 자세히 알아보려면 [공식 문서]
 | viewportFraction  | `double`                     | 각 페이지가 차지해야 하는 뷰포트의 비율입니다. 기본값은 `1.0`입니다. |
 | clipBehavior      | `Clip`                       | 클립 동작입니다. 기본값은 `Clip.hardEdge`입니다.                               |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

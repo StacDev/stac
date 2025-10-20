@@ -3,7 +3,7 @@
 Stac CarouselView를 사용하면 JSON을 통해 Flutter CarouselView 위젯을 구축할 수 있습니다.
 Flutter의 CarouselView 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Carousel-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property         | Type                          | Description                                                                 |
 |------------------|-------------------------------|-----------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ Flutter의 CarouselView 위젯에 대해 자세히 알아보려면 [공식 문�
 | flexWeights      | `List<int>?`                  | 캐러셀 항목의 플렉스 가중치입니다.                             |
 | children         | `List<Map<String, dynamic>>`  | 트리에서 이 위젯 아래에 있는 위젯들입니다.                                  |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

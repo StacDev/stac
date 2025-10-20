@@ -3,7 +3,7 @@
 Stac slider를 사용하면 JSON을 사용하여 Flutter Slider 위젯을 빌드할 수 있습니다.
 Flutter의 Slider 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Slider-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property             | Type                   | Description                                                                                                     |
 |----------------------|------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ Flutter의 Slider 위젯에 대해 자세히 알아보려면 [공식 문서](htt
 | autofocus            | `bool`                 | 현재 범위에서 다른 노드에 포커스가 없을 때 이 위젯이 초기 포커스로 선택될지 여부입니다. |
 | allowedInteraction   | `SliderInteraction`    | 사용자가 슬라이더와 상호작용할 수 있는 허용된 방법입니다.                                                           |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

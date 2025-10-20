@@ -3,7 +3,7 @@
 Stac Icon Button을 사용하면 JSON을 통해 Flutter icon button 위젯을 생성할 수 있습니다.
 Flutter의 icon button 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/IconButton-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property       | Type                    | Description                                                                        |
 |----------------|-------------------------|------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ Flutter의 icon button 위젯에 대한 자세한 내용은 [공식 문서](http
 | selectedIcon   | `Map<String, dynamic>?` | 버튼이 선택되었을 때 표시할 아이콘입니다.                                   |
 | icon           | `Map<String, dynamic>?` | 버튼 내부에 표시할 아이콘입니다.                                             |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

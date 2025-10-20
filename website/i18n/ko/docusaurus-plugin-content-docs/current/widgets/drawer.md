@@ -3,7 +3,7 @@
 Stac Drawer를 사용하면 JSON을 이용하여 Flutter Drawer widget을 구성할 수 있습니다.
 Flutter의 Drawer widget에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/Drawer-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property         | Type                | Description                                                        |
 |------------------|---------------------|--------------------------------------------------------------------|
@@ -17,7 +17,7 @@ Flutter의 Drawer widget에 대한 자세한 내용은 [공식 문서](https://a
 | semanticLabel    | `String?`           | drawer의 semantic label입니다.                                 |
 | clipBehavior     | `Clip?`             | drawer의 clip 동작입니다.                                   |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

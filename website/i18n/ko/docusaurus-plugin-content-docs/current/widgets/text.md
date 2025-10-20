@@ -3,7 +3,7 @@
 Stac text를 사용하면 JSON을 사용하여 Flutter text 위젯을 빌드할 수 있습니다.
 Flutter의 text 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Text-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property        | Type                  | Description                                        |
 |-----------------|-----------------------|----------------------------------------------------|
@@ -20,7 +20,7 @@ Flutter의 text 위젯에 대해 자세히 알아보려면 [공식 문서](https
 | textWidthBasis  | `TextWidthBasis?`     | 텍스트의 너비 기준입니다.                      |
 | selectionColor  | `String?`             | 텍스트 선택의 색상입니다.                   |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

@@ -18,7 +18,7 @@ Stac의 `ClipRRect` widget을 사용하면 둥근 직사각형을 사용하여 �
 }
 ```
 
-## Properties
+## 속성
 
 | 속성 | 타입 | 기본값 | 설명 |
 |----------|------|---------|-------------|
@@ -74,7 +74,7 @@ Stac의 `ClipRRect` widget을 사용하면 둥근 직사각형을 사용하여 �
 - `"antiAliasWithSaveLayer"`: 오프스크린 버퍼를 사용한 안티 앨리어싱 클리핑입니다 (더 높은 품질이지만 느림)
 - `"none"`: 클리핑 없음 (ClipRRect에는 권장하지 않음)
 
-## Example JSON
+## 예제 JSON
 
 ### 기본 둥근 Container
 

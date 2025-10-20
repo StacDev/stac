@@ -3,7 +3,7 @@
 Stac Chip을 사용하면 JSON을 통해 Flutter Chip 위젯을 구축할 수 있습니다.
 Flutter의 Chip 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Chip-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                   | Type                           | Description                                                                                    |
 |----------------------------|--------------------------------|------------------------------------------------------------------------------------------------|
@@ -31,7 +31,7 @@ Flutter의 Chip 위젯에 대해 자세히 알아보려면 [공식 문서](https
 | avatarBoxConstraints       | `StacBoxConstraints?`         | 아바타의 제약 조건입니다.                                                                |
 | deleteIconBoxConstraints   | `StacBoxConstraints?`         | 삭제 아이콘의 제약 조건입니다.                                                           |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

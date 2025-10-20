@@ -3,7 +3,7 @@
 Stac Icon을 사용하면 JSON을 사용하여 Flutter icon widget을 빌드할 수 있습니다.
 Flutter의 icon widget에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/widgets/Icon-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property      | Type             | Description                                          |
 |---------------|------------------|------------------------------------------------------|
@@ -16,7 +16,7 @@ Flutter의 icon widget에 대한 자세한 내용은 [공식 문서](https://api
 
 > 참고: 사용 가능한 icon을 확인하려면 [Icon utils](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart)를 참조하세요.
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

@@ -3,7 +3,7 @@
 Stac CheckBox를 사용하면 JSON을 통해 Flutter CheckBox 위젯을 구축할 수 있습니다.
 Flutter의 CheckBox 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Checkbox-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property              | Type                     | Description                                                                                        |
 |-----------------------|--------------------------|----------------------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ Flutter의 CheckBox 위젯에 대해 자세히 알아보려면 [공식 문서](h
 | autofocus             | `bool`                   | 다른 항목에 포커스가 없는 경우 이 체크박스가 자동으로 포커스를 받을지 여부입니다. 기본값은 `false`입니다. |
 | isError               | `bool`                   | 이 체크박스가 오류 상태인지 여부입니다. 기본값은 `false`입니다.                                   |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

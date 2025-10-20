@@ -3,7 +3,7 @@
 Stac CircleAvatar를 사용하면 JSON을 통해 Flutter circle avatar 위젯을 구축할 수 있습니다.
 Flutter의 circle avatar 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/CircleAvatar-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                | Type                    | Description                                                                 |
 |-------------------------|-------------------------|-----------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ Flutter의 circle avatar 위젯에 대해 자세히 알아보려면 [공식 문�
 | minRadius               | `double?`               | circle avatar의 최소 반경입니다.                                    |
 | maxRadius               | `double?`               | circle avatar의 최대 반경입니다.                                    |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

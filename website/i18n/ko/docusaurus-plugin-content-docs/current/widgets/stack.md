@@ -3,7 +3,7 @@
 Stac Stack을 사용하면 JSON을 사용하여 Flutter stack 위젯을 빌드할 수 있습니다.
 Flutter의 stack 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Stack-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property      | Type                         | Description                                                                                                          |
 |---------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -13,7 +13,7 @@ Flutter의 stack 위젯에 대해 자세히 알아보려면 [공식 문서](http
 | textDirection | `TextDirection?`             | 정렬을 해결하는 데 사용할 텍스트 방향입니다.                                                                   |
 | children      | `List<Map<String, dynamic>>` | 스택 내부에 표시할 위젯 리스트입니다. 기본값은 빈 리스트입니다.                                          |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

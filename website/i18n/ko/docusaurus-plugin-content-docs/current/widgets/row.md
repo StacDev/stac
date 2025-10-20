@@ -3,7 +3,7 @@
 Stac row를 사용하면 JSON을 사용하여 Flutter row 위젯을 빌드할 수 있습니다.
 Flutter의 row 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Row-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property           | Type                        | Description                                                                                                           |
 |--------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -14,7 +14,7 @@ Flutter의 row 위젯에 대해 자세히 알아보려면 [공식 문서](https:
 | spacing            | `double`                    | 주축의 자식들 사이에 배치할 공간의 크기입니다.                                                            |
 | children           | `List<Map<String,dynamic>>` | 트리에서 이 위젯 아래의 위젯들입니다.                                                                            |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

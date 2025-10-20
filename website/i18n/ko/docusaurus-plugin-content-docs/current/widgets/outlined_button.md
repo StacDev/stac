@@ -3,7 +3,7 @@
 Stac Outlined Button을 사용하면 JSON을 사용하여 Flutter outlined button 위젯을 빌드할 수 있습니다.
 Flutter의 outlined button 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/OutlinedButton-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property      | Type                    | Description                                                                        |
 |---------------|-------------------------|------------------------------------------------------------------------------------|
@@ -16,7 +16,7 @@ Flutter의 outlined button 위젯에 대해 자세히 알아보려면 [공식 �
 | clipBehavior  | `Clip`                  | 콘텐츠를 클리핑하는 방법을 결정합니다. 기본값은 `Clip.none`입니다.             |
 | child         | `Map<String, dynamic>`  | 버튼 내부에 표시할 위젯입니다.                                           |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

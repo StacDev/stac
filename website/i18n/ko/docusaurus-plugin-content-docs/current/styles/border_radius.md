@@ -5,7 +5,7 @@ Flutter의 BorderRadius 클래스에 대한 자세한 내용은 [공식 문서](
 
 ## 속성
 
-| 속성   | 타입                   | 설명                                                |
+| Property   | Type                   | Description                                                |
 | ------ | ---------------------- | --------------------------------------------------- |
 | radius | `double?`              | 모든 모서리에 적용할 border Radius를 정의합니다.     |
 | radius | `Map<String, double>?` | 각 모서리의 border Radius를 명시적으로 정의합니다.   |

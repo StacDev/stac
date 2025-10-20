@@ -32,7 +32,7 @@ void main() async {
   runApp(const MyApp());
 }
 ```
-## Properties
+## 속성
 
 | Property          | Type             | Description                                                                             |
 |-------------------|------------------|-----------------------------------------------------------------------------------------|
@@ -43,7 +43,7 @@ void main() async {
 | `enableZoom`      | `bool`           | `WebView`에 대해 줌이 활성화되어 있는지 설정합니다. 기본값은 `false`입니다.                     |
 | `layoutDirection` | `TextDirection`  | `WebView`의 레이아웃 방향입니다. 기본값은 `TextDirection.ltr`입니다.                 |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

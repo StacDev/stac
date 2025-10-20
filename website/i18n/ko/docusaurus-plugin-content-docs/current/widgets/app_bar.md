@@ -3,7 +3,7 @@
 Stac AppBar를 사용하면 JSON을 통해 Flutter app bar 위젯을 구성할 수 있습니다.
 Flutter의 app bar 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/AppBar-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | 속성                   | 타입                         | 설명                                                                                |
 |------------------------|------------------------------|-------------------------------------------------------------------------------------|
@@ -27,7 +27,7 @@ Flutter의 app bar 위젯에 대한 자세한 내용은 [공식 문서](https://
 | elevation              | `double?`                    | 앱 바의 고도입니다.                                                                   |
 | scrolledUnderElevation | `double?`                    | 스크롤되어 아래로 내려갔을 때 앱 바의 고도입니다.                                       |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

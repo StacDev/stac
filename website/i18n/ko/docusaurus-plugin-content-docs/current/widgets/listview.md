@@ -3,7 +3,7 @@
 Stac listview를 사용하면 JSON을 통해 Flutter listview 위젯을 생성할 수 있습니다.
 Flutter의 listview 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/widgets/ListView-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                | Type                                | Description                                                                                                                                             |
 |-------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -25,7 +25,7 @@ Flutter의 listview 위젯에 대한 자세한 내용은 [공식 문서](https:/
 | restorationId           | `String`                            | 스크롤 가능한 항목의 스크롤 오프셋을 저장하고 복원하기 위한 복원 ID입니다.                                                                                 |
 | clipBehavior            | `Clip`                              | 이 옵션에 따라 콘텐츠가 클리핑됩니다(또는 클리핑되지 않습니다).                                                                                          |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

@@ -3,7 +3,7 @@
 Stac `Switch` 위젯을 사용하면 JSON을 사용하여 Flutter Switch 위젯을 빌드할 수 있습니다.
 Flutter의 Switch 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Switch-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property              | Type                    | Description                                                                                                     |
 |-----------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ Flutter의 Switch 위젯에 대해 자세히 알아보려면 [공식 문서](htt
 | applyTheme            | `bool`                  | 주변 테마 데이터를 적용할지 여부입니다.                                                                        |
 | applyCupertinoTheme   | `bool`                  | 주변 테마 데이터를 적용할지 여부입니다.                                                                        |
 
-## Example JSON
+## 예제 JSON
 
 ### Example 1: Cupertino Switch
 

@@ -3,7 +3,7 @@
 Stac TextFormField를 사용하면 JSON을 사용하여 Flutter TextFormField 위젯을 빌드할 수 있습니다.
 Flutter의 TextFormField 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/TextFormField-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                      | Type                            | Description                                                                                                                                        |
 |-------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -45,7 +45,7 @@ Flutter의 TextFormField 위젯에 대해 자세히 알아보려면 [공식 문�
 | inputFormatters               | `List<StacInputFormatter>`     | 텍스트에 적용할 입력 포매터 리스트입니다. 기본값은 빈 리스트입니다.                                                                      |
 | validatorRules                | `List<StacFormFieldValidator>` | 텍스트에 적용할 유효성 검사 규칙 리스트입니다. 기본값은 빈 리스트입니다.                                                                       |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

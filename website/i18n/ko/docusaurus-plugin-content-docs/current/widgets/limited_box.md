@@ -3,7 +3,7 @@
 Stac LimitedBox를 사용하면 JSON을 통해 Flutter LimitedBox 위젯을 생성할 수 있습니다.
 Flutter의 LimitedBox 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/widgets/LimitedBox-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property    | Type                    | Description                                                                                          |
 |-------------|-------------------------|------------------------------------------------------------------------------------------------------|
@@ -13,7 +13,7 @@ Flutter의 LimitedBox 위젯에 대한 자세한 내용은 [공식 문서](https
 
 ---
 
-## Example JSON
+## 예제 JSON
 
 ### Example 1: Limited Box with Default Constraints
 

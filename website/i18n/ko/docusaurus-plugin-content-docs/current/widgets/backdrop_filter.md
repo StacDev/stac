@@ -6,7 +6,7 @@ Flutter의 BackdropFilter 위젯에 대해 자세히 알아보려면 [Backdrop F
 
 ---
 
-## Properties
+## 속성
 
 | Property  | Type                   | Description                                                                                |
 |-----------|------------------------|--------------------------------------------------------------------------------------------|
@@ -66,7 +66,7 @@ BackdropFilter를 사용할 때 최상의 결과를 얻으려면:
 
 ---
 
-## Example JSON
+## 예제 JSON
 
 ### Example 1: Frosted Glass Effect
 

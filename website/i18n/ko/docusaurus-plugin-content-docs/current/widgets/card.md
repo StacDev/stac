@@ -3,7 +3,7 @@
 Stac Card를 사용하면 JSON을 통해 Flutter Card 위젯을 구축할 수 있습니다.
 Flutter의 Card 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/Card-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property           | Type                    | Description                                                                 |
 |--------------------|-------------------------|-----------------------------------------------------------------------------|
@@ -18,7 +18,7 @@ Flutter의 Card 위젯에 대해 자세히 알아보려면 [공식 문서](https
 | child              | `Map<String, dynamic>?` | 트리에서 이 위젯 아래에 있는 위젯입니다.                                   |
 | semanticContainer  | `bool`                  | 이 카드가 의미적 컨테이너인지 여부입니다. 기본값은 `true`입니다.              |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

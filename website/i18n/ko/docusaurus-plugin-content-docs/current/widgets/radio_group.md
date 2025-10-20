@@ -33,7 +33,7 @@ Flutter의 Radio 위젯에 대해 자세히 알아보려면 [공식 문서](http
 | useCupertinoCheckmarkStyle | `bool`                  | iOS 스타일 라디오에서 체크마크 스타일을 사용할지 제어합니다.                                             |
 
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

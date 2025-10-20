@@ -3,7 +3,7 @@
 Stac Floating Action Button을 사용하면 JSON을 사용하여 Flutter floating action button widget을 빌드할 수 있습니다.
 Flutter의 floating action button widget에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                 | Type                       | Description                                                    |
 |--------------------------|----------------------------|----------------------------------------------------------------|
@@ -29,7 +29,7 @@ Flutter의 floating action button widget에 대한 자세한 내용은 [공식 �
 | heroTag                  | `Object?`                  | hero animation에 사용할 tag입니다.                                     |
 | child                    | `Map<String, dynamic>`     | 버튼 내부에 표시할 widget입니다.                                          |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

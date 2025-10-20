@@ -2,7 +2,7 @@
 
 Stac TextField를 사용하면 JSON을 사용하여 Flutter text field 위젯을 빌드할 수 있습니다. Flutter의 text field 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/TextField-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property           | Type                        | Description                                                                    |
 |--------------------|-----------------------------|--------------------------------------------------------------------------------|
@@ -32,7 +32,7 @@ Stac TextField를 사용하면 JSON을 사용하여 Flutter text field 위젯을
 | hintText           | `String?`                   | 텍스트 필드가 비어 있을 때 표시할 힌트 텍스트입니다.                         |
 | inputFormatters    | `List<StacInputFormatter>` | 텍스트 필드에 적용할 입력 포매터 리스트입니다.                       |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

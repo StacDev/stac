@@ -3,7 +3,7 @@
 Stac GridView를 사용하면 JSON을 사용하여 Flutter GridView widget을 빌드할 수 있습니다.
 Flutter의 GridView widget에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/widgets/GridView-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                | Type                                | Description                                                                 |
 |-------------------------|-------------------------------------|-----------------------------------------------------------------------------|
@@ -29,7 +29,7 @@ Flutter의 GridView widget에 대한 자세한 내용은 [공식 문서](https:/
 | restorationId           | `String?`                           | scroll offset을 저장하고 복원하기 위한 restoration ID입니다.                             |
 | clipBehavior            | `Clip`                              | grid의 clip 동작입니다. 기본값은 `Clip.hardEdge`입니다.                                 |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

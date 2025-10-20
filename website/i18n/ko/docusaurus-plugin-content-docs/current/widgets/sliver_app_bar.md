@@ -4,7 +4,7 @@ Stac SliverAppBar를 사용하면 JSON을 사용하여 Flutter sliver app bar �
 Flutter의 app bar 위젯에 대해 자세히 알아보려면
 [공식 문서](https://api.flutter.dev/flutter/material/SliverAppBar-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property               | Type                         | Description                                                                                     |
 |------------------------|------------------------------|-------------------------------------------------------------------------------------------------|
@@ -41,7 +41,7 @@ Flutter의 app bar 위젯에 대해 자세히 알아보려면
 | actionsIconTheme       | `Map<String, dynamic>?`      | 앱 바의 액션에 나타나는 아이콘에 사용할 색상, 불투명도 및 크기입니다.         |
 | actionsPadding         | `Map<String, dynamic>?`      | 액션과 AppBar 끝 사이의 패딩입니다.                                      |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

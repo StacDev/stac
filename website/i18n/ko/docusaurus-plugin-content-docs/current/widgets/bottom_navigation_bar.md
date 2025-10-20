@@ -3,7 +3,7 @@
 Stac BottomNavigationBar를 사용하면 JSON을 통해 Flutter BottomNavigationBar 위젯을 구축할 수 있습니다.
 Flutter의 BottomNavigationBar 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property                | Type                                  | Description                                                                    |
 |-------------------------|---------------------------------------|--------------------------------------------------------------------------------|
@@ -28,7 +28,7 @@ Flutter의 BottomNavigationBar 위젯에 대해 자세히 알아보려면 [공�
 
 DefaultBottomNavigationController는 BottomNavigationController를 BottomNavigationBar 또는 BottomNavigationView와 공유하는 데 사용되는 상속 위젯입니다.
 
-## Properties
+## 속성
 
 | Property      | Type                    | Description                                                                 |
 |---------------|-------------------------|-----------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ DefaultBottomNavigationController는 BottomNavigationController를 BottomNavigat
 Stac BottomNavigationBarItem을 사용하면 JSON을 통해 Flutter BottomNavigationBarItem을 구축할 수 있습니다.
 Flutter의 BottomNavigationBarItem 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/BottomNavigationBarItem-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property        | Type                    | Description                                                                 |
 |-----------------|-------------------------|-----------------------------------------------------------------------------|
@@ -56,7 +56,7 @@ Flutter의 BottomNavigationBarItem 위젯에 대해 자세히 알아보려면 [�
 
 현재 선택된 하단 네비게이션 항목에 해당하는 위젯을 표시하는 페이지 뷰입니다.
 
-## Properties
+## 속성
 
 | Property | Type                          | Description                                      |
 |----------|-------------------------------|--------------------------------------------------|

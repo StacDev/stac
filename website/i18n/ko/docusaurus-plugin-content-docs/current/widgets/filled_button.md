@@ -3,7 +3,7 @@
 Stac Filled Button을 사용하면 JSON을 통해 Flutter filled button widget을 구성할 수 있습니다.
 Flutter의 filled button widget에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/FilledButton-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | 속성           | 타입                     | 설명                                                                      |
 |---------------|--------------------------|--------------------------------------------------------------------------|
@@ -16,7 +16,7 @@ Flutter의 filled button widget에 대한 자세한 내용은 [공식 문서](ht
 | clipBehavior  | `Clip`                  | 콘텐츠를 자르는 방법을 결정합니다. 기본값은 `Clip.none`입니다.                     |
 | child         | `Map<String, dynamic>`  | 버튼 내부에 표시할 widget입니다.                                             |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {

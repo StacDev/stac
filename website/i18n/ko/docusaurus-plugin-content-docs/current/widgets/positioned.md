@@ -3,7 +3,7 @@
 Stac Positioned를 사용하면 JSON을 사용하여 Flutter positioned 위젯을 빌드할 수 있습니다.
 Flutter의 positioned 위젯에 대해 자세히 알아보려면 [공식 문서](https://api.flutter.dev/flutter/widgets/Positioned-class.html)를 참조하세요.
 
-## Properties
+## 속성
 
 | Property       | Type                    | Description                                                                                 |
 |----------------|-------------------------|---------------------------------------------------------------------------------------------|
@@ -20,7 +20,7 @@ Flutter의 positioned 위젯에 대해 자세히 알아보려면 [공식 문서]
 | rect           | `StacRect?`            | 자식을 배치할 사각형입니다 (`fromRect` 타입용).                                  |
 | child          | `Map<String, dynamic>?` | positioned 위젯 내부에 표시할 위젯입니다.                                         |
 
-## Example JSON
+## 예제 JSON
 
 ```json
 {
