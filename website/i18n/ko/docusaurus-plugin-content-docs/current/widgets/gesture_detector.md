@@ -34,7 +34,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 }
 ```
 
-## 속성
+## Properties
 
 ### 자식 Widget
 
@@ -128,7 +128,7 @@ Stac JSON에서 GestureDetector를 사용하려면 widget 타입을 "gestureDete
 | `excludeFromSemantics` | boolean | false | 시맨틱 트리에서 제스처를 제외할지 여부입니다 |
 | `dragStartBehavior` | string | "start" | 드래그가 공식적으로 시작되는 시점을 결정합니다 ("start" 또는 "down") |
 
-## 예제
+## Example JSON
 
 ### 간단한 탭 예제
 

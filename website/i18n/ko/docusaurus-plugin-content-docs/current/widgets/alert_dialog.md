@@ -3,7 +3,7 @@
 Stac AlertDialog를 사용하면 JSON을 통해 Flutter alert dialog 위젯을 구성할 수 있습니다.
 Flutter의 alert dialog 위젯에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/AlertDialog-class.html)를 참조하세요.
 
-## 속성
+## Properties
 
 | 속성                         | 타입                          | 설명                                                                                  |
 |------------------------------|-------------------------------|--------------------------------------------------------------------------------------|
@@ -34,7 +34,7 @@ Flutter의 alert dialog 위젯에 대한 자세한 내용은 [공식 문서](htt
 | alignment                    | `StacAlignmentGeometry?`     | 알림 대화상자의 정렬 방식입니다.                                                        |
 | scrollable                   | `bool`                        | 알림 대화상자의 스크롤 가능 여부입니다. 기본값은 `false`입니다.                           |
 
-## 예제 JSON
+## Example JSON
 
 ```json
 {

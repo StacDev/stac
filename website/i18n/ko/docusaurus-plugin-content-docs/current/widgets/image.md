@@ -4,7 +4,7 @@
 
 동등한 Flutter widget과 속성에 대해 자세히 알아보려면 [Image에 대한 공식 Flutter 문서](https://api.flutter.dev/flutter/widgets/Image-class.html)를 참조하세요.
 
-## 속성
+## Properties
 
 | 속성        | 타입             | 설명                                                                                    |
 |-------------|------------------|-----------------------------------------------------------------------------------------|
@@ -24,7 +24,7 @@
 | `network` | 네트워크 URL에서 이미지를 불러옵니다.        |
 | `asset`   | Flutter의 asset 번들에서 이미지를 불러옵니다. |
 
-## JSON 예제
+## Example JSON
 
 ```json
 {

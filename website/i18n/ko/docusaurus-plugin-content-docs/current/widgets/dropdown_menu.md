@@ -4,7 +4,7 @@ Stac DropdownMenu를 사용하면 JSON을 통해 Flutter DropdownMenu widget을 
 Flutter의 DropdownMenu widget에 대한 자세한 내용은
 [공식 문서](https://api.flutter.dev/flutter/material/DropdownMenu-class.html)를 참조하세요.
 
-## 속성
+## Properties
 
 | 속성                  | 타입                             | 설명                                                    |
 |----------------------|----------------------------------|--------------------------------------------------------|
@@ -30,7 +30,7 @@ Stac DropdownMenuEntry를 사용하면 JSON을 통해 Flutter DropdownMenuEntry 
 Flutter의 DropdownMenuEntry widget에 대한 자세한 내용은
 [공식 문서](https://api.flutter.dev/flutter/material/DropdownMenuEntry-class.html)를 참조하세요.
 
-## 속성
+## Properties
 
 | 속성          | 타입                     | 설명                                                     |
 |--------------|--------------------------|----------------------------------------------------------|
@@ -41,7 +41,7 @@ Flutter의 DropdownMenuEntry widget에 대한 자세한 내용은
 | trailingIcon | `Map<String, dynamic>?` | 이 항목의 끝 부분에 표시할 아이콘입니다.                          |
 | style        | `StacButtonStyle?`      | 이 항목에 사용할 스타일입니다.                                  |
 
-## 예제 JSON
+## Example JSON
 
 ```json
 {
