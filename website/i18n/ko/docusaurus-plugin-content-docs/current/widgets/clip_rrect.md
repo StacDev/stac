@@ -127,7 +127,7 @@ Stac의 `ClipRRect` widget을 사용하면 둥근 직사각형을 사용하여 �
       "children": [
         {
           "type": "text",
-          "text": "Card Title",
+          "data": "Card Title",
           "style": {
             "fontSize": 18.0,
             "fontWeight": "bold"
@@ -135,7 +135,7 @@ Stac의 `ClipRRect` widget을 사용하면 둥근 직사각형을 사용하여 �
         },
         {
           "type": "text",
-          "text": "Card content goes here"
+          "data": "Card content goes here"
         }
       ]
     }

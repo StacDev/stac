@@ -14,6 +14,5 @@
 {
     "actionType": "delay",
     "milliseconds": 1000
-},
-
+}
 ```
