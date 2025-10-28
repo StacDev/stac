@@ -1,0 +1,74 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Network Widget Example"
+    }
+  },
+  "body": {
+    "type": "networkWidget",
+    "request": {
+      "actionType": "networkRequest",
+      "url": "https://httpbin.org/delay/2",
+      "method": "get"
+    },
+    "loadingWidget": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "children": [
+          {
+            "type": "circularProgressIndicator"
+          },
+          {
+            "type": "sizedBox",
+            "height": 16.0
+          },
+          {
+            "type": "text",
+            "data": "Loading..."
+          }
+        ]
+      }
+    },
+    "errorWidget": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "children": [
+          {
+            "type": "icon",
+            "icon": "error",
+            "size": 48.0,
+            "color": "#E53935"
+          },
+          {
+            "type": "sizedBox",
+            "height": 16.0
+          },
+          {
+            "type": "text",
+            "data": "Failed to load",
+            "style": {
+              "fontSize": 18.0,
+              "fontWeight": "bold"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 8.0
+          },
+          {
+            "type": "text",
+            "data": "Please check your connection and try again"
+          }
+        ]
+      }
+    }
+  }
+}
+

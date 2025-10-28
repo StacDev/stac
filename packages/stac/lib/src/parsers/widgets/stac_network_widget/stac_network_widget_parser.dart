@@ -15,6 +15,23 @@ class StacNetworkWidgetParser extends StacParser<StacNetworkWidget> {
 
   @override
   Widget parse(BuildContext context, StacNetworkWidget model) {
-    return Stac.fromNetwork(context: context, request: model.request);
+    return Stac.fromNetwork(
+      context: context,
+      request: model.request,
+      loadingWidget: model.loadingWidget == null
+          ? null
+          : (ctx) => StacService.fromStacWidget(
+                widget: model.loadingWidget!,
+                context: ctx,
+              ) ??
+              const SizedBox(),
+      errorWidget: model.errorWidget == null
+          ? null
+          : (ctx, error) => StacService.fromStacWidget(
+                widget: model.errorWidget!,
+                context: ctx,
+              ) ??
+              const SizedBox(),
+    );
   }
 }
