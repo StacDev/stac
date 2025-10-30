@@ -3,13 +3,8 @@ title: "BackdropFilter"
 description: "Documentation for BackdropFilter"
 ---
 
-# BackdropFilter
-
 Stac BackdropFilter allows you to build the Flutter BackdropFilter widget using JSON. This widget applies a filter to the existing painted content and then paints its child. It's commonly used to create frosted glass effects, blurs, and other visual effects.
-
 To know more about the BackdropFilter widget in Flutter, refer to the official documentation for [Backdrop Filter](https://api.flutter.dev/flutter/widgets/BackdropFilter-class.html) and [Image Filter](https://api.flutter.dev/flutter/dart-ui/ImageFilter-class.html).
-
----
 
 ## Properties
 
@@ -19,8 +14,6 @@ To know more about the BackdropFilter widget in Flutter, refer to the official d
 | `child`   | `Map<String, dynamic>?`| The widget to paint after applying the filter to the existing painted content.             |
 | `enabled` | `bool`                 | Whether the filter should be applied. When false, the child is drawn without a filter. Defaults to `true`. |
 | `blendMode` | `String?` | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
-
----
 
 ## Filter Types
 
@@ -58,8 +51,6 @@ The `filter` property accepts different types of image filters. Here are the sup
 | `inner`   | `Map<String, dynamic>` | The inner filter to apply first.                                 |
 | `outer`   | `Map<String, dynamic>` | The outer filter to apply after the inner filter.                |
 
----
-
 ## Usage Recommendations
 
 For best results with BackdropFilter:
@@ -68,8 +59,6 @@ For best results with BackdropFilter:
 2. Wrap the BackdropFilter in a `ClipRRect` to constrain the filter to a specific area
 3. Include a semi-transparent container as the child of the BackdropFilter to make the effect visible
 4. Use `fit: expand` on the Stack to ensure proper sizing
-
----
 
 ## Example JSON
 
@@ -215,8 +204,6 @@ For best results with BackdropFilter:
   }
 }
 ```
-
----
 
 ## Common Issues and Solutions
 
