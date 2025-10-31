@@ -37,9 +37,8 @@
                         "icon": "book",
                         "pages": [
                             "concepts/rendering_stac_widgets",
-                            "concepts/action_parsers",
-                            "concepts/parsers",
-                            "concepts/theming"
+                            "concepts/custom_widgets",
+                            "concepts/custom_actions"
                         ]
                     }
                 ]
