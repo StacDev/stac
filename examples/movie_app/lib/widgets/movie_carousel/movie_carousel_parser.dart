@@ -3,18 +3,18 @@ import 'package:movie_app/widgets/movie_carousel/movie_carousel.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stac/stac.dart';
 
-class MovieCarouselParser extends StacParser<MovieCarousel> {
+class MovieCarouselParser extends StacParser<StacMovieCarousel> {
   const MovieCarouselParser();
 
   @override
   String get type => 'movieCarousel';
 
   @override
-  MovieCarousel getModel(Map<String, dynamic> json) =>
-      MovieCarousel.fromJson(json);
+  StacMovieCarousel getModel(Map<String, dynamic> json) =>
+      StacMovieCarousel.fromJson(json);
 
   @override
-  Widget parse(BuildContext context, MovieCarousel model) {
+  Widget parse(BuildContext context, StacMovieCarousel model) {
     return FutureBuilder(
       future: StacNetworkService.request(context, model.request),
       builder: (context, snapshot) {

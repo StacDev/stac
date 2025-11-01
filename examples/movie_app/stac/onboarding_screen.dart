@@ -1,0 +1,78 @@
+import 'package:movie_app/constants/app_constants.dart';
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'onboarding_screen')
+StacWidget onboardingScreen() {
+  return StacScaffold(
+    body: StacStack(
+      children: [
+        StacImage(
+          imageType: StacImageType.asset,
+          src: AppAssets.onboardingImage,
+          width: 10000,
+          height: 10000,
+          fit: StacBoxFit.cover,
+        ),
+        StacPositioned(
+          left: 0,
+          right: 0,
+          bottom: 0,
+          child: StacContainer(
+            width: 1000,
+            height: 500,
+            decoration: StacBoxDecoration(
+              gradient: StacGradient.linear(
+                colors: ['#00050608', '#050608', '#050608'],
+                begin: StacAlignment.topCenter,
+                end: StacAlignment.bottomCenter,
+                stops: [0.0, 0.8, 1.0],
+              ),
+            ),
+            child: StacPadding(
+              padding: StacEdgeInsets.only(
+                left: 16,
+                right: 16,
+                top: 48,
+                bottom: 48,
+              ),
+              child: StacColumn(
+                mainAxisAlignment: StacMainAxisAlignment.end,
+                crossAxisAlignment: StacCrossAxisAlignment.start,
+                children: [
+                  StacText(
+                    data: AppStrings.onboardingTitle,
+                    style: StacTheme.textTheme.displayMedium,
+                    children: [
+                      StacTextSpan(
+                        text: AppStrings.onboardingTitleAccent,
+                        style: StacCustomTextStyle(color: 'primary'),
+                      ),
+                    ],
+                  ),
+                  StacSizedBox(height: 24),
+                  StacText(
+                    data: AppStrings.onboardingDescription,
+                    style: StacTheme.textTheme.bodyMedium,
+                  ),
+                  StacSizedBox(height: 64),
+                  StacSizedBox(
+                    height: 48,
+                    width: 1000,
+                    child: StacFilledButton(
+                      child: StacText(
+                        data: AppStrings.onboardingGetStartedButton,
+                      ),
+                      onPressed: StacNavigateAction(
+                        assetPath: AppAssets.homeScreenJson,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}
