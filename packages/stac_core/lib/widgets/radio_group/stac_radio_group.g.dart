@@ -13,6 +13,9 @@ StacRadioGroup _$StacRadioGroupFromJson(Map<String, dynamic> json) =>
       child: json['child'] == null
           ? null
           : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      onChanged: json['onChanged'] == null
+          ? null
+          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacRadioGroupToJson(StacRadioGroup instance) =>
@@ -20,5 +23,6 @@ Map<String, dynamic> _$StacRadioGroupToJson(StacRadioGroup instance) =>
       'id': instance.id,
       'groupValue': instance.groupValue,
       'child': instance.child?.toJson(),
+      'onChanged': instance.onChanged?.toJson(),
       'type': instance.type,
     };
