@@ -45,6 +45,19 @@ class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
     }
   }
 
+  @override
+  void didUpdateWidget(covariant _RadioGroupWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.model.groupValue != widget.model.groupValue) {
+      _groupValue = widget.model.groupValue;
+
+      // Save to form data if id is provided
+      if (widget.model.id != null && widget.formScope != null) {
+        widget.formScope!.formData[widget.model.id!] = widget.model.groupValue;
+      }
+    }
+  }
+
   void _onChanged(dynamic value) {
     setState(() {
       _groupValue = value;
