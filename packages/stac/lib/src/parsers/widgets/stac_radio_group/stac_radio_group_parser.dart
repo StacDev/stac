@@ -37,7 +37,9 @@ class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
   @override
   void initState() {
     super.initState();
-    _groupValue = widget.model.groupValue;
+    setState(() {
+      _groupValue = widget.model.groupValue;
+    });
 
     // Initialize form data if id is provided
     if (widget.model.id != null && widget.formScope != null) {
