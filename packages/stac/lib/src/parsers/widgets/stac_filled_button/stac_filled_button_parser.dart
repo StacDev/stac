@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
-import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style_parser.dart';
+import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 

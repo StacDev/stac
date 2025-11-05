@@ -109,12 +109,6 @@ enum StacMaterialTextStyle {
 /// final style = StacTheme.textTheme.displayLarge;
 /// final bodyStyle = StacTheme.textTheme.bodyMedium;
 /// ```
-class StacTheme {
-  const StacTheme._();
-
-  /// Access to all theme text styles.
-  static const StacThemeTextStyles textTheme = StacThemeTextStyles();
-}
 
 /// A collection of all available theme text styles.
 class StacThemeTextStyles {

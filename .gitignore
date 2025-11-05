@@ -41,3 +41,6 @@ mason-lock.json
 
 # Cursor Files
 .cursor/
+
+# FVM Version Cache
+.fvm/

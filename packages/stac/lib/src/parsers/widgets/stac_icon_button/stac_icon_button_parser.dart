@@ -5,7 +5,7 @@ import 'package:stac/src/parsers/foundation/alignment/stac_alignment_parser.dart
 import 'package:stac/src/parsers/foundation/geometry/stac_box_constraints_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_mouse_cursor_parser.dart';
-import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style_parser.dart';
+import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';

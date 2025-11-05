@@ -5,7 +5,7 @@ homepage: https://github.com/StacDev/stac
 repository: https://github.com/StacDev/stac/tree/dev/packages/stac_logger
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.2
   flutter: ">=1.17.0"
 
 dependencies:

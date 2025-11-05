@@ -5,8 +5,8 @@ repository: https://github.com/StacDev/stac
 homepage: https://stac.dev/
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.35.0"
+  sdk: ^3.9.2
+  flutter: ">=1.17.0"
 
 topics:
   - ui

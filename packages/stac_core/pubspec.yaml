@@ -5,7 +5,7 @@ repository: https://github.com/StacDev/stac
 homepage: https://stac.dev/
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.2
 
 topics:
   - ui
