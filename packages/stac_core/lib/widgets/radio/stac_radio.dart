@@ -62,6 +62,10 @@ class StacRadio extends StacWidget {
     this.autofocus,
     this.useCheckmarkStyle,
     this.useCupertinoCheckmarkStyle,
+    this.enabled,
+    this.backgroundColor,
+    this.side,
+    this.innerRadius,
   });
 
   /// Which platform style of radio to render.
@@ -133,6 +137,23 @@ class StacRadio extends StacWidget {
 
   /// Whether to use a Cupertino checkmark style when using adaptive radios.
   final bool? useCupertinoCheckmarkStyle;
+
+  /// Whether this radio is enabled for user interaction.
+  final bool? enabled;
+
+  /// The background color of the radio.
+  ///
+  /// Type: [StacColor]
+  final StacColor? backgroundColor;
+
+  /// The border side of the radio.
+  ///
+  /// Type: [StacBorderSide]
+  final StacBorderSide? side;
+
+  /// The inner radius of the radio in logical pixels.
+  @DoubleConverter()
+  final double? innerRadius;
 
   /// Widget type identifier.
   @override

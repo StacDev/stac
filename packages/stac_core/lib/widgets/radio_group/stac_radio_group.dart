@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/core/stac_action.dart';
 import 'package:stac_core/core/stac_widget.dart';
 import 'package:stac_core/foundation/specifications/widget_type.dart';
 
@@ -47,7 +48,7 @@ part 'stac_radio_group.g.dart';
 @JsonSerializable()
 class StacRadioGroup extends StacWidget {
   /// Creates a [StacRadioGroup].
-  const StacRadioGroup({this.id, this.groupValue, this.child});
+  const StacRadioGroup({this.id, this.groupValue, this.child, this.onChanged});
 
   /// The identifier under which the selected value will be saved in a [StacFormScope]'s form data.
   final String? id;
@@ -57,6 +58,9 @@ class StacRadioGroup extends StacWidget {
 
   /// The widget subtree to render within the radio group scope.
   final StacWidget? child;
+
+  /// The function to call when the group value changes.
+  final StacAction? onChanged;
 
   /// Widget type identifier.
   @override
