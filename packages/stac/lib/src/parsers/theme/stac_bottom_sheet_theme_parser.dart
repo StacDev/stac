@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_border_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_box_constraints_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_size_parser.dart';
+import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -22,9 +23,8 @@ extension StacBottomSheetThemeDataParser on StacBottomSheetThemeData {
       showDragHandle: showDragHandle,
       dragHandleColor: dragHandleColor?.toColor(context),
       dragHandleSize: dragHandleSize?.parse,
-      clipBehavior: clipBehavior,
+      clipBehavior: clipBehavior?.parse,
       constraints: constraints?.parse,
     );
   }
 }
-

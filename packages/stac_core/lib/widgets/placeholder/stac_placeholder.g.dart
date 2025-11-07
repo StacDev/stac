@@ -12,9 +12,10 @@ StacPlaceholder _$StacPlaceholderFromJson(Map<String, dynamic> json) =>
       fallbackHeight: const DoubleConverter().fromJson(json['fallbackHeight']),
       strokeWidth: const DoubleConverter().fromJson(json['strokeWidth']),
       color: json['color'] as String?,
-      child: json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      child:
+          json['child'] == null
+              ? null
+              : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacPlaceholderToJson(StacPlaceholder instance) =>

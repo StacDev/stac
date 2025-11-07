@@ -13,37 +13,47 @@ StacDatePickerThemeData _$StacDatePickerThemeDataFromJson(
   elevation: (json['elevation'] as num?)?.toDouble(),
   shadowColor: json['shadowColor'] as String?,
   surfaceTintColor: json['surfaceTintColor'] as String?,
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   headerBackgroundColor: json['headerBackgroundColor'] as String?,
   headerForegroundColor: json['headerForegroundColor'] as String?,
-  headerHeadlineStyle: json['headerHeadlineStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['headerHeadlineStyle']),
-  headerHelpStyle: json['headerHelpStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['headerHelpStyle']),
-  weekdayStyle: json['weekdayStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['weekdayStyle']),
-  dayStyle: json['dayStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['dayStyle']),
+  headerHeadlineStyle:
+      json['headerHeadlineStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['headerHeadlineStyle']),
+  headerHelpStyle:
+      json['headerHelpStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['headerHelpStyle']),
+  weekdayStyle:
+      json['weekdayStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['weekdayStyle']),
+  dayStyle:
+      json['dayStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['dayStyle']),
   dayForegroundColor: json['dayForegroundColor'] as String?,
   dayBackgroundColor: json['dayBackgroundColor'] as String?,
   dayOverlayColor: json['dayOverlayColor'] as String?,
-  dayShape: json['dayShape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['dayShape'] as Map<String, dynamic>),
+  dayShape:
+      json['dayShape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['dayShape'] as Map<String, dynamic>),
   todayForegroundColor: json['todayForegroundColor'] as String?,
   todayBackgroundColor: json['todayBackgroundColor'] as String?,
-  todayBorder: json['todayBorder'] == null
-      ? null
-      : StacBorderSide.fromJson(json['todayBorder'] as Map<String, dynamic>),
-  yearStyle: json['yearStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['yearStyle']),
+  todayBorder:
+      json['todayBorder'] == null
+          ? null
+          : StacBorderSide.fromJson(
+            json['todayBorder'] as Map<String, dynamic>,
+          ),
+  yearStyle:
+      json['yearStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['yearStyle']),
   yearForegroundColor: json['yearForegroundColor'] as String?,
   yearBackgroundColor: json['yearBackgroundColor'] as String?,
   yearOverlayColor: json['yearOverlayColor'] as String?,
@@ -51,40 +61,46 @@ StacDatePickerThemeData _$StacDatePickerThemeDataFromJson(
   rangePickerElevation: (json['rangePickerElevation'] as num?)?.toDouble(),
   rangePickerShadowColor: json['rangePickerShadowColor'] as String?,
   rangePickerSurfaceTintColor: json['rangePickerSurfaceTintColor'] as String?,
-  rangePickerShape: json['rangePickerShape'] == null
-      ? null
-      : StacShapeBorder.fromJson(
-          json['rangePickerShape'] as Map<String, dynamic>,
-        ),
+  rangePickerShape:
+      json['rangePickerShape'] == null
+          ? null
+          : StacShapeBorder.fromJson(
+            json['rangePickerShape'] as Map<String, dynamic>,
+          ),
   rangePickerHeaderBackgroundColor:
       json['rangePickerHeaderBackgroundColor'] as String?,
   rangePickerHeaderForegroundColor:
       json['rangePickerHeaderForegroundColor'] as String?,
-  rangePickerHeaderHeadlineStyle: json['rangePickerHeaderHeadlineStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['rangePickerHeaderHeadlineStyle']),
-  rangePickerHeaderHelpStyle: json['rangePickerHeaderHelpStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['rangePickerHeaderHelpStyle']),
+  rangePickerHeaderHeadlineStyle:
+      json['rangePickerHeaderHeadlineStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['rangePickerHeaderHeadlineStyle']),
+  rangePickerHeaderHelpStyle:
+      json['rangePickerHeaderHelpStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['rangePickerHeaderHelpStyle']),
   rangeSelectionBackgroundColor:
       json['rangeSelectionBackgroundColor'] as String?,
   rangeSelectionOverlayColor: json['rangeSelectionOverlayColor'] as String?,
   dividerColor: json['dividerColor'] as String?,
-  inputDecorationTheme: json['inputDecorationTheme'] == null
-      ? null
-      : StacInputDecorationTheme.fromJson(
-          json['inputDecorationTheme'] as Map<String, dynamic>,
-        ),
-  cancelButtonStyle: json['cancelButtonStyle'] == null
-      ? null
-      : StacButtonStyle.fromJson(
-          json['cancelButtonStyle'] as Map<String, dynamic>,
-        ),
-  confirmButtonStyle: json['confirmButtonStyle'] == null
-      ? null
-      : StacButtonStyle.fromJson(
-          json['confirmButtonStyle'] as Map<String, dynamic>,
-        ),
+  inputDecorationTheme:
+      json['inputDecorationTheme'] == null
+          ? null
+          : StacInputDecorationTheme.fromJson(
+            json['inputDecorationTheme'] as Map<String, dynamic>,
+          ),
+  cancelButtonStyle:
+      json['cancelButtonStyle'] == null
+          ? null
+          : StacButtonStyle.fromJson(
+            json['cancelButtonStyle'] as Map<String, dynamic>,
+          ),
+  confirmButtonStyle:
+      json['confirmButtonStyle'] == null
+          ? null
+          : StacButtonStyle.fromJson(
+            json['confirmButtonStyle'] as Map<String, dynamic>,
+          ),
 );
 
 Map<String, dynamic> _$StacDatePickerThemeDataToJson(
@@ -119,8 +135,8 @@ Map<String, dynamic> _$StacDatePickerThemeDataToJson(
   'rangePickerShape': instance.rangePickerShape?.toJson(),
   'rangePickerHeaderBackgroundColor': instance.rangePickerHeaderBackgroundColor,
   'rangePickerHeaderForegroundColor': instance.rangePickerHeaderForegroundColor,
-  'rangePickerHeaderHeadlineStyle': instance.rangePickerHeaderHeadlineStyle
-      ?.toJson(),
+  'rangePickerHeaderHeadlineStyle':
+      instance.rangePickerHeaderHeadlineStyle?.toJson(),
   'rangePickerHeaderHelpStyle': instance.rangePickerHeaderHelpStyle?.toJson(),
   'rangeSelectionBackgroundColor': instance.rangeSelectionBackgroundColor,
   'rangeSelectionOverlayColor': instance.rangeSelectionOverlayColor,

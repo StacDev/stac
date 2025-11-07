@@ -2,7 +2,7 @@
 export 'package:stac_core/stac_core.dart'
     show
         StacAppBarTheme,
-        StacBottomAppBarTheme,
+        StacBottomAppBarThemeData,
         StacBottomNavBarThemeData,
         StacBottomSheetThemeData,
         StacButtonStyle,

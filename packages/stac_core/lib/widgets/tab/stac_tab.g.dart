@@ -8,16 +8,19 @@ part of 'stac_tab.dart';
 
 StacTab _$StacTabFromJson(Map<String, dynamic> json) => StacTab(
   text: json['text'] as String?,
-  icon: json['icon'] == null
-      ? null
-      : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
-  iconMargin: json['iconMargin'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['iconMargin']),
+  icon:
+      json['icon'] == null
+          ? null
+          : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
+  iconMargin:
+      json['iconMargin'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['iconMargin']),
   height: const DoubleConverter().fromJson(json['height']),
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacTabToJson(StacTab instance) => <String, dynamic>{

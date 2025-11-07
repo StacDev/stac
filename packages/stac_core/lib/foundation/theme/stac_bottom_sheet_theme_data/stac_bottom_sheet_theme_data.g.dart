@@ -16,20 +16,23 @@ StacBottomSheetThemeData _$StacBottomSheetThemeDataFromJson(
   modalBarrierColor: json['modalBarrierColor'] as String?,
   shadowColor: json['shadowColor'] as String?,
   modalElevation: (json['modalElevation'] as num?)?.toDouble(),
-  shape: json['shape'] == null
-      ? null
-      : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
   showDragHandle: json['showDragHandle'] as bool?,
   dragHandleColor: json['dragHandleColor'] as String?,
-  dragHandleSize: json['dragHandleSize'] == null
-      ? null
-      : StacSize.fromJson(json['dragHandleSize'] as Map<String, dynamic>),
-  clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']),
-  constraints: json['constraints'] == null
-      ? null
-      : StacBoxConstraints.fromJson(
-          json['constraints'] as Map<String, dynamic>,
-        ),
+  dragHandleSize:
+      json['dragHandleSize'] == null
+          ? null
+          : StacSize.fromJson(json['dragHandleSize'] as Map<String, dynamic>),
+  clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
+  constraints:
+      json['constraints'] == null
+          ? null
+          : StacBoxConstraints.fromJson(
+            json['constraints'] as Map<String, dynamic>,
+          ),
 );
 
 Map<String, dynamic> _$StacBottomSheetThemeDataToJson(
@@ -46,13 +49,13 @@ Map<String, dynamic> _$StacBottomSheetThemeDataToJson(
   'showDragHandle': instance.showDragHandle,
   'dragHandleColor': instance.dragHandleColor,
   'dragHandleSize': instance.dragHandleSize?.toJson(),
-  'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+  'clipBehavior': _$StacClipEnumMap[instance.clipBehavior],
   'constraints': instance.constraints?.toJson(),
 };
 
-const _$ClipEnumMap = {
-  Clip.none: 'none',
-  Clip.hardEdge: 'hardEdge',
-  Clip.antiAlias: 'antiAlias',
-  Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
+const _$StacClipEnumMap = {
+  StacClip.none: 'none',
+  StacClip.hardEdge: 'hardEdge',
+  StacClip.antiAlias: 'antiAlias',
+  StacClip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
 };

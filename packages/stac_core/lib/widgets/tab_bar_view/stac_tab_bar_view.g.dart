@@ -9,9 +9,10 @@ part of 'stac_tab_bar_view.dart';
 StacTabBarView _$StacTabBarViewFromJson(
   Map<String, dynamic> json,
 ) => StacTabBarView(
-  children: (json['children'] as List<dynamic>)
-      .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  children:
+      (json['children'] as List<dynamic>)
+          .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList(),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
     json['dragStartBehavior'],

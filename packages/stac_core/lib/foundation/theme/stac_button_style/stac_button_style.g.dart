@@ -23,38 +23,46 @@ StacButtonStyle _$StacButtonStyleFromJson(Map<String, dynamic> json) =>
       disabledIconColor: json['disabledIconColor'] as String?,
       overlayColor: json['overlayColor'] as String?,
       elevation: (json['elevation'] as num?)?.toDouble(),
-      textStyle: json['textStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['textStyle']),
-      padding: json['padding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['padding']),
-      minimumSize: json['minimumSize'] == null
-          ? null
-          : StacSize.fromJson(json['minimumSize'] as Map<String, dynamic>),
-      fixedSize: json['fixedSize'] == null
-          ? null
-          : StacSize.fromJson(json['fixedSize'] as Map<String, dynamic>),
-      maximumSize: json['maximumSize'] == null
-          ? null
-          : StacSize.fromJson(json['maximumSize'] as Map<String, dynamic>),
-      side: json['side'] == null
-          ? null
-          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
-      shape: json['shape'] == null
-          ? null
-          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      textStyle:
+          json['textStyle'] == null
+              ? null
+              : StacTextStyle.fromJson(json['textStyle']),
+      padding:
+          json['padding'] == null
+              ? null
+              : StacEdgeInsets.fromJson(json['padding']),
+      minimumSize:
+          json['minimumSize'] == null
+              ? null
+              : StacSize.fromJson(json['minimumSize'] as Map<String, dynamic>),
+      fixedSize:
+          json['fixedSize'] == null
+              ? null
+              : StacSize.fromJson(json['fixedSize'] as Map<String, dynamic>),
+      maximumSize:
+          json['maximumSize'] == null
+              ? null
+              : StacSize.fromJson(json['maximumSize'] as Map<String, dynamic>),
+      side:
+          json['side'] == null
+              ? null
+              : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+      shape:
+          json['shape'] == null
+              ? null
+              : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       enableFeedback: json['enableFeedback'] as bool?,
       alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
       tapTargetSize: $enumDecodeNullable(
         _$StacMaterialTapTargetSizeEnumMap,
         json['tapTargetSize'],
       ),
-      animationDuration: json['animationDuration'] == null
-          ? null
-          : StacDuration.fromJson(
-              json['animationDuration'] as Map<String, dynamic>,
-            ),
+      animationDuration:
+          json['animationDuration'] == null
+              ? null
+              : StacDuration.fromJson(
+                json['animationDuration'] as Map<String, dynamic>,
+              ),
       enabledMouseCursor: $enumDecodeNullable(
         _$StacMouseCursorEnumMap,
         json['enabledMouseCursor'],
@@ -63,11 +71,12 @@ StacButtonStyle _$StacButtonStyleFromJson(Map<String, dynamic> json) =>
         _$StacMouseCursorEnumMap,
         json['disabledMouseCursor'],
       ),
-      visualDensity: json['visualDensity'] == null
-          ? null
-          : StacVisualDensity.fromJson(
-              json['visualDensity'] as Map<String, dynamic>,
-            ),
+      visualDensity:
+          json['visualDensity'] == null
+              ? null
+              : StacVisualDensity.fromJson(
+                json['visualDensity'] as Map<String, dynamic>,
+              ),
     );
 
 Map<String, dynamic> _$StacButtonStyleToJson(

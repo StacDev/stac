@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
+import 'package:stac/src/parsers/foundation/layout/stac_material_tap_target_size_parser.dart';
 import 'package:stac/src/parsers/foundation/theme/stac_input_decoration_theme_parser.dart';
 import 'package:stac/src/parsers/theme/stac_app_bar_theme_parser.dart';
 import 'package:stac/src/parsers/theme/stac_bottom_app_bar_theme_parser.dart';
@@ -11,7 +13,7 @@ import 'package:stac/src/parsers/theme/stac_checkbox_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_chip_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_color_scheme_parser.dart';
 import 'package:stac/src/parsers/theme/stac_date_picker_theme_data_parser.dart';
-import 'package:stac/src/parsers/theme/stac_dialog_theme_parser.dart';
+import 'package:stac/src/parsers/theme/stac_dialog_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_divider_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_drawer_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_floating_action_button_theme_data_parser.dart';
@@ -36,12 +38,12 @@ extension StacThemeParser on StacTheme {
       // GENERAL CONFIGURATION
       applyElevationOverlayColor: applyElevationOverlayColor,
       inputDecorationTheme: inputDecorationTheme?.parse(context),
-      materialTapTargetSize: materialTapTargetSize,
+      materialTapTargetSize: materialTapTargetSize?.parse,
       scrollbarTheme: scrollbarTheme?.parse(context),
       useMaterial3: useMaterial3,
       // COLOR
       colorScheme: colorScheme?.parse(context),
-      brightness: brightness,
+      brightness: brightness?.parse,
       colorSchemeSeed: colorSchemeSeed?.toColor(context),
       canvasColor: canvasColor?.toColor(context),
       cardColor: cardColor?.toColor(context),
@@ -71,69 +73,41 @@ extension StacThemeParser on StacTheme {
       // COMPONENT THEMES
       appBarTheme: appBarTheme?.parse(context),
       bannerTheme: bannerTheme?.parse(context),
-      bottomAppBarTheme: bottomAppBarTheme != null
-          ? StacBottomAppBarTheme.fromJson(bottomAppBarTheme!).parse(context)
-          : null,
-      bottomNavigationBarTheme: bottomNavigationBarTheme != null
-          ? StacBottomNavBarThemeData.fromJson(bottomNavigationBarTheme!)
-              .parse(context)
-          : null,
-      bottomSheetTheme: bottomSheetTheme != null
-          ? StacBottomSheetThemeData.fromJson(bottomSheetTheme!).parse(context)
-          : null,
+      bottomAppBarTheme: bottomAppBarTheme?.parse(context),
+      bottomNavigationBarTheme: bottomNavigationBarTheme?.parse(context),
+      bottomSheetTheme: bottomSheetTheme?.parse(context),
       buttonTheme: buttonTheme?.parse(context),
-      cardTheme: cardTheme != null
-          ? StacCardThemeData.fromJson(cardTheme!).parse(context)
-          : null,
-      checkboxTheme: checkboxTheme != null
-          ? StacCheckboxThemeData.fromJson(checkboxTheme!).parse(context)
-          : null,
-      chipTheme: chipTheme != null
-          ? StacChipThemeData.fromJson(chipTheme!).parse(context)
-          : null,
-      datePickerTheme: datePickerTheme != null
-          ? StacDatePickerThemeData.fromJson(datePickerTheme!).parse(context)
-          : null,
-      dialogTheme: dialogTheme != null
-          ? StacDialogTheme.fromJson(dialogTheme!).parse(context)?.data
-          : null,
+      cardTheme: cardTheme?.parse(context),
+      checkboxTheme: checkboxTheme?.parse(context),
+      chipTheme: chipTheme?.parse(context),
+      datePickerTheme: datePickerTheme?.parse(context),
+      dialogTheme: dialogTheme?.parse(context),
       dividerTheme: dividerTheme?.parse(context),
-      drawerTheme: drawerTheme != null
-          ? StacDrawerThemeData.fromJson(drawerTheme!).parse(context)
-          : null,
+      drawerTheme: drawerTheme?.parse(context),
       // DropdownMenuThemeData? dropdownMenuTheme,
       elevatedButtonTheme: ElevatedButtonThemeData(
-          style: elevatedButtonTheme?.parseElevatedButton(context)),
+        style: elevatedButtonTheme?.parseElevatedButton(context),
+      ),
       // ExpansionTileThemeData? expansionTileTheme,
       filledButtonTheme: FilledButtonThemeData(
         style: filledButtonTheme?.parseFilledButton(context),
       ),
-      floatingActionButtonTheme: floatingActionButtonTheme != null
-          ? StacFloatingActionButtonThemeData.fromJson(
-                  floatingActionButtonTheme!)
-              .parse(context)
-          : null,
-      iconButtonTheme:
-          IconButtonThemeData(style: iconButtonTheme?.parseIconButton(context)),
-      listTileTheme: listTileTheme != null
-          ? StacListTileThemeData.fromJson(listTileTheme!).parse(context)
-          : null,
+      floatingActionButtonTheme: floatingActionButtonTheme?.parse(context),
+      iconButtonTheme: IconButtonThemeData(
+        style: iconButtonTheme?.parseIconButton(context),
+      ),
+      listTileTheme: listTileTheme?.parse(context),
       // MenuBarThemeData? menuBarTheme,
       menuButtonTheme: MenuButtonThemeData(
         style: menuButtonTheme?.parseElevatedButton(context),
       ),
       // MenuThemeData? menuTheme,
-      navigationBarTheme: navigationBarTheme != null
-          ? StacNavigationBarThemeData.fromJson(navigationBarTheme!)
-              .parse(context)
-          : null,
-      navigationDrawerTheme: navigationDrawerTheme != null
-          ? StacNavigationDrawerThemeData.fromJson(navigationDrawerTheme!)
-              .parse(context)
-          : null,
+      navigationBarTheme: navigationBarTheme?.parse(context),
+      navigationDrawerTheme: navigationDrawerTheme?.parse(context),
       // NavigationRailThemeData? navigationRailTheme,
       outlinedButtonTheme: OutlinedButtonThemeData(
-          style: outlinedButtonTheme?.parseOutlinedButton(context)),
+        style: outlinedButtonTheme?.parseOutlinedButton(context),
+      ),
       // PopupMenuThemeData? popupMenuTheme,
       // ProgressIndicatorThemeData? progressIndicatorTheme,
       // RadioThemeData? radioTheme,
@@ -141,9 +115,7 @@ extension StacThemeParser on StacTheme {
       // SearchViewThemeData? searchViewTheme,
       // SegmentedButtonThemeData? segmentedButtonTheme,
       // SliderThemeData? sliderTheme,
-      snackBarTheme: snackBarTheme != null
-          ? StacSnackBarThemeData.fromJson(snackBarTheme!).parse(context)
-          : null,
+      snackBarTheme: snackBarTheme?.parse(context),
       // SwitchThemeData? switchTheme,
       // tabBarTheme: tabBarTheme?.parse(context),
       textButtonTheme: TextButtonThemeData(

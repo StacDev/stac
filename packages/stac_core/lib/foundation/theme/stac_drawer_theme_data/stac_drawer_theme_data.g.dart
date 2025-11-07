@@ -6,22 +6,25 @@ part of 'stac_drawer_theme_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StacDrawerThemeData _$StacDrawerThemeDataFromJson(Map<String, dynamic> json) =>
-    StacDrawerThemeData(
-      backgroundColor: json['backgroundColor'] as String?,
-      scrimColor: json['scrimColor'] as String?,
-      elevation: (json['elevation'] as num?)?.toDouble(),
-      shadowColor: json['shadowColor'] as String?,
-      surfaceTintColor: json['surfaceTintColor'] as String?,
-      shape: json['shape'] == null
+StacDrawerThemeData _$StacDrawerThemeDataFromJson(
+  Map<String, dynamic> json,
+) => StacDrawerThemeData(
+  backgroundColor: json['backgroundColor'] as String?,
+  scrimColor: json['scrimColor'] as String?,
+  elevation: (json['elevation'] as num?)?.toDouble(),
+  shadowColor: json['shadowColor'] as String?,
+  surfaceTintColor: json['surfaceTintColor'] as String?,
+  shape:
+      json['shape'] == null
           ? null
           : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
-      endShape: json['endShape'] == null
+  endShape:
+      json['endShape'] == null
           ? null
           : StacShapeBorder.fromJson(json['endShape'] as Map<String, dynamic>),
-      width: (json['width'] as num?)?.toDouble(),
-      clipBehavior: $enumDecodeNullable(_$ClipEnumMap, json['clipBehavior']),
-    );
+  width: (json['width'] as num?)?.toDouble(),
+  clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
+);
 
 Map<String, dynamic> _$StacDrawerThemeDataToJson(
   StacDrawerThemeData instance,
@@ -34,12 +37,12 @@ Map<String, dynamic> _$StacDrawerThemeDataToJson(
   'shape': instance.shape?.toJson(),
   'endShape': instance.endShape?.toJson(),
   'width': instance.width,
-  'clipBehavior': _$ClipEnumMap[instance.clipBehavior],
+  'clipBehavior': _$StacClipEnumMap[instance.clipBehavior],
 };
 
-const _$ClipEnumMap = {
-  Clip.none: 'none',
-  Clip.hardEdge: 'hardEdge',
-  Clip.antiAlias: 'antiAlias',
-  Clip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
+const _$StacClipEnumMap = {
+  StacClip.none: 'none',
+  StacClip.hardEdge: 'hardEdge',
+  StacClip.antiAlias: 'antiAlias',
+  StacClip.antiAliasWithSaveLayer: 'antiAliasWithSaveLayer',
 };

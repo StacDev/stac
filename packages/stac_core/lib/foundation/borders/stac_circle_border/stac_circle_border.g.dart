@@ -8,9 +8,10 @@ part of 'stac_circle_border.dart';
 
 StacCircleBorder _$StacCircleBorderFromJson(Map<String, dynamic> json) =>
     StacCircleBorder(
-      side: json['side'] == null
-          ? null
-          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+      side:
+          json['side'] == null
+              ? null
+              : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
       eccentricity: (json['eccentricity'] as num?)?.toDouble(),
     );
 

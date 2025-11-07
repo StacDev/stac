@@ -18,20 +18,23 @@ StacCheckboxThemeData _$StacCheckboxThemeDataFromJson(
   overlayColor: json['overlayColor'] as String?,
   splashRadius: (json['splashRadius'] as num?)?.toDouble(),
   materialTapTargetSize: $enumDecodeNullable(
-    _$MaterialTapTargetSizeEnumMap,
+    _$StacMaterialTapTargetSizeEnumMap,
     json['materialTapTargetSize'],
   ),
-  visualDensity: json['visualDensity'] == null
-      ? null
-      : StacVisualDensity.fromJson(
-          json['visualDensity'] as Map<String, dynamic>,
-        ),
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
-  side: json['side'] == null
-      ? null
-      : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+  visualDensity:
+      json['visualDensity'] == null
+          ? null
+          : StacVisualDensity.fromJson(
+            json['visualDensity'] as Map<String, dynamic>,
+          ),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  side:
+      json['side'] == null
+          ? null
+          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacCheckboxThemeDataToJson(
@@ -43,7 +46,7 @@ Map<String, dynamic> _$StacCheckboxThemeDataToJson(
   'overlayColor': instance.overlayColor,
   'splashRadius': instance.splashRadius,
   'materialTapTargetSize':
-      _$MaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
+      _$StacMaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
   'visualDensity': instance.visualDensity?.toJson(),
   'shape': instance.shape?.toJson(),
   'side': instance.side?.toJson(),
@@ -88,7 +91,7 @@ const _$StacMouseCursorEnumMap = {
   StacMouseCursor.zoomOut: 'zoomOut',
 };
 
-const _$MaterialTapTargetSizeEnumMap = {
-  MaterialTapTargetSize.padded: 'padded',
-  MaterialTapTargetSize.shrinkWrap: 'shrinkWrap',
+const _$StacMaterialTapTargetSizeEnumMap = {
+  StacMaterialTapTargetSize.padded: 'padded',
+  StacMaterialTapTargetSize.shrinkWrap: 'shrinkWrap',
 };

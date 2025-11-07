@@ -18,11 +18,16 @@ class StacHeroParser extends StacParser<StacHero> {
     return Hero(
       tag: model.tag,
       createRectTween: model.createRectTween != null
-          ? (_, __) => model.createRectTween!.parse(context)
+          ? (_, _) => model.createRectTween!.parse(context)
           : null,
       flightShuttleBuilder: model.flightShuttleBuilder != null
-          ? (flightContext, animation, flightDirection, fromHeroContext,
-              toHeroContext) {
+          ? (
+              flightContext,
+              animation,
+              flightDirection,
+              fromHeroContext,
+              toHeroContext,
+            ) {
               final widget = model.flightShuttleBuilder!.parse(flightContext);
               return widget ?? const SizedBox();
             }

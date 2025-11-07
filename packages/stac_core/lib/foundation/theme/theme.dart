@@ -12,6 +12,7 @@ export 'stac_chip_theme_data/stac_chip_theme_data.dart';
 export 'stac_color_scheme/stac_color_scheme.dart';
 export 'stac_date_picker_theme_data/stac_date_picker_theme_data.dart';
 export 'stac_dialog_theme/stac_dialog_theme.dart';
+export 'stac_dialog_theme_data/stac_dialog_theme_data.dart';
 export 'stac_divider_theme_data/stac_divider_theme_data.dart';
 export 'stac_drawer_theme_data/stac_drawer_theme_data.dart';
 export 'stac_floating_action_button_theme_data/stac_floating_action_button_theme_data.dart';

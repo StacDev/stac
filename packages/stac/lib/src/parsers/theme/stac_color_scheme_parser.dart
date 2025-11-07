@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -8,7 +9,7 @@ import 'package:stac_core/stac_core.dart';
 extension StacColorSchemeParser on StacColorScheme {
   ColorScheme parse(BuildContext context) {
     return ColorScheme(
-      brightness: brightness,
+      brightness: brightness.parse,
       primary: primary.toColor(context)!,
       onPrimary: onPrimary.toColor(context)!,
       primaryContainer: primaryContainer?.toColor(context),

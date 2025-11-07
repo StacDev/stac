@@ -11,30 +11,34 @@ StacBottomNavBarThemeData _$StacBottomNavBarThemeDataFromJson(
 ) => StacBottomNavBarThemeData(
   backgroundColor: json['backgroundColor'] as String?,
   elevation: (json['elevation'] as num?)?.toDouble(),
-  selectedIconTheme: json['selectedIconTheme'] == null
-      ? null
-      : StacIconThemeData.fromJson(
-          json['selectedIconTheme'] as Map<String, dynamic>,
-        ),
-  unselectedIconTheme: json['unselectedIconTheme'] == null
-      ? null
-      : StacIconThemeData.fromJson(
-          json['unselectedIconTheme'] as Map<String, dynamic>,
-        ),
+  selectedIconTheme:
+      json['selectedIconTheme'] == null
+          ? null
+          : StacIconThemeData.fromJson(
+            json['selectedIconTheme'] as Map<String, dynamic>,
+          ),
+  unselectedIconTheme:
+      json['unselectedIconTheme'] == null
+          ? null
+          : StacIconThemeData.fromJson(
+            json['unselectedIconTheme'] as Map<String, dynamic>,
+          ),
   selectedItemColor: json['selectedItemColor'] as String?,
   unselectedItemColor: json['unselectedItemColor'] as String?,
-  selectedLabelStyle: json['selectedLabelStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['selectedLabelStyle']),
-  unselectedLabelStyle: json['unselectedLabelStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+  selectedLabelStyle:
+      json['selectedLabelStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['selectedLabelStyle']),
+  unselectedLabelStyle:
+      json['unselectedLabelStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
   showSelectedLabels: json['showSelectedLabels'] as bool?,
   showUnselectedLabels: json['showUnselectedLabels'] as bool?,
-  type: $enumDecodeNullable(_$BottomNavigationBarTypeEnumMap, json['type']),
+  type: $enumDecodeNullable(_$StacBottomNavigationBarTypeEnumMap, json['type']),
   enableFeedback: json['enableFeedback'] as bool?,
   landscapeLayout: $enumDecodeNullable(
-    _$BottomNavigationBarLandscapeLayoutEnumMap,
+    _$StacBottomNavigationBarLandscapeLayoutEnumMap,
     json['landscapeLayout'],
   ),
 );
@@ -52,19 +56,19 @@ Map<String, dynamic> _$StacBottomNavBarThemeDataToJson(
   'unselectedLabelStyle': instance.unselectedLabelStyle?.toJson(),
   'showSelectedLabels': instance.showSelectedLabels,
   'showUnselectedLabels': instance.showUnselectedLabels,
-  'type': _$BottomNavigationBarTypeEnumMap[instance.type],
+  'type': _$StacBottomNavigationBarTypeEnumMap[instance.type],
   'enableFeedback': instance.enableFeedback,
   'landscapeLayout':
-      _$BottomNavigationBarLandscapeLayoutEnumMap[instance.landscapeLayout],
+      _$StacBottomNavigationBarLandscapeLayoutEnumMap[instance.landscapeLayout],
 };
 
-const _$BottomNavigationBarTypeEnumMap = {
-  BottomNavigationBarType.fixed: 'fixed',
-  BottomNavigationBarType.shifting: 'shifting',
+const _$StacBottomNavigationBarTypeEnumMap = {
+  StacBottomNavigationBarType.fixed: 'fixed',
+  StacBottomNavigationBarType.shifting: 'shifting',
 };
 
-const _$BottomNavigationBarLandscapeLayoutEnumMap = {
-  BottomNavigationBarLandscapeLayout.spread: 'spread',
-  BottomNavigationBarLandscapeLayout.centered: 'centered',
-  BottomNavigationBarLandscapeLayout.linear: 'linear',
+const _$StacBottomNavigationBarLandscapeLayoutEnumMap = {
+  StacBottomNavigationBarLandscapeLayout.spread: 'spread',
+  StacBottomNavigationBarLandscapeLayout.centered: 'centered',
+  StacBottomNavigationBarLandscapeLayout.linear: 'linear',
 };

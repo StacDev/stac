@@ -9,12 +9,14 @@ part of 'stac_refresh_indicator.dart';
 StacRefreshIndicator _$StacRefreshIndicatorFromJson(
   Map<String, dynamic> json,
 ) => StacRefreshIndicator(
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
-  onRefresh: json['onRefresh'] == null
-      ? null
-      : StacAction.fromJson(json['onRefresh'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  onRefresh:
+      json['onRefresh'] == null
+          ? null
+          : StacAction.fromJson(json['onRefresh'] as Map<String, dynamic>),
   displacement: const DoubleConverter().fromJson(json['displacement']),
   edgeOffset: const DoubleConverter().fromJson(json['edgeOffset']),
   color: json['color'] as String?,

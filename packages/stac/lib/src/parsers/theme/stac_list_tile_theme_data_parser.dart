@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/foundation/borders/stac_border_parser.dart';
-import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
-import 'package:stac/src/parsers/foundation/geometry/stac_visual_density_parser.dart';
-import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
+import 'package:stac/src/parsers/foundation/foundation.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -14,7 +11,7 @@ extension StacListTileThemeDataParser on StacListTileThemeData {
     return ListTileThemeData(
       dense: dense,
       shape: shape?.parse(context),
-      style: style,
+      style: style?.parse,
       selectedColor: selectedColor?.toColor(context),
       iconColor: iconColor?.toColor(context),
       textColor: textColor?.toColor(context),
@@ -29,7 +26,7 @@ extension StacListTileThemeDataParser on StacListTileThemeData {
       minLeadingWidth: minLeadingWidth,
       enableFeedback: enableFeedback,
       visualDensity: visualDensity?.parse,
-      titleAlignment: titleAlignment,
+      titleAlignment: titleAlignment?.parse,
     );
   }
 }

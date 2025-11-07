@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_border_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
+import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -10,7 +11,7 @@ import 'package:stac_core/stac_core.dart';
 extension StacCardThemeDataParser on StacCardThemeData {
   CardThemeData? parse(BuildContext context) {
     return CardThemeData(
-      clipBehavior: clipBehavior,
+      clipBehavior: clipBehavior?.parse,
       color: color?.toColor(context),
       shadowColor: shadowColor?.toColor(context),
       surfaceTintColor: surfaceTintColor?.toColor(context),
@@ -20,4 +21,3 @@ extension StacCardThemeDataParser on StacCardThemeData {
     );
   }
 }
-

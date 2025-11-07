@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/foundation/borders/stac_shape_border_parser.dart';
-import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
-import 'package:stac/src/parsers/theme/stac_color_scheme_parser.dart';
-import 'package:stac/src/utils/color_utils.dart';
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/src/parsers/foundation/foundation.dart';
+import 'package:stac/stac.dart';
 
 /// Parser extension for [StacButtonThemeData].
 ///
@@ -11,13 +8,13 @@ import 'package:stac_core/stac_core.dart';
 extension StacButtonThemeDataParser on StacButtonThemeData {
   ButtonThemeData? parse(BuildContext context) {
     return ButtonThemeData(
-      textTheme: textTheme,
-      minWidth: minWidth,
-      height: height,
+      textTheme: textTheme?.parse(context) ?? ButtonTextTheme.normal,
+      minWidth: minWidth ?? 88.0,
+      height: height ?? 36.0,
       padding: padding?.parse,
       shape: shape?.parse(context),
-      layoutBehavior: layoutBehavior,
-      alignedDropdown: alignedDropdown,
+      layoutBehavior: layoutBehavior?.parse ?? ButtonBarLayoutBehavior.padded,
+      alignedDropdown: alignedDropdown ?? false,
       buttonColor: buttonColor?.toColor(context),
       disabledColor: disabledColor?.toColor(context),
       focusColor: focusColor?.toColor(context),
@@ -25,7 +22,7 @@ extension StacButtonThemeDataParser on StacButtonThemeData {
       highlightColor: highlightColor?.toColor(context),
       splashColor: splashColor?.toColor(context),
       colorScheme: colorScheme?.parse(context),
-      materialTapTargetSize: materialTapTargetSize,
+      materialTapTargetSize: materialTapTargetSize?.parse,
     );
   }
 }

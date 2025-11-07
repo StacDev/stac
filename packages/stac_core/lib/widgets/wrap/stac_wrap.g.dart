@@ -28,9 +28,10 @@ StacWrap _$StacWrapFromJson(Map<String, dynamic> json) => StacWrap(
     json['verticalDirection'],
   ),
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  children: (json['children'] as List<dynamic>?)
-      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  children:
+      (json['children'] as List<dynamic>?)
+          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList(),
 );
 
 Map<String, dynamic> _$StacWrapToJson(StacWrap instance) => <String, dynamic>{

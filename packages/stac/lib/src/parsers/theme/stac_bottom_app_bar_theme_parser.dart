@@ -6,7 +6,7 @@ import 'package:stac_core/stac_core.dart';
 /// Parser extension for [StacBottomAppBarTheme].
 ///
 /// Converts [StacBottomAppBarTheme] to Flutter's [BottomAppBarThemeData].
-extension StacBottomAppBarThemeParser on StacBottomAppBarTheme {
+extension StacBottomAppBarThemeParser on StacBottomAppBarThemeData {
   BottomAppBarThemeData? parse(BuildContext context) {
     return BottomAppBarThemeData(
       color: color?.toColor(context),
@@ -18,4 +18,3 @@ extension StacBottomAppBarThemeParser on StacBottomAppBarTheme {
     );
   }
 }
-

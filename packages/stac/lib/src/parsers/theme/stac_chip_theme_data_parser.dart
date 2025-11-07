@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_border_side_parser.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_shape_border_parser.dart';
+import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_box_constraints_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
@@ -31,7 +32,7 @@ extension StacChipThemeDataParser on StacChipThemeData {
       shape: shape?.parse(context) as OutlinedBorder,
       labelStyle: labelStyle?.parse(context),
       secondaryLabelStyle: secondaryLabelStyle?.parse(context),
-      brightness: brightness,
+      brightness: brightness?.parse,
       elevation: elevation,
       pressElevation: pressElevation,
       iconTheme: iconTheme?.parse(context),
@@ -40,4 +41,3 @@ extension StacChipThemeDataParser on StacChipThemeData {
     );
   }
 }
-

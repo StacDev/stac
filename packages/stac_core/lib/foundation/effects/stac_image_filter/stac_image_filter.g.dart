@@ -13,15 +13,18 @@ StacImageFilter _$StacImageFilterFromJson(Map<String, dynamic> json) =>
       sigmaY: const DoubleConverter().fromJson(json['sigmaY']),
       radiusX: const DoubleConverter().fromJson(json['radiusX']),
       radiusY: const DoubleConverter().fromJson(json['radiusY']),
-      matrix: (json['matrix'] as List<dynamic>?)
-          ?.map((e) => (e as num).toDouble())
-          .toList(),
-      inner: json['inner'] == null
-          ? null
-          : StacImageFilter.fromJson(json['inner'] as Map<String, dynamic>),
-      outer: json['outer'] == null
-          ? null
-          : StacImageFilter.fromJson(json['outer'] as Map<String, dynamic>),
+      matrix:
+          (json['matrix'] as List<dynamic>?)
+              ?.map((e) => (e as num).toDouble())
+              .toList(),
+      inner:
+          json['inner'] == null
+              ? null
+              : StacImageFilter.fromJson(json['inner'] as Map<String, dynamic>),
+      outer:
+          json['outer'] == null
+              ? null
+              : StacImageFilter.fromJson(json['outer'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacImageFilterToJson(StacImageFilter instance) =>

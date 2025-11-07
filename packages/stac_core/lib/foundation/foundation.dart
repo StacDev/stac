@@ -69,6 +69,7 @@ export 'layout/stac_wrap_cross_alignment.dart';
 export 'navigation/stac_bottom_navigation_bar_item/stac_bottom_navigation_bar_item.dart';
 export 'navigation/stac_floating_action_button_location.dart';
 export 'navigation/stac_floating_action_button_type.dart';
+export 'navigation/stac_navigation_destination_label_behavior.dart';
 export 'navigation/stac_tab_alignment.dart';
 export 'navigation/stac_tab_bar_indicator_size.dart';
 // Specifications

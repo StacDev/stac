@@ -8,7 +8,7 @@ part of 'stac_color_scheme.dart';
 
 StacColorScheme _$StacColorSchemeFromJson(Map<String, dynamic> json) =>
     StacColorScheme(
-      brightness: $enumDecode(_$BrightnessEnumMap, json['brightness']),
+      brightness: $enumDecode(_$StacBrightnessEnumMap, json['brightness']),
       primary: json['primary'] as String,
       onPrimary: json['onPrimary'] as String,
       primaryContainer: json['primaryContainer'] as String?,
@@ -59,7 +59,7 @@ StacColorScheme _$StacColorSchemeFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$StacColorSchemeToJson(StacColorScheme instance) =>
     <String, dynamic>{
-      'brightness': _$BrightnessEnumMap[instance.brightness]!,
+      'brightness': _$StacBrightnessEnumMap[instance.brightness]!,
       'primary': instance.primary,
       'onPrimary': instance.onPrimary,
       'primaryContainer': instance.primaryContainer,
@@ -108,7 +108,8 @@ Map<String, dynamic> _$StacColorSchemeToJson(StacColorScheme instance) =>
       'surfaceTint': instance.surfaceTint,
     };
 
-const _$BrightnessEnumMap = {
-  Brightness.dark: 'dark',
-  Brightness.light: 'light',
+const _$StacBrightnessEnumMap = {
+  StacBrightness.light: 'light',
+  StacBrightness.dark: 'dark',
+  StacBrightness.system: 'system',
 };

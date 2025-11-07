@@ -13,9 +13,10 @@ StacSnackBarAction _$StacSnackBarActionFromJson(Map<String, dynamic> json) =>
       backgroundColor: json['backgroundColor'] as String?,
       disabledBackgroundColor: json['disabledBackgroundColor'] as String?,
       label: json['label'] as String,
-      onPressed: json['onPressed'] == null
-          ? null
-          : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
+      onPressed:
+          json['onPressed'] == null
+              ? null
+              : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacSnackBarActionToJson(StacSnackBarAction instance) =>

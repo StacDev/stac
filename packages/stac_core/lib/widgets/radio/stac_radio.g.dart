@@ -10,9 +10,10 @@ StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => StacRadio(
   radioType: $enumDecodeNullable(_$StacRadioTypeEnumMap, json['radioType']),
   value: json['value'],
   groupId: json['groupId'] as String?,
-  onChanged: json['onChanged'] == null
-      ? null
-      : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+  onChanged:
+      json['onChanged'] == null
+          ? null
+          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
   mouseCursor: $enumDecodeNullable(
     _$StacMouseCursorEnumMap,
     json['mouseCursor'],
@@ -29,11 +30,12 @@ StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => StacRadio(
     _$StacMaterialTapTargetSizeEnumMap,
     json['materialTapTargetSize'],
   ),
-  visualDensity: json['visualDensity'] == null
-      ? null
-      : StacVisualDensity.fromJson(
-          json['visualDensity'] as Map<String, dynamic>,
-        ),
+  visualDensity:
+      json['visualDensity'] == null
+          ? null
+          : StacVisualDensity.fromJson(
+            json['visualDensity'] as Map<String, dynamic>,
+          ),
   autofocus: json['autofocus'] as bool?,
   useCheckmarkStyle: json['useCheckmarkStyle'] as bool?,
   useCupertinoCheckmarkStyle: json['useCupertinoCheckmarkStyle'] as bool?,

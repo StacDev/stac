@@ -8,28 +8,32 @@ part of 'stac_tab_bar_theme_data.dart';
 
 StacTabBarThemeData _$StacTabBarThemeDataFromJson(Map<String, dynamic> json) =>
     StacTabBarThemeData(
-      indicator: json['indicator'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-              json['indicator'] as Map<String, dynamic>,
-            ),
+      indicator:
+          json['indicator'] == null
+              ? null
+              : StacBoxDecoration.fromJson(
+                json['indicator'] as Map<String, dynamic>,
+              ),
       indicatorColor: json['indicatorColor'] as String?,
       indicatorSize: $enumDecodeNullable(
-        _$TabBarIndicatorSizeEnumMap,
+        _$StacTabBarIndicatorSizeEnumMap,
         json['indicatorSize'],
       ),
       dividerColor: json['dividerColor'] as String?,
       labelColor: json['labelColor'] as String?,
-      labelPadding: json['labelPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['labelPadding']),
-      labelStyle: json['labelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['labelStyle']),
+      labelPadding:
+          json['labelPadding'] == null
+              ? null
+              : StacEdgeInsets.fromJson(json['labelPadding']),
+      labelStyle:
+          json['labelStyle'] == null
+              ? null
+              : StacTextStyle.fromJson(json['labelStyle']),
       unselectedLabelColor: json['unselectedLabelColor'] as String?,
-      unselectedLabelStyle: json['unselectedLabelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+      unselectedLabelStyle:
+          json['unselectedLabelStyle'] == null
+              ? null
+              : StacTextStyle.fromJson(json['unselectedLabelStyle']),
       overlayColor: json['overlayColor'] as String?,
     );
 
@@ -38,7 +42,7 @@ Map<String, dynamic> _$StacTabBarThemeDataToJson(
 ) => <String, dynamic>{
   'indicator': instance.indicator?.toJson(),
   'indicatorColor': instance.indicatorColor,
-  'indicatorSize': _$TabBarIndicatorSizeEnumMap[instance.indicatorSize],
+  'indicatorSize': _$StacTabBarIndicatorSizeEnumMap[instance.indicatorSize],
   'dividerColor': instance.dividerColor,
   'labelColor': instance.labelColor,
   'labelPadding': instance.labelPadding?.toJson(),
@@ -48,7 +52,7 @@ Map<String, dynamic> _$StacTabBarThemeDataToJson(
   'overlayColor': instance.overlayColor,
 };
 
-const _$TabBarIndicatorSizeEnumMap = {
-  TabBarIndicatorSize.tab: 'tab',
-  TabBarIndicatorSize.label: 'label',
+const _$StacTabBarIndicatorSizeEnumMap = {
+  StacTabBarIndicatorSize.tab: 'tab',
+  StacTabBarIndicatorSize.label: 'label',
 };

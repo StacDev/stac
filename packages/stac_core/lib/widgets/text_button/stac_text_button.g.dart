@@ -6,33 +6,37 @@ part of 'stac_text_button.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StacTextButton _$StacTextButtonFromJson(Map<String, dynamic> json) =>
-    StacTextButton(
-      onPressed: json['onPressed'] == null
+StacTextButton _$StacTextButtonFromJson(
+  Map<String, dynamic> json,
+) => StacTextButton(
+  onPressed:
+      json['onPressed'] == null
           ? null
           : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
-      onLongPress: json['onLongPress'] == null
+  onLongPress:
+      json['onLongPress'] == null
           ? null
           : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
-      onHover: json['onHover'] == null
+  onHover:
+      json['onHover'] == null
           ? null
           : StacAction.fromJson(json['onHover'] as Map<String, dynamic>),
-      onFocusChange: json['onFocusChange'] == null
+  onFocusChange:
+      json['onFocusChange'] == null
           ? null
           : StacAction.fromJson(json['onFocusChange'] as Map<String, dynamic>),
-      style: json['style'] == null
+  style:
+      json['style'] == null
           ? null
           : StacButtonStyle.fromJson(json['style'] as Map<String, dynamic>),
-      autofocus: json['autofocus'] as bool?,
-      clipBehavior: $enumDecodeNullable(
-        _$StacClipEnumMap,
-        json['clipBehavior'],
-      ),
-      isSemanticButton: json['isSemanticButton'] as bool?,
-      child: json['child'] == null
+  autofocus: json['autofocus'] as bool?,
+  clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
+  isSemanticButton: json['isSemanticButton'] as bool?,
+  child:
+      json['child'] == null
           ? null
           : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
-    );
+);
 
 Map<String, dynamic> _$StacTextButtonToJson(StacTextButton instance) =>
     <String, dynamic>{

@@ -9,9 +9,10 @@ part of 'stac_bottom_navigation_view.dart';
 StacBottomNavigationView _$StacBottomNavigationViewFromJson(
   Map<String, dynamic> json,
 ) => StacBottomNavigationView(
-  children: (json['children'] as List<dynamic>)
-      .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  children:
+      (json['children'] as List<dynamic>)
+          .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList(),
 );
 
 Map<String, dynamic> _$StacBottomNavigationViewToJson(

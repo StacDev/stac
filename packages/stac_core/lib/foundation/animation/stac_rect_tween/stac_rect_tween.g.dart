@@ -9,12 +9,14 @@ part of 'stac_rect_tween.dart';
 StacRectTween _$StacRectTweenFromJson(Map<String, dynamic> json) =>
     StacRectTween(
       type: json['type'] as String,
-      begin: json['begin'] == null
-          ? null
-          : StacRect.fromJson(json['begin'] as Map<String, dynamic>),
-      end: json['end'] == null
-          ? null
-          : StacRect.fromJson(json['end'] as Map<String, dynamic>),
+      begin:
+          json['begin'] == null
+              ? null
+              : StacRect.fromJson(json['begin'] as Map<String, dynamic>),
+      end:
+          json['end'] == null
+              ? null
+              : StacRect.fromJson(json['end'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacRectTweenToJson(StacRectTween instance) =>

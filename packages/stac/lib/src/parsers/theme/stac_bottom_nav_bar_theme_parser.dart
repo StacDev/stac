@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/foundation/navigation/stac_bottom_navigation_bar_landscape_layout_parser.dart';
+import 'package:stac/src/parsers/foundation/navigation/stac_bottom_navigation_bar_type_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
@@ -20,10 +22,9 @@ extension StacBottomNavBarThemeDataParser on StacBottomNavBarThemeData {
       unselectedLabelStyle: unselectedLabelStyle?.parse(context),
       showSelectedLabels: showSelectedLabels,
       showUnselectedLabels: showUnselectedLabels,
-      type: type,
+      type: type?.parse,
       enableFeedback: enableFeedback,
-      landscapeLayout: landscapeLayout,
+      landscapeLayout: landscapeLayout?.parse,
     );
   }
 }
-

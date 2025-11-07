@@ -11,13 +11,15 @@ StacDrawer _$StacDrawerFromJson(Map<String, dynamic> json) => StacDrawer(
   elevation: const DoubleConverter().fromJson(json['elevation']),
   shadowColor: json['shadowColor'] as String?,
   surfaceTintColor: json['surfaceTintColor'] as String?,
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   width: const DoubleConverter().fromJson(json['width']),
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
   semanticLabel: json['semanticLabel'] as String?,
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
 );

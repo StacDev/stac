@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_shape_border_parser.dart';
+import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -17,8 +18,7 @@ extension StacDrawerThemeDataParser on StacDrawerThemeData {
       shape: shape?.parse(context),
       endShape: endShape?.parse(context),
       width: width,
-      clipBehavior: clipBehavior,
+      clipBehavior: clipBehavior?.parse,
     );
   }
 }
-
