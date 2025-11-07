@@ -27,8 +27,9 @@ class StacCarouselViewParser extends StacParser<StacCarouselView> {
           padding: model.padding?.parse,
           backgroundColor: model.backgroundColor.toColor(context),
           elevation: model.elevation,
-          overlayColor:
-              WidgetStateProperty.all(model.overlayColor.toColor(context)),
+          overlayColor: WidgetStateProperty.all(
+            model.overlayColor.toColor(context),
+          ),
           itemSnapping: model.itemSnapping ?? false,
           shrinkExtent: model.shrinkExtent ?? 0.0,
           scrollDirection: model.scrollDirection?.parse ?? Axis.horizontal,
@@ -43,8 +44,9 @@ class StacCarouselViewParser extends StacParser<StacCarouselView> {
           padding: model.padding?.parse,
           backgroundColor: model.backgroundColor.toColor(context),
           elevation: model.elevation,
-          overlayColor:
-              WidgetStateProperty.all(model.overlayColor.toColor(context)),
+          overlayColor: WidgetStateProperty.all(
+            model.overlayColor.toColor(context),
+          ),
           itemSnapping: model.itemSnapping ?? false,
           shrinkExtent: model.shrinkExtent ?? 0.0,
           scrollDirection: model.scrollDirection?.parse ?? Axis.horizontal,

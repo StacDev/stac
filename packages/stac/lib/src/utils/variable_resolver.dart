@@ -15,7 +15,8 @@ dynamic resolveVariablesInJson(dynamic json, StacRegistry registry) {
     //   return json;
     // }
     return json.map(
-        (key, value) => MapEntry(key, resolveVariablesInJson(value, registry)));
+      (key, value) => MapEntry(key, resolveVariablesInJson(value, registry)),
+    );
   } else if (json is List) {
     return json.map((item) => resolveVariablesInJson(item, registry)).toList();
   }

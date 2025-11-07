@@ -64,17 +64,13 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
       mouseCursor: widget.model.mouseCursor?.parse,
       activeColor: widget.model.activeColor?.toColor(context),
       fillColor: widget.model.fillColor != null
-          ? WidgetStateProperty.all(
-              widget.model.fillColor!.toColor(context),
-            )
+          ? WidgetStateProperty.all(widget.model.fillColor!.toColor(context))
           : null,
       checkColor: widget.model.checkColor?.toColor(context),
       focusColor: widget.model.focusColor?.toColor(context),
       hoverColor: widget.model.hoverColor?.toColor(context),
       overlayColor: widget.model.overlayColor != null
-          ? WidgetStateProperty.all(
-              widget.model.overlayColor!.toColor(context),
-            )
+          ? WidgetStateProperty.all(widget.model.overlayColor!.toColor(context))
           : null,
       splashRadius: widget.model.splashRadius,
       materialTapTargetSize: widget.model.materialTapTargetSize?.parse,

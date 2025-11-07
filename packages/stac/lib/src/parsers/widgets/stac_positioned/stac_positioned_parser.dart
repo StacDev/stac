@@ -16,12 +16,13 @@ class StacPositionedParser extends StacParser<StacPositioned> {
   @override
   Widget parse(BuildContext context, StacPositioned model) {
     return Positioned(
-        left: model.left,
-        top: model.top,
-        right: model.right,
-        bottom: model.bottom,
-        height: model.height,
-        width: model.width,
-        child: model.child.parse(context) ?? const SizedBox());
+      left: model.left,
+      top: model.top,
+      right: model.right,
+      bottom: model.bottom,
+      height: model.height,
+      width: model.width,
+      child: model.child.parse(context) ?? const SizedBox(),
+    );
   }
 }

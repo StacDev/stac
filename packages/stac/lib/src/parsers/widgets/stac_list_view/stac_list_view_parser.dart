@@ -38,7 +38,8 @@ class StacListViewParser extends StacParser<StacListView> {
       cacheExtent: model.cacheExtent,
       dragStartBehavior:
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,
-      keyboardDismissBehavior: model.keyboardDismissBehavior?.parse ??
+      keyboardDismissBehavior:
+          model.keyboardDismissBehavior?.parse ??
           ScrollViewKeyboardDismissBehavior.manual,
       restorationId: model.restorationId,
       clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,

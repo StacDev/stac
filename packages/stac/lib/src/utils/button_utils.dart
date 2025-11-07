@@ -1,6 +1,1 @@
-enum FloatingActionButtonType {
-  extended,
-  large,
-  medium,
-  small,
-}
+enum FloatingActionButtonType { extended, large, medium, small }

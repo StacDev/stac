@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
-import 'package:stac/src/parsers/theme/stac_button_style/stac_button_style_parser.dart';
+import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac_core/stac_core.dart';
 
 extension StacDropdownMenuEntryParser on StacDropdownMenuEntry? {

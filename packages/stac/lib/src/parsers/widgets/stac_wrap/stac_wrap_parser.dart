@@ -21,17 +21,18 @@ class StacWrapParser extends StacParser<StacWrap> {
   @override
   Widget parse(BuildContext context, StacWrap model) {
     return Wrap(
-        direction: model.direction?.parse ?? Axis.horizontal,
-        alignment: model.alignment?.parse ?? WrapAlignment.start,
-        spacing: model.spacing ?? 0.0,
-        runAlignment: model.runAlignment?.parse ?? WrapAlignment.start,
-        runSpacing: model.runSpacing ?? 0.0,
-        crossAxisAlignment:
-            model.crossAxisAlignment?.parse ?? WrapCrossAlignment.start,
-        textDirection: model.textDirection?.parse,
-        verticalDirection:
-            model.verticalDirection?.parse ?? VerticalDirection.down,
-        clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
-        children: model.children?.parseList(context) ?? const <Widget>[]);
+      direction: model.direction?.parse ?? Axis.horizontal,
+      alignment: model.alignment?.parse ?? WrapAlignment.start,
+      spacing: model.spacing ?? 0.0,
+      runAlignment: model.runAlignment?.parse ?? WrapAlignment.start,
+      runSpacing: model.runSpacing ?? 0.0,
+      crossAxisAlignment:
+          model.crossAxisAlignment?.parse ?? WrapCrossAlignment.start,
+      textDirection: model.textDirection?.parse,
+      verticalDirection:
+          model.verticalDirection?.parse ?? VerticalDirection.down,
+      clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
+      children: model.children?.parseList(context) ?? const <Widget>[],
+    );
   }
 }

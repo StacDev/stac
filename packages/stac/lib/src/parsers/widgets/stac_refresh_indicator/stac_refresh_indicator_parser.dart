@@ -69,7 +69,8 @@ class _RefreshIndicatorWidgetState extends State<_RefreshIndicatorWidget> {
       backgroundColor: widget.model.backgroundColor.toColor(context),
       semanticsLabel: widget.model.semanticsLabel,
       semanticsValue: widget.model.semanticsValue,
-      strokeWidth: widget.model.strokeWidth ??
+      strokeWidth:
+          widget.model.strokeWidth ??
           RefreshProgressIndicator.defaultStrokeWidth,
       triggerMode:
           widget.model.triggerMode?.parse ?? RefreshIndicatorTriggerMode.onEdge,

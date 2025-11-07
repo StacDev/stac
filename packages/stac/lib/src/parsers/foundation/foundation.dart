@@ -72,6 +72,7 @@ export 'layout/stac_wrap_cross_alignment_parser.dart';
 export 'navigation/stac_bottom_navigation_bar_landscape_layout_parser.dart';
 export 'navigation/stac_bottom_navigation_bar_type_parser.dart';
 export 'navigation/stac_floating_action_button_location_parser.dart';
+export 'navigation/stac_navigation_destination_label_behavior_parser.dart';
 export 'navigation/stac_tab_alignment_parser.dart';
 export 'navigation/stac_tab_bar_indicator_size_parser.dart';
 // Text parsers
@@ -91,6 +92,8 @@ export 'text/stac_text_overflow_parser.dart';
 export 'text/stac_text_style_parser.dart';
 export 'text/stac_text_width_basis_parser.dart';
 // Theme parsers
+export 'theme/stac_button_bar_layout_behavior_parser.dart';
+export 'theme/stac_button_text_theme_parser.dart';
 export 'theme/stac_input_decoration_theme_parser.dart';
 // UI component parsers
 export 'ui_components/stac_dismiss_direction_parser.dart';

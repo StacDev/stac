@@ -21,7 +21,8 @@ class StacCustomScrollViewParser extends StacParser<StacCustomScrollView> {
   @override
   Widget parse(BuildContext context, StacCustomScrollView model) {
     return CustomScrollView(
-      slivers: model.slivers
+      slivers:
+          model.slivers
               ?.map((e) => e.parse(context) ?? const SizedBox())
               .toList() ??
           const [],
@@ -35,9 +36,10 @@ class StacCustomScrollViewParser extends StacParser<StacCustomScrollView> {
       semanticChildCount: model.semanticChildCount,
       dragStartBehavior:
           (model.dragStartBehavior ?? StacDragStartBehavior.start).parse,
-      keyboardDismissBehavior: (model.keyboardDismissBehavior ??
-              StacScrollViewKeyboardDismissBehavior.manual)
-          .parse,
+      keyboardDismissBehavior:
+          (model.keyboardDismissBehavior ??
+                  StacScrollViewKeyboardDismissBehavior.manual)
+              .parse,
       restorationId: model.restorationId,
       clipBehavior: (model.clipBehavior ?? StacClip.hardEdge).parse,
       hitTestBehavior:

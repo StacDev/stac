@@ -37,6 +37,12 @@ StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => StacRadio(
   autofocus: json['autofocus'] as bool?,
   useCheckmarkStyle: json['useCheckmarkStyle'] as bool?,
   useCupertinoCheckmarkStyle: json['useCupertinoCheckmarkStyle'] as bool?,
+  enabled: json['enabled'] as bool?,
+  backgroundColor: json['backgroundColor'] as String?,
+  side: json['side'] == null
+      ? null
+      : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+  innerRadius: const DoubleConverter().fromJson(json['innerRadius']),
 );
 
 Map<String, dynamic> _$StacRadioToJson(StacRadio instance) => <String, dynamic>{
@@ -59,6 +65,10 @@ Map<String, dynamic> _$StacRadioToJson(StacRadio instance) => <String, dynamic>{
   'autofocus': instance.autofocus,
   'useCheckmarkStyle': instance.useCheckmarkStyle,
   'useCupertinoCheckmarkStyle': instance.useCupertinoCheckmarkStyle,
+  'enabled': instance.enabled,
+  'backgroundColor': instance.backgroundColor,
+  'side': instance.side?.toJson(),
+  'innerRadius': const DoubleConverter().toJson(instance.innerRadius),
   'type': instance.type,
 };
 

@@ -8,8 +8,9 @@ class StacDouble {
   static const StacDouble maxFinite = StacDouble(double.maxFinite);
   static const StacDouble minPositive = StacDouble(double.minPositive);
   static const StacDouble nan = StacDouble(double.nan);
-  static const StacDouble negativeInfinity =
-      StacDouble(double.negativeInfinity);
+  static const StacDouble negativeInfinity = StacDouble(
+    double.negativeInfinity,
+  );
 
   factory StacDouble.fromJson(dynamic json) => _fromJson(json);
 

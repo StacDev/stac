@@ -26,11 +26,7 @@ class StacDialogActionParser extends StacActionParser<StacDialogAction> {
         Stac.fromJson(model.widget, context) ?? const SizedBox(),
       );
     } else if (model.assetPath?.isNotEmpty ?? false) {
-      return _showDialog(
-        context,
-        model,
-        Stac.fromAssets(model.assetPath!),
-      );
+      return _showDialog(context, model, Stac.fromAssets(model.assetPath!));
     } else if (model.request != null) {
       return _showDialog(
         context,

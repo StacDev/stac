@@ -25,9 +25,11 @@ class StacScaffoldParser extends StacParser<StacScaffold> {
       body: model.body.parse(context),
       floatingActionButton: model.floatingActionButton?.parse(context),
       floatingActionButtonLocation: model.floatingActionButtonLocation?.parse,
-      persistentFooterButtons:
-          model.persistentFooterButtons?.parseList(context),
-      persistentFooterAlignment: model.persistentFooterAlignment?.parse ??
+      persistentFooterButtons: model.persistentFooterButtons?.parseList(
+        context,
+      ),
+      persistentFooterAlignment:
+          model.persistentFooterAlignment?.parse ??
           AlignmentDirectional.centerEnd,
       drawer: model.drawer?.parse(context),
       // onDrawerChanged: model.onDrawerChanged?.parse(context),

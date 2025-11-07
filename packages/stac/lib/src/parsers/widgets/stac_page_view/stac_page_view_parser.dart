@@ -26,9 +26,7 @@ class StacPageViewParser extends StacParser<StacPageView> {
 }
 
 class _StacPageViewWidget extends StatefulWidget {
-  const _StacPageViewWidget({
-    required this.model,
-  });
+  const _StacPageViewWidget({required this.model});
 
   final StacPageView model;
 

@@ -53,7 +53,9 @@ class StacSnackBarParser extends StacActionParser<StacSnackBar> {
   }
 
   SnackBarAction? _parseAction(
-      BuildContext context, StacSnackBarAction? action) {
+    BuildContext context,
+    StacSnackBarAction? action,
+  ) {
     if (action == null) return null;
     return SnackBarAction(
       textColor: action.textColor?.toColor(context),

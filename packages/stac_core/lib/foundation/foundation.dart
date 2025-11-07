@@ -69,6 +69,7 @@ export 'layout/stac_wrap_cross_alignment.dart';
 export 'navigation/stac_bottom_navigation_bar_item/stac_bottom_navigation_bar_item.dart';
 export 'navigation/stac_floating_action_button_location.dart';
 export 'navigation/stac_floating_action_button_type.dart';
+export 'navigation/stac_navigation_destination_label_behavior.dart';
 export 'navigation/stac_tab_alignment.dart';
 export 'navigation/stac_tab_bar_indicator_size.dart';
 // Specifications
@@ -83,11 +84,9 @@ export 'text/stac_text_span/stac_text_span.dart';
 export 'text/stac_text_style/stac_text_style.dart';
 export 'text/stac_text_types.dart';
 // Theme and styling
-export 'theme/stac_button_style/stac_button_style.dart';
-export 'theme/stac_input_decoration_theme/stac_input_decoration_theme.dart';
+export 'theme/theme.dart';
 // UI components and behavior
 export 'ui_components/stac_carousel_view_type.dart';
-export 'ui_components/stac_traversal_edge_behavior.dart';
 export 'ui_components/stac_dismiss_direction.dart';
 export 'ui_components/stac_dropdown_menu_close_behavior.dart';
 export 'ui_components/stac_dropdown_menu_entry/stac_dropdown_menu_entry.dart';
@@ -106,3 +105,4 @@ export 'ui_components/stac_snack_bar_behavior.dart';
 export 'ui_components/stac_switch_type.dart';
 export 'ui_components/stac_system_ui_overlay_style/stac_system_ui_overlay_style.dart';
 export 'ui_components/stac_table_column_width/stac_table_column_width.dart';
+export 'ui_components/stac_traversal_edge_behavior.dart';

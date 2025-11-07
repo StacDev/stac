@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/theme/stac_theme/stac_theme.dart';
+import 'package:stac/src/parsers/theme/themes.dart';
 
 class StacApp extends StatelessWidget {
   const StacApp({
@@ -41,11 +41,11 @@ class StacApp extends StatelessWidget {
     this.restorationScopeId,
     this.scrollBehavior,
     this.useInheritedMediaQuery = false,
-  })  : routeInformationProvider = null,
-        routeInformationParser = null,
-        routerDelegate = null,
-        backButtonDispatcher = null,
-        routerConfig = null;
+  }) : routeInformationProvider = null,
+       routeInformationParser = null,
+       routerDelegate = null,
+       backButtonDispatcher = null,
+       routerConfig = null;
 
   const StacApp.router({
     super.key,
@@ -82,14 +82,14 @@ class StacApp extends StatelessWidget {
     this.restorationScopeId,
     this.scrollBehavior,
     this.useInheritedMediaQuery = false,
-  })  : navigatorObservers = null,
-        navigatorKey = null,
-        onGenerateRoute = null,
-        homeBuilder = null,
-        onGenerateInitialRoutes = null,
-        onUnknownRoute = null,
-        routes = null,
-        initialRoute = null;
+  }) : navigatorObservers = null,
+       navigatorKey = null,
+       onGenerateRoute = null,
+       homeBuilder = null,
+       onGenerateInitialRoutes = null,
+       onUnknownRoute = null,
+       routes = null,
+       initialRoute = null;
 
   final GlobalKey<NavigatorState>? navigatorKey;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;

@@ -142,15 +142,17 @@ class ExpressionResolver {
     // Simple string concatenation
     if (expression.contains('+')) {
       List<String> parts = _splitStringExpression(expression, '+');
-      return parts.map((part) {
-        part = part.trim();
-        // Remove quotes from string literals
-        if ((part.startsWith('"') && part.endsWith('"')) ||
-            (part.startsWith("'") && part.endsWith("'"))) {
-          return part.substring(1, part.length - 1);
-        }
-        return part;
-      }).join('');
+      return parts
+          .map((part) {
+            part = part.trim();
+            // Remove quotes from string literals
+            if ((part.startsWith('"') && part.endsWith('"')) ||
+                (part.startsWith("'") && part.endsWith("'"))) {
+              return part.substring(1, part.length - 1);
+            }
+            return part;
+          })
+          .join('');
     }
 
     // If no operation, just return the string without quotes
@@ -165,7 +167,9 @@ class ExpressionResolver {
 
   /// Splits a string expression while respecting string literals.
   static List<String> _splitStringExpression(
-      String expression, String delimiter) {
+    String expression,
+    String delimiter,
+  ) {
     List<String> result = [];
     bool inString = false;
     String currentQuote = '';

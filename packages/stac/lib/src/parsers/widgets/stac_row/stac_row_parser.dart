@@ -20,15 +20,16 @@ class StacRowParser extends StacParser<StacRow> {
   @override
   Widget parse(BuildContext context, StacRow model) {
     return Row(
-        mainAxisAlignment:
-            model.mainAxisAlignment?.parse ?? MainAxisAlignment.start,
-        crossAxisAlignment:
-            model.crossAxisAlignment?.parse ?? CrossAxisAlignment.center,
-        mainAxisSize: model.mainAxisSize?.parse ?? MainAxisSize.max,
-        textDirection: model.textDirection?.parse,
-        verticalDirection:
-            model.verticalDirection?.parse ?? VerticalDirection.down,
-        spacing: model.spacing ?? 0,
-        children: model.children.parseList(context) ?? []);
+      mainAxisAlignment:
+          model.mainAxisAlignment?.parse ?? MainAxisAlignment.start,
+      crossAxisAlignment:
+          model.crossAxisAlignment?.parse ?? CrossAxisAlignment.center,
+      mainAxisSize: model.mainAxisSize?.parse ?? MainAxisSize.max,
+      textDirection: model.textDirection?.parse,
+      verticalDirection:
+          model.verticalDirection?.parse ?? VerticalDirection.down,
+      spacing: model.spacing ?? 0,
+      children: model.children.parseList(context) ?? [],
+    );
   }
 }
