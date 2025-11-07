@@ -25,6 +25,7 @@ import 'package:stac/src/parsers/theme/stac_navigation_bar_theme_data_parser.dar
 import 'package:stac/src/parsers/theme/stac_navigation_drawer_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_snack_bar_theme_data_parser.dart';
+import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_text_theme_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
@@ -117,7 +118,7 @@ extension StacThemeParser on StacTheme {
       // SliderThemeData? sliderTheme,
       snackBarTheme: snackBarTheme?.parse(context),
       // SwitchThemeData? switchTheme,
-      // tabBarTheme: tabBarTheme?.parse(context),
+      tabBarTheme: tabBarTheme?.parse(context),
       textButtonTheme: TextButtonThemeData(
         style: textButtonTheme?.parseTextButton(context),
       ),

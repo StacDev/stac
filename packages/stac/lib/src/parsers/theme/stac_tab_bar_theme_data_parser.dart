@@ -8,10 +8,10 @@ import 'package:stac_core/stac_core.dart';
 
 /// Parser extension for [StacTabBarThemeData].
 ///
-/// Converts [StacTabBarThemeData] to Flutter's [TabBarTheme].
+/// Converts [StacTabBarThemeData] to Flutter's [TabBarThemeData].
 extension StacTabBarThemeDataParser on StacTabBarThemeData {
-  TabBarTheme? parse(BuildContext context) {
-    return TabBarTheme(
+  TabBarThemeData? parse(BuildContext context) {
+    return TabBarThemeData(
       indicator: indicator?.parse(context),
       indicatorColor: indicatorColor?.toColor(context),
       indicatorSize: indicatorSize?.parse,
