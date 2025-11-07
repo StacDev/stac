@@ -45,7 +45,7 @@ StacWidget onboardingScreen() {
                     children: [
                       StacTextSpan(
                         text: AppStrings.onboardingTitleAccent,
-                        style: StacCustomTextStyle(color: 'primary'),
+                        style: StacTextStyle(color: StacColors.primary),
                       ),
                     ],
                   ),

@@ -223,35 +223,34 @@ StacWidget _buildCastListViewTemplate() {
     'scrollDirection': 'horizontal',
     'shrinkWrap': true,
     'separator': StacSizedBox(width: 16).toJson(),
-    'itemTemplate':
-        StacSizedBox(
-          width: 80,
-          child: StacColumn(
-            crossAxisAlignment: StacCrossAxisAlignment.start,
-            children: [
-              StacClipRRect(
-                borderRadius: StacBorderRadius.all(6),
-                child: StacImage(
-                  src: '${AppApi.imageBaseUrl}/{{profile_path}}',
-                  fit: StacBoxFit.cover,
-                  width: 80,
-                  height: 96,
-                ),
-              ),
-              StacSizedBox(height: 8),
-              StacText(
-                data: '{{name}}',
-                style: StacThemeData.textTheme.titleSmall,
-                overflow: StacTextOverflow.ellipsis,
-              ),
-              StacText(
-                data: '{{character}}',
-                style: StacThemeData.textTheme.bodySmall,
-                overflow: StacTextOverflow.ellipsis,
-              ),
-            ],
+    'itemTemplate': StacSizedBox(
+      width: 80,
+      child: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.start,
+        children: [
+          StacClipRRect(
+            borderRadius: StacBorderRadius.all(6),
+            child: StacImage(
+              src: '${AppApi.imageBaseUrl}/{{profile_path}}',
+              fit: StacBoxFit.cover,
+              width: 80,
+              height: 96,
+            ),
           ),
-        ).toJson(),
+          StacSizedBox(height: 8),
+          StacText(
+            data: '{{name}}',
+            style: StacThemeData.textTheme.titleSmall,
+            overflow: StacTextOverflow.ellipsis,
+          ),
+          StacText(
+            data: '{{character}}',
+            style: StacThemeData.textTheme.bodySmall,
+            overflow: StacTextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    ).toJson(),
   };
 
   return StacWidget(jsonData: templateJson);
@@ -264,28 +263,24 @@ StacWidget _buildSimilarMoviesListViewTemplate() {
     'scrollDirection': 'horizontal',
     'shrinkWrap': true,
     'separator': StacSizedBox(width: 8).toJson(),
-    'itemTemplate':
-        StacGestureDetector(
-          onTap: StacAction.fromJson({
-            'actionType': 'setValue',
-            'values': [
-              {'key': 'movie_id', 'value': '{{data.id}}'},
-            ],
-            'action': {
-              'actionType': 'navigate',
-              'assetPath': AppAssets.detailScreenJson,
-            },
-          }),
-          child: StacClipRRect(
-            borderRadius: StacBorderRadius.all(6),
-            child: StacImage(
-              imageType: StacImageType.network,
-              src: '${AppApi.imageBaseUrl}/{{data.poster_path}}',
-              width: 108,
-              height: 164,
-            ),
-          ),
-        ).toJson(),
+    'itemTemplate': StacGestureDetector(
+      onTap: StacAction.fromJson({
+        'actionType': 'setValue',
+        'values': [
+          {'key': 'movie_id', 'value': '{{data.id}}'},
+        ],
+        'action': {'actionType': 'navigate', 'routeName': 'detail_screen'},
+      }),
+      child: StacClipRRect(
+        borderRadius: StacBorderRadius.all(6),
+        child: StacImage(
+          imageType: StacImageType.network,
+          src: '${AppApi.imageBaseUrl}/{{data.poster_path}}',
+          width: 108,
+          height: 164,
+        ),
+      ),
+    ).toJson(),
   };
 
   return StacWidget(jsonData: templateJson);
