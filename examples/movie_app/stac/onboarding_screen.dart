@@ -9,8 +9,8 @@ StacWidget onboardingScreen() {
         StacImage(
           imageType: StacImageType.asset,
           src: AppAssets.onboardingImage,
-          width: 10000,
-          height: 10000,
+          width: double.maxFinite,
+          height: double.maxFinite,
           fit: StacBoxFit.cover,
         ),
         StacPositioned(
@@ -18,7 +18,7 @@ StacWidget onboardingScreen() {
           right: 0,
           bottom: 0,
           child: StacContainer(
-            width: 1000,
+            width: double.maxFinite,
             height: 500,
             decoration: StacBoxDecoration(
               gradient: StacGradient.linear(
@@ -57,7 +57,7 @@ StacWidget onboardingScreen() {
                   StacSizedBox(height: 64),
                   StacSizedBox(
                     height: 48,
-                    width: 1000,
+                    width: double.maxFinite,
                     child: StacFilledButton(
                       child: StacText(
                         data: AppStrings.onboardingGetStartedButton,

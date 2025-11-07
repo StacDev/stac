@@ -30,7 +30,7 @@ StacWidget detailScreen() {
               children: [
                 StacImage(
                   src: '${AppApi.imageBaseUrl}/{{poster_path}}',
-                  width: 1000,
+                  width: double.maxFinite,
                   height: 480,
                   fit: StacBoxFit.cover,
                 ),
