@@ -21,5 +21,6 @@ Map<String, dynamic> _$StacRadioGroupToJson(StacRadioGroup instance) =>
       'id': instance.id,
       'groupValue': instance.groupValue,
       'child': instance.child?.toJson(),
+      'onChanged': instance.onChanged?.toJson(),
       'type': instance.type,
     };

@@ -28,6 +28,7 @@
                         "pages": [
                             "introduction",
                             "quickstart",
+                            "sdui",
                             "cli",
                             "project_structure"
                         ]
