@@ -41,7 +41,7 @@ StacWidget onboardingScreen() {
                 children: [
                   StacText(
                     data: AppStrings.onboardingTitle,
-                    style: StacTheme.textTheme.displayMedium,
+                    style: StacThemeData.textTheme.displayMedium,
                     children: [
                       StacTextSpan(
                         text: AppStrings.onboardingTitleAccent,
@@ -52,7 +52,7 @@ StacWidget onboardingScreen() {
                   StacSizedBox(height: 24),
                   StacText(
                     data: AppStrings.onboardingDescription,
-                    style: StacTheme.textTheme.bodyMedium,
+                    style: StacThemeData.textTheme.bodyMedium,
                   ),
                   StacSizedBox(height: 64),
                   StacSizedBox(
@@ -62,9 +62,7 @@ StacWidget onboardingScreen() {
                       child: StacText(
                         data: AppStrings.onboardingGetStartedButton,
                       ),
-                      onPressed: StacNavigateAction(
-                        assetPath: AppAssets.homeScreenJson,
-                      ),
+                      onPressed: StacNavigateAction(routeName: 'home_screen'),
                     ),
                   ),
                 ],

@@ -33,7 +33,7 @@ StacWidget homeScreen() {
                       children: [
                         StacText(
                           data: AppStrings.nowPlaying,
-                          style: StacTheme.textTheme.labelLarge,
+                          style: StacThemeData.textTheme.labelLarge,
                         ),
                       ],
                     ),
@@ -65,7 +65,7 @@ StacWidget homeScreen() {
                       children: [
                         StacText(
                           data: AppStrings.popularMovies,
-                          style: StacTheme.textTheme.labelLarge,
+                          style: StacThemeData.textTheme.labelLarge,
                         ),
                       ],
                     ),
@@ -97,7 +97,7 @@ StacWidget homeScreen() {
                       children: [
                         StacText(
                           data: AppStrings.trendingMovies,
-                          style: StacTheme.textTheme.labelLarge,
+                          style: StacThemeData.textTheme.labelLarge,
                         ),
                       ],
                     ),
@@ -129,7 +129,7 @@ StacWidget homeScreen() {
                       children: [
                         StacText(
                           data: AppStrings.topRated,
-                          style: StacTheme.textTheme.labelLarge,
+                          style: StacThemeData.textTheme.labelLarge,
                         ),
                       ],
                     ),
@@ -161,7 +161,7 @@ StacWidget homeScreen() {
                       children: [
                         StacText(
                           data: AppStrings.upcomingMovies,
-                          style: StacTheme.textTheme.labelLarge,
+                          style: StacThemeData.textTheme.labelLarge,
                         ),
                       ],
                     ),
@@ -217,28 +217,24 @@ StacWidget _buildMovieListViewTemplate() {
     'shrinkWrap': true,
     'separator': StacSizedBox(width: 8).toJson(),
     'padding': StacEdgeInsets.only(left: 16).toJson(),
-    'itemTemplate':
-        StacGestureDetector(
-          onTap: StacAction.fromJson({
-            'actionType': 'setValue',
-            'values': [
-              {'key': 'movie_id', 'value': '{{id}}'},
-            ],
-            'action': {
-              'actionType': 'navigate',
-              'assetPath': AppAssets.detailScreenJson,
-            },
-          }),
-          child: StacClipRRect(
-            borderRadius: StacBorderRadius.all(6),
-            child: StacImage(
-              imageType: StacImageType.network,
-              src: '${AppApi.imageBaseUrl}/{{poster_path}}',
-              width: 108,
-              height: 164,
-            ),
-          ),
-        ).toJson(),
+    'itemTemplate': StacGestureDetector(
+      onTap: StacAction.fromJson({
+        'actionType': 'setValue',
+        'values': [
+          {'key': 'movie_id', 'value': '{{id}}'},
+        ],
+        'action': {'actionType': 'navigate', 'routeName': 'detail_screen'},
+      }),
+      child: StacClipRRect(
+        borderRadius: StacBorderRadius.all(6),
+        child: StacImage(
+          imageType: StacImageType.network,
+          src: '${AppApi.imageBaseUrl}/{{poster_path}}',
+          width: 108,
+          height: 164,
+        ),
+      ),
+    ).toJson(),
   };
 
   // Create a StacWidget with the JSON data

@@ -1,17 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/theme/stac_color_scheme/stac_color_scheme.dart';
-import 'package:stac/src/parsers/theme/stac_divider_theme_data/stac_divider_theme_data.dart';
-import 'package:stac/src/parsers/theme/stac_text_theme/stac_text_theme.dart';
-import 'package:stac/src/parsers/theme/stac_theme/stac_theme.dart';
-import 'package:stac_core/stac_core.dart'
-    hide StacTheme; // Hide StacTheme from stac_core to use the one from stac
+import 'package:stac_core/stac_core.dart'; // Hide StacTheme from stac_core to use the one from stac
 
 /// Dark theme for the Movie App.
 StacTheme get darkTheme {
   return StacTheme(
-    brightness: Brightness.dark,
+    brightness: StacBrightness.dark,
     colorScheme: StacColorScheme(
-      brightness: Brightness.dark,
+      brightness: StacBrightness.dark,
       primary: '#95E183',
       onPrimary: '#050608',
       secondary: '#95E183',
