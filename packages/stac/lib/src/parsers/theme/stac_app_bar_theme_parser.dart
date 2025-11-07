@@ -11,7 +11,7 @@ import 'package:stac_core/stac_core.dart';
 ///
 /// Converts [StacAppBarTheme] to Flutter's [AppBarTheme].
 extension StacAppBarThemeParser on StacAppBarTheme {
-  AppBarTheme? parse(BuildContext context) {
+  AppBarTheme parse(BuildContext context) {
     return AppBarTheme(
       backgroundColor: backgroundColor?.toColor(context),
       foregroundColor: foregroundColor?.toColor(context),
