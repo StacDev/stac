@@ -7,17 +7,17 @@ part of 'stac_webview.dart';
 // **************************************************************************
 
 _StacWebView _$StacWebViewFromJson(Map<String, dynamic> json) => _StacWebView(
-      url: json['url'] as String,
-      javaScriptMode: $enumDecodeNullable(
-              _$JavaScriptModeEnumMap, json['javaScriptMode']) ??
-          JavaScriptMode.unrestricted,
-      backgroundColor: json['backgroundColor'] as String? ?? "#FFFFFF",
-      userAgent: json['userAgent'] as String?,
-      enableZoom: json['enableZoom'] as bool? ?? false,
-      layoutDirection: $enumDecodeNullable(
-              _$TextDirectionEnumMap, json['layoutDirection']) ??
-          TextDirection.ltr,
-    );
+  url: json['url'] as String,
+  javaScriptMode:
+      $enumDecodeNullable(_$JavaScriptModeEnumMap, json['javaScriptMode']) ??
+      JavaScriptMode.unrestricted,
+  backgroundColor: json['backgroundColor'] as String? ?? "#FFFFFF",
+  userAgent: json['userAgent'] as String?,
+  enableZoom: json['enableZoom'] as bool? ?? false,
+  layoutDirection:
+      $enumDecodeNullable(_$TextDirectionEnumMap, json['layoutDirection']) ??
+      TextDirection.ltr,
+);
 
 Map<String, dynamic> _$StacWebViewToJson(_StacWebView instance) =>
     <String, dynamic>{

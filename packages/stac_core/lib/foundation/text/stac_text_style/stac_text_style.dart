@@ -106,8 +106,8 @@ enum StacMaterialTextStyle {
 ///
 /// Example:
 /// ```dart
-/// final style = StacTheme.textTheme.displayLarge;
-/// final bodyStyle = StacTheme.textTheme.bodyMedium;
+/// final style = StacThemeData.textTheme.displayLarge;
+/// final bodyStyle = StacThemeData.textTheme.bodyMedium;
 /// ```
 
 /// A collection of all available theme text styles.
@@ -181,7 +181,7 @@ abstract class StacTextStyle implements StacElement {
   /// Creates a custom text style with the given properties.
   ///
   /// This is a convenience factory constructor that returns a [StacCustomTextStyle].
-  /// For theme-based styles, use [StacTheme.textTheme] or [StacTextStyle.fromTheme].
+  /// For theme-based styles, use [StacThemeData.textTheme] or [StacTextStyle.fromTheme].
   ///
   /// Example:
   /// ```dart

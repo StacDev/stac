@@ -16,7 +16,7 @@ part 'stac_text.g.dart';
 /// ```dart
 /// final widget = StacText(
 ///   data: 'Hello',
-///   style: StacTheme.textTheme.bodyMedium,
+///   style: StacThemeData.textTheme.bodyMedium,
 ///   copyWithStyle: StacTextStyle(color: StacColors.blue),
 /// );
 /// ```

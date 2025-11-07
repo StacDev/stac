@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:stac_core/core/core.dart';
 import 'package:stac_core/foundation/colors/stac_brightness.dart';
+import 'package:stac_core/foundation/text/stac_text_style/stac_text_style.dart';
 import 'package:stac_core/foundation/theme/stac_app_bar_theme/stac_app_bar_theme.dart';
 import 'package:stac_core/foundation/theme/stac_bottom_app_bar_theme/stac_bottom_app_bar_theme.dart';
 import 'package:stac_core/foundation/theme/stac_bottom_nav_bar_theme_data/stac_bottom_nav_bar_theme_data.dart';
@@ -372,8 +373,6 @@ class StacTheme implements StacElement {
   // ToggleButtonsThemeData? toggleButtonsTheme,
   // TooltipThemeData? tooltipTheme,
 
-  // static const StacThemeTextStyles textTheme = StacThemeTextStyles();
-
   /// Creates a [StacTheme] from JSON.
   factory StacTheme.fromJson(Map<String, dynamic> json) =>
       _$StacThemeFromJson(json);
@@ -381,4 +380,50 @@ class StacTheme implements StacElement {
   /// Converts this theme to JSON.
   @override
   Map<String, dynamic> toJson() => _$StacThemeToJson(this);
+}
+
+/// A utility class providing access to Material text theme styles.
+///
+/// This class provides convenient access to Material Design text theme styles
+/// for use in Stac widgets. It offers a fluent API to access all Material
+/// text theme variants.
+///
+/// {@tool snippet}
+/// Dart Example:
+/// ```dart
+/// final style = StacThemeData.textTheme.displayLarge;
+/// final bodyStyle = StacThemeData.textTheme.bodyMedium;
+/// final titleStyle = StacThemeData.textTheme.titleLarge;
+/// ```
+/// {@end-tool}
+///
+/// {@tool snippet}
+/// JSON Example:
+/// ```json
+/// {
+///   "style": {
+///     "type": "theme",
+///     "textTheme": "displayLarge"
+///   }
+/// }
+/// ```
+/// {@end-tool}
+class StacThemeData {
+  /// Creates a [StacThemeData] instance.
+  const StacThemeData._();
+
+  /// Access to all Material text theme styles.
+  ///
+  /// Provides easy access to Material Design text theme styles through a
+  /// fluent API. Use this to reference standard Material text styles in your
+  /// Stac widgets.
+  ///
+  /// Example:
+  /// ```dart
+  /// StacText(
+  ///   data: 'Hello',
+  ///   style: StacThemeData.textTheme.bodyMedium,
+  /// )
+  /// ```
+  static const StacThemeTextStyles textTheme = StacThemeTextStyles();
 }

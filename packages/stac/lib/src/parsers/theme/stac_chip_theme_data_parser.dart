@@ -29,7 +29,7 @@ extension StacChipThemeDataParser on StacChipThemeData {
       labelPadding: labelPadding?.parse,
       padding: padding?.parse,
       side: side?.parse(context),
-      shape: shape?.parse(context) as OutlinedBorder,
+      shape: shape?.parse(context),
       labelStyle: labelStyle?.parse(context),
       secondaryLabelStyle: secondaryLabelStyle?.parse(context),
       brightness: brightness?.parse,

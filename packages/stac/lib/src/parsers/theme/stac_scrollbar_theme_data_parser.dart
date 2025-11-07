@@ -11,11 +11,12 @@ extension StacScrollbarThemeDataParser on StacScrollbarThemeData {
       thumbVisibility: WidgetStatePropertyAll<bool?>(thumbVisibility),
       thickness: WidgetStatePropertyAll<double?>(thickness),
       trackVisibility: WidgetStatePropertyAll<bool?>(trackVisibility),
-      radius: Radius.circular(radius ?? 0),
+      radius: radius != null ? Radius.circular(radius!) : null,
       thumbColor: WidgetStatePropertyAll<Color?>(thumbColor?.toColor(context)),
       trackColor: WidgetStatePropertyAll<Color?>(trackColor?.toColor(context)),
-      trackBorderColor:
-          WidgetStatePropertyAll<Color?>(trackBorderColor?.toColor(context)),
+      trackBorderColor: WidgetStatePropertyAll<Color?>(
+        trackBorderColor?.toColor(context),
+      ),
       crossAxisMargin: crossAxisMargin,
       mainAxisMargin: mainAxisMargin,
       minThumbLength: minThumbLength,
@@ -23,4 +24,3 @@ extension StacScrollbarThemeDataParser on StacScrollbarThemeData {
     );
   }
 }
-

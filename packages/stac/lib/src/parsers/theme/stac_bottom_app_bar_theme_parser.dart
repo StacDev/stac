@@ -3,11 +3,11 @@ import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dar
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
-/// Parser extension for [StacBottomAppBarTheme].
+/// Parser extension for [StacBottomAppBarThemeData].
 ///
-/// Converts [StacBottomAppBarTheme] to Flutter's [BottomAppBarThemeData].
+/// Converts [StacBottomAppBarThemeData] to Flutter's [BottomAppBarThemeData].
 extension StacBottomAppBarThemeParser on StacBottomAppBarThemeData {
-  BottomAppBarThemeData? parse(BuildContext context) {
+  BottomAppBarThemeData parse(BuildContext context) {
     return BottomAppBarThemeData(
       color: color?.toColor(context),
       elevation: elevation,

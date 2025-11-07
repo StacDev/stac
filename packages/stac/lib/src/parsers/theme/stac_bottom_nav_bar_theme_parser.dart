@@ -10,7 +10,7 @@ import 'package:stac_core/stac_core.dart';
 ///
 /// Converts [StacBottomNavBarThemeData] to Flutter's [BottomNavigationBarThemeData].
 extension StacBottomNavBarThemeDataParser on StacBottomNavBarThemeData {
-  BottomNavigationBarThemeData? parse(BuildContext context) {
+  BottomNavigationBarThemeData parse(BuildContext context) {
     return BottomNavigationBarThemeData(
       backgroundColor: backgroundColor?.toColor(context),
       elevation: elevation,

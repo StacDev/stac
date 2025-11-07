@@ -9,7 +9,7 @@ import 'package:stac_core/stac_core.dart';
 ///
 /// Converts [StacCardThemeData] to Flutter's [CardThemeData].
 extension StacCardThemeDataParser on StacCardThemeData {
-  CardThemeData? parse(BuildContext context) {
+  CardThemeData parse(BuildContext context) {
     return CardThemeData(
       clipBehavior: clipBehavior?.parse,
       color: color?.toColor(context),

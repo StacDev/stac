@@ -7,19 +7,21 @@ part of 'stac_rounded_rectangle_border.dart';
 // **************************************************************************
 
 _StacRoundedRectangleBorder _$StacRoundedRectangleBorderFromJson(
-        Map<String, dynamic> json) =>
-    _StacRoundedRectangleBorder(
-      side: json['side'] == null
+  Map<String, dynamic> json,
+) => _StacRoundedRectangleBorder(
+  side:
+      json['side'] == null
           ? null
           : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
-      borderRadius: json['borderRadius'] == null
+  borderRadius:
+      json['borderRadius'] == null
           ? null
           : StacBorderRadius.fromJson(json['borderRadius']),
-    );
+);
 
 Map<String, dynamic> _$StacRoundedRectangleBorderToJson(
-        _StacRoundedRectangleBorder instance) =>
-    <String, dynamic>{
-      'side': instance.side,
-      'borderRadius': instance.borderRadius,
-    };
+  _StacRoundedRectangleBorder instance,
+) => <String, dynamic>{
+  'side': instance.side,
+  'borderRadius': instance.borderRadius,
+};
