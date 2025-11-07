@@ -9,10 +9,9 @@ part of 'stac_custom_scroll_view.dart';
 StacCustomScrollView _$StacCustomScrollViewFromJson(
   Map<String, dynamic> json,
 ) => StacCustomScrollView(
-  slivers:
-      (json['slivers'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  slivers: (json['slivers'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
   scrollDirection: $enumDecodeNullable(
     _$StacAxisEnumMap,
     json['scrollDirection'],

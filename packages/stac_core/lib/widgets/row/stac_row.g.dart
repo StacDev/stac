@@ -32,10 +32,9 @@ StacRow _$StacRowFromJson(Map<String, dynamic> json) => StacRow(
     json['textBaseline'],
   ),
   spacing: const DoubleConverter().fromJson(json['spacing']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$StacRowToJson(StacRow instance) => <String, dynamic>{

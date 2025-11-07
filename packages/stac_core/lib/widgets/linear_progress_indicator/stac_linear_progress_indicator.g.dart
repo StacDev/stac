@@ -15,10 +15,9 @@ StacLinearProgressIndicator _$StacLinearProgressIndicatorFromJson(
   minHeight: const DoubleConverter().fromJson(json['minHeight']),
   semanticsLabel: json['semanticsLabel'] as String?,
   semanticsValue: json['semanticsValue'] as String?,
-  borderRadius:
-      json['borderRadius'] == null
-          ? null
-          : StacBorderRadius.fromJson(json['borderRadius']),
+  borderRadius: json['borderRadius'] == null
+      ? null
+      : StacBorderRadius.fromJson(json['borderRadius']),
 );
 
 Map<String, dynamic> _$StacLinearProgressIndicatorToJson(

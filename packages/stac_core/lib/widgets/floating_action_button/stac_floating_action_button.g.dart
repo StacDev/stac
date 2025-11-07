@@ -9,14 +9,12 @@ part of 'stac_floating_action_button.dart';
 StacFloatingActionButton _$StacFloatingActionButtonFromJson(
   Map<String, dynamic> json,
 ) => StacFloatingActionButton(
-  onPressed:
-      json['onPressed'] == null
-          ? null
-          : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
-  textStyle:
-      json['textStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['textStyle']),
+  onPressed: json['onPressed'] == null
+      ? null
+      : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
+  textStyle: json['textStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['textStyle']),
   buttonType:
       $enumDecodeNullable(
         _$StacFloatingActionButtonTypeEnumMap,
@@ -24,33 +22,30 @@ StacFloatingActionButton _$StacFloatingActionButtonFromJson(
       ) ??
       StacFloatingActionButtonType.small,
   autofocus: json['autofocus'] as bool?,
-  icon:
-      json['icon'] == null
-          ? null
-          : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
+  icon: json['icon'] == null
+      ? null
+      : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
   backgroundColor: json['backgroundColor'] as String?,
   foregroundColor: json['foregroundColor'] as String?,
   focusColor: json['focusColor'] as String?,
   hoverColor: json['hoverColor'] as String?,
   splashColor: json['splashColor'] as String?,
-  extendedTextStyle:
-      json['extendedTextStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['extendedTextStyle']),
+  extendedTextStyle: json['extendedTextStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['extendedTextStyle']),
   elevation: (json['elevation'] as num?)?.toDouble(),
   focusElevation: (json['focusElevation'] as num?)?.toDouble(),
   hoverElevation: (json['hoverElevation'] as num?)?.toDouble(),
   disabledElevation: (json['disabledElevation'] as num?)?.toDouble(),
   highlightElevation: (json['highlightElevation'] as num?)?.toDouble(),
-  extendedIconLabelSpacing:
-      (json['extendedIconLabelSpacing'] as num?)?.toDouble(),
+  extendedIconLabelSpacing: (json['extendedIconLabelSpacing'] as num?)
+      ?.toDouble(),
   enableFeedback: json['enableFeedback'] as bool?,
   tooltip: json['tooltip'] as String?,
   heroTag: json['heroTag'],
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacFloatingActionButtonToJson(

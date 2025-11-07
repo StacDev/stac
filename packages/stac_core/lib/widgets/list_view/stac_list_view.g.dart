@@ -15,20 +15,19 @@ StacListView _$StacListViewFromJson(Map<String, dynamic> json) => StacListView(
   primary: json['primary'] as bool?,
   physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
   shrinkWrap: json['shrinkWrap'] as bool?,
-  padding:
-      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  padding: json['padding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['padding']),
   addAutomaticKeepAlives: json['addAutomaticKeepAlives'] as bool?,
   addRepaintBoundaries: json['addRepaintBoundaries'] as bool?,
   addSemanticIndexes: json['addSemanticIndexes'] as bool?,
   cacheExtent: const DoubleConverter().fromJson(json['cacheExtent']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
-  separator:
-      json['separator'] == null
-          ? null
-          : StacWidget.fromJson(json['separator'] as Map<String, dynamic>),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
+  separator: json['separator'] == null
+      ? null
+      : StacWidget.fromJson(json['separator'] as Map<String, dynamic>),
   semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,

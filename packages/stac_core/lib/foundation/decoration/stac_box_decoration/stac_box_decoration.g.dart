@@ -9,28 +9,21 @@ part of 'stac_box_decoration.dart';
 StacBoxDecoration _$StacBoxDecorationFromJson(Map<String, dynamic> json) =>
     StacBoxDecoration(
       color: json['color'] as String?,
-      image:
-          json['image'] == null
-              ? null
-              : StacDecorationImage.fromJson(
-                json['image'] as Map<String, dynamic>,
-              ),
-      border:
-          json['border'] == null
-              ? null
-              : StacBorder.fromJson(json['border'] as Map<String, dynamic>),
-      borderRadius:
-          json['borderRadius'] == null
-              ? null
-              : StacBorderRadius.fromJson(json['borderRadius']),
-      boxShadow:
-          (json['boxShadow'] as List<dynamic>?)
-              ?.map((e) => StacBoxShadow.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      gradient:
-          json['gradient'] == null
-              ? null
-              : StacGradient.fromJson(json['gradient'] as Map<String, dynamic>),
+      image: json['image'] == null
+          ? null
+          : StacDecorationImage.fromJson(json['image'] as Map<String, dynamic>),
+      border: json['border'] == null
+          ? null
+          : StacBorder.fromJson(json['border'] as Map<String, dynamic>),
+      borderRadius: json['borderRadius'] == null
+          ? null
+          : StacBorderRadius.fromJson(json['borderRadius']),
+      boxShadow: (json['boxShadow'] as List<dynamic>?)
+          ?.map((e) => StacBoxShadow.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      gradient: json['gradient'] == null
+          ? null
+          : StacGradient.fromJson(json['gradient'] as Map<String, dynamic>),
       backgroundBlendMode: $enumDecodeNullable(
         _$StacBlendModeEnumMap,
         json['backgroundBlendMode'],

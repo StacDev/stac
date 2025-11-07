@@ -12,10 +12,9 @@ StacSetValue _$StacSetValueFromJson(Map<String, dynamic> json) => StacSetValue(
           ?.map((e) => e as Map<String, dynamic>)
           .toList() ??
       const [],
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacSetValueToJson(StacSetValue instance) =>

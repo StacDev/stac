@@ -9,10 +9,9 @@ part of 'stac_switch.dart';
 StacSwitch _$StacSwitchFromJson(Map<String, dynamic> json) => StacSwitch(
   switchType: $enumDecodeNullable(_$StacSwitchTypeEnumMap, json['switchType']),
   value: json['value'] as bool?,
-  onChanged:
-      json['onChanged'] == null
-          ? null
-          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+  onChanged: json['onChanged'] == null
+      ? null
+      : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
   autofocus: json['autofocus'] as bool?,
   activeThumbColor: json['activeThumbColor'] as String?,
   activeTrackColor: json['activeTrackColor'] as String?,
@@ -38,10 +37,9 @@ StacSwitch _$StacSwitchFromJson(Map<String, dynamic> json) => StacSwitch(
   trackOutlineWidth: const DoubleConverter().fromJson(
     json['trackOutlineWidth'],
   ),
-  thumbIcon:
-      json['thumbIcon'] == null
-          ? null
-          : StacWidget.fromJson(json['thumbIcon'] as Map<String, dynamic>),
+  thumbIcon: json['thumbIcon'] == null
+      ? null
+      : StacWidget.fromJson(json['thumbIcon'] as Map<String, dynamic>),
   inactiveThumbImage: json['inactiveThumbImage'] as String?,
   activeThumbImage: json['activeThumbImage'] as String?,
   applyTheme: json['applyTheme'] as bool?,

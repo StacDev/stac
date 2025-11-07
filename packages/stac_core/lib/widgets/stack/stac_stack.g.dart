@@ -14,10 +14,9 @@ StacStack _$StacStackFromJson(Map<String, dynamic> json) => StacStack(
   ),
   fit: $enumDecodeNullable(_$StacStackFitEnumMap, json['fit']),
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$StacStackToJson(StacStack instance) => <String, dynamic>{

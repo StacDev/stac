@@ -12,10 +12,9 @@ StacFractionallySizedBox _$StacFractionallySizedBoxFromJson(
   widthFactor: const DoubleConverter().fromJson(json['widthFactor']),
   heightFactor: const DoubleConverter().fromJson(json['heightFactor']),
   alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacFractionallySizedBoxToJson(

@@ -9,10 +9,9 @@ part of 'stac_backdrop_filter.dart';
 StacBackdropFilter _$StacBackdropFilterFromJson(Map<String, dynamic> json) =>
     StacBackdropFilter(
       filter: StacImageFilter.fromJson(json['filter'] as Map<String, dynamic>),
-      child:
-          json['child'] == null
-              ? null
-              : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      child: json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
       enabled: json['enabled'] as bool?,
       blendMode: $enumDecodeNullable(_$StacBlendModeEnumMap, json['blendMode']),
     );

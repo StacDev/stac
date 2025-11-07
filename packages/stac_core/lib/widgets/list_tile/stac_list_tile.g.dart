@@ -7,51 +7,42 @@ part of 'stac_list_tile.dart';
 // **************************************************************************
 
 StacListTile _$StacListTileFromJson(Map<String, dynamic> json) => StacListTile(
-  leading:
-      json['leading'] == null
-          ? null
-          : StacWidget.fromJson(json['leading'] as Map<String, dynamic>),
-  title:
-      json['title'] == null
-          ? null
-          : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
-  subtitle:
-      json['subtitle'] == null
-          ? null
-          : StacWidget.fromJson(json['subtitle'] as Map<String, dynamic>),
-  trailing:
-      json['trailing'] == null
-          ? null
-          : StacWidget.fromJson(json['trailing'] as Map<String, dynamic>),
+  leading: json['leading'] == null
+      ? null
+      : StacWidget.fromJson(json['leading'] as Map<String, dynamic>),
+  title: json['title'] == null
+      ? null
+      : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
+  subtitle: json['subtitle'] == null
+      ? null
+      : StacWidget.fromJson(json['subtitle'] as Map<String, dynamic>),
+  trailing: json['trailing'] == null
+      ? null
+      : StacWidget.fromJson(json['trailing'] as Map<String, dynamic>),
   isThreeLine: json['isThreeLine'] as bool?,
   dense: json['dense'] as bool?,
-  visualDensity:
-      json['visualDensity'] == null
-          ? null
-          : StacVisualDensity.fromJson(
-            json['visualDensity'] as Map<String, dynamic>,
-          ),
-  shape:
-      json['shape'] == null
-          ? null
-          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  visualDensity: json['visualDensity'] == null
+      ? null
+      : StacVisualDensity.fromJson(
+          json['visualDensity'] as Map<String, dynamic>,
+        ),
+  shape: json['shape'] == null
+      ? null
+      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   style: $enumDecodeNullable(_$StacListTileStyleEnumMap, json['style']),
   selectedColor: json['selectedColor'] as String?,
   iconColor: json['iconColor'] as String?,
   textColor: json['textColor'] as String?,
-  contentPadding:
-      json['contentPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['contentPadding']),
+  contentPadding: json['contentPadding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['contentPadding']),
   enabled: json['enabled'] as bool?,
-  onTap:
-      json['onTap'] == null
-          ? null
-          : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
-  onLongPress:
-      json['onLongPress'] == null
-          ? null
-          : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
+  onTap: json['onTap'] == null
+      ? null
+      : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
+  onLongPress: json['onLongPress'] == null
+      ? null
+      : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
   mouseCursor: $enumDecodeNullable(
     _$StacMouseCursorEnumMap,
     json['mouseCursor'],

@@ -7,46 +7,39 @@ part of 'stac_tab_bar.dart';
 // **************************************************************************
 
 StacTabBar _$StacTabBarFromJson(Map<String, dynamic> json) => StacTabBar(
-  tabs:
-      (json['tabs'] as List<dynamic>)
-          .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  tabs: (json['tabs'] as List<dynamic>)
+      .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
   initialIndex: (json['initialIndex'] as num?)?.toInt(),
   isScrollable: json['isScrollable'] as bool?,
-  padding:
-      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  padding: json['padding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['padding']),
   indicatorColor: json['indicatorColor'] as String?,
   automaticIndicatorColorAdjustment:
       json['automaticIndicatorColorAdjustment'] as bool?,
   indicatorWeight: const DoubleConverter().fromJson(json['indicatorWeight']),
-  indicatorPadding:
-      json['indicatorPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['indicatorPadding']),
-  indicator:
-      json['indicator'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-            json['indicator'] as Map<String, dynamic>,
-          ),
+  indicatorPadding: json['indicatorPadding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['indicatorPadding']),
+  indicator: json['indicator'] == null
+      ? null
+      : StacBoxDecoration.fromJson(json['indicator'] as Map<String, dynamic>),
   indicatorSize: $enumDecodeNullable(
     _$StacTabBarIndicatorSizeEnumMap,
     json['indicatorSize'],
   ),
   labelColor: json['labelColor'] as String?,
-  labelStyle:
-      json['labelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['labelStyle']),
-  labelPadding:
-      json['labelPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['labelPadding']),
+  labelStyle: json['labelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['labelStyle']),
+  labelPadding: json['labelPadding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['labelPadding']),
   unselectedLabelColor: json['unselectedLabelColor'] as String?,
-  unselectedLabelStyle:
-      json['unselectedLabelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+  unselectedLabelStyle: json['unselectedLabelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['unselectedLabelStyle']),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
     json['dragStartBehavior'],

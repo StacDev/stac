@@ -13,18 +13,15 @@ StacSlider _$StacSliderFromJson(Map<String, dynamic> json) => StacSlider(
   secondaryTrackValue: const DoubleConverter().fromJson(
     json['secondaryTrackValue'],
   ),
-  onChanged:
-      json['onChanged'] == null
-          ? null
-          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
-  onChangeStart:
-      json['onChangeStart'] == null
-          ? null
-          : StacAction.fromJson(json['onChangeStart'] as Map<String, dynamic>),
-  onChangeEnd:
-      json['onChangeEnd'] == null
-          ? null
-          : StacAction.fromJson(json['onChangeEnd'] as Map<String, dynamic>),
+  onChanged: json['onChanged'] == null
+      ? null
+      : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+  onChangeStart: json['onChangeStart'] == null
+      ? null
+      : StacAction.fromJson(json['onChangeStart'] as Map<String, dynamic>),
+  onChangeEnd: json['onChangeEnd'] == null
+      ? null
+      : StacAction.fromJson(json['onChangeEnd'] as Map<String, dynamic>),
   min: const DoubleConverter().fromJson(json['min']),
   max: const DoubleConverter().fromJson(json['max']),
   divisions: (json['divisions'] as num?)?.toInt(),

@@ -10,39 +10,35 @@ StacContainer _$StacContainerFromJson(
   Map<String, dynamic> json,
 ) => StacContainer(
   alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-  padding:
-      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  padding: json['padding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['padding']),
   color: json['color'] as String?,
-  decoration:
-      json['decoration'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-            json['decoration'] as Map<String, dynamic>,
-          ),
-  foregroundDecoration:
-      json['foregroundDecoration'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-            json['foregroundDecoration'] as Map<String, dynamic>,
-          ),
+  decoration: json['decoration'] == null
+      ? null
+      : StacBoxDecoration.fromJson(json['decoration'] as Map<String, dynamic>),
+  foregroundDecoration: json['foregroundDecoration'] == null
+      ? null
+      : StacBoxDecoration.fromJson(
+          json['foregroundDecoration'] as Map<String, dynamic>,
+        ),
   width: const DoubleConverter().fromJson(json['width']),
   height: const DoubleConverter().fromJson(json['height']),
-  constraints:
-      json['constraints'] == null
-          ? null
-          : StacBoxConstraints.fromJson(
-            json['constraints'] as Map<String, dynamic>,
-          ),
-  margin:
-      json['margin'] == null ? null : StacEdgeInsets.fromJson(json['margin']),
+  constraints: json['constraints'] == null
+      ? null
+      : StacBoxConstraints.fromJson(
+          json['constraints'] as Map<String, dynamic>,
+        ),
+  margin: json['margin'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['margin']),
   transformAlignment: $enumDecodeNullable(
     _$StacAlignmentEnumMap,
     json['transformAlignment'],
   ),
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
 );
 

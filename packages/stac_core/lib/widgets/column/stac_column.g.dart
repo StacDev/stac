@@ -32,10 +32,9 @@ StacColumn _$StacColumnFromJson(Map<String, dynamic> json) => StacColumn(
     json['textBaseline'],
   ),
   spacing: const DoubleConverter().fromJson(json['spacing']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$StacColumnToJson(StacColumn instance) =>

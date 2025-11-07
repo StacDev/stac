@@ -8,47 +8,37 @@ part of 'stac_alert_dialog.dart';
 
 StacAlertDialog _$StacAlertDialogFromJson(Map<String, dynamic> json) =>
     StacAlertDialog(
-      icon:
-          json['icon'] == null
-              ? null
-              : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
-      iconPadding:
-          json['iconPadding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['iconPadding']),
+      icon: json['icon'] == null
+          ? null
+          : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
+      iconPadding: json['iconPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['iconPadding']),
       iconColor: json['iconColor'] as String?,
-      title:
-          json['title'] == null
-              ? null
-              : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
-      titlePadding:
-          json['titlePadding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['titlePadding']),
-      titleTextStyle:
-          json['titleTextStyle'] == null
-              ? null
-              : StacTextStyle.fromJson(json['titleTextStyle']),
-      content:
-          json['content'] == null
-              ? null
-              : StacWidget.fromJson(json['content'] as Map<String, dynamic>),
-      contentPadding:
-          json['contentPadding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['contentPadding']),
-      contentTextStyle:
-          json['contentTextStyle'] == null
-              ? null
-              : StacTextStyle.fromJson(json['contentTextStyle']),
-      actions:
-          (json['actions'] as List<dynamic>?)
-              ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-              .toList(),
-      actionsPadding:
-          json['actionsPadding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['actionsPadding']),
+      title: json['title'] == null
+          ? null
+          : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
+      titlePadding: json['titlePadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['titlePadding']),
+      titleTextStyle: json['titleTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['titleTextStyle']),
+      content: json['content'] == null
+          ? null
+          : StacWidget.fromJson(json['content'] as Map<String, dynamic>),
+      contentPadding: json['contentPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['contentPadding']),
+      contentTextStyle: json['contentTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['contentTextStyle']),
+      actions: (json['actions'] as List<dynamic>?)
+          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      actionsPadding: json['actionsPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['actionsPadding']),
       actionsAlignment: $enumDecodeNullable(
         _$StacMainAxisAlignmentEnumMap,
         json['actionsAlignment'],
@@ -64,27 +54,24 @@ StacAlertDialog _$StacAlertDialogFromJson(Map<String, dynamic> json) =>
       actionsOverflowButtonSpacing: const DoubleConverter().fromJson(
         json['actionsOverflowButtonSpacing'],
       ),
-      buttonPadding:
-          json['buttonPadding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['buttonPadding']),
+      buttonPadding: json['buttonPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['buttonPadding']),
       backgroundColor: json['backgroundColor'] as String?,
       elevation: const DoubleConverter().fromJson(json['elevation']),
       shadowColor: json['shadowColor'] as String?,
       surfaceTintColor: json['surfaceTintColor'] as String?,
       semanticLabel: json['semanticLabel'] as String?,
-      insetPadding:
-          json['insetPadding'] == null
-              ? const StacEdgeInsets(left: 40, right: 40, top: 24, bottom: 24)
-              : StacEdgeInsets.fromJson(json['insetPadding']),
+      insetPadding: json['insetPadding'] == null
+          ? const StacEdgeInsets(left: 40, right: 40, top: 24, bottom: 24)
+          : StacEdgeInsets.fromJson(json['insetPadding']),
       clipBehavior: $enumDecodeNullable(
         _$StacClipEnumMap,
         json['clipBehavior'],
       ),
-      shape:
-          json['shape'] == null
-              ? null
-              : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      shape: json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
       scrollable: json['scrollable'] as bool?,
     );

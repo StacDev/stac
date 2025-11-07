@@ -7,12 +7,9 @@ part of 'stac_table_row.dart';
 // **************************************************************************
 
 StacTableRow _$StacTableRowFromJson(Map<String, dynamic> json) => StacTableRow(
-  decoration:
-      json['decoration'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-            json['decoration'] as Map<String, dynamic>,
-          ),
+  decoration: json['decoration'] == null
+      ? null
+      : StacBoxDecoration.fromJson(json['decoration'] as Map<String, dynamic>),
   children:
       (json['children'] as List<dynamic>?)
           ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))

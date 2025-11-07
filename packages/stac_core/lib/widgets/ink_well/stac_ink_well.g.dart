@@ -7,66 +7,47 @@ part of 'stac_ink_well.dart';
 // **************************************************************************
 
 StacInkWell _$StacInkWellFromJson(Map<String, dynamic> json) => StacInkWell(
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
-  onTap:
-      json['onTap'] == null
-          ? null
-          : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
-  onDoubleTap:
-      json['onDoubleTap'] == null
-          ? null
-          : StacAction.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
-  onLongPress:
-      json['onLongPress'] == null
-          ? null
-          : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
-  onTapDown:
-      json['onTapDown'] == null
-          ? null
-          : StacAction.fromJson(json['onTapDown'] as Map<String, dynamic>),
-  onTapUp:
-      json['onTapUp'] == null
-          ? null
-          : StacAction.fromJson(json['onTapUp'] as Map<String, dynamic>),
-  onTapCancel:
-      json['onTapCancel'] == null
-          ? null
-          : StacAction.fromJson(json['onTapCancel'] as Map<String, dynamic>),
-  onSecondaryTap:
-      json['onSecondaryTap'] == null
-          ? null
-          : StacAction.fromJson(json['onSecondaryTap'] as Map<String, dynamic>),
-  onSecondaryTapUp:
-      json['onSecondaryTapUp'] == null
-          ? null
-          : StacAction.fromJson(
-            json['onSecondaryTapUp'] as Map<String, dynamic>,
-          ),
-  onSecondaryTapDown:
-      json['onSecondaryTapDown'] == null
-          ? null
-          : StacAction.fromJson(
-            json['onSecondaryTapDown'] as Map<String, dynamic>,
-          ),
-  onSecondaryTapCancel:
-      json['onSecondaryTapCancel'] == null
-          ? null
-          : StacAction.fromJson(
-            json['onSecondaryTapCancel'] as Map<String, dynamic>,
-          ),
-  onHighlightChanged:
-      json['onHighlightChanged'] == null
-          ? null
-          : StacAction.fromJson(
-            json['onHighlightChanged'] as Map<String, dynamic>,
-          ),
-  onHover:
-      json['onHover'] == null
-          ? null
-          : StacAction.fromJson(json['onHover'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  onTap: json['onTap'] == null
+      ? null
+      : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
+  onDoubleTap: json['onDoubleTap'] == null
+      ? null
+      : StacAction.fromJson(json['onDoubleTap'] as Map<String, dynamic>),
+  onLongPress: json['onLongPress'] == null
+      ? null
+      : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
+  onTapDown: json['onTapDown'] == null
+      ? null
+      : StacAction.fromJson(json['onTapDown'] as Map<String, dynamic>),
+  onTapUp: json['onTapUp'] == null
+      ? null
+      : StacAction.fromJson(json['onTapUp'] as Map<String, dynamic>),
+  onTapCancel: json['onTapCancel'] == null
+      ? null
+      : StacAction.fromJson(json['onTapCancel'] as Map<String, dynamic>),
+  onSecondaryTap: json['onSecondaryTap'] == null
+      ? null
+      : StacAction.fromJson(json['onSecondaryTap'] as Map<String, dynamic>),
+  onSecondaryTapUp: json['onSecondaryTapUp'] == null
+      ? null
+      : StacAction.fromJson(json['onSecondaryTapUp'] as Map<String, dynamic>),
+  onSecondaryTapDown: json['onSecondaryTapDown'] == null
+      ? null
+      : StacAction.fromJson(json['onSecondaryTapDown'] as Map<String, dynamic>),
+  onSecondaryTapCancel: json['onSecondaryTapCancel'] == null
+      ? null
+      : StacAction.fromJson(
+          json['onSecondaryTapCancel'] as Map<String, dynamic>,
+        ),
+  onHighlightChanged: json['onHighlightChanged'] == null
+      ? null
+      : StacAction.fromJson(json['onHighlightChanged'] as Map<String, dynamic>),
+  onHover: json['onHover'] == null
+      ? null
+      : StacAction.fromJson(json['onHover'] as Map<String, dynamic>),
   mouseCursor: $enumDecodeNullable(
     _$StacMouseCursorEnumMap,
     json['mouseCursor'],
@@ -77,30 +58,22 @@ StacInkWell _$StacInkWellFromJson(Map<String, dynamic> json) => StacInkWell(
   overlayColor: json['overlayColor'] as String?,
   splashColor: json['splashColor'] as String?,
   radius: const DoubleConverter().fromJson(json['radius']),
-  borderRadius:
-      json['borderRadius'] == null
-          ? null
-          : StacBorderRadius.fromJson(json['borderRadius']),
-  customBorder:
-      json['customBorder'] == null
-          ? null
-          : StacShapeBorder.fromJson(
-            json['customBorder'] as Map<String, dynamic>,
-          ),
+  borderRadius: json['borderRadius'] == null
+      ? null
+      : StacBorderRadius.fromJson(json['borderRadius']),
+  customBorder: json['customBorder'] == null
+      ? null
+      : StacShapeBorder.fromJson(json['customBorder'] as Map<String, dynamic>),
   enableFeedback: json['enableFeedback'] as bool?,
   excludeFromSemantics: json['excludeFromSemantics'] as bool?,
   canRequestFocus: json['canRequestFocus'] as bool?,
-  onFocusChange:
-      json['onFocusChange'] == null
-          ? null
-          : StacAction.fromJson(json['onFocusChange'] as Map<String, dynamic>),
+  onFocusChange: json['onFocusChange'] == null
+      ? null
+      : StacAction.fromJson(json['onFocusChange'] as Map<String, dynamic>),
   autofocus: json['autofocus'] as bool?,
-  hoverDuration:
-      json['hoverDuration'] == null
-          ? null
-          : StacDuration.fromJson(
-            json['hoverDuration'] as Map<String, dynamic>,
-          ),
+  hoverDuration: json['hoverDuration'] == null
+      ? null
+      : StacDuration.fromJson(json['hoverDuration'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacInkWellToJson(StacInkWell instance) =>

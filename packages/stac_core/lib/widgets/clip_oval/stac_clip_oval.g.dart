@@ -8,10 +8,9 @@ part of 'stac_clip_oval.dart';
 
 StacClipOval _$StacClipOvalFromJson(Map<String, dynamic> json) => StacClipOval(
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacClipOvalToJson(StacClipOval instance) =>

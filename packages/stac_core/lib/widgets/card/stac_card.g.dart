@@ -11,18 +11,17 @@ StacCard _$StacCardFromJson(Map<String, dynamic> json) => StacCard(
   shadowColor: json['shadowColor'] as String?,
   surfaceTintColor: json['surfaceTintColor'] as String?,
   elevation: const DoubleConverter().fromJson(json['elevation']),
-  shape:
-      json['shape'] == null
-          ? null
-          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape: json['shape'] == null
+      ? null
+      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   borderOnForeground: json['borderOnForeground'] as bool?,
-  margin:
-      json['margin'] == null ? null : StacEdgeInsets.fromJson(json['margin']),
+  margin: json['margin'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['margin']),
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  child:
-      json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child: json['child'] == null
+      ? null
+      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
   semanticContainer: json['semanticContainer'] as bool?,
 );
 

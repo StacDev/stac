@@ -10,10 +10,9 @@ StacCheckBox _$StacCheckBoxFromJson(Map<String, dynamic> json) => StacCheckBox(
   id: json['id'] as String?,
   value: json['value'] as bool?,
   tristate: json['tristate'] as bool?,
-  onChanged:
-      json['onChanged'] == null
-          ? null
-          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+  onChanged: json['onChanged'] == null
+      ? null
+      : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
   mouseCursor: $enumDecodeNullable(
     _$StacMouseCursorEnumMap,
     json['mouseCursor'],

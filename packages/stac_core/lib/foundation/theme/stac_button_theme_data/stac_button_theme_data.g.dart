@@ -14,14 +14,12 @@ StacButtonThemeData _$StacButtonThemeDataFromJson(Map<String, dynamic> json) =>
       ),
       minWidth: (json['minWidth'] as num?)?.toDouble(),
       height: (json['height'] as num?)?.toDouble(),
-      padding:
-          json['padding'] == null
-              ? null
-              : StacEdgeInsets.fromJson(json['padding']),
-      shape:
-          json['shape'] == null
-              ? null
-              : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+      padding: json['padding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['padding']),
+      shape: json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
       layoutBehavior: $enumDecodeNullable(
         _$StacButtonBarLayoutBehaviorEnumMap,
         json['layoutBehavior'],
@@ -33,12 +31,11 @@ StacButtonThemeData _$StacButtonThemeDataFromJson(Map<String, dynamic> json) =>
       hoverColor: json['hoverColor'] as String?,
       highlightColor: json['highlightColor'] as String?,
       splashColor: json['splashColor'] as String?,
-      colorScheme:
-          json['colorScheme'] == null
-              ? null
-              : StacColorScheme.fromJson(
-                json['colorScheme'] as Map<String, dynamic>,
-              ),
+      colorScheme: json['colorScheme'] == null
+          ? null
+          : StacColorScheme.fromJson(
+              json['colorScheme'] as Map<String, dynamic>,
+            ),
       materialTapTargetSize: $enumDecodeNullable(
         _$StacMaterialTapTargetSizeEnumMap,
         json['materialTapTargetSize'],

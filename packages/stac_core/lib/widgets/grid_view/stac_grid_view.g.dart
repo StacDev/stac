@@ -15,8 +15,9 @@ StacGridView _$StacGridViewFromJson(Map<String, dynamic> json) => StacGridView(
   primary: json['primary'] as bool?,
   physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
   shrinkWrap: json['shrinkWrap'] as bool?,
-  padding:
-      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  padding: json['padding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['padding']),
   crossAxisCount: (json['crossAxisCount'] as num?)?.toInt(),
   mainAxisSpacing: const DoubleConverter().fromJson(json['mainAxisSpacing']),
   crossAxisSpacing: const DoubleConverter().fromJson(json['crossAxisSpacing']),
@@ -26,10 +27,9 @@ StacGridView _$StacGridViewFromJson(Map<String, dynamic> json) => StacGridView(
   addRepaintBoundaries: json['addRepaintBoundaries'] as bool?,
   addSemanticIndexes: json['addSemanticIndexes'] as bool?,
   cacheExtent: const DoubleConverter().fromJson(json['cacheExtent']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
   semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,

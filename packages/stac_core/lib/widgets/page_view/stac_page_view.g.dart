@@ -14,10 +14,9 @@ StacPageView _$StacPageViewFromJson(Map<String, dynamic> json) => StacPageView(
   reverse: json['reverse'] as bool?,
   physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
   pageSnapping: json['pageSnapping'] as bool?,
-  onPageChanged:
-      json['onPageChanged'] == null
-          ? null
-          : StacAction.fromJson(json['onPageChanged'] as Map<String, dynamic>),
+  onPageChanged: json['onPageChanged'] == null
+      ? null
+      : StacAction.fromJson(json['onPageChanged'] as Map<String, dynamic>),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
     json['dragStartBehavior'],
@@ -29,10 +28,9 @@ StacPageView _$StacPageViewFromJson(Map<String, dynamic> json) => StacPageView(
   initialPage: (json['initialPage'] as num?)?.toInt(),
   keepPage: json['keepPage'] as bool?,
   viewportFraction: const DoubleConverter().fromJson(json['viewportFraction']),
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+      .toList(),
 );
 
 Map<String, dynamic> _$StacPageViewToJson(

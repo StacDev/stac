@@ -11,12 +11,11 @@ StacDefaultTabController _$StacDefaultTabControllerFromJson(
 ) => StacDefaultTabController(
   length: (json['length'] as num).toInt(),
   initialIndex: (json['initialIndex'] as num?)?.toInt(),
-  animationDuration:
-      json['animationDuration'] == null
-          ? null
-          : StacDuration.fromJson(
-            json['animationDuration'] as Map<String, dynamic>,
-          ),
+  animationDuration: json['animationDuration'] == null
+      ? null
+      : StacDuration.fromJson(
+          json['animationDuration'] as Map<String, dynamic>,
+        ),
   child: StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
