@@ -8,8 +8,9 @@ extension StacSystemUIOverlayStyleParser on StacSystemUIOverlayStyle {
   SystemUiOverlayStyle parse(BuildContext context) {
     return SystemUiOverlayStyle(
       systemNavigationBarColor: systemNavigationBarColor?.toColor(context),
-      systemNavigationBarDividerColor:
-          systemNavigationBarDividerColor.toColor(context),
+      systemNavigationBarDividerColor: systemNavigationBarDividerColor.toColor(
+        context,
+      ),
       systemNavigationBarIconBrightness:
           systemNavigationBarIconBrightness?.parse,
       systemNavigationBarContrastEnforced: systemNavigationBarContrastEnforced,

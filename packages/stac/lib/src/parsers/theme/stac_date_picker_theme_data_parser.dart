@@ -24,43 +24,56 @@ extension StacDatePickerThemeDataParser on StacDatePickerThemeData {
       headerHelpStyle: headerHelpStyle?.parse(context),
       weekdayStyle: weekdayStyle?.parse(context),
       dayStyle: dayStyle?.parse(context),
-      dayForegroundColor:
-          WidgetStatePropertyAll(dayForegroundColor?.toColor(context)),
-      dayBackgroundColor:
-          WidgetStatePropertyAll(dayBackgroundColor?.toColor(context)),
-      dayOverlayColor:
-          WidgetStatePropertyAll(dayOverlayColor?.toColor(context)),
-      dayShape:
-          WidgetStatePropertyAll(dayShape?.parse(context) as OutlinedBorder),
-      todayForegroundColor:
-          WidgetStatePropertyAll(todayForegroundColor?.toColor(context)),
-      todayBackgroundColor:
-          WidgetStatePropertyAll(todayBackgroundColor?.toColor(context)),
+      dayForegroundColor: WidgetStatePropertyAll(
+        dayForegroundColor?.toColor(context),
+      ),
+      dayBackgroundColor: WidgetStatePropertyAll(
+        dayBackgroundColor?.toColor(context),
+      ),
+      dayOverlayColor: WidgetStatePropertyAll(
+        dayOverlayColor?.toColor(context),
+      ),
+      dayShape: WidgetStatePropertyAll(
+        dayShape?.parse(context) as OutlinedBorder,
+      ),
+      todayForegroundColor: WidgetStatePropertyAll(
+        todayForegroundColor?.toColor(context),
+      ),
+      todayBackgroundColor: WidgetStatePropertyAll(
+        todayBackgroundColor?.toColor(context),
+      ),
       todayBorder: todayBorder?.parse(context),
       yearStyle: yearStyle?.parse(context),
-      yearForegroundColor:
-          WidgetStatePropertyAll(yearForegroundColor?.toColor(context)),
-      yearBackgroundColor:
-          WidgetStatePropertyAll(yearBackgroundColor?.toColor(context)),
-      yearOverlayColor:
-          WidgetStatePropertyAll(yearOverlayColor?.toColor(context)),
+      yearForegroundColor: WidgetStatePropertyAll(
+        yearForegroundColor?.toColor(context),
+      ),
+      yearBackgroundColor: WidgetStatePropertyAll(
+        yearBackgroundColor?.toColor(context),
+      ),
+      yearOverlayColor: WidgetStatePropertyAll(
+        yearOverlayColor?.toColor(context),
+      ),
       rangePickerBackgroundColor: rangePickerBackgroundColor?.toColor(context),
       rangePickerElevation: rangePickerElevation,
       rangePickerShadowColor: rangePickerShadowColor?.toColor(context),
-      rangePickerSurfaceTintColor:
-          rangePickerSurfaceTintColor?.toColor(context),
+      rangePickerSurfaceTintColor: rangePickerSurfaceTintColor?.toColor(
+        context,
+      ),
       rangePickerShape: rangePickerShape?.parse(context),
-      rangePickerHeaderBackgroundColor:
-          rangePickerHeaderBackgroundColor?.toColor(context),
-      rangePickerHeaderForegroundColor:
-          rangePickerHeaderForegroundColor?.toColor(context),
-      rangePickerHeaderHeadlineStyle:
-          rangePickerHeaderHeadlineStyle?.parse(context),
+      rangePickerHeaderBackgroundColor: rangePickerHeaderBackgroundColor
+          ?.toColor(context),
+      rangePickerHeaderForegroundColor: rangePickerHeaderForegroundColor
+          ?.toColor(context),
+      rangePickerHeaderHeadlineStyle: rangePickerHeaderHeadlineStyle?.parse(
+        context,
+      ),
       rangePickerHeaderHelpStyle: rangePickerHeaderHelpStyle?.parse(context),
-      rangeSelectionBackgroundColor:
-          rangeSelectionBackgroundColor?.toColor(context),
-      rangeSelectionOverlayColor:
-          WidgetStatePropertyAll(rangeSelectionOverlayColor?.toColor(context)),
+      rangeSelectionBackgroundColor: rangeSelectionBackgroundColor?.toColor(
+        context,
+      ),
+      rangeSelectionOverlayColor: WidgetStatePropertyAll(
+        rangeSelectionOverlayColor?.toColor(context),
+      ),
       dividerColor: dividerColor?.toColor(context),
       inputDecorationTheme: inputDecorationTheme?.parse(context),
       cancelButtonStyle: cancelButtonStyle?.parseTextButton(context),
@@ -68,4 +81,3 @@ extension StacDatePickerThemeDataParser on StacDatePickerThemeData {
     );
   }
 }
-

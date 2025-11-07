@@ -36,13 +36,15 @@ class _BottomNavigationBarWidget extends StatelessWidget {
 
     return BottomNavigationBar(
       items: model.items
-          .map((item) => BottomNavigationBarItem(
-                icon: item.icon.parse(context)!,
-                activeIcon: item.activeIcon?.parse(context),
-                label: item.label,
-                backgroundColor: item.backgroundColor?.toColor(context),
-                tooltip: item.tooltip,
-              ))
+          .map(
+            (item) => BottomNavigationBarItem(
+              icon: item.icon.parse(context)!,
+              activeIcon: item.activeIcon?.parse(context),
+              label: item.label,
+              backgroundColor: item.backgroundColor?.toColor(context),
+              tooltip: item.tooltip,
+            ),
+          )
           .toList(),
       onTap: (index) => controller?.index = index,
       currentIndex: controller?.index ?? 0,

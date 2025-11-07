@@ -50,7 +50,7 @@ class StacTextParser extends StacParser<StacText> {
           style: child.style?.parse(context),
           recognizer: child.onTap != null
               ? (TapGestureRecognizer()
-                ..onTap = () => Stac.onCallFromJson(child.onTap, context))
+                  ..onTap = () => Stac.onCallFromJson(child.onTap, context))
               : null,
         );
       }).toList(),

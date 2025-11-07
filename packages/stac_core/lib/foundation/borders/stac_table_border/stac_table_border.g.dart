@@ -11,10 +11,9 @@ StacTableBorder _$StacTableBorderFromJson(Map<String, dynamic> json) =>
       color: json['color'] as String?,
       width: const DoubleConverter().fromJson(json['width']),
       style: $enumDecodeNullable(_$StacBorderStyleEnumMap, json['style']),
-      borderRadius:
-          json['borderRadius'] == null
-              ? null
-              : StacBorderRadius.fromJson(json['borderRadius']),
+      borderRadius: json['borderRadius'] == null
+          ? null
+          : StacBorderRadius.fromJson(json['borderRadius']),
     );
 
 Map<String, dynamic> _$StacTableBorderToJson(StacTableBorder instance) =>

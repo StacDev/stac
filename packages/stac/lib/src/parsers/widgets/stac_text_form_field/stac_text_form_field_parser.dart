@@ -107,14 +107,13 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
       style: widget.model.style?.parse(context),
       decoration: widget.model.decoration?.parse(context),
       inputFormatters: widget.model.inputFormatters
-          ?.map((inputFormatter) =>
-              inputFormatter.type.parse.format(inputFormatter.rule ?? ""))
+          ?.map(
+            (inputFormatter) =>
+                inputFormatter.type.parse.format(inputFormatter.rule ?? ""),
+          )
           .toList(),
       validator: (value) {
-        return _validate(
-          value,
-          widget.model,
-        );
+        return _validate(value, widget.model);
       },
     );
   }

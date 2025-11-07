@@ -11,28 +11,24 @@ StacBottomNavBarThemeData _$StacBottomNavBarThemeDataFromJson(
 ) => StacBottomNavBarThemeData(
   backgroundColor: json['backgroundColor'] as String?,
   elevation: (json['elevation'] as num?)?.toDouble(),
-  selectedIconTheme:
-      json['selectedIconTheme'] == null
-          ? null
-          : StacIconThemeData.fromJson(
-            json['selectedIconTheme'] as Map<String, dynamic>,
-          ),
-  unselectedIconTheme:
-      json['unselectedIconTheme'] == null
-          ? null
-          : StacIconThemeData.fromJson(
-            json['unselectedIconTheme'] as Map<String, dynamic>,
-          ),
+  selectedIconTheme: json['selectedIconTheme'] == null
+      ? null
+      : StacIconThemeData.fromJson(
+          json['selectedIconTheme'] as Map<String, dynamic>,
+        ),
+  unselectedIconTheme: json['unselectedIconTheme'] == null
+      ? null
+      : StacIconThemeData.fromJson(
+          json['unselectedIconTheme'] as Map<String, dynamic>,
+        ),
   selectedItemColor: json['selectedItemColor'] as String?,
   unselectedItemColor: json['unselectedItemColor'] as String?,
-  selectedLabelStyle:
-      json['selectedLabelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['selectedLabelStyle']),
-  unselectedLabelStyle:
-      json['unselectedLabelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+  selectedLabelStyle: json['selectedLabelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['selectedLabelStyle']),
+  unselectedLabelStyle: json['unselectedLabelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['unselectedLabelStyle']),
   showSelectedLabels: json['showSelectedLabels'] as bool?,
   showUnselectedLabels: json['showUnselectedLabels'] as bool?,
   type: $enumDecodeNullable(_$StacBottomNavigationBarTypeEnumMap, json['type']),

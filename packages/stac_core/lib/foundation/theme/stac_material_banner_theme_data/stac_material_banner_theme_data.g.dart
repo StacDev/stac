@@ -13,17 +13,16 @@ StacMaterialBannerThemeData _$StacMaterialBannerThemeDataFromJson(
   surfaceTintColor: json['surfaceTintColor'] as String?,
   shadowColor: json['shadowColor'] as String?,
   dividerColor: json['dividerColor'] as String?,
-  contentTextStyle:
-      json['contentTextStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['contentTextStyle']),
+  contentTextStyle: json['contentTextStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['contentTextStyle']),
   elevation: (json['elevation'] as num?)?.toDouble(),
-  padding:
-      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
-  leadingPadding:
-      json['leadingPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['leadingPadding']),
+  padding: json['padding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['padding']),
+  leadingPadding: json['leadingPadding'] == null
+      ? null
+      : StacEdgeInsets.fromJson(json['leadingPadding']),
 );
 
 Map<String, dynamic> _$StacMaterialBannerThemeDataToJson(

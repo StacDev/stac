@@ -8,17 +8,15 @@ part of 'stac_text.dart';
 
 StacText _$StacTextFromJson(Map<String, dynamic> json) => StacText(
   data: json['data'] as String,
-  children:
-      (json['children'] as List<dynamic>?)
-          ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
-          .toList(),
+  children: (json['children'] as List<dynamic>?)
+      ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
+      .toList(),
   style: json['style'] == null ? null : StacTextStyle.fromJson(json['style']),
-  copyWithStyle:
-      json['copyWithStyle'] == null
-          ? null
-          : StacCustomTextStyle.fromJson(
-            json['copyWithStyle'] as Map<String, dynamic>,
-          ),
+  copyWithStyle: json['copyWithStyle'] == null
+      ? null
+      : StacCustomTextStyle.fromJson(
+          json['copyWithStyle'] as Map<String, dynamic>,
+        ),
   textAlign: $enumDecodeNullable(_$StacTextAlignEnumMap, json['textAlign']),
   textDirection: $enumDecodeNullable(
     _$StacTextDirectionEnumMap,

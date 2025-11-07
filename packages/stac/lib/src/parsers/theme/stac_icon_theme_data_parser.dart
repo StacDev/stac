@@ -20,4 +20,3 @@ extension StacIconThemeDataParser on StacIconThemeData {
     );
   }
 }
-

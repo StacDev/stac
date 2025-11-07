@@ -64,8 +64,8 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 // Prepare data for template based on resultTarget
                 final dataForTemplate =
                     (model.resultTarget?.isNotEmpty ?? false)
-                        ? {model.resultTarget: data}
-                        : data;
+                    ? {model.resultTarget: data}
+                    : data;
 
                 // Apply the data to the template
                 final renderedTemplate = _applyDataToTemplate(
@@ -181,15 +181,17 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
         // Check if the list is empty
         if (listForIteration is List && listForIteration.isEmpty) {
           Log.d(
-              "List for iteration is empty, removing itemTemplate and children");
+            "List for iteration is empty, removing itemTemplate and children",
+          );
           resolvedTemplateJson.remove(itemTemplateKey);
           // Clear children or set to empty list
           resolvedTemplateJson['children'] = [];
           return resolvedTemplateJson;
         }
 
-        resolvedTemplateJson
-            .remove(itemTemplateKey); // Remove from outer template structure
+        resolvedTemplateJson.remove(
+          itemTemplateKey,
+        ); // Remove from outer template structure
         final processedChildItems = <Map<String, dynamic>>[];
 
         for (final singleRawItem in listForIteration) {
@@ -199,8 +201,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 ? {resultTarget: singleRawItem}
                 : singleRawItem;
 
-            final processedChild =
-                _applyDataToItem(itemTemplateActual, itemSpecificDataContext);
+            final processedChild = _applyDataToItem(
+              itemTemplateActual,
+              itemSpecificDataContext,
+            );
             processedChildItems.add(processedChild);
           } else {
             Log.w("Item in list is not a Map, skipping: $singleRawItem");
@@ -211,16 +215,19 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           resolvedTemplateJson['children'] = [];
         }
         if (resolvedTemplateJson['children'] is List) {
-          (resolvedTemplateJson['children'] as List)
-              .addAll(processedChildItems);
+          (resolvedTemplateJson['children'] as List).addAll(
+            processedChildItems,
+          );
         } else {
           Log.w(
-              "Template has 'children' but it's not a List. Overwriting with processed items.");
+            "Template has 'children' but it's not a List. Overwriting with processed items.",
+          );
           resolvedTemplateJson['children'] = processedChildItems;
         }
       } else {
         Log.d(
-            "itemTemplate found but no list to iterate in dataContext. Template: $currentTemplate, DataContext: $data");
+          "itemTemplate found but no list to iterate in dataContext. Template: $currentTemplate, DataContext: $data",
+        );
       }
     }
 
@@ -228,12 +235,14 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     // using the original overall dataContext.
     if (data is Map) {
       // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
-      final Map<dynamic, dynamic> mapDataContext =
-          Map<dynamic, dynamic>.from(data);
+      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
+        data,
+      );
       _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
     } else {
       Log.d(
-          "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data");
+        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
+      );
     }
 
     return resolvedTemplateJson;
@@ -277,7 +286,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
               if (dataValue != null) {
                 processedValue = processedValue.replaceAll(
-                    placeholder, dataValue.toString());
+                  placeholder,
+                  dataValue.toString(),
+                );
               }
             }
 

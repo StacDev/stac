@@ -10,10 +10,9 @@ StacBoxShadow _$StacBoxShadowFromJson(Map<String, dynamic> json) =>
     StacBoxShadow(
       color: json['color'] as String?,
       blurRadius: const DoubleConverter().fromJson(json['blurRadius']),
-      offset:
-          json['offset'] == null
-              ? null
-              : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
+      offset: json['offset'] == null
+          ? null
+          : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
       spreadRadius: const DoubleConverter().fromJson(json['spreadRadius']),
       blurStyle: $enumDecodeNullable(_$StacBlurStyleEnumMap, json['blurStyle']),
     );

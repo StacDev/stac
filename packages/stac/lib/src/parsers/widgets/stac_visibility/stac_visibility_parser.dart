@@ -17,7 +17,8 @@ class StacVisibilityParser extends StacParser<StacVisibility> {
   Widget parse(BuildContext context, StacVisibility model) {
     final child = model.child?.parse(context) ?? const SizedBox.shrink();
 
-    bool shouldUseMaintainConstructor = (model.maintainState ?? false) ||
+    bool shouldUseMaintainConstructor =
+        (model.maintainState ?? false) ||
         (model.maintainAnimation ?? false) ||
         (model.maintainSize ?? false) ||
         (model.maintainSemantics ?? false) ||
@@ -34,10 +35,7 @@ class StacVisibilityParser extends StacParser<StacVisibility> {
     }
 
     if (shouldUseMaintainConstructor) {
-      return Visibility.maintain(
-        visible: model.visible ?? true,
-        child: child,
-      );
+      return Visibility.maintain(visible: model.visible ?? true, child: child);
     }
 
     final replacement =

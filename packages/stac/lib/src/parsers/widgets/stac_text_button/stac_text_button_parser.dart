@@ -28,11 +28,11 @@ class StacTextButtonParser extends StacParser<StacTextButton> {
       onHover: model.onHover == null
           ? null
           : (bool value) =>
-              Stac.onCallFromJson(model.onHover?.toJson(), context),
+                Stac.onCallFromJson(model.onHover?.toJson(), context),
       onFocusChange: model.onFocusChange == null
           ? null
           : (bool value) =>
-              Stac.onCallFromJson(model.onFocusChange?.toJson(), context),
+                Stac.onCallFromJson(model.onFocusChange?.toJson(), context),
       style: model.style?.parseTextButton(context),
       autofocus: model.autofocus ?? false,
       clipBehavior: model.clipBehavior?.parse,

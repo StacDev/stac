@@ -15,20 +15,15 @@ StacNavigationBarThemeData _$StacNavigationBarThemeDataFromJson(
   shadowColor: json['shadowColor'] as String?,
   surfaceTintColor: json['surfaceTintColor'] as String?,
   indicatorColor: json['indicatorColor'] as String?,
-  indicatorShape:
-      json['indicatorShape'] == null
-          ? null
-          : StacBorder.fromJson(json['indicatorShape'] as Map<String, dynamic>),
-  labelTextStyle:
-      json['labelTextStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['labelTextStyle']),
-  iconTheme:
-      json['iconTheme'] == null
-          ? null
-          : StacIconThemeData.fromJson(
-            json['iconTheme'] as Map<String, dynamic>,
-          ),
+  indicatorShape: json['indicatorShape'] == null
+      ? null
+      : StacBorder.fromJson(json['indicatorShape'] as Map<String, dynamic>),
+  labelTextStyle: json['labelTextStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['labelTextStyle']),
+  iconTheme: json['iconTheme'] == null
+      ? null
+      : StacIconThemeData.fromJson(json['iconTheme'] as Map<String, dynamic>),
   labelBehavior: $enumDecodeNullable(
     _$StacNavigationDestinationLabelBehaviorEnumMap,
     json['labelBehavior'],

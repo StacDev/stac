@@ -41,9 +41,10 @@ StacRadio _$StacRadioFromJson(Map<String, dynamic> json) => StacRadio(
   useCupertinoCheckmarkStyle: json['useCupertinoCheckmarkStyle'] as bool?,
   enabled: json['enabled'] as bool?,
   backgroundColor: json['backgroundColor'] as String?,
-  side: json['side'] == null
-      ? null
-      : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+  side:
+      json['side'] == null
+          ? null
+          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
   innerRadius: const DoubleConverter().fromJson(json['innerRadius']),
 );
 

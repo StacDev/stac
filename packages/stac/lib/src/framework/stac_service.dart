@@ -173,10 +173,7 @@ class StacService {
     _errorWidgetBuilder = errorWidgetBuilder;
   }
 
-  static Widget? fromJson(
-    Map<String, dynamic>? json,
-    BuildContext context,
-  ) {
+  static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
     try {
       if (json == null) {
         return null;
@@ -318,8 +315,9 @@ class StacService {
         throw TypeError();
       }
 
-      final stacActionParser =
-          StacRegistry.instance.getActionParser(actionType);
+      final stacActionParser = StacRegistry.instance.getActionParser(
+        actionType,
+      );
 
       if (stacActionParser == null) {
         Log.w('Action type [$actionType] not supported');

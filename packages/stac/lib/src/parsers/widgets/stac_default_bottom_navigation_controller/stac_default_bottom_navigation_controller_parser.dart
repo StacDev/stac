@@ -25,9 +25,7 @@ class StacDefaultBottomNavigationControllerParser
 }
 
 class _DefaultBottomNavigationControllerWidget extends StatefulWidget {
-  const _DefaultBottomNavigationControllerWidget({
-    required this.model,
-  });
+  const _DefaultBottomNavigationControllerWidget({required this.model});
 
   final StacDefaultBottomNavigationController model;
 
@@ -90,8 +88,8 @@ class BottomNavigationScope extends InheritedWidget {
   ///
   /// Returns null if no [BottomNavigationScope] is found in the widget tree.
   static BottomNavigationScope? of(BuildContext context) {
-    final BottomNavigationScope? result =
-        context.dependOnInheritedWidgetOfExactType<BottomNavigationScope>();
+    final BottomNavigationScope? result = context
+        .dependOnInheritedWidgetOfExactType<BottomNavigationScope>();
 
     if (result != null) {
       return result;
@@ -117,7 +115,7 @@ class BottomNavigationScope extends InheritedWidget {
 class BottomNavigationController extends ChangeNotifier {
   /// Creates a [BottomNavigationController] with the specified properties.
   BottomNavigationController({this.initialIndex = 0, required this.length})
-      : _index = initialIndex;
+    : _index = initialIndex;
 
   /// The initial index when the controller is created.
   final int initialIndex;

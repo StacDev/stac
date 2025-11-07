@@ -9,14 +9,12 @@ part of 'stac_continuous_rectangle_border.dart';
 StacContinuousRectangleBorder _$StacContinuousRectangleBorderFromJson(
   Map<String, dynamic> json,
 ) => StacContinuousRectangleBorder(
-  side:
-      json['side'] == null
-          ? null
-          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
-  borderRadius:
-      json['borderRadius'] == null
-          ? null
-          : StacBorderRadius.fromJson(json['borderRadius']),
+  side: json['side'] == null
+      ? null
+      : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+  borderRadius: json['borderRadius'] == null
+      ? null
+      : StacBorderRadius.fromJson(json['borderRadius']),
 );
 
 Map<String, dynamic> _$StacContinuousRectangleBorderToJson(

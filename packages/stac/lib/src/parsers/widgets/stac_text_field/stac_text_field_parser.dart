@@ -18,10 +18,7 @@ import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacTextFieldParser extends StacParser<StacTextField> {
-  const StacTextFieldParser({
-    this.controller,
-    this.focusNode,
-  });
+  const StacTextFieldParser({this.controller, this.focusNode});
 
   final TextEditingController? controller;
   final FocusNode? focusNode;

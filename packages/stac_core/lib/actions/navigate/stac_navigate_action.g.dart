@@ -8,12 +8,11 @@ part of 'stac_navigate_action.dart';
 
 StacNavigateAction _$StacNavigateActionFromJson(Map<String, dynamic> json) =>
     StacNavigateAction(
-      request:
-          json['request'] == null
-              ? null
-              : StacNetworkRequest.fromJson(
-                json['request'] as Map<String, dynamic>,
-              ),
+      request: json['request'] == null
+          ? null
+          : StacNetworkRequest.fromJson(
+              json['request'] as Map<String, dynamic>,
+            ),
       widgetJson: json['widgetJson'] as Map<String, dynamic>?,
       assetPath: json['assetPath'] as String?,
       routeName: json['routeName'] as String?,

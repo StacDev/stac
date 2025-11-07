@@ -16,23 +16,20 @@ StacBottomSheetThemeData _$StacBottomSheetThemeDataFromJson(
   modalBarrierColor: json['modalBarrierColor'] as String?,
   shadowColor: json['shadowColor'] as String?,
   modalElevation: (json['modalElevation'] as num?)?.toDouble(),
-  shape:
-      json['shape'] == null
-          ? null
-          : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape: json['shape'] == null
+      ? null
+      : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
   showDragHandle: json['showDragHandle'] as bool?,
   dragHandleColor: json['dragHandleColor'] as String?,
-  dragHandleSize:
-      json['dragHandleSize'] == null
-          ? null
-          : StacSize.fromJson(json['dragHandleSize'] as Map<String, dynamic>),
+  dragHandleSize: json['dragHandleSize'] == null
+      ? null
+      : StacSize.fromJson(json['dragHandleSize'] as Map<String, dynamic>),
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  constraints:
-      json['constraints'] == null
-          ? null
-          : StacBoxConstraints.fromJson(
-            json['constraints'] as Map<String, dynamic>,
-          ),
+  constraints: json['constraints'] == null
+      ? null
+      : StacBoxConstraints.fromJson(
+          json['constraints'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$StacBottomSheetThemeDataToJson(

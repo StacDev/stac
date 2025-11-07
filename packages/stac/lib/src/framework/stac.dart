@@ -10,10 +10,8 @@ import 'package:stac_core/actions/network_request/stac_network_request.dart';
 import 'package:stac_core/core/stac_options.dart';
 import 'package:stac_framework/stac_framework.dart';
 
-typedef ErrorWidgetBuilder = Widget Function(
-  BuildContext context,
-  dynamic error,
-);
+typedef ErrorWidgetBuilder =
+    Widget Function(BuildContext context, dynamic error);
 
 typedef LoadingWidgetBuilder = Widget Function(BuildContext context);
 
@@ -31,10 +29,8 @@ typedef LoadingWidgetBuilder = Widget Function(BuildContext context);
 ///   },
 /// );
 /// ```
-typedef StacErrorWidgetBuilder = Widget Function(
-  BuildContext context,
-  StacError errorDetails,
-);
+typedef StacErrorWidgetBuilder =
+    Widget Function(BuildContext context, StacError errorDetails);
 
 class Stac extends StatelessWidget {
   const Stac({
@@ -79,10 +75,7 @@ class Stac extends StatelessWidget {
     );
   }
 
-  static Widget? fromJson(
-    Map<String, dynamic>? json,
-    BuildContext context,
-  ) {
+  static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
     return StacService.fromJson(json, context);
   }
 
@@ -139,10 +132,7 @@ class _StacView extends StatelessWidget {
     }
 
     return FutureBuilder<Response?>(
-      future: StacCloud.fetchScreen(
-        context: context,
-        routeName: routeName,
-      ),
+      future: StacCloud.fetchScreen(context: context, routeName: routeName),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return loadingWidget ?? const _LoadingWidget();
@@ -166,10 +156,6 @@ class _LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-        child: CircularProgressIndicator(),
-      ),
-    );
+    return Scaffold(body: const Center(child: CircularProgressIndicator()));
   }
 }

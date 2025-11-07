@@ -10,31 +10,31 @@ import 'stac_tile_mode_parser.dart';
 extension StacGradientParser on StacGradient {
   Gradient? parse(BuildContext context) {
     Gradient linearGradient() => LinearGradient(
-          colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
-          begin: begin?.parse ?? Alignment.centerLeft,
-          end: end?.parse ?? Alignment.centerRight,
-          stops: stops,
-          tileMode: tileMode?.parse ?? TileMode.clamp,
-        );
+      colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
+      begin: begin?.parse ?? Alignment.centerLeft,
+      end: end?.parse ?? Alignment.centerRight,
+      stops: stops,
+      tileMode: tileMode?.parse ?? TileMode.clamp,
+    );
 
     Gradient radialGradient() => RadialGradient(
-          colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
-          stops: stops,
-          tileMode: tileMode?.parse ?? TileMode.clamp,
-          focal: focal?.parse,
-          focalRadius: focalRadius ?? 0.0,
-          radius: radius ?? 0.5,
-          center: center?.parse ?? Alignment.center,
-        );
+      colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
+      stops: stops,
+      tileMode: tileMode?.parse ?? TileMode.clamp,
+      focal: focal?.parse,
+      focalRadius: focalRadius ?? 0.0,
+      radius: radius ?? 0.5,
+      center: center?.parse ?? Alignment.center,
+    );
 
     Gradient sweepGradient() => SweepGradient(
-          colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
-          stops: stops,
-          center: center?.parse ?? Alignment.center,
-          startAngle: startAngle ?? 0.0,
-          endAngle: endAngle ?? math.pi * 2,
-          tileMode: tileMode?.parse ?? TileMode.clamp,
-        );
+      colors: colors?.map((e) => e.toColor(context)!).toList() ?? [],
+      stops: stops,
+      center: center?.parse ?? Alignment.center,
+      startAngle: startAngle ?? 0.0,
+      endAngle: endAngle ?? math.pi * 2,
+      tileMode: tileMode?.parse ?? TileMode.clamp,
+    );
 
     switch (gradientType) {
       case StacGradientType.linear:

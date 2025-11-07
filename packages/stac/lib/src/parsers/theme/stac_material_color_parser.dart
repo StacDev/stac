@@ -27,4 +27,3 @@ extension StacMaterialColorParser on StacMaterialColor {
     );
   }
 }
-

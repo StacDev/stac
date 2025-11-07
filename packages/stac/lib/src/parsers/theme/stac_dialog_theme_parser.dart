@@ -25,4 +25,3 @@ extension StacDialogThemeParser on StacDialogTheme {
     );
   }
 }
-

@@ -9,30 +9,24 @@ part of 'stac_modal_bottom_sheet_action.dart';
 StacModalBottomSheetAction _$StacModalBottomSheetActionFromJson(
   Map<String, dynamic> json,
 ) => StacModalBottomSheetAction(
-  widget:
-      json['widget'] == null
-          ? null
-          : StacWidget.fromJson(json['widget'] as Map<String, dynamic>),
-  request:
-      json['request'] == null
-          ? null
-          : StacNetworkRequest.fromJson(
-            json['request'] as Map<String, dynamic>,
-          ),
+  widget: json['widget'] == null
+      ? null
+      : StacWidget.fromJson(json['widget'] as Map<String, dynamic>),
+  request: json['request'] == null
+      ? null
+      : StacNetworkRequest.fromJson(json['request'] as Map<String, dynamic>),
   assetPath: json['assetPath'] as String?,
   backgroundColor: json['backgroundColor'] as String?,
   barrierLabel: json['barrierLabel'] as String?,
   elevation: (json['elevation'] as num?)?.toDouble(),
-  shape:
-      json['shape'] == null
-          ? null
-          : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
-  constraints:
-      json['constraints'] == null
-          ? null
-          : StacBoxConstraints.fromJson(
-            json['constraints'] as Map<String, dynamic>,
-          ),
+  shape: json['shape'] == null
+      ? null
+      : StacBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  constraints: json['constraints'] == null
+      ? null
+      : StacBoxConstraints.fromJson(
+          json['constraints'] as Map<String, dynamic>,
+        ),
   barrierColor: json['barrierColor'] as String?,
   isScrollControlled: json['isScrollControlled'] as bool?,
   useRootNavigator: json['useRootNavigator'] as bool?,

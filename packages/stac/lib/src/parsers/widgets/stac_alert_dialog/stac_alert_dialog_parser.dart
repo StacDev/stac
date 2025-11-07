@@ -47,7 +47,8 @@ class StacAlertDialogParser extends StacParser<StacAlertDialog> {
       shadowColor: model.shadowColor.toColor(context),
       surfaceTintColor: model.surfaceTintColor.toColor(context),
       semanticLabel: model.semanticLabel,
-      insetPadding: model.insetPadding?.parse ??
+      insetPadding:
+          model.insetPadding?.parse ??
           const EdgeInsets.fromLTRB(40, 24, 40, 24),
       clipBehavior: model.clipBehavior?.parse ?? Clip.none,
       shape: model.shape?.parse(context),

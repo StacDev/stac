@@ -54,7 +54,8 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
       initialSelection: model.initialSelection,
       focusNode: _focusNode,
       controller: _controller,
-      dropdownMenuEntries: model.dropdownMenuEntries
+      dropdownMenuEntries:
+          model.dropdownMenuEntries
               ?.map((e) => e.parse(context))
               .whereType<DropdownMenuEntry>()
               .toList() ??
@@ -80,13 +81,14 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
       alignmentOffset: model.alignmentOffset?.parse,
       inputFormatters: (model.inputFormatters ?? const <StacInputFormatter>[])
           .map<TextInputFormatter>((StacInputFormatter formatter) {
-        switch (formatter.type) {
-          case StacInputFormatterType.allow:
-            return InputFormatterType.allow.format(formatter.rule ?? '');
-          case StacInputFormatterType.deny:
-            return InputFormatterType.deny.format(formatter.rule ?? '');
-        }
-      }).toList(),
+            switch (formatter.type) {
+              case StacInputFormatterType.allow:
+                return InputFormatterType.allow.format(formatter.rule ?? '');
+              case StacInputFormatterType.deny:
+                return InputFormatterType.deny.format(formatter.rule ?? '');
+            }
+          })
+          .toList(),
     );
   }
 }

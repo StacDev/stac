@@ -35,10 +35,12 @@ extension StacInputDecorationThemeParser on StacInputDecorationTheme? {
       hintStyle: this?.hintStyle?.parse(context),
       errorStyle: this?.errorStyle?.parse(context),
       errorMaxLines: this?.errorMaxLines,
-      floatingLabelBehavior:
-          parseFloatingLabelBehavior(this?.floatingLabelBehavior),
-      floatingLabelAlignment:
-          parseFloatingLabelAlignment(this?.floatingLabelAlignment),
+      floatingLabelBehavior: parseFloatingLabelBehavior(
+        this?.floatingLabelBehavior,
+      ),
+      floatingLabelAlignment: parseFloatingLabelAlignment(
+        this?.floatingLabelAlignment,
+      ),
       isDense: this?.isDense ?? false,
       contentPadding: this?.contentPadding?.parse,
       isCollapsed: this?.isCollapsed ?? false,

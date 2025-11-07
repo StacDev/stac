@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-enum IconType {
-  material,
-  cupertino,
-}
+enum IconType { material, cupertino }
 
 final Map<String, IconData> cupertinoIconsMap = {
   'left_chevron': CupertinoIcons.left_chevron,

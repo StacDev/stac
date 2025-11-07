@@ -15,10 +15,9 @@ StacIconThemeData _$StacIconThemeDataFromJson(Map<String, dynamic> json) =>
       opticalSize: (json['opticalSize'] as num?)?.toDouble(),
       color: json['color'] as String?,
       opacity: (json['opacity'] as num?)?.toDouble(),
-      shadows:
-          (json['shadows'] as List<dynamic>?)
-              ?.map((e) => StacShadow.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      shadows: (json['shadows'] as List<dynamic>?)
+          ?.map((e) => StacShadow.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$StacIconThemeDataToJson(StacIconThemeData instance) =>

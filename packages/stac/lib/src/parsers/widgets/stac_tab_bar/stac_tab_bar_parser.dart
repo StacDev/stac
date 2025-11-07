@@ -27,8 +27,9 @@ class StacTabBarParser extends StacParser<StacTabBar> {
   Widget parse(BuildContext context, StacTabBar model) {
     return TabBar(
       controller: controller,
-      tabs:
-          model.tabs.map((t) => t.parse(context) ?? const SizedBox()).toList(),
+      tabs: model.tabs
+          .map((t) => t.parse(context) ?? const SizedBox())
+          .toList(),
       isScrollable: model.isScrollable ?? false,
       padding: model.padding?.parse,
       indicatorColor: model.indicatorColor?.toColor(context),

@@ -39,7 +39,7 @@ class StacIconButtonParser extends StacParser<StacIconButton> {
       onHover: model.onHover == null
           ? null
           : (bool value) =>
-              Stac.onCallFromJson(model.onHover?.toJson(), context),
+                Stac.onCallFromJson(model.onHover?.toJson(), context),
       onLongPress: model.onLongPress == null
           ? null
           : () => Stac.onCallFromJson(model.onLongPress?.toJson(), context),

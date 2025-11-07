@@ -34,10 +34,9 @@ StacCustomTextStyle _$StacCustomTextStyleFromJson(
   decorationThickness: (json['decorationThickness'] as num?)?.toDouble(),
   debugLabel: json['debugLabel'] as String?,
   fontFamily: json['fontFamily'] as String?,
-  fontFamilyFallback:
-      (json['fontFamilyFallback'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
+  fontFamilyFallback: (json['fontFamilyFallback'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
   package: json['package'] as String?,
   overflow: $enumDecodeNullable(_$StacTextOverflowEnumMap, json['overflow']),
 );

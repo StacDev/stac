@@ -28,4 +28,3 @@ extension StacFloatingActionThemeParser on StacFloatingActionButtonThemeData {
     );
   }
 }
-

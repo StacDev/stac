@@ -14,8 +14,9 @@ class StacNetworkService {
     BuildContext context,
     StacNetworkRequest request,
   ) async {
-    Map<String, dynamic> headers =
-        Map<String, dynamic>.from(request.headers ?? {});
+    Map<String, dynamic> headers = Map<String, dynamic>.from(
+      request.headers ?? {},
+    );
     _dio.options.headers = headers;
     _dio.options.contentType = request.contentType;
 
@@ -68,10 +69,7 @@ class StacNetworkService {
     );
   }
 
-  static Future<dynamic> _updateBody(
-    BuildContext context,
-    dynamic body,
-  ) async {
+  static Future<dynamic> _updateBody(BuildContext context, dynamic body) async {
     Map<dynamic, dynamic> bodyMap = {};
 
     if (body is Map) {

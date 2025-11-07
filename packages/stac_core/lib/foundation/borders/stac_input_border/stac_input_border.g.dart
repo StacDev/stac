@@ -11,17 +11,15 @@ StacInputBorder _$StacInputBorderFromJson(Map<String, dynamic> json) =>
       type:
           $enumDecodeNullable(_$StacInputBorderTypeEnumMap, json['type']) ??
           StacInputBorderType.underlineInputBorder,
-      borderRadius:
-          json['borderRadius'] == null
-              ? null
-              : StacBorderRadius.fromJson(json['borderRadius']),
+      borderRadius: json['borderRadius'] == null
+          ? null
+          : StacBorderRadius.fromJson(json['borderRadius']),
       gapPadding: const DoubleConverter().fromJson(json['gapPadding']),
       width: const DoubleConverter().fromJson(json['width']),
       color: json['color'] as String?,
-      gradient:
-          json['gradient'] == null
-              ? null
-              : StacGradient.fromJson(json['gradient'] as Map<String, dynamic>),
+      gradient: json['gradient'] == null
+          ? null
+          : StacGradient.fromJson(json['gradient'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacInputBorderToJson(StacInputBorder instance) =>

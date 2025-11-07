@@ -21,8 +21,9 @@ class StacTableParser extends StacParser<StacTable> {
   Widget parse(BuildContext context, StacTable model) {
     return Table(
       children: model.children.map((row) => row.parse(context)).toList(),
-      columnWidths:
-          model.columnWidths?.map((key, value) => MapEntry(key, value.parse)),
+      columnWidths: model.columnWidths?.map(
+        (key, value) => MapEntry(key, value.parse),
+      ),
       defaultColumnWidth: model.defaultColumnWidth != null
           ? model.defaultColumnWidth!.parse
           : const FlexColumnWidth(),
@@ -30,7 +31,8 @@ class StacTableParser extends StacParser<StacTable> {
       border: model.border != null
           ? StacTableBorderParser(model.border!).parse(context)
           : null,
-      defaultVerticalAlignment: model.defaultVerticalAlignment?.parse ??
+      defaultVerticalAlignment:
+          model.defaultVerticalAlignment?.parse ??
           TableCellVerticalAlignment.top,
       textBaseline: model.textBaseline?.parse,
     );

@@ -35,12 +35,7 @@ class StacError {
   /// The [error] parameter is required and should contain the actual
   /// error or exception that was thrown. All other parameters are optional
   /// but recommended for better error diagnostics.
-  const StacError({
-    this.type,
-    required this.error,
-    this.json,
-    this.stackTrace,
-  });
+  const StacError({this.type, required this.error, this.json, this.stackTrace});
 
   /// The type identifier of the failing Stac entity.
   ///
@@ -117,10 +112,7 @@ class StacError {
 /// )
 /// ```
 class StacErrorWidget extends StatefulWidget {
-  const StacErrorWidget({
-    super.key,
-    required this.errorDetails,
-  });
+  const StacErrorWidget({super.key, required this.errorDetails});
 
   final StacError errorDetails;
 
@@ -212,16 +204,16 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Icon(Icons.warning_amber,
-                    color: _warningOrange, size: 16),
+                const Icon(
+                  Icons.warning_amber,
+                  color: _warningOrange,
+                  size: 16,
+                ),
                 const SizedBox(width: 8),
                 Expanded(
                   child: Text(
                     widget.errorDetails.error.toString(),
-                    style: const TextStyle(
-                      color: _errorRed,
-                      fontSize: 13,
-                    ),
+                    style: const TextStyle(color: _errorRed, fontSize: 13),
                   ),
                 ),
               ],
@@ -239,9 +231,7 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
               _buildExpandableSection(
                 title: 'JSON Data',
                 section: _ExpandableSection.json,
-                child: _buildCodeBlock(
-                  _formatJson(widget.errorDetails.json!),
-                ),
+                child: _buildCodeBlock(_formatJson(widget.errorDetails.json!)),
               ),
               const SizedBox(height: 8),
             ],
@@ -391,18 +381,16 @@ class _StacErrorWidgetState extends State<StacErrorWidget> {
             ),
           ),
         ),
-        if (isExpanded) ...[
-          const SizedBox(height: 4),
-          child,
-        ],
+        if (isExpanded) ...[const SizedBox(height: 4), child],
       ],
     );
   }
 
   String _getTroubleshootingTips() {
     final errorStr = widget.errorDetails.error.toString().toLowerCase();
-    final errorType =
-        widget.errorDetails.error.runtimeType.toString().toLowerCase();
+    final errorType = widget.errorDetails.error.runtimeType
+        .toString()
+        .toLowerCase();
 
     // Check for unregistered widget/action types
     if (errorStr.contains('type') && errorStr.contains('not found')) {

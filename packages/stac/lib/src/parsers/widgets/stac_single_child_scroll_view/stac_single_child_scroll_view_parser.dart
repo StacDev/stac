@@ -33,7 +33,8 @@ class StacSingleChildScrollViewParser
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,
       clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
       restorationId: model.restorationId,
-      keyboardDismissBehavior: model.keyboardDismissBehavior?.parse ??
+      keyboardDismissBehavior:
+          model.keyboardDismissBehavior?.parse ??
           ScrollViewKeyboardDismissBehavior.manual,
       child: model.child?.parse(context),
     );

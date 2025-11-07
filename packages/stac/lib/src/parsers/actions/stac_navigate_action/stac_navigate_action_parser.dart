@@ -81,11 +81,7 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
         break;
 
       case NavigationStyle.pushNamed:
-        return Navigator.pushNamed(
-          context,
-          routeName!,
-          arguments: arguments,
-        );
+        return Navigator.pushNamed(context, routeName!, arguments: arguments);
 
       case NavigationStyle.pushNamedAndRemoveAll:
         return Navigator.pushNamedAndRemoveUntil(

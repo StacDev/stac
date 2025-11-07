@@ -13,14 +13,15 @@ class StacFormScope extends InheritedWidget {
   final GlobalKey<FormState> formKey;
 
   static StacFormScope? of(BuildContext context) {
-    final StacFormScope? result =
-        context.dependOnInheritedWidgetOfExactType<StacFormScope>();
+    final StacFormScope? result = context
+        .dependOnInheritedWidgetOfExactType<StacFormScope>();
 
     if (result != null) {
       return result;
     } else {
       Log.e(
-          "StacFormScope.of() called with a context that does not contain a StacFormScope.");
+        "StacFormScope.of() called with a context that does not contain a StacFormScope.",
+      );
       return null;
     }
   }
