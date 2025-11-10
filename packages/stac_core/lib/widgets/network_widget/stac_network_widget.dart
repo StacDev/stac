@@ -38,10 +38,20 @@ part 'stac_network_widget.g.dart';
 @JsonSerializable()
 class StacNetworkWidget extends StacWidget {
   /// Creates a [StacNetworkWidget].
-  const StacNetworkWidget({required this.request});
+  const StacNetworkWidget({
+    required this.request,
+    this.loadingWidget,
+    this.errorWidget,
+  });
 
   /// The network request to execute.
   final StacNetworkRequest request;
+
+  /// Optional widget to render while the network request is in progress.
+  final StacWidget? loadingWidget;
+
+  /// Optional widget to render if the network request fails.
+  final StacWidget? errorWidget;
 
   /// Widget type identifier.
   @override

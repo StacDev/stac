@@ -1440,5 +1440,27 @@
         "assetPath": "assets/json/backdrop_filter_example.json"
       }
     }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "cloud_download"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Network Widget"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Fetch data from network with loading and error states"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/network_widget_example.json"
+      }
+    }
   }
 ]
