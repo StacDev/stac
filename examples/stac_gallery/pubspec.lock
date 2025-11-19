@@ -290,10 +290,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_svg
-      sha256: d44bf546b13025ec7353091516f6881f1d4c633993cb109c3916c3a0159dadf1
+      sha256: "055de8921be7b8e8b98a233c7a5ef84b3a6fcc32f46f1ebf5b9bb3576d108355"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.2.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -463,10 +463,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: e3641ec5d63ebf0d9b41bd43201a66e3fc79a65db5f61fc181f04cd27aab950c
+      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
       url: "https://pub.dev"
     source: hosted
-    version: "1.16.0"
+    version: "1.17.0"
   mime:
     dependency: transitive
     description:
@@ -726,21 +726,21 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "1.0.1"
+    version: "1.1.0"
   stac_core:
     dependency: "direct main"
     description:
       path: "../../packages/stac_core"
       relative: true
     source: path
-    version: "1.0.0"
+    version: "1.1.0"
   stac_framework:
     dependency: "direct overridden"
     description:
       path: "../../packages/stac_framework"
       relative: true
     source: path
-    version: "0.4.0"
+    version: "1.0.0"
   stac_logger:
     dependency: "direct overridden"
     description:
@@ -754,7 +754,7 @@ packages:
       path: "../../packages/stac_webview"
       relative: true
     source: path
-    version: "0.2.0"
+    version: "1.0.0"
   stack_trace:
     dependency: transitive
     description:
@@ -807,10 +807,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "522f00f556e73044315fa4585ec3270f1808a4b186c936e612cab0b565ff1e00"
+      sha256: ab2726c1a94d3176a45960b6234466ec367179b87dd74f1611adb1f3b5fb9d55
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.6"
+    version: "0.7.7"
   timing:
     dependency: transitive
     description:
@@ -965,4 +965,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.8.0-0 <4.0.0"
-  flutter: ">=3.27.0"
+  flutter: ">=3.29.0"
