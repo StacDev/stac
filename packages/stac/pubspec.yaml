@@ -18,13 +18,12 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^4.9.0
-  logger: ^2.5.0
-  dio: ^5.8.0+1
+  dio: ^5.9.0
   stac_framework: ^1.0.0
   cached_network_image: ^3.4.1
   flutter_svg: ^2.2.2
   stac_logger: ^1.1.0
-  stac_core: ^1.0.0
+  stac_core: ^1.1.0
 
 dev_dependencies:
   flutter_test:
