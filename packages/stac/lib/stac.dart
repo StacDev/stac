@@ -1,4 +1,5 @@
 export 'package:stac/src/framework/framework.dart';
+export 'package:stac/src/models/models.dart';
 export 'package:stac/src/parsers/actions/actions.dart';
 export 'package:stac/src/parsers/parsers.dart';
 export 'package:stac/src/services/services.dart';
