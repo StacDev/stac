@@ -6,43 +6,40 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
 ## Installation
 
 <Tabs>
-<Tab title="macOS / Linux">
+  <Tab title="macOS / Linux">
+    ```bash
+    # Install Stac CLI
+    curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+    ```
 
-```bash
-# Install Stac CLI
-curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
-
-# Verify installation
-stac --version
-```
-
-</Tab>
-<Tab title="Windows">
-
-```bash
-# Install Stac CLI
-irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
-
-# Verify installation
-stac --version
-```
-
-</Tab>
+    ```bash
+    # Verify installation
+    stac --version
+    ```
+  </Tab>
+  <Tab title="Windows">
+    ```bash
+    # Install Stac CLI
+    irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+    
+    # Verify installation
+    stac --version
+    ```
+  </Tab>
 </Tabs>
-
 
 ## Available Commands
 
-| Command | Description | Requires Auth |
-|---------|-------------|---------------|
-| `login` | Authenticate with Google OAuth | No |
-| `logout` | Clear stored authentication tokens | No |
-| `status` | Show authentication status | No |
-| `init` | Initialize Stac in project | Yes |
-| `build` | Convert Dart widgets to JSON | No |
-| `deploy` | Build and deploy to Stac Cloud | Yes |
-| `project list` | List all cloud projects | Yes |
-| `project create` | Create new cloud project | Yes |
+| Command          | Description                        | Requires Auth |
+| ---------------- | ---------------------------------- | ------------- |
+| `login`          | Authenticate with Google OAuth     | No            |
+| `logout`         | Clear stored authentication tokens | No            |
+| `status`         | Show authentication status         | No            |
+| `init`           | Initialize Stac in project         | Yes           |
+| `build`          | Convert Dart widgets to JSON       | No            |
+| `deploy`         | Build and deploy to Stac Cloud     | Yes           |
+| `project list`   | List all cloud projects            | Yes           |
+| `project create` | Create new cloud project           | Yes           |
 
 ## Authentication
 
@@ -52,10 +49,10 @@ Before using most CLI commands, you'll need to authenticate with Stac Cloud.
 
 ```bash
 # Authenticate with Google OAuth
-stac login
-
+#
 # This opens your browser for OAuth authentication
 # Your credentials are securely stored locally
+stac login
 ```
 
 ### Check Status
@@ -75,7 +72,6 @@ stac logout
 ## Initialize Stac
 
 Use this to set up Stac in an existing Flutter/Dart project. It links your local app to a Stac Cloud project and scaffolds required files.
-
 
 ```bash
 # Initialize Stac in the current project
@@ -121,11 +117,11 @@ stac build --verbose
 
 #### Build Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `-p, --project` | Project directory path | Current directory |
-| `--validate` | Validate generated JSON | `true` |
-| `-v, --verbose` | Show detailed build output | `false` |
+| Option          | Description                | Default           |
+| --------------- | -------------------------- | ----------------- |
+| `-p, --project` | Project directory path     | Current directory |
+| `--validate`    | Validate generated JSON    | `true`            |
+| `-v, --verbose` | Show detailed build output | `false`           |
 
 The build command converts Stac widget definitions from the `stac/` folder into JSON format in the `build/` folder.
 
@@ -149,14 +145,14 @@ stac deploy --verbose
 
 ### Deployment Options
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `-p, --project` | Project directory path | Current directory |
-| `--skip-build` | Skip building before deployment | `false` |
-| `-v, --verbose` | Show detailed deployment output | `false` |
+| Option          | Description                     | Default           |
+| --------------- | ------------------------------- | ----------------- |
+| `-p, --project` | Project directory path          | Current directory |
+| `--skip-build`  | Skip building before deployment | `false`           |
+| `-v, --verbose` | Show detailed deployment output | `false`           |
 
 <Note>
-By default, `stac deploy` automatically runs `stac build` before deploying. Use `--skip-build` to deploy existing build files without rebuilding.
+  By default, `stac deploy` automatically runs `stac build` before deploying. Use `--skip-build` to deploy existing build files without rebuilding.
 </Note>
 
 ## Cloud Project Management
@@ -172,6 +168,7 @@ stac project list --json
 ```
 
 The list command shows:
+
 - Project name and ID
 - Project description
 - Created and updated timestamps
@@ -214,9 +211,8 @@ stac deploy
 
 ### Global Options
 
-| Option | Description |
-|--------|-------------|
+| Option          | Description                    |
+| --------------- | ------------------------------ |
 | `-v, --verbose` | Show additional command output |
-| `--version` | Print tool version |
-| `--help` | Print usage information |
-
+| `--version`     | Print tool version             |
+| `--help`        | Print usage information        |
