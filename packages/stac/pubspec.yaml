@@ -24,6 +24,7 @@ dependencies:
   flutter_svg: ^2.2.2
   stac_logger: ^1.1.0
   stac_core: ^1.1.0
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   flutter_test:
