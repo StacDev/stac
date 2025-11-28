@@ -3,32 +3,51 @@ title: "WebView"
 description: "앱 안에서 웹 페이지 렌더링"
 ---
 
-`webView`는 `stac_webview` 플러그인을 통해 구현되며, 초기화 시 `StacWebViewParser`를 등록해야 합니다.
+Stac `webView` 위젯은 [webview_flutter](https://pub.dev/packages/webview_flutter) 플러그인을 기반으로 하며 JSON으로 정의한 WebView를 앱 안에 표시합니다.
 
-## 의존성 추가
+## 사용 방법
 
-```bash
-flutter pub add stac_webview
-```
+1. `stac_webview` 의존성 추가
 
-```dart
-await Stac.initialize(
-  parsers: const [
-    StacWebViewParser(),
-  ],
-);
-```
+   프로젝트 루트에서 다음 명령을 실행하거나,
+
+   ```bash
+   flutter pub add stac_webview
+   ```
+
+   `pubspec.yaml`에 직접 추가할 수 있습니다.
+
+   ```yaml
+   dependencies:
+     stac_webview:
+   ```
+
+2. `StacWebViewParser` 등록
+
+   `Stac.initialize` 호출 시 파서 목록에 추가해야 JSON에서 `webView` 타입을 사용할 수 있습니다.
+
+   ```dart
+   void main() async {
+     await Stac.initialize(
+       parsers: const [
+         StacWebViewParser(),
+       ],
+     );
+
+     runApp(const MyApp());
+   }
+   ```
 
 ## 속성
 
 | 속성 | 타입 | 설명 |
 |------|------|------|
-| url | `String` | 로드할 URL |
-| javaScriptMode | `JavaScriptMode` | 자바스크립트 실행 모드(기본 `unrestricted`) |
-| backgroundColor | `String` | 배경색(기본 `#FFFFFF`) |
-| userAgent | `String?` | 사용자 에이전트 |
-| enableZoom | `bool` | 줌 허용 여부(기본 `false`) |
-| layoutDirection | `TextDirection` | 레이아웃 방향 |
+| `url` | `String` | 로드할 웹 페이지 URL. |
+| `javaScriptMode` | `JavaScriptMode` | 자바스크립트 실행 모드. 기본값은 `JavaScriptMode.unrestricted`. |
+| `backgroundColor` | `String` | WebView 배경색. 기본값 `#FFFFFF`. |
+| `userAgent` | `String?` | 사용자 지정 User-Agent 문자열. |
+| `enableZoom` | `bool` | 줌 허용 여부. 기본값 `false`. |
+| `layoutDirection` | `TextDirection` | 레이아웃 방향. 기본값 `TextDirection.ltr`. |
 
 ## 예제
 

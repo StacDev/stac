@@ -3,7 +3,7 @@ title: "BottomNavigationBar"
 description: "하단 탭 바 + 컨트롤러"
 ---
 
-`bottomNavigationBar`는 Flutter `BottomNavigationBar`를 JSON으로 구성합니다. 여러 페이지를 전환하려면 `defaultBottomNavigationController`와 `bottomNavigationView`를 함께 사용합니다.
+`bottomNavigationBar`는 Flutter `BottomNavigationBar`를 JSON으로 구성합니다. 여러 페이지를 전환하려면 `defaultBottomNavigationController`와 `bottomNavigationView`를 함께 사용합니다. Flutter 위젯 자체에 대한 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html)를 참고하세요.
 
 ## 속성
 
@@ -12,16 +12,22 @@ description: "하단 탭 바 + 컨트롤러"
 | items | `List<StacBottomNavigationBarItem>` | 표시할 탭 목록 |
 | elevation | `double?` | 높이(그림자) |
 | bottomNavigationBarType | `BottomNavigationBarType?` | `fixed` / `shifting` |
-| fixedColor / selectedItemColor / unselectedItemColor | `String?` | 선택/비선택 색상 |
+| fixedColor | `String?` | `type`이 `BottomNavigationBarType.fixed`일 때 선택된 아이템 색상 |
+| selectedItemColor | `String?` | 선택된 아이템 색상 |
+| unselectedItemColor | `String?` | 비선택 아이템 색상 |
 | backgroundColor | `String?` | 배경색 |
 | iconSize | `double` | 아이콘 크기(기본 24) |
-| selectedFontSize / unselectedFontSize | `double` | 라벨 폰트 크기 |
-| selectedLabelStyle / unselectedLabelStyle | `StacTextStyle?` | 라벨 스타일 |
+| selectedFontSize | `double` | 선택된 라벨 폰트 크기(기본 14) |
+| unselectedFontSize | `double` | 비선택 라벨 폰트 크기(기본 12) |
+| selectedLabelStyle | `StacTextStyle?` | 선택된 라벨 텍스트 스타일 |
+| unselectedLabelStyle | `StacTextStyle?` | 비선택 라벨 텍스트 스타일 |
 | showSelectedLabels / showUnselectedLabels | `bool?` | 라벨 표시 여부 |
 | enableFeedback | `bool?` | 탭 피드백 |
 | landscapeLayout | `BottomNavigationBarLandscapeLayout?` | 가로 모드 레이아웃 |
 
-### DefaultBottomNavigationController
+## DefaultBottomNavigationController
+
+`defaultBottomNavigationController`는 `BottomNavigationController`를 트리에 공유하는 상속 위젯입니다. 이를 통해 `bottomNavigationBar`나 `bottomNavigationView`가 동일한 컨트롤러 상태를 참조해 현재 선택된 탭을 동기화합니다.
 
 | 속성 | 타입 | 설명 |
 |------|------|------|
@@ -29,16 +35,19 @@ description: "하단 탭 바 + 컨트롤러"
 | initialIndex | `int?` | 초기 선택 인덱스 |
 | child | `Map<String,dynamic>` | 하위 위젯 |
 
-### BottomNavigationBarItem
+## BottomNavigationBarItem
+
+`navigationBarItem`은 Flutter `BottomNavigationBarItem`을 JSON으로 정의합니다. 각 항목은 아이콘과 라벨을 갖고, 활성/비활성 상태별 아이콘과 배경을 따로 지정할 수 있습니다. Flutter 위젯에 대한 더 많은 정보는 [공식 문서](https://api.flutter.dev/flutter/widgets/BottomNavigationBarItem-class.html)를 참고하세요.
 
 | 속성 | 타입 | 설명 |
 |------|------|------|
-| icon / activeIcon | `Map<String,dynamic>` | 기본/선택 상태 아이콘 |
+| icon | `Map<String,dynamic>` | 기본 상태 아이콘 |
+| activeIcon | `Map<String,dynamic>?` | 선택 상태 아이콘 |
 | label | `String` | 라벨 |
 | backgroundColor | `String?` | 항목 배경 |
 | tooltip | `String?` | 길게 누를 때 표시되는 텍스트 |
 
-### BottomNavigationView
+## BottomNavigationView
 
 선택된 탭에 대응하는 자식을 보여주는 뷰입니다.
 
@@ -54,21 +63,78 @@ description: "하단 탭 바 + 컨트롤러"
   "length": 3,
   "child": {
     "type": "scaffold",
-    "appBar": { "type": "appBar", "title": { "type": "text", "data": "Bottom Navigation Screen" } },
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Bottom Navigation Screen"
+      }
+    },
     "body": {
       "type": "bottomNavigationView",
       "children": [
-        { "type": "center", "child": { "type": "text", "data": "Home", "style": { "fontSize": 24 } } },
-        { "type": "center", "child": { "type": "text", "data": "Search", "style": { "fontSize": 24 } } },
-        { "type": "center", "child": { "type": "text", "data": "Profile", "style": { "fontSize": 24 } } }
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
       ]
     },
     "bottomNavigationBar": {
       "type": "bottomNavigationBar",
       "items": [
-        { "type": "navigationBarItem", "label": "Home", "icon": { "type": "icon", "icon": "home" } },
-        { "type": "navigationBarItem", "label": "Search", "icon": { "type": "icon", "icon": "search" } },
-        { "type": "navigationBarItem", "label": "Profile", "icon": { "type": "icon", "icon": "account_circle" } }
+        {
+          "type": "navigationBarItem",
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
       ]
     }
   }
