@@ -1,0 +1,44 @@
+---
+title: "CarouselView"
+description: "여러 아이템을 슬라이드로 보여주기"
+---
+
+`carouselView`는 가로/세로로 스크롤되는 캐러셀을 생성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| carouselType | `StacCarouselViewType` | `regular`, `weighted` 등 |
+| padding | `StacEdgeInsets?` | 캐러셀 주변 여백 |
+| backgroundColor / overlayColor | `String?` | 배경 및 오버레이 색 |
+| elevation | `double?` | 그림자 높이 |
+| itemSnapping | `bool` | 아이템 스냅 여부 |
+| shrinkExtent | `double` | 수축 정도(기본 0) |
+| scrollDirection | `Axis` | 스크롤 방향(기본 horizontal) |
+| reverse | `bool` | 역방향 스크롤 |
+| onTap | `Map<String,dynamic>?` | 아이템 탭 시 콜백 |
+| enableSplash | `bool` | 스플래시 효과(기본 true) |
+| itemExtent | `double?` | 각 아이템 폭/높이 |
+| flexWeights | `List<int>?` | 가중치 기반 레이아웃일 때 비율 |
+| children | `List<Map<String,dynamic>>` | 캐러셀 항목 |
+
+## 예제
+
+```json
+{
+  "type": "carouselView",
+  "carouselType": "weighted",
+  "padding": 12,
+  "backgroundColor": "#FFFFFF",
+  "itemSnapping": true,
+  "scrollDirection": "horizontal",
+  "itemExtent": 300,
+  "flexWeights": [1, 7, 1],
+  "children": [
+    { "type": "image", "height": 400, "fit": "cover", "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png" },
+    { "type": "image", "height": 400, "fit": "cover", "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png" },
+    { "type": "image", "height": 400, "fit": "cover", "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png" }
+  ]
+}
+```

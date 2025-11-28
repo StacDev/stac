@@ -1,0 +1,27 @@
+---
+title: "TableCell"
+description: "표의 셀 정의"
+---
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| verticalAlignment | `TableCellVerticalAlignment?` | `top`, `middle`, `bottom`, `baseline`, `fill`, `intrinsicHeight` 등 |
+| child | `Map<String,dynamic>` | 셀 내부 자식 |
+
+## 예제
+
+```json
+{
+  "type": "tableCell",
+  "verticalAlignment": "top",
+  "child": {
+    "type": "container",
+    "color": "#40000000",
+    "height": 50.0,
+    "child": {
+      "type": "center",
+      "child": { "type": "text", "data": "Header 1" }
+    }
+  }
+}
+```

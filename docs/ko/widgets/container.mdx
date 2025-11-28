@@ -1,0 +1,56 @@
+---
+title: "Container"
+description: "Container 위젯을 JSON으로 정의하는 방법"
+---
+
+Stac `container`는 Flutter `Container`를 JSON 구성으로 만들 수 있게 해 줍니다. 위젯 자체에 대한 자세한 설명은 [Flutter 공식 문서](https://api.flutter.dev/flutter/widgets/Container-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| alignment | `StacAlignment` | 자식 정렬 방식 |
+| padding | `StacEdgeInsets` | 자식 주변 여백 |
+| decoration | `StacBoxDecoration` | 자식 뒤 배경/테두리 데코레이션 |
+| foregroundDecoration | `StacBoxDecoration` | 자식 앞에 그려질 데코레이션 |
+| color | `String` | 배경 색상(hex) |
+| width | `double` | 컨테이너 너비 |
+| height | `double` | 컨테이너 높이 |
+| constraints | `StacBoxConstraints` | 추가 제약 조건 |
+| margin | `StacEdgeInsets` | 바깥쪽 여백 |
+| child | `Map<String, dynamic>` | 자식 위젯 |
+| clipBehavior | `Clip` | 잘라내기 동작 |
+
+## 예제
+
+```json
+{
+  "type":  "container",
+  "alignment":  "center",
+  "padding":  {
+    "top":  16.0,
+    "bottom":  16.0,
+    "left":  16.0,
+    "right":  16.0
+  },
+  "decoration":  {
+    "color":  "#FF5733",
+    "borderRadius":  {
+      "topLeft":  16.0,
+      "topRight":  16.0,
+      "bottomLeft":  16.0,
+      "bottomRight":  16.0
+    }
+  },
+  "width":  200.0,
+  "height":  200.0,
+  "child":  {
+    "type":  "text",
+    "data":  "Hello, World!",
+    "style":  {
+      "color":  "#FFFFFF",
+      "fontSize":  24.0
+    }
+  }
+}
+```

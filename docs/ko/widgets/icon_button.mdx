@@ -1,0 +1,49 @@
+---
+title: "IconButton"
+description: "아이콘을 눌러 동작시키기"
+---
+
+`iconButton`은 아이콘을 포함한 버튼입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| icon / selectedIcon | `Map<String,dynamic>?` | 기본/선택 상태 아이콘 |
+| iconSize | `double?` | 아이콘 크기 |
+| padding | `StacEdgeInsets?` | 내부 여백 |
+| alignment | `StacAlignment?` | 아이콘 정렬 |
+| splashRadius | `double?` | 스플래시 반경 |
+| color / focusColor / hoverColor / highlightColor / splashColor / disabledColor | `String?` | 다양한 상태별 색상 |
+| onPressed | `Map<String,dynamic>?` | 탭 시 액션 |
+| autofocus | `bool` | 자동 포커스 여부 |
+| tooltip | `String?` | 롱프레스 툴팁 |
+| enableFeedback | `bool?` | 음향/진동 피드백 |
+| constraints | `StacBoxConstraints?` | 버튼 최소 크기 등 |
+| style | `StacButtonStyle?` | 배경/전경 스타일 |
+| isSelected | `bool?` | 선택 상태 |
+
+## 예제
+
+```json
+{
+  "type": "iconButton",
+  "iconSize": 24.0,
+  "padding": { "left": 8.0, "top": 8.0, "right": 8.0, "bottom": 8.0 },
+  "alignment": "center",
+  "splashRadius": 20.0,
+  "color": "#000000",
+  "focusColor": "#FFC107",
+  "hoverColor": "#FF9800",
+  "highlightColor": "#FF5722",
+  "splashColor": "#FFEB3B",
+  "disabledColor": "#BDBDBD",
+  "onPressed": {},
+  "tooltip": "Add Item",
+  "enableFeedback": true,
+  "constraints": { "minWidth": 48.0, "minHeight": 48.0 },
+  "style": { "backgroundColor": "#FFC107", "foregroundColor": "#000000" },
+  "selectedIcon": { "type": "icon", "icon": "check" },
+  "icon": { "type": "icon", "icon": "add" }
+}
+```

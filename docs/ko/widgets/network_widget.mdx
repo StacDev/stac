@@ -1,0 +1,27 @@
+---
+title: "NetworkWidget"
+description: "네트워크 요청 결과를 렌더링"
+---
+
+`networkWidget`은 `StacNetworkRequest`를 실행해 응답에 따라 내부 위젯을 렌더링합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| request | `StacNetworkRequest` | 요청 설정(URL, method, headers 등) |
+
+## 예제
+
+```json
+{
+  "type": "networkWidget",
+  "request": {
+    "url": "https://api.example.com/data",
+    "method": "get",
+    "headers": {
+      "Authorization": "Bearer token"
+    }
+  }
+}
+```

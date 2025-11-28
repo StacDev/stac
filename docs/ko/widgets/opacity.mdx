@@ -1,0 +1,25 @@
+---
+title: "Opacity"
+description: "자식의 투명도 조절"
+---
+
+`opacity`는 자식 위젯의 투명도를 0~1 사이 값으로 제어합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| opacity | `double` | 0.0은 완전 투명, 1.0은 불투명 |
+| child | `Map<String,dynamic>` | 투명도를 적용할 자식 |
+
+## 예제
+
+```json
+{
+  "type": "opacity",
+  "opacity": 0.5,
+  "child": {
+    "type": "text",
+    "data": "Opacity Widget",
+    "style": { "fontSize": 23, "fontWeight": "w600" }
+  }
+}
+```

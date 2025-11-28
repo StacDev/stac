@@ -1,0 +1,30 @@
+---
+title: "Visibility"
+description: "위젯의 표시 여부를 제어"
+---
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>` | 기본 표시 위젯 |
+| replacement | `Map<String,dynamic>?` | `visible=false`일 때 대신 렌더링할 위젯(기본 `SizedBox.shrink`) |
+| visible | `bool` | 표시 여부(기본 `true`) |
+| maintainState / maintainAnimation / maintainSize / maintainSemantics / maintainInteractivity | `bool` | 숨김 상태에서도 상태/애니메이션/크기/접근성/인터랙션을 유지할지 |
+
+## 예제
+
+```json
+{
+  "type": "visibility",
+  "child": { "type": "text", "data": "I am visible!" },
+  "visible": true
+}
+```
+
+```json
+{
+  "type": "visibility",
+  "child": { "type": "text", "data": "I am hidden!" },
+  "replacement": { "type": "container", "color": "#FF5733", "width": 50, "height": 50 },
+  "visible": false
+}
+```

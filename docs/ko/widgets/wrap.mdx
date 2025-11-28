@@ -1,0 +1,37 @@
+---
+title: "Wrap"
+description: "자동 줄바꿈 레이아웃"
+---
+
+`wrap`은 공간이 부족하면 다음 줄로 넘어가며 자식을 배치합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| axis | `Axis` | 주축 방향(`horizontal` 기본) |
+| alignment | `WrapAlignment` | 한 줄 내부에서의 정렬 |
+| spacing | `double` | 같은 줄 내 자식 간 간격 |
+| runAlignment | `WrapAlignment` | 줄 자체의 정렬 |
+| runSpacing | `double` | 줄과 줄 사이 간격 |
+| crossAxisAlignment | `WrapCrossAxisAlignment` | 한 줄 내부 교차축 정렬 |
+| textDirection | `TextDirection` | 가로 방향 해석 |
+| verticalDirection | `VerticalDirection` | 세로 방향 해석 |
+| clipBehavior | `Clip` | 클리핑 방식 |
+| children | `List<Map<String,dynamic>>` | 자식 목록 |
+
+## 예제
+
+```json
+{
+  "type": "wrap",
+  "spacing": 8.0,
+  "runSpacing": 4.0,
+  "children": [
+    { "type": "container", "color": "#FFCDD2", "width": 100, "height": 100, "child": { "type": "center", "child": { "type": "text", "data": "1", "style": { "color": "#FFFFFF" }}} },
+    { "type": "container", "color": "#F8BBD0", "width": 100, "height": 100, "child": { "type": "center", "child": { "type": "text", "data": "2", "style": { "color": "#FFFFFF" }}} },
+    { "type": "container", "color": "#E1BEE7", "width": 100, "height": 100, "child": { "type": "center", "child": { "type": "text", "data": "3", "style": { "color": "#FFFFFF" }}} },
+    { "type": "container", "color": "#D1C4E9", "width": 100, "height": 100, "child": { "type": "center", "child": { "type": "text", "data": "4", "style": { "color": "#FFFFFF" }}} }
+  ]
+}
+```

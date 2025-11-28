@@ -1,0 +1,57 @@
+---
+title: "SnackBar 액션"
+description: "Flutter SnackBar를 JSON으로 표시"
+---
+
+Stac `showSnackBar`는 Flutter `SnackBar`를 JSON으로 구성해 보여 줍니다. 자세한 위젯 설명은 [공식 문서](https://api.flutter.dev/flutter/material/SnackBar-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| content | `Map<String, dynamic>` | 스낵바에 표시할 본문 위젯 |
+| backgroundColor | `String` | 배경 색상 |
+| elevation | `double` | 그림자 깊이 |
+| margin | `StacEdgeInsets` | 바깥 여백 |
+| padding | `StacEdgeInsets` | 내부 여백 |
+| width | `double` | 스낵바 너비 |
+| shape | `StacShapeBorder` | 모양 |
+| hitTestBehavior | `HitTestBehavior` | 스낵바 영역의 히트 테스트 방식 |
+| behavior | `SnackBarBehavior` | 배치/동작 방식 (`fixed`, `floating` 등) |
+| action | `StacSnackBarAction` | 사용자 액션 버튼 |
+| actionOverflowThreshold | `double` | 액션 너비가 줄바꿈되는 임계값 |
+| showCloseIcon | `bool` | 닫기 아이콘 표시 여부 |
+| closeIconColor | `String` | 닫기 아이콘 색상 |
+| duration | `StacDuration` | 표시 지속 시간 |
+| onVisible | `Map<String, dynamic>` | 처음 표시될 때 실행할 액션 |
+| dismissDirection | `DismissDirection` | 스와이프로 닫을 수 있는 방향 |
+| clipBehavior | `Clip` | 클리핑 동작 |
+
+### SnackBarAction 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| textColor | `String` | 버튼 텍스트 색 |
+| disabledTextColor | `String` | 비활성 텍스트 색 |
+| backgroundColor | `String` | 버튼 배경색 |
+| disabledBackgroundColor | `String` | 비활성 배경색 |
+| label | `String` | 버튼 라벨 |
+| onPressed | `Map<String, dynamic>` | 버튼 탭 시 실행할 액션 |
+
+## 예제
+
+```json
+{
+  "actionType": "showSnackBar",
+  "content": {
+    "type": "text",
+    "data": "This is a Snackbar"
+  },
+  "action": {
+    "label": "Done",
+    "textColor": "#73C2FB",
+    "onPressed": {}
+  },
+  "behavior": "floating"
+}
+```

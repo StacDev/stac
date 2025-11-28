@@ -1,0 +1,48 @@
+---
+title: "SliverAppBar"
+description: "스크롤 위치에 따라 동작하는 AppBar"
+---
+
+`sliverAppBar`는 `CustomScrollView` 내에서 확장/축소/스냅되는 앱바입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| leading / title / titleTextStyle / toolbarTextStyle | `Map` / `StacTextStyle?` | 기본 AppBar 속성과 동일 |
+| actions / bottom / actionsPadding | `List<Map>` / `Map?` | 액션 영역 |
+| backgroundColor / foregroundColor / surfaceTintColor / shadowColor | `String?` | 색상 |
+| toolbarHeight / leadingWidth / titleSpacing | `double?` | 레이아웃 크기 |
+| toolbarOpacity / bottomOpacity | `double` | 투명도 |
+| primary | `bool` | 기본 AppBar인지 |
+| centerTitle | `bool?` | 제목 중앙 정렬 |
+| elevation / scrolledUnderElevation | `double?` | 그림자 높이 |
+| flexibleSpace | `Map<String,dynamic>?` | Toolbar 뒤에 겹쳐질 위젯 |
+| expandedHeight / collapsedHeight | `double?` | 확장/축소 시 높이 |
+| floating / pinned / snap / stretch | `bool` | 스크롤 동작 설정 |
+| stretchTriggerOffset | `double?` | 스트레치 트리거 오프셋 |
+| shape | `Map<String,dynamic>?` | 모양 |
+| iconTheme / actionsIconTheme | `Map<String,dynamic>?` | 아이콘 테마 |
+| actionsPadding | `Map<String,dynamic>?` | 액션 패딩 |
+
+## 예제
+
+```json
+{
+  "type": "sliverAppBar",
+  "title": { "type": "text", "data": "SliverAppBar" },
+  "leading": {
+    "type": "iconButton",
+    "icon": { "type": "icon", "icon": "menu" },
+    "onPressed": {}
+  },
+  "backgroundColor": "primary",
+  "actions": [
+    {
+      "type": "iconButton",
+      "icon": { "type": "icon", "iconType": "cupertino", "icon": "heart_solid" },
+      "onPressed": {}
+    }
+  ]
+}
+```

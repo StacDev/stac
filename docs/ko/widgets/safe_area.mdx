@@ -1,0 +1,28 @@
+---
+title: "SafeArea"
+description: "시스템 영역을 피하도록 패딩 추가"
+---
+
+`safeArea`는 노치·상태바 등을 피하기 위해 자동으로 패딩을 추가합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>` | SafeArea 안에 들어갈 자식 |
+| left/top/right/bottom | `bool` | 해당 방향에서 시스템 침범을 피할지 |
+| minimum | `StacEdgeInsets` | 최소 패딩 |
+| maintainBottomViewPadding | `bool` | 키보드 등으로 인한 `viewPadding.bottom`을 유지할지 |
+
+## 예제
+
+```json
+{
+  "type": "safeArea",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": { "color": "#FFFFFF", "fontSize": 24.0 }
+  }
+}
+```

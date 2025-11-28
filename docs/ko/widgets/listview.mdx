@@ -1,0 +1,54 @@
+---
+title: "ListView"
+description: "스크롤 가능한 리스트"
+---
+
+`listView`는 단일 열/행으로 항목을 스크롤합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| scrollDirection / reverse | `Axis` / `bool` | 스크롤 방향과 역스크롤 |
+| primary | `bool` | 부모의 기본 스크롤 뷰인지 |
+| physics | `StacScrollPhysics` | 스크롤 물리 |
+| shrinkWrap | `bool` | 콘텐츠 크기에 맞춰 축소 |
+| padding | `StacEdgeInsets` | 전체 패딩 |
+| addAutomaticKeepAlives / addRepaintBoundaries / addSemanticIndexes | `bool` | 성능/접근성 설정 |
+| cacheExtent | `double` | 사전 캐시 범위 |
+| children | `List<Map<String,dynamic>>` | 리스트 항목 |
+| separator | `Map<String,dynamic>` | 각 항목 사이에 표시할 위젯 |
+| semanticChildCount | `int` | 접근성용 항목 수 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | 키보드 닫기 방식 |
+| restorationId | `String` | 스크롤 위치 복원 ID |
+| clipBehavior | `Clip` | 클리핑 방식 |
+
+## 예제
+
+```json
+{
+  "type": "listView",
+  "shrinkWrap": true,
+  "separator": { "type": "container", "height": 10 },
+  "children": [
+    {
+      "type": "listTile",
+      "leading": {
+        "type": "container",
+        "height": 50,
+        "width": 50,
+        "color": "#165FC7",
+        "child": {
+          "type": "text",
+          "data": "1",
+          "style": { "fontSize": 21 }
+        }
+      },
+      "title": { "type": "text", "data": "Item 1", "style": { "fontSize": 18 } },
+      "subtitle": { "type": "text", "data": "Item description", "style": { "fontSize": 14 } },
+      "trailing": { "type": "icon", "icon": "more_vert", "size": 24 }
+    }
+  ]
+}
+```

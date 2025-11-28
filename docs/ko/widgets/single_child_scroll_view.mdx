@@ -1,0 +1,33 @@
+---
+title: "SingleChildScrollView"
+description: "단일 자식을 스크롤"
+---
+
+`singleChildScrollView`는 하나의 자식을 감싸 스크롤 가능하게 만듭니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| scrollDirection / reverse | `Axis` / `bool` | 스크롤 방향과 역방향 여부 |
+| padding | `StacEdgeInsets?` | 주변 여백 |
+| primary | `bool?` | 기본 스크롤 뷰인지 |
+| physics | `StacScrollPhysics?` | 스크롤 물리 |
+| child | `Map<String,dynamic>?` | 스크롤할 자식 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| clipBehavior | `Clip` | 클리핑 방식 |
+| restorationId | `String?` | 상태 복원 ID |
+| keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | 키보드 닫기 방식 |
+
+## 예제
+
+```json
+{
+  "type": "singleChildScrollView",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "text", "data": "Hello World!" },
+      { "type": "text", "data": "This is a SingleChildScrollView widget." }
+    ]
+  }
+}
+```

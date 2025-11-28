@@ -1,0 +1,32 @@
+---
+title: "Image"
+description: "다양한 소스의 이미지를 표시"
+---
+
+`image` 위젯은 네트워크/파일/에셋 이미지를 보여 줍니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| src | `String` | 이미지 소스(URL, 파일 경로, 에셋 경로 등) |
+| alignment | `StacAlignment` | 컨테이너에서 정렬(기본 `center`) |
+| imageType | `StacImageType` | `network`, `file`, `asset` 중 선택(기본 `network`) |
+| color | `String?` | 이미지에 블렌딩할 색상 |
+| width / height | `double?` | 논리 픽셀 단위 크기 |
+| fit | `BoxFit?` | 이미지를 공간에 맞추는 방식 |
+
+## 예제
+
+```json
+{
+  "type": "image",
+  "src": "https://example.com/image.png",
+  "alignment": "center",
+  "imageType": "network",
+  "color": "#FFFFFF",
+  "width": 200.0,
+  "height": 100.0,
+  "fit": "contain"
+}
+```

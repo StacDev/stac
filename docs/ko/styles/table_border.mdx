@@ -1,0 +1,33 @@
+---
+title: "Table Border"
+description: "표 테두리를 JSON으로 정의"
+---
+
+`StacTableBorder`는 Flutter `TableBorder`를 JSON으로 설정할 때 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| color | `String` | 테두리 색상 |
+| width | `double` | 테두리 두께 |
+| style | `BorderStyle` | 테두리 스타일 |
+| borderRadius | `StacBorderRadius` | 모서리 둥글기 |
+
+## 예제
+
+```json
+{
+  "tableBorder": {
+    "color": "#000000",
+    "width": 1.0,
+    "style": "solid",
+    "borderRadius": {
+      "topLeft": 16.0,
+      "topRight": 16.0,
+      "bottomLeft": 16.0,
+      "bottomRight": 16.0
+    }
+  }
+}
+```

@@ -18,166 +18,359 @@
         "library": "lucide"
     },
     "navigation": {
-        "tabs": [
+        "languages": [
             {
-                "tab": "Overview",
-                "groups": [
+                "language": "en",
+                "tabs": [
                     {
-                        "group": "Get Started",
-                        "icon": "rocket",
-                        "pages": [
-                            "introduction",
-                            "quickstart",
-                            "sdui",
-                            "cli",
-                            "project_structure"
+                        "tab": "Overview",
+                        "groups": [
+                            {
+                                "group": "Get Started",
+                                "icon": "rocket",
+                                "pages": [
+                                    "introduction",
+                                    "quickstart",
+                                    "sdui",
+                                    "cli",
+                                    "project_structure"
+                                ]
+                            },
+                            {
+                                "group": "Concepts",
+                                "icon": "book",
+                                "pages": [
+                                    "concepts/rendering_stac_widgets",
+                                    "concepts/caching",
+                                    "concepts/custom_widgets",
+                                    "concepts/custom_actions"
+                                ]
+                            }
                         ]
                     },
                     {
-                        "group": "Concepts",
-                        "icon": "book",
-                        "pages": [
-                            "concepts/rendering_stac_widgets",
-                            "concepts/caching",
-                            "concepts/custom_widgets",
-                            "concepts/custom_actions"
+                        "tab": "Widgets",
+                        "groups": [
+                            {
+                                "group": "Layout Widgets",
+                                "pages": [
+                                    "widgets/align",
+                                    "widgets/aspect_ratio",
+                                    "widgets/center",
+                                    "widgets/column",
+                                    "widgets/container",
+                                    "widgets/expanded",
+                                    "widgets/flexible",
+                                    "widgets/fitted_box",
+                                    "widgets/fractionally_sized_box",
+                                    "widgets/limited_box",
+                                    "widgets/padding",
+                                    "widgets/positioned",
+                                    "widgets/row",
+                                    "widgets/safe_area",
+                                    "widgets/sized_box",
+                                    "widgets/spacer",
+                                    "widgets/stack",
+                                    "widgets/wrap"
+                                ]
+                            },
+                            {
+                                "group": "Display Widgets",
+                                "pages": [
+                                    "widgets/backdrop_filter",
+                                    "widgets/card",
+                                    "widgets/carousel_view",
+                                    "widgets/circle_avatar",
+                                    "widgets/clip_oval",
+                                    "widgets/clip_rrect",
+                                    "widgets/colored_box",
+                                    "widgets/icon",
+                                    "widgets/image",
+                                    "widgets/opacity",
+                                    "widgets/placeholder",
+                                    "widgets/visibility"
+                                ]
+                            },
+                            {
+                                "group": "Interactive Widgets",
+                                "pages": [
+                                    "widgets/alert_dialog",
+                                    "widgets/app_bar",
+                                    "widgets/auto_complete",
+                                    "widgets/bottom_navigation_bar",
+                                    "widgets/check_box",
+                                    "widgets/chip",
+                                    "widgets/circular_progress_indicator",
+                                    "widgets/drawer",
+                                    "widgets/dropdown_menu",
+                                    "widgets/dynamic_view",
+                                    "widgets/elevated_button",
+                                    "widgets/filled_button",
+                                    "widgets/floating_action_button",
+                                    "widgets/form",
+                                    "widgets/gesture_detector",
+                                    "widgets/icon_button",
+                                    "widgets/ink_well",
+                                    "widgets/linear_progress_indicator",
+                                    "widgets/list_tile",
+                                    "widgets/listview",
+                                    "widgets/network_widget",
+                                    "widgets/outlined_button",
+                                    "widgets/page_view",
+                                    "widgets/radio_group",
+                                    "widgets/refresh_indicator",
+                                    "widgets/scaffold",
+                                    "widgets/single_child_scroll_view",
+                                    "widgets/slider",
+                                    "widgets/sliver_app_bar",
+                                    "widgets/switch",
+                                    "widgets/tab_bar",
+                                    "widgets/text_button",
+                                    "widgets/text_field",
+                                    "widgets/text_form_field",
+                                    "widgets/webview"
+                                ]
+                            },
+                            {
+                                "group": "Data Widgets",
+                                "pages": [
+                                    "widgets/custom_scroll_view",
+                                    "widgets/grid_view",
+                                    "widgets/table",
+                                    "widgets/table_cell",
+                                    "widgets/table_row",
+                                    "widgets/text",
+                                    "widgets/vertical_divider"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "tab": "Actions",
+                        "groups": [
+                            {
+                                "group": "Navigation Actions",
+                                "pages": [
+                                    "actions/navigate"
+                                ]
+                            },
+                            {
+                                "group": "UI Actions",
+                                "pages": [
+                                    "actions/dialog",
+                                    "actions/modal_bottom_sheet",
+                                    "actions/snack_bar"
+                                ]
+                            },
+                            {
+                                "group": "Form Actions",
+                                "pages": [
+                                    "actions/form_validate",
+                                    "actions/get_form_value"
+                                ]
+                            },
+                            {
+                                "group": "Network Actions",
+                                "pages": [
+                                    "actions/network_request"
+                                ]
+                            },
+                            {
+                                "group": "Utility Actions",
+                                "pages": [
+                                    "actions/delay_action",
+                                    "actions/multi_action",
+                                    "actions/none"
+                                ]
+                            }
                         ]
                     }
                 ]
             },
             {
-                "tab": "Widgets",
-                "groups": [
+                "language": "ko",
+                "tabs": [
                     {
-                        "group": "Layout Widgets",
-                        "pages": [
-                            "widgets/align",
-                            "widgets/aspect_ratio",
-                            "widgets/center",
-                            "widgets/column",
-                            "widgets/container",
-                            "widgets/expanded",
-                            "widgets/flexible",
-                            "widgets/fitted_box",
-                            "widgets/fractionally_sized_box",
-                            "widgets/limited_box",
-                            "widgets/padding",
-                            "widgets/positioned",
-                            "widgets/row",
-                            "widgets/safe_area",
-                            "widgets/sized_box",
-                            "widgets/spacer",
-                            "widgets/stack",
-                            "widgets/wrap"
+                        "tab": "Overview",
+                        "groups": [
+                            {
+                                "group": "시작하기",
+                                "icon": "rocket",
+                                "pages": [
+                                    "ko/introduction",
+                                    "ko/quickstart",
+                                    "ko/sdui",
+                                    "ko/cli",
+                                    "ko/project_structure",
+                                    "ko/get_started",
+                                    "ko/concepts/theming"
+                                ]
+                            },
+                            {
+                                "group": "핵심 개념",
+                                "icon": "book-open",
+                                "pages": [
+                                    "ko/concepts/rendering_stac_widgets",
+                                    "ko/concepts/custom_widgets",
+                                    "ko/concepts/custom_actions"
+                                ]
+                            }
                         ]
                     },
                     {
-                        "group": "Display Widgets",
-                        "pages": [
-                            "widgets/backdrop_filter",
-                            "widgets/card",
-                            "widgets/carousel_view",
-                            "widgets/circle_avatar",
-                            "widgets/clip_oval",
-                            "widgets/clip_rrect",
-                            "widgets/colored_box",
-                            "widgets/icon",
-                            "widgets/image",
-                            "widgets/opacity",
-                            "widgets/placeholder",
-                            "widgets/visibility"
+                        "tab": "Widgets",
+                        "groups": [
+                            {
+                                "group": "레이아웃 위젯",
+                                "pages": [
+                                    "ko/widgets/align",
+                                    "ko/widgets/aspect_ratio",
+                                    "ko/widgets/center",
+                                    "ko/widgets/column",
+                                    "ko/widgets/container",
+                                    "ko/widgets/expanded",
+                                    "ko/widgets/flexible",
+                                    "ko/widgets/fitted_box",
+                                    "ko/widgets/fractionally_sized_box",
+                                    "ko/widgets/limited_box",
+                                    "ko/widgets/padding",
+                                    "ko/widgets/positioned",
+                                    "ko/widgets/row",
+                                    "ko/widgets/safe_area",
+                                    "ko/widgets/sized_box",
+                                    "ko/widgets/spacer",
+                                    "ko/widgets/stack",
+                                    "ko/widgets/wrap"
+                                ]
+                            },
+                            {
+                                "group": "디스플레이 위젯",
+                                "pages": [
+                                    "ko/widgets/backdrop_filter",
+                                    "ko/widgets/card",
+                                    "ko/widgets/carousel_view",
+                                    "ko/widgets/circle_avatar",
+                                    "ko/widgets/clip_oval",
+                                    "ko/widgets/clip_rrect",
+                                    "ko/widgets/colored_box",
+                                    "ko/widgets/icon",
+                                    "ko/widgets/image",
+                                    "ko/widgets/opacity",
+                                    "ko/widgets/placeholder"
+                                ]
+                            },
+                            {
+                                "group": "인터랙티브 위젯",
+                                "pages": [
+                                    "ko/widgets/alert_dialog",
+                                    "ko/widgets/app_bar",
+                                    "ko/widgets/auto_complete",
+                                    "ko/widgets/bottom_navigation_bar",
+                                    "ko/widgets/check_box",
+                                    "ko/widgets/chip",
+                                    "ko/widgets/circular_progress_indicator",
+                                    "ko/widgets/drawer",
+                                    "ko/widgets/dropdown_menu",
+                                    "ko/widgets/dynamic_view",
+                                    "ko/widgets/elevated_button",
+                                    "ko/widgets/filled_button",
+                                    "ko/widgets/floating_action_button",
+                                    "ko/widgets/form",
+                                    "ko/widgets/gesture_detector",
+                                    "ko/widgets/icon_button",
+                                    "ko/widgets/ink_well",
+                                    "ko/widgets/linear_progress_indicator",
+                                    "ko/widgets/list_tile",
+                                    "ko/widgets/listview",
+                                    "ko/widgets/network_widget",
+                                    "ko/widgets/opacity",
+                                    "ko/widgets/outlined_button",
+                                    "ko/widgets/page_view",
+                                    "ko/widgets/radio_group",
+                                    "ko/widgets/refresh_indicator",
+                                    "ko/widgets/scaffold",
+                                    "ko/widgets/single_child_scroll_view",
+                                    "ko/widgets/slider",
+                                    "ko/widgets/sliver_app_bar",
+                                    "ko/widgets/switch",
+                                    "ko/widgets/tab_bar",
+                                    "ko/widgets/text_button",
+                                    "ko/widgets/text_field",
+                                    "ko/widgets/text_form_field",
+                                    "ko/widgets/webview"
+                                ]
+                            },
+                            {
+                                "group": "데이터 위젯",
+                                "pages": [
+                                    "ko/widgets/custom_scroll_view",
+                                    "ko/widgets/grid_view",
+                                    "ko/widgets/table",
+                                    "ko/widgets/table_row",
+                                    "ko/widgets/table_cell",
+                                    "ko/widgets/text",
+                                    "ko/widgets/vertical_divider"
+                                ]
+                            }
                         ]
                     },
                     {
-                        "group": "Interactive Widgets",
-                        "pages": [
-                            "widgets/alert_dialog",
-                            "widgets/app_bar",
-                            "widgets/auto_complete",
-                            "widgets/bottom_navigation_bar",
-                            "widgets/check_box",
-                            "widgets/chip",
-                            "widgets/circular_progress_indicator",
-                            "widgets/drawer",
-                            "widgets/dropdown_menu",
-                            "widgets/dynamic_view",
-                            "widgets/elevated_button",
-                            "widgets/filled_button",
-                            "widgets/floating_action_button",
-                            "widgets/form",
-                            "widgets/gesture_detector",
-                            "widgets/icon_button",
-                            "widgets/ink_well",
-                            "widgets/linear_progress_indicator",
-                            "widgets/list_tile",
-                            "widgets/listview",
-                            "widgets/network_widget",
-                            "widgets/outlined_button",
-                            "widgets/page_view",
-                            "widgets/radio_group",
-                            "widgets/refresh_indicator",
-                            "widgets/scaffold",
-                            "widgets/single_child_scroll_view",
-                            "widgets/slider",
-                            "widgets/sliver_app_bar",
-                            "widgets/switch",
-                            "widgets/tab_bar",
-                            "widgets/text_button",
-                            "widgets/text_field",
-                            "widgets/text_form_field",
-                            "widgets/webview"
+                        "tab": "Actions",
+                        "groups": [
+                            {
+                                "group": "내비게이션 액션",
+                                "pages": [
+                                    "ko/actions/navigate"
+                                ]
+                            },
+                            {
+                                "group": "UI 액션",
+                                "pages": [
+                                    "ko/actions/dialog",
+                                    "ko/actions/modal_bottom_sheet",
+                                    "ko/actions/snack_bar"
+                                ]
+                            },
+                            {
+                                "group": "폼 액션",
+                                "pages": [
+                                    "ko/actions/form_validate",
+                                    "ko/actions/get_form_value"
+                                ]
+                            },
+                            {
+                                "group": "네트워크 액션",
+                                "pages": [
+                                    "ko/actions/network_request"
+                                ]
+                            },
+                            {
+                                "group": "유틸리티 액션",
+                                "pages": [
+                                    "ko/actions/delay_action",
+                                    "ko/actions/multi_action",
+                                    "ko/actions/none"
+                                ]
+                            }
                         ]
                     },
                     {
-                        "group": "Data Widgets",
-                        "pages": [
-                            "widgets/custom_scroll_view",
-                            "widgets/grid_view",
-                            "widgets/table",
-                            "widgets/table_cell",
-                            "widgets/table_row",
-                            "widgets/text",
-                            "widgets/vertical_divider"
-                        ]
-                    }
-                ]
-            },
-            {
-                "tab": "Actions",
-                "groups": [
-                    {
-                        "group": "Navigation Actions",
-                        "pages": [
-                            "actions/navigate"
-                        ]
-                    },
-                    {
-                        "group": "UI Actions",
-                        "pages": [
-                            "actions/dialog",
-                            "actions/modal_bottom_sheet",
-                            "actions/snack_bar"
-                        ]
-                    },
-                    {
-                        "group": "Form Actions",
-                        "pages": [
-                            "actions/form_validate",
-                            "actions/get_form_value"
-                        ]
-                    },
-                    {
-                        "group": "Network Actions",
-                        "pages": [
-                            "actions/network_request"
-                        ]
-                    },
-                    {
-                        "group": "Utility Actions",
-                        "pages": [
-                            "actions/delay_action",
-                            "actions/multi_action",
-                            "actions/none"
+                        "tab": "Styles",
+                        "groups": [
+                            {
+                                "group": "스타일 레퍼런스",
+                                "pages": [
+                                    "ko/styles/border",
+                                    "ko/styles/border_radius",
+                                    "ko/styles/border_side",
+                                    "ko/styles/box_fit",
+                                    "ko/styles/clip_behavior",
+                                    "ko/styles/colors",
+                                    "ko/styles/stac_alignment_directional",
+                                    "ko/styles/table_border",
+                                    "ko/styles/table_column_width"
+                                ]
+                            }
                         ]
                     }
                 ]

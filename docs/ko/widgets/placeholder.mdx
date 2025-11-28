@@ -1,0 +1,25 @@
+---
+title: "Placeholder"
+description: "임시 자리 표시자"
+---
+
+`placeholder`는 아직 위젯이 준비되지 않은 영역을 표시하거나 레이아웃 디버깅에 사용됩니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| color | `String?` | 배경/선 색상(기본 `#455A64`) |
+| strokeWidth | `double?` | 선 두께(기본 2) |
+| fallbackWidth / fallbackHeight | `double?` | 부모가 무한 크기를 줄 때 사용할 기본 폭/높이(기본 400) |
+| child | `Map<String,dynamic>?` | 내부에 표시할 자식 |
+
+## 예제
+
+```json
+{
+  "type": "placeholder",
+  "color": "#455A64",
+  "strokeWidth": 2.0,
+  "fallbackWidth": 400.0,
+  "fallbackHeight": 400.0
+}
+```

@@ -1,0 +1,30 @@
+---
+title: "FittedBox"
+description: "자식을 비율에 맞춰 스케일링"
+---
+
+`fittedBox`는 `BoxFit` 규칙에 따라 자식을 축소/확대합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| fit | `BoxFit` | 자식을 어떻게 맞출지(`contain` 기본) |
+| alignment | `StacAlignmentDirectional` | 자식 정렬 |
+| clipBehavior | `Clip` | 자른 방식 |
+| child | `Map<String,dynamic>?` | 스케일링할 자식 |
+
+## 예제
+
+```json
+{
+  "type": "fittedBox",
+  "fit": "contain",
+  "alignment": "center",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": { "fontSize": 20, "color": "#000000" }
+  }
+}
+```

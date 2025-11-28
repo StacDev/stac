@@ -1,0 +1,103 @@
+---
+title: "BackdropFilter"
+description: "기존 컨텐츠에 블러/필터 적용"
+---
+
+`backdropFilter`는 이미 그려진 화면을 필터링한 뒤 자식을 렌더링합니다. 블러·서리 낀 유리 효과 등 다양한 비주얼을 만들 수 있습니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| filter | `Map<String,dynamic>` | 기존 픽셀에 적용할 이미지 필터 |
+| child | `Map<String,dynamic>?` | 필터 적용 후 그릴 자식 |
+| enabled | `bool` | 필터 적용 여부(기본 `true`) |
+| blendMode | `String?` | 기존 내용과 필터를 혼합할 때 사용할 BlendMode (`BlendMode.srcOver` 기본) |
+
+## 필터 타입
+
+### Blur
+
+| 키 | 타입 | 설명 |
+|----|------|------|
+| type | `"blur"` | 필터 종류 |
+| sigmaX / sigmaY | `double` | 가로/세로 표준편차(기본 10) |
+
+### Dilate / Erode
+
+| 키 | 타입 | 설명 |
+|----|------|------|
+| type | `"dilate"` 또는 `"erode"` | 팽창/침식 필터 |
+| radiusX / radiusY | `double` | 가로/세로 반경 |
+
+### Compose
+
+| 키 | 타입 | 설명 |
+|----|------|------|
+| type | `"compose"` | 두 필터를 조합 |
+| inner | `Map<String,dynamic>` | 먼저 적용할 필터 |
+| outer | `Map<String,dynamic>` | 이후 적용할 필터 |
+
+## 사용 팁
+
+1. `stack`을 사용해 필터를 적용할 컨텐츠 위에 올립니다.  
+2. `clipRRect`로 영역을 제한하면 가장자리 번짐을 막을 수 있습니다.  
+3. 자식으로 반투명 컨테이너를 두면 효과가 더 잘 보입니다.  
+4. `fit: expand`를 통해 전체 영역을 덮도록 합니다.
+
+## 예제
+
+### 블러(서리낀 유리)
+
+```json
+{
+  "type": "clipRRect",
+  "borderRadius": { "all": 16 },
+  "child": {
+    "type": "sizedBox",
+    "height": 200,
+    "width": 300,
+    "child": {
+      "type": "stack",
+      "fit": "expand",
+      "children": [
+        {
+          "type": "container",
+          "decoration": {
+            "color": "#FF0000"
+          }
+        },
+        {
+          "type": "backdropFilter",
+          "filter": { "type": "blur", "sigmaX": 15.0, "sigmaY": 15.0 },
+          "child": { "type": "container", "decoration": { "color": "#80FFFFFF" } }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Dilate
+
+```json
+{
+  "type": "backdropFilter",
+  "filter": { "type": "dilate", "radiusX": 2.0, "radiusY": 2.0 },
+  "child": { "type": "container", "decoration": { "color": "#80FFFFFF" } }
+}
+```
+
+### Compose(Blur + Dilate)
+
+```json
+{
+  "type": "backdropFilter",
+  "filter": {
+    "type": "compose",
+    "outer": { "type": "blur", "sigmaX": 5.0, "sigmaY": 5.0 },
+    "inner": { "type": "dilate", "radiusX": 2.0, "radiusY": 2.0 }
+  },
+  "child": { "type": "container", "decoration": { "color": "#80FFFFFF" } }
+}
+```

@@ -1,0 +1,29 @@
+---
+title: "ClipOval"
+description: "자식을 타원 형태로 잘라내기"
+---
+
+`clipOval`은 자식을 타원 또는 원 모양으로 잘라낼 때 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| clipBehavior | `Clip` | `antiAlias` | 영역을 벗어난 내용을 어떻게 처리할지 |
+| child | `Map<String,dynamic>` | 필수 | 타원 모양으로 잘라낼 자식 |
+
+## 예제
+
+```json
+{
+  "type": "clipOval",
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "image",
+    "src": "https://placehold.co/600x400",
+    "width": 200,
+    "height": 200,
+    "fit": "cover"
+  }
+}
+```

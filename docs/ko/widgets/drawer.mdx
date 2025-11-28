@@ -1,0 +1,45 @@
+---
+title: "Drawer"
+description: "사이드 내비게이션 서랍"
+---
+
+`drawer`는 Scaffold의 좌우에서 열리는 네비게이션 서랍입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| backgroundColor / shadowColor / surfaceTintColor | `String?` | 배경과 그림자 색상 |
+| elevation | `double?` | 그림자 높이 |
+| shape | `StacShapeBorder?` | 모양 |
+| width | `double?` | Drawer 너비 |
+| child | `Map<String,dynamic>?` | 내부 콘텐츠 |
+| semanticLabel | `String?` | 접근성 라벨 |
+| clipBehavior | `Clip?` | 클리핑 방식 |
+
+## 예제
+
+```json
+{
+  "type": "drawer",
+  "backgroundColor": "#FFFFFF",
+  "elevation": 16.0,
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#F2F2F2",
+  "shape": {
+    "type": "roundedRectangleBorder",
+    "borderRadius": 16
+  },
+  "width": 304.0,
+  "semanticLabel": "Navigation Drawer",
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "text", "data": "Drawer Header" },
+      { "type": "text", "data": "Item 1" },
+      { "type": "text", "data": "Item 2" }
+    ]
+  }
+}
+```

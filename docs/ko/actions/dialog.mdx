@@ -1,0 +1,54 @@
+---
+title: "Dialog 액션"
+description: "다이얼로그를 JSON으로 호출하는 방법"
+---
+
+`StacDialogAction`은 Stac 앱에서 다이얼로그를 띄우는 액션입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| widget | `Map<String, dynamic>?` | 다이얼로그 안에 표시할 위젯 |
+| request | `StacNetworkRequest?` | 다이얼로그를 띄우기 전 수행할 네트워크 요청 |
+| assetPath | `String?` | 다이얼로그 콘텐츠가 정의된 에셋 경로 |
+| barrierDismissible | `bool` | 배리어를 탭해 닫을 수 있는지(기본값 `true`) |
+| barrierColor | `String?` | 배리어 색상 |
+| barrierLabel | `String?` | 접근성용 라벨 |
+| useSafeArea | `bool` | SafeArea를 적용할지(기본값 `true`) |
+| traversalEdgeBehavior | `TraversalEdgeBehavior?` | 포커스 이동 방식 |
+
+## 예제
+
+### 위젯 JSON으로 다이얼로그 표시
+
+```json
+{
+  "actionType": "showDialog",
+  "widget": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```
+
+### 네트워크 요청 결과를 활용해 표시
+
+```json
+{
+  "actionType": "showDialog",
+  "request": {
+    "url": "https://example.com/api",
+    "method": "get"
+  }
+}
+```
+
+### 에셋 JSON 사용
+
+```json
+{
+  "actionType": "showDialog",
+  "assetPath": "assets/dialog.json"
+}
+```

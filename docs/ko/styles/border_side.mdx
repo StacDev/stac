@@ -1,0 +1,30 @@
+---
+title: "Border Side"
+description: "StacBorderSide 속성 설명"
+---
+
+`StacBorderSide`는 Flutter `BorderSide`를 JSON으로 정의할 수 있게 해 줍니다. [StacBorder](./border)에서 개별 면을 사용할 때 이 구성을 참조합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| color | `Color?` | 선 색상 |
+| width | `double?` | 선 두께(logical px) |
+| style | `BorderStyle?` | `solid` 또는 `none`(기본 `solid`) |
+| strokeAlign | `double?` | 선 위치(-1.0: 안쪽, 1.0: 바깥) |
+
+## 예제
+
+```json
+{
+  "color": "#428AF5",
+  "width": 1.0,
+  "style": "solid",
+  "strokeAlign": 1.0
+}
+```
+
+## 참고
+
+- [Border](./border) – 개별 면을 사용하는 방법

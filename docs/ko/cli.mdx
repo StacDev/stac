@@ -1,0 +1,216 @@
+---
+title: "Stac CLI"
+description: "Stac CLI로 서버 기반 UI 프로젝트를 초기화하고 빌드하며 클라우드에 배포하세요."
+---
+
+## 설치
+
+<Tabs>
+  <Tab title="macOS / Linux">
+    ```bash
+    # Stac CLI 설치
+    curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+    
+    # 설치 확인
+    stac --version
+    ```
+  </Tab>
+  <Tab title="Windows">
+    ```bash
+    # Stac CLI 설치
+    irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+    
+    # 설치 확인
+    stac --version
+    ```
+  </Tab>
+</Tabs>
+
+## 사용 가능한 명령
+
+| 명령            | 설명                                   | 인증 필요 |
+| --------------- | -------------------------------------- | --------- |
+| `login`         | Google OAuth로 인증                    | 아니오    |
+| `logout`        | 저장된 인증 토큰 삭제                  | 아니오    |
+| `status`        | 현재 인증 상태 확인                    | 아니오    |
+| `init`          | 프로젝트에 Stac 초기화                 | 예        |
+| `build`         | Dart 위젯을 JSON으로 변환              | 아니오    |
+| `deploy`        | 빌드 후 Stac Cloud로 배포              | 예        |
+| `project list`  | Cloud 프로젝트 목록 확인               | 예        |
+| `project create`| 새 Cloud 프로젝트 생성                 | 예        |
+
+## 인증
+
+대부분의 명령을 사용하려면 먼저 Stac Cloud에 인증해야 합니다.
+
+### 로그인
+
+```bash
+# Google OAuth로 인증
+#
+# 명령 실행 시 브라우저가 열립니다.
+# 인증 정보는 로컬에 안전하게 보관됩니다.
+stac login
+```
+
+### 상태 확인
+
+```bash
+# 현재 인증 상태 확인
+stac status
+```
+
+### 로그아웃
+
+```bash
+# 저장된 토큰 삭제
+stac logout
+```
+
+## Stac 초기화
+
+기존 Flutter/Dart 프로젝트에서 Stac을 사용할 수 있도록 설정합니다. 로컬 앱과 Stac Cloud 프로젝트를 연결하고 필요한 파일을 생성합니다.
+
+```bash
+# 현재 프로젝트에 Stac 초기화
+stac init
+```
+
+#### 수행 작업
+
+- Stac DSL 위젯을 위한 `stac/` 폴더 생성
+- `lib/default_stac_options.dart` 생성(프로젝트 ID 등 `StacOptions` 포함)
+- `pubspec.yaml`에 `stac` 및 관련 의존성 추가
+- 필요 시 기존 Stac Cloud 프로젝트와 연결
+
+#### 생성되는 파일
+
+```bash
+|- Flutter project
+├── lib/
+│   ├── default_stac_options.dart
+│   └── main.dart
+├── stac/
+│   └── stac_widget.dart
+└── pubspec.yaml
+```
+
+## 위젯 빌드
+
+### Dart를 JSON으로 변환
+
+```bash
+# 현재 프로젝트의 모든 위젯 빌드
+stac build
+
+# 특정 프로젝트 디렉터리 지정
+stac build --project /path/to/project
+
+# 검증 활성화(기본값)
+stac build --validate
+
+# 자세한 로그 출력
+stac build --verbose
+```
+
+#### 빌드 옵션
+
+| 옵션            | 설명                         | 기본값             |
+| --------------- | ---------------------------- | ------------------ |
+| `-p, --project` | 프로젝트 디렉터리 경로       | 현재 디렉터리      |
+| `--validate`    | 생성된 JSON 검증             | `true`             |
+| `-v, --verbose` | 상세 빌드 로그               | `false`            |
+
+`stac build`는 `stac/` 폴더의 위젯 정의를 JSON으로 변환해 `build/` 폴더에 저장합니다.
+
+## 배포
+
+### Stac Cloud로 배포
+
+```bash
+# 빌드 후 Stac Cloud로 배포
+stac deploy
+
+# 특정 프로젝트 디렉터리 지정
+stac deploy --project /path/to/project
+
+# 빌드를 건너뛰고 기존 파일만 배포
+stac deploy --skip-build
+
+# 상세 로그 출력
+stac deploy --verbose
+```
+
+### 배포 옵션
+
+| 옵션            | 설명                               | 기본값             |
+| --------------- | ---------------------------------- | ------------------ |
+| `-p, --project` | 프로젝트 디렉터리 경로             | 현재 디렉터리      |
+| `--skip-build`  | 배포 전 빌드 생략                  | `false`            |
+| `-v, --verbose` | 상세 배포 로그                     | `false`            |
+
+<Note>
+기본적으로 `stac deploy`는 배포 전에 `stac build`를 실행합니다. 기존 빌드 결과를 그대로 업로드하려면 `--skip-build`를 사용하세요.
+</Note>
+
+## Cloud 프로젝트 관리
+
+### 프로젝트 목록 확인
+
+```bash
+# 자신의 Stac Cloud 프로젝트 목록
+stac project list
+
+# JSON 형식으로 출력
+stac project list --json
+```
+
+출력에는 다음 정보가 포함됩니다.
+
+- 프로젝트 이름 및 ID
+- 프로젝트 설명
+- 생성/수정 시각
+
+### 새 프로젝트 생성
+
+```bash
+# Stac Cloud에 새 프로젝트 생성
+stac project create --name "My App" --description "My SDUI app"
+
+# 단축형
+stac project create -n "My App" -d "My SDUI app"
+```
+
+프로젝트를 만든 뒤 `stac init`을 실행해 로컬과 연결하세요.
+
+## 개발 워크플로
+
+### 일반적인 순서
+
+```bash
+# 1. Stac Cloud 인증(최초 1회)
+stac login
+
+# 2. 프로젝트 목록 확인
+stac project list
+
+# 3. Flutter/Dart 앱에서 초기화
+cd your-flutter-project
+stac init
+
+# 4. stac/ 폴더에서 위젯 작성
+# 예: stac/your_screen.dart 수정
+
+# 5. Stac Cloud로 배포
+stac deploy
+```
+
+## 명령 참조
+
+### 전역 옵션
+
+| 옵션            | 설명                  |
+| --------------- | --------------------- |
+| `-v, --verbose` | 상세 로그 출력        |
+| `--version`     | CLI 버전 출력         |
+| `--help`        | 사용법 요약 출력      |

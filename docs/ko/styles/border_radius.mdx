@@ -1,0 +1,43 @@
+---
+title: "Border Radius"
+description: "StacBorderRadius로 모서리를 둥글게 만들기"
+---
+
+`StacBorderRadius`는 Flutter `BorderRadius`를 JSON으로 정의할 수 있게 합니다. [공식 문서](https://api.flutter.dev/flutter/painting/BorderRadius-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| radius | `double?` | 네 모서리에 동일한 반경 적용 |
+| radius | `Map<String, double>?` | 각 모서리를 명시적으로 지정 |
+| radius | `List<double>?` | `[topLeft, topRight, bottomRight, bottomLeft]` 순으로 지정 |
+
+:::note
+위 세 방법 중 하나만 사용하면 됩니다.
+:::
+
+## 예제
+
+```json
+{
+  "borderRadius": 16.0
+}
+```
+
+```json
+{
+  "borderRadius": {
+    "topLeft": 16.0,
+    "topRight": 16.0,
+    "bottomLeft": 16.0,
+    "bottomRight": 16.0
+  }
+}
+```
+
+```json
+{
+  "borderRadius": [16.0, 16.0, 16.0, 16.0]
+}
+```

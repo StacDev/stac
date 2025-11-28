@@ -1,0 +1,54 @@
+---
+title: "TextFormField"
+description: "검증 가능한 텍스트 입력 필드"
+---
+
+`textFormField`는 `Form`과 함께 사용되며, `id`를 통해 값 저장 및 검증을 지원합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| id / compareId | `String?` | 값 저장 및 다른 필드와 비교할 ID |
+| decoration | `StacInputDecoration?` | InputDecoration |
+| initialValue | `String?` | 초기 값 |
+| keyboardType / textInputAction / textCapitalization | `StacTextInputType?` / `TextInputAction?` / `TextCapitalization` | 키보드 설정 |
+| style | `StacTextStyle?` | 텍스트 스타일 |
+| textAlign / textAlignVertical / textDirection | `TextAlign` / `StacTextAlignVertical?` / `TextDirection?` | 정렬 |
+| readOnly / showCursor / autofocus | `bool` / `bool?` / `bool` | 동작 제어 |
+| obscuringCharacter / obscureText | `String` / `bool?` | 비밀번호 표시 |
+| maxLines / minLines / maxLength | `int?` | 줄 수, 글자 수 |
+| autocorrect / enableSuggestions / enableIMEPersonalizedLearning | `bool` | 입력 보조 기능 |
+| smartDashesType / smartQuotesType | `SmartDashesType?` / `SmartQuotesType?` | 스마트 문자 |
+| maxLengthEnforcement | `MaxLengthEnforcement?` | 길이 제한 방식 |
+| expands | `bool` | 부모 크기 채우기 |
+| keyboardAppearance | `Brightness?` | 키보드 테마 |
+| scrollPadding | `StacEdgeInsets` | 스크롤 시 여백 |
+| restorationId | `String?` | 상태 복원 |
+| enabled | `bool?` | 입력 가능 여부 |
+| cursorWidth / cursorHeight / cursorColor | `double` / `double?` / `String?` | 커서 스타일 |
+| autovalidateMode | `AutovalidateMode?` | 자동 검증 모드 |
+| inputFormatters | `List<StacInputFormatter>` | 입력 포매터 |
+| validatorRules | `List<StacFormFieldValidator>` | 검증 규칙 |
+
+## 예제
+
+```json
+{
+  "type": "textFormField",
+  "id": "email",
+  "autovalidateMode": "onUserInteraction",
+  "validatorRules": [
+    { "rule": "isEmail", "message": "Please enter a valid email" }
+  ],
+  "style": { "fontSize": 16, "fontWeight": "w400", "height": 1.5 },
+  "decoration": {
+    "hintText": "Email",
+    "filled": true,
+    "fillColor": "#FFFFFF",
+    "border": {
+      "type": "outlineInputBorder",
+      "borderRadius": 8,
+      "color": "#24151D29"
+    }
+  }
+}
+```

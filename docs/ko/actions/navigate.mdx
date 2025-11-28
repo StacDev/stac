@@ -1,0 +1,92 @@
+---
+title: "Navigate 액션"
+description: "JSON으로 Flutter 내비게이션을 제어하는 방법"
+---
+
+Stac `navigate` 액션은 JSON에서 화면 전환을 정의할 수 있게 해 줍니다. Flutter 내비게이션 기본 개념은 [Navigator 문서](https://api.flutter.dev/flutter/widgets/Navigator-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| request | `StacNetworkRequest?` | 화면 이동 전에 실행할 네트워크 요청 |
+| widgetJson | `Map<String, dynamic>?` | 이동할 화면의 JSON 정의 |
+| assetPath | `String?` | 에셋에 저장된 화면 JSON 경로 |
+| routeName | `String?` | 이동할 라우트 이름 |
+| navigationStyle | `NavigationStyle?` | push / pop 등 내비게이션 방식 |
+| result | `Map<String, dynamic>?` | `pop` 시 반환할 결과 |
+| arguments | `Map<String, dynamic>?` | 라우트에 전달할 인자 |
+
+### NavigationStyle
+
+| 값 | 설명 |
+|----|------|
+| `push` | 새 라우트를 스택에 추가 |
+| `pop` | 현재 라우트를 제거 |
+| `pushReplacement` | 현재 라우트를 새 라우트로 교체 |
+| `pushAndRemoveAll` | 새 라우트를 추가하고 기존 스택을 모두 제거 |
+| `popAll` | 모든 라우트를 제거 |
+| `pushNamed` | 이름 기반 라우트를 push |
+| `pushNamedAndRemoveAll` | 이름 기반 라우트를 push하고 이전 라우트를 모두 제거 |
+| `pushReplacementNamed` | 현재 라우트를 이름 기반 라우트로 교체 |
+
+## 예제
+
+### 네트워크 요청 후 이동
+
+```json
+{
+  "actionType": "navigate",
+  "request": {
+    "url": "https://example.com/api",
+    "method": "get"
+  },
+  "navigationStyle": "push"
+}
+```
+
+### 위젯 JSON으로 이동
+
+```json
+{
+  "actionType": "navigate",
+  "widgetJson": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "My App"
+      }
+    },
+    "body": {
+      "type": "center",
+      "child": {
+        "type": "text",
+        "data": "Hello, World!"
+      }
+    }
+  },
+  "navigationStyle": "push"
+}
+```
+
+### 에셋 파일로 이동
+
+```json
+{
+  "actionType": "navigate",
+  "assetPath": "assets/widgets/my_widget.json",
+  "navigationStyle": "push"
+}
+```
+
+### 라우트 이름으로 이동
+
+```json
+{
+  "actionType": "navigate",
+  "routeName": "/home",
+  "navigationStyle": "pushNamed"
+}
+```

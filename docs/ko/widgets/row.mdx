@@ -1,0 +1,33 @@
+---
+title: "Row"
+description: "가로로 자식을 배치"
+---
+
+Stac `row`는 Flutter `Row` 위젯과 동일합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| mainAxisAlignment | `MainAxisAlignment` | 주축(가로) 정렬 |
+| crossAxisAlignment | `CrossAxisAlignment` | 교차축(세로) 정렬 |
+| mainAxisSize | `MainAxisSize` | 얼마나 공간을 차지할지 |
+| textDirection | `TextDirection` | 자식 배치 순서 |
+| spacing | `double` | 자식 간 간격 |
+| children | `List<Map<String,dynamic>>` | 자식 목록 |
+
+## 예제
+
+```json
+{
+  "type": "row",
+  "mainAxisAlignment": "center",
+  "crossAxisAlignment": "center",
+  "spacing": 12,
+  "children": [
+    { "type": "image", "src": "https://...", "width": 100 },
+    { "type": "image", "src": "https://...", "width": 100 },
+    { "type": "image", "src": "https://...", "width": 100 }
+  ]
+}
+```

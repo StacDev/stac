@@ -1,0 +1,26 @@
+---
+title: "Center"
+description: "자식을 중앙에 배치"
+---
+
+Stac `center`는 Flutter `Center` 위젯과 동일하게 자식을 중앙에 배치합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| widthFactor | `double?` | 자식 너비에 곱할 비율 |
+| heightFactor | `double?` | 자식 높이에 곱할 비율 |
+| child | `Map<String, dynamic>?` | 중앙에 둘 자식 |
+
+## 예제
+
+```json
+{
+  "type": "center",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```

@@ -1,0 +1,76 @@
+---
+title: "BottomNavigationBar"
+description: "하단 탭 바 + 컨트롤러"
+---
+
+`bottomNavigationBar`는 Flutter `BottomNavigationBar`를 JSON으로 구성합니다. 여러 페이지를 전환하려면 `defaultBottomNavigationController`와 `bottomNavigationView`를 함께 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| items | `List<StacBottomNavigationBarItem>` | 표시할 탭 목록 |
+| elevation | `double?` | 높이(그림자) |
+| bottomNavigationBarType | `BottomNavigationBarType?` | `fixed` / `shifting` |
+| fixedColor / selectedItemColor / unselectedItemColor | `String?` | 선택/비선택 색상 |
+| backgroundColor | `String?` | 배경색 |
+| iconSize | `double` | 아이콘 크기(기본 24) |
+| selectedFontSize / unselectedFontSize | `double` | 라벨 폰트 크기 |
+| selectedLabelStyle / unselectedLabelStyle | `StacTextStyle?` | 라벨 스타일 |
+| showSelectedLabels / showUnselectedLabels | `bool?` | 라벨 표시 여부 |
+| enableFeedback | `bool?` | 탭 피드백 |
+| landscapeLayout | `BottomNavigationBarLandscapeLayout?` | 가로 모드 레이아웃 |
+
+### DefaultBottomNavigationController
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| length | `int` | 아이템 수 |
+| initialIndex | `int?` | 초기 선택 인덱스 |
+| child | `Map<String,dynamic>` | 하위 위젯 |
+
+### BottomNavigationBarItem
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| icon / activeIcon | `Map<String,dynamic>` | 기본/선택 상태 아이콘 |
+| label | `String` | 라벨 |
+| backgroundColor | `String?` | 항목 배경 |
+| tooltip | `String?` | 길게 누를 때 표시되는 텍스트 |
+
+### BottomNavigationView
+
+선택된 탭에 대응하는 자식을 보여주는 뷰입니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| children | `List<Map<String,dynamic>>` | 각 탭에 매핑될 위젯 |
+
+## 예제
+
+```json
+{
+  "type": "defaultBottomNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": { "type": "appBar", "title": { "type": "text", "data": "Bottom Navigation Screen" } },
+    "body": {
+      "type": "bottomNavigationView",
+      "children": [
+        { "type": "center", "child": { "type": "text", "data": "Home", "style": { "fontSize": 24 } } },
+        { "type": "center", "child": { "type": "text", "data": "Search", "style": { "fontSize": 24 } } },
+        { "type": "center", "child": { "type": "text", "data": "Profile", "style": { "fontSize": 24 } } }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "bottomNavigationBar",
+      "items": [
+        { "type": "navigationBarItem", "label": "Home", "icon": { "type": "icon", "icon": "home" } },
+        { "type": "navigationBarItem", "label": "Search", "icon": { "type": "icon", "icon": "search" } },
+        { "type": "navigationBarItem", "label": "Profile", "icon": { "type": "icon", "icon": "account_circle" } }
+      ]
+    }
+  }
+}
+```

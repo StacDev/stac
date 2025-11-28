@@ -1,0 +1,32 @@
+---
+title: "LinearProgressIndicator"
+description: "수평 진행 표시기"
+---
+
+`linearProgressIndicator`는 가로 막대 형태로 진행 상황을 표시합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| value | `double` | 진행 값(0~1, null이면 무한 애니메이션) |
+| backgroundColor | `String` | 트랙 색상 |
+| color | `String` | 진행선 색상 |
+| minHeight | `double` | 막대 높이 |
+| borderRadius | `StacBorderRadius` | 모서리 둥글기 |
+| semanticsLabel / semanticsValue | `String` | 접근성 설명 |
+
+## 예제
+
+```json
+{
+  "type": "linearProgressIndicator",
+  "color": "#541204",
+  "minHeight": 6,
+  "backgroundColor": "#FFD700",
+  "borderRadius": {
+    "topLeft": 10,
+    "topRight": 10,
+    "bottomLeft": 10,
+    "bottomRight": 10
+  }
+}
+```

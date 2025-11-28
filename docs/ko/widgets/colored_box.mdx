@@ -1,0 +1,24 @@
+---
+title: "ColoredBox"
+description: "배경색만 가진 박스"
+---
+
+`coloredBox`는 배경색을 지정하는 가장 단순한 컨테이너입니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| color | `String` | 배경색(필수) |
+| child | `Map<String,dynamic>?` | 내부 자식 |
+
+## 예제
+
+```json
+{
+  "type": "coloredBox",
+  "color": "#FF0000",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```

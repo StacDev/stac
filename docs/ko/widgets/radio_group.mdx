@@ -1,0 +1,60 @@
+---
+title: "RadioGroup"
+description: "라디오 버튼 그룹"
+---
+
+`radioGroup`은 여러 Radio 중 하나만 선택되도록 관리합니다.
+
+## RadioGroup 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| id | `String` | 선택된 값을 저장할 식별자 |
+| groupValue | `dynamic` | 현재 선택 값 |
+| child | `Map<String,dynamic>` | 라디오 항목들을 포함한 위젯 |
+
+## Radio 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| radioType | `StacRadioType` | `adaptive`, `material`, `cupertino` 등 |
+| value | `dynamic` | 이 라디오가 대표하는 값 |
+| mouseCursor | `StacMouseCursor` | 마우스 커서 |
+| toggleable | `bool` | 선택된 상태에서 탭하면 해제 가능 |
+| activeColor / inactiveColor / fillColor / focusColor / hoverColor / overlayColor / backgroundColor | `String` | 다양한 상태 색상 |
+| splashRadius | `double` | 리플 반경 |
+| materialTapTargetSize | `MaterialTapTargetSize` | 탭 영역 크기 |
+| visualDensity | `StacVisualDensity` | 레이아웃 밀도 |
+| autofocus | `bool` | 자동 포커스 |
+| useCheckmarkStyle / useCupertinoCheckmarkStyle | `bool` | 체크박스 스타일 표시 여부 |
+| enabled | `bool` | 활성화 여부 |
+| side | `StacBorderSide` | 테두리 |
+| innerRadius | `double` | 내부 반지름 |
+
+## 예제
+
+```json
+{
+  "type": "radioGroup",
+  "child": {
+    "type": "column",
+    "children": [
+      {
+        "type": "listTile",
+        "leading": { "type": "radio", "radioType": "adaptive", "value": "1", "groupValue": "1" },
+        "title": { "type": "text", "data": "Male", "style": { "fontSize": 21 } }
+      },
+      {
+        "type": "listTile",
+        "leading": { "type": "radio", "radioType": "adaptive", "value": "2", "groupValue": "1" },
+        "title": { "type": "text", "data": "Female", "style": { "fontSize": 21 } }
+      },
+      {
+        "type": "listTile",
+        "leading": { "type": "radio", "radioType": "adaptive", "value": "3", "groupValue": "1" },
+        "title": { "type": "text", "data": "Other", "style": { "fontSize": 21 } }
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,31 @@
+---
+title: "RefreshIndicator"
+description: "당겨서 새로고침"
+---
+
+`refreshIndicator`는 리스트를 아래로 당겨 데이터 새로고침을 트리거합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>?` | 감싸는 스크롤 위젯 |
+| displacement | `double` | 인디케이터 시작 위치(기본 40) |
+| edgeOffset | `double` | 시작 오프셋(기본 0) |
+| onRefresh | `Map<String,dynamic>?` | 충분히 끌어내렸을 때 호출할 액션 |
+| color / backgroundColor | `String?` | 인디케이터 전경/배경 색 |
+| semanticsLabel / semanticsValue | `String?` | 접근성 텍스트 |
+| strokeWidth | `double` | 원형 스트로크 두께 |
+| triggerMode | `RefreshIndicatorTriggerMode` | 트리거 조건(`onEdge` 등) |
+
+## 예제
+
+```json
+{
+  "type": "refreshIndicator",
+  "onRefresh": {
+    "actionType": "request",
+    "url": "https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
+    "method": "get",
+    "contentType": "application/json"
+  }
+}
+```

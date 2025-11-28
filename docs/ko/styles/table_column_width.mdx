@@ -1,0 +1,22 @@
+---
+title: "Table Column Width"
+description: "표 컬럼 폭 설정"
+---
+
+`StacTableColumnWidth`는 Flutter `TableColumnWidth`를 JSON으로 지정합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| type | `StacTableColumnWidth?` | `fixedColumnWidth`, `flexColumnWidth`, `fractionColumnWidth`, `intrinsicColumnWidth` 중 하나 |
+| value | `double?` | 컬럼 폭 값. 예를 들어 `fixedColumnWidth`일 때 `200.0`이면 200px |
+
+## 예제
+
+```json
+{
+  "type": "fixedColumnWidth",
+  "value": 200.0
+}
+```

@@ -1,0 +1,29 @@
+---
+title: "LimitedBox"
+description: "상위 제약이 없을 때 최대 크기 제한"
+---
+
+`limitedBox`는 부모가 무한대 크기를 제공할 때 자식의 최대 너비/높이를 제한하는 위젯입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| maxHeight | `double` | 부모 높이가 무한대일 때 적용할 최대 높이 |
+| maxWidth | `double` | 부모 너비가 무한대일 때 적용할 최대 너비 |
+| child | `Map<String,dynamic>?` | 제한을 받을 자식 |
+
+## 예제
+
+```json
+{
+  "type": "limitedBox",
+  "maxHeight": 200.0,
+  "maxWidth": 300.0,
+  "child": {
+    "type": "text",
+    "data": "Hello, World! from Limited Box",
+    "style": { "fontSize": 16, "color": "#000000" }
+  }
+}
+```

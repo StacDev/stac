@@ -1,0 +1,30 @@
+---
+title: "FilledButton"
+description: "Material 3 스타일의 채워진 버튼"
+---
+
+`filledButton`은 M3 FilledButton을 JSON으로 구성합니다. 속성은 ElevatedButton과 동일합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| onPressed / onLongPress / onHover / onFocusChange | `Map<String,dynamic>?` | 이벤트 콜백 |
+| style | `StacButtonStyle?` | 색상/모양/패딩 등 |
+| autofocus | `bool` | 자동 포커스 |
+| clipBehavior | `Clip` | 클리핑 |
+| child | `Map<String,dynamic>` | 버튼 내부 위젯 |
+
+## 예제
+
+```json
+{
+  "type": "filledButton",
+  "style": {
+    "backgroundColor": "#FFC107",
+    "foregroundColor": "#000000"
+  },
+  "child": {
+    "type": "text",
+    "data": "Click Me!"
+  }
+}
+```

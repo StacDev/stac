@@ -1,0 +1,28 @@
+---
+title: "AspectRatio"
+description: "가로세로 비율을 강제하는 위젯"
+---
+
+Stac `aspectRatio`는 Flutter `AspectRatio`를 JSON으로 정의합니다. [공식 문서](https://api.flutter.dev/flutter/widgets/AspectRatio-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| aspectRatio | `double` | 자식의 가로/세로 비율. 기본값 1(정사각형) |
+| child | `Map<String, dynamic>?` | 비율을 적용할 자식 위젯 |
+
+## 예제
+
+```json
+{
+  "type": "aspectRatio",
+  "aspectRatio": 1.33,
+  "child": {
+    "type": "container",
+    "color": "#FF5733",
+    "width": 100,
+    "height": 100
+  }
+}
+```

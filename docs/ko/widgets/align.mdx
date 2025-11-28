@@ -1,0 +1,43 @@
+---
+title: "Align"
+description: "Align 위젯을 JSON으로 구성하는 방법"
+---
+
+Stac `align`은 Flutter의 `Align` 위젯을 JSON으로 정의할 수 있게 해 줍니다. Flutter 위젯 자체에 대한 자세한 설명은 [공식 문서](https://api.flutter.dev/flutter/widgets/Align-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| alignment | `StacAlignment` | 자식 위젯을 정렬하는 위치 |
+| widthFactor | `double` | 지정하면 자식 너비에 이 값을 곱한 크기로 정렬 박스를 결정합니다. |
+| heightFactor | `double` | 지정하면 자식 높이에 이 값을 곱한 크기로 정렬 박스를 결정합니다. |
+| child | `Map<String, dynamic>` | Align 아래에 위치할 자식 위젯 |
+
+## 예제
+
+```json
+{
+  "type": "align",
+  "alignment": "topEnd",
+  "child": {
+    "type": "container",
+    "color": "#FC5632",
+    "clipBehavior": "hardEdge",
+    "height": 250,
+    "width": 200,
+    "child": {
+      "type": "align",
+      "alignment": "bottomCenter",
+      "child": {
+        "type": "text",
+        "data": "Flutter",
+        "style": {
+          "fontSize": 23,
+          "fontWeight": "w600"
+        }
+      }
+    }
+  }
+}
+```

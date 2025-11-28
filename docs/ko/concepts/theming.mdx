@@ -1,0 +1,58 @@
+---
+title: "Theming"
+description: "JSON 기반으로 앱 전반 테마를 제어"
+---
+
+Stac 테마는 Flutter 테마와 동일한 개념을 JSON으로 노출합니다. `StacTheme`를 통해 색상, 폰트, 밝기 등을 일괄 관리할 수 있으며, 서버에서 JSON을 교체해 앱 스타일을 즉시 갱신할 수 있습니다.
+
+## 적용 방법
+
+1. `MaterialApp` 대신 `StacApp`을 사용합니다.
+2. `StacTheme.fromJson`으로 생성한 테마를 `StacApp`의 `theme` 파라미터에 전달합니다.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+void main() async {
+  await Stac.initialize();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return StacApp(
+      theme: StacTheme.fromJson(themeJson),
+      homeBuilder: (context) => const HomeScreen(),
+    );
+  }
+
+  Map<String, dynamic> themeJson = {
+    "brightness": "light",
+    "disabledColor": "#60FEF7FF",
+    "fontFamily": "Handjet",
+    "colorScheme": {
+      "brightness": "light",
+      "primary": "#6750a4",
+      "onPrimary": "#FFFFFF",
+      "secondary": "#615B6F",
+      "onSecondary": "#FFFFFF",
+      "surface": "#FEFBFF",
+      "onSurface": "#1C1B1E",
+      "background": "#FEFBFF",
+      "onBackground": "#1C1B1E",
+      "surfaceVariant": "#E6E0EA",
+      "onSurfaceVariant": "#48454D",
+      "error": "#AB2D25",
+      "onError": "#FFFFFF",
+      "success": "#27BA62",
+      "onSuccess": "#FFFFFF"
+    }
+  };
+}
+```
+
+자세한 구조는 [StacTheme 클래스](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/parsers/theme/stac_theme/stac_theme.dart)를 참고하세요.

@@ -1,0 +1,38 @@
+---
+title: "FloatingActionButton"
+description: "부동 액션 버튼"
+---
+
+`floatingActionButton`은 둥근 플로팅 버튼을 정의합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| onPressed | `Map<String,dynamic>?` | 탭 시 액션 |
+| buttonType | `FloatingActionButtonType` | `small`, `regular`, `large`, `extended` |
+| icon / child | `Map<String,dynamic>?` / `Map<String,dynamic>` | 내부 콘텐츠 |
+| textStyle / extendedTextStyle | `StacTextStyle?` | 라벨 스타일 |
+| backgroundColor / foregroundColor / focusColor / hoverColor / splashColor | `String?` | 상태별 색상 |
+| elevation / focusElevation / hoverElevation / disabledElevation / highlightElevation | `double?` | 다양한 상태별 높이 |
+| extendedIconLabelSpacing | `double?` | 확장형일 때 아이콘-라벨 간격 |
+| enableFeedback | `bool?` | 피드백 여부 |
+| tooltip | `String?` | 롱프레스 텍스트 |
+| heroTag | `Object?` | 히어로 애니메이션 태그 |
+| autofocus | `bool` | 자동 포커스 |
+
+## 예제
+
+```json
+{
+  "type": "floatingActionButton",
+  "onPressed": {},
+  "buttonType": "small",
+  "icon": { "type": "icon", "icon": "add" },
+  "backgroundColor": "#FFC107",
+  "foregroundColor": "#000000",
+  "tooltip": "Add Item",
+  "heroTag": "fab1",
+  "child": { "type": "text", "data": "Add" }
+}
+```

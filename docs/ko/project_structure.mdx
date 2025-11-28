@@ -1,0 +1,22 @@
+---
+title: "프로젝트 구조"
+description: "일반적인 Stac 기반 Flutter 앱이 어떻게 구성되는지 알아보세요."
+---
+
+이 가이드는 Stac 프로젝트 전반 구조를 설명합니다. UI 정의 위치, 파서 구성, 테마와 라우트가 어떻게 어우러지는지 살펴봅니다.
+
+```
+├─ flutter_project
+├── lib/
+│   ├── app/                        # 기능별 코드(선택 사항)
+│   ├── default_stac_options.dart   # 프로젝트 기본 StacOptions
+│   └── main.dart                   # Stac 초기화 진입점
+├── stac/
+│   └── hello_world.dart            # Stac 위젯
+├── pubspec.lock
+└── pubspec.yaml
+```
+
+- **default_stac_options.dart**: 프로젝트의 `StacOptions`를 정의합니다.
+- **main.dart**: Flutter 앱과 Stac을 초기화하는 진입점입니다.
+- **stac/**: 모든 Stac 위젯을 보관하는 곳입니다.

@@ -1,0 +1,30 @@
+---
+title: "CircularProgressIndicator"
+description: "원형 진행 표시기"
+---
+
+`circularProgressIndicator`는 로딩 상태를 원형으로 표시합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| value | `double` | 진행 값(0~1, null이면 무한 애니메이션) |
+| backgroundColor | `String` | 트랙 색상 |
+| color | `String` | 진행선 색상 |
+| strokeWidth | `double` | 선 두께 |
+| strokeAlign | `double` | 선이 차지할 위치 |
+| strokeCap | `StrokeCap` | 선 끝 모양 |
+| semanticsLabel / semanticsValue | `String` | 접근성 텍스트 |
+
+## 예제
+
+```json
+{
+  "type": "circularProgressIndicator",
+  "color": "#541204",
+  "strokeWidth": 6,
+  "backgroundColor": "#FFD700",
+  "strokeCap": "round"
+}
+```

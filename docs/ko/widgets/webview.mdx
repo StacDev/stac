@@ -1,0 +1,40 @@
+---
+title: "WebView"
+description: "앱 안에서 웹 페이지 렌더링"
+---
+
+`webView`는 `stac_webview` 플러그인을 통해 구현되며, 초기화 시 `StacWebViewParser`를 등록해야 합니다.
+
+## 의존성 추가
+
+```bash
+flutter pub add stac_webview
+```
+
+```dart
+await Stac.initialize(
+  parsers: const [
+    StacWebViewParser(),
+  ],
+);
+```
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| url | `String` | 로드할 URL |
+| javaScriptMode | `JavaScriptMode` | 자바스크립트 실행 모드(기본 `unrestricted`) |
+| backgroundColor | `String` | 배경색(기본 `#FFFFFF`) |
+| userAgent | `String?` | 사용자 에이전트 |
+| enableZoom | `bool` | 줌 허용 여부(기본 `false`) |
+| layoutDirection | `TextDirection` | 레이아웃 방향 |
+
+## 예제
+
+```json
+{
+  "type": "webView",
+  "url": "https://github.com/StacDev/stac"
+}
+```

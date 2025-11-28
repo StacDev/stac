@@ -1,0 +1,84 @@
+---
+title: "시작하기 🚀"
+description: "Stac은 Flutter용 Server-Driven UI 프레임워크입니다."
+---
+
+**Stac**(구 Mirai)은 JSON을 통해 실시간으로 UI를 구성하여, 앱스토어 심사 없이도 UI를 최신 상태로 유지할 수 있게 합니다.
+
+## 패키지 구성
+
+| 패키지 | 설명 | 링크 |
+|--------|------|------|
+| [stac](https://github.com/StacDev/stac/tree/dev/packages/stac) | 핵심 SDUI 렌더러 | [![pub package](https://img.shields.io/pub/v/stac.svg)](https://pub.dev/packages/stac) |
+| [stac_framework](https://github.com/StacDev/stac/tree/dev/packages/stac_framework) | 확장 기능/도우미 제공 | [![pub package](https://img.shields.io/pub/v/stac_framework.svg)](https://pub.dev/packages/stac_framework) |
+| [stac_webview](https://github.com/StacDev/stac/tree/dev/packages/stac_webview) | WebView 렌더링 지원 | [![pub package](https://img.shields.io/pub/v/stac_webview.svg)](https://pub.dev/packages/stac_webview) |
+
+## 설치
+
+1. 의존성 추가
+
+```bash
+flutter pub add stac
+```
+
+또는 `pubspec.yaml`에 직접 추가:
+
+```yaml
+dependencies:
+  stac: ^<latest-version>
+```
+
+<Note>최신 버전은 [pub.dev](https://pub.dev/packages/stac)에서 확인하세요.</Note>
+
+2. 패키지 설치
+
+```bash
+flutter pub get
+```
+
+3. 패키지 import
+
+```dart
+import 'package:stac/stac.dart';
+```
+
+## 사용 방법
+
+### 1. 초기화
+
+```dart
+void main() async {
+  await Stac.initialize();
+  runApp(const MyApp());
+}
+```
+
+### 2. JSON 렌더링
+
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Stac.fromJson(json, context),
+    );
+  }
+}
+```
+
+### Assets에서 로드
+
+```dart
+home: Stac.fromAsset('assets/ui.json', context),
+```
+
+### 네트워크에서 로드
+
+```dart
+home: Stac.fromNetwork(
+  request: StacNetworkRequest(url: 'https://example.com/ui.json'),
+  context: context,
+),
+```
+
+이제 Stac을 이용해 JSON 기반 동적 UI를 Flutter 프로젝트에 통합할 수 있습니다.
