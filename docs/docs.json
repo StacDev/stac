@@ -211,6 +211,7 @@
                                 "icon": "book-open",
                                 "pages": [
                                     "ko/concepts/rendering_stac_widgets",
+                                    "ko/concepts/caching",
                                     "ko/concepts/custom_widgets",
                                     "ko/concepts/custom_actions"
                                 ]
