@@ -98,6 +98,7 @@ class StacService {
     const StacDefaultBottomNavigationControllerParser(),
     const StacWrapParser(),
     const StacAutoCompleteParser(),
+    const StacBadgeParser(),
     const StacTableParser(),
     const StacTableCellParser(),
     const StacCarouselViewParser(),

@@ -22,6 +22,7 @@
       }
     }
   },
+ 
   {
     "type": "listTile",
     "leading": {
@@ -41,6 +42,28 @@
       "widgetJson": {
         "type": "exampleScreen",
         "assetPath": "assets/json/auto_complete_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "badge"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Badge"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Display small status descriptors, counts, or notifications"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/badge_example.json"
       }
     }
   },

@@ -3,6 +3,7 @@ export 'package:stac/src/parsers/widgets/stac_align/stac_align_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_aspect_ratio/stac_aspect_ratio_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_auto_complete/stac_auto_complete_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_backdrop_filter/stac_backdrop_filter_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_badge/stac_badge_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_bottom_navigation_bar/stac_bottom_navigation_bar_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_bottom_navigation_view/stac_bottom_navigation_view_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_card/stac_card_parser.dart';
