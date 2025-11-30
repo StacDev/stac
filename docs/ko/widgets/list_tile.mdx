@@ -1,0 +1,42 @@
+---
+title: "ListTile"
+description: "Leading/Title/Subtitle/Trailing 구조의 행"
+---
+
+`listTile`은 아이콘, 제목, 부제, 트레일링 위젯을 조합해 하나의 행을 구성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| onTap / onLongPress | `Map<String,dynamic>` | 탭/롱탭 시 액션 |
+| leading / title / subtitle / trailing | `Map<String,dynamic>` | 각 영역에 표시할 위젯 |
+| isThreeLine / dense | `bool` | 3줄 표시 여부, 촘촘한 레이아웃 |
+| style | `ListTileStyle` | 제목 텍스트 스타일 |
+| selectedColor / iconColor / textColor | `String` | 선택/아이콘/텍스트 색상 |
+| contentPadding | `StacEdgeInsets` | 내부 패딩 |
+| enabled / selected / enableFeedback | `bool` | 상호작용 여부, 선택 상태, 피드백 |
+| focusColor / hoverColor | `String` | 포커스/호버 색상 |
+| autoFocus | `bool` | 초기 포커스 여부 |
+| tileColor / selectedTileColor | `String` | 배경 색상 |
+| horizontalTitleGap / minVerticalPadding / minLeadingWidth | `double` | 레이아웃 간격 설정 |
+
+## 예제
+
+```json
+{
+  "type": "listTile",
+  "leading": { "type": "image", "src": "https://cdn-icons-png.flaticon.com/512/3135/3135715.png" },
+  "title": {
+    "type": "text",
+    "data": "Andrew Symonds",
+    "style": { "fontSize": 18 }
+  },
+  "subtitle": {
+    "type": "text",
+    "data": "Australian international cricketer...",
+    "style": { "fontSize": 14 }
+  },
+  "trailing": { "type": "icon", "icon": "more_vert", "size": 24 }
+}
+```

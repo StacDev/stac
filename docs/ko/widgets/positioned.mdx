@@ -1,0 +1,70 @@
+---
+title: "Positioned"
+description: "Stack 안에서 절대 위치 지정"
+---
+
+`positioned`는 `Stack` 자식의 좌표를 직접 지정합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| positionedType | `StacPositionedType?` | `directional`, `fill`, `fromRect` 지원 |
+| left/top/right/bottom | `double?` | 부모 기준 거리 |
+| width/height | `double?` | 자식 크기 |
+| start/end | `double?` | `directional`일 때 사용 |
+| textDirection | `TextDirection` | `start/end` 계산에 필요한 방향 |
+| rect | `StacRect?` | `fromRect`에서 사용할 사각형 |
+| child | `Map<String,dynamic>?` | 배치할 자식 |
+
+## 예제
+
+```json
+{
+  "type": "positioned",
+  "left": 10,
+  "top": 20,
+  "right": 30,
+  "bottom": 40,
+  "child": { "type": "text", "data": "Hello, World!" }
+}
+```
+
+```json
+{
+  "type": "positioned",
+  "positionedType": "directional",
+  "start": 10,
+  "top": 20,
+  "width": 100,
+  "height": 50,
+  "textDirection": "ltr",
+  "child": { "type": "text", "data": "Hello, World!" }
+}
+```
+
+```json
+{
+  "type": "positioned",
+  "positionedType": "fill",
+  "left": 10,
+  "top": 20,
+  "right": 30,
+  "bottom": 40,
+  "child": { "type": "text", "data": "Hello, World!" }
+}
+```
+
+```json
+{
+  "type": "positioned",
+  "positionedType": "fromRect",
+  "rect": {
+    "left": 10,
+    "top": 20,
+    "right": 110,
+    "bottom": 70
+  },
+  "child": { "type": "text", "data": "Hello, World!" }
+}
+```

@@ -1,0 +1,41 @@
+---
+title: "AppBar"
+description: "상단 앱 바 구성"
+---
+
+Stac `appBar`는 Flutter `AppBar`를 JSON으로 정의합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| leading | `Map<String,dynamic>?` | 타이틀 앞에 놓일 위젯 |
+| title | `Map<String,dynamic>?` | 제목 위젯 |
+| titleTextStyle / toolbarTextStyle | `StacTextStyle?` | 텍스트 스타일 |
+| shadowColor / backgroundColor / foregroundColor / surfaceTintColor | `String?` | 색상 설정 |
+| actions | `List<Map<String,dynamic>>` | 타이틀 뒤에 나열할 액션 |
+| bottom | `Map<String,dynamic>?` | AppBar 하단에 붙는 위젯(예: TabBar) |
+| titleSpacing | `double?` | 타이틀 주변 간격 |
+| toolbarOpacity / bottomOpacity | `double` | Toolbar/Bottom 투명도 |
+| toolbarHeight / leadingWidth | `double?` | Toolbar 높이 및 leading 폭 |
+| primary | `bool` | Scaffold의 기본 AppBar인지(기본 `true`) |
+| centerTitle | `bool?` | 타이틀 중앙 정렬 여부 |
+| elevation / scrolledUnderElevation | `double?` | 그림자 높이 |
+
+## 예제
+
+```json
+{
+  "type": "appBar",
+  "title": {
+    "type": "text",
+    "data": "App Bar Title"
+  },
+  "backgroundColor": "#FFFFFF",
+  "foregroundColor": "#000000",
+  "actions": [
+    { "type": "iconButton", "icon": { "type": "icon", "icon": "search" } },
+    { "type": "iconButton", "icon": { "type": "icon", "icon": "settings" } }
+  ]
+}
+```

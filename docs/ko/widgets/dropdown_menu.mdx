@@ -1,0 +1,47 @@
+---
+title: "DropdownMenu"
+description: "선택형 드롭다운"
+---
+
+`dropdownMenu`는 Material 3 드롭다운 메뉴를 구성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| dropdownMenuEntries | `List<StacDropdownMenuEntries>` | 항목 목록 |
+| initialSelection | `dynamic` | 초기 선택 값 |
+| enabled | `bool` | 사용 가능 여부(기본 `true`) |
+| label | `Map<String,dynamic>?` | 라벨 위젯 |
+| leadingIcon / trailingIcon | `Map<String,dynamic>?` | 앞/뒤 아이콘 |
+| hintText / errorText | `String?` | 힌트/에러 텍스트 |
+| width / menuHeight | `double?` | 메뉴 너비/높이 |
+| inputDecorationTheme | `StacInputDecorationTheme?` | InputDecoration 테마 |
+| textStyle | `StacTextStyle?` | 텍스트 스타일 |
+| enableFilter / enableSearch / requestFocusOnTap | `bool` | 필터/검색/포커스 옵션(기본 true) |
+
+### DropdownMenuEntry
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| value | `dynamic` | 항목 값 |
+| label | `String` | 표시 라벨 |
+| enabled | `bool` | 활성화 여부(기본 `true`) |
+| leadingIcon / trailingIcon | `Map<String,dynamic>?` | 아이콘 |
+| style | `StacButtonStyle?` | 개별 스타일 |
+
+## 예제
+
+```json
+{
+  "type": "dropdownMenu",
+  "label": { "type": "text", "data": "Select an option" },
+  "hintText": "Please select",
+  "width": 200,
+  "dropdownMenuEntries": [
+    { "value": "option1", "label": "Option 1", "leadingIcon": { "type": "icon", "icon": "home" } },
+    { "value": "option2", "label": "Option 2", "leadingIcon": { "type": "icon", "icon": "settings" } },
+    { "value": "option3", "label": "Option 3", "leadingIcon": { "type": "icon", "icon": "favorite" } }
+  ]
+}
+```

@@ -39,6 +39,9 @@ mason-lock.json
 # Local Netlify folder
 .netlify
 
+# Docusaurus build artifacts
+website/
+
 # Cursor Files
 .cursor/
 

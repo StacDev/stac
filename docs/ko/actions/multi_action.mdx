@@ -1,0 +1,79 @@
+---
+title: "Multi Action"
+description: "여러 액션을 순차/병렬로 실행"
+---
+
+`StacMultiAction`은 여러 액션을 한 번에 정의하고 순차(`sync: true`) 또는 병렬(`sync: false`)로 실행할 수 있게 해 줍니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| actions | `List<Map<String, dynamic>?>?` | 실행할 액션 목록 |
+| sync | `bool` | `true`면 순차 실행, `false`면 병렬 실행(기본값 `false`) |
+
+## 예제
+
+```json
+{
+  "actionType": "multiAction",
+  "sync": true,
+  "actions": [
+    {
+      "actionType": "showSnackBar",
+      "content": {
+        "type": "text",
+        "data": "Executing request..."
+      },
+      "action": {
+        "label": "Done",
+        "textColor": "#73C2FB",
+        "onPressed": {}
+      },
+      "behavior": "floating"
+    },
+    {
+      "actionType": "networkRequest",
+      "url": "https://example.com/api",
+      "method": "get",
+      "queryParameters": {
+        "page": 1
+      },
+      "headers": {
+        "Authorization": "Bearer token"
+      },
+      "contentType": "application/json",
+      "body": {
+        "data": "example"
+      },
+      "results": [
+        {
+          "statusCode": 200,
+          "action": {
+            "actionType": "none"
+          }
+        },
+        {
+          "statusCode": 404,
+          "action": {
+            "actionType": "none"
+          }
+        }
+      ]
+    },
+    {
+      "actionType": "showSnackBar",
+      "content": {
+        "type": "text",
+        "data": "Request executed"
+      },
+      "action": {
+        "label": "Done",
+        "textColor": "#73C2FB",
+        "onPressed": {}
+      },
+      "behavior": "floating"
+    }
+  ]
+}
+```

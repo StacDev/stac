@@ -1,0 +1,193 @@
+---
+title: "커스텀 위젯 만들기"
+description: "StacWidget을 확장해 JSON 직렬화·파서 시스템에 통합하는 방법을 알아봅니다."
+---
+
+Stac에는 70개 이상의 기본 위젯이 있지만, 서비스 고유의 UI를 위해 커스텀 위젯이 필요할 때가 있습니다. 이 문서는 Stac의 직렬화 및 파서 구조와 호환되는 `StacWidget` 서브클래스를 만드는 과정을 단계별로 안내합니다.
+
+## 커스텀 StacWidget이란?
+
+커스텀 StacWidget은 아래 조건을 만족하는 Dart 클래스입니다.
+
+- `StacWidget`을 상속한다.
+- JSON 직렬화/역직렬화가 가능하다.
+- 파서 시스템과 연동되어 Flutter 위젯으로 변환된다.
+- `/stac` 폴더에서 사용해 Stac Cloud에 배포할 수 있다.
+
+이를 통해:
+
+- 서드파티 Flutter 패키지를 감싸거나
+- 앱에 특화된 재사용 컴포넌트를 만들고
+- 기본 위젯을 넘어선 기능을 확장하며
+- 비즈니스 로직에 맞춘 도메인 위젯을 구성할 수 있습니다.
+
+## 준비 사항
+
+커스텀 위젯을 만들기 전 아래를 갖춰야 합니다.
+
+1. **의존성**: `stac_core`, `json_annotation`
+2. **코드 생성**: `build_runner`
+3. **파서**: 위젯을 렌더링할 커스텀 파서
+
+## 만들기 순서
+
+### 1단계: 위젯 클래스 정의
+
+`lib/widgets/stac_custom_badge.dart`와 같은 파일을 만들고 클래스를 정의합니다.
+
+```dart
+import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/core/stac_widget.dart';
+import 'package:stac_core/foundation/foundation.dart';
+
+part 'stac_custom_badge.g.dart';
+
+@JsonSerializable()
+class StacCustomBadge extends StacWidget {
+  const StacCustomBadge({
+    required this.text,
+    this.color,
+    this.size,
+    this.child,
+  });
+
+  final String text;
+  final StacColor? color;
+  final double? size;
+  final StacWidget? child;
+
+  @override
+  String get type => 'customBadge';
+
+  factory StacCustomBadge.fromJson(Map<String, dynamic> json) =>
+      _$StacCustomBadgeFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$StacCustomBadgeToJson(this);
+}
+```
+
+### 2단계: 필수 구성 요소
+
+모든 커스텀 위젯은 다음 요소를 포함해야 합니다.
+
+1. **part 파일 선언** – `part 'stac_custom_badge.g.dart';`
+2. **`@JsonSerializable()`** – 중첩 위젯이 있다면 `explicitToJson: true`
+3. **`type` 게터** – JSON에서 식별자로 사용
+4. **`fromJson` 팩토리**
+5. **`toJson` 메서드**
+
+### 3단계: 코드 생성
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+실행 후 직렬화 코드가 담긴 `*.g.dart`가 생성됩니다.
+
+### 4단계: 파서 작성
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac_framework/stac_framework.dart';
+import 'package:your_app/widgets/stac_custom_badge.dart';
+
+class StacCustomBadgeParser extends StacParser<StacCustomBadge> {
+  const StacCustomBadgeParser();
+
+  @override
+  String get type => 'customBadge';
+
+  @override
+  StacCustomBadge getModel(Map<String, dynamic> json) =>
+      StacCustomBadge.fromJson(json);
+
+  @override
+  Widget parse(BuildContext context, StacCustomBadge model) {
+    return Container(
+      padding: EdgeInsets.all(model.size ?? 8),
+      decoration: BoxDecoration(
+        color: model.color?.toColor() ?? Colors.blue,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(model.text),
+    );
+  }
+}
+```
+
+### 5단계: 파서 등록
+
+```dart
+void main() async {
+  await Stac.initialize(
+    options: defaultStacOptions,
+    parsers: const [
+      StacCustomBadgeParser(),
+    ],
+  );
+  runApp(const MyApp());
+}
+```
+
+## 심화 패턴
+
+### 컨버터 활용
+
+Stac은 숫자, 위젯 등 특수 타입을 위한 컨버터를 제공합니다.
+
+```dart
+@DoubleConverter()
+final double? elevation;
+```
+
+또는 자식 위젯이 있을 땐 `@StacWidgetConverter()`를 사용하세요.
+
+### Stac 타입 사용
+
+가능하면 Flutter 고유 타입 대신 `StacColor`, `StacEdgeInsets`, `StacAlignment` 등 Stac 타입을 사용해 직렬화를 단순화합니다.
+
+## 커스텀 위젯 사용하기
+
+```dart
+@StacScreen(screenName: 'profile')
+StacWidget profileScreen() {
+  return StacScaffold(
+    body: StacColumn(
+      children: [
+        StacCustomBadge(
+          text: 'New',
+          color: StacColors.red,
+          size: 12.0,
+        ),
+        StacText(data: 'User Profile'),
+      ],
+    ),
+  );
+}
+```
+
+`stac build` 또는 `stac deploy` 후 생성되는 JSON은 다음과 같습니다.
+
+```json
+{
+  "type": "scaffold",
+  "body": {
+    "type": "column",
+    "children": [
+      {
+        "type": "customBadge",
+        "text": "New",
+        "color": "#FFFF0000",
+        "size": 12.0
+      },
+      {
+        "type": "text",
+        "data": "User Profile"
+      }
+    ]
+  }
+}
+```
+
+이 과정을 통해 자신의 도메인에 맞는 위젯을 자유롭게 설계하고 Stac Cloud에 배포할 수 있습니다.

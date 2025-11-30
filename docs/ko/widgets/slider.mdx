@@ -1,0 +1,35 @@
+---
+title: "Slider"
+description: "값을 드래그해 선택하는 슬라이더"
+---
+
+`slider`는 연속/분할 값을 선택할 수 있는 막대입니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| id | `String` | 선택 값을 저장할 식별자 |
+| sliderType | `StacSliderType` | `material`, `adaptive` 등 |
+| value | `double` | 현재 값 |
+| secondaryTrackValue | `double` | 보조 트랙 값 |
+| onChanged / onChangeStart / onChangeEnd | `Map<String,dynamic>` | 드래그 중/시작/종료 콜백 |
+| min / max | `double` | 선택 가능한 최소/최대 |
+| divisions | `int` | 분할 수 |
+| label | `String` | 활성 상태에서 표시할 라벨 |
+| activeColor / inactiveColor / secondaryActiveColor | `String` | 트랙 색상 |
+| thumbColor / overlayColor | `String` | 썸/오버레이 색 |
+| mouseCursor | `StacMouseCursor` | 커서 스타일 |
+| autofocus | `bool` | 자동 포커스 |
+| allowedInteraction | `SliderInteraction` | 허용되는 상호작용(탭, 드래그 등) |
+
+## 예제
+
+```json
+{
+  "type": "slider",
+  "id": "example_slider",
+  "sliderType": "material",
+  "value": 20,
+  "max": 100,
+  "divisions": 5
+}
+```

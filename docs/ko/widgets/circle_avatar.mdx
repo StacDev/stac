@@ -1,0 +1,29 @@
+---
+title: "CircleAvatar"
+description: "원형 프로필 아바타"
+---
+
+`circleAvatar`는 원형 배경 위에 이미지나 텍스트를 표시합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>?` | 아바타 내부 위젯 |
+| backgroundColor / foregroundColor | `String?` | 배경/전경 색상 |
+| backgroundImage / foregroundImage | `String?` | 배경/전경 이미지 URL |
+| onBackgroundImageError / onForegroundImageError | `Map<String,dynamic>?` | 이미지 로드 실패 시 액션/위젯 |
+| radius / minRadius / maxRadius | `double?` | 반지름 설정 |
+
+## 예제
+
+```json
+{
+  "type": "circleAvatar",
+  "backgroundColor": "#FF0000",
+  "foregroundColor": "#FFFFFF",
+  "backgroundImage": "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg",
+  "radius": 50,
+  "child": { "type": "text", "data": "A" }
+}
+```

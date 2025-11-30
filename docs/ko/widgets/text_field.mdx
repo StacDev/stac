@@ -1,0 +1,41 @@
+---
+title: "TextField"
+description: "단순 텍스트 입력 필드"
+---
+
+`textField`는 Flutter `TextField`와 동일한 속성을 JSON으로 노출합니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| decoration | `StacInputDecoration?` | 힌트/라벨/테두리 등 InputDecoration |
+| initialValue | `String` | 초기 값 |
+| keyboardType | `StacTextInputType?` | 키보드 타입 |
+| textInputAction | `TextInputAction?` | 키보드 액션 버튼 |
+| textCapitalization | `TextCapitalization` | 자동 대소문자 |
+| style | `StacTextStyle?` | 입력 텍스트 스타일 |
+| textAlign / textAlignVertical / textDirection | `TextAlign` / `StacTextAlignVertical?` / `TextDirection?` | 정렬 |
+| readOnly | `bool` | 읽기 전용 |
+| showCursor | `bool?` | 커서 표시 |
+| expands | `bool` | 부모 크기 채우기 |
+| autofocus | `bool` | 자동 포커스 |
+| obscuringCharacter | `String` | 비밀번호 대체 문자 |
+| maxLines / minLines | `int?` | 줄 수 제한 |
+| maxLength | `int?` | 최대 글자 수 |
+| obscureText | `bool` | 텍스트 숨김 |
+| enableSuggestions | `bool` | 입력 제안 사용 |
+| enabled | `bool?` | 입력 가능 여부 |
+| cursorWidth / cursorHeight / cursorColor | `double` / `double?` / `String?` | 커서 스타일 |
+| inputFormatters | `List<StacInputFormatter>` | 입력 포매터 |
+
+## 예제
+
+```json
+{
+  "type": "textField",
+  "initialValue": "Enter text here",
+  "decoration": { "hintText": "Enter your name" },
+  "style": { "color": "#000000", "fontSize": 16.0 },
+  "textAlign": "center",
+  "maxLength": 50
+}
+```

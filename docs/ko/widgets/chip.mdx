@@ -1,0 +1,59 @@
+---
+title: "Chip"
+description: "태그/배지 형태 위젯"
+---
+
+`chip`은 아바타, 라벨, 삭제 아이콘 등을 포함한 작은 토큰을 만듭니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| avatar | `Map<String,dynamic>?` | 라벨 앞에 표시할 위젯 |
+| label | `Map<String,dynamic>` | Chip의 본문 |
+| labelStyle / labelPadding | `StacTextStyle?` / `StacEdgeInsets?` | 라벨 스타일과 여백 |
+| deleteIcon / onDeleted / deleteIconColor / deleteButtonTooltipMessage | `Map` / `Map` / `String?` / `String?` | 삭제 아이콘 및 동작 |
+| side / shape | `StacBorderSide?` / `StacRoundedRectangleBorder?` | 테두리 스타일 |
+| clipBehavior | `Clip` | 잘라내기 방식 |
+| autofocus | `bool` | 자동 포커스 여부 |
+| color / backgroundColor | `String?` | 전경/배경 색상 |
+| padding | `StacEdgeInsets?` | Chip 전체 여백 |
+| visualDensity | `StacVisualDensity?` | 공간 밀도 |
+| materialTapTargetSize | `MaterialTapTargetSize?` | 탭 영역 최소 크기 |
+| elevation / shadowColor / surfaceTintColor | `double?` / `String?` / `String?` | 그림자 및 틴트 |
+| iconTheme | `StacIconThemeData?` | 아이콘 테마 |
+| avatarBoxConstraints / deleteIconBoxConstraints | `StacBoxConstraints?` | 아바타/삭제 아이콘 제약 |
+
+## 예제
+
+```json
+{
+  "type": "chip",
+  "avatar": {
+    "type": "circleAvatar",
+    "backgroundColor": "#FF0000",
+    "child": { "type": "text", "data": "A" }
+  },
+  "label": { "type": "text", "data": "Chip Label" },
+  "labelStyle": { "color": "#000000", "fontSize": 14 },
+  "labelPadding": { "left": 8, "top": 4, "right": 8, "bottom": 4 },
+  "deleteIcon": { "type": "icon", "icon": "delete" },
+  "deleteIconColor": "#FF0000",
+  "deleteButtonTooltipMessage": "Delete",
+  "side": { "color": "#000000", "width": 1.0 },
+  "shape": { "type": "roundedRectangle", "borderRadius": 8.0 },
+  "clipBehavior": "antiAlias",
+  "autofocus": false,
+  "color": "#FFFFFF",
+  "backgroundColor": "#EEEEEE",
+  "padding": { "left": 8, "top": 4, "right": 8, "bottom": 4 },
+  "visualDensity": { "horizontal": 0.0, "vertical": 0.0 },
+  "materialTapTargetSize": "padded",
+  "elevation": 2.0,
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#FFFFFF",
+  "iconTheme": { "color": "#000000", "size": 24.0 },
+  "avatarBoxConstraints": { "minWidth": 24.0, "minHeight": 24.0 },
+  "deleteIconBoxConstraints": { "minWidth": 24.0, "minHeight": 24.0 }
+}
+```

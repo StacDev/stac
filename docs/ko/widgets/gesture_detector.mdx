@@ -1,0 +1,87 @@
+---
+title: "GestureDetector"
+description: "다양한 제스처 이벤트 감지"
+---
+
+`gestureDetector`는 자식 위젯을 감싸 다양한 터치/마우스 제스처를 JSON으로 처리합니다.
+
+## 사용 예
+
+```json
+{
+  "type": "gestureDetector",
+  "child": { "type": "container", "color": "#2196F3", "width": 200, "height": 200,
+    "alignment": "center",
+    "child": { "type": "text", "data": "Tap me!", "style": { "color": "#FFFFFF", "fontSize": 20 } }
+  },
+  "onTap": {
+    "actionType": "showSnackBar",
+    "content": { "type": "text", "data": "This is a Snackbar" }
+  }
+}
+```
+
+## 주요 속성
+
+- `child`: 제스처를 감지할 위젯
+- **탭 관련**: `onTapDown`, `onTapUp`, `onTap`, `onTapCancel`, `onDoubleTap*`
+- **보조/3차 탭**: `onSecondaryTap*`, `onTertiaryTap*`
+- **롱 프레스**: `onLongPress*`, `onSecondaryLongPress*`, `onTertiaryLongPress*`
+- **드래그**: `onVerticalDrag*`, `onHorizontalDrag*`
+- **Force Press**: `onForcePressStart`, `onForcePressUpdate`, 등
+- 기타: `onHover`, `onHighlightChanged`, `onFocusChange`, `mouseCursor`, `dragStartBehavior`, `excludeFromSemantics`
+
+각 속성은 `Map<String,dynamic>` 액션을 받아 특정 제스처 시 실행됩니다.
+
+## 예제 모음
+
+### 탭으로 네비게이션
+
+```json
+{
+  "type": "gestureDetector",
+  "onTap": { "actionType": "navigate", "routeName": "/details" },
+  "child": {
+    "type": "container",
+    "padding": 16,
+    "color": "#E0E0E0",
+    "child": { "type": "text", "data": "Navigate to Details" }
+  }
+}
+```
+
+### 드래그 제스처
+
+```json
+{
+  "type": "gestureDetector",
+  "onHorizontalDragEnd": { "actionType": "handleSwipe" },
+  "child": {
+    "type": "container",
+    "width": 200,
+    "height": 200,
+    "color": "#F5F5F5",
+    "alignment": "center",
+    "child": { "type": "text", "data": "Swipe horizontally" }
+  }
+}
+```
+
+### 롱프레스
+
+```json
+{
+  "type": "gestureDetector",
+  "onLongPress": {
+    "actionType": "showDialog",
+    "title": "Long Press Detected",
+    "content": "You performed a long press on the widget."
+  },
+  "child": {
+    "type": "container",
+    "padding": 16,
+    "decoration": { "color": "#4CAF50", "borderRadius": 8 },
+    "child": { "type": "text", "data": "Long press me", "style": { "color": "#FFFFFF" } }
+  }
+}
+```

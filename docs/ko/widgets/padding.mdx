@@ -1,0 +1,32 @@
+---
+title: "Padding"
+description: "자식 주변 여백 추가"
+---
+
+`padding`은 Flutter `Padding`과 동일하게 작동합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| padding | `StacEdgeInsets` | 자식 주변 여백. `12`처럼 숫자 하나로 전체를 지정하거나 `{ "left": 0, "right": 0 }`, `[8,12,8,12]`처럼 세부 지정 가능 |
+| child | `Map<String,dynamic>` | 여백 안에 들어갈 자식 |
+
+## 예제
+
+```json
+{
+  "type": "padding",
+  "padding": {
+    "left": 0,
+    "right": 0
+  },
+  "child": {
+    "type": "container",
+    "color": "#672BFF",
+    "clipBehavior": "hardEdge",
+    "height": 75,
+    "width": 700
+  }
+}
+```

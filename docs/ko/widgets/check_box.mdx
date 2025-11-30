@@ -1,0 +1,42 @@
+---
+title: "CheckBox"
+description: "체크박스 입력"
+---
+
+`checkBox`는 Flutter `Checkbox`를 JSON으로 정의합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| id | `String?` | 체크박스 식별자 |
+| value | `bool?` | 현재 값 |
+| tristate | `bool` | 세 가지 상태(null 포함) 사용 여부 |
+| onChanged | `Map<String,dynamic>?` | 값 변경 시 실행할 액션 |
+| mouseCursor | `StacMouseCursor?` | 마우스 커서 스타일 |
+| activeColor / fillColor / checkColor | `String?` / `StacMaterialColor?` / `String?` | 체크 시 색상 |
+| focusColor / hoverColor / overlayColor | `String?` / `String?` / `StacMaterialColor?` | 포커스/호버/오버레이 색 |
+| splashRadius | `double?` | 터치 스플래시 반경 |
+| materialTapTargetSize | `MaterialTapTargetSize?` | 탭 영역 최소 크기 |
+| autofocus | `bool` | 자동 포커스 여부 |
+| isError | `bool` | 에러 상태 표시 |
+
+## 예제
+
+```json
+{
+  "type": "checkBox",
+  "id": "checkbox_1",
+  "value": true,
+  "mouseCursor": "click",
+  "activeColor": "#FF0000",
+  "fillColor": { "type": "materialColor", "color": "#00FF00" },
+  "checkColor": "#0000FF",
+  "focusColor": "#FFFF00",
+  "hoverColor": "#FF00FF",
+  "splashRadius": 20.0,
+  "materialTapTargetSize": "padded",
+  "autofocus": true,
+  "isError": false
+}
+```

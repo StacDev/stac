@@ -1,0 +1,66 @@
+---
+title: "ClipRRect"
+description: "사각형 모서리를 둥글게 잘라내기"
+---
+
+`clipRRect`는 자식을 둥근 사각형 형태로 클리핑합니다.
+
+## 속성
+
+| 속성 | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| borderRadius | `StacBorderRadius` | 0 | 둥글기. 단일 값, 배열, 객체로 지정 가능 |
+| clipBehavior | `Clip` | `antiAlias` | 잘라낼 때 어떤 방식으로 처리할지 |
+| child | `Map<String,dynamic>` | 필수 | 둥글게 자를 위젯 |
+
+### BorderRadius 지정 방법
+
+- 단일 값: 전체 모서리에 동일하게 적용  
+- 리스트 `[topLeft, topRight, bottomLeft, bottomRight]`  
+- 객체 `{ "topLeft": 8.0, ... }`
+
+### clipBehavior 값
+
+- `antiAlias` (기본)  
+- `hardEdge`  
+- `antiAliasWithSaveLayer`  
+- `none`
+
+## 예제
+
+```json
+{
+  "type": "clipRRect",
+  "borderRadius": 12.0,
+  "child": {
+    "type": "container",
+    "color": "#2196F3",
+    "height": 100,
+    "width": 200
+  }
+}
+```
+
+```json
+{
+  "type": "clipRRect",
+  "borderRadius": {
+    "topLeft": 20.0,
+    "topRight": 20.0,
+    "bottomLeft": 0.0,
+    "bottomRight": 0.0
+  },
+  "child": {
+    "type": "container",
+    "color": "#FFFFFF",
+    "padding": 16.0,
+    "child": {
+      "type": "column",
+      "children": [
+        { "type": "text", "data": "Card Title", "style": { "fontSize": 18.0, "fontWeight": "bold" } },
+        { "type": "text", "data": "Card content goes here" }
+      ]
+    }
+  }
+}
+```

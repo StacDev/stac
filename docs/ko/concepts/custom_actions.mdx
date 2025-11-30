@@ -1,0 +1,135 @@
+---
+title: "커스텀 액션 만들기"
+description: "StacAction을 확장해 비즈니스 로직에 맞는 동작을 정의하고 파서에 연결합니다."
+---
+
+Stac은 내비게이션, 다이얼로그, 네트워크 요청 등 다양한 기본 액션을 제공하지만, 서비스별 요구에 맞춘 동작이 필요할 수 있습니다. 이 문서는 `StacAction` 서브클래스를 작성하고 JSON 직렬화·파서 시스템과 연동하는 방법을 소개합니다.
+
+## 커스텀 StacAction이란?
+
+- `StacAction`을 상속하며
+- JSON 직렬화/역직렬화를 지원하고
+- 파서를 통해 실행 로직을 연결하며
+- JSON 정의에서 위젯의 `onPressed`, `onTap` 등으로 호출할 수 있는 클래스입니다.
+
+이를 활용하면 서드파티 API 연동, 비즈니스 전용 로직, 재사용 가능한 액션을 구축할 수 있습니다.
+
+## 준비 사항
+
+1. **의존성**: `stac_core`, `json_annotation`
+2. **코드 생성**: `build_runner`
+3. **액션 파서**: 커스텀 액션을 실행할 파서
+
+## 만들기 순서
+
+### 1단계: 액션 클래스 정의
+
+`lib/actions/stac_share_action.dart`와 같이 파일을 만들고 클래스를 작성합니다.
+
+```dart
+@JsonSerializable()
+class StacShareAction extends StacAction {
+  const StacShareAction({
+    required this.text,
+    this.subject,
+    this.title,
+  });
+
+  final String text;
+  final String? subject;
+  final String? title;
+
+  @override
+  String get actionType => 'share';
+
+  factory StacShareAction.fromJson(Map<String, dynamic> json) =>
+      _$StacShareActionFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$StacShareActionToJson(this);
+}
+```
+
+필수 요소:
+
+1. `part 'stac_share_action.g.dart';`
+2. `@JsonSerializable()` (필요 시 `explicitToJson: true`)
+3. 고유한 `actionType`
+4. 생성자
+5. `fromJson` / `toJson`
+
+### 2단계: 코드 생성
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+### 3단계: 액션 파서 작성
+
+```dart
+class StacShareActionParser implements StacActionParser<StacShareAction> {
+  const StacShareActionParser();
+
+  @override
+  String get actionType => 'share';
+
+  @override
+  StacShareAction getModel(Map<String, dynamic> json) =>
+      StacShareAction.fromJson(json);
+
+  @override
+  FutureOr<dynamic> onCall(BuildContext context, StacShareAction model) async {
+    return Share.share(
+      model.text,
+      subject: model.subject,
+    );
+  }
+}
+```
+
+### 4단계: 파서 등록
+
+```dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  actionParsers: const [
+    StacShareActionParser(),
+  ],
+);
+```
+
+## 심화 팁
+
+- 위젯과 마찬가지로 `@DoubleConverter()` 등 컨버터를 활용해 타입 변환을 단순화합니다.
+- Stac 고유 타입을 사용하면 직렬화가 일관됩니다.
+
+## 사용 예시
+
+```dart
+StacElevatedButton(
+  onPressed: StacShareAction(
+    text: 'Check out this article!',
+    subject: 'Article',
+  ).toJson(),
+  child: StacText(data: 'Share'),
+)
+```
+
+`stac build` 이후 생성되는 JSON:
+
+```json
+{
+  "type": "elevatedButton",
+  "onPressed": {
+    "actionType": "share",
+    "text": "Check out this article!",
+    "subject": "Article"
+  },
+  "child": {
+    "type": "text",
+    "data": "Share"
+  }
+}
+```
+
+커스텀 액션은 버튼, 제스처, 폼 등 다양한 콜백에 연결해 재사용 가능한 동작을 정의할 수 있습니다.

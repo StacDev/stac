@@ -1,0 +1,35 @@
+---
+title: "PageView"
+description: "페이지 단위로 스크롤"
+---
+
+`pageView`는 각 페이지를 좌우/위아래로 넘기며 보여줍니다.
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| scrollDirection / reverse | `Axis` / `bool` | 스크롤 방향과 역스크롤 |
+| physics | `StacScrollPhysics?` | 스크롤 물리 |
+| pageSnapping | `bool` | 페이지 경계에 스냅(기본 `true`) |
+| onPageChanged | `Map<String,dynamic>?` | 페이지 전환 시 콜백 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| allowImplicitScrolling | `bool` | 암시적 스크롤 허용 |
+| restorationId | `String?` | 스크롤 위치 복원 ID |
+| clipBehavior | `Clip` | 클리핑 방식 |
+| padEnds | `bool` | 양 끝 여백 추가 |
+| initialPage | `int` | 초기 페이지 |
+| keepPage | `bool` | 현재 페이지 저장 |
+| viewportFraction | `double` | 뷰포트 대비 페이지 비율 |
+| children | `List<Map<String,dynamic>>` | 페이지 목록 |
+
+## 예제
+
+```json
+{
+  "type": "pageView",
+  "children": [
+    { "type": "container", "color": "#D9D9D9", "child": { "type": "center", "child": { "type": "text", "data": "Page 1" } } },
+    { "type": "container", "color": "#FC3F1B", "child": { "type": "center", "child": { "type": "text", "data": "Page 2" } } },
+    { "type": "container", "color": "#D9D9D9", "child": { "type": "center", "child": { "type": "text", "data": "Page 3" } } }
+  ]
+}
+```

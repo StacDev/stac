@@ -1,0 +1,26 @@
+---
+title: "Expanded"
+description: "Row/Column에서 남은 공간 채우기"
+---
+
+`expanded`는 Flutter `Expanded`와 동일하게 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| flex | `int` | 가중치(기본값 1) |
+| child | `Map<String,dynamic>?` | 공간을 차지할 자식 |
+
+## 예제
+
+```json
+{
+  "type": "expanded",
+  "flex": 2,
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```

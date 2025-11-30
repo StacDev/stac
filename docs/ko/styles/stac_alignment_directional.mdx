@@ -1,0 +1,27 @@
+---
+title: "StacAlignmentDirectional"
+description: "정렬 값을 JSON으로 지정"
+---
+
+`alignment` 속성은 자식을 상자 안 어디에 배치할지 결정합니다.
+
+| 값 | 설명 |
+|----|------|
+| `topStart` | 좌측 상단(또는 RTL일 때 우측 상단) |
+| `topCenter` | 상단 중앙 |
+| `topEnd` | 우측 상단(RTL 기준 반대) |
+| `centerStart` | 가운데 좌측 |
+| `center` | 중앙 |
+| `centerEnd` | 가운데 우측 |
+| `bottomStart` | 좌측 하단 |
+| `bottomCenter` | 하단 중앙 |
+| `bottomEnd` | 우측 하단 |
+
+## 예제
+
+```json
+{
+  "type": "fittedBox",
+  "alignment": "center"
+}
+```

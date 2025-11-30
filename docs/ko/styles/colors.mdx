@@ -1,0 +1,55 @@
+---
+title: "Color"
+description: "색상을 정의하는 세 가지 방법"
+---
+
+텍스트, 배경, 테두리 등 대부분의 속성은 `Color` 값을 받습니다. Stac에서는 Theme 색상, Hex 색상, 이름 색상을 지원합니다. Flutter 색상 자체는 [공식 문서](https://api.flutter.dev/flutter/material/Colors-class.html)를 참고하세요.
+
+## 색상 유형
+
+### Theme 색상
+
+테마에 정의된 색상을 문자열로 참조합니다. 사용 가능한 키: `primary`, `onPrimary`, `primaryContainer`, `onPrimaryContainer`, `secondary`, `onSecondary`, `secondaryContainer`, `onSecondaryContainer`, `tertiary`, `onTertiary`, `tertiaryContainer`, `onTertiaryContainer`, `error`, `onError`, `errorContainer`, `onErrorContainer`, `background`, `onBackground`, `surface`, `onSurface`, `surfaceVariant`, `onSurfaceVariant`, `outline`, `outlineVariant`, `shadow`, `scrim`, `inverseSurface`, `onInverseSurface`, `inversePrimary`, `surfaceTint`, `scaffoldBackgroundColor`.
+
+### Hex 색상
+
+`#RRGGBB`(6자리)나 `#AARRGGBB`(8자리)로 임의 색상을 지정합니다. 앞 2자리는 불투명도입니다.
+
+### 이름 색상
+
+`amber`, `blueAccent`, `black45`, `white70` 등 Flutter 이름 규칙을 그대로 사용할 수 있습니다. 흑백 계열은 뒤에 투명도 값을 붙여 사용합니다.
+
+- 흰색 사용 가능 투명도: `10`, `12`, `24`, `30`, `38`, `54`, `60`, `70`
+- 검정 사용 가능 투명도: `12`, `26`, `38`, `45`, `54`, `87`
+
+## 예제
+
+```json
+{
+  "type": "text",
+  "data": "Hello World!",
+  "style": {
+    "color": "primary"
+  }
+}
+```
+
+```json
+{
+  "type": "text",
+  "data": "Hello World!",
+  "style": {
+    "color": "#000000"
+  }
+}
+```
+
+```json
+{
+  "type": "text",
+  "data": "Hello World!",
+  "style": {
+    "color": "black45"
+  }
+}
+```

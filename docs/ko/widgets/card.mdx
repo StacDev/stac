@@ -1,0 +1,40 @@
+---
+title: "Card"
+description: "카드 형태 컨테이너"
+---
+
+`card`는 그림자와 모서리 등을 가진 컨테이너를 만들 때 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| color / shadowColor / surfaceTintColor | `String?` | 배경, 그림자, 표면 틴트 색상 |
+| elevation | `double?` | 그림자 깊이 |
+| shape | `StacShapeBorder?` | 카드 모양 |
+| borderOnForeground | `bool` | 테두리를 자식보다 위에 그릴지(기본 `true`) |
+| margin | `StacEdgeInsets?` | 카드 주변 여백 |
+| clipBehavior | `Clip?` | 자식 잘라내기 방식 |
+| child | `Map<String,dynamic>?` | 카드 내용 |
+| semanticContainer | `bool` | 접근성 컨테이너로 처리할지(기본 `true`) |
+
+## 예제
+
+```json
+{
+  "type": "card",
+  "color": "#FFFFFF",
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#FF0000",
+  "elevation": 5.0,
+  "shape": {
+    "type": "roundedRectangle",
+    "borderRadius": 10.0
+  },
+  "borderOnForeground": true,
+  "margin": { "left": 10, "top": 20, "right": 10, "bottom": 20 },
+  "clipBehavior": "antiAlias",
+  "child": { "type": "text", "data": "This is a card." },
+  "semanticContainer": true
+}
+```

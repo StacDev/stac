@@ -1,0 +1,41 @@
+---
+title: "CustomScrollView"
+description: "Sliver 기반 스크롤 뷰"
+---
+
+`customScrollView`는 Sliver 들을 조합해 복잡한 스크롤 레이아웃을 구성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| slivers | `List<Map<String,dynamic>>` | 뷰포트에 배치할 슬리버 목록 |
+| scrollDirection | `Axis` | 스크롤 방향(기본 vertical) |
+| reverse | `bool` | 역방향 스크롤 |
+| padding | `StacEdgeInsets?` | 전체 패딩 |
+| primary | `bool?` | 부모와 연결된 기본 스크롤 뷰인지 |
+| physics | `StacScrollPhysics?` | 스크롤 물리 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 동작(기본 start) |
+| clipBehavior | `Clip` | 클리핑 방식(기본 hardEdge) |
+| restorationId | `String?` | 상태 복원 ID |
+| keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | 키보드 해제 방식 |
+
+## 예제
+
+```json
+{
+  "type": "customScrollView",
+  "slivers": [
+    {
+      "type": "sliverAppBar",
+      "title": { "type": "text", "data": "SliverAppBar" },
+      "leading": {
+        "type": "iconButton",
+        "icon": { "type": "icon", "icon": "menu" },
+        "onPressed": {}
+      },
+      "backgroundColor": "primary"
+    }
+  ]
+}
+```

@@ -1,0 +1,181 @@
+---
+title: "Stac 위젯 렌더링"
+description: "Stac Cloud, 로컬 JSON, 에셋, 네트워크 요청 등 다양한 렌더링 방법을 살펴봅니다."
+---
+
+Stac은 JSON에서 위젯을 렌더링하는 여러 방법을 제공합니다. 상황에 맞는 렌더링 전략을 이해하면 앱에서 SDUI를 훨씬 유연하게 사용할 수 있습니다.
+
+## 사전 준비
+
+Stac 위젯을 렌더링하기 전에 애플리케이션에서 Stac을 초기화해야 합니다.
+
+```dart
+import 'package:stac/stac.dart';
+import 'package:your_app/default_stac_options.dart';
+
+void main() async {
+  await Stac.initialize(options: defaultStacOptions);
+  runApp(const MyApp());
+}
+```
+
+## 렌더링 방법
+
+### 1. Stac Cloud (`Stac` 위젯)
+
+가장 흔한 서버 기반 UI 방식은 `Stac` 위젯으로 Stac Cloud에서 화면을 불러오는 것입니다.
+
+#### 사용법
+
+```dart
+Stac(routeName: 'home_screen')
+```
+
+`routeName`과 매핑된 화면 JSON을 Stac Cloud에서 가져와 렌더링합니다.
+
+#### Dart 소스 코드
+
+`/stac` 폴더에 있는 `home_screen` 예시는 다음과 같습니다.
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'home_screen')
+StacWidget homeScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(title: StacText(data: 'Home')),
+    body: StacColumn(
+      children: [
+        StacText(data: 'Welcome to Stac!'),
+        StacElevatedButton(
+          onPressed: {
+            'actionType': 'navigate',
+            'routeName': 'details'
+          },
+          child: StacText(data: 'Go to Details'),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+`stac deploy`를 실행하면 위 코드가 JSON으로 변환되어 Stac Cloud에 업로드되며, `Stac(routeName: 'home_screen')`에서 사용할 수 있습니다.
+
+#### 주요 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| `routeName` | `String` | Stac Cloud에 등록된 화면 이름 |
+| `loadingWidget` | `Widget?` | 데이터를 불러오는 동안 표시할 위젯 |
+| `errorWidget` | `Widget?` | 오류가 발생했을 때 표시할 위젯 |
+
+#### 예제
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Stac Demo',
+      home: Stac(
+        routeName: 'hello_world',
+        loadingWidget: const Center(child: CircularProgressIndicator()),
+        errorWidget: const Center(child: Text('Failed to load screen')),
+      ),
+    );
+  }
+}
+```
+
+#### 사용 시점
+
+- ✅ 실제 서비스에서 Stac Cloud 화면을 사용할 때
+- ✅ 서버에서 콘텐츠가 자주 변경될 때
+- ✅ A/B 테스트 및 실험을 수행할 때
+- ✅ 스토어 심사 없이 즉시 업데이트가 필요할 때
+
+### 2. JSON에서 직접 렌더링 (`Stac.fromJson`)
+
+메모리에 있는 JSON 맵을 바로 렌더링합니다. 테스트나 프로토타이핑에 유용합니다.
+
+```dart
+Stac.fromJson(jsonMap, context)
+```
+
+| 파라미터 | 타입 | 설명 |
+|----------|------|------|
+| `json` | `Map<String, dynamic>?` | 렌더링할 위젯 JSON |
+| `context` | `BuildContext` | 빌드 컨텍스트 |
+
+예제:
+
+```dart
+final json = {
+  'type': 'scaffold',
+  'body': {
+    'type': 'center',
+    'child': {
+      'type': 'text',
+      'data': 'Hello from JSON!'
+    }
+  }
+};
+
+return Stac.fromJson(json, context) ?? const SizedBox();
+```
+
+- ✅ 하드코딩된 JSON 테스트
+- ✅ 빠른 프로토타입
+- ✅ 기존 JSON 데이터를 UI로 바꿀 때
+
+### 3. 에셋에서 렌더링 (`Stac.fromAssets`)
+
+앱에 번들된 JSON 파일을 불러옵니다. 오프라인 콘텐츠나 정적인 화면에 적합합니다.
+
+```dart
+Stac.fromAssets(
+  'assets/screens/home.json',
+  loadingWidget: (context) => const CircularProgressIndicator(),
+  errorWidget: (context, error) => Text('Error: $error'),
+)
+```
+
+`pubspec.yaml`에 JSON을 등록해야 합니다.
+
+```yaml
+flutter:
+  assets:
+    - assets/screens/home.json
+```
+
+- ✅ 오프라인/저대역폭 환경
+- ✅ 앱에 내장된 기본 화면
+
+### 4. 네트워크에서 렌더링 (`Stac.fromNetwork`)
+
+외부 API나 사내 서버에서 JSON을 받아 렌더링합니다.
+
+```dart
+Stac.fromNetwork(
+  request: StacNetworkRequest(url: 'https://example.com/ui.json'),
+  context: context,
+)
+```
+
+| 파라미터 | 설명 |
+|----------|------|
+| `request` | `StacNetworkRequest` 객체. 인증 헤더나 쿼리를 지정할 수 있습니다. |
+| `context` | 빌드 컨텍스트 |
+
+- ✅ 자체 백엔드에서 JSON을 제공할 때
+- ✅ CDN/캐시 레이어와 통합할 때
+
+---
+
+이 네 가지 패턴을 적절히 조합하면 온라인/오프라인, 개발/운영 환경에 맞춰 유연하게 Stac 화면을 제공할 수 있습니다.

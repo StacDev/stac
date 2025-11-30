@@ -1,0 +1,22 @@
+---
+title: "Clip"
+description: "clipBehavior 값 설명"
+---
+
+`clipBehavior`는 위젯 영역 밖의 콘텐츠를 어떻게 처리할지 결정합니다.
+
+| 값 | 설명 |
+|----|------|
+| `none` | 클리핑 없음(기본값) |
+| `hardEdge` | 안티에일리어싱 없이 잘라냄 |
+| `antiAlias` | 안티에일리어싱을 적용해 부드러운 가장자리 |
+| `antiAliasWithSaveLayer` | 안티에일리어싱 + 오프스크린 버퍼 사용 |
+
+## 예제
+
+```json
+{
+  "type": "fittedBox",
+  "clipBehavior": "hardEdge"
+}
+```

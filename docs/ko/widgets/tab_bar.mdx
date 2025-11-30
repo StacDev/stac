@@ -1,0 +1,84 @@
+---
+title: "TabBar"
+description: "탭과 뷰 전환"
+---
+
+`tabBar`/`tabBarView`/`defaultTabController`를 조합해 탭 전환 UI를 만들 수 있습니다.
+
+## TabBar 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| tabs | `List<Map<String,dynamic>>` | 탭 목록 |
+| initialIndex | `int` | 초기 선택 인덱스 |
+| isScrollable | `bool` | 스크롤 가능한 탭 |
+| padding | `StacEdgeInsets?` | 전체 패딩 |
+| indicatorColor / indicatorWeight / indicatorPadding / indicator | `String?` / `double` / `StacEdgeInsets?` / `StacBoxDecoration?` | 인디케이터 스타일 |
+| indicatorSize | `TabBarIndicatorSize?` | 인디케이터 크기 |
+| labelColor / labelStyle / labelPadding | `String?` / `StacTextStyle?` / `StacEdgeInsets?` | 선택된 탭 스타일 |
+| unselectedLabelColor / unselectedLabelStyle | `String?` / `StacTextStyle?` | 미선택 스타일 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| enableFeedback | `bool?` | 피드백 |
+| physics | `StacScrollPhysics?` | 스크롤 물리 |
+| tabAlignment | `TabAlignment?` | 탭 정렬 |
+
+## DefaultTabController 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| length | `int` | 탭 수 |
+| initialIndex | `int` | 초기 인덱스 |
+| child | `Map<String,dynamic>` | 하위 위젯 |
+
+## Tab 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| text | `String?` | 텍스트 |
+| icon | `Map<String,dynamic>?` | 아이콘 |
+| iconMargin | `StacEdgeInsets?` | 아이콘 여백 |
+| height | `double?` | 높이 |
+| child | `Map<String,dynamic>?` | 커스텀 위젯 |
+
+## TabBarView 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| children | `List<Map<String,dynamic>>` | 각 탭 콘텐츠 |
+| initialIndex | `int` | 초기 인덱스 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| physics | `StacScrollPhysics?` | 스크롤 물리 |
+| viewportFraction | `double` | 페이지가 차지할 비율 |
+| clipBehavior | `Clip` | 클리핑 |
+
+## 예제
+
+```json
+{
+  "type": "defaultTabController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": { "type": "text", "data": "Tabbar" },
+      "bottom": {
+        "type": "tabBar",
+        "tabs": [
+          { "type": "tab", "text": "Red" },
+          { "type": "tab", "text": "Green" },
+          { "type": "tab", "text": "Blue" }
+        ]
+      }
+    },
+    "body": {
+      "type": "tabBarView",
+      "children": [
+        { "type": "container", "color": "#D9D9D9" },
+        { "type": "container", "color": "#FC3F1B" },
+        { "type": "container", "color": "#D9D9D9" }
+      ]
+    }
+  }
+}
+```

@@ -1,0 +1,133 @@
+---
+title: "DynamicView"
+description: "API 데이터를 템플릿으로 렌더링"
+---
+
+`dynamicView`는 REST API 응답을 가져와 템플릿에 바인딩합니다. 별도 코드 없이 데이터 기반 UI를 만들 수 있습니다.
+
+## 특징
+
+- 임의의 REST 엔드포인트 호출
+- `{{placeholder}}` 구문으로 템플릿 바인딩
+- 점 표기/배열 인덱스로 중첩 데이터 접근
+- 단일 객체/리스트 모두 처리
+- `itemTemplate`로 반복 렌더링
+- 로딩/에러 상태 커스터마이징
+- 응답 내 특정 경로(`targetPath`) 지정 가능
+
+## 속성
+
+| 속성 | 타입 | 필수 | 설명 |
+|------|------|------|------|
+| request | `StacNetworkRequest` | ✔ | API 요청 설정 |
+| template | `Map<String,dynamic>` | ✔ | 응답 데이터를 적용할 템플릿 |
+| targetPath | `String` | ✖ | 응답에서 원하는 경로만 추출 |
+| resultTarget | `String` | ✖ | 템플릿에서 사용할 키 이름 |
+| loaderWidget / errorWidget | `Map<String,dynamic>` | ✖ | 로딩/에러 상태 UI |
+| itemTemplate | `Map<String,dynamic>` | ✖ | 리스트 항목 템플릿 |
+| emptyTemplate | `Map<String,dynamic>` | ✖ | 빈 리스트일 때 UI |
+
+## 데이터 바인딩
+
+- `{{user.name}}` 같이 점 표기로 중첩 접근
+- 배열은 `{{users[0].name}}` 또는 `{{users.0.name}}`
+
+## 예제
+
+### 기본 사용
+
+```json
+{
+  "type": "dynamicView",
+  "request": { "url": "https://api.example.com/user/1", "method": "get" },
+  "template": { "type": "text", "data": "Hello, {{name}}!" }
+}
+```
+
+### 로딩/에러 상태
+
+```json
+{
+  "type": "dynamicView",
+  "request": { "url": "https://dummyjson.com/users/1", "method": "get" },
+  "loaderWidget": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "children": [
+        { "type": "text", "data": "Loading..." },
+        { "type": "circularProgressIndicator" }
+      ]
+    }
+  },
+  "errorWidget": {
+    "type": "center",
+    "child": { "type": "text", "data": "Error fetching user profile" }
+  },
+  "template": {
+    "type": "column",
+    "children": [
+      {
+        "type": "container",
+        "padding": 16,
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            { "type": "image", "src": "{{image}}", "width": 100, "height": 100 },
+            { "type": "text", "style": { "fontSize": 24, "fontWeight": "w700" }, "data": "{{firstName}} {{lastName}}" },
+            { "type": "text", "style": { "fontSize": 16, "color": "#666666" }, "data": "Email: {{email}}" }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+### 리스트 렌더링
+
+```json
+{
+  "type": "dynamicView",
+  "request": { "url": "https://dummyjson.com/users", "method": "get" },
+  "targetPath": "users",
+  "template": {
+    "type": "listView",
+    "itemTemplate": {
+      "type": "listTile",
+      "title": { "type": "text", "data": "{{firstName}} {{lastName}}" },
+      "subtitle": { "type": "text", "data": "{{email}}" },
+      "leading": { "type": "circleAvatar", "backgroundImage": "{{image}}" }
+    }
+  }
+}
+```
+
+### 빈 상태
+
+```json
+{
+  "type": "dynamicView",
+  "request": { "url": "https://api.example.com/products", "method": "get" },
+  "targetPath": "products",
+  "template": {
+    "type": "gridView",
+    "crossAxisCount": 2,
+    "itemTemplate": {
+      "type": "card",
+      "child": {
+        "type": "column",
+        "children": [
+          { "type": "image", "src": "{{image_url}}" },
+          { "type": "text", "data": "{{title}}" }
+        ]
+      }
+    },
+    "emptyTemplate": {
+      "type": "center",
+      "child": { "type": "text", "data": "No products found" }
+    }
+  }
+}
+```

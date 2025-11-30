@@ -1,0 +1,32 @@
+---
+title: "AutoComplete"
+description: "자동완성 입력 필드"
+---
+
+`autoComplete`는 Flutter `Autocomplete` 위젯을 JSON으로 구성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| options | `List<String>` | 제안 목록 |
+| onSelected | `Map<String,dynamic>?` | 항목 선택 시 실행할 액션 |
+| optionsMaxHeight | `double` | 목록 최대 높이(기본 200) |
+| optionsViewOpenDirection | `OptionsViewOpenDirection` | 목록이 펼쳐질 방향(`down` 기본) |
+| initialValue | `String?` | 초기 값 |
+
+## 예제
+
+```json
+{
+  "type": "autoComplete",
+  "options": ["Option 1", "Option 2", "Option 3"],
+  "onSelected": {
+    "type": "callback",
+    "name": "onOptionSelected"
+  },
+  "optionsMaxHeight": 250,
+  "optionsViewOpenDirection": "up",
+  "initialValue": "Option 1"
+}
+```

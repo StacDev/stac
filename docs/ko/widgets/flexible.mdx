@@ -1,0 +1,28 @@
+---
+title: "Flexible"
+description: "남은 공간을 유연하게 차지"
+---
+
+`flexible`은 `Expanded`와 유사하지만 `fit`으로 자식 크기 제어가 가능합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>?` | 내부 자식 |
+| flex | `int` | 가중치(기본 1) |
+| fit | `FlexFit` | 공간 사용 방식(`loose`/`tight`) |
+
+## 예제
+
+```json
+{
+  "type": "flexible",
+  "flex": 2,
+  "fit": "tight",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```

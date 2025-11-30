@@ -1,0 +1,32 @@
+---
+title: "Switch"
+description: "켜짐/꺼짐 토글 스위치"
+---
+
+`switch`는 Flutter Switch를 JSON으로 구성합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| switchType | `StacSwitchType` | `material`, `cupertino`, `adaptive` |
+| value | `bool` | 현재 상태 |
+| onChanged | `Map<String,dynamic>` | 상태 변경 시 콜백 |
+| autofocus | `bool` | 자동 포커스 |
+| activeThumbColor / activeTrackColor | `String` | 켜졌을 때 썸/트랙 색 |
+| inactiveThumbColor / inactiveTrackColor | `String` | 꺼졌을 때 색 |
+| focusColor / hoverColor / overlayColor | `String` 또는 `StacMaterialColor` | 포커스/호버/오버레이 색 |
+| thumbColor / trackColor / trackOutlineColor | `StacMaterialColor` | 커스텀 색 |
+| onLabelColor / offLabelColor | `String` | 접근성 라벨 색 |
+| splashRadius | `double` | 리플 반경 |
+| dragStartBehavior | `DragStartBehavior` | 드래그 시작 방식 |
+| materialTapTargetSize | `MaterialTapTargetSize` | 탭 영역 크기 |
+| thumbIcon | `Map<String,dynamic>` | 썸에 표시할 아이콘 |
+| activeThumbImage / inactiveThumbImage | `String` | 썸 이미지 |
+| applyTheme / applyCupertinoTheme | `bool` | 테마 적용 여부 |
+
+## 예제
+
+```json
+{ "type": "switch", "switchType": "cupertino", "value": true }
+```

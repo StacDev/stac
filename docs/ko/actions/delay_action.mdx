@@ -1,0 +1,21 @@
+---
+title: "Delay 액션"
+description: "지정된 시간만큼 대기하는 액션"
+---
+
+`StacDelayAction`은 주어진 시간 동안 아무 동작도 하지 않고 대기할 때 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| milliseconds | `int` | 대기할 시간(밀리초) |
+
+## 예제
+
+```json
+{
+  "actionType": "delay",
+  "milliseconds": 1000
+}
+```

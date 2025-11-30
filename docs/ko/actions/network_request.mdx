@@ -1,0 +1,68 @@
+---
+title: "Network Request 액션"
+description: "HTTP 요청을 JSON으로 정의"
+---
+
+`NetworkRequestAction`은 Stac에서 HTTP 요청을 수행하고 응답 코드에 따라 후속 액션을 실행할 때 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| url | `String` | 요청을 보낼 URL |
+| method | `Method` | HTTP 메서드(`get` 기본값) |
+| queryParameters | `Map<String, dynamic>?` | URL에 추가할 쿼리 파라미터 |
+| headers | `Map<String, dynamic>?` | 요청 헤더 |
+| contentType | `String?` | Content-Type 값 |
+| body | `dynamic` | 요청 본문 |
+| results | `List<StacNetworkResult>` | 상태 코드별 후속 액션 목록 |
+
+### Method
+
+| 값 | 설명 |
+|----|------|
+| `get` | GET 요청 |
+| `post` | POST 요청 |
+| `put` | PUT 요청 |
+| `delete` | DELETE 요청 |
+
+### StacNetworkResult
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| statusCode | `int` | 처리할 상태 코드 |
+| action | `Action` | 해당 코드 수신 시 실행할 액션 |
+
+## 예제
+
+```json
+{
+  "actionType": "networkRequest",
+  "url": "https://example.com/api",
+  "method": "get",
+  "queryParameters": {
+    "page": 1
+  },
+  "headers": {
+    "Authorization": "Bearer token"
+  },
+  "contentType": "application/json",
+  "body": {
+    "data": "example"
+  },
+  "results": [
+    {
+      "statusCode": 200,
+      "action": {
+        "actionType": "none"
+      }
+    },
+    {
+      "statusCode": 404,
+      "action": {
+        "actionType": "none"
+      }
+    }
+  ]
+}
+```

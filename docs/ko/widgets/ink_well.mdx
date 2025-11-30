@@ -1,0 +1,47 @@
+---
+title: "InkWell"
+description: "리플 효과가 있는 터치 영역"
+---
+
+`inkWell`은 터치/호버 이벤트에 반응하며 리플 애니메이션을 제공합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| child | `Map<String,dynamic>?` | 내부 위젯 |
+| onTap / onDoubleTap / onLongPress / onTapDown / onTapUp / onTapCancel | `Map<String,dynamic>?` | 다양한 탭 제스처 콜백 |
+| onSecondaryTap* | `Map<String,dynamic>?` | 데스크톱 우클릭 등 보조 탭 콜백 |
+| onHighlightChanged / onHover / onFocusChange | `Map<String,dynamic>?` | 상태 변화 감지 |
+| mouseCursor | `StacMouseCursor?` | 호버 시 커서 |
+| focusColor / hoverColor / highlightColor / overlayColor / splashColor | `String?` | 시각 효과 색상 |
+| radius | `double?` | 리플 반경 |
+| borderRadius | `StacBorderRadius?` | 둥근 모서리 |
+| customBorder | `StacBorder?` | 커스텀 모양 |
+| enableFeedback | `bool` | 소리/진동 피드백(기본 `true`) |
+| excludeFromSemantics | `bool` | 접근성 제외 여부 |
+| canRequestFocus | `bool` | 포커스 요청 가능 여부 |
+| autofocus | `bool` | 자동 포커스 여부 |
+| hoverDuration | `StacDuration?` | 호버 애니메이션 시간 |
+
+## 예제
+
+```json
+{
+  "type": "inkWell",
+  "child": {
+    "type": "padding",
+    "padding": { "top": 20, "bottom": 20, "right": 20, "left": 20 },
+    "child": {
+      "type": "text",
+      "data": "Hello, World! from Inkwell",
+      "textAlign": "center"
+    }
+  },
+  "splashColor": "#E1BEE7",
+  "borderRadius": { "topLeft": 20, "topRight": 20, "bottomLeft": 20, "bottomRight": 20 },
+  "radius": 20,
+  "hoverDuration": { "seconds": 10 },
+  "onTap": {}
+}
+```

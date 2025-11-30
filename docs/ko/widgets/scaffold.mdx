@@ -1,0 +1,51 @@
+---
+title: "Scaffold"
+description: "기본 Material 페이지 구조"
+---
+
+`scaffold`는 AppBar, Body, Drawer, FAB 등을 포함하는 페이지 골격입니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| appBar / body / floatingActionButton / drawer / endDrawer / bottomNavigationBar / bottomSheet | `Map<String,dynamic>?` | 각 영역 위젯 |
+| floatingActionButtonLocation | `StacFloatingActionButtonLocation?` | FAB 위치 |
+| persistentFooterButtons | `List<Map<String,dynamic>>?` | 고정 푸터 버튼 |
+| backgroundColor | `String?` | 배경색 |
+| resizeToAvoidBottomInset | `bool?` | 키보드 등 하단 인셋 회피 |
+| primary | `bool` | 기본 Scaffold 여부 |
+| drawerDragStartBehavior | `DragStartBehavior` | 드로어 드래그 시작 방식 |
+| extendBody / extendBodyBehindAppBar | `bool` | Body를 아래/위로 확장 |
+| drawerScrimColor | `String?` | Drawer 위 오버레이 색 |
+| drawerEdgeDragWidth | `double?` | 드래그 인식 영역 너비 |
+| drawerEnableOpenDragGesture / endDrawerEnableOpenDragGesture | `bool` | 제스처 허용 |
+| restorationId | `String?` | 상태 복원 ID |
+
+## 예제
+
+```json
+{
+  "type": "scaffold",
+  "appBar": { "type": "appBar", "title": { "type": "text", "data": "App Bar Title" } },
+  "body": {
+    "type": "center",
+    "child": { "type": "text", "data": "Hello, World!" }
+  },
+  "floatingActionButton": {
+    "type": "floatingActionButton",
+    "child": { "type": "icon", "icon": "add" },
+    "onPressed": { "type": "function", "name": "onFabPressed" }
+  },
+  "drawer": {
+    "type": "drawer",
+    "child": {
+      "type": "column",
+      "children": [
+        { "type": "text", "data": "Drawer Item 1" },
+        { "type": "text", "data": "Drawer Item 2" }
+      ]
+    }
+  }
+}
+```

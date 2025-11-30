@@ -1,0 +1,33 @@
+---
+title: "ElevatedButton"
+description: "높이/그림자가 있는 기본 버튼"
+---
+
+`elevatedButton`은 Flutter `ElevatedButton`을 JSON으로 정의합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| onPressed / onLongPress / onHover / onFocusChange | `Map<String,dynamic>?` | 각 이벤트에 대한 액션 |
+| style | `StacButtonStyle?` | 배경/전경 색, 테두리 등 스타일 |
+| autofocus | `bool` | 빌드시 자동 포커스 |
+| clipBehavior | `Clip` | 콘텐츠 클리핑 |
+| child | `Map<String,dynamic>` | 버튼 내용 |
+
+## 예제
+
+```json
+{
+  "type": "elevatedButton",
+  "onPressed": {},
+  "style": {
+    "backgroundColor": "primary",
+    "foregroundColor": "#FFFFFF"
+  },
+  "child": {
+    "type": "text",
+    "data": "Click Me!"
+  }
+}
+```

@@ -1,0 +1,59 @@
+---
+title: "AlertDialog"
+description: "경고 대화 상자 구성"
+---
+
+`alertDialog`는 Flutter `AlertDialog`를 JSON으로 정의합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| icon | `Map<String,dynamic>?` | 다이얼로그 상단 아이콘 |
+| iconPadding / iconColor | `StacEdgeInsets?` / `String?` | 아이콘 여백과 색상 |
+| title / titlePadding / titleTextStyle | `Map` / `StacEdgeInsets?` / `StacTextStyle?` | 제목 영역 구성 |
+| content / contentPadding / contentTextStyle | `Map` / `StacEdgeInsets?` / `StacTextStyle?` | 본문 영역 구성 |
+| actions | `List<Map<String,dynamic>>?` | 하단 버튼 목록 |
+| actionsPadding / buttonPadding | `StacEdgeInsets?` | 액션 주변 여백 |
+| actionsAlignment / actionsOverflowAlignment / actionsOverflowDirection | `MainAxisAlignment?` / `OverflowBarAlignment?` / `VerticalDirection?` | 버튼 정렬과 오버플로 동작 |
+| actionsOverflowButtonSpacing | `double?` | 넘칠 때 버튼 간격 |
+| backgroundColor / shadowColor / surfaceTintColor | `String?` | 배경 및 그림자 색 |
+| elevation | `double?` | 그림자 깊이 |
+| semanticLabel | `String?` | 접근성 라벨 |
+| insetPadding | `StacEdgeInsets` | 화면과의 기본 여백(기본 좌우 40, 상 24, 하 24) |
+| clipBehavior | `Clip` | 클리핑 옵션 |
+| shape | `StacShapeBorder?` | 모서리 모양 |
+| alignment | `StacAlignmentGeometry?` | 다이얼로그 위치 |
+| scrollable | `bool` | 내용 스크롤 허용 여부 |
+
+## 예제
+
+```json
+{
+  "type": "alertDialog",
+  "content": {
+    "type": "padding",
+    "padding": { "top": 0, "left": 12, "right": 12, "bottom": 8 },
+    "child": {
+      "type": "text",
+      "data": "Discard draft?",
+      "align": "center",
+      "style": { "fontSize": 14 }
+    }
+  },
+  "actions": [
+    {
+      "type": "textButton",
+      "child": { "type": "text", "data": "CANCEL" },
+      "onPressed": { "actionType": "navigate", "navigationStyle": "pop" }
+    },
+    { "type": "sizedBox", "width": 8 },
+    {
+      "type": "textButton",
+      "child": { "type": "text", "data": "DISCARD" },
+      "onPressed": { "actionType": "navigate", "navigationStyle": "pop" }
+    },
+    { "type": "sizedBox", "width": 12 }
+  ]
+}
+```

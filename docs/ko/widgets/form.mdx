@@ -1,0 +1,46 @@
+---
+title: "Form"
+description: "검증 가능한 입력 폼 컨테이너"
+---
+
+`form`은 자식 입력 위젯들을 그룹화하고 검증을 수행할 수 있게 합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| autovalidateMode | `AutovalidateMode?` | `always`, `onUserInteraction`, `disabled` 등 |
+| child | `Map<String,dynamic>` | 폼 내부 위젯(일반적으로 `column`) |
+
+## 예제
+
+```json
+{
+  "type": "form",
+  "autovalidateMode": "always",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "textFormField", "id": "username", "decoration": { "labelText": "Username" } },
+      { "type": "textFormField", "id": "password", "decoration": { "labelText": "Password" } },
+      {
+        "type": "filledButton",
+        "child": { "type": "text", "data": "Submit" },
+        "onPressed": {
+          "actionType": "validateForm",
+          "isValid": {
+            "actionType": "networkRequest",
+            "url": "https://dummyjson.com/auth/login",
+            "method": "post",
+            "contentType": "application/json",
+            "body": {
+              "username": { "actionType": "getFormValue", "id": "username" },
+              "password": { "actionType": "getFormValue", "id": "password" }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```

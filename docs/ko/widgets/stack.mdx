@@ -1,0 +1,32 @@
+---
+title: "Stack"
+description: "위젯을 겹쳐 배치"
+---
+
+`stack`은 자식을 겹쳐 배치하며 `positioned`와 함께 사용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| alignment | `StacAlignmentDirectional` | 비배치 자식 정렬 |
+| clipBehavior | `Clip` | 잘라내기 방식 |
+| fit | `StackFit` | 비배치 자식 크기(`loose` 기본) |
+| textDirection | `TextDirection?` | 정렬 계산 시 방향 |
+| children | `List<Map<String,dynamic>>` | 자식 목록 |
+
+## 예제
+
+```json
+{
+  "type": "stack",
+  "alignment": "center",
+  "clipBehavior": "antiAlias",
+  "fit": "expand",
+  "textDirection": "ltr",
+  "children": [
+    { "type": "text", "data": "Hello, World!" },
+    { "type": "container", "width": 100, "height": 100, "color": "#FF0000" }
+  ]
+}
+```

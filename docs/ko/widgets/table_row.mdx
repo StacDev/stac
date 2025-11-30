@@ -1,0 +1,21 @@
+---
+title: "TableRow"
+description: "표의 한 행"
+---
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| decoration | `StacDecoration?` | 행 배경/테두리 등 장식 |
+| children | `List<Map<String,dynamic>>` | 셀 목록 (`tableCell` 사용) |
+
+## 예제
+
+```json
+{
+  "type": "tableRow",
+  "children": [
+    { "type": "tableCell", "child": { "type": "text", "data": "Header 1" } },
+    { "type": "tableCell", "child": { "type": "text", "data": "Header 2" } }
+  ]
+}
+```

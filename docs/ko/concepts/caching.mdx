@@ -1,0 +1,231 @@
+---
+title: "캐싱 & 오프라인 지원"
+description: "Stac이 화면을 캐싱해 오프라인 접근, 빠른 로딩, 효율적인 네트워크 사용을 제공하는 방법"
+---
+
+Stac에는 화면을 로컬에 저장해 오프라인 접근, 즉시 표시, 네트워크 사용량 절감을 동시에 얻을 수 있는 강력한 캐싱 시스템이 내장돼 있습니다. `Stac` 위젯을 사용할 때 자동으로 작동하며, 다양한 사용 사례에 맞게 동작을 세밀하게 제어할 수 있습니다.
+
+## 캐싱 동작 방식
+
+`Stac` 위젯으로 Stac Cloud에서 화면을 가져오면 다음 순서로 처리됩니다.
+
+1. **최초 로드**: 네트워크에서 화면을 내려받아 로컬 캐시에 저장합니다.
+2. **이후 로드**: 선택한 전략에 따라 캐시 데이터를 우선 사용하거나 새 데이터를 받아옵니다.
+3. **버전 추적**: 각 캐시 항목에는 버전이 포함되어 있어 변경 사항을 감지합니다.
+4. **백그라운드 갱신**: UI를 막지 않고 백그라운드에서 최신 데이터를 받아와 캐시를 갱신할 수 있습니다.
+
+## 캐시 전략
+
+Stac은 다섯 가지 전략을 제공하며 상황에 따라 골라 쓸 수 있습니다.
+
+### 1. Optimistic (기본)
+
+캐시 데이터를 즉시 반환하면서 백그라운드에서 최신 데이터를 가져옵니다. 체감 속도가 가장 빠릅니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.optimistic,
+  ),
+)
+```
+
+**동작:**
+- ✅ 만료 여부와 관계없이 캐시를 바로 표시
+- ✅ 백그라운드에서 최신 데이터 요청
+- ✅ 결과를 캐시에 저장해 다음 로드를 준비
+- ⚡ 가장 빠른 체감 속도
+
+**권장 용도:** UI 레이아웃, 컨텐츠 화면 등 최신성보다 즉시 표시가 중요한 경우.
+
+### 2. Cache First
+
+캐시가 유효하면 그대로 사용하고, 만료됐거나 없을 때만 네트워크 요청을 수행합니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: Duration(hours: 24),
+  ),
+)
+```
+
+**동작:**
+- ✅ 만료되지 않은 캐시를 우선 사용
+- ✅ 캐시가 없거나 만료되면 네트워크 요청
+- ✅ 필요 시 백그라운드 새로고침
+- 📱 오프라인 친화적인 UX 제공
+
+**권장 용도:** 오프라인 우선 앱, 자주 변하지 않는 컨텐츠, 네트워크 절약이 필요한 화면.
+
+### 3. Network First
+
+항상 네트워크를 먼저 시도하고 실패할 경우 캐시로 폴백합니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.networkFirst,
+  ),
+)
+```
+
+**동작:**
+- ✅ 항상 최신 데이터를 우선 요청
+- ✅ 네트워크 오류 시 캐시로 대체
+- ✅ 온라인일 때 최신 컨텐츠 보장
+- 🌐 네트워크 연결이 중요
+
+**권장 용도:** 실시간 데이터, 자주 변하는 화면, 최신성이 중요한 콘텐츠.
+
+### 4. Cache Only
+
+캐시만 사용하고 네트워크 요청은 절대 수행하지 않습니다. 캐시가 없으면 오류가 발생합니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheOnly,
+  ),
+)
+```
+
+**동작:**
+- ✅ 네트워크 요청 없음
+- ✅ 캐시에서 즉시 로드
+- ❌ 캐시가 없으면 실패
+- 📴 완전한 오프라인 모드에 적합
+
+**권장 용도:** 기내 모드, 완전 오프라인 모드, 사전 캐시된 화면.
+
+### 5. Network Only
+
+항상 네트워크에서 데이터를 가져오고 캐시는 사용하거나 업데이트하지 않습니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.networkOnly,
+  ),
+)
+```
+
+**동작:**
+- ✅ 항상 최신 데이터
+- ❌ 네트워크 없으면 실패
+- ❌ 오프라인 지원 없음
+- 🔒 민감 정보를 캐시하지 않을 때 유용
+
+**권장 용도:** 캐시하면 안 되는 민감 데이터, 실시간 대시보드, 인증 관련 화면.
+
+## 캐시 구성
+
+### StacCacheConfig 속성
+
+| 속성 | 타입 | 기본값 | 설명 |
+|------|------|--------|------|
+| `strategy` | `StacCacheStrategy` | `optimistic` | 사용할 캐싱 전략 |
+| `maxAge` | `Duration?` | `null` | 캐시 만료까지 허용 시간. `null`이면 시간 기반 만료 없음 |
+| `refreshInBackground` | `bool` | `true` | 캐시가 유효할 때도 백그라운드에서 최신 데이터를 가져올지 여부 |
+| `staleWhileRevalidate` | `bool` | `false` | 만료된 캐시를 보여 주면서 새 데이터를 받아올지 여부 |
+
+### 캐시 유효 기간 지정
+
+캐시를 얼마나 오래 유효하게 유지할지 제어할 수 있습니다.
+
+```dart
+// 1시간 동안 유효한 캐시
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: Duration(hours: 1),
+  ),
+)
+
+// 7일 동안 유효한 캐시
+Stac(
+  routeName: '/settings',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: Duration(days: 7),
+  ),
+)
+
+// 만료되지 않는 캐시 (버전 기반 갱신만 사용)
+Stac(
+  routeName: '/static-page',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: null, // 시간 기반 만료 없음
+  ),
+)
+```
+
+### 백그라운드 새로고침
+
+UI를 막지 않고 캐시를 최신 상태로 유지합니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: Duration(hours: 1),
+    refreshInBackground: true, // 조용히 새로고침
+  ),
+)
+```
+
+`refreshInBackground`가 `true`이면:
+- 유효한 캐시를 즉시 반환
+- 백그라운드에서 최신 데이터를 가져옴
+- 결과를 캐시에 저장해 다음 로드를 준비
+- 사용자는 즉시 화면을 보고, 데이터는 결국 최신 상태로 맞춰짐
+
+### Stale-While-Revalidate
+
+만료된 캐시를 보여 주면서 새 데이터를 가져옵니다.
+
+```dart
+Stac(
+  routeName: '/home',
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.cacheFirst,
+    maxAge: Duration(hours: 1),
+    staleWhileRevalidate: true, // 만료된 캐시를 사용하며 갱신
+  ),
+)
+```
+
+다음과 같은 상황에서 유용합니다.
+- 로딩 스피너 대신 기존 화면을 보여 주고 싶을 때
+- 일정 시간 동안 콘텐츠가 다소 오래돼도 괜찮을 때
+- 네트워크가 느리거나 불안정할 때
+
+## 전략 비교
+
+| 전략 | 최초 로드 | 이후 로드 | 오프라인 지원 | 최적의 용도 |
+|------|-----------|-----------|---------------|--------------|
+| `optimistic` | 네트워크 → 캐시 | 캐시(백그라운드 갱신) | ✅ 가능 | 빠른 UX |
+| `cacheFirst` | 캐시 또는 네트워크 | 캐시 | ✅ 가능 | 오프라인 앱 |
+| `networkFirst` | 네트워크 | 네트워크(캐시 폴백) | ⚠️ 폴백만 | 최신 데이터 |
+| `cacheOnly` | 캐시만 | 캐시만 | ✅ 가능 | 오프라인 모드 |
+| `networkOnly` | 네트워크만 | 네트워크만 | ❌ 불가 | 민감 데이터 |
+
+## 버전 기반 업데이트
+
+Stac은 각 캐시된 화면의 버전 번호를 관리합니다. Stac Cloud에 새 화면을 배포하면 다음 순서로 업데이트됩니다.
+
+1. 서버가 새로운 버전 번호를 부여합니다.
+2. 백그라운드 요청이 새 버전을 감지합니다.
+3. 캐시가 최신 콘텐츠로 교체됩니다.
+4. 다음 로드에서 업데이트된 화면을 표시합니다.
+
+이 과정을 통해 사용자는 배포 없이도 빠른 로딩을 유지하고, 변경 사항 역시 자연스럽게 전달받을 수 있습니다.

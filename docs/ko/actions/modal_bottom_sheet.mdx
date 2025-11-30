@@ -1,0 +1,80 @@
+---
+title: "Modal Bottom Sheet 액션"
+description: "모달 바텀시트를 띄우는 액션"
+---
+
+`StacModalBottomSheetAction`은 Flutter의 `showModalBottomSheet`를 JSON으로 제어할 수 있게 해 줍니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| widget | `Map<String, dynamic>?` | 바텀시트 내부에 표시할 위젯 |
+| request | `StacNetworkRequest?` | 바텀시트를 띄우기 전 실행할 네트워크 요청 |
+| assetPath | `String?` | 에셋에 있는 JSON 경로 |
+| backgroundColor | `String?` | 배경색 |
+| barrierLabel | `String?` | 배리어의 접근성 라벨 |
+| elevation | `double?` | 바텀시트 고도 |
+| shape | `StacBorder?` | 모서리 모양 |
+| constraints | `StacBoxConstraints?` | 크기 제약 |
+| barrierColor | `String?` | 배리어 색상 |
+| isScrollControlled | `bool` | 전체 높이를 사용할지 여부(기본값 `false`) |
+| useRootNavigator | `bool` | 루트 내비게이터 사용 여부(기본값 `false`) |
+| isDismissible | `bool` | 외부 탭으로 닫히도록 할지(기본값 `true`) |
+| enableDrag | `bool` | 드래그로 닫기 가능 여부(기본값 `true`) |
+| showDragHandle | `bool?` | 드래그 핸들을 표시할지 |
+| useSafeArea | `bool` | SafeArea 적용 여부(기본값 `false`) |
+
+## 예제
+
+```json
+{
+  "actionType": "showModalBottomSheet",
+  "widget": {
+    "type": "container",
+    "height": 200,
+    "color": "amber",
+    "child": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "mainAxisSize": "min",
+        "children": [
+          {
+            "type": "text",
+            "data": "Modal BottomSheet"
+          },
+          {
+            "type": "elevatedButton",
+            "child": {
+              "type": "text",
+              "data": "Close BottomSheet"
+            },
+            "onPressed": {
+              "actionType": "pop"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+```json
+{
+  "actionType": "showModalBottomSheet",
+  "assetPath": "assets/widgets/modal_bottom_sheet.json"
+}
+```
+
+```json
+{
+  "actionType": "showModalBottomSheet",
+  "request": {
+    "url": "https://example.com/api",
+    "method": "get"
+  }
+}
+```

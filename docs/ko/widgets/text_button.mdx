@@ -1,0 +1,42 @@
+---
+title: "TextButton"
+description: "TextButton 위젯을 JSON으로 구성하는 방법"
+---
+
+Stac `textButton`은 Flutter `TextButton`을 JSON으로 정의할 수 있습니다. 자세한 내용은 [공식 문서](https://api.flutter.dev/flutter/material/TextButton-class.html)를 참고하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| onPressed | `Map<String, dynamic>?` | 버튼을 탭했을 때 실행될 액션 |
+| onLongPress | `Map<String, dynamic>?` | 길게 눌렀을 때 실행될 액션 |
+| onHover | `Map<String, dynamic>?` | 호버 시 실행될 액션 |
+| onFocusChange | `Map<String, dynamic>?` | 포커스 변경 시 실행될 액션 |
+| style | `StacButtonStyle?` | 버튼 스타일 |
+| autofocus | `bool` | 페이지 로드 시 자동 포커스 여부(기본값 `false`) |
+| clipBehavior | `Clip` | 콘텐츠를 어떻게 잘라낼지(기본값 `Clip.none`) |
+| isSemanticButton | `bool` | 접근성 트리에서 버튼으로 인식할지(기본값 `true`) |
+| child | `Map<String, dynamic>` | 버튼 내부에 표시할 위젯 |
+
+## 예제
+
+```json
+{
+  "type": "textButton",
+  "onPressed": {},
+  "onLongPress": {},
+  "onHover": {},
+  "onFocusChange": {},
+  "style": {
+    "backgroundColor": "#FFC107",
+    "foregroundColor": "#000000"
+  },
+  "autofocus": false,
+  "clipBehavior": "none",
+  "child": {
+    "type": "text",
+    "data": "Click Me!"
+  }
+}
+```

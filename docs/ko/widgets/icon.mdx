@@ -1,0 +1,32 @@
+---
+title: "Icon"
+description: "아이콘 위젯"
+---
+
+`icon`은 Material/Cupertino 아이콘을 렌더링합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| icon | `String` | 아이콘 이름 |
+| iconType | `IconType` | `material` 또는 `cupertino`(기본 `material`) |
+| size | `double?` | 아이콘 크기 |
+| color | `String?` | 색상 |
+| semanticLabel | `String?` | 접근성 라벨 |
+| textDirection | `TextDirection?` | 텍스트 방향(일부 아이콘에 영향) |
+
+아이콘 목록은 [icon_utils.dart](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart)를 참고하세요.
+
+## 예제
+
+```json
+{
+  "type": "icon",
+  "icon": "home",
+  "size": 24.0,
+  "color": "#000000",
+  "semanticLabel": "Home Icon",
+  "textDirection": "ltr"
+}
+```
