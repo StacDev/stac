@@ -193,6 +193,15 @@
             "type": "icon",
             "icon": "notifications",
             "size": 24
+          },
+          "padding": {  
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          "onPressed": {
+            "actionType": "none"
           }
         }
       }

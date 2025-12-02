@@ -94,6 +94,62 @@ class StacBadge extends StacWidget {
     this.child,
   });
 
+  /// Convenience constructor for creating a badge with a numeric label based on [count].
+  ///
+  /// Initializes [count] with the provided value and automatically creates a label
+  /// showing the count value or '[maxCount]+' if count exceeds [maxCount].
+  ///
+  /// For example, if [count] is 1000 and [maxCount] is 99, the label will display '99+'.
+  ///
+  /// The [count] must be non-negative (>= 0) and [maxCount] must be positive (> 0).
+  ///
+  /// {@tool snippet}
+  /// Dart Example:
+  /// ```dart
+  /// StacBadge.count(
+  ///   count: 5,
+  ///   child: StacIcon(icon: 'notifications'),
+  /// )
+  ///
+  /// StacBadge.count(
+  ///   count: 1000,
+  ///   maxCount: 99,
+  ///   child: StacIcon(icon: 'notifications'),
+  /// ) // Will display "99+"
+  /// ```
+  /// {@end-tool}
+  factory StacBadge.count({
+    String? backgroundColor,
+    String? textColor,
+    double? smallSize,
+    double? largeSize,
+    StacTextStyle? textStyle,
+    StacEdgeInsets? padding,
+    StacAlignmentGeometry? alignment,
+    StacOffset? offset,
+    required int count,
+    int maxCount = 999,
+    bool isLabelVisible = true,
+    StacWidget? child,
+  }) {
+    assert(count >= 0, 'count must be non-negative');
+    assert(maxCount > 0, 'maxCount must be positive');
+    return StacBadge(
+      backgroundColor: backgroundColor,
+      textColor: textColor,
+      smallSize: smallSize,
+      largeSize: largeSize,
+      textStyle: textStyle,
+      padding: padding,
+      alignment: alignment,
+      offset: offset,
+      count: count,
+      maxCount: maxCount,
+      isLabelVisible: isLabelVisible,
+      child: child,
+    );
+  }
+
   /// The badge's fill color (hex string).
   final String? backgroundColor;
 
