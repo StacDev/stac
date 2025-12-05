@@ -1,0 +1,81 @@
+import 'dart:convert';
+
+import 'package:flutter/widgets.dart';
+import 'package:stac/src/services/stac_cloud.dart';
+import 'package:stac/src/services/stac_network_service.dart';
+import 'package:stac_core/actions/network_request/stac_network_request.dart';
+import 'package:stac_core/foundation/theme/stac_theme/stac_theme.dart';
+
+/// Provides helpers to load [StacTheme] definitions for [StacApp].
+class StacAppTheme {
+  const StacAppTheme._();
+
+  /// Fetches a theme from the `/themes` endpoint by [themeName].
+  ///
+  /// Returns `null` if the network call fails or the payload is malformed.
+  static Future<StacTheme?> fromCloud({required String themeName}) async {
+    final response = await StacCloud.fetchTheme(themeName: themeName);
+    if (response == null) {
+      return null;
+    }
+
+    final rawData = response.data;
+    if (rawData is! Map<String, dynamic>) {
+      return null;
+    }
+
+    final themePayload = _normalizeThemeJson(rawData['stacJson']);
+    if (themePayload == null) {
+      return null;
+    }
+
+    return StacTheme.fromJson(themePayload);
+  }
+
+  /// Fetches a theme over HTTP using a [StacNetworkRequest].
+  ///
+  /// Mirrors [Stac.fromNetwork], allowing callers to reuse existing request
+  /// builders and middleware.
+  static Future<StacTheme?> fromNetwork({
+    required BuildContext context,
+    required StacNetworkRequest request,
+  }) async {
+    final response = await StacNetworkService.request(context, request);
+    if (response == null) {
+      return null;
+    }
+
+    return fromJson(response.data);
+  }
+
+  /// Creates a [StacTheme] from raw JSON payloads.
+  ///
+  /// Accepts either a `Map<String, dynamic>` or a JSON `String`. Returns `null`
+  /// when the payload cannot be parsed into a valid [StacTheme].
+  static StacTheme? fromJson(dynamic payload) {
+    final themePayload = _normalizeThemeJson(payload);
+    if (themePayload == null) {
+      return null;
+    }
+    return StacTheme.fromJson(themePayload);
+  }
+
+  static Map<String, dynamic>? _normalizeThemeJson(dynamic payload) {
+    if (payload == null) {
+      return null;
+    }
+    if (payload is Map<String, dynamic> && payload['stacJson'] != null) {
+      return _normalizeThemeJson(payload['stacJson']);
+    }
+    if (payload is Map<String, dynamic>) {
+      return payload;
+    }
+    if (payload is String) {
+      final decoded = jsonDecode(payload);
+      if (decoded is Map<String, dynamic>) {
+        return decoded;
+      }
+    }
+    return null;
+  }
+}

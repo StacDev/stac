@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
 
@@ -108,8 +110,8 @@ class StacApp extends StatelessWidget {
   final TransitionBuilder? builder;
   final String title;
   final GenerateAppTitle? onGenerateTitle;
-  final StacTheme? theme;
-  final StacTheme? darkTheme;
+  final FutureOr<StacTheme?>? theme;
+  final FutureOr<StacTheme?>? darkTheme;
   final ThemeData? highContrastTheme;
   final ThemeData? highContrastDarkTheme;
   final ThemeMode? themeMode;
@@ -142,6 +144,22 @@ class StacApp extends StatelessWidget {
   }
 
   Widget _materialApp(BuildContext context) {
+    return _withResolvedThemes(
+      context,
+      (resolvedContext, resolved) =>
+          _buildMaterialApp(resolvedContext, resolved),
+    );
+  }
+
+  Widget _materialRouterApp(BuildContext context) {
+    return _withResolvedThemes(
+      context,
+      (resolvedContext, resolved) =>
+          _buildMaterialAppRouter(resolvedContext, resolved),
+    );
+  }
+
+  Widget _buildMaterialApp(BuildContext context, _ResolvedStacThemes themes) {
     return MaterialApp(
       navigatorKey: navigatorKey,
       scaffoldMessengerKey: scaffoldMessengerKey,
@@ -162,8 +180,8 @@ class StacApp extends StatelessWidget {
       builder: builder,
       title: title,
       onGenerateTitle: onGenerateTitle,
-      theme: theme?.parse(context),
-      darkTheme: darkTheme?.parse(context),
+      theme: themes.theme?.parse(context),
+      darkTheme: themes.darkTheme?.parse(context),
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       themeMode: themeMode,
@@ -188,7 +206,10 @@ class StacApp extends StatelessWidget {
     );
   }
 
-  Widget _materialRouterApp(BuildContext context) {
+  Widget _buildMaterialAppRouter(
+    BuildContext context,
+    _ResolvedStacThemes themes,
+  ) {
     return MaterialApp.router(
       scaffoldMessengerKey: scaffoldMessengerKey,
       routeInformationProvider: routeInformationProvider,
@@ -200,8 +221,8 @@ class StacApp extends StatelessWidget {
       title: title,
       onGenerateTitle: onGenerateTitle,
       color: color,
-      theme: theme?.parse(context),
-      darkTheme: darkTheme?.parse(context),
+      theme: themes.theme?.parse(context),
+      darkTheme: themes.darkTheme?.parse(context),
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       themeMode: themeMode,
@@ -223,5 +244,81 @@ class StacApp extends StatelessWidget {
       restorationScopeId: restorationScopeId,
       scrollBehavior: scrollBehavior,
     );
+  }
+
+  FutureOr<_ResolvedStacThemes> _resolveThemes() {
+    final themeInput = theme;
+    final darkThemeInput = darkTheme;
+
+    final Future<StacTheme?>? themeFuture = themeInput is Future<StacTheme?>
+        ? themeInput
+        : null;
+    final Future<StacTheme?>? darkThemeFuture =
+        darkThemeInput is Future<StacTheme?> ? darkThemeInput : null;
+
+    final StacTheme? themeValue = themeFuture == null
+        ? themeInput as StacTheme?
+        : null;
+    final StacTheme? darkThemeValue = darkThemeFuture == null
+        ? darkThemeInput as StacTheme?
+        : null;
+
+    if (themeFuture == null && darkThemeFuture == null) {
+      return _ResolvedStacThemes(theme: themeValue, darkTheme: darkThemeValue);
+    }
+
+    return Future<_ResolvedStacThemes>(() async {
+      final resolvedTheme =
+          await (themeFuture ?? Future<StacTheme?>.value(themeValue));
+      final resolvedDarkTheme =
+          await (darkThemeFuture ?? Future<StacTheme?>.value(darkThemeValue));
+
+      return _ResolvedStacThemes(
+        theme: resolvedTheme,
+        darkTheme: resolvedDarkTheme,
+      );
+    });
+  }
+
+  Widget _withResolvedThemes(
+    BuildContext context,
+    Widget Function(BuildContext, _ResolvedStacThemes) builder,
+  ) {
+    final resolved = _resolveThemes();
+    if (resolved is Future<_ResolvedStacThemes>) {
+      return FutureBuilder<_ResolvedStacThemes>(
+        future: resolved,
+        builder: (futureContext, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const _ThemeFutureLoading();
+          }
+          if (snapshot.hasError) {
+            return const _ThemeFutureLoading();
+          }
+          final themes = snapshot.data;
+          if (themes == null) {
+            return const _ThemeFutureLoading();
+          }
+          return builder(futureContext, themes);
+        },
+      );
+    }
+    return builder(context, resolved);
+  }
+}
+
+class _ResolvedStacThemes {
+  const _ResolvedStacThemes({required this.theme, required this.darkTheme});
+
+  final StacTheme? theme;
+  final StacTheme? darkTheme;
+}
+
+class _ThemeFutureLoading extends StatelessWidget {
+  const _ThemeFutureLoading();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Material(child: Center(child: CircularProgressIndicator()));
   }
 }
