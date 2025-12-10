@@ -1,0 +1,210 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Badge"
+    }
+  },
+  "body": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "text",
+        "data": "Badge with Label",
+        "style": {
+          "fontSize": 18,
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 16
+      },
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "badge",
+            "label": {
+              "type": "text",
+              "data": "5"
+            },
+            "child": {
+              "type": "icon",
+              "icon": "notifications",
+              "size": 32
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 24
+          },
+          {
+            "type": "badge",
+            "label": {
+              "type": "text",
+              "data": "NEW"
+            },
+            "backgroundColor": "#4CAF50",
+            "textColor": "#FFFFFF",
+            "child": {
+              "type": "icon",
+              "icon": "mail",
+              "size": 32
+            }
+          }
+        ]
+      },
+      {
+        "type": "sizedBox",
+        "height": 32
+      },
+      {
+        "type": "text",
+        "data": "Badge with Count",
+        "style": {
+          "fontSize": 18,
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 16
+      },
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "badge",
+            "count": 5,
+            "child": {
+              "type": "icon",
+              "icon": "shopping_cart",
+              "size": 32
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 24
+          },
+          {
+            "type": "badge",
+            "count": 99,
+            "maxCount": 99,
+            "child": {
+              "type": "icon",
+              "icon": "favorite",
+              "size": 32
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 24
+          },
+          {
+            "type": "badge",
+            "count": 1000,
+            "maxCount": 99,
+            "child": {
+              "type": "icon",
+              "icon": "notifications",
+              "size": 32
+            }
+          }
+        ]
+      },
+      {
+        "type": "sizedBox",
+        "height": 32
+      },
+      {
+        "type": "text",
+        "data": "Small Badge (No Label)",
+        "style": {
+          "fontSize": 18,
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 16
+      },
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "badge",
+            "smallSize": 8,
+            "backgroundColor": "#F44336",
+            "child": {
+              "type": "icon",
+              "icon": "circle",
+              "size": 32
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 24
+          },
+          {
+            "type": "badge",
+            "smallSize": 12,
+            "backgroundColor": "#4CAF50",
+            "child": {
+              "type": "icon",
+              "icon": "check_circle",
+              "size": 32
+            }
+          }
+        ]
+      },
+      {
+        "type": "sizedBox",
+        "height": 32
+      },
+      {
+        "type": "text",
+        "data": "Badge on IconButton",
+        "style": {
+          "fontSize": 18,
+          "fontWeight": "bold"
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 16
+      },
+      {
+        "type": "badge",
+        "count": 3,
+        "child": {
+          "type": "iconButton",
+          "icon": {
+            "type": "icon",
+            "icon": "notifications",
+            "size": 24
+          },
+          "padding": {  
+            "left": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0
+          },
+          "onPressed": {
+            "actionType": "none"
+          }
+        }
+      }
+    ]
+  }
+}

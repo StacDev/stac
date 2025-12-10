@@ -21,6 +21,9 @@ enum WidgetType {
   /// Backdrop filter widget
   backdropFilter,
 
+  /// Badge widget
+  badge,
+
   /// Bottom navigation bar widget
   bottomNavigationBar,
 

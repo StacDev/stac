@@ -6,6 +6,7 @@ export 'app_bar/stac_app_bar.dart';
 export 'aspect_ratio/stac_aspect_ratio.dart';
 export 'auto_complete/stac_auto_complete.dart';
 export 'backdrop_filter/stac_backdrop_filter.dart';
+export 'badge/stac_badge.dart';
 export 'bottom_navigation_bar/stac_bottom_navigation_bar.dart';
 export 'bottom_navigation_view/stac_bottom_navigation_view.dart';
 export 'card/stac_card.dart';
