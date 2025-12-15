@@ -15,7 +15,8 @@ To know more about the SelectableText widget in Flutter, refer to the [official 
 | style                      | `StacTextStyle?`     | The style to apply to the text.                   |
 | textAlign                  | `TextAlign?`         | The alignment of the text.                        |
 | textDirection              | `TextDirection?`     | The direction of the text.                        |
-| textScaleFactor            | `double?`            | The number of font pixels for each logical pixel. |
+| textScaleFactor            | `double?`            | **Deprecated.** Use `textScaler` instead.         |
+| textScaler                 | `double?`            | The font scaling strategy to use.                 |
 | showCursor                 | `bool?`              | Whether to show the cursor.                       |
 | autofocus                  | `bool?`              | Whether to autofocus the widget.                  |
 | minLines                   | `int?`               | The minimum number of lines to display.           |
@@ -29,6 +30,10 @@ To know more about the SelectableText widget in Flutter, refer to the [official 
 | semanticsLabel             | `String?`            | The semantics label for the text.                 |
 | textWidthBasis             | `TextWidthBasis?`    | The width basis for the text.                     |
 | selectionColor             | `String?`            | The color of the text selection.                  |
+
+> [!NOTE] 
+> `textScaleFactor` is deprecated. Use `textScaler` instead.
+> Example migration: `textScaler: 1.5` corresponds to `TextScaler.linear(1.5)`.
 
 ## Example JSON
 

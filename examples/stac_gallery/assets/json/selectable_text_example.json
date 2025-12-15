@@ -86,14 +86,14 @@
             "type": "selectableText",
             "data": "This text has a red cursor.",
             "showCursor": true,
-            "cursorColor": "#000000",
+            "cursorColor": "#FF0000",
             "cursorWidth": 5.0
           },
           {
             "type": "sizedBox",
             "height": 32
           },
-           {
+          {
             "type": "text",
             "data": "Interactive Selection Disabled",
             "style": {

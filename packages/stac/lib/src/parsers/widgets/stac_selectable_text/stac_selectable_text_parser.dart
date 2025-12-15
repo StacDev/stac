@@ -31,9 +31,11 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       style: _resolveStyle(context, model.style, model.copyWithStyle),
       textAlign: model.textAlign?.parse,
       textDirection: model.textDirection?.parse,
-      textScaler: model.textScaleFactor != null
-          ? TextScaler.linear(model.textScaleFactor!)
-          : TextScaler.noScaling,
+      textScaler: model.textScaler != null
+          ? TextScaler.linear(model.textScaler!)
+          : model.textScaleFactor != null
+              ? TextScaler.linear(model.textScaleFactor!)
+              : null,
       showCursor: model.showCursor ?? false,
       autofocus: model.autofocus ?? false,
       minLines: model.minLines,
@@ -44,6 +46,7 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
           ? Radius.circular(model.cursorRadius!)
           : null,
       cursorColor: model.cursorColor?.toColor(context),
+      selectionColor: model.selectionColor?.toColor(context),
       enableInteractiveSelection: model.enableInteractiveSelection ?? true,
       semanticsLabel: model.semanticsLabel,
       textWidthBasis: model.textWidthBasis?.parse,
@@ -77,7 +80,7 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
 
     final overrideParsed = override.parse(context);
     if (overrideParsed == null) return baseStyle;
-    if (baseStyle == null) return null;
+    if (baseStyle == null) return overrideParsed;
 
     return baseStyle.copyWith(
       inherit: override.inherit,

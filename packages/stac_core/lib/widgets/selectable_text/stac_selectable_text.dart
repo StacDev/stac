@@ -50,7 +50,8 @@ class StacSelectableText extends StacWidget {
     this.copyWithStyle,
     this.textAlign,
     this.textDirection,
-    this.textScaleFactor,
+    @Deprecated('Use textScaler instead') this.textScaleFactor,
+    this.textScaler,
     this.showCursor,
     this.autofocus,
     this.minLines,
@@ -85,7 +86,11 @@ class StacSelectableText extends StacWidget {
   final StacTextDirection? textDirection;
 
   /// The number of font pixels for each logical pixel.
+  @Deprecated('Use textScaler instead')
   final double? textScaleFactor;
+
+  /// The font scaling strategy to use.
+  final double? textScaler;
 
   /// Whether to show the cursor.
   final bool? showCursor;
