@@ -823,6 +823,28 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "text_fields"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Selectable Text"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A run of text with a single style that can be selected"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/selectable_text_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "iconType": "cupertino",
       "icon": "textbox"
     },

@@ -189,6 +189,9 @@ enum WidgetType {
   /// Scaffold widget
   scaffold,
 
+  /// Selectable text widget
+  selectableText,
+
   /// Set value action/widget
   setValue,
 
