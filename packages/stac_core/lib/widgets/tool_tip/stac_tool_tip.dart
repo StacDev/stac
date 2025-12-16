@@ -139,7 +139,8 @@ class StacTooltip extends StacWidget {
   /// Whether the tooltip can be dismissed by tapping the screen.
   final bool enableTapToDismiss;
 
-  /// The [TooltipTriggerMode] that will trigger the tooltip.
+  /// Defines how this widget can be triggered.
+  /// Defaults to [StacTooltipTriggerMode.longPress] in the Flutter widget.
   final StacTooltipTriggerMode? triggerMode;
 
   /// Whether the tooltip should provide acoustic and/or haptic feedback.
