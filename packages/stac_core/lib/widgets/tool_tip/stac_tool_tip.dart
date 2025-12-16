@@ -124,8 +124,8 @@ class StacTooltip extends StacWidget {
   final StacDuration? waitDuration;
 
   /// The length of time that the tooltip will be shown after a long press
-  /// is released (if triggerMode is TooltipTriggerMode.longPress) or
-  /// a tap is released (if triggerMode is TooltipTriggerMode.tap).
+  /// is released (if triggerMode is StacTooltipTriggerMode.longPress) or
+  /// a tap is released (if triggerMode is StacTooltipTriggerMode.tap).
   ///
   /// Defined in milliseconds.
   final StacDuration? showDuration;
