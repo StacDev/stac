@@ -62,7 +62,7 @@
       "actionType": "navigate",
       "widgetJson": {
         "type": "exampleScreen",
-        "assetPath": "assets/json/toot_tip_example.json"
+        "assetPath": "assets/json/tool_tip_example.json"
       }
     }
   },

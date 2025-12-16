@@ -32,7 +32,7 @@ part 'stac_tool_tip.g.dart';
 ///   "type": "tooltip",
 ///   "message": "I am a Tooltip",
 ///   "child": { "type": "icon", "icon": "info" },
-///   "waitDuration": 500,
+///   "waitDuration": { "milliseconds": 500 }
 ///   "preferBelow": false
 /// }
 /// ```
