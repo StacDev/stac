@@ -48,7 +48,7 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
-      "icon": "badge"
+      "icon": "info"
     },
     "title": {
       "type": "text",

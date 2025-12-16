@@ -14,6 +14,16 @@ class StacToolTipParser extends StacParser<StacTooltip> {
 
   @override
   Widget parse(BuildContext context, StacTooltip model) {
+    if (model.message == null && model.richMessage == null) {
+      throw FlutterError.fromParts([
+        ErrorSummary('Invalid Tooltip configuration'),
+        ErrorDescription(
+          'A Tooltip must define either "message" or "richMessage".',
+        ),
+      ]);
+    }
+
+    final Widget child = model.child?.parse(context) ?? const SizedBox.shrink();
     return Tooltip(
       message: model.message,
       constraints: model.constraints?.parse,
@@ -31,7 +41,7 @@ class StacToolTipParser extends StacParser<StacTooltip> {
       enableTapToDismiss: model.enableTapToDismiss,
       triggerMode: model.triggerMode?.parse,
       enableFeedback: model.enableFeedback,
-      child: model.child?.parse(context),
+      child: child,
     );
   }
 }
