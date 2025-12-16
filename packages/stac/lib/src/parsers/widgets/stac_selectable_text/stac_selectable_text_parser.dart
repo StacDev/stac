@@ -100,6 +100,7 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       debugLabel: overrideParsed.debugLabel,
       fontFamily: overrideParsed.fontFamily,
       fontFamilyFallback: overrideParsed.fontFamilyFallback,
+      package: overrideParsed.package,
       overflow: overrideParsed.overflow,
     );
   }
