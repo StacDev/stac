@@ -16,6 +16,7 @@ import 'package:stac/src/parsers/widgets/stac_app_bar/stac_app_bar_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
+import 'package:stac/src/parsers/widgets/stac_tool_tip/stac_tool_tip_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac_core/core/stac_options.dart';
@@ -99,6 +100,7 @@ class StacService {
     const StacWrapParser(),
     const StacAutoCompleteParser(),
     const StacBadgeParser(),
+    const StacToolTipParser(),
     const StacTableParser(),
     const StacTableCellParser(),
     const StacCarouselViewParser(),

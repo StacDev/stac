@@ -237,6 +237,9 @@ enum WidgetType {
   /// Text form field widget
   textFormField,
 
+  /// Tool Tip widget
+  tooltip,
+
   /// Wrap widget
   wrap,
 
