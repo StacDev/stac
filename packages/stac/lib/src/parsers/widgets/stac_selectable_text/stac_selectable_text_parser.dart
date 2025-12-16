@@ -34,8 +34,8 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       textScaler: model.textScaler != null
           ? TextScaler.linear(model.textScaler!)
           : model.textScaleFactor != null
-              ? TextScaler.linear(model.textScaleFactor!)
-              : null,
+          ? TextScaler.linear(model.textScaleFactor!)
+          : null,
       showCursor: model.showCursor ?? false,
       autofocus: model.autofocus ?? false,
       minLines: model.minLines,
@@ -63,7 +63,7 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
           style: child.style?.parse(context),
           recognizer: child.onTap != null
               ? (TapGestureRecognizer()
-                ..onTap = () => Stac.onCallFromJson(child.onTap, context))
+                  ..onTap = () => Stac.onCallFromJson(child.onTap, context))
               : null,
         );
       }).toList(),
@@ -100,7 +100,6 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       debugLabel: overrideParsed.debugLabel,
       fontFamily: overrideParsed.fontFamily,
       fontFamilyFallback: overrideParsed.fontFamilyFallback,
-      package: overrideParsed.package,
       overflow: overrideParsed.overflow,
     );
   }
