@@ -16,9 +16,9 @@ part 'stac_tool_tip.g.dart';
 /// StacTooltip(
 ///   message: 'I am a Tooltip',
 ///   child: StacIcon(icon: 'info'),
-///   decoration: StacDecoration(
+///   decoration: StacBoxDecoration(
 ///     color: StacColors.blue,
-///     borderRadius: BorderRadius.circular(4),
+///     borderRadius: StacBorderRadius.circular(4),
 ///   ),
 ///   textStyle: StacTextStyle(color: StacColors.white),
 /// )
