@@ -194,6 +194,11 @@ StacTheme _$StacThemeFromJson(Map<String, dynamic> json) => StacTheme(
       : StacButtonStyle.fromJson(
           json['textButtonTheme'] as Map<String, dynamic>,
         ),
+  tooltipTheme: json['tooltipTheme'] == null
+      ? null
+      : StacTooltipThemeData.fromJson(
+          json['tooltipTheme'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$StacThemeToJson(StacTheme instance) => <String, dynamic>{
@@ -256,6 +261,7 @@ Map<String, dynamic> _$StacThemeToJson(StacTheme instance) => <String, dynamic>{
   'snackBarTheme': instance.snackBarTheme?.toJson(),
   'tabBarTheme': instance.tabBarTheme?.toJson(),
   'textButtonTheme': instance.textButtonTheme?.toJson(),
+  'tooltipTheme': instance.tooltipTheme?.toJson(),
 };
 
 const _$StacMaterialTapTargetSizeEnumMap = {

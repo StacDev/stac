@@ -28,3 +28,4 @@ export 'stac_snack_bar_theme_data/stac_snack_bar_theme_data.dart';
 export 'stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 export 'stac_text_theme/stac_text_theme.dart';
 export 'stac_theme/stac_theme.dart';
+export 'stac_tool_tip_theme_data/stac_tool_tip_theme_data.dart';
