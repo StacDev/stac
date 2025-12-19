@@ -9,7 +9,6 @@ part of 'stac_tool_tip_theme_data.dart';
 StacTooltipThemeData _$StacTooltipThemeDataFromJson(
   Map<String, dynamic> json,
 ) => StacTooltipThemeData(
-  height: (json['height'] as num?)?.toDouble(),
   constraints: json['constraints'] == null
       ? null
       : StacBoxConstraints.fromJson(
@@ -50,7 +49,6 @@ StacTooltipThemeData _$StacTooltipThemeDataFromJson(
 Map<String, dynamic> _$StacTooltipThemeDataToJson(
   StacTooltipThemeData instance,
 ) => <String, dynamic>{
-  'height': instance.height,
   'constraints': instance.constraints?.toJson(),
   'padding': instance.padding?.toJson(),
   'margin': instance.margin?.toJson(),

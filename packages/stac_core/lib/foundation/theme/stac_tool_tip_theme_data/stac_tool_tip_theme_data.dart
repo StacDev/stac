@@ -35,7 +35,6 @@ part 'stac_tool_tip_theme_data.g.dart';
 class StacTooltipThemeData implements StacElement {
   /// Creates a [StacTooltipThemeData] with the given properties.
   const StacTooltipThemeData({
-    this.height,
     this.constraints,
     this.padding,
     this.margin,
@@ -51,9 +50,6 @@ class StacTooltipThemeData implements StacElement {
     this.triggerMode,
     this.enableFeedback,
   });
-
-  /// Minimum height of the tooltip.
-  final double? height;
 
   /// Size constraints for the tooltip.
   final StacBoxConstraints? constraints;
