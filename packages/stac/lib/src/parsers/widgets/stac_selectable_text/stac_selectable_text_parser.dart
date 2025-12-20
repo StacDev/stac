@@ -33,8 +33,6 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       textDirection: model.textDirection?.parse,
       textScaler: model.textScaler != null
           ? TextScaler.linear(model.textScaler!)
-          : model.textScaleFactor != null
-          ? TextScaler.linear(model.textScaleFactor!)
           : null,
       showCursor: model.showCursor ?? false,
       autofocus: model.autofocus ?? false,
