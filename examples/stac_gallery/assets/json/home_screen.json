@@ -22,7 +22,6 @@
       }
     }
   },
- 
   {
     "type": "listTile",
     "leading": {
@@ -42,6 +41,28 @@
       "widgetJson": {
         "type": "exampleScreen",
         "assetPath": "assets/json/auto_complete_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "icon": "info"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Tooltip"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Create a widget with tooltip"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/tool_tip_example.json"
       }
     }
   },

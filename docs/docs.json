@@ -68,7 +68,8 @@
                             "widgets/sized_box",
                             "widgets/spacer",
                             "widgets/stack",
-                            "widgets/wrap"
+                            "widgets/wrap",
+                            "widgets/tool_tip"
                         ]
                     },
                     {
