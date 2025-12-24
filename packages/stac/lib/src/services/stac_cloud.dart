@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
-import 'package:stac/src/models/stac_screen_cache.dart';
+import 'package:stac/src/models/stac_artifact_cache.dart';
 import 'package:stac/src/services/stac_cache_service.dart';
 import 'package:stac_logger/stac_logger.dart';
 
@@ -43,11 +43,6 @@ class StacCloud {
     }
   }
 
-  /// Gets the artifact type string for cache operations.
-  static String _getArtifactTypeString(StacArtifactType artifactType) {
-    return artifactType.name;
-  }
-
   /// Tracks artifacts currently being fetched in background to prevent duplicates.
   static final Map<StacArtifactType, Set<String>> _backgroundFetchInProgress = {
     StacArtifactType.screen: {},
@@ -75,8 +70,6 @@ class StacCloud {
       throw Exception('StacOptions is not set');
     }
 
-    final artifactTypeString = _getArtifactTypeString(artifactType);
-
     // Handle network-only strategy
     if (cacheConfig.strategy == StacCacheStrategy.networkOnly) {
       return _fetchArtifactFromNetwork(
@@ -89,7 +82,7 @@ class StacCloud {
     // Get cached artifact
     final cachedArtifact = await StacCacheService.getCachedArtifact(
       artifactName,
-      artifactTypeString,
+      artifactType,
     );
 
     // Handle cache-only strategy
@@ -103,7 +96,7 @@ class StacCloud {
     }
 
     // Check if cache is valid based on maxAge (sync to avoid double cache read)
-    final isCacheValid = StacCacheService.isCacheValidSync(
+    final isCacheValid = StacCacheService.isCacheValid(
       cachedArtifact,
       cacheConfig.maxAge,
     );
@@ -172,7 +165,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactNetworkFirst({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacScreenCache? cachedArtifact,
+    StacArtifactCache? cachedArtifact,
   }) async {
     try {
       return await _fetchArtifactFromNetwork(
@@ -196,7 +189,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactCacheFirst({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacScreenCache? cachedArtifact,
+    StacArtifactCache? cachedArtifact,
     required bool isCacheValid,
     required StacCacheConfig config,
   }) async {
@@ -236,7 +229,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactOptimistic({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacScreenCache? cachedArtifact,
+    StacArtifactCache? cachedArtifact,
     required bool isCacheValid,
     required StacCacheConfig config,
   }) async {
@@ -302,7 +295,7 @@ class StacCloud {
           name: name,
           stacJson: stacJson,
           version: version,
-          artifactType: _getArtifactTypeString(artifactType),
+          artifactType: artifactType,
         );
       }
     }
@@ -313,7 +306,7 @@ class StacCloud {
   /// Builds a Response from cached artifact data.
   static Response _buildArtifactCacheResponse(
     StacArtifactType artifactType,
-    StacScreenCache cachedArtifact,
+    StacArtifactCache cachedArtifact,
   ) {
     final fetchUrl = _getFetchUrl(artifactType);
     return Response(
@@ -361,7 +354,7 @@ class StacCloud {
             name: name,
             stacJson: serverStacJson,
             version: serverVersion,
-            artifactType: _getArtifactTypeString(artifactType),
+            artifactType: artifactType,
           );
         }
       }
@@ -399,21 +392,21 @@ class StacCloud {
 
   /// Clears the cache for a specific screen.
   static Future<bool> clearScreenCache(String routeName) {
-    return StacCacheService.removeArtifact(routeName, 'screen');
+    return StacCacheService.removeArtifact(routeName, StacArtifactType.screen);
   }
 
   /// Clears all cached screens.
   static Future<bool> clearAllCache() {
-    return StacCacheService.clearAllArtifacts('screen');
+    return StacCacheService.clearAllArtifacts(StacArtifactType.screen);
   }
 
   /// Clears the cache for a specific theme.
   static Future<bool> clearThemeCache(String themeName) {
-    return StacCacheService.removeArtifact(themeName, 'theme');
+    return StacCacheService.removeArtifact(themeName, StacArtifactType.theme);
   }
 
   /// Clears all cached themes.
   static Future<bool> clearAllThemeCache() {
-    return StacCacheService.clearAllArtifacts('theme');
+    return StacCacheService.clearAllArtifacts(StacArtifactType.theme);
   }
 }

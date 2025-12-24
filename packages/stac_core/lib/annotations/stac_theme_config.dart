@@ -5,14 +5,14 @@
 ///
 /// Example usage:
 /// ```dart
-/// @StacThemeAnnotation(themeName: 'darkTheme')
+/// @StacThemeConfig(themeName: 'darkTheme')
 /// ThemeData buildDarkTheme() {
 ///   return ThemeData.dark();
 /// }
 /// ```
-class StacCloudTheme {
-  /// Creates a [StacCloudTheme] with the given theme name.
-  const StacCloudTheme({required this.themeName});
+class StacThemeConfig {
+  /// Creates a [StacThemeConfig] with the given theme name.
+  const StacThemeConfig({required this.themeName});
 
   /// The identifier for this theme.
   final String themeName;

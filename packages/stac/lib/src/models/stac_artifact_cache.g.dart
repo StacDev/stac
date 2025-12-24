@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'stac_screen_cache.dart';
+part of 'stac_artifact_cache.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-StacScreenCache _$StacScreenCacheFromJson(Map<String, dynamic> json) =>
-    StacScreenCache(
+StacArtifactCache _$StacArtifactCacheFromJson(Map<String, dynamic> json) =>
+    StacArtifactCache(
       name: json['name'] as String,
       stacJson: json['stacJson'] as String,
       version: (json['version'] as num).toInt(),
       cachedAt: DateTime.parse(json['cachedAt'] as String),
     );
 
-Map<String, dynamic> _$StacScreenCacheToJson(StacScreenCache instance) =>
+Map<String, dynamic> _$StacArtifactCacheToJson(StacArtifactCache instance) =>
     <String, dynamic>{
       'name': instance.name,
       'stacJson': instance.stacJson,

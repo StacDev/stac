@@ -1,5 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stac/src/models/stac_screen_cache.dart';
+import 'package:stac/src/models/stac_artifact_cache.dart';
+import 'package:stac/src/models/stac_artifact_type.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 /// Service for managing cached Stac artifacts (screens, themes, etc.).
 ///
@@ -17,23 +19,21 @@ class StacCacheService {
   }
 
   /// Gets the cache prefix for a given artifact type.
-  static String _getCachePrefix(String artifactType) {
+  static String _getCachePrefix(StacArtifactType artifactType) {
     switch (artifactType) {
-      case 'screen':
+      case StacArtifactType.screen:
         return 'stac_screen_cache_';
-      case 'theme':
+      case StacArtifactType.theme:
         return 'stac_theme_cache_';
-      default:
-        throw ArgumentError('Unknown artifact type: $artifactType');
     }
   }
 
   /// Gets a cached artifact by its name and type.
   ///
   /// Returns `null` if the artifact is not cached.
-  static Future<StacScreenCache?> getCachedArtifact(
+  static Future<StacArtifactCache?> getCachedArtifact(
     String artifactName,
-    String artifactType,
+    StacArtifactType artifactType,
   ) async {
     try {
       final prefs = await _sharedPrefs;
@@ -45,8 +45,11 @@ class StacCacheService {
         return null;
       }
 
-      return StacScreenCache.fromJsonString(cachedData);
+      return StacArtifactCache.fromJsonString(cachedData);
     } catch (e) {
+      Log.w(
+        'Failed to get cached artifact $artifactName (${artifactType.name}): $e',
+      );
       return null;
     }
   }
@@ -58,14 +61,14 @@ class StacCacheService {
     required String name,
     required String stacJson,
     required int version,
-    required String artifactType,
+    required StacArtifactType artifactType,
   }) async {
     try {
       final prefs = await _sharedPrefs;
       final cachePrefix = _getCachePrefix(artifactType);
       final cacheKey = '$cachePrefix$name';
 
-      final artifactCache = StacScreenCache(
+      final artifactCache = StacArtifactCache(
         name: name,
         stacJson: stacJson,
         version: version,
@@ -81,7 +84,7 @@ class StacCacheService {
   /// Removes a specific artifact from the cache.
   static Future<bool> removeArtifact(
     String artifactName,
-    String artifactType,
+    StacArtifactType artifactType,
   ) async {
     try {
       final prefs = await _sharedPrefs;
@@ -94,7 +97,7 @@ class StacCacheService {
   }
 
   /// Clears all cached artifacts of a specific type.
-  static Future<bool> clearAllArtifacts(String artifactType) async {
+  static Future<bool> clearAllArtifacts(StacArtifactType artifactType) async {
     try {
       final prefs = await _sharedPrefs;
       final keys = prefs.getKeys();
@@ -115,20 +118,8 @@ class StacCacheService {
   /// Returns `false` if the cache is expired or doesn't exist.
   ///
   /// If [maxAge] is `null`, cache is considered valid (no time-based expiration).
-  static Future<bool> isCacheValid({
-    required String artifactName,
-    required String artifactType,
-    Duration? maxAge,
-  }) async {
-    final cachedArtifact = await getCachedArtifact(artifactName, artifactType);
-    return isCacheValidSync(cachedArtifact, maxAge);
-  }
-
-  /// Synchronous version of [isCacheValid] for when you already have the cache.
-  ///
-  /// Use this to avoid re-fetching the cache when you already have it.
-  static bool isCacheValidSync(
-    StacScreenCache? cachedArtifact,
+  static bool isCacheValid(
+    StacArtifactCache? cachedArtifact,
     Duration? maxAge,
   ) {
     if (cachedArtifact == null) return false;

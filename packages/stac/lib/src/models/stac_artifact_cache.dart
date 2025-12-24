@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:json_annotation/json_annotation.dart';
 
-part 'stac_screen_cache.g.dart';
+part 'stac_artifact_cache.g.dart';
 
 /// Model representing a cached screen from Stac Cloud.
 ///
 /// This model stores the screen data along with metadata for caching purposes.
 @JsonSerializable()
-class StacScreenCache {
-  /// Creates a [StacScreenCache] instance.
-  const StacScreenCache({
+class StacArtifactCache {
+  /// Creates a [StacArtifactCache] instance.
+  const StacArtifactCache({
     required this.name,
     required this.stacJson,
     required this.version,
@@ -29,33 +29,33 @@ class StacScreenCache {
   /// The timestamp when this screen was cached.
   final DateTime cachedAt;
 
-  /// Creates a [StacScreenCache] from a JSON map.
-  factory StacScreenCache.fromJson(Map<String, dynamic> json) =>
-      _$StacScreenCacheFromJson(json);
+  /// Creates a [StacArtifactCache] from a JSON map.
+  factory StacArtifactCache.fromJson(Map<String, dynamic> json) =>
+      _$StacArtifactCacheFromJson(json);
 
-  /// Converts this [StacScreenCache] to a JSON map.
-  Map<String, dynamic> toJson() => _$StacScreenCacheToJson(this);
+  /// Converts this [StacArtifactCache] to a JSON map.
+  Map<String, dynamic> toJson() => _$StacArtifactCacheToJson(this);
 
-  /// Creates a [StacScreenCache] from a JSON string.
-  factory StacScreenCache.fromJsonString(String jsonString) {
-    return StacScreenCache.fromJson(
+  /// Creates a [StacArtifactCache] from a JSON string.
+  factory StacArtifactCache.fromJsonString(String jsonString) {
+    return StacArtifactCache.fromJson(
       jsonDecode(jsonString) as Map<String, dynamic>,
     );
   }
 
-  /// Converts this [StacScreenCache] to a JSON string.
+  /// Converts this [StacArtifactCache] to a JSON string.
   String toJsonString() {
     return jsonEncode(toJson());
   }
 
-  /// Creates a copy of this [StacScreenCache] with the given fields replaced.
-  StacScreenCache copyWith({
+  /// Creates a copy of this [StacArtifactCache] with the given fields replaced.
+  StacArtifactCache copyWith({
     String? name,
     String? stacJson,
     int? version,
     DateTime? cachedAt,
   }) {
-    return StacScreenCache(
+    return StacArtifactCache(
       name: name ?? this.name,
       stacJson: stacJson ?? this.stacJson,
       version: version ?? this.version,
@@ -72,7 +72,7 @@ class StacScreenCache {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is StacScreenCache &&
+    return other is StacArtifactCache &&
         other.name == name &&
         other.stacJson == stacJson &&
         other.version == version &&
