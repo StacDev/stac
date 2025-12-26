@@ -1,0 +1,51 @@
+---
+title: "SelectableText"
+description: "SelectableText 위젯 문서"
+---
+
+Stac SelectableText는 Flutter의 `SelectableText` 위젯을 JSON으로 구현할 수 있게 해줍니다.
+Flutter의 SelectableText 위젯에 대한 자세한 정보는 [공식 문서](https://api.flutter.dev/flutter/material/SelectableText-class.html)를 참조하세요.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| data | `String` | 표시할 텍스트 내용입니다. |
+| children | `List<StacTextSpan>` | 표시할 텍스트 스팬 목록입니다. |
+| style | `StacTextStyle?` | 텍스트에 적용할 스타일입니다. |
+| textAlign | `TextAlign?` | 텍스트의 가로 정렬 방식입니다. |
+| textDirection | `TextDirection?` | 텍스트의 진행 방향입니다. |
+| textScaleFactor | `double?` | **Deprecated.** 대신 `textScaler`를 사용하세요. |
+| textScaler | `double?` | 폰트 확장 비율입니다. |
+| showCursor | `bool?` | 커서 표시 여부입니다. |
+| autofocus | `bool?` | 위젯 자동 포커스 여부입니다. |
+| minLines | `int?` | 표시할 최소 줄 수입니다. |
+| maxLines | `int?` | 표시할 최대 줄 수입니다. |
+| cursorWidth | `double?` | 커서의 너비입니다. |
+| cursorHeight | `double?` | 커서의 높이입니다. |
+| cursorRadius | `double?` | 커서의 둥근 모서리 반경입니다. |
+| cursorColor | `String?` | 커서의 색상입니다. |
+| enableInteractiveSelection | `bool?` | 텍스트 드래그 및 선택 활성화 여부입니다. |
+| onTap | `StacAction?` | 텍스트 탭 시 실행할 액션입니다. |
+| semanticsLabel | `String?` | 텍스트의 시맨틱 라벨입니다. |
+| textWidthBasis | `TextWidthBasis?` | 텍스트 너비 기준입니다. |
+| selectionColor | `String?` | 텍스트 선택 영역의 색상입니다. |
+
+> [!NOTE] 
+> `textScaleFactor`는 deprecated 되었습니다. 대신 `textScaler`를 사용하세요.
+> 마이그레이션 예시: `textScaler: 1.5`는 `TextScaler.linear(1.5)`에 해당합니다.
+
+## 예제 JSON
+
+```json
+{
+  "type": "selectableText",
+  "data": "선택 가능한 텍스트입니다.",
+  "style": {
+    "fontSize": 18,
+    "fontWeight": "w600"
+  },
+  "showCursor": true,
+  "cursorColor": "#FF0000"
+}
+```

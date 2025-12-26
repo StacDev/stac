@@ -34,8 +34,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  stac: ^1.0.1
-  stac_core: ^1.0.0
+  stac: 
+  stac_core: 
   dio: ^5.8.0+1
   smooth_page_indicator: ^1.2.1
   json_annotation: ^4.9.0

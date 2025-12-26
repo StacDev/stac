@@ -1,0 +1,32 @@
+---
+title: "Hero"
+description: "Hero 위젯 문서"
+---
+
+Stac Hero는 Flutter의 [Hero](https://api.flutter.dev/flutter/widgets/Hero-class.html) 위젯을 JSON으로 구현할 수 있게 해줍니다. 화면 전환 시 동일한 태그를 가진 위젯끼리 자연스럽게 연결되는 애니메이션을 제공합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| tag | `dynamic` | Hero를 식별하는 태그입니다. 라우트 내에서 유일해야 합니다. |
+| child | `Map<String, dynamic>` | 애니메이션 대상이 되는 자식 위젯입니다. |
+| createRectTween | `StacRectTween` | 비행 중 Hero의 영역이 변하는 방식을 정의합니다. |
+| flightShuttleBuilder | `Map<String, dynamic>` | 비행(애니메이션) 중에 표시할 위젯입니다. |
+| placeholderBuilder | `Map<String, dynamic>` | 비행 중 목적지 화면에 표시할 임시 위젯입니다. |
+| transitionOnUserGestures | `bool` | 뒤로 가기 제스처 등 사용자 제스처 시에도 애니메이션을 수행할지 여부입니다. |
+
+## 예제 JSON
+
+```json
+{
+  "type": "hero",
+  "tag": "hero-tag-1",
+  "child": {
+    "type": "image",
+    "src": "https://example.com/image.png",
+    "width": 100,
+    "height": 100
+  }
+}
+```

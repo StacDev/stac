@@ -27,6 +27,7 @@ import 'package:stac/src/parsers/theme/stac_scrollbar_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_snack_bar_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_tab_bar_theme_data_parser.dart';
 import 'package:stac/src/parsers/theme/stac_text_theme_parser.dart';
+import 'package:stac/src/parsers/theme/stac_tool_tip_theme_data_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 
@@ -125,7 +126,7 @@ extension StacThemeParser on StacTheme {
       // TextSelectionThemeData? textSelectionTheme,
       // TimePickerThemeData? timePickerTheme,
       // ToggleButtonsThemeData? toggleButtonsTheme,
-      // TooltipThemeData? tooltipTheme,
+      tooltipTheme: tooltipTheme?.parse(context),
     );
   }
 }

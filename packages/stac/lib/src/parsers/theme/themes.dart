@@ -26,7 +26,8 @@ export 'package:stac_core/stac_core.dart'
         StacSnackBarThemeData,
         StacTabBarThemeData,
         StacTextTheme,
-        StacTheme;
+        StacTheme,
+        StacTooltipThemeData;
 
 // Export parsers
 export 'stac_app_bar_theme_parser.dart';
@@ -55,3 +56,4 @@ export 'stac_snack_bar_theme_data_parser.dart';
 export 'stac_tab_bar_theme_data_parser.dart';
 export 'stac_text_theme_parser.dart';
 export 'stac_theme_parser.dart';
+export 'stac_tool_tip_theme_data_parser.dart';

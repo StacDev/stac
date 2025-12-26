@@ -28,6 +28,7 @@ import 'package:stac_core/foundation/theme/stac_scrollbar_theme_data/stac_scroll
 import 'package:stac_core/foundation/theme/stac_snack_bar_theme_data/stac_snack_bar_theme_data.dart';
 import 'package:stac_core/foundation/theme/stac_tab_bar_theme_data/stac_tab_bar_theme_data.dart';
 import 'package:stac_core/foundation/theme/stac_text_theme/stac_text_theme.dart';
+import 'package:stac_core/foundation/theme/stac_tool_tip_theme_data/stac_tool_tip_theme_data.dart';
 
 part 'stac_theme.g.dart';
 
@@ -155,7 +156,7 @@ class StacTheme implements StacElement {
     // TextSelectionThemeData? textSelectionTheme,
     // TimePickerThemeData? timePickerTheme,
     // ToggleButtonsThemeData? toggleButtonsTheme,
-    // TooltipThemeData? tooltipTheme,
+    this.tooltipTheme,
   });
 
   // GENERAL CONFIGURATION
@@ -371,7 +372,9 @@ class StacTheme implements StacElement {
   // TextSelectionThemeData? textSelectionTheme,
   // TimePickerThemeData? timePickerTheme,
   // ToggleButtonsThemeData? toggleButtonsTheme,
-  // TooltipThemeData? tooltipTheme,
+
+  /// The theme for [Tooltip] widgets.
+  final StacTooltipThemeData? tooltipTheme;
 
   /// Creates a [StacTheme] from JSON.
   factory StacTheme.fromJson(Map<String, dynamic> json) =>

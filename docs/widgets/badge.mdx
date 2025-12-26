@@ -1,0 +1,150 @@
+---
+title: "Badge"
+description: "Documentation for Badge"
+---
+
+The Stac Badge allows you to build a Flutter Badge widget using JSON.
+To know more about the Badge widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Badge-class.html).
+
+## Properties
+
+| Property         | Type                      | Description                                                                                    |
+|------------------|---------------------------|------------------------------------------------------------------------------------------------|
+| backgroundColor  | `String?`                 | The badge's fill color (hex string). Defaults to `ColorScheme.error` from theme.               |
+| textColor        | `String?`                 | The color of the badge's label text (hex string). Defaults to `ColorScheme.onError` from theme. |
+| smallSize        | `double?`                 | The diameter of the badge if [label] is null. Defaults to 6.0.                                |
+| largeSize        | `double?`                 | The badge's height if [label] is non-null. Defaults to 16.0.                                 |
+| textStyle        | `StacTextStyle?`          | The text style for the badge's label.                                                         |
+| padding          | `StacEdgeInsets?`         | The padding added to the badge's label. Defaults to 4 pixels horizontal.                       |
+| alignment        | `StacAlignmentGeometry?`  | Combined with [offset] to determine the location of the [label]. Defaults to `AlignmentDirectional.topEnd`. |
+| offset           | `StacOffset?`            | Combined with [alignment] to determine the location of the [label].                          |
+| label            | `Map<String, dynamic>?`   | The badge's content, typically a [StacText] widget. If null, displays as a small filled circle. |
+| count            | `int?`                    | Convenience property for creating a badge with a numeric label. Automatically creates label showing count or '[maxCount]+' if count exceeds maxCount. |
+| maxCount         | `int?`                    | Maximum count value before showing '[maxCount]+' format. Only used when [count] is provided. Defaults to 999. |
+| isLabelVisible   | `bool?`                   | If false, the badge's [label] is not included. Defaults to `true`.                            |
+| child            | `Map<String, dynamic>?`   | The widget that the badge is stacked on top of. Typically an Icon or IconButton.              |
+
+## Example JSON
+
+### Basic Badge with Label
+
+```json
+{
+  "type": "badge",
+  "label": {
+    "type": "text",
+    "data": "5"
+  },
+  "child": {
+    "type": "icon",
+    "icon": "notifications",
+    "size": 32
+  },
+  "backgroundColor": "#F44336",
+  "textColor": "#FFFFFF"
+}
+```
+
+### Badge with Count
+
+```json
+{
+  "type": "badge",
+  "count": 5,
+  "child": {
+    "type": "icon",
+    "icon": "shopping_cart",
+    "size": 32
+  }
+}
+```
+
+### Badge with Count Exceeding MaxCount
+
+```json
+{
+  "type": "badge",
+  "count": 1000,
+  "maxCount": 99,
+  "child": {
+    "type": "icon",
+    "icon": "notifications",
+    "size": 32
+  }
+}
+```
+
+### Small Badge (No Label)
+
+```json
+{
+  "type": "badge",
+  "smallSize": 8,
+  "backgroundColor": "#F44336",
+  "child": {
+    "type": "icon",
+    "icon": "circle",
+    "size": 32
+  }
+}
+```
+
+### Badge on IconButton
+
+```json
+{
+  "type": "badge",
+  "count": 3,
+  "child": {
+    "type": "iconButton",
+    "icon": {
+      "type": "icon",
+      "icon": "notifications",
+      "size": 24
+    },
+    "padding": {
+      "left": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "onPressed": {
+      "actionType": "none"
+    }
+  }
+}
+```
+
+### Badge with Custom Styling
+
+```json
+{
+  "type": "badge",
+  "label": {
+    "type": "text",
+    "data": "NEW"
+  },
+  "backgroundColor": "#4CAF50",
+  "textColor": "#FFFFFF",
+  "largeSize": 20,
+  "padding": {
+    "left": 8,
+    "top": 4,
+    "right": 8,
+    "bottom": 4
+  },
+  "alignment": {
+    "dx": 1.0,
+    "dy": -1.0
+  },
+  "offset": {
+    "dx": 4,
+    "dy": -4
+  },
+  "child": {
+    "type": "icon",
+    "icon": "mail",
+    "size": 32
+  }
+}
+```

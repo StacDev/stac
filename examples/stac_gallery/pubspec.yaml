@@ -37,8 +37,8 @@ dependencies:
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
   flutter_bloc: ^9.1.0
-  stac: ^0.10.0
-  stac_webview: ^0.1.2
+  stac:
+  stac_webview:
   stac_core:
 
 dev_dependencies:

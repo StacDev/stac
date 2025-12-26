@@ -1,0 +1,51 @@
+---
+title: "SelectableText"
+description: "Documentation for SelectableText"
+---
+
+Stac SelectableText allows you to build the Flutter SelectableText widget using JSON.
+To know more about the SelectableText widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/SelectableText-class.html).
+
+## Properties
+
+| Property                   | Type                 | Description                                       |
+|----------------------------|----------------------|---------------------------------------------------|
+| data                       | `String`             | The text to display.                              |
+| children                   | `List<StacTextSpan>` | The list of text spans to display.                |
+| style                      | `StacTextStyle?`     | The style to apply to the text.                   |
+| textAlign                  | `TextAlign?`         | The alignment of the text.                        |
+| textDirection              | `TextDirection?`     | The direction of the text.                        |
+| textScaleFactor            | `double?`            | **Deprecated.** Use `textScaler` instead.         |
+| textScaler                 | `double?`            | The font scaling strategy to use.                 |
+| showCursor                 | `bool?`              | Whether to show the cursor.                       |
+| autofocus                  | `bool?`              | Whether to autofocus the widget.                  |
+| minLines                   | `int?`               | The minimum number of lines to display.           |
+| maxLines                   | `int?`               | The maximum number of lines to display.           |
+| cursorWidth                | `double?`            | The width of the cursor.                          |
+| cursorHeight               | `double?`            | The height of the cursor.                         |
+| cursorRadius               | `double?`            | The radius of the cursor.                         |
+| cursorColor                | `String?`            | The color of the cursor.                          |
+| enableInteractiveSelection | `bool?`              | Whether to enable interactive selection.          |
+| onTap                      | `StacAction?`        | The action to perform when the text is tapped.    |
+| semanticsLabel             | `String?`            | The semantics label for the text.                 |
+| textWidthBasis             | `TextWidthBasis?`    | The width basis for the text.                     |
+| selectionColor             | `String?`            | The color of the text selection.                  |
+
+> [!NOTE] 
+> `textScaleFactor` is deprecated. Use `textScaler` instead.
+> Example migration: `textScaler: 1.5` corresponds to `TextScaler.linear(1.5)`.
+
+## Example JSON
+
+```json
+{
+  "type": "selectableText",
+  "data": "This is a selectable text",
+  "style": {
+    "fontSize": 18,
+    "fontWeight": "w600"
+  },
+  "showCursor": true,
+  "cursorColor": "#FF0000"
+}
+```

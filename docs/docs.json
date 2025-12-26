@@ -33,7 +33,8 @@
                                     "quickstart",
                                     "sdui",
                                     "cli",
-                                    "project_structure"
+                                    "project_structure",
+                                    "concepts/theming"
                                 ]
                             },
                             {
@@ -71,7 +72,8 @@
                                     "widgets/sized_box",
                                     "widgets/spacer",
                                     "widgets/stack",
-                                    "widgets/wrap"
+                                    "widgets/wrap",
+                                    "widgets/tool_tip"
                                 ]
                             },
                             {
@@ -136,6 +138,7 @@
                                 "pages": [
                                     "widgets/custom_scroll_view",
                                     "widgets/grid_view",
+                                    "widgets/selectable_text",
                                     "widgets/table",
                                     "widgets/table_cell",
                                     "widgets/table_row",
@@ -181,6 +184,25 @@
                                     "actions/delay_action",
                                     "actions/multi_action",
                                     "actions/none"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "tab": "Styles",
+                        "groups": [
+                            {
+                                "group": "Style Reference",
+                                "pages": [
+                                    "styles/border",
+                                    "styles/border_radius",
+                                    "styles/border_side",
+                                    "styles/box_fit",
+                                    "styles/clip_behavior",
+                                    "styles/colors",
+                                    "styles/stac_alignment_directional",
+                                    "styles/table_border",
+                                    "styles/table_column_width"
                                 ]
                             }
                         ]
@@ -241,7 +263,8 @@
                                     "ko/widgets/sized_box",
                                     "ko/widgets/spacer",
                                     "ko/widgets/stack",
-                                    "ko/widgets/wrap"
+                                    "ko/widgets/wrap",
+                                    "ko/widgets/tool_tip"
                                 ]
                             },
                             {
@@ -257,7 +280,8 @@
                                     "ko/widgets/icon",
                                     "ko/widgets/image",
                                     "ko/widgets/opacity",
-                                    "ko/widgets/placeholder"
+                                    "ko/widgets/placeholder",
+                                    "ko/widgets/visibility"
                                 ]
                             },
                             {
@@ -284,7 +308,6 @@
                                     "ko/widgets/list_tile",
                                     "ko/widgets/listview",
                                     "ko/widgets/network_widget",
-                                    "ko/widgets/opacity",
                                     "ko/widgets/outlined_button",
                                     "ko/widgets/page_view",
                                     "ko/widgets/radio_group",
@@ -304,8 +327,12 @@
                             {
                                 "group": "데이터 위젯",
                                 "pages": [
+                                    "ko/widgets/hero",
+                                    "ko/widgets/conditional",
+                                    "ko/widgets/set_value",
                                     "ko/widgets/custom_scroll_view",
                                     "ko/widgets/grid_view",
+                                    "ko/widgets/selectable_text",
                                     "ko/widgets/table",
                                     "ko/widgets/table_row",
                                     "ko/widgets/table_cell",
@@ -350,6 +377,7 @@
                                 "pages": [
                                     "ko/actions/delay_action",
                                     "ko/actions/multi_action",
+                                    "ko/actions/set_value",
                                     "ko/actions/none"
                                 ]
                             }
