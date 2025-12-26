@@ -40,7 +40,8 @@
                             "concepts/rendering_stac_widgets",
                             "concepts/caching",
                             "concepts/custom_widgets",
-                            "concepts/custom_actions"
+                            "concepts/custom_actions",
+                            "concepts/theming"
                         ]
                     }
                 ]

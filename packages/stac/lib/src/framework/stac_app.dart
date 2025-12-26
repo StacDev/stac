@@ -1,7 +1,7 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:stac/src/framework/stac_app_theme.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacApp extends StatelessWidget {
   const StacApp({
@@ -110,8 +110,8 @@ class StacApp extends StatelessWidget {
   final TransitionBuilder? builder;
   final String title;
   final GenerateAppTitle? onGenerateTitle;
-  final FutureOr<StacTheme?>? theme;
-  final FutureOr<StacTheme?>? darkTheme;
+  final StacAppTheme? theme;
+  final StacAppTheme? darkTheme;
   final ThemeData? highContrastTheme;
   final ThemeData? highContrastDarkTheme;
   final ThemeMode? themeMode;
@@ -246,32 +246,24 @@ class StacApp extends StatelessWidget {
     );
   }
 
-  FutureOr<_ResolvedStacThemes> _resolveThemes() {
+  Future<_ResolvedStacThemes> _resolveThemes() {
     final themeInput = theme;
     final darkThemeInput = darkTheme;
 
-    final Future<StacTheme?>? themeFuture = themeInput is Future<StacTheme?>
-        ? themeInput
-        : null;
-    final Future<StacTheme?>? darkThemeFuture =
-        darkThemeInput is Future<StacTheme?> ? darkThemeInput : null;
+    // Both themes are optional, so we need to handle null cases
+    final Future<StacTheme?>? themeFuture = themeInput?.resolve();
+    final Future<StacTheme?>? darkThemeFuture = darkThemeInput?.resolve();
 
-    final StacTheme? themeValue = themeFuture == null
-        ? themeInput as StacTheme?
-        : null;
-    final StacTheme? darkThemeValue = darkThemeFuture == null
-        ? darkThemeInput as StacTheme?
-        : null;
-
+    // If both are null, return immediately with null themes
     if (themeFuture == null && darkThemeFuture == null) {
-      return _ResolvedStacThemes(theme: themeValue, darkTheme: darkThemeValue);
+      return Future.value(_ResolvedStacThemes(theme: null, darkTheme: null));
     }
 
     return Future<_ResolvedStacThemes>(() async {
       final resolvedTheme =
-          await (themeFuture ?? Future<StacTheme?>.value(themeValue));
+          await (themeFuture ?? Future<StacTheme?>.value(null));
       final resolvedDarkTheme =
-          await (darkThemeFuture ?? Future<StacTheme?>.value(darkThemeValue));
+          await (darkThemeFuture ?? Future<StacTheme?>.value(null));
 
       return _ResolvedStacThemes(
         theme: resolvedTheme,
@@ -285,25 +277,29 @@ class StacApp extends StatelessWidget {
     Widget Function(BuildContext, _ResolvedStacThemes) builder,
   ) {
     final resolved = _resolveThemes();
-    if (resolved is Future<_ResolvedStacThemes>) {
-      return FutureBuilder<_ResolvedStacThemes>(
-        future: resolved,
-        builder: (futureContext, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const _ThemeFutureLoading();
-          }
-          if (snapshot.hasError) {
-            return const _ThemeFutureLoading();
-          }
-          final themes = snapshot.data;
-          if (themes == null) {
-            return const _ThemeFutureLoading();
-          }
-          return builder(futureContext, themes);
-        },
-      );
-    }
-    return builder(context, resolved);
+    return FutureBuilder<_ResolvedStacThemes>(
+      future: resolved,
+      builder: (futureContext, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const _ThemeFutureLoading();
+        }
+        if (snapshot.hasError) {
+          Log.w('Failed to resolve theme: ${snapshot.error}');
+          return builder(
+            futureContext,
+            _ResolvedStacThemes(theme: null, darkTheme: null),
+          );
+        }
+        final themes = snapshot.data;
+        if (themes == null) {
+          return builder(
+            futureContext,
+            _ResolvedStacThemes(theme: null, darkTheme: null),
+          );
+        }
+        return builder(futureContext, themes);
+      },
+    );
   }
 }
 

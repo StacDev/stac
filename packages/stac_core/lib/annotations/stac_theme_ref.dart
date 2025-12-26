@@ -10,10 +10,10 @@
 ///   return ThemeData.dark();
 /// }
 /// ```
-class StacThemeConfig {
-  /// Creates a [StacThemeConfig] with the given theme name.
-  const StacThemeConfig({required this.themeName});
+class StacThemeRef {
+  /// Creates a [StacThemeRef] with the given theme name.
+  const StacThemeRef({required this.name});
 
   /// The identifier for this theme.
-  final String themeName;
+  final String name;
 }

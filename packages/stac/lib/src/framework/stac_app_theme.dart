@@ -8,8 +8,85 @@ import 'package:stac_core/foundation/theme/stac_theme/stac_theme.dart';
 import 'package:stac_logger/stac_logger.dart';
 
 /// Provides helpers to load [StacTheme] definitions for [StacApp].
+///
+/// Can be used as a wrapper to fetch themes from different sources:
+/// ```dart
+/// // From DSL (StacTheme object)
+/// StacAppTheme.dsl(theme: myTheme)
+///
+/// // From cloud
+/// StacAppTheme(name: "xyz")
+///
+/// // From network
+/// StacAppTheme.network(context: context, request: request)
+///
+/// // From JSON
+/// StacAppTheme.json(payload: jsonData)
+/// ```
 class StacAppTheme {
-  const StacAppTheme._();
+  /// Creates a [StacAppTheme] wrapper for using a DSL theme.
+  ///
+  /// The [theme] should be a `StacTheme` object defined with `@StacThemeRef` annotation.
+  const StacAppTheme.dsl({required StacTheme theme})
+    : _source = _ThemeSource.dsl,
+      name = null,
+      _context = null,
+      _request = null,
+      _jsonPayload = null,
+      _dslTheme = theme;
+
+  /// Creates a [StacAppTheme] wrapper for fetching a theme from the cloud by [name].
+  const StacAppTheme({required this.name})
+    : _source = _ThemeSource.cloud,
+      _context = null,
+      _request = null,
+      _jsonPayload = null,
+      _dslTheme = null;
+
+  /// Creates a [StacAppTheme] wrapper for fetching a theme from network.
+  const StacAppTheme.network({
+    required BuildContext context,
+    required StacNetworkRequest request,
+  }) : _source = _ThemeSource.network,
+       name = null,
+       _context = context,
+       _request = request,
+       _jsonPayload = null,
+       _dslTheme = null;
+
+  /// Creates a [StacAppTheme] wrapper for creating a theme from JSON.
+  const StacAppTheme.json({required dynamic payload})
+    : _source = _ThemeSource.json,
+      name = null,
+      _context = null,
+      _request = null,
+      _jsonPayload = payload,
+      _dslTheme = null;
+
+  /// The name of the theme to fetch from cloud (only used for cloud source).
+  final String? name;
+
+  final _ThemeSource _source;
+  final BuildContext? _context;
+  final StacNetworkRequest? _request;
+  final dynamic _jsonPayload;
+  final StacTheme? _dslTheme;
+
+  /// Resolves the theme based on the configured source.
+  ///
+  /// Returns `null` if the fetch/parse fails or the payload is malformed.
+  Future<StacTheme?> resolve() async {
+    switch (_source) {
+      case _ThemeSource.dsl:
+        return Future.value(_dslTheme);
+      case _ThemeSource.cloud:
+        return fromCloud(themeName: name!);
+      case _ThemeSource.network:
+        return fromNetwork(context: _context!, request: _request!);
+      case _ThemeSource.json:
+        return fromJson(_jsonPayload);
+    }
+  }
 
   /// Fetches a theme from the `/themes` endpoint by [themeName].
   ///
@@ -85,3 +162,5 @@ class StacAppTheme {
     return null;
   }
 }
+
+enum _ThemeSource { dsl, cloud, network, json }

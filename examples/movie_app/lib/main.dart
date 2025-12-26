@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/default_stac_options.dart';
-import 'package:movie_app/themes/app_theme.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
 import 'package:stac/stac.dart';
 
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StacApp(
       title: 'Flutter Demo',
-      theme: darkTheme,
+      theme: StacAppTheme(name: "movie_app_dark"),
       homeBuilder: (_) {
         return Stac(routeName: 'onboarding_screen');
       },

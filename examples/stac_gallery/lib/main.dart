@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:stac/stac.dart' show Stac, StacApp;
+import 'package:stac/stac.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_gallery/app/details/details_screen.dart';
 import 'package:stac_gallery/app/example/example_screen_parser.dart';
@@ -41,8 +41,8 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<AppThemeCubit, AppThemeState>(
         builder: (context, state) {
           return StacApp(
-            theme: state.lightTheme,
-            darkTheme: state.darkTheme,
+            theme: StacAppTheme.json(payload: state.lightTheme),
+            darkTheme: StacAppTheme.json(payload: state.darkTheme),
             themeMode: state.themeMode,
             homeBuilder: (context) => HomeScreen(),
             title: 'Stac Gallery',
