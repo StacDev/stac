@@ -110,3 +110,4 @@ export 'ui_components/stac_table_border_parser.dart';
 export 'ui_components/stac_table_cell_vertical_alignment_parser.dart';
 export 'ui_components/stac_table_column_width_parser.dart';
 export 'ui_components/stac_table_row_parser.dart';
+export 'ui_components/stac_tool_tip_trigger_mode_parser.dart';

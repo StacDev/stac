@@ -1,0 +1,196 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Tooltip"
+        }
+    },
+    "body": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+            {
+                "type": "text",
+                "data": "Basic Tooltip",
+                "style": {
+                    "fontSize": 18,
+                    "fontWeight": "bold"
+                }
+            },
+            {
+                "type": "sizedBox",
+                "height": 16
+            },
+            {
+                "type": "row",
+                "mainAxisAlignment": "center",
+                "children": [
+                    {
+                        "type": "tooltip",
+                        "message": "This is a basic tooltip",
+                        "child": {
+                            "type": "icon",
+                            "icon": "info",
+                            "size": 32
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "sizedBox",
+                "height": 32
+            },
+            {
+                "type": "text",
+                "data": "Styled Tooltip",
+                "style": {
+                    "fontSize": 18,
+                    "fontWeight": "bold"
+                }
+            },
+            {
+                "type": "sizedBox",
+                "height": 16
+            },
+            {
+                "type": "row",
+                "mainAxisAlignment": "center",
+                "children": [
+                    {
+                        "type": "tooltip",
+                        "message": "Custom styled tooltip",
+                        "preferBelow": false,
+                        "verticalOffset": 12,
+                        "decoration": {
+                            "color": "#4CAF50",
+                            "borderRadius": {
+                                "topLeft": 6,
+                                "topRight": 6,
+                                "bottomLeft": 6,
+                                "bottomRight": 6
+                            }
+                        },
+                        "textStyle": {
+                            "color": "#FFFFFF",
+                            "fontSize": 14,
+                            "fontWeight": "bold"
+                        },
+                        "child": {
+                            "type": "icon",
+                            "icon": "palette",
+                            "size": 32
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "sizedBox",
+                "height": 32
+            },
+            {
+                "type": "text",
+                "data": "Tooltip with Delay & Duration",
+                "style": {
+                    "fontSize": 18,
+                    "fontWeight": "bold"
+                }
+            },
+            {
+                "type": "sizedBox",
+                "height": 16
+            },
+            {
+                "type": "row",
+                "mainAxisAlignment": "center",
+                "children": [
+                    {
+                        "type": "tooltip",
+                        "message": "Appears after 1s, stays 3s",
+                        "waitDuration": {
+                            "milliseconds": 1000
+                        },
+                        "showDuration": {
+                            "milliseconds": 3000
+                        },
+                        "exitDuration": {
+                            "milliseconds": 300
+                        },
+                        "child": {
+                            "type": "icon",
+                            "icon": "timer",
+                            "size": 32
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "sizedBox",
+                "height": 32
+            },
+            {
+                "type": "text",
+                "data": "Tooltip on IconButton",
+                "style": {
+                    "fontSize": 18,
+                    "fontWeight": "bold"
+                }
+            },
+            {
+                "type": "sizedBox",
+                "height": 16
+            },
+            {
+                "type": "row",
+                "mainAxisAlignment": "center",
+                "children": [
+                    {
+                        "type": "tooltip",
+                        "message": "Notifications",
+                        "child": {
+                            "type": "iconButton",
+                            "icon": {
+                                "type": "icon",
+                                "icon": "notifications",
+                                "size": 24
+                            },
+                            "padding": {
+                                "left": 0,
+                                "top": 0,
+                                "right": 0,
+                                "bottom": 0
+                            },
+                            "onPressed": {
+                                "actionType": "none"
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "text",
+                "data": "Tap to see Tooltip",
+                "style": {
+                    "fontSize": 18,
+                    "fontWeight": "bold"
+                }
+            },
+            {
+                "type": "sizedBox",
+                "height": 16
+            },
+            {
+                "type": "tooltip",
+                "message": "Tap to see tooltip",
+                "triggerMode": "tap",
+                "child": {
+                    "type": "icon",
+                    "icon": "info",
+                    "size": 32
+                }
+            }
+        ]
+    }
+}

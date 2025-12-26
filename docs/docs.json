@@ -71,7 +71,8 @@
                                     "widgets/sized_box",
                                     "widgets/spacer",
                                     "widgets/stack",
-                                    "widgets/wrap"
+                                    "widgets/wrap",
+                                    "widgets/tool_tip"
                                 ]
                             },
                             {
@@ -136,6 +137,7 @@
                                 "pages": [
                                     "widgets/custom_scroll_view",
                                     "widgets/grid_view",
+                                    "widgets/selectable_text",
                                     "widgets/table",
                                     "widgets/table_cell",
                                     "widgets/table_row",

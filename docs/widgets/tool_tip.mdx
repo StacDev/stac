@@ -1,0 +1,155 @@
+---
+title: "Tooltip"
+description: "Documentation for Tooltip"
+---
+
+The **Stac Tooltip** allows you to build a Flutter `Tooltip` widget using JSON. 
+To learn more about Flutter’s Tooltip widget, refer to the [official Flutter documentation](https://api.flutter.dev/flutter/material/Tooltip-class.html).
+
+---
+
+## Properties
+
+| Property               | Type                      | Description                                                                            |
+|------------------------|---------------------------|----------------------------------------------------------------------------------------|
+| `message`              | `String?`                 | The plain text message displayed in the tooltip. Ignored if `richMessage` is provided. |
+| `richMessage`          | `StacTextSpan?`           | Rich text content for the tooltip. Overrides `message` when provided.                  |
+| `constraints`          | `StacBoxConstraints?`     | Additional layout constraints applied to the tooltip content.                          |
+| `padding`              | `StacEdgeInsets?`         | Padding inside the tooltip. Defaults to Flutter’s tooltip theme padding.               |
+| `margin`               | `StacEdgeInsets?`         | Outer margin around the tooltip, useful near screen edges.                             |
+| `verticalOffset`       | `double?`                 | Vertical distance between the tooltip and its child.                                   |
+| `preferBelow`          | `bool?`                   | Whether the tooltip prefers to appear below its child. Defaults to `true`.             |
+| `excludeFromSemantics` | `bool?`                   | Whether the tooltip message is excluded from the semantics tree.                       |
+| `decoration`           | `StacBoxDecoration?`      | Background decoration for the tooltip (color, border radius, etc.).                    |
+| `textStyle`            | `StacTextStyle?`          | Text style for the tooltip message.                                                    |
+| `textAlign`            | `StacTextAlign?`          | Horizontal alignment of the tooltip text.                                              |
+| `waitDuration`         | `StacDuration?`           | Delay before showing the tooltip.                                                      |
+| `showDuration`         | `StacDuration?`           | Duration the tooltip remains visible after activation.                                 |
+| `exitDuration`         | `StacDuration?`           | Duration of the fade-out animation.                                                    |
+| `enableTapToDismiss`   | `bool`                    | Whether tapping the screen dismisses the tooltip. Defaults to `true`.                  |
+| `triggerMode`          | `StacTooltipTriggerMode?` | Determines how the tooltip is triggered (`longPress` or `tap`).                        |
+| `enableFeedback`       | `bool?`                   | Enables acoustic or haptic feedback when the tooltip is shown.                         |
+| `child`                | `StacWidget?`             | The widget the tooltip is attached to (Icon, IconButton, etc.).                        |
+
+---
+
+## Examples
+
+#### Basic Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "This is a basic tooltip",
+  "child": {
+    "type": "icon",
+    "icon": "info",
+    "size": 32
+  }
+}
+```
+
+#### Styled Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "Custom styled tooltip",
+  "preferBelow": false,
+  "verticalOffset": 12,
+  "decoration": {
+    "color": "#4CAF50",
+    "borderRadius": {
+      "topLeft": 6,
+      "topRight": 6,
+      "bottomLeft": 6,
+      "bottomRight": 6
+    }
+  },
+  "textStyle": {
+    "color": "#FFFFFF",
+    "fontSize": 14,
+    "fontWeight": "bold"
+  },
+  "child": {
+    "type": "icon",
+    "icon": "palette",
+    "size": 32
+  }
+}
+```
+#### Tooltip with Delay & Duration
+
+```json
+{
+  "type": "tooltip",
+  "message": "Appears after 1s, stays 3s",
+  "waitDuration": {
+    "milliseconds": 1000
+  },
+  "showDuration": {
+    "milliseconds": 3000
+  },
+  "exitDuration": {
+    "milliseconds": 300
+  },
+  "child": {
+    "type": "icon",
+    "icon": "timer",
+    "size": 32
+  }
+}
+```
+#### Tooltip on IconButton
+
+```json
+{
+  "type": "tooltip",
+  "message": "Notifications",
+  "child": {
+    "type": "iconButton",
+    "icon": {
+      "type": "icon",
+      "icon": "notifications",
+      "size": 24
+    },
+    "padding": {
+      "left": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "onPressed": {
+      "actionType": "none"
+    }
+  }
+}
+```
+#### Tooltip with Rich Text Message
+
+```json
+{
+  "type": "tooltip",
+  "richMessage": {
+    "type": "textSpan",
+    "children": [
+      {
+        "type": "textSpan",
+        "text": "Bold ",
+        "style": { "fontWeight": "bold" }
+      },
+      {
+        "type": "textSpan",
+        "text": "and normal text"
+      }
+    ]
+  },
+  "child": {
+    "type": "icon",
+    "icon": "text_fields",
+    "size": 32
+  }
+}
+```
+
+

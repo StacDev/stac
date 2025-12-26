@@ -3,6 +3,7 @@ export 'package:stac/src/parsers/widgets/stac_align/stac_align_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_aspect_ratio/stac_aspect_ratio_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_auto_complete/stac_auto_complete_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_backdrop_filter/stac_backdrop_filter_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_badge/stac_badge_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_bottom_navigation_bar/stac_bottom_navigation_bar_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_bottom_navigation_view/stac_bottom_navigation_view_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_card/stac_card_parser.dart';
@@ -56,6 +57,7 @@ export 'package:stac/src/parsers/widgets/stac_radio_group/stac_radio_group_parse
 export 'package:stac/src/parsers/widgets/stac_refresh_indicator/stac_refresh_indicator_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_safe_area/stac_safe_area_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_scaffold/stac_scaffold_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_selectable_text/stac_selectable_text_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_set_value/stac_set_value_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_single_child_scroll_view/stac_single_child_scroll_view_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sized_box/stac_sized_box_parser.dart';

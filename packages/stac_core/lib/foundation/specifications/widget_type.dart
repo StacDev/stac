@@ -21,6 +21,9 @@ enum WidgetType {
   /// Backdrop filter widget
   backdropFilter,
 
+  /// Badge widget
+  badge,
+
   /// Bottom navigation bar widget
   bottomNavigationBar,
 
@@ -186,6 +189,9 @@ enum WidgetType {
   /// Scaffold widget
   scaffold,
 
+  /// Selectable text widget
+  selectableText,
+
   /// Set value action/widget
   setValue,
 
@@ -233,6 +239,9 @@ enum WidgetType {
 
   /// Text form field widget
   textFormField,
+
+  /// Tooltip widget
+  tooltip,
 
   /// Wrap widget
   wrap,
