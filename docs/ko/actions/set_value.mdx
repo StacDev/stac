@@ -1,0 +1,31 @@
+---
+title: "Set Value 액션"
+description: "Set Value 액션 문서"
+---
+
+Stac Set Value 액션은 특정 이벤트(예: 버튼 클릭) 발생 시 상태 값을 변경하거나 업데이트할 때 사용합니다. 값이 설정된 후 후속 액션(`action`)을 실행할 수도 있습니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| values | `List<Map<String, dynamic>>?` | 업데이트할 키-값 쌍의 목록입니다. |
+| action | `Map<String, dynamic>?` | 값 설정 후 실행할 후속 액션입니다. |
+
+## 예제 JSON
+
+```json
+{
+  "actionType": "setValue",
+  "values": [
+    {
+      "key": "isLoggedIn",
+      "value": true
+    }
+  ],
+  "action": {
+    "actionType": "navigate",
+    "routeName": "/home"
+  }
+}
+```

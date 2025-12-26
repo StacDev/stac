@@ -1,0 +1,31 @@
+---
+title: "Conditional"
+description: "Conditional 위젯 문서"
+---
+
+Stac Conditional은 조건식(`condition`)을 평가하여 참(`true`)이면 `ifTrue` 위젯을, 거짓(`false`)이면 `ifFalse` 위젯을 렌더링하는 위젯입니다. 동적인 UI 구성에 유용합니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| condition | `String` | 평가할 조건식입니다. (예: `"${count} > 5"`) |
+| ifTrue | `Map<String, dynamic>` | 조건이 `true`일 때 표시할 위젯입니다. |
+| ifFalse | `Map<String, dynamic>?` | 조건이 `false`일 때 표시할 위젯입니다. 생략 시 빈 공간(`SizedBox`)이 렌더링됩니다. |
+
+## 예제 JSON
+
+```json
+{
+  "type": "conditional",
+  "condition": "${count} > 0",
+  "ifTrue": {
+    "type": "text",
+    "data": "Count is positive"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Count is zero or negative"
+  }
+}
+```

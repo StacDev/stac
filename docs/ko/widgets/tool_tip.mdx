@@ -1,0 +1,156 @@
+---
+title: "Tooltip"
+description: "Tooltip 위젯 문서"
+---
+
+Stac Tooltip은 Flutter의 `Tooltip` 위젯을 JSON으로 구현할 수 있게 해줍니다. 
+Flutter의 Tooltip 위젯에 대한 자세한 정보는 [공식 문서](https://api.flutter.dev/flutter/material/Tooltip-class.html)를 참조하세요.
+
+---
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| `message` | `String?` | 툴팁에 표시될 평문 텍스트입니다. `richMessage`가 제공되면 무시됩니다. |
+| `richMessage` | `StacTextSpan?` | 툴팁에 표시될 서식 있는 텍스트입니다. 제공 시 `message`보다 우선합니다. |
+| `constraints` | `StacBoxConstraints?` | 툴팁 콘텐츠에 적용할 추가적인 제약 조건입니다. |
+| `padding` | `StacEdgeInsets?` | 툴팁 내부 패딩입니다. 기본값은 Flutter 툴팁 테마를 따릅니다. |
+| `margin` | `StacEdgeInsets?` | 툴팁 외부 마진입니다. 화면 가장자리 근처에 표시될 때 유용합니다. |
+| `verticalOffset` | `double?` | 툴팁과 자식 요소 사이의 수직 거리입니다. |
+| `preferBelow` | `bool?` | 툴팁을 자식 요소 아래에 표시할지 여부입니다. 기본값은 `true`입니다. |
+| `excludeFromSemantics` | `bool?` | 툴팁 메시지를 시맨틱 트리에서 제외할지 여부입니다. |
+| `decoration` | `StacBoxDecoration?` | 툴팁 배경 스타일(색상, 테두리 반경 등)입니다. |
+| `textStyle` | `StacTextStyle?` | 툴팁 메시지의 텍스트 스타일입니다. |
+| `textAlign` | `StacTextAlign?` | 툴팁 텍스트의 가로 정렬입니다. |
+| `waitDuration` | `StacDuration?` | 툴팁이 표시되기 전 대기 시간입니다. |
+| `showDuration` | `StacDuration?` | 툴팁이 표시된 후 유지되는 시간입니다. |
+| `exitDuration` | `StacDuration?` | 사라지는 애니메이션의 지속 시간입니다. |
+| `enableTapToDismiss` | `bool` | 화면을 탭하여 툴팁을 닫을 수 있는지 여부입니다. 기본값은 `true`입니다. |
+| `triggerMode` | `StacTooltipTriggerMode?` | 툴팁이 트리거되는 방식(`longPress` 또는 `tap`)을 설정합니다. |
+| `enableFeedback` | `bool?` | 툴팁이 표시될 때 햅틱/음향 피드백 활성화 여부입니다. |
+| `child` | `StacWidget?` | 툴팁이 부착될 자식 위젯(Icon, IconButton 등)입니다. |
+
+---
+
+## 예제
+
+#### 기본 Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "기본 툴팁입니다",
+  "child": {
+    "type": "icon",
+    "icon": "info",
+    "size": 32
+  }
+}
+```
+
+#### 스타일 적용 Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "스타일이 적용된 툴팁",
+  "preferBelow": false,
+  "verticalOffset": 12,
+  "decoration": {
+    "color": "#4CAF50",
+    "borderRadius": {
+      "topLeft": 6,
+      "topRight": 6,
+      "bottomLeft": 6,
+      "bottomRight": 6
+    }
+  },
+  "textStyle": {
+    "color": "#FFFFFF",
+    "fontSize": 14,
+    "fontWeight": "bold"
+  },
+  "child": {
+    "type": "icon",
+    "icon": "palette",
+    "size": 32
+  }
+}
+```
+
+#### 지연 및 지속 시간 적용 Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "1초 후 표시, 3초간 유지",
+  "waitDuration": {
+    "milliseconds": 1000
+  },
+  "showDuration": {
+    "milliseconds": 3000
+  },
+  "exitDuration": {
+    "milliseconds": 300
+  },
+  "child": {
+    "type": "icon",
+    "icon": "timer",
+    "size": 32
+  }
+}
+```
+
+#### IconButton에 적용된 Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "message": "알림",
+  "child": {
+    "type": "iconButton",
+    "icon": {
+      "type": "icon",
+      "icon": "notifications",
+      "size": 24
+    },
+    "padding": {
+      "left": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0
+    },
+    "onPressed": {
+      "actionType": "none"
+    }
+  }
+}
+```
+
+#### 텍스트 서식이 포함된 Tooltip
+
+```json
+{
+  "type": "tooltip",
+  "richMessage": {
+    "type": "textSpan",
+    "children": [
+      {
+        "type": "textSpan",
+        "text": "굵은 글씨 ",
+        "style": { "fontWeight": "bold" }
+      },
+      {
+        "type": "textSpan",
+        "text": "그리고 일반 글씨"
+      }
+    ]
+  },
+  "child": {
+    "type": "icon",
+    "icon": "text_fields",
+    "size": 32
+  }
+}
+```

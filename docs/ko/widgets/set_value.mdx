@@ -1,0 +1,35 @@
+---
+title: "Set Value"
+description: "Set Value 위젯 문서"
+---
+
+Stac Set Value 위젯은 렌더링 시점에 특정 변수 값을 `StacRegistry`에 설정하고, 자식 위젯(`child`)을 렌더링합니다. 자식 위젯 내부에서는 이 설정된 변수를 참조하여 화면을 그릴 수 있습니다.
+
+## 속성
+
+| 속성 | 타입 | 설명 |
+|------|------|------|
+| values | `List<Map<String, dynamic>>` | 설정할 키-값 쌍의 목록입니다. 각 항목은 `key`와 `value`를 포함해야 합니다. |
+| child | `Map<String, dynamic>?` | 값을 설정한 후 렌더링할 자식 위젯입니다. |
+
+## 예제 JSON
+
+```json
+{
+  "type": "setValue",
+  "values": [
+    {
+      "key": "userName",
+      "value": "Gildong"
+    },
+    {
+      "key": "userLevel",
+      "value": 1
+    }
+  ],
+  "child": {
+    "type": "text",
+    "data": "Welcome, ${userName} (Level: ${userLevel})"
+  }
+}
+```
