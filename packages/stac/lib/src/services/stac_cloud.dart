@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
-import 'package:stac/src/models/stac_artifact_cache.dart';
+import 'package:stac/src/models/stac_cache.dart';
 import 'package:stac/src/services/stac_cache_service.dart';
 import 'package:stac_logger/stac_logger.dart';
 
@@ -165,7 +165,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactNetworkFirst({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacArtifactCache? cachedArtifact,
+    StacCache? cachedArtifact,
   }) async {
     try {
       return await _fetchArtifactFromNetwork(
@@ -189,7 +189,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactCacheFirst({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacArtifactCache? cachedArtifact,
+    StacCache? cachedArtifact,
     required bool isCacheValid,
     required StacCacheConfig config,
   }) async {
@@ -229,7 +229,7 @@ class StacCloud {
   static Future<Response?> _handleArtifactOptimistic({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacArtifactCache? cachedArtifact,
+    StacCache? cachedArtifact,
     required bool isCacheValid,
     required StacCacheConfig config,
   }) async {
@@ -306,7 +306,7 @@ class StacCloud {
   /// Builds a Response from cached artifact data.
   static Response _buildArtifactCacheResponse(
     StacArtifactType artifactType,
-    StacArtifactCache cachedArtifact,
+    StacCache cachedArtifact,
   ) {
     final fetchUrl = _getFetchUrl(artifactType);
     return Response(

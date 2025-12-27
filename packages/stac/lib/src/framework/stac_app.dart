@@ -3,7 +3,7 @@ import 'package:stac/src/framework/stac_app_theme.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac_logger/stac_logger.dart';
 
-class StacApp extends StatelessWidget {
+class StacApp extends StatefulWidget {
   const StacApp({
     super.key,
     this.navigatorKey,
@@ -93,6 +93,9 @@ class StacApp extends StatelessWidget {
        routes = null,
        initialRoute = null;
 
+  @override
+  State<StacApp> createState() => _StacAppState();
+
   final GlobalKey<NavigatorState>? navigatorKey;
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
   final Widget? Function(BuildContext)? homeBuilder;
@@ -134,75 +137,90 @@ class StacApp extends StatelessWidget {
   final ScrollBehavior? scrollBehavior;
   final bool debugShowMaterialGrid;
   final bool useInheritedMediaQuery;
+}
+
+class _StacAppState extends State<StacApp> {
+  Future<_ResolvedStacThemes>? _themesFuture;
+  _ResolvedStacThemes? _resolvedThemes;
+
+  @override
+  void initState() {
+    super.initState();
+    _themesFuture = _resolveThemes();
+    _themesFuture!
+        .then((themes) {
+          if (mounted) {
+            setState(() {
+              _resolvedThemes = themes;
+            });
+          }
+        })
+        .catchError((error) {
+          if (mounted) {
+            Log.w('Failed to resolve theme: $error');
+            setState(() {
+              _resolvedThemes = (theme: null, darkTheme: null);
+            });
+          }
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
-    if (routerDelegate != null || routerConfig != null) {
-      return _materialRouterApp(context);
+    if (_resolvedThemes == null) {
+      return const _LoadingWidget();
     }
-    return _materialApp(context);
-  }
 
-  Widget _materialApp(BuildContext context) {
-    return _withResolvedThemes(
-      context,
-      (resolvedContext, resolved) =>
-          _buildMaterialApp(resolvedContext, resolved),
-    );
-  }
-
-  Widget _materialRouterApp(BuildContext context) {
-    return _withResolvedThemes(
-      context,
-      (resolvedContext, resolved) =>
-          _buildMaterialAppRouter(resolvedContext, resolved),
-    );
+    if (widget.routerDelegate != null || widget.routerConfig != null) {
+      return _buildMaterialAppRouter(context, _resolvedThemes!);
+    }
+    return _buildMaterialApp(context, _resolvedThemes!);
   }
 
   Widget _buildMaterialApp(BuildContext context, _ResolvedStacThemes themes) {
     return MaterialApp(
-      navigatorKey: navigatorKey,
-      scaffoldMessengerKey: scaffoldMessengerKey,
+      navigatorKey: widget.navigatorKey,
+      scaffoldMessengerKey: widget.scaffoldMessengerKey,
       home: Builder(
         builder: (context) {
-          if (homeBuilder != null) {
-            return homeBuilder!(context) ?? const SizedBox();
+          if (widget.homeBuilder != null) {
+            return widget.homeBuilder!(context) ?? const SizedBox();
           }
           return const SizedBox();
         },
       ),
-      routes: routes ?? {},
-      initialRoute: initialRoute,
-      onGenerateRoute: onGenerateRoute,
-      onGenerateInitialRoutes: onGenerateInitialRoutes,
-      onUnknownRoute: onUnknownRoute,
-      navigatorObservers: navigatorObservers ?? [],
-      builder: builder,
-      title: title,
-      onGenerateTitle: onGenerateTitle,
+      routes: widget.routes ?? {},
+      initialRoute: widget.initialRoute,
+      onGenerateRoute: widget.onGenerateRoute,
+      onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
+      onUnknownRoute: widget.onUnknownRoute,
+      navigatorObservers: widget.navigatorObservers ?? [],
+      builder: widget.builder,
+      title: widget.title,
+      onGenerateTitle: widget.onGenerateTitle,
       theme: themes.theme?.parse(context),
       darkTheme: themes.darkTheme?.parse(context),
-      highContrastTheme: highContrastTheme,
-      highContrastDarkTheme: highContrastDarkTheme,
-      themeMode: themeMode,
-      themeAnimationDuration: themeAnimationDuration,
-      themeAnimationCurve: themeAnimationCurve,
-      color: color,
-      locale: locale,
-      localizationsDelegates: localizationsDelegates,
-      localeListResolutionCallback: localeListResolutionCallback,
-      localeResolutionCallback: localeResolutionCallback,
-      supportedLocales: supportedLocales,
-      showPerformanceOverlay: showPerformanceOverlay,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-      showSemanticsDebugger: showSemanticsDebugger,
-      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
-      restorationScopeId: restorationScopeId,
-      scrollBehavior: scrollBehavior,
-      debugShowMaterialGrid: debugShowMaterialGrid,
+      highContrastTheme: widget.highContrastTheme,
+      highContrastDarkTheme: widget.highContrastDarkTheme,
+      themeMode: widget.themeMode,
+      themeAnimationDuration: widget.themeAnimationDuration,
+      themeAnimationCurve: widget.themeAnimationCurve,
+      color: widget.color,
+      locale: widget.locale,
+      localizationsDelegates: widget.localizationsDelegates,
+      localeListResolutionCallback: widget.localeListResolutionCallback,
+      localeResolutionCallback: widget.localeResolutionCallback,
+      supportedLocales: widget.supportedLocales,
+      showPerformanceOverlay: widget.showPerformanceOverlay,
+      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
+      showSemanticsDebugger: widget.showSemanticsDebugger,
+      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+      shortcuts: widget.shortcuts,
+      actions: widget.actions,
+      restorationScopeId: widget.restorationScopeId,
+      scrollBehavior: widget.scrollBehavior,
+      debugShowMaterialGrid: widget.debugShowMaterialGrid,
     );
   }
 
@@ -211,44 +229,44 @@ class StacApp extends StatelessWidget {
     _ResolvedStacThemes themes,
   ) {
     return MaterialApp.router(
-      scaffoldMessengerKey: scaffoldMessengerKey,
-      routeInformationProvider: routeInformationProvider,
-      routeInformationParser: routeInformationParser,
-      routerDelegate: routerDelegate,
-      routerConfig: routerConfig,
-      backButtonDispatcher: backButtonDispatcher,
-      builder: builder,
-      title: title,
-      onGenerateTitle: onGenerateTitle,
-      color: color,
+      scaffoldMessengerKey: widget.scaffoldMessengerKey,
+      routeInformationProvider: widget.routeInformationProvider,
+      routeInformationParser: widget.routeInformationParser,
+      routerDelegate: widget.routerDelegate,
+      routerConfig: widget.routerConfig,
+      backButtonDispatcher: widget.backButtonDispatcher,
+      builder: widget.builder,
+      title: widget.title,
+      onGenerateTitle: widget.onGenerateTitle,
+      color: widget.color,
       theme: themes.theme?.parse(context),
       darkTheme: themes.darkTheme?.parse(context),
-      highContrastTheme: highContrastTheme,
-      highContrastDarkTheme: highContrastDarkTheme,
-      themeMode: themeMode,
-      themeAnimationDuration: themeAnimationDuration,
-      themeAnimationCurve: themeAnimationCurve,
-      locale: locale,
-      localizationsDelegates: localizationsDelegates,
-      localeListResolutionCallback: localeListResolutionCallback,
-      localeResolutionCallback: localeResolutionCallback,
-      supportedLocales: supportedLocales,
-      debugShowMaterialGrid: debugShowMaterialGrid,
-      showPerformanceOverlay: showPerformanceOverlay,
-      checkerboardRasterCacheImages: checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: checkerboardOffscreenLayers,
-      showSemanticsDebugger: showSemanticsDebugger,
-      debugShowCheckedModeBanner: debugShowCheckedModeBanner,
-      shortcuts: shortcuts,
-      actions: actions,
-      restorationScopeId: restorationScopeId,
-      scrollBehavior: scrollBehavior,
+      highContrastTheme: widget.highContrastTheme,
+      highContrastDarkTheme: widget.highContrastDarkTheme,
+      themeMode: widget.themeMode,
+      themeAnimationDuration: widget.themeAnimationDuration,
+      themeAnimationCurve: widget.themeAnimationCurve,
+      locale: widget.locale,
+      localizationsDelegates: widget.localizationsDelegates,
+      localeListResolutionCallback: widget.localeListResolutionCallback,
+      localeResolutionCallback: widget.localeResolutionCallback,
+      supportedLocales: widget.supportedLocales,
+      debugShowMaterialGrid: widget.debugShowMaterialGrid,
+      showPerformanceOverlay: widget.showPerformanceOverlay,
+      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
+      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
+      showSemanticsDebugger: widget.showSemanticsDebugger,
+      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
+      shortcuts: widget.shortcuts,
+      actions: widget.actions,
+      restorationScopeId: widget.restorationScopeId,
+      scrollBehavior: widget.scrollBehavior,
     );
   }
 
   Future<_ResolvedStacThemes> _resolveThemes() {
-    final themeInput = theme;
-    final darkThemeInput = darkTheme;
+    final themeInput = widget.theme;
+    final darkThemeInput = widget.darkTheme;
 
     // Both themes are optional, so we need to handle null cases
     final Future<StacTheme?>? themeFuture = themeInput?.resolve();
@@ -256,7 +274,7 @@ class StacApp extends StatelessWidget {
 
     // If both are null, return immediately with null themes
     if (themeFuture == null && darkThemeFuture == null) {
-      return Future.value(_ResolvedStacThemes(theme: null, darkTheme: null));
+      return Future.value((theme: null, darkTheme: null));
     }
 
     return Future<_ResolvedStacThemes>(() async {
@@ -265,53 +283,15 @@ class StacApp extends StatelessWidget {
       final resolvedDarkTheme =
           await (darkThemeFuture ?? Future<StacTheme?>.value(null));
 
-      return _ResolvedStacThemes(
-        theme: resolvedTheme,
-        darkTheme: resolvedDarkTheme,
-      );
+      return (theme: resolvedTheme, darkTheme: resolvedDarkTheme);
     });
   }
-
-  Widget _withResolvedThemes(
-    BuildContext context,
-    Widget Function(BuildContext, _ResolvedStacThemes) builder,
-  ) {
-    final resolved = _resolveThemes();
-    return FutureBuilder<_ResolvedStacThemes>(
-      future: resolved,
-      builder: (futureContext, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const _ThemeFutureLoading();
-        }
-        if (snapshot.hasError) {
-          Log.w('Failed to resolve theme: ${snapshot.error}');
-          return builder(
-            futureContext,
-            _ResolvedStacThemes(theme: null, darkTheme: null),
-          );
-        }
-        final themes = snapshot.data;
-        if (themes == null) {
-          return builder(
-            futureContext,
-            _ResolvedStacThemes(theme: null, darkTheme: null),
-          );
-        }
-        return builder(futureContext, themes);
-      },
-    );
-  }
 }
 
-class _ResolvedStacThemes {
-  const _ResolvedStacThemes({required this.theme, required this.darkTheme});
+typedef _ResolvedStacThemes = ({StacTheme? theme, StacTheme? darkTheme});
 
-  final StacTheme? theme;
-  final StacTheme? darkTheme;
-}
-
-class _ThemeFutureLoading extends StatelessWidget {
-  const _ThemeFutureLoading();
+class _LoadingWidget extends StatelessWidget {
+  const _LoadingWidget();
 
   @override
   Widget build(BuildContext context) {

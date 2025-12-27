@@ -1,5 +1,5 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stac/src/models/stac_artifact_cache.dart';
+import 'package:stac/src/models/stac_cache.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
 import 'package:stac_logger/stac_logger.dart';
 
@@ -31,7 +31,7 @@ class StacCacheService {
   /// Gets a cached artifact by its name and type.
   ///
   /// Returns `null` if the artifact is not cached.
-  static Future<StacArtifactCache?> getCachedArtifact(
+  static Future<StacCache?> getCachedArtifact(
     String artifactName,
     StacArtifactType artifactType,
   ) async {
@@ -45,7 +45,7 @@ class StacCacheService {
         return null;
       }
 
-      return StacArtifactCache.fromJsonString(cachedData);
+      return StacCache.fromJsonString(cachedData);
     } catch (e) {
       Log.w(
         'Failed to get cached artifact $artifactName (${artifactType.name}): $e',
@@ -68,7 +68,7 @@ class StacCacheService {
       final cachePrefix = _getCachePrefix(artifactType);
       final cacheKey = '$cachePrefix$name';
 
-      final artifactCache = StacArtifactCache(
+      final artifactCache = StacCache(
         name: name,
         stacJson: stacJson,
         version: version,
@@ -118,10 +118,7 @@ class StacCacheService {
   /// Returns `false` if the cache is expired or doesn't exist.
   ///
   /// If [maxAge] is `null`, cache is considered valid (no time-based expiration).
-  static bool isCacheValid(
-    StacArtifactCache? cachedArtifact,
-    Duration? maxAge,
-  ) {
+  static bool isCacheValid(StacCache? cachedArtifact, Duration? maxAge) {
     if (cachedArtifact == null) return false;
     if (maxAge == null) return true;
 

@@ -69,7 +69,7 @@ class StacAppTheme {
   final _ThemeSource _source;
   final BuildContext? _context;
   final StacNetworkRequest? _request;
-  final dynamic _jsonPayload;
+  final Object? _jsonPayload;
   final StacTheme? _dslTheme;
 
   /// Resolves the theme based on the configured source.
@@ -78,7 +78,7 @@ class StacAppTheme {
   Future<StacTheme?> resolve() async {
     switch (_source) {
       case _ThemeSource.dsl:
-        return Future.value(_dslTheme);
+        return _dslTheme;
       case _ThemeSource.cloud:
         return fromCloud(themeName: name!);
       case _ThemeSource.network:
