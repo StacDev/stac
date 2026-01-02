@@ -20,8 +20,7 @@ class StacCloud {
     ),
   );
 
-  static const String _baseUrl =
-      'https://us-central1-stac-dev-9eff0.cloudfunctions.net';
+  static const String _baseUrl = 'https://api.stac.dev';
 
   /// Gets the fetch URL for a given artifact type.
   static String _getFetchUrl(StacArtifactType artifactType) {
