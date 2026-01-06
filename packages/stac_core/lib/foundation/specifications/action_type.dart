@@ -35,4 +35,7 @@ enum ActionType {
 
   /// Wait for a specified duration before proceeding.
   delay,
+
+  /// Pop the current route from the navigation stack.
+  pop,
 }

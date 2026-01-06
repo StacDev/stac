@@ -145,6 +145,7 @@ class StacService {
     const StacSetValueActionParser(),
     const StacMultiActionParser(),
     const StacDelayActionParser(),
+    const StacPopActionParser(),
   ];
 
   static StacOptions? _options;
