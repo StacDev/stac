@@ -33,7 +33,57 @@
             },
             "onPressed": {
               "actionType": "showModalBottomSheet",
-              "assetPath": "assets/json/list_view_example.json"
+              "widget": {
+                "type": "container",
+                "height": 200,
+                "padding": {
+                  "top": 16,
+                  "left": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "child": {
+                  "type": "column",
+                  "children": [
+                    {
+                      "type": "row",
+                      "mainAxisAlignment": "spaceBetween",
+                      "children": [
+                        {
+                          "type": "text",
+                          "data": "Modal Bottom Sheet",
+                          "style": {
+                            "fontSize": 18,
+                            "fontWeight": "bold"
+                          }
+                        },
+                        {
+                          "type": "iconButton",
+                          "icon": {
+                            "type": "icon",
+                            "iconType": "material",
+                            "icon": "close"
+                          },
+                          "onPressed": {
+                            "actionType": "navigate",
+                            "navigationStyle": "pop"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "padding",
+                      "padding": {
+                        "top": 16
+                      },
+                      "child": {
+                        "type": "text",
+                        "data": "This is a simple modal bottom sheet example."
+                      }
+                    }
+                  ]
+                }
+              }
             }
           }
         ]
