@@ -36,24 +36,15 @@ To know more about the Table widget in Flutter, refer to the [official documenta
       "textDirection": "ltr",
       "defaultVerticalAlignment": "bottom",
       "border": {
-        "type": "tableBorder",
-        "top": {
-          "color": "#428AF5",
-          "width": 1.0
-        },
-        "right": {
-          "color": "#428AF5",
-          "width": 1.0
-        },
-        "bottom": {
-          "color": "#428AF5",
-          "width": 1.0
-        },
-        "left": {
-          "color": "#428AF5",
-          "width": 1.0
-        },
-        "borderRadius": 16
+        "color": "#428AF5",
+        "width": 1.0,
+        "style": "solid",
+        "borderRadius": {
+          "topLeft": 16.0,
+          "topRight": 16.0,
+          "bottomLeft": 16.0,
+          "bottomRight": 16.0
+        }
       },
       "children": [
         {
@@ -152,7 +143,7 @@ To know more about the Table widget in Flutter, refer to the [official documenta
               }
             }
           ]
-        },
+        }
       ]
     }
 ```
