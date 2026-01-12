@@ -8,7 +8,6 @@
 - Added support for tooltip theme configuration
 - Exported extension methods for easier widget and action parsing
 - Enhanced network widget to support custom loading and error widgets
-- Updated modal bottom sheet action with improved JSON structure
 
 ## 1.1.2
 
