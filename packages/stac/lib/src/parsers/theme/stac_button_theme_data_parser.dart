@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/foundation/foundation.dart';
 import 'package:stac/stac.dart';
 
 /// Parser extension for [StacButtonThemeData].
