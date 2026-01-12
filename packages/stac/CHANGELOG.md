@@ -1,3 +1,15 @@
+## 1.2.0
+
+- Added screen caching and offline support
+- Added theme support with cloud loading
+- Added support for badge widget
+- Added support for tooltip widget
+- Added support for selectable text widget
+- Added support for tooltip theme configuration
+- Exported extension methods for easier widget and action parsing
+- Enhanced network widget to support custom loading and error widgets
+- Updated modal bottom sheet action with improved JSON structure
+
 ## 1.1.2
 
 - chore: Upgrade `dio` to `^5.9.0`
