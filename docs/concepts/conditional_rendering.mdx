@@ -1,0 +1,328 @@
+---
+title: "Conditional Rendering"
+description: "Learn how to use conditional rendering in Stac to dynamically show or hide widgets based on runtime conditions"
+---
+
+Conditional rendering allows you to display different UI components based on runtime conditions. Stac provides a powerful conditional widget that evaluates boolean expressions and renders different widgets accordingly.
+
+## Overview
+
+The conditional widget (`conditional`) evaluates a boolean expression at runtime and renders one of two widgets:
+- **`ifTrue`**: Rendered when the condition evaluates to `true`
+- **`ifFalse`**: Rendered when the condition evaluates to `false` (optional - if omitted, nothing is rendered)
+
+This enables dynamic UI behavior without requiring app updates, making it perfect for A/B testing, feature flags, user-specific content, and responsive layouts.
+
+## How It Works
+
+### Runtime Evaluation
+
+Conditions are evaluated at runtime using Stac's `ExpressionResolver`, which parses and evaluates boolean expressions. The evaluation happens during widget parsing, ensuring that the correct widget is rendered based on the current state.
+
+### Evaluation Process
+
+1. The condition string is parsed by `ExpressionResolver.evaluate()`
+2. The expression is evaluated as a boolean value
+3. If `true`, the `ifTrue` widget is rendered
+4. If `false`, the `ifFalse` widget is rendered (or an empty widget if `ifFalse` is not provided)
+
+## Supported Conditions and Operators
+
+Stac's expression resolver supports a wide range of operators and expression types:
+
+### Comparison Operators
+
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `==` | Equality | `"5 == 5"` → `true` |
+| `!=` | Inequality | `"5 != 3"` → `true` |
+| `>` | Greater than | `"10 > 5"` → `true` |
+| `<` | Less than | `"3 < 5"` → `true` |
+| `>=` | Greater than or equal | `"5 >= 5"` → `true` |
+| `<=` | Less than or equal | `"3 <= 5"` → `true` |
+
+### Logical Operators
+
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `&&` | Logical AND | `"true && false"` → `false` |
+| `\|\|` | Logical OR | `"true \|\| false"` → `true` |
+
+### Mathematical Operations
+
+| Operator | Description | Example |
+|----------|-------------|---------|
+| `+` | Addition | `"5 + 3"` → `8` |
+| `-` | Subtraction | `"10 - 3"` → `7` |
+| `*` | Multiplication | `"5 * 2"` → `10` |
+| `/` | Division | `"10 / 2"` → `5` |
+| `%` | Modulo | `"10 % 3"` → `1` |
+
+### Supported Values
+
+- **Numbers**: Integers (`5`) and decimals (`3.14`)
+- **Booleans**: `true` and `false`
+- **Strings**: String literals (`"hello"` or `'world'`)
+- **Null**: `null` for null checks
+
+### Expression Features
+
+- **Parentheses**: Group operations `(10 + 5) * 2`
+- **Nested expressions**: Complex boolean logic `true && (false || true)`
+- **String comparison**: `"Flutter" == "Flutter"` → `true`
+- **Null checks**: `value == null` or `value != null`
+
+## Basic Usage
+
+### Simple Boolean Comparison
+
+```json
+{
+  "type": "conditional",
+  "condition": "5 > 3",
+  "ifTrue": {
+    "type": "text",
+    "data": "5 is greater than 3"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "5 is not greater than 3"
+  }
+}
+```
+
+### String Comparison
+
+```json
+{
+  "type": "conditional",
+  "condition": "Flutter == Flutter",
+  "ifTrue": {
+    "type": "container",
+    "padding": 16,
+    "decoration": {
+      "color": "#E8F5E9",
+      "borderRadius": 8
+    },
+    "child": {
+      "type": "text",
+      "data": "Strings are equal"
+    }
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Strings are not equal"
+  }
+}
+```
+
+### Mathematical Expression
+
+```json
+{
+  "type": "conditional",
+  "condition": "(10 + 5) * 2 == 30",
+  "ifTrue": {
+    "type": "text",
+    "data": "The calculation is correct"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "The calculation is incorrect"
+  }
+}
+```
+
+### Logical Operators
+
+```json
+{
+  "type": "conditional",
+  "condition": "true && (false || true)",
+  "ifTrue": {
+    "type": "text",
+    "data": "Logical expression is TRUE"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Logical expression is FALSE"
+  }
+}
+```
+
+### Conditional Without ifFalse
+
+If `ifFalse` is not provided and the condition evaluates to `false`, an empty widget (`SizedBox`) is rendered:
+
+```json
+{
+  "type": "conditional",
+  "condition": "false",
+  "ifTrue": {
+    "type": "text",
+    "data": "This will not be shown"
+  }
+}
+```
+
+## Advanced Usage
+
+### Nested Conditionals
+
+You can nest conditional widgets to create complex decision trees:
+
+```json
+{
+  "type": "conditional",
+  "condition": "3 < 5",
+  "ifTrue": {
+    "type": "conditional",
+    "condition": "10 > 8",
+    "ifTrue": {
+      "type": "text",
+      "data": "Both conditions are TRUE"
+    },
+    "ifFalse": {
+      "type": "text",
+      "data": "First condition is TRUE, but second is FALSE"
+    }
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "First condition is FALSE"
+  }
+}
+```
+
+### Real-World Example: User Authentication
+
+```json
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Dashboard"
+    }
+  },
+  "body": {
+    "type": "conditional",
+    "condition": "user.isLoggedIn == true",
+    "ifTrue": {
+      "type": "column",
+      "children": [
+        {
+          "type": "text",
+          "data": "Welcome back!"
+        },
+        {
+          "type": "elevatedButton",
+          "onPressed": {
+            "actionType": "navigate",
+            "routeName": "profile"
+          },
+          "child": {
+            "type": "text",
+            "data": "View Profile"
+          }
+        }
+      ]
+    },
+    "ifFalse": {
+      "type": "column",
+      "children": [
+        {
+          "type": "text",
+          "data": "Please sign in"
+        },
+        {
+          "type": "elevatedButton",
+          "onPressed": {
+            "actionType": "navigate",
+            "routeName": "login"
+          },
+          "child": {
+            "type": "text",
+            "data": "Sign In"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+### Feature Flag Example
+
+```json
+{
+  "type": "conditional",
+  "condition": "featureFlags.newUI == true",
+  "ifTrue": {
+    "type": "container",
+    "decoration": {
+      "color": "#4CAF50"
+    },
+    "child": {
+      "type": "text",
+      "data": "New UI Enabled"
+    }
+  },
+  "ifFalse": {
+    "type": "container",
+    "decoration": {
+      "color": "#FF9800"
+    },
+    "child": {
+      "type": "text",
+      "data": "Legacy UI"
+    }
+  }
+}
+```
+
+## JSON Schema
+
+### Conditional Widget Properties
+
+| Property | Type | Required | Description |
+|----------|------|----------|-------------|
+| `type` | `String` | Yes | Must be `"conditional"` |
+| `condition` | `String` | Yes | Boolean expression to evaluate |
+| `ifTrue` | `Map<String, dynamic>` | Yes | Widget to render when condition is `true` |
+| `ifFalse` | `Map<String, dynamic>` | No | Widget to render when condition is `false` |
+
+## Best Practices
+
+1. **Keep conditions simple**: Complex expressions can be hard to debug. Consider breaking them into nested conditionals for clarity.
+
+2. **Always provide `ifFalse`**: While optional, providing an `ifFalse` widget improves user experience and makes your UI more predictable.
+
+3. **Use parentheses**: When combining multiple operators, use parentheses to ensure correct evaluation order.
+
+4. **Test your conditions**: Verify that your conditions evaluate correctly before deploying to production.
+
+5. **Document complex logic**: If using complex nested conditionals, consider adding comments or documentation explaining the logic.
+
+## Limitations
+
+- **No variable access**: Currently, conditions cannot access app state or variables directly. They evaluate static expressions only.
+- **No function calls**: Custom functions cannot be called within conditions (except built-in math functions).
+- **String operations**: String concatenation is supported, but other string operations are limited.
+
+## Error Handling
+
+If a condition cannot be evaluated (due to syntax errors or unsupported operations), the expression resolver will:
+1. Attempt to evaluate the expression
+2. If evaluation fails, return the original expression string
+3. The conditional widget will treat non-boolean values as `false`
+
+To avoid errors:
+- Ensure your expressions use supported operators
+- Test expressions before deploying
+- Use simple, clear conditions
+
+## Examples
+
+For more examples, see the [conditional example](https://github.com/StacDev/stac/tree/dev/examples/stac_gallery/assets/json/conditional_example.json) in the Stac Gallery app.
