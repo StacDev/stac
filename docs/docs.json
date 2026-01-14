@@ -29,6 +29,7 @@
                             "introduction",
                             "quickstart",
                             "sdui",
+                            "dsl",
                             "cli",
                             "project_structure"
                         ]
