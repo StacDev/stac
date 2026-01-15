@@ -208,7 +208,7 @@ You can nest conditional widgets to create complex decision trees:
   },
   "body": {
     "type": "conditional",
-    "condition": "user.isLoggedIn == true",
+    "condition": "{{user.isLoggedIn}} == true",
     "ifTrue": {
       "type": "column",
       "children": [
@@ -281,6 +281,21 @@ You can nest conditional widgets to create complex decision trees:
   }
 }
 ```
+### Conditional Rendering using Stac DSL (Dart)
+
+Stac also provides a Dart-based DSL which is the recommended approach for defining UI programmatically.
+
+```dart
+StacConditional(
+  condition: '{{user.isLoggedIn}}',
+  ifTrue: StacText(
+    data: 'Welcome back!',
+  ),
+  ifFalse: StacText(
+    data: 'Please log in',
+  ),
+);
+
 
 ## JSON Schema
 
@@ -307,9 +322,22 @@ You can nest conditional widgets to create complex decision trees:
 
 ## Limitations
 
-- **No variable access**: Currently, conditions cannot access app state or variables directly. They evaluate static expressions only.
-- **No function calls**: Custom functions cannot be called within conditions (except built-in math functions).
-- **String operations**: String concatenation is supported, but other string operations are limited.
+**Variable access limitations**:  
+Conditions do not have access to local widget state or arbitrary Dart variables.  
+However, they *can* evaluate variables coming from resolved data sources such as:
+- Network responses
+- Initial data payloads
+- Context variables injected into the Stac tree
+
+Variables must be referenced using interpolation syntax (`{{variable}}`).
+
+**No function calls**  
+Custom Dart functions cannot be invoked inside conditions. Only built-in
+expression operators and basic math comparisons are supported.
+
+**String operations**  
+Basic string concatenation is supported, but advanced string manipulation
+(e.g. regex, substring, replace) is not available within conditional expressions.
 
 ## Error Handling
 

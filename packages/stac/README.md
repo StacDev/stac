@@ -37,6 +37,29 @@ This approach separates your app's presentation layer from its business logic, e
 - 🚀 Instant updates: Ship UI without app store releases.
 - 🧩 JSON‑driven UI: Define widgets in JSON; render natively.
 - 📦 Dart to JSON: Write Stac widgets in Dart and deploy to Stac Cloud.
+
+## Stac DSL/Dart Example
+
+The Stac DSL allows you to define widgets directly in Dart, which is then compiled to JSON. Here's a simple example:
+
+```dart
+import 'package:stac/stac.dart';
+
+@StacWidget()
+class MyButton extends StatelessWidget {
+  const MyButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {},
+      child: const Text('Click me'),
+    );
+  }
+}
+```
+
+For more details, see the [documentation](https://docs.stac.dev/).
 - 🎛 Actions & navigation: Control routes and API calls from the backend.
 - 📝 Forms & validation: Built-in form state and validation rules.
 - 🎨 Theming: Brand and layout via JSON with Stac Theme.
