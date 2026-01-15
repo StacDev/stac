@@ -1,0 +1,306 @@
+---
+title: "Stac DSL"
+description: "Learn how to write Server-Driven UI using Stac's Dart DSL and convert it to JSON for deployment"
+---
+
+# What is Stac DSL?
+
+**Stac DSL (Domain-Specific Language)** is a Dart-based language that allows you to write Server-Driven UI using familiar Flutter-like syntax. Instead of writing JSON directly, you write your UI in Dart using `StacWidget` classes, and Stac automatically converts it to JSON for deployment.
+
+## Why We Built It?
+
+Writing complex UIs in raw JSON can be:
+- **Error-prone**: Missing commas, brackets, and typos are common
+- **Hard to maintain**: No IDE support, autocomplete, or type checking
+- **Difficult to debug**: No compile-time errors or helpful error messages
+- **Lacks reusability**: Hard to create reusable components and helpers
+
+Stac DSL solves these problems by:
+- **Type safety**: Full Dart type checking and IDE support
+- **Better DX**: Autocomplete, syntax highlighting, and refactoring
+- **Reusability**: Create helper functions and reusable components
+- **Maintainability**: Easier to read, write, and modify complex UIs
+- **Compile-time validation**: Catch errors before deployment
+
+## How to Use Stac DSL?
+
+Stac DSL follows Flutter-like definitions and class names with `Stac` prefixed. For example, `Scaffold` becomes `StacScaffold`, `Column` becomes `StacColumn`, and `Text` becomes `StacText`.
+
+Screens are defined in the `stac/screens/` folder (or directly in `stac/`). Each screen is a Dart function annotated with `@StacScreen`. Note that the Dart function should return a `StacWidget`.
+
+Themes are defined in the `stac/theme/` folder using the `@StacThemeRef` annotation. The function should return a `StacTheme`.
+
+### Folder Structure
+
+A typical Stac project with DSL follows this structure:
+
+```
+flutter_project/
+├── lib/
+│   ├── default_stac_options.dart
+│   └── main.dart
+├── stac/
+│   ├── screens/              # Screen definitions
+│   │   ├── home_screen.dart
+│   │   └── detail_screen.dart
+│   └── theme/                # Theme definitions
+│       └── app_theme.dart
+└── pubspec.yaml
+```
+
+### Writing Screens
+
+Screens are defined in the `stac/screens/` folder (or directly in `stac/`). Each screen is a Dart function annotated with `@StacScreen`:
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'home_screen')
+StacWidget homeScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Home'),
+    ),
+    body: StacColumn(
+      children: [
+        StacText(data: 'Welcome to Stac!'),
+        StacElevatedButton(
+          child: StacText(data: 'Go to Details'),
+          onPressed: StacNavigateAction(routeName: 'detail_screen'),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+### Writing Themes
+
+Themes are defined in the `stac/theme/` folder using the `@StacThemeRef` annotation:
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacThemeRef(name: "app_theme")
+StacTheme get appTheme => StacTheme(
+  brightness: StacBrightness.light,
+  colorScheme: StacColorScheme(
+    brightness: StacBrightness.light,
+    primary: '#15803d',
+    onPrimary: '#FFFFFF',
+    surface: '#FFFFFF',
+    onSurface: '#000000',
+  ),
+  textTheme: StacTextTheme(
+    headlineLarge: StacCustomTextStyle(
+      fontSize: 32,
+      fontWeight: StacFontWeight.w700,
+    ),
+    bodyMedium: StacCustomTextStyle(
+      fontSize: 16,
+      fontWeight: StacFontWeight.w400,
+    ),
+  ),
+);
+```
+
+### Annotations
+
+#### `@StacScreen`
+
+Marks a function as a Stac screen definition. The function must return a `StacWidget`.
+
+**Properties:**
+- `screenName` (required): The unique identifier for this screen, used in navigation and deployment
+
+**Example:**
+```dart
+@StacScreen(screenName: 'product_detail')
+StacWidget productDetailScreen() {
+  return StacScaffold(/* ... */);
+}
+```
+
+#### `@StacThemeRef`
+
+Marks a getter as a Stac theme definition. The getter must return a `StacTheme`.
+
+**Properties:**
+- `name` (required): The unique identifier for this theme
+
+**Example:**
+```dart
+@StacThemeRef(name: "dark_theme")
+StacTheme get darkTheme => StacTheme(/* ... */);
+```
+
+## Build & Deploy
+
+### Building (Dart → JSON)
+
+The `stac build` command converts your Dart DSL code to JSON:
+
+```bash
+# Build all screens and themes
+stac build
+
+# Build with verbose output
+stac build --verbose
+```
+
+**What it does:**
+1. Scans the `stac/` folder for `@StacScreen` and `@StacThemeRef` annotations
+2. Executes each annotated function/getter to get the `StacWidget` or `StacTheme`
+3. Converts the result to JSON using `.toJson()`
+4. Saves JSON files to the `build/` folder
+
+**Output structure:**
+```
+build/
+├── screens/
+│   ├── home_screen.json
+│   └── detail_screen.json
+└── themes/
+    └── app_theme.json
+```
+
+### Deploying to Stac Cloud
+
+The `stac deploy` command builds your DSL and uploads it to Stac Cloud:
+
+```bash
+# Build and deploy
+stac deploy
+
+# Deploy without rebuilding
+stac deploy --skip-build
+
+# Deploy with verbose output
+stac deploy --verbose
+```
+
+**What it does:**
+1. Runs `stac build` (unless `--skip-build` is used)
+2. Uploads all JSON files from `build/` to Stac Cloud
+3. Makes screens available via `Stac(routeName: 'screen_name')` in your app
+
+## Example: Complete Screen
+
+Here's a complete example showing a screen with navigation, network requests, and theming:
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'movie_detail')
+StacWidget movieDetailScreen() {
+  return StacScaffold(
+    extendBodyBehindAppBar: true,
+    appBar: StacAppBar(
+      backgroundColor: 'transparent',
+      leading: StacIconButton(
+        icon: StacIcon(icon: 'chevron_left', color: 'onSurface'),
+        onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+      ),
+    ),
+    body: StacDynamicView(
+      request: StacNetworkRequest(
+        url: 'https://api.example.com/movies/{{movie_id}}',
+        method: Method.get,
+      ),
+      template: StacSingleChildScrollView(
+        child: StacColumn(
+          children: [
+            StacImage(
+              src: '{{poster_path}}',
+              width: double.maxFinite,
+              height: 480,
+              fit: StacBoxFit.cover,
+            ),
+            StacPadding(
+              padding: StacEdgeInsets.all(16),
+              child: StacColumn(
+                crossAxisAlignment: StacCrossAxisAlignment.start,
+                children: [
+                  StacText(
+                    data: '{{title}}',
+                    style: StacThemeData.textTheme.headlineMedium,
+                  ),
+                  StacSizedBox(height: 8),
+                  StacText(
+                    data: '{{overview}}',
+                    style: StacThemeData.textTheme.bodyMedium,
+                  ),
+                  StacSizedBox(height: 24),
+                  StacFilledButton(
+                    child: StacText(data: 'Watch Trailer'),
+                    onPressed: StacNavigateAction(routeName: 'trailer_screen'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
+```
+
+## Reference: DSL Files and Output
+
+### Input: Dart DSL (`stac/home_screen.dart`)
+
+```dart
+@StacScreen(screenName: 'home_screen')
+StacWidget homeScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Home'),
+    ),
+    body: StacColumn(
+      children: [
+        StacText(data: 'Hello, Stac!'),
+      ],
+    ),
+  );
+}
+```
+
+### Output: JSON (`build/screens/home_screen.json`)
+
+```json
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Home"
+    }
+  },
+  "body": {
+    "type": "column",
+    "children": [
+      {
+        "type": "text",
+        "data": "Hello, Stac!"
+      }
+    ]
+  }
+}
+```
+
+### Usage in App
+
+Once deployed, use the screen in your Flutter app:
+
+```dart
+Stac(routeName: 'home_screen')
+```
+
+## Next Steps
+
+- Learn about [available widgets](/widgets/align) you can use in DSL
+- Explore [actions](/actions/navigate) for handling user interactions
+- Check out the [movie app example](https://github.com/StacDev/stac/tree/dev/examples/movie_app) for a complete DSL project
+- Read about [theming](/concepts/theming) for customizing your app's appearance
