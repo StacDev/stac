@@ -20,31 +20,31 @@ part 'stac_sliver_padding.g.dart';
 /// {@tool snippet}
 /// JSON Example:
 /// ```json
-// {
-//     "type": "sliverPadding",
-//     "padding": {
-//         "all": 16.0
-//     },
-//     "sliver": {
-//         "type": "sliverToBoxAdapter",
-//         "child": {
-//             "type": "container",
-//             "height": 150,
-//             "color": "#4CAF50",
-//             "child": {
-//                 "type": "center",
-//                 "child": {
-//                     "type": "text",
-//                     "data": "I am a Box inside a SliverPadding!",
-//                     "style": {
-//                         "color": "#FFFFFF",
-//                         "fontWeight": "bold"
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+/// {
+///     "type": "sliverPadding",
+///     "padding": {
+///         "all": 16.0
+///     },
+///     "sliver": {
+///         "type": "sliverToBoxAdapter",
+///         "child": {
+///             "type": "container",
+///             "height": 150,
+///             "color": "#4CAF50",
+///             "child": {
+///                 "type": "center",
+///                 "child": {
+///                     "type": "text",
+///                     "data": "I am a Box inside a SliverPadding!",
+///                     "style": {
+///                         "color": "#FFFFFF",
+///                         "fontWeight": "bold"
+///                     }
+///                 }
+///             }
+///         }
+///     }
+/// }
 /// ```
 /// {@end-tool}
 ///

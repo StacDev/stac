@@ -1249,7 +1249,7 @@
     },
     "subtitle": {
       "type": "text",
-      "data": "A Material Design Sliver Padding widget"
+      "data": "A Material Design SliverPadding widget"
     },
     "style": "list",
     "onTap": {
