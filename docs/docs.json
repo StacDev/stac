@@ -123,7 +123,7 @@
                             "widgets/single_child_scroll_view",
                             "widgets/slider",
                             "widgets/sliver_app_bar",
-                            "widgets/sliver_opacity",
+                            "widgets/sliver_visibility",
                             "widgets/switch",
                             "widgets/tab_bar",
                             "widgets/text_button",
