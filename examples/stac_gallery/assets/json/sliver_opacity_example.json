@@ -1,0 +1,27 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "customScrollView",
+        "slivers": [
+            {
+                "type": "sliverOpacity",
+                "opacity": 0.4,
+                "sliver": {
+                    "type": "sliverToBoxAdapter",
+                    "child": {
+                        "type": "container",
+                        "height": 200,
+                        "color": "secondary",
+                        "child": {
+                            "type": "center",
+                            "child": {
+                                "type": "text",
+                                "data": "This sliver is faded using SliverOpacity"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1240,6 +1240,30 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver Opacity"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Sliver Opacity widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_opacity_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "navigation"
     },
     "title": {
