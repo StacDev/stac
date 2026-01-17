@@ -68,6 +68,7 @@
                             "widgets/row",
                             "widgets/safe_area",
                             "widgets/sized_box",
+                            "widgets/sliver_padding",
                             "widgets/spacer",
                             "widgets/stack",
                             "widgets/wrap",

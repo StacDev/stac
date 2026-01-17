@@ -1,0 +1,40 @@
+---
+title: "SliverPadding"
+description: "Documentation for SliverPadding"
+---
+
+The Stac SliverPadding allows you to inset a sliver widget by a given padding using JSON. It is typically used inside a `CustomScrollView`.
+To know more about the sliver padding widget in Flutter, refer to
+the [official documentation](https://api.flutter.dev/flutter/widgets/SliverPadding-class.html).
+
+## Properties
+
+| Property | Type                    | Description                                       |
+|----------|-------------------------|---------------------------------------------------|
+| padding  | `Map<String, dynamic>`  | The amount of space by which to inset the child.  |
+| sliver   | `Map<String, dynamic>`  | The sliver widget inside the padding.             |
+
+## Example JSON
+
+```json
+{
+  "type": "sliverPadding",
+  "padding": {
+    "all": 16
+  },
+  "sliver": {
+    "type": "sliverList",
+    "delegate": {
+      "children": [
+        {
+          "type": "text",
+          "data": "Item 1"
+        },
+        {
+          "type": "text",
+          "data": "Item 2"
+        }
+      ]
+    }
+  }
+}
