@@ -16,7 +16,9 @@ class StacSliverSafeAreaParser extends StacParser<StacSliverSafeArea> {
 
   @override
   Widget parse(BuildContext context, StacSliverSafeArea model) {
-    final sliver = model.sliver.parse(context) ?? const SizedBox.shrink();
+    final sliver =
+        model.sliver.parse(context) ??
+        const SliverToBoxAdapter(child: SizedBox.shrink());
     return SliverSafeArea(
       left: model.left ?? true,
       top: model.top ?? true,
