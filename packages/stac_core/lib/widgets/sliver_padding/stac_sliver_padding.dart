@@ -12,7 +12,7 @@ part 'stac_sliver_padding.g.dart';
 /// ```dart
 /// const StacSliverPadding(
 ///   padding: StacEdgeInsets.all(16),
-///   sliver: StacSliverList(...),
+///   sliver: StacSliverToBoxAdapter(...),
 /// )
 /// ```
 /// {@end-tool}
@@ -20,16 +20,31 @@ part 'stac_sliver_padding.g.dart';
 /// {@tool snippet}
 /// JSON Example:
 /// ```json
-/// {
-///   "type": "sliverPadding",
-///   "padding": { "all": 16 },
-///   "sliver": {
-///     "type": "sliverList",
-///     "children": [
-///       { "type": "text", "data": "Item 1" }
-///     ]
-///   }
-/// }
+// {
+//     "type": "sliverPadding",
+//     "padding": {
+//         "all": 16.0
+//     },
+//     "sliver": {
+//         "type": "sliverToBoxAdapter",
+//         "child": {
+//             "type": "container",
+//             "height": 150,
+//             "color": "#4CAF50",
+//             "child": {
+//                 "type": "center",
+//                 "child": {
+//                     "type": "text",
+//                     "data": "I am a Box inside a SliverPadding!",
+//                     "style": {
+//                         "color": "#FFFFFF",
+//                         "fontWeight": "bold"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 /// ```
 /// {@end-tool}
 ///

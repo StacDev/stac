@@ -9,10 +9,10 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverPaddi
 
 ## Properties
 
-| Property | Type                    | Description                                       |
-|----------|-------------------------|---------------------------------------------------|
-| padding  | `Map<String, dynamic>`  | The amount of space by which to inset the child.  |
-| sliver   | `Map<String, dynamic>`  | The sliver widget inside the padding.             |
+| Property | Type                   | Description                                      |
+|----------|------------------------|--------------------------------------------------|
+| padding  | `Map<String, dynamic>` | The amount of space by which to inset the child. |
+| sliver   | `Map<String, dynamic>` | The sliver widget inside the padding.            |
 
 ## Example JSON
 
@@ -20,21 +20,26 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverPaddi
 {
   "type": "sliverPadding",
   "padding": {
-    "all": 16
+    "all": 16.0
   },
   "sliver": {
-    "type": "sliverList",
-    "delegate": {
-      "children": [
-        {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "container",
+      "height": 150,
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
           "type": "text",
-          "data": "Item 1"
-        },
-        {
-          "type": "text",
-          "data": "Item 2"
+          "data": "I am a Box inside a SliverPadding!",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
         }
-      ]
+      }
     }
   }
 }
+```

@@ -1240,6 +1240,30 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver Padding"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Sliver Padding widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_padding_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "navigation"
     },
     "title": {
