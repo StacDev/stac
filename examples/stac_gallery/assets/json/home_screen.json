@@ -1249,7 +1249,7 @@
     },
     "subtitle": {
       "type": "text",
-      "data": "A Material Design Sliver Safe Area widget"
+      "data": "A Sliver Safe Area widget"
     },
     "style": "list",
     "onTap": {
