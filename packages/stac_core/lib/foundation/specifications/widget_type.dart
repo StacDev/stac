@@ -207,6 +207,9 @@ enum WidgetType {
   /// Sliver app bar widget
   sliverAppBar,
 
+  /// Sliver safe area widget
+  sliverSafeArea,
+
   /// Spacer widget
   spacer,
 

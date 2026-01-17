@@ -1240,6 +1240,30 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver Safe Area"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Material Design Sliver Safe Area widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_safe_area_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "navigation"
     },
     "title": {
