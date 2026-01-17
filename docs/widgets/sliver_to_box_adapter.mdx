@@ -17,16 +17,26 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBox
 
 ```json
 {
-  "type": "sliverToBoxAdapter",
-  "child": {
-    "type": "container",
-    "height": 200,
-    "color": "#FF5733",
+  "type": "sliverPadding",
+  "padding": {
+    "all": 16.0
+  },
+  "sliver": {
+    "type": "sliverToBoxAdapter",
     "child": {
-      "type": "center",
+      "type": "container",
+      "height": 150,
+      "color": "#4CAF50",
       "child": {
-        "type": "text",
-        "data": "I am a Box inside a Sliver!"
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "I am a Box inside a SliverToBoxAdapter!",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
       }
     }
   }

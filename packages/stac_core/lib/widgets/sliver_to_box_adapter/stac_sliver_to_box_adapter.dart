@@ -9,10 +9,10 @@ part 'stac_sliver_to_box_adapter.g.dart';
 /// A sliver that contains a single box widget.
 ///
 /// {@tool snippet}
-/// Dart Example:
 /// ```dart
-/// const StacSliverToBoxAdapter(
-///   child: StacText(data: 'Hello'),
+/// const StacSliverPadding(
+///   padding: StacEdgeInsets.all(16),
+///   sliver: StacSliverToBoxAdapter(...),
 /// )
 /// ```
 /// {@end-tool}
@@ -21,11 +21,29 @@ part 'stac_sliver_to_box_adapter.g.dart';
 /// JSON Example:
 /// ```json
 /// {
-///   "type": "sliverToBoxAdapter",
-///   "child": {
-///     "type": "text",
-///     "data": "Hello"
-///   }
+///     "type": "sliverPadding",
+///     "padding": {
+///         "all": 16.0
+///     },
+///     "sliver": {
+///         "type": "sliverToBoxAdapter",
+///         "child": {
+///             "type": "container",
+///             "height": 150,
+///             "color": "#4CAF50",
+///             "child": {
+///                 "type": "center",
+///                 "child": {
+///                     "type": "text",
+///                     "data": "I am a Box inside a SliverToBoxAdapter!",
+///                     "style": {
+///                         "color": "#FFFFFF",
+///                         "fontWeight": "bold"
+///                     }
+///                 }
+///             }
+///         }
+///     }
 /// }
 /// ```
 /// {@end-tool}
