@@ -11,9 +11,10 @@ StacBottomNavigationBarItem _$StacBottomNavigationBarItemFromJson(
 ) => StacBottomNavigationBarItem(
   icon: StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
   label: json['label'] as String,
-  activeIcon: json['activeIcon'] == null
-      ? null
-      : StacWidget.fromJson(json['activeIcon'] as Map<String, dynamic>),
+  activeIcon:
+      json['activeIcon'] == null
+          ? null
+          : StacWidget.fromJson(json['activeIcon'] as Map<String, dynamic>),
   backgroundColor: json['backgroundColor'] as String?,
   tooltip: json['tooltip'] as String?,
 );

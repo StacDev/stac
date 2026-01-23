@@ -8,16 +8,18 @@ part of 'stac_clip_rrect.dart';
 
 StacClipRRect _$StacClipRRectFromJson(Map<String, dynamic> json) =>
     StacClipRRect(
-      borderRadius: json['borderRadius'] == null
-          ? null
-          : StacBorderRadius.fromJson(json['borderRadius']),
+      borderRadius:
+          json['borderRadius'] == null
+              ? null
+              : StacBorderRadius.fromJson(json['borderRadius']),
       clipBehavior: $enumDecodeNullable(
         _$StacClipEnumMap,
         json['clipBehavior'],
       ),
-      child: json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      child:
+          json['child'] == null
+              ? null
+              : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacClipRRectToJson(StacClipRRect instance) =>

@@ -14,14 +14,14 @@ StacSingleChildScrollView _$StacSingleChildScrollViewFromJson(
     json['scrollDirection'],
   ),
   reverse: json['reverse'] as bool?,
-  padding: json['padding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['padding']),
+  padding:
+      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
   primary: json['primary'] as bool?,
   physics: $enumDecodeNullable(_$StacScrollPhysicsEnumMap, json['physics']),
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
     json['dragStartBehavior'],

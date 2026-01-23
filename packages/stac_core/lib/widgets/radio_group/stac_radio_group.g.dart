@@ -10,12 +10,14 @@ StacRadioGroup _$StacRadioGroupFromJson(Map<String, dynamic> json) =>
     StacRadioGroup(
       id: json['id'] as String?,
       groupValue: json['groupValue'],
-      child: json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
-      onChanged: json['onChanged'] == null
-          ? null
-          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+      child:
+          json['child'] == null
+              ? null
+              : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      onChanged:
+          json['onChanged'] == null
+              ? null
+              : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$StacRadioGroupToJson(StacRadioGroup instance) =>

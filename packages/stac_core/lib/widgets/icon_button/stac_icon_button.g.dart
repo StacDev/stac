@@ -6,57 +6,65 @@ part of 'stac_icon_button.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-StacIconButton _$StacIconButtonFromJson(Map<String, dynamic> json) =>
-    StacIconButton(
-      iconSize: (json['iconSize'] as num?)?.toDouble(),
-      visualDensity: json['visualDensity'] == null
+StacIconButton _$StacIconButtonFromJson(
+  Map<String, dynamic> json,
+) => StacIconButton(
+  iconSize: (json['iconSize'] as num?)?.toDouble(),
+  visualDensity:
+      json['visualDensity'] == null
           ? null
           : StacVisualDensity.fromJson(
-              json['visualDensity'] as Map<String, dynamic>,
-            ),
-      padding: json['padding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['padding']),
-      alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-      splashRadius: (json['splashRadius'] as num?)?.toDouble(),
-      color: json['color'] as String?,
-      focusColor: json['focusColor'] as String?,
-      hoverColor: json['hoverColor'] as String?,
-      highlightColor: json['highlightColor'] as String?,
-      splashColor: json['splashColor'] as String?,
-      disabledColor: json['disabledColor'] as String?,
-      onPressed: json['onPressed'] == null
+            json['visualDensity'] as Map<String, dynamic>,
+          ),
+  padding:
+      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
+  splashRadius: (json['splashRadius'] as num?)?.toDouble(),
+  color: json['color'] as String?,
+  focusColor: json['focusColor'] as String?,
+  hoverColor: json['hoverColor'] as String?,
+  highlightColor: json['highlightColor'] as String?,
+  splashColor: json['splashColor'] as String?,
+  disabledColor: json['disabledColor'] as String?,
+  onPressed:
+      json['onPressed'] == null
           ? null
           : StacAction.fromJson(json['onPressed'] as Map<String, dynamic>),
-      onHover: json['onHover'] == null
+  onHover:
+      json['onHover'] == null
           ? null
           : StacAction.fromJson(json['onHover'] as Map<String, dynamic>),
-      onLongPress: json['onLongPress'] == null
+  onLongPress:
+      json['onLongPress'] == null
           ? null
           : StacAction.fromJson(json['onLongPress'] as Map<String, dynamic>),
-      mouseCursor: $enumDecodeNullable(
-        _$StacMouseCursorEnumMap,
-        json['mouseCursor'],
-      ),
-      autofocus: json['autofocus'] as bool?,
-      tooltip: json['tooltip'] as String?,
-      enableFeedback: json['enableFeedback'] as bool?,
-      constraints: json['constraints'] == null
+  mouseCursor: $enumDecodeNullable(
+    _$StacMouseCursorEnumMap,
+    json['mouseCursor'],
+  ),
+  autofocus: json['autofocus'] as bool?,
+  tooltip: json['tooltip'] as String?,
+  enableFeedback: json['enableFeedback'] as bool?,
+  constraints:
+      json['constraints'] == null
           ? null
           : StacBoxConstraints.fromJson(
-              json['constraints'] as Map<String, dynamic>,
-            ),
-      style: json['style'] == null
+            json['constraints'] as Map<String, dynamic>,
+          ),
+  style:
+      json['style'] == null
           ? null
           : StacButtonStyle.fromJson(json['style'] as Map<String, dynamic>),
-      isSelected: json['isSelected'] as bool?,
-      selectedIcon: json['selectedIcon'] == null
+  isSelected: json['isSelected'] as bool?,
+  selectedIcon:
+      json['selectedIcon'] == null
           ? null
           : StacWidget.fromJson(json['selectedIcon'] as Map<String, dynamic>),
-      icon: json['icon'] == null
+  icon:
+      json['icon'] == null
           ? null
           : StacWidget.fromJson(json['icon'] as Map<String, dynamic>),
-    );
+);
 
 Map<String, dynamic> _$StacIconButtonToJson(StacIconButton instance) =>
     <String, dynamic>{

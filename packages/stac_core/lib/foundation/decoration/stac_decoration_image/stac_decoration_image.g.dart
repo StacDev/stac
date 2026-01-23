@@ -12,9 +12,10 @@ StacDecorationImage _$StacDecorationImageFromJson(Map<String, dynamic> json) =>
       fit: $enumDecodeNullable(_$StacBoxFitEnumMap, json['fit']),
       imageType: $enumDecodeNullable(_$StacImageTypeEnumMap, json['imageType']),
       alignment: $enumDecodeNullable(_$StacAlignmentEnumMap, json['alignment']),
-      centerSlice: json['centerSlice'] == null
-          ? null
-          : StacRect.fromJson(json['centerSlice'] as Map<String, dynamic>),
+      centerSlice:
+          json['centerSlice'] == null
+              ? null
+              : StacRect.fromJson(json['centerSlice'] as Map<String, dynamic>),
       repeat: $enumDecodeNullable(_$StacImageRepeatEnumMap, json['repeat']),
       matchTextDirection: json['matchTextDirection'] as bool?,
       scale: (json['scale'] as num?)?.toDouble(),

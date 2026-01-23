@@ -8,11 +8,12 @@ part of 'stac_tab_bar_theme_data.dart';
 
 StacTabBarThemeData _$StacTabBarThemeDataFromJson(Map<String, dynamic> json) =>
     StacTabBarThemeData(
-      indicator: json['indicator'] == null
-          ? null
-          : StacBoxDecoration.fromJson(
-              json['indicator'] as Map<String, dynamic>,
-            ),
+      indicator:
+          json['indicator'] == null
+              ? null
+              : StacBoxDecoration.fromJson(
+                json['indicator'] as Map<String, dynamic>,
+              ),
       indicatorColor: json['indicatorColor'] as String?,
       indicatorSize: $enumDecodeNullable(
         _$StacTabBarIndicatorSizeEnumMap,
@@ -20,16 +21,19 @@ StacTabBarThemeData _$StacTabBarThemeDataFromJson(Map<String, dynamic> json) =>
       ),
       dividerColor: json['dividerColor'] as String?,
       labelColor: json['labelColor'] as String?,
-      labelPadding: json['labelPadding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['labelPadding']),
-      labelStyle: json['labelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['labelStyle']),
+      labelPadding:
+          json['labelPadding'] == null
+              ? null
+              : StacEdgeInsets.fromJson(json['labelPadding']),
+      labelStyle:
+          json['labelStyle'] == null
+              ? null
+              : StacTextStyle.fromJson(json['labelStyle']),
       unselectedLabelColor: json['unselectedLabelColor'] as String?,
-      unselectedLabelStyle: json['unselectedLabelStyle'] == null
-          ? null
-          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+      unselectedLabelStyle:
+          json['unselectedLabelStyle'] == null
+              ? null
+              : StacTextStyle.fromJson(json['unselectedLabelStyle']),
       overlayColor: json['overlayColor'] as String?,
     );
 

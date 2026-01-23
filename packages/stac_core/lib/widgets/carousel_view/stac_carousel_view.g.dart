@@ -12,9 +12,10 @@ StacCarouselView _$StacCarouselViewFromJson(Map<String, dynamic> json) =>
         _$StacCarouselViewTypeEnumMap,
         json['carouselType'],
       ),
-      padding: json['padding'] == null
-          ? null
-          : StacEdgeInsets.fromJson(json['padding']),
+      padding:
+          json['padding'] == null
+              ? null
+              : StacEdgeInsets.fromJson(json['padding']),
       backgroundColor: json['backgroundColor'] as String?,
       elevation: const DoubleConverter().fromJson(json['elevation']),
       overlayColor: json['overlayColor'] as String?,
@@ -25,17 +26,20 @@ StacCarouselView _$StacCarouselViewFromJson(Map<String, dynamic> json) =>
         json['scrollDirection'],
       ),
       reverse: json['reverse'] as bool?,
-      onTap: json['onTap'] == null
-          ? null
-          : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
+      onTap:
+          json['onTap'] == null
+              ? null
+              : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
       enableSplash: json['enableSplash'] as bool?,
       itemExtent: const DoubleConverter().fromJson(json['itemExtent']),
-      flexWeights: (json['flexWeights'] as List<dynamic>?)
-          ?.map((e) => (e as num).toInt())
-          .toList(),
-      children: (json['children'] as List<dynamic>?)
-          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      flexWeights:
+          (json['flexWeights'] as List<dynamic>?)
+              ?.map((e) => (e as num).toInt())
+              .toList(),
+      children:
+          (json['children'] as List<dynamic>?)
+              ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );
 
 Map<String, dynamic> _$StacCarouselViewToJson(StacCarouselView instance) =>

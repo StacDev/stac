@@ -11,9 +11,10 @@ StacForm _$StacFormFromJson(Map<String, dynamic> json) => StacForm(
     _$StacAutovalidateModeEnumMap,
     json['autovalidateMode'],
   ),
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacFormToJson(StacForm instance) => <String, dynamic>{

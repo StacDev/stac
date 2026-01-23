@@ -8,9 +8,10 @@ part of 'stac_circle_avatar.dart';
 
 StacCircleAvatar _$StacCircleAvatarFromJson(Map<String, dynamic> json) =>
     StacCircleAvatar(
-      child: json['child'] == null
-          ? null
-          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+      child:
+          json['child'] == null
+              ? null
+              : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
       backgroundColor: json['backgroundColor'] as String?,
       backgroundImage: json['backgroundImage'] as String?,
       foregroundImage: json['foregroundImage'] as String?,

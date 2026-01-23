@@ -15,26 +15,29 @@ StacSnackBarThemeData _$StacSnackBarThemeDataFromJson(
   ),
   backgroundColor: json['backgroundColor'] as String?,
   elevation: (json['elevation'] as num?)?.toDouble(),
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   width: (json['width'] as num?)?.toDouble(),
-  contentTextStyle: json['contentTextStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['contentTextStyle']),
+  contentTextStyle:
+      json['contentTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['contentTextStyle']),
   actionTextColor: json['actionTextColor'] as String?,
   disabledActionTextColor: json['disabledActionTextColor'] as String?,
-  insetPadding: json['insetPadding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['insetPadding']),
+  insetPadding:
+      json['insetPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['insetPadding']),
   dismissDirection: $enumDecodeNullable(
     _$StacDismissDirectionEnumMap,
     json['dismissDirection'],
   ),
   showCloseIcon: json['showCloseIcon'] as bool?,
   closeIconColor: json['closeIconColor'] as String?,
-  actionOverflowThreshold: (json['actionOverflowThreshold'] as num?)
-      ?.toDouble(),
+  actionOverflowThreshold:
+      (json['actionOverflowThreshold'] as num?)?.toDouble(),
   actionBackgroundColor: json['actionBackgroundColor'] as String?,
   disabledActionBackgroundColor:
       json['disabledActionBackgroundColor'] as String?,

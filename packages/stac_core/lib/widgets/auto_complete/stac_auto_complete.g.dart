@@ -10,9 +10,10 @@ StacAutoComplete _$StacAutoCompleteFromJson(
   Map<String, dynamic> json,
 ) => StacAutoComplete(
   options: (json['options'] as List<dynamic>).map((e) => e as String).toList(),
-  onSelected: json['onSelected'] == null
-      ? null
-      : StacAction.fromJson(json['onSelected'] as Map<String, dynamic>),
+  onSelected:
+      json['onSelected'] == null
+          ? null
+          : StacAction.fromJson(json['onSelected'] as Map<String, dynamic>),
   optionsMaxHeight: const DoubleConverter().fromJson(json['optionsMaxHeight']),
   optionsViewOpenDirection: $enumDecodeNullable(
     _$StacOptionsViewOpenDirectionEnumMap,

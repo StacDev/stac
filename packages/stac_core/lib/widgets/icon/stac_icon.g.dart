@@ -17,9 +17,10 @@ StacIcon _$StacIconFromJson(Map<String, dynamic> json) => StacIcon(
   grade: const DoubleConverter().fromJson(json['grade']),
   opticalSize: const DoubleConverter().fromJson(json['opticalSize']),
   color: json['color'] as String?,
-  shadows: (json['shadows'] as List<dynamic>?)
-      ?.map((e) => StacShadow.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  shadows:
+      (json['shadows'] as List<dynamic>?)
+          ?.map((e) => StacShadow.fromJson(e as Map<String, dynamic>))
+          .toList(),
   semanticLabel: json['semanticLabel'] as String?,
   textDirection: $enumDecodeNullable(
     _$StacTextDirectionEnumMap,

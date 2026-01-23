@@ -18,18 +18,20 @@ StacTable _$StacTableFromJson(Map<String, dynamic> json) => StacTable(
       StacTableColumnWidth.fromJson(e as Map<String, dynamic>),
     ),
   ),
-  defaultColumnWidth: json['defaultColumnWidth'] == null
-      ? null
-      : StacTableColumnWidth.fromJson(
-          json['defaultColumnWidth'] as Map<String, dynamic>,
-        ),
+  defaultColumnWidth:
+      json['defaultColumnWidth'] == null
+          ? null
+          : StacTableColumnWidth.fromJson(
+            json['defaultColumnWidth'] as Map<String, dynamic>,
+          ),
   textDirection: $enumDecodeNullable(
     _$StacTextDirectionEnumMap,
     json['textDirection'],
   ),
-  border: json['border'] == null
-      ? null
-      : StacTableBorder.fromJson(json['border'] as Map<String, dynamic>),
+  border:
+      json['border'] == null
+          ? null
+          : StacTableBorder.fromJson(json['border'] as Map<String, dynamic>),
   defaultVerticalAlignment: $enumDecodeNullable(
     _$StacTableCellVerticalAlignmentEnumMap,
     json['defaultVerticalAlignment'],

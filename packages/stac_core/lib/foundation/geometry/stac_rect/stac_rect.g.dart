@@ -14,16 +14,19 @@ StacRect _$StacRectFromJson(Map<String, dynamic> json) => StacRect(
   bottom: const DoubleConverter().fromJson(json['bottom']),
   width: const DoubleConverter().fromJson(json['width']),
   height: const DoubleConverter().fromJson(json['height']),
-  center: json['center'] == null
-      ? null
-      : StacOffset.fromJson(json['center'] as Map<String, dynamic>),
+  center:
+      json['center'] == null
+          ? null
+          : StacOffset.fromJson(json['center'] as Map<String, dynamic>),
   radius: const DoubleConverter().fromJson(json['radius']),
-  a: json['a'] == null
-      ? null
-      : StacOffset.fromJson(json['a'] as Map<String, dynamic>),
-  b: json['b'] == null
-      ? null
-      : StacOffset.fromJson(json['b'] as Map<String, dynamic>),
+  a:
+      json['a'] == null
+          ? null
+          : StacOffset.fromJson(json['a'] as Map<String, dynamic>),
+  b:
+      json['b'] == null
+          ? null
+          : StacOffset.fromJson(json['b'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacRectToJson(StacRect instance) => <String, dynamic>{

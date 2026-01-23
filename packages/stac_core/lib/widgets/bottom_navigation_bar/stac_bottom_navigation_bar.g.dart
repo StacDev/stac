@@ -9,11 +9,13 @@ part of 'stac_bottom_navigation_bar.dart';
 StacBottomNavigationBar _$StacBottomNavigationBarFromJson(
   Map<String, dynamic> json,
 ) => StacBottomNavigationBar(
-  items: (json['items'] as List<dynamic>)
-      .map(
-        (e) => StacBottomNavigationBarItem.fromJson(e as Map<String, dynamic>),
-      )
-      .toList(),
+  items:
+      (json['items'] as List<dynamic>)
+          .map(
+            (e) =>
+                StacBottomNavigationBarItem.fromJson(e as Map<String, dynamic>),
+          )
+          .toList(),
   elevation: const DoubleConverter().fromJson(json['elevation']),
   barType: $enumDecodeNullable(
     _$StacBottomNavigationBarTypeEnumMap,
@@ -28,12 +30,14 @@ StacBottomNavigationBar _$StacBottomNavigationBarFromJson(
   unselectedFontSize: const DoubleConverter().fromJson(
     json['unselectedFontSize'],
   ),
-  selectedLabelStyle: json['selectedLabelStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['selectedLabelStyle']),
-  unselectedLabelStyle: json['unselectedLabelStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+  selectedLabelStyle:
+      json['selectedLabelStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['selectedLabelStyle']),
+  unselectedLabelStyle:
+      json['unselectedLabelStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['unselectedLabelStyle']),
   showSelectedLabels: json['showSelectedLabels'] as bool?,
   showUnselectedLabels: json['showUnselectedLabels'] as bool?,
   enableFeedback: json['enableFeedback'] as bool?,

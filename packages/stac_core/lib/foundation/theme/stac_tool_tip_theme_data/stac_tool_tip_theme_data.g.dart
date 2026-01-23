@@ -9,36 +9,42 @@ part of 'stac_tool_tip_theme_data.dart';
 StacTooltipThemeData _$StacTooltipThemeDataFromJson(
   Map<String, dynamic> json,
 ) => StacTooltipThemeData(
-  constraints: json['constraints'] == null
-      ? null
-      : StacBoxConstraints.fromJson(
-          json['constraints'] as Map<String, dynamic>,
-        ),
-  padding: json['padding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['padding']),
-  margin: json['margin'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['margin']),
+  constraints:
+      json['constraints'] == null
+          ? null
+          : StacBoxConstraints.fromJson(
+            json['constraints'] as Map<String, dynamic>,
+          ),
+  padding:
+      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  margin:
+      json['margin'] == null ? null : StacEdgeInsets.fromJson(json['margin']),
   verticalOffset: (json['verticalOffset'] as num?)?.toDouble(),
   preferBelow: json['preferBelow'] as bool?,
   excludeFromSemantics: json['excludeFromSemantics'] as bool?,
-  decoration: json['decoration'] == null
-      ? null
-      : StacBoxDecoration.fromJson(json['decoration'] as Map<String, dynamic>),
-  textStyle: json['textStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['textStyle']),
+  decoration:
+      json['decoration'] == null
+          ? null
+          : StacBoxDecoration.fromJson(
+            json['decoration'] as Map<String, dynamic>,
+          ),
+  textStyle:
+      json['textStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['textStyle']),
   textAlign: $enumDecodeNullable(_$StacTextAlignEnumMap, json['textAlign']),
-  waitDuration: json['waitDuration'] == null
-      ? null
-      : StacDuration.fromJson(json['waitDuration'] as Map<String, dynamic>),
-  showDuration: json['showDuration'] == null
-      ? null
-      : StacDuration.fromJson(json['showDuration'] as Map<String, dynamic>),
-  exitDuration: json['exitDuration'] == null
-      ? null
-      : StacDuration.fromJson(json['exitDuration'] as Map<String, dynamic>),
+  waitDuration:
+      json['waitDuration'] == null
+          ? null
+          : StacDuration.fromJson(json['waitDuration'] as Map<String, dynamic>),
+  showDuration:
+      json['showDuration'] == null
+          ? null
+          : StacDuration.fromJson(json['showDuration'] as Map<String, dynamic>),
+  exitDuration:
+      json['exitDuration'] == null
+          ? null
+          : StacDuration.fromJson(json['exitDuration'] as Map<String, dynamic>),
   triggerMode: $enumDecodeNullable(
     _$StacTooltipTriggerModeEnumMap,
     json['triggerMode'],

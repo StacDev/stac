@@ -8,9 +8,10 @@ part of 'stac_multi_action.dart';
 
 StacMultiAction _$StacMultiActionFromJson(Map<String, dynamic> json) =>
     StacMultiAction(
-      actions: (json['actions'] as List<dynamic>?)
-          ?.map((e) => StacAction.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      actions:
+          (json['actions'] as List<dynamic>?)
+              ?.map((e) => StacAction.fromJson(e as Map<String, dynamic>))
+              .toList(),
       sync: json['sync'] as bool? ?? false,
     );
 

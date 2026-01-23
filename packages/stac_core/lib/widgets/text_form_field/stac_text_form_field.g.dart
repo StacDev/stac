@@ -10,11 +10,12 @@ StacTextFormField _$StacTextFormFieldFromJson(
   Map<String, dynamic> json,
 ) => StacTextFormField(
   id: json['id'] as String?,
-  decoration: json['decoration'] == null
-      ? null
-      : StacInputDecoration.fromJson(
-          json['decoration'] as Map<String, dynamic>,
-        ),
+  decoration:
+      json['decoration'] == null
+          ? null
+          : StacInputDecoration.fromJson(
+            json['decoration'] as Map<String, dynamic>,
+          ),
   initialValue: json['initialValue'] as String?,
   keyboardType: $enumDecodeNullable(
     _$StacTextInputTypeEnumMap,
@@ -60,9 +61,10 @@ StacTextFormField _$StacTextFormFieldFromJson(
     _$StacBrightnessEnumMap,
     json['keyboardAppearance'],
   ),
-  scrollPadding: json['scrollPadding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['scrollPadding']),
+  scrollPadding:
+      json['scrollPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['scrollPadding']),
   restorationId: json['restorationId'] as String?,
   enableIMEPersonalizedLearning: json['enableIMEPersonalizedLearning'] as bool?,
   enableSuggestions: json['enableSuggestions'] as bool?,
@@ -74,12 +76,16 @@ StacTextFormField _$StacTextFormFieldFromJson(
     _$StacAutovalidateModeEnumMap,
     json['autovalidateMode'],
   ),
-  inputFormatters: (json['inputFormatters'] as List<dynamic>?)
-      ?.map((e) => StacInputFormatter.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  validatorRules: (json['validatorRules'] as List<dynamic>?)
-      ?.map((e) => StacFormFieldValidator.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  inputFormatters:
+      (json['inputFormatters'] as List<dynamic>?)
+          ?.map((e) => StacInputFormatter.fromJson(e as Map<String, dynamic>))
+          .toList(),
+  validatorRules:
+      (json['validatorRules'] as List<dynamic>?)
+          ?.map(
+            (e) => StacFormFieldValidator.fromJson(e as Map<String, dynamic>),
+          )
+          .toList(),
 );
 
 Map<String, dynamic> _$StacTextFormFieldToJson(

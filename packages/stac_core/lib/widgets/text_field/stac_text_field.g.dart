@@ -10,11 +10,12 @@ StacTextField _$StacTextFieldFromJson(
   Map<String, dynamic> json,
 ) => StacTextField(
   initialValue: json['initialValue'] as String?,
-  decoration: json['decoration'] == null
-      ? null
-      : StacInputDecoration.fromJson(
-          json['decoration'] as Map<String, dynamic>,
-        ),
+  decoration:
+      json['decoration'] == null
+          ? null
+          : StacInputDecoration.fromJson(
+            json['decoration'] as Map<String, dynamic>,
+          ),
   keyboardType: $enumDecodeNullable(
     _$StacTextInputTypeEnumMap,
     json['keyboardType'],
@@ -48,9 +49,10 @@ StacTextField _$StacTextFieldFromJson(
   cursorColor: json['cursorColor'] as String?,
   cursorWidth: const DoubleConverter().fromJson(json['cursorWidth']),
   cursorHeight: const DoubleConverter().fromJson(json['cursorHeight']),
-  scrollPadding: json['scrollPadding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['scrollPadding']),
+  scrollPadding:
+      json['scrollPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['scrollPadding']),
   enableInteractiveSelection: json['enableInteractiveSelection'] as bool?,
   mouseCursor: $enumDecodeNullable(
     _$StacMouseCursorEnumMap,
@@ -66,21 +68,28 @@ StacTextField _$StacTextFieldFromJson(
   ),
   restorationId: json['restorationId'] as String?,
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  autofillHints: (json['autofillHints'] as List<dynamic>?)
-      ?.map((e) => e as String)
-      .toList(),
-  onTap: json['onTap'] == null
-      ? null
-      : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
-  onChanged: json['onChanged'] == null
-      ? null
-      : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
-  onEditingComplete: json['onEditingComplete'] == null
-      ? null
-      : StacAction.fromJson(json['onEditingComplete'] as Map<String, dynamic>),
-  onSubmitted: json['onSubmitted'] == null
-      ? null
-      : StacAction.fromJson(json['onSubmitted'] as Map<String, dynamic>),
+  autofillHints:
+      (json['autofillHints'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+  onTap:
+      json['onTap'] == null
+          ? null
+          : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
+  onChanged:
+      json['onChanged'] == null
+          ? null
+          : StacAction.fromJson(json['onChanged'] as Map<String, dynamic>),
+  onEditingComplete:
+      json['onEditingComplete'] == null
+          ? null
+          : StacAction.fromJson(
+            json['onEditingComplete'] as Map<String, dynamic>,
+          ),
+  onSubmitted:
+      json['onSubmitted'] == null
+          ? null
+          : StacAction.fromJson(json['onSubmitted'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacTextFieldToJson(StacTextField instance) =>

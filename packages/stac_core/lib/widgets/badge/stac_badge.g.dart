@@ -11,29 +11,33 @@ StacBadge _$StacBadgeFromJson(Map<String, dynamic> json) => StacBadge(
   textColor: json['textColor'] as String?,
   smallSize: (json['smallSize'] as num?)?.toDouble(),
   largeSize: (json['largeSize'] as num?)?.toDouble(),
-  textStyle: json['textStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['textStyle']),
-  padding: json['padding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['padding']),
-  alignment: json['alignment'] == null
-      ? null
-      : StacAlignmentGeometry.fromJson(
-          json['alignment'] as Map<String, dynamic>,
-        ),
-  offset: json['offset'] == null
-      ? null
-      : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
-  label: json['label'] == null
-      ? null
-      : StacWidget.fromJson(json['label'] as Map<String, dynamic>),
+  textStyle:
+      json['textStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['textStyle']),
+  padding:
+      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
+  alignment:
+      json['alignment'] == null
+          ? null
+          : StacAlignmentGeometry.fromJson(
+            json['alignment'] as Map<String, dynamic>,
+          ),
+  offset:
+      json['offset'] == null
+          ? null
+          : StacOffset.fromJson(json['offset'] as Map<String, dynamic>),
+  label:
+      json['label'] == null
+          ? null
+          : StacWidget.fromJson(json['label'] as Map<String, dynamic>),
   count: (json['count'] as num?)?.toInt(),
   maxCount: (json['maxCount'] as num?)?.toInt() ?? 999,
   isLabelVisible: json['isLabelVisible'] as bool? ?? true,
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacBadgeToJson(StacBadge instance) => <String, dynamic>{

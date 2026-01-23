@@ -21,17 +21,20 @@ StacCheckboxThemeData _$StacCheckboxThemeDataFromJson(
     _$StacMaterialTapTargetSizeEnumMap,
     json['materialTapTargetSize'],
   ),
-  visualDensity: json['visualDensity'] == null
-      ? null
-      : StacVisualDensity.fromJson(
-          json['visualDensity'] as Map<String, dynamic>,
-        ),
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
-  side: json['side'] == null
-      ? null
-      : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
+  visualDensity:
+      json['visualDensity'] == null
+          ? null
+          : StacVisualDensity.fromJson(
+            json['visualDensity'] as Map<String, dynamic>,
+          ),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  side:
+      json['side'] == null
+          ? null
+          : StacBorderSide.fromJson(json['side'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacCheckboxThemeDataToJson(

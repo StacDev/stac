@@ -9,11 +9,12 @@ part of 'stac_dialog_action.dart';
 StacDialogAction _$StacDialogActionFromJson(Map<String, dynamic> json) =>
     StacDialogAction(
       widget: json['widget'] as Map<String, dynamic>?,
-      request: json['request'] == null
-          ? null
-          : StacNetworkRequest.fromJson(
-              json['request'] as Map<String, dynamic>,
-            ),
+      request:
+          json['request'] == null
+              ? null
+              : StacNetworkRequest.fromJson(
+                json['request'] as Map<String, dynamic>,
+              ),
       assetPath: json['assetPath'] as String?,
       barrierDismissible: json['barrierDismissible'] as bool?,
       barrierColor: json['barrierColor'] as String?,

@@ -11,19 +11,23 @@ StacDropdownMenuEntry _$StacDropdownMenuEntryFromJson(
 ) => StacDropdownMenuEntry(
   value: json['value'],
   label: json['label'] as String? ?? '',
-  labelWidget: json['labelWidget'] == null
-      ? null
-      : StacWidget.fromJson(json['labelWidget'] as Map<String, dynamic>),
-  leadingIcon: json['leadingIcon'] == null
-      ? null
-      : StacWidget.fromJson(json['leadingIcon'] as Map<String, dynamic>),
-  trailingIcon: json['trailingIcon'] == null
-      ? null
-      : StacWidget.fromJson(json['trailingIcon'] as Map<String, dynamic>),
+  labelWidget:
+      json['labelWidget'] == null
+          ? null
+          : StacWidget.fromJson(json['labelWidget'] as Map<String, dynamic>),
+  leadingIcon:
+      json['leadingIcon'] == null
+          ? null
+          : StacWidget.fromJson(json['leadingIcon'] as Map<String, dynamic>),
+  trailingIcon:
+      json['trailingIcon'] == null
+          ? null
+          : StacWidget.fromJson(json['trailingIcon'] as Map<String, dynamic>),
   enabled: json['enabled'] as bool?,
-  style: json['style'] == null
-      ? null
-      : StacButtonStyle.fromJson(json['style'] as Map<String, dynamic>),
+  style:
+      json['style'] == null
+          ? null
+          : StacButtonStyle.fromJson(json['style'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacDropdownMenuEntryToJson(

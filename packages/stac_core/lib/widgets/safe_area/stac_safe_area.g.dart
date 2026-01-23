@@ -11,13 +11,13 @@ StacSafeArea _$StacSafeAreaFromJson(Map<String, dynamic> json) => StacSafeArea(
   top: json['top'] as bool?,
   right: json['right'] as bool?,
   bottom: json['bottom'] as bool?,
-  minimum: json['minimum'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['minimum']),
+  minimum:
+      json['minimum'] == null ? null : StacEdgeInsets.fromJson(json['minimum']),
   maintainBottomViewPadding: json['maintainBottomViewPadding'] as bool?,
-  child: json['child'] == null
-      ? null
-      : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
+  child:
+      json['child'] == null
+          ? null
+          : StacWidget.fromJson(json['child'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacSafeAreaToJson(StacSafeArea instance) =>

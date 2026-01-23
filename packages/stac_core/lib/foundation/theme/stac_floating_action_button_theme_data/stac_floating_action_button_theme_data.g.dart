@@ -21,14 +21,16 @@ StacFloatingActionButtonThemeData _$StacFloatingActionButtonThemeDataFromJson(
   highlightElevation: (json['highlightElevation'] as num?)?.toDouble(),
   enableFeedback: json['enableFeedback'] as bool?,
   iconSize: (json['iconSize'] as num?)?.toDouble(),
-  extendedIconLabelSpacing: (json['extendedIconLabelSpacing'] as num?)
-      ?.toDouble(),
-  extendedPadding: json['extendedPadding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['extendedPadding']),
-  extendedTextStyle: json['extendedTextStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['extendedTextStyle']),
+  extendedIconLabelSpacing:
+      (json['extendedIconLabelSpacing'] as num?)?.toDouble(),
+  extendedPadding:
+      json['extendedPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['extendedPadding']),
+  extendedTextStyle:
+      json['extendedTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['extendedTextStyle']),
 );
 
 Map<String, dynamic> _$StacFloatingActionButtonThemeDataToJson(

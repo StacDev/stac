@@ -9,17 +9,18 @@ part of 'stac_selectable_text.dart';
 StacSelectableText _$StacSelectableTextFromJson(Map<String, dynamic> json) =>
     StacSelectableText(
       data: json['data'] as String,
-      children: (json['children'] as List<dynamic>?)
-          ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      style: json['style'] == null
-          ? null
-          : StacTextStyle.fromJson(json['style']),
-      copyWithStyle: json['copyWithStyle'] == null
-          ? null
-          : StacCustomTextStyle.fromJson(
-              json['copyWithStyle'] as Map<String, dynamic>,
-            ),
+      children:
+          (json['children'] as List<dynamic>?)
+              ?.map((e) => StacTextSpan.fromJson(e as Map<String, dynamic>))
+              .toList(),
+      style:
+          json['style'] == null ? null : StacTextStyle.fromJson(json['style']),
+      copyWithStyle:
+          json['copyWithStyle'] == null
+              ? null
+              : StacCustomTextStyle.fromJson(
+                json['copyWithStyle'] as Map<String, dynamic>,
+              ),
       textAlign: $enumDecodeNullable(_$StacTextAlignEnumMap, json['textAlign']),
       textDirection: $enumDecodeNullable(
         _$StacTextDirectionEnumMap,
@@ -35,9 +36,10 @@ StacSelectableText _$StacSelectableTextFromJson(Map<String, dynamic> json) =>
       cursorRadius: (json['cursorRadius'] as num?)?.toDouble(),
       cursorColor: json['cursorColor'] as String?,
       enableInteractiveSelection: json['enableInteractiveSelection'] as bool?,
-      onTap: json['onTap'] == null
-          ? null
-          : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
+      onTap:
+          json['onTap'] == null
+              ? null
+              : StacAction.fromJson(json['onTap'] as Map<String, dynamic>),
       semanticsLabel: json['semanticsLabel'] as String?,
       textWidthBasis: $enumDecodeNullable(
         _$StacTextWidthBasisEnumMap,

@@ -10,16 +10,15 @@ StacSnackBar _$StacSnackBarFromJson(Map<String, dynamic> json) => StacSnackBar(
   content: json['content'] as Map<String, dynamic>,
   backgroundColor: json['backgroundColor'] as String?,
   elevation: (json['elevation'] as num?)?.toDouble(),
-  margin: json['margin'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['margin']),
-  padding: json['padding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['padding']),
+  margin:
+      json['margin'] == null ? null : StacEdgeInsets.fromJson(json['margin']),
+  padding:
+      json['padding'] == null ? null : StacEdgeInsets.fromJson(json['padding']),
   width: (json['width'] as num?)?.toDouble(),
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   hitTestBehavior: $enumDecodeNullable(
     _$StacHitTestBehaviorEnumMap,
     json['hitTestBehavior'],
@@ -28,16 +27,18 @@ StacSnackBar _$StacSnackBarFromJson(Map<String, dynamic> json) => StacSnackBar(
     _$StacSnackBarBehaviorEnumMap,
     json['behavior'],
   ),
-  action: json['action'] == null
-      ? null
-      : StacSnackBarAction.fromJson(json['action'] as Map<String, dynamic>),
-  actionOverflowThreshold: (json['actionOverflowThreshold'] as num?)
-      ?.toDouble(),
+  action:
+      json['action'] == null
+          ? null
+          : StacSnackBarAction.fromJson(json['action'] as Map<String, dynamic>),
+  actionOverflowThreshold:
+      (json['actionOverflowThreshold'] as num?)?.toDouble(),
   showCloseIcon: json['showCloseIcon'] as bool?,
   closeIconColor: json['closeIconColor'] as String?,
-  duration: json['duration'] == null
-      ? null
-      : StacDuration.fromJson(json['duration'] as Map<String, dynamic>),
+  duration:
+      json['duration'] == null
+          ? null
+          : StacDuration.fromJson(json['duration'] as Map<String, dynamic>),
   onVisible: json['onVisible'] as Map<String, dynamic>?,
   dismissDirection: $enumDecodeNullable(
     _$StacDismissDirectionEnumMap,

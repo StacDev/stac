@@ -9,22 +9,27 @@ part of 'stac_sliver_app_bar.dart';
 StacSliverAppBar _$StacSliverAppBarFromJson(
   Map<String, dynamic> json,
 ) => StacSliverAppBar(
-  leading: json['leading'] == null
-      ? null
-      : StacWidget.fromJson(json['leading'] as Map<String, dynamic>),
+  leading:
+      json['leading'] == null
+          ? null
+          : StacWidget.fromJson(json['leading'] as Map<String, dynamic>),
   automaticallyImplyLeading: json['automaticallyImplyLeading'] as bool?,
-  title: json['title'] == null
-      ? null
-      : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
-  actions: (json['actions'] as List<dynamic>?)
-      ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-      .toList(),
-  flexibleSpace: json['flexibleSpace'] == null
-      ? null
-      : StacWidget.fromJson(json['flexibleSpace'] as Map<String, dynamic>),
-  bottom: json['bottom'] == null
-      ? null
-      : StacWidget.fromJson(json['bottom'] as Map<String, dynamic>),
+  title:
+      json['title'] == null
+          ? null
+          : StacWidget.fromJson(json['title'] as Map<String, dynamic>),
+  actions:
+      (json['actions'] as List<dynamic>?)
+          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList(),
+  flexibleSpace:
+      json['flexibleSpace'] == null
+          ? null
+          : StacWidget.fromJson(json['flexibleSpace'] as Map<String, dynamic>),
+  bottom:
+      json['bottom'] == null
+          ? null
+          : StacWidget.fromJson(json['bottom'] as Map<String, dynamic>),
   elevation: const DoubleConverter().fromJson(json['elevation']),
   scrolledUnderElevation: const DoubleConverter().fromJson(
     json['scrolledUnderElevation'],
@@ -47,27 +52,32 @@ StacSliverAppBar _$StacSliverAppBarFromJson(
   stretchTriggerOffset: const DoubleConverter().fromJson(
     json['stretchTriggerOffset'],
   ),
-  shape: json['shape'] == null
-      ? null
-      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
+  shape:
+      json['shape'] == null
+          ? null
+          : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   toolbarHeight: const DoubleConverter().fromJson(json['toolbarHeight']),
   leadingWidth: const DoubleConverter().fromJson(json['leadingWidth']),
-  toolbarTextStyle: json['toolbarTextStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['toolbarTextStyle']),
-  titleTextStyle: json['titleTextStyle'] == null
-      ? null
-      : StacTextStyle.fromJson(json['titleTextStyle']),
-  systemOverlayStyle: json['systemOverlayStyle'] == null
-      ? null
-      : StacSystemUIOverlayStyle.fromJson(
-          json['systemOverlayStyle'] as Map<String, dynamic>,
-        ),
+  toolbarTextStyle:
+      json['toolbarTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['toolbarTextStyle']),
+  titleTextStyle:
+      json['titleTextStyle'] == null
+          ? null
+          : StacTextStyle.fromJson(json['titleTextStyle']),
+  systemOverlayStyle:
+      json['systemOverlayStyle'] == null
+          ? null
+          : StacSystemUIOverlayStyle.fromJson(
+            json['systemOverlayStyle'] as Map<String, dynamic>,
+          ),
   forceMaterialTransparency: json['forceMaterialTransparency'] as bool?,
   clipBehavior: $enumDecodeNullable(_$StacClipEnumMap, json['clipBehavior']),
-  actionsPadding: json['actionsPadding'] == null
-      ? null
-      : StacEdgeInsets.fromJson(json['actionsPadding']),
+  actionsPadding:
+      json['actionsPadding'] == null
+          ? null
+          : StacEdgeInsets.fromJson(json['actionsPadding']),
 );
 
 Map<String, dynamic> _$StacSliverAppBarToJson(
