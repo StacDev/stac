@@ -22,9 +22,7 @@ part 'stac_sliver_padding.g.dart';
 /// ```json
 /// {
 ///     "type": "sliverPadding",
-///     "padding": {
-///         "all": 16.0
-///     },
+///     "padding": 16.0,
 ///     "sliver": {
 ///         "type": "sliverToBoxAdapter",
 ///         "child": {
