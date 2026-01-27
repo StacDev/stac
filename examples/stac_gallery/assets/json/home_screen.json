@@ -1245,6 +1245,30 @@
     },
     "title": {
       "type": "text",
+      "data": "Stac Sliver Padding"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A SliverPadding widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_padding_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
       "data": "Stac Sliver Safe Area"
     },
     "subtitle": {
@@ -1257,6 +1281,30 @@
       "widgetJson": {
         "type": "exampleScreen",
         "assetPath": "assets/json/sliver_safe_area_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver To Box Adapter"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A sliver that contains a single box widget."
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_to_box_adapter_example.json"
       }
     }
   },
