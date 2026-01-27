@@ -1,0 +1,27 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "customScrollView",
+        "slivers": [
+            {
+                "type": "sliverSafeArea",
+                "top": true,
+                "bottom": true,
+                "sliver": {
+                    "type": "sliverToBoxAdapter",
+                    "child": {
+                        "type": "container",
+                        "padding": {
+                            "type": "edgeInsets",
+                            "all": 16
+                        },
+                        "child": {
+                            "type": "text",
+                            "data": "Content inside SliverSafeArea"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
