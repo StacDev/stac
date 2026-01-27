@@ -1249,7 +1249,7 @@
     },
     "subtitle": {
       "type": "text",
-      "data": "A Sliver To Box Adapter widget"
+      "data": "A sliver that contains a single box widget."
     },
     "style": "list",
     "onTap": {
