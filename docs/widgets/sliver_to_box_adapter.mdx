@@ -1,0 +1,41 @@
+---
+title: "SliverToBoxAdapter"
+description: "A sliver that contains a single box widget."
+---
+
+The Stac SliverToBoxAdapter allows you to build a Flutter sliver-to-box-adapter widget using JSON. It creates a sliver that contains a single box widget.
+To know more about the sliver-to-box-adapter widget in Flutter, refer to
+the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBoxAdapter-class.html).
+
+## Properties
+
+| Property | Type                    | Description                          |
+|----------|-------------------------|--------------------------------------|
+| child    | `Map<String, dynamic>?` | The widget contained by this sliver. |
+
+## Example JSON
+
+```json
+{
+  "type": "sliverPadding",
+  "padding": 16,
+  "sliver": {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "container",
+      "height": 150,
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "I am a Box inside a SliverToBoxAdapter!",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    }
+  }
+}

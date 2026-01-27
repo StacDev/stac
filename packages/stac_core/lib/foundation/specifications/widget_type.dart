@@ -210,6 +210,9 @@ enum WidgetType {
   /// Sliver padding widget
   sliverPadding,
 
+  /// Sliver to box adapter widget
+  sliverToBoxAdapter,
+
   /// Spacer widget
   spacer,
 
