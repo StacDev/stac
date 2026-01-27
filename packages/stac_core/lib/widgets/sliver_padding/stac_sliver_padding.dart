@@ -48,7 +48,7 @@ part 'stac_sliver_padding.g.dart';
 ///
 /// See also:
 ///  * Flutter's [SliverPadding documentation](https://api.flutter.dev/flutter/widgets/SliverPadding-class.html)
-@JsonSerializable()
+@JsonSerializable(explicitToJson: true)
 class StacSliverPadding extends StacWidget {
   /// Creates a [StacSliverPadding].
   const StacSliverPadding({required this.sliver, required this.padding});
