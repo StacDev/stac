@@ -23,9 +23,20 @@ To know more about the positioned widget in Flutter, refer to the [official docu
 | rect           | `StacRect?`            | The rectangle to position the child (for `fromRect` type).                                  |
 | child          | `Map<String, dynamic>?` | The widget to display inside the positioned widget.                                         |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacPositioned(
+  left: 10,
+  top: 20,
+  right: 30,
+  bottom: 40,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "positioned",
   "left": 10,
@@ -38,10 +49,24 @@ To know more about the positioned widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 
-## Example JSON for `directional`
+## Example for `directional`
 
-```json
+<CodeGroup>
+```dart Dart
+StacPositioned(
+  positionedType: StacPositionedType.directional,
+  start: 10,
+  top: 20,
+  width: 100,
+  height: 50,
+  textDirection: StacTextDirection.ltr,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "positioned",
   "positionedType": "directional",
@@ -56,10 +81,23 @@ To know more about the positioned widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 
-### Example JSON for `fill`
+### Example for `fill`
 
-```json
+<CodeGroup>
+```dart Dart
+StacPositioned(
+  positionedType: StacPositionedType.fill,
+  left: 10,
+  top: 20,
+  right: 30,
+  bottom: 40,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "positioned",
   "positionedType": "fill",
@@ -73,10 +111,20 @@ To know more about the positioned widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 
-### Example JSON for fromRect
+### Example for fromRect
 
-```json
+<CodeGroup>
+```dart Dart
+StacPositioned(
+  positionedType: StacPositionedType.fromRect,
+  rect: StacRect(left: 10, top: 20, right: 110, bottom: 70),
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "positioned",
   "positionedType": "fromRect",
@@ -92,3 +140,4 @@ To know more about the positioned widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>

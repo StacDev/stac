@@ -18,9 +18,19 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverSafeA
 | minimum| `Map<String, dynamic>?` | Minimum padding to apply as edge insets.                                    |
 | sliver | `Map<String, dynamic>`  | The sliver widget below this widget in the tree. **(Required)**             |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSliverSafeArea(
+  top: true,
+  sliver: StacSliverToBoxAdapter(
+    child: StacText(data: 'Hello World'),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "sliverSafeArea",
   "top": true,
@@ -33,3 +43,4 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverSafeA
   }
 }
 ```
+</CodeGroup>

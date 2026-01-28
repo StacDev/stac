@@ -68,7 +68,57 @@ A page view that displays the widget which corresponds to the currently selected
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDefaultBottomNavigationController(
+  length: 3,
+  child: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Bottom Navigation Screen'),
+    ),
+    body: StacBottomNavigationView(
+      children: [
+        StacCenter(
+          child: StacText(
+            data: 'Home',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Search',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Profile',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+      ],
+    ),
+    bottomNavigationBar: StacBottomNavigationBar(
+      items: [
+        StacBottomNavigationBarItem(
+          label: 'Home',
+          icon: StacIcon(iconType: 'material', icon: 'home'),
+        ),
+        StacBottomNavigationBarItem(
+          label: 'Search',
+          icon: StacIcon(iconType: 'material', icon: 'search'),
+        ),
+        StacBottomNavigationBarItem(
+          label: 'Profile',
+          icon: StacIcon(iconType: 'material', icon: 'account_circle'),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "defaultBottomNavigationController",
   "length": 3,
@@ -151,3 +201,4 @@ A page view that displays the widget which corresponds to the currently selected
   }
 }
 ```
+</CodeGroup>

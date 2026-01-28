@@ -39,9 +39,22 @@ To know more about the SnackBar widget in Flutter, refer to the [official docume
 | label | `String` | The button label. |
 | onPressed | `Map<String, dynamic>` | The callback to be called when the button is pressed. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSnackBarAction(
+  content: StacText(data: 'This is a Snackbar'),
+  action: StacSnackBarActionButton(
+    label: 'Done',
+    textColor: StacColors.blue,
+    onPressed: StacNoneAction(),
+  ),
+  behavior: SnackBarBehavior.floating,
+)
+```
+
+```json JSON
 {
   "actionType": "showSnackBar",
   "content": {
@@ -56,3 +69,4 @@ To know more about the SnackBar widget in Flutter, refer to the [official docume
   "behavior": "floating"
 }
 ```
+</CodeGroup>

@@ -16,9 +16,23 @@ To know more about the stack widget in Flutter, refer to the [official documenta
 | textDirection | `TextDirection?`             | The text direction to use for resolving alignment.                                                                   |
 | children      | `List<Map<String, dynamic>>` | The list of widgets to display inside the stack. Defaults to an empty list.                                          |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacStack(
+  alignment: StacAlignment.center,
+  clipBehavior: StacClip.antiAlias,
+  fit: StacStackFit.expand,
+  textDirection: StacTextDirection.ltr,
+  children: [
+    StacText(data: 'Hello, World!'),
+    StacContainer(width: 100, height: 100, color: StacColors.red),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "stack",
   "alignment": "center",
@@ -39,3 +53,4 @@ To know more about the stack widget in Flutter, refer to the [official documenta
   ]
 }
 ```
+</CodeGroup>

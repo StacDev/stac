@@ -1,0 +1,273 @@
+---
+title: "Shape Borders"
+description: "Documentation for Shape Borders"
+---
+
+Stac provides various shape border classes to define the shape of widgets like buttons, cards, and containers.
+
+## Available Shape Borders
+
+| Class                         | Description                                      |
+|-------------------------------|--------------------------------------------------|
+| `StacRoundedRectangleBorder`  | Rectangle with rounded corners.                  |
+| `StacCircleBorder`            | Circular shape.                                  |
+| `StacBeveledRectangleBorder`  | Rectangle with beveled (cut) corners.            |
+| `StacContinuousRectangleBorder`| Rectangle with smooth continuous corners.       |
+
+## StacRoundedRectangleBorder
+
+### Properties
+
+| Property     | Type                    | Description                              |
+|--------------|-------------------------|------------------------------------------|
+| borderRadius | `Map<String, dynamic>?` | Border radius for rounded corners.       |
+| side         | `Map<String, dynamic>?` | Border side properties.                  |
+
+### Example
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  style: StacButtonStyle(
+    shape: StacRoundedRectangleBorder(
+      borderRadius: StacBorderRadius.all(12.0),
+      side: StacBorderSide(
+        color: StacColors.blue,
+        width: 2.0,
+      ),
+    ),
+  ),
+  child: StacText(data: 'Rounded Button'),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "style": {
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 12.0,
+      "side": {
+        "color": "#2196F3",
+        "width": 2.0
+      }
+    }
+  },
+  "child": {
+    "type": "text",
+    "data": "Rounded Button"
+  }
+}
+```
+</CodeGroup>
+
+## StacCircleBorder
+
+### Properties
+
+| Property     | Type                    | Description                              |
+|--------------|-------------------------|------------------------------------------|
+| eccentricity | `double?`               | Eccentricity of the circle (0.0 to 1.0). |
+| side         | `Map<String, dynamic>?` | Border side properties.                  |
+
+### Example
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  style: StacButtonStyle(
+    shape: StacCircleBorder(
+      side: StacBorderSide(
+        color: StacColors.green,
+        width: 2.0,
+      ),
+    ),
+  ),
+  child: StacIcon(icon: 'add'),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "style": {
+    "shape": {
+      "type": "circleBorder",
+      "side": {
+        "color": "#4CAF50",
+        "width": 2.0
+      }
+    }
+  },
+  "child": {
+    "type": "icon",
+    "icon": "add"
+  }
+}
+```
+</CodeGroup>
+
+## StacBeveledRectangleBorder
+
+### Properties
+
+| Property     | Type                    | Description                              |
+|--------------|-------------------------|------------------------------------------|
+| borderRadius | `Map<String, dynamic>?` | Border radius for beveled corners.       |
+| side         | `Map<String, dynamic>?` | Border side properties.                  |
+
+### Example
+
+<CodeGroup>
+```dart Dart
+StacCard(
+  shape: StacBeveledRectangleBorder(
+    borderRadius: StacBorderRadius.all(16.0),
+  ),
+  child: StacPadding(
+    padding: StacEdgeInsets.all(16.0),
+    child: StacText(data: 'Beveled Card'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "card",
+  "shape": {
+    "type": "beveledRectangleBorder",
+    "borderRadius": 16.0
+  },
+  "child": {
+    "type": "padding",
+    "padding": 16.0,
+    "child": {
+      "type": "text",
+      "data": "Beveled Card"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## With Container
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.blue,
+    borderRadius: StacBorderRadius.only(
+      topLeft: 20.0,
+      topRight: 20.0,
+      bottomLeft: 0.0,
+      bottomRight: 0.0,
+    ),
+  ),
+  padding: StacEdgeInsets.all(16.0),
+  child: StacText(
+    data: 'Top Rounded Container',
+    style: StacTextStyle(color: StacColors.white),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#2196F3",
+    "borderRadius": {
+      "topLeft": 20.0,
+      "topRight": 20.0,
+      "bottomLeft": 0.0,
+      "bottomRight": 0.0
+    }
+  },
+  "padding": 16.0,
+  "child": {
+    "type": "text",
+    "data": "Top Rounded Container",
+    "style": { "color": "#FFFFFF" }
+  }
+}
+```
+</CodeGroup>
+
+## Button Shapes Comparison
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    // Rounded Rectangle
+    StacElevatedButton(
+      style: StacButtonStyle(
+        shape: StacRoundedRectangleBorder(
+          borderRadius: StacBorderRadius.all(8.0),
+        ),
+      ),
+      child: StacText(data: 'Rounded'),
+    ),
+    StacSizedBox(height: 8.0),
+    // Stadium (pill shape)
+    StacElevatedButton(
+      style: StacButtonStyle(
+        shape: StacRoundedRectangleBorder(
+          borderRadius: StacBorderRadius.all(50.0),
+        ),
+      ),
+      child: StacText(data: 'Stadium'),
+    ),
+    StacSizedBox(height: 8.0),
+    // Circle
+    StacElevatedButton(
+      style: StacButtonStyle(
+        shape: StacCircleBorder(),
+        minimumSize: StacSize(width: 56.0, height: 56.0),
+      ),
+      child: StacIcon(icon: 'favorite'),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "elevatedButton",
+      "style": {
+        "shape": {
+          "type": "roundedRectangleBorder",
+          "borderRadius": 8.0
+        }
+      },
+      "child": { "type": "text", "data": "Rounded" }
+    },
+    { "type": "sizedBox", "height": 8.0 },
+    {
+      "type": "elevatedButton",
+      "style": {
+        "shape": {
+          "type": "roundedRectangleBorder",
+          "borderRadius": 50.0
+        }
+      },
+      "child": { "type": "text", "data": "Stadium" }
+    },
+    { "type": "sizedBox", "height": 8.0 },
+    {
+      "type": "elevatedButton",
+      "style": {
+        "shape": { "type": "circleBorder" },
+        "minimumSize": { "width": 56.0, "height": 56.0 }
+      },
+      "child": { "type": "icon", "icon": "favorite" }
+    }
+  ]
+}
+```
+</CodeGroup>

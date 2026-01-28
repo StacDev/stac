@@ -19,9 +19,23 @@ To know more about the outlined button widget in Flutter, refer to the [official
 | clipBehavior  | `Clip`                  | Determines how the content should be clipped. Defaults to `Clip.none`.             |
 | child         | `Map<String, dynamic>`  | The widget to display inside the button.                                           |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacOutlinedButton(
+  onPressed: StacNoneAction(),
+  style: StacButtonStyle(
+    backgroundColor: StacColors.white,
+    foregroundColor: StacColors.black,
+  ),
+  autofocus: false,
+  clipBehavior: StacClip.none,
+  child: StacText(data: 'Click Me!'),
+)
+```
+
+```json JSON
 {
   "type": "outlinedButton",
   "onPressed": {},
@@ -40,4 +54,5 @@ To know more about the outlined button widget in Flutter, refer to the [official
   }
 }
 ```
+</CodeGroup>
 

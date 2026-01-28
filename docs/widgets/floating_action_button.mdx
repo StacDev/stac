@@ -32,9 +32,36 @@ To know more about the floating action button widget in Flutter, refer to the [o
 | heroTag                  | `Object?`                  | The tag to use for the hero animation.                                                |
 | child                    | `Map<String, dynamic>`     | The widget to display inside the button.                                              |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacFloatingActionButton(
+  onPressed: StacNoneAction(),
+  textStyle: StacTextStyle(fontSize: 16, color: StacColors.white),
+  buttonType: StacFloatingActionButtonType.small,
+  autofocus: false,
+  icon: StacIcon(icon: 'add'),
+  backgroundColor: StacColors.amber,
+  foregroundColor: StacColors.black,
+  focusColor: '#FF5722',
+  hoverColor: '#FF9800',
+  splashColor: '#FFEB3B',
+  extendedTextStyle: StacTextStyle(fontSize: 14, color: StacColors.white),
+  elevation: 6.0,
+  focusElevation: 8.0,
+  hoverElevation: 10.0,
+  disabledElevation: 2.0,
+  highlightElevation: 12.0,
+  extendedIconLabelSpacing: 8.0,
+  enableFeedback: true,
+  tooltip: 'Add Item',
+  heroTag: 'fab1',
+  child: StacText(data: 'Add'),
+)
+```
+
+```json JSON
 {
   "type": "floatingActionButton",
   "onPressed": {},
@@ -71,3 +98,5 @@ To know more about the floating action button widget in Flutter, refer to the [o
     "data": "Add"
   }
 }
+```
+</CodeGroup>

@@ -3,7 +3,7 @@ title: "Container"
 description: "Documentation for Container"
 ---
 
-Stac container allows you to build the Flutter container widget using JSON. 
+The Stac Container allows you to build a Flutter Container widget using JSON. 
 To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Container-class.html).
 
 ## Properties
@@ -23,38 +23,70 @@ To know more about the container widget in Flutter, refer to the [official docum
 | clipBehavior         | `Clip`                 | The clip behavior of the container.               |
 
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacContainer(
+  alignment: StacAlignment.center,
+  padding: StacEdgeInsets(
+    top: 16.0,
+    bottom: 16.0,
+    left: 16.0,
+    right: 16.0,
+  ),
+  decoration: StacBoxDecoration(
+    color: '#FF5733',
+    borderRadius: StacBorderRadius(
+      topLeft: 16.0,
+      topRight: 16.0,
+      bottomLeft: 16.0,
+      bottomRight: 16.0,
+    ),
+  ),
+  width: 200.0,
+  height: 200.0,
+  child: StacText(
+    data: 'Hello, World!',
+    style: StacTextStyle(
+      color: StacColors.white,
+      fontSize: 24.0,
+    ),
+  ),
+)
+```
+
+```json JSON
 {
-  "type":  "container",
-  "alignment":  "center",
-  "padding":  {
-    "top":  16.0,
-    "bottom":  16.0,
-    "left":  16.0,
-    "right":  16.0
+  "type": "container",
+  "alignment": "center",
+  "padding": {
+    "top": 16.0,
+    "bottom": 16.0,
+    "left": 16.0,
+    "right": 16.0
   },
-  "decoration":  {
-    "color":  "#FF5733",
-    "borderRadius":  {
-      "topLeft":  16.0,
-      "topRight":  16.0,
-      "bottomLeft":  16.0,
-      "bottomRight":  16.0
+  "decoration": {
+    "color": "#FF5733",
+    "borderRadius": {
+      "topLeft": 16.0,
+      "topRight": 16.0,
+      "bottomLeft": 16.0,
+      "bottomRight": 16.0
     }
   },
-  "width":  200.0,
-  "height":  200.0,
-  "child":  {
-    "type":  "text",
-    "data":  "Hello, World!",
-    "style":  {
-      "color":  "#FFFFFF",
-      "fontSize":  24.0
+  "width": 200.0,
+  "height": 200.0,
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": {
+      "color": "#FFFFFF",
+      "fontSize": 24.0
     }
   }
 }
 ```
+</CodeGroup>
 
 

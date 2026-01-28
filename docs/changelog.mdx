@@ -1,0 +1,177 @@
+---
+title: "Changelog"
+description: "Version history and release notes for Stac"
+---
+
+This page documents the version history of Stac, including new features, breaking changes, and bug fixes.
+
+## Version 1.0.0
+
+**Release Date:** 2024
+
+This is the first stable release of Stac, marking a major milestone in server-driven UI for Flutter.
+
+### Highlights
+
+- **Dart DSL Support**: Write your server-driven UI in Dart with full type safety
+- **Stac Cloud Integration**: Deploy and manage screens from the cloud
+- **90+ Built-in Widgets**: Comprehensive widget library covering most Flutter use cases
+- **CLI Tools**: Build, deploy, and manage your Stac projects from the command line
+
+### New Features
+
+#### Dart DSL
+- Write Stac widgets in Dart with `@StacScreen` annotation
+- Full IDE support with autocompletion and type checking
+- Automatic JSON generation with `stac build`
+
+```dart
+@StacScreen(screenName: 'home')
+StacWidget homeScreen() {
+  return StacScaffold(
+    body: StacCenter(
+      child: StacText(data: 'Hello, Stac 1.0!'),
+    ),
+  );
+}
+```
+
+#### State Management
+- `StacSetValue` widget for initializing state
+- `StacSetValueAction` for updating state on interactions
+- Placeholder syntax `{{key}}` for reading state values
+- `StacConditional` for conditional rendering
+
+#### New Widgets
+- `StacHero` - Hero animations between routes
+- `StacDivider` - Horizontal dividers
+- `StacConditional` - Conditional widget rendering
+- `StacSetValue` - State initialization widget
+- `StacCarouselView` - Carousel/slider widget
+- `StacBadge` - Badge/notification indicator
+
+#### New Actions
+- `StacSetValueAction` - State updates
+- `StacDelayAction` - Delayed action execution
+- `StacMultiAction` - Execute multiple actions
+
+#### Stac Cloud
+- Project management dashboard
+- Screen deployment and versioning
+- Team collaboration features
+- Analytics and monitoring
+
+### Breaking Changes
+
+<Warning>
+If upgrading from pre-1.0 versions, please review these changes carefully.
+</Warning>
+
+#### Package Rename
+The package has been renamed from `mirai` to `stac`:
+
+```yaml
+# Before
+dependencies:
+  mirai: ^0.x.x
+
+# After
+dependencies:
+  stac: ^1.0.0
+```
+
+#### Initialization
+The initialization API has changed:
+
+```dart
+// Before
+await Mirai.initialize();
+
+// After
+await Stac.initialize(options: defaultStacOptions);
+```
+
+#### Widget Type Names
+Some widget type names have been standardized:
+
+| Before | After |
+|--------|-------|
+| `listView` | `listView` (unchanged) |
+| `sizedbox` | `sizedBox` |
+| `textfield` | `textField` |
+
+### Deprecations
+
+The following are deprecated and will be removed in v2.0:
+
+- `Stac.fromJson()` - Use `Stac(routeName: 'screen')` instead
+- `Stac.fromAsset()` - Use `Stac(routeName: 'screen')` with cloud deployment
+- Direct JSON file loading - Migrate to Dart DSL
+
+### Bug Fixes
+
+- Fixed memory leak in widget rebuilds
+- Improved error messages for invalid JSON
+- Fixed navigation stack issues with deep linking
+- Resolved theme hot reload issues
+
+---
+
+## Previous Versions
+
+### Version 0.9.x (Pre-release)
+
+Beta versions leading up to 1.0 release. See [GitHub Releases](https://github.com/StacDev/stac/releases) for detailed notes.
+
+### Version 0.8.x (Mirai)
+
+Legacy versions under the previous package name. Migration guide available in [Migration Guide](/guides/migration).
+
+---
+
+## Upgrade Guide
+
+### From 0.9.x to 1.0.0
+
+1. Update `pubspec.yaml`:
+```yaml
+dependencies:
+  stac: ^1.0.0
+  stac_core: ^1.0.0
+```
+
+2. Run `flutter pub get`
+
+3. Update imports:
+```dart
+import 'package:stac/stac.dart';
+import 'package:stac_core/stac_core.dart';
+```
+
+4. Update initialization:
+```dart
+await Stac.initialize(options: defaultStacOptions);
+```
+
+### From Mirai to Stac
+
+See the full [Migration Guide](/guides/migration) for detailed instructions.
+
+---
+
+## Roadmap
+
+Upcoming features planned for future releases:
+
+- **v1.1**: Enhanced theming system
+- **v1.2**: Animation support
+- **v1.3**: Form validation improvements
+- **v2.0**: Plugin architecture, custom renderers
+
+---
+
+## Stay Updated
+
+- **GitHub**: [StacDev/stac](https://github.com/StacDev/stac)
+- **Discord**: [Join the community](https://discord.com/invite/vTGsVRK86V)
+- **Twitter**: Follow [@StacDev](https://twitter.com/StacDev) for announcements

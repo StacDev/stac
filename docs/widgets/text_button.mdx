@@ -20,9 +20,23 @@ To know more about the text button widget in Flutter, refer to the [official doc
 | isSemanticButton | `bool`                  | Determine whether this subtree represents a button. Defaults to `true`.            |
 | child            | `Map<String, dynamic>`  | The widget to display inside the button.                                           |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTextButton(
+  onPressed: StacNoneAction(),
+  style: StacButtonStyle(
+    backgroundColor: StacColors.amber,
+    foregroundColor: StacColors.black,
+  ),
+  autofocus: false,
+  clipBehavior: StacClip.none,
+  child: StacText(data: 'Click Me!'),
+)
+```
+
+```json JSON
 {
   "type": "textButton",
   "onPressed": {},
@@ -41,3 +55,4 @@ To know more about the text button widget in Flutter, refer to the [official doc
   }
 }
 ```
+</CodeGroup>

@@ -44,9 +44,35 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | trailingIcon | `Map<String, dynamic>?` | The icon to display at the end of this entry.      |
 | style        | `StacButtonStyle?`      | The style to use for this entry.                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDropdownMenu(
+  label: StacText(data: 'Select an option'),
+  hintText: 'Please select',
+  width: 200,
+  dropdownMenuEntries: [
+    StacDropdownMenuEntry(
+      value: 'option1',
+      label: 'Option 1',
+      leadingIcon: StacIcon(icon: 'home'),
+    ),
+    StacDropdownMenuEntry(
+      value: 'option2',
+      label: 'Option 2',
+      leadingIcon: StacIcon(icon: 'settings'),
+    ),
+    StacDropdownMenuEntry(
+      value: 'option3',
+      label: 'Option 3',
+      leadingIcon: StacIcon(icon: 'favorite'),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "dropdownMenu",
   "label": {
@@ -83,3 +109,4 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
   ]
 }
 ```
+</CodeGroup>

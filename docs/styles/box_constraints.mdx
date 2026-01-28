@@ -1,0 +1,227 @@
+---
+title: "Box Constraints"
+description: "Documentation for Box Constraints"
+---
+
+The Stac BoxConstraints class specifies minimum and maximum dimensions for a widget. It's commonly used with `ConstrainedBox` or as part of button styles.
+
+## Properties
+
+| Property  | Type      | Description                                    |
+|-----------|-----------|------------------------------------------------|
+| minWidth  | `double?` | Minimum width constraint in logical pixels.    |
+| maxWidth  | `double?` | Maximum width constraint in logical pixels.    |
+| minHeight | `double?` | Minimum height constraint in logical pixels.   |
+| maxHeight | `double?` | Maximum height constraint in logical pixels.   |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacConstrainedBox(
+  constraints: StacBoxConstraints(
+    minWidth: 100.0,
+    maxWidth: 300.0,
+    minHeight: 50.0,
+    maxHeight: 200.0,
+  ),
+  child: StacContainer(
+    color: StacColors.blue,
+    child: StacText(data: 'Constrained'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "constrainedBox",
+  "constraints": {
+    "minWidth": 100.0,
+    "maxWidth": 300.0,
+    "minHeight": 50.0,
+    "maxHeight": 200.0
+  },
+  "child": {
+    "type": "container",
+    "color": "#2196F3",
+    "child": {
+      "type": "text",
+      "data": "Constrained"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Common Constraint Patterns
+
+### Fixed Width
+
+<CodeGroup>
+```dart Dart
+StacConstrainedBox(
+  constraints: StacBoxConstraints(
+    minWidth: 200.0,
+    maxWidth: 200.0,
+  ),
+  child: StacElevatedButton(
+    child: StacText(data: 'Fixed Width Button'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "constrainedBox",
+  "constraints": {
+    "minWidth": 200.0,
+    "maxWidth": 200.0
+  },
+  "child": {
+    "type": "elevatedButton",
+    "child": { "type": "text", "data": "Fixed Width Button" }
+  }
+}
+```
+</CodeGroup>
+
+### Minimum Size
+
+<CodeGroup>
+```dart Dart
+StacConstrainedBox(
+  constraints: StacBoxConstraints(
+    minWidth: 150.0,
+    minHeight: 100.0,
+  ),
+  child: StacCard(
+    child: StacCenter(
+      child: StacText(data: 'At least 150x100'),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "constrainedBox",
+  "constraints": {
+    "minWidth": 150.0,
+    "minHeight": 100.0
+  },
+  "child": {
+    "type": "card",
+    "child": {
+      "type": "center",
+      "child": { "type": "text", "data": "At least 150x100" }
+    }
+  }
+}
+```
+</CodeGroup>
+
+### Maximum Size
+
+<CodeGroup>
+```dart Dart
+StacConstrainedBox(
+  constraints: StacBoxConstraints(
+    maxWidth: 400.0,
+    maxHeight: 300.0,
+  ),
+  child: StacImage(
+    network: 'https://example.com/large-image.jpg',
+    fit: StacBoxFit.contain,
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "constrainedBox",
+  "constraints": {
+    "maxWidth": 400.0,
+    "maxHeight": 300.0
+  },
+  "child": {
+    "type": "image",
+    "network": "https://example.com/large-image.jpg",
+    "fit": "contain"
+  }
+}
+```
+</CodeGroup>
+
+## With Button Style
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  style: StacButtonStyle(
+    minimumSize: StacSize(width: 200.0, height: 48.0),
+    maximumSize: StacSize(width: 300.0, height: 56.0),
+  ),
+  child: StacText(data: 'Styled Button'),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "style": {
+    "minimumSize": { "width": 200.0, "height": 48.0 },
+    "maximumSize": { "width": 300.0, "height": 56.0 }
+  },
+  "child": {
+    "type": "text",
+    "data": "Styled Button"
+  }
+}
+```
+</CodeGroup>
+
+## Infinite Constraints
+
+Use `double.infinity` for unbounded constraints:
+
+<CodeGroup>
+```dart Dart
+StacConstrainedBox(
+  constraints: StacBoxConstraints(
+    minWidth: double.infinity, // Full width
+    minHeight: 100.0,
+  ),
+  child: StacContainer(
+    color: StacColors.blue,
+    child: StacCenter(
+      child: StacText(
+        data: 'Full Width',
+        style: StacTextStyle(color: StacColors.white),
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "constrainedBox",
+  "constraints": {
+    "minWidth": "infinity",
+    "minHeight": 100.0
+  },
+  "child": {
+    "type": "container",
+    "color": "#2196F3",
+    "child": {
+      "type": "center",
+      "child": {
+        "type": "text",
+        "data": "Full Width",
+        "style": { "color": "#FFFFFF" }
+      }
+    }
+  }
+}
+```
+</CodeGroup>

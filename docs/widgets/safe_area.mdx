@@ -18,19 +18,30 @@ To know more about the SafeArea widget in Flutter, refer to the [official docume
 | minimum                   | `StacEdgeInsets`      | This minimum padding to apply.                                                                                                                        |
 | maintainBottomViewPadding | `bool`                 | Specifies whether the SafeArea should maintain the bottom MediaQueryData.viewPadding instead of the bottom MediaQueryData.padding, defaults to false. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSafeArea(
+  child: StacText(
+    data: 'Hello, World!',
+    style: StacTextStyle(color: StacColors.white, fontSize: 24.0),
+  ),
+)
+```
+
+```json JSON
 {
-  "type":  "safeArea",
-  "child":  {
-    "type":  "text",
-    "data":  "Hello, World!",
-    "style":  {
-      "color":  "#FFFFFF",
-      "fontSize":  24.0
+  "type": "safeArea",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": {
+      "color": "#FFFFFF",
+      "fontSize": 24.0
     }
   }
 }
 ```
+</CodeGroup>
 

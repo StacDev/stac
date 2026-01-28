@@ -3,7 +3,7 @@ title: "RadioGroup"
 description: "Documentation for RadioGroup"
 ---
 
-Stac radioGroup allows you to build the Flutter Radio widgets using JSON. 
+The Stac RadioGroup allows you to build Flutter Radio widgets using JSON. 
 To know more about the Radio widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Radio-class.html).
 
 ## RadioGroup Properties
@@ -40,9 +40,55 @@ To know more about the Radio widget in Flutter, refer to the [official documenta
 | innerRadius                | `double`                | The inner radius of the radio in logical pixels.                                                                |
 
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacRadioGroup(
+  child: StacColumn(
+    children: [
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '1',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Male',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '2',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Female',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '3',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Other',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+```json JSON
 {
   "type": "radioGroup",
   "child": {
@@ -103,5 +149,6 @@ To know more about the Radio widget in Flutter, refer to the [official documenta
   }
 }
 ```
+</CodeGroup>
 
 

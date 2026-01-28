@@ -21,9 +21,25 @@ To know more about the Card widget in Flutter, refer to the [official documentat
 | child              | `Map<String, dynamic>?` | The widget below this widget in the tree.                                   |
 | semanticContainer  | `bool`                  | Whether this card is a semantic container. Defaults to `true`.              |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCard(
+  color: StacColors.white,
+  shadowColor: StacColors.black,
+  surfaceTintColor: StacColors.red,
+  elevation: 5.0,
+  shape: StacRoundedRectangleBorder(borderRadius: 10.0),
+  borderOnForeground: true,
+  margin: StacEdgeInsets(left: 10, top: 20, right: 10, bottom: 20),
+  clipBehavior: StacClip.antiAlias,
+  child: StacText(data: 'This is a card.'),
+  semanticContainer: true,
+)
+```
+
+```json JSON
 {
   "type": "card",
   "color": "#FFFFFF",
@@ -49,3 +65,4 @@ To know more about the Card widget in Flutter, refer to the [official documentat
   "semanticContainer": true
 }
 ```
+</CodeGroup>

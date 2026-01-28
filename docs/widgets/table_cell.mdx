@@ -14,21 +14,36 @@ To know more about the TableCell widget in Flutter, refer to the [official docum
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTableCell(
+  verticalAlignment: StacTableCellVerticalAlignment.top,
+  child: StacContainer(
+    color: '#40000000',
+    height: 50.0,
+    child: StacCenter(
+      child: StacText(data: 'Header 1'),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
-    "type": "tableCell",
-    "verticalAlignment": "top",
-    "child": {
+  "type": "tableCell",
+  "verticalAlignment": "top",
+  "child": {
     "type": "container",
     "color": "#40000000",
     "height": 50.0,
     "child": {
-        "type": "center",
-        "child": {
+      "type": "center",
+      "child": {
         "type": "text",
         "data": "Header 1"
-        }
+      }
     }
-    }
-},
+  }
+}
 ```
+</CodeGroup>

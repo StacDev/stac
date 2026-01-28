@@ -25,11 +25,34 @@ The `StacModalBottomSheetAction` class is used to display a modal bottom sheet i
 | showDragHandle      | `bool?`                       | Whether to show a drag handle on the modal bottom sheet.                    |
 | useSafeArea         | `bool`                        | Whether to use the safe area. Defaults to `false`.                          |
 
-## Example JSON
+## Examples
 
-### Modal Bottom Sheet with a Widget JSON
+### Modal Bottom Sheet with a Widget
 
-```json
+<CodeGroup>
+```dart Dart
+StacModalBottomSheetAction(
+  widget: StacContainer(
+    height: 200,
+    color: StacColors.amber,
+    child: StacCenter(
+      child: StacColumn(
+        mainAxisAlignment: StacMainAxisAlignment.center,
+        mainAxisSize: StacMainAxisSize.min,
+        children: [
+          StacText(data: 'Modal BottomSheet'),
+          StacElevatedButton(
+            child: StacText(data: 'Close BottomSheet'),
+            onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+          ),
+        ],
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "actionType": "showModalBottomSheet",
   "widget": {
@@ -64,19 +87,38 @@ The `StacModalBottomSheetAction` class is used to display a modal bottom sheet i
   }
 }
 ```
+</CodeGroup>
 
 ### Modal Bottom Sheet with an Asset Path
 
-```json
+<CodeGroup>
+```dart Dart
+StacModalBottomSheetAction(
+  assetPath: 'assets/widgets/modal_bottom_sheet.json',
+)
+```
+
+```json JSON
 {
   "actionType": "showModalBottomSheet",
   "assetPath": "assets/widgets/modal_bottom_sheet.json"
 }
 ```
+</CodeGroup>
 
 ### Modal Bottom Sheet with a Network Request
 
-```json
+<CodeGroup>
+```dart Dart
+StacModalBottomSheetAction(
+  request: StacNetworkRequest(
+    url: 'https://example.com/api',
+    method: Method.get,
+  ),
+)
+```
+
+```json JSON
 {
   "actionType": "showModalBottomSheet",
   "request": {
@@ -85,3 +127,4 @@ The `StacModalBottomSheetAction` class is used to display a modal bottom sheet i
   }
 }
 ```
+</CodeGroup>

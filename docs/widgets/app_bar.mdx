@@ -30,9 +30,26 @@ To know more about the app bar widget in Flutter, refer to the [official documen
 | elevation              | `double?`                    | The elevation of the app bar.                                                       |
 | scrolledUnderElevation | `double?`                    | The elevation of the app bar when it is scrolled under.                             |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacAppBar(
+  title: StacText(data: 'App Bar Title'),
+  backgroundColor: StacColors.white,
+  foregroundColor: StacColors.black,
+  actions: [
+    StacIconButton(
+      icon: StacIcon(icon: 'search'),
+    ),
+    StacIconButton(
+      icon: StacIcon(icon: 'settings'),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "appBar",
   "title": {
@@ -59,3 +76,4 @@ To know more about the app bar widget in Flutter, refer to the [official documen
   ]
 }
 ```
+</CodeGroup>

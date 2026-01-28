@@ -18,11 +18,18 @@ The `StacDialogAction` class is used to display a dialog in Stac applications.
 | useSafeArea            | `bool`                        | Whether to use the safe area. Defaults to `true`.                           |
 | traversalEdgeBehavior  | `TraversalEdgeBehavior?`      | The traversal edge behavior of the dialog.                                  |
 
-## Example JSON
+## Examples
 
-### Dialog with a Widget JSON
+### Dialog with a Widget
 
-```json
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  widget: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "actionType": "showDialog",
   "widget": {
@@ -31,10 +38,21 @@ The `StacDialogAction` class is used to display a dialog in Stac applications.
   }
 }
 ```
+</CodeGroup>
 
-### Dialog with a Request JSON
+### Dialog with a Request
 
-```json
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  request: StacNetworkRequest(
+    url: 'https://example.com/api',
+    method: Method.get,
+  ),
+)
+```
+
+```json JSON
 {
   "actionType": "showDialog",
   "request": {
@@ -43,12 +61,21 @@ The `StacDialogAction` class is used to display a dialog in Stac applications.
   }
 }
 ```
+</CodeGroup>
 
-### Dialog with an Asset JSON
+### Dialog with an Asset
 
-```json
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  assetPath: 'assets/dialog.json',
+)
+```
+
+```json JSON
 {
   "actionType": "showDialog",
   "assetPath": "assets/dialog.json"
 }
 ```
+</CodeGroup>

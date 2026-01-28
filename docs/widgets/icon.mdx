@@ -19,9 +19,20 @@ To know more about the icon widget in Flutter, refer to the [official documentat
 
 > Note: To check the available icons, refer to  [Icon utils](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart).
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacIcon(
+  icon: 'home',
+  size: 24.0,
+  color: StacColors.black,
+  semanticLabel: 'Home Icon',
+  textDirection: StacTextDirection.ltr,
+)
+```
+
+```json JSON
 {
   "type": "icon",
   "icon": "home",
@@ -31,3 +42,4 @@ To know more about the icon widget in Flutter, refer to the [official documentat
   "textDirection": "ltr"
 }
 ```
+</CodeGroup>

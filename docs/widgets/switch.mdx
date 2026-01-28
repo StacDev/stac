@@ -35,35 +35,62 @@ To know more about the Switch widget in Flutter, refer to the [official document
 | applyTheme            | `bool`                  | Whether to apply the ambient theme data.                                                                        |
 | applyCupertinoTheme   | `bool`                  | Whether to apply the ambient theme data.                                                                        |
 
-## Example JSON
+## Example
 
 ### Example 1: Cupertino Switch
 
-```json
+<CodeGroup>
+```dart Dart
+StacSwitch(
+  switchType: StacSwitchType.cupertino,
+  value: true,
+)
+```
+
+```json JSON
 {
   "type": "switch",
   "switchType": "cupertino",
   "value": true
 }
 ```
+</CodeGroup>
 
 ### Example 2: Adaptive Switch
 
-```json
+<CodeGroup>
+```dart Dart
+StacSwitch(
+  switchType: StacSwitchType.adaptive,
+  value: true,
+)
+```
+
+```json JSON
 {
   "type": "switch",
   "switchType": "adaptive",
   "value": true
 }
 ```
+</CodeGroup>
 
 ### Example 3: Material Switch
 
-```json
+<CodeGroup>
+```dart Dart
+StacSwitch(
+  switchType: StacSwitchType.material,
+  value: false,
+)
+```
+
+```json JSON
 {
   "type": "switch",
   "switchType": "material",
   "value": false
 }
 ```
+</CodeGroup>
 

@@ -27,9 +27,22 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 | `network` | Load the image from a network URL.          |
 | `asset`   | Load the image from Flutter's asset bundle. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacImage(
+  src: 'https://example.com/image.png',
+  alignment: StacAlignment.center,
+  imageType: StacImageType.network,
+  color: StacColors.white,
+  width: 200.0,
+  height: 100.0,
+  fit: StacBoxFit.contain,
+)
+```
+
+```json JSON
 {
   "type": "image",
   "src": "https://example.com/image.png",
@@ -41,4 +54,5 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
   "fit": "contain"
 }
 ```
+</CodeGroup>
 

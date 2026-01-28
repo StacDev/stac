@@ -11,9 +11,20 @@ The Stac NetworkWidget allows you to build a widget that makes a network request
 |----------|-----------------------|--------------------------------------|
 | request  | `StacNetworkRequest` | The network request configuration.   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacNetworkWidget(
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/data',
+    method: Method.get,
+    headers: {'Authorization': 'Bearer token'},
+  ),
+)
+```
+
+```json JSON
 {
   "type": "networkWidget",
   "request": {
@@ -25,3 +36,4 @@ The Stac NetworkWidget allows you to build a widget that makes a network request
   }
 }
 ```
+</CodeGroup>

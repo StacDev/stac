@@ -19,9 +19,24 @@ To know more about the elevated button widget in Flutter, refer to the [official
 | clipBehavior  | `Clip`                  | Determines how the content should be clipped. Defaults to `Clip.none`.             |
 | child         | `Map<String, dynamic>`  | The widget to display inside the button.                                           |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  onPressed: StacNoneAction(),
+  onLongPress: StacNoneAction(),
+  style: StacButtonStyle(
+    backgroundColor: 'primary',
+    foregroundColor: StacColors.white,
+  ),
+  autofocus: false,
+  clipBehavior: StacClip.none,
+  child: StacText(data: 'Click Me!'),
+)
+```
+
+```json JSON
 {
   "type": "elevatedButton",
   "onPressed": {},
@@ -40,3 +55,4 @@ To know more about the elevated button widget in Flutter, refer to the [official
   }
 }
 ```
+</CodeGroup>

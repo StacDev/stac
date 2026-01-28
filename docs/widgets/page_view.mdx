@@ -25,9 +25,44 @@ To know more about the PageView widget in Flutter, refer to the [official docume
 | viewportFraction       | `double`                     | The fraction of the viewport that each page should occupy. Defaults to `1.0`. |
 | children               | `List<Map<String, dynamic>>` | The widgets below this widget in the tree. Defaults to an empty list.         |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacPageView(
+  children: [
+    StacContainer(
+      color: StacColors.grey,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 1',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColors.orange,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 2',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColors.grey,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 3',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "pageView",
   "children": [
@@ -79,3 +114,4 @@ To know more about the PageView widget in Flutter, refer to the [official docume
   ]
 }
 ```
+</CodeGroup>

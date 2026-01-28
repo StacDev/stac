@@ -1,0 +1,309 @@
+---
+title: "Box Decoration"
+description: "Documentation for Box Decoration"
+---
+
+The Stac BoxDecoration class provides a rich set of properties to decorate a container including colors, borders, gradients, shadows, and images.
+
+## Properties
+
+| Property            | Type                     | Description                                              |
+|---------------------|--------------------------|----------------------------------------------------------|
+| color               | `String?`                | Background color of the box.                             |
+| image               | `Map<String, dynamic>?`  | Background image configuration.                          |
+| border              | `Map<String, dynamic>?`  | Border around the box.                                   |
+| borderRadius        | `Map<String, dynamic>?`  | Border radius for rounded corners.                       |
+| boxShadow           | `List<Map>?`             | List of shadow configurations.                           |
+| gradient            | `Map<String, dynamic>?`  | Background gradient (takes precedence over color).       |
+| backgroundBlendMode | `String?`                | Blend mode for background.                               |
+| shape               | `String?`                | Shape: `rectangle` or `circle`.                          |
+
+## Basic Example
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.blue,
+    borderRadius: StacBorderRadius.all(16.0),
+  ),
+  child: StacText(data: 'Decorated Box'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#2196F3",
+    "borderRadius": 16.0
+  },
+  "child": {
+    "type": "text",
+    "data": "Decorated Box"
+  }
+}
+```
+</CodeGroup>
+
+## With Border
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    border: StacBorder(
+      color: StacColors.blue,
+      width: 2.0,
+    ),
+    borderRadius: StacBorderRadius.all(8.0),
+  ),
+  padding: StacEdgeInsets.all(16.0),
+  child: StacText(data: 'Bordered Box'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "border": {
+      "color": "#2196F3",
+      "width": 2.0
+    },
+    "borderRadius": 8.0
+  },
+  "padding": 16.0,
+  "child": {
+    "type": "text",
+    "data": "Bordered Box"
+  }
+}
+```
+</CodeGroup>
+
+## With Shadow
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(12.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: StacColors.black,
+        blurRadius: 10.0,
+        offset: StacOffset(x: 0.0, y: 4.0),
+        spreadRadius: 0.0,
+      ),
+    ],
+  ),
+  padding: StacEdgeInsets.all(20.0),
+  child: StacText(data: 'Card with Shadow'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 12.0,
+    "boxShadow": [
+      {
+        "color": "#000000",
+        "blurRadius": 10.0,
+        "offset": { "x": 0.0, "y": 4.0 },
+        "spreadRadius": 0.0
+      }
+    ]
+  },
+  "padding": 20.0,
+  "child": {
+    "type": "text",
+    "data": "Card with Shadow"
+  }
+}
+```
+</CodeGroup>
+
+## With Gradient
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.purple, StacColors.blue],
+      begin: StacAlignment.topLeft,
+      end: StacAlignment.bottomRight,
+    ),
+    borderRadius: StacBorderRadius.all(16.0),
+  ),
+  padding: StacEdgeInsets.all(24.0),
+  child: StacText(
+    data: 'Gradient Background',
+    style: StacTextStyle(color: StacColors.white),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#9C27B0", "#2196F3"],
+      "begin": "topLeft",
+      "end": "bottomRight"
+    },
+    "borderRadius": 16.0
+  },
+  "padding": 24.0,
+  "child": {
+    "type": "text",
+    "data": "Gradient Background",
+    "style": { "color": "#FFFFFF" }
+  }
+}
+```
+</CodeGroup>
+
+## Circle Shape
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  width: 100.0,
+  height: 100.0,
+  decoration: StacBoxDecoration(
+    color: StacColors.blue,
+    shape: StacBoxShape.circle,
+  ),
+  child: StacCenter(
+    child: StacText(
+      data: 'A',
+      style: StacTextStyle(
+        color: StacColors.white,
+        fontSize: 32.0,
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "width": 100.0,
+  "height": 100.0,
+  "decoration": {
+    "color": "#2196F3",
+    "shape": "circle"
+  },
+  "child": {
+    "type": "center",
+    "child": {
+      "type": "text",
+      "data": "A",
+      "style": {
+        "color": "#FFFFFF",
+        "fontSize": 32.0
+      }
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Complete Example
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.blue, StacColors.purple],
+      begin: StacAlignment.topCenter,
+      end: StacAlignment.bottomCenter,
+    ),
+    border: StacBorder(
+      color: StacColors.white,
+      width: 2.0,
+    ),
+    borderRadius: StacBorderRadius.all(20.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: StacColors.black,
+        blurRadius: 15.0,
+        offset: StacOffset(x: 0.0, y: 8.0),
+      ),
+    ],
+  ),
+  padding: StacEdgeInsets.all(32.0),
+  child: StacColumn(
+    mainAxisSize: StacMainAxisSize.min,
+    children: [
+      StacIcon(icon: 'star', color: StacColors.amber, size: 48.0),
+      StacSizedBox(height: 16.0),
+      StacText(
+        data: 'Premium Card',
+        style: StacTextStyle(
+          color: StacColors.white,
+          fontSize: 24.0,
+          fontWeight: StacFontWeight.bold,
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#2196F3", "#9C27B0"],
+      "begin": "topCenter",
+      "end": "bottomCenter"
+    },
+    "border": {
+      "color": "#FFFFFF",
+      "width": 2.0
+    },
+    "borderRadius": 20.0,
+    "boxShadow": [
+      {
+        "color": "#000000",
+        "blurRadius": 15.0,
+        "offset": { "x": 0.0, "y": 8.0 }
+      }
+    ]
+  },
+  "padding": 32.0,
+  "child": {
+    "type": "column",
+    "mainAxisSize": "min",
+    "children": [
+      { "type": "icon", "icon": "star", "color": "#FFC107", "size": 48.0 },
+      { "type": "sizedBox", "height": 16.0 },
+      {
+        "type": "text",
+        "data": "Premium Card",
+        "style": {
+          "color": "#FFFFFF",
+          "fontSize": 24.0,
+          "fontWeight": "bold"
+        }
+      }
+    ]
+  }
+}
+```
+</CodeGroup>

@@ -23,11 +23,19 @@ To know more about the Visibility widget in Flutter, refer to the [official docu
 
 ---
 
-## Example JSON
+## Example
 
 ### Example 1: Basic Visibility
 
-```json
+<CodeGroup>
+```dart Dart
+StacVisibility(
+  child: StacText(data: 'I am visible!'),
+  visible: true,
+)
+```
+
+```json JSON
 {
   "type": "visibility",
   "child": {
@@ -37,10 +45,20 @@ To know more about the Visibility widget in Flutter, refer to the [official docu
   "visible": true
 }
 ```
+</CodeGroup>
 
 ### Example 2: Hidden with Replacement
 
-```json
+<CodeGroup>
+```dart Dart
+StacVisibility(
+  child: StacText(data: 'I am hidden!'),
+  replacement: StacContainer(color: '#FF5733', width: 50, height: 50),
+  visible: false,
+)
+```
+
+```json JSON
 {
   "type": "visibility",
   "child": {
@@ -56,4 +74,5 @@ To know more about the Visibility widget in Flutter, refer to the [official docu
   "visible": false
 }
 ```
+</CodeGroup>
 

@@ -14,12 +14,18 @@ The `clipBehavior` property determines how the content outside the box is handle
 | `antiAlias`              | Clips the content with anti-aliasing for smoother edges.                         |
 | `antiAliasWithSaveLayer` | Clips the content with anti-aliasing and saves an offscreen buffer for painting. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacFittedBox(clipBehavior: StacClip.hardEdge)
+```
+
+```json JSON
 {
   "type": "fittedBox",
   "clipBehavior": "hardEdge"
 }
 ```
+</CodeGroup>
 

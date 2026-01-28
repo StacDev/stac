@@ -3,7 +3,7 @@ title: "List View"
 description: "Documentation for List View"
 ---
 
-Stac listview allows you to build the Flutter listview widget using JSON.
+The Stac ListView allows you to build a Flutter ListView widget using JSON.
 To know more about the listview widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/ListView-class.html).
 
 ## Properties
@@ -28,9 +28,66 @@ To know more about the listview widget in Flutter, refer to the [official docume
 | restorationId           | `String`                            | Restoration ID to save and restore the scroll offset of the scrollable.                                                                                 |
 | clipBehavior            | `Clip`                              | The content will be clipped (or not) according to this option.                                                                                          |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacListView(
+  shrinkWrap: true,
+  separator: StacContainer(height: 10),
+  children: [
+    StacListTile(
+      leading: StacContainer(
+        height: 50,
+        width: 50,
+        color: '#165FC7',
+        child: StacColumn(
+          mainAxisAlignment: StacMainAxisAlignment.center,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacText(data: '1', style: StacTextStyle(fontSize: 21)),
+          ],
+        ),
+      ),
+      title: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(data: 'Item 1', style: StacTextStyle(fontSize: 18)),
+      ),
+      subtitle: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(data: 'Item description', style: StacTextStyle(fontSize: 14)),
+      ),
+      trailing: StacIcon(iconType: 'material', icon: 'more_vert', size: 24),
+    ),
+    StacListTile(
+      leading: StacContainer(
+        height: 50,
+        width: 50,
+        color: '#165FC7',
+        child: StacColumn(
+          mainAxisAlignment: StacMainAxisAlignment.center,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacText(data: '2', style: StacTextStyle(fontSize: 21)),
+          ],
+        ),
+      ),
+      title: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(data: 'Item 2', style: StacTextStyle(fontSize: 18)),
+      ),
+      subtitle: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(data: 'Item description', style: StacTextStyle(fontSize: 14)),
+      ),
+      trailing: StacIcon(iconType: 'material', icon: 'more_vert', size: 24),
+    ),
+    // ... more items
+  ],
+)
+```
+
+```json JSON
 {
   "type": "listView",
   "shrinkWrap": true,
@@ -207,5 +264,6 @@ To know more about the listview widget in Flutter, refer to the [official docume
   ]
 }
 ```
+</CodeGroup>
 
 

@@ -39,37 +39,61 @@ To learn more about the `InkWell` widget in Flutter, refer to the [official docu
 | `autofocus`             | `@Default(false) bool`       | Automatically focuses when the widget is built.                            |
 | `hoverDuration`         | `StacDuration?`              | Duration for the hover animation effect.                                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacInkWell(
+  child: StacPadding(
+    padding: StacEdgeInsets(top: 20, bottom: 20, right: 20, left: 20),
+    child: StacText(
+      data: 'Hello, World! from Inkwell',
+      textAlign: StacTextAlign.center,
+    ),
+  ),
+  splashColor: StacColors.purple,
+  borderRadius: StacBorderRadius(
+    topLeft: 20,
+    topRight: 20,
+    bottomLeft: 20,
+    bottomRight: 20,
+  ),
+  radius: 20,
+  hoverDuration: StacDuration(seconds: 10),
+  onTap: StacNoneAction(),
+)
+```
+
+```json JSON
 {
-    "type": "inkWell",
+  "type": "inkWell",
+  "child": {
+    "type": "padding",
+    "padding": {
+      "top": 20,
+      "bottom": 20,
+      "right": 20,
+      "left": 20
+    },
     "child": {
-        "type": "padding",
-        "padding": {
-            "top": 20,
-            "bottom": 20,
-            "right": 20,
-            "left": 20
-        },
-        "child": {
-            "type": "text",
-            "data": "Hello, World! from Inkwell",
-            "textAlign": "center"
-        }
-    },
-    "splashColor": "#E1BEE7",
-    "borderRadius": {
-        "topLeft": 20,
-        "topRight": 20,
-        "bottomLeft": 20,
-        "bottomRight": 20
-    },
-    "radius": 20,
-    "hoverDuration": {
-        "seconds": 10
-    },
-    "onTap": {}
+      "type": "text",
+      "data": "Hello, World! from Inkwell",
+      "textAlign": "center"
+    }
+  },
+  "splashColor": "#E1BEE7",
+  "borderRadius": {
+    "topLeft": 20,
+    "topRight": 20,
+    "bottomLeft": 20,
+    "bottomRight": 20
+  },
+  "radius": 20,
+  "hoverDuration": {
+    "seconds": 10
+  },
+  "onTap": {}
 }
 ```
+</CodeGroup>
 

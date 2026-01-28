@@ -48,33 +48,52 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 | inputFormatters               | `List<StacInputFormatter>`     | The list of input formatters to apply to the text. Defaults to an empty list.                                                                      |
 | validatorRules                | `List<StacFormFieldValidator>` | The list of validator rules to apply to the text. Defaults to an empty list.                                                                       |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTextFormField(
+  id: 'email',
+  autovalidateMode: StacAutovalidateMode.onUserInteraction,
+  validatorRules: [
+    StacFormFieldValidator(rule: 'isEmail', message: 'Please enter a valid email'),
+  ],
+  style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w400, height: 1.5),
+  decoration: StacInputDecoration(
+    hintText: 'Email',
+    filled: true,
+    fillColor: StacColors.white,
+    border: StacOutlineInputBorder(borderRadius: 8, color: '#24151D29'),
+  ),
+)
+```
+
+```json JSON
 {
-  "type":  "textFormField",
-  "id":  "email",
-  "autovalidateMode":  "onUserInteraction",
-  "validatorRules":  [
+  "type": "textFormField",
+  "id": "email",
+  "autovalidateMode": "onUserInteraction",
+  "validatorRules": [
     {
-      "rule":  "isEmail",
-      "message":  "Please enter a valid email"
+      "rule": "isEmail",
+      "message": "Please enter a valid email"
     }
   ],
-  "style":  {
-    "fontSize":  16,
-    "fontWeight":  "w400",
-    "height":  1.5
+  "style": {
+    "fontSize": 16,
+    "fontWeight": "w400",
+    "height": 1.5
   },
-  "decoration":  {
-    "hintText":  "Email",
-    "filled":  true,
-    "fillColor":  "#FFFFFF",
-    "border":  {
-      "type":  "outlineInputBorder",
-      "borderRadius":  8,
-      "color":  "#24151D29"
+  "decoration": {
+    "hintText": "Email",
+    "filled": true,
+    "fillColor": "#FFFFFF",
+    "border": {
+      "type": "outlineInputBorder",
+      "borderRadius": 8,
+      "color": "#24151D29"
     }
   }
 }
 ```
+</CodeGroup>

@@ -20,9 +20,30 @@ To know more about the Drawer widget in Flutter, refer to the [official document
 | semanticLabel    | `String?`           | The semantic label for the drawer.                                 |
 | clipBehavior     | `Clip?`             | The clip behavior of the drawer.                                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDrawer(
+  backgroundColor: StacColors.white,
+  elevation: 16.0,
+  shadowColor: StacColors.black,
+  surfaceTintColor: '#F2F2F2',
+  shape: StacRoundedRectangleBorder(borderRadius: 16),
+  width: 304.0,
+  semanticLabel: 'Navigation Drawer',
+  clipBehavior: StacClip.antiAlias,
+  child: StacColumn(
+    children: [
+      StacText(data: 'Drawer Header'),
+      StacText(data: 'Item 1'),
+      StacText(data: 'Item 2'),
+    ],
+  ),
+)
+```
+
+```json JSON
 {
   "type": "drawer",
   "backgroundColor": "#FFFFFF",
@@ -54,4 +75,5 @@ To know more about the Drawer widget in Flutter, refer to the [official document
     ]
   }
 }
-``` 
+```
+</CodeGroup> 

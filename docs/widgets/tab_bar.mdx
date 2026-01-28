@@ -75,9 +75,35 @@ To know more about the TabBarView widget in Flutter, refer to the [official docu
 | viewportFraction  | `double`                     | The fraction of the viewport that each page should occupy. Defaults to `1.0`. |
 | clipBehavior      | `Clip`                       | The clip behavior. Defaults to `Clip.hardEdge`.                               |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDefaultTabController(
+  length: 3,
+  child: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Tabbar'),
+      bottom: StacTabBar(
+        tabs: [
+          StacTab(text: 'Red'),
+          StacTab(text: 'Red'),
+          StacTab(text: 'Red'),
+        ],
+      ),
+    ),
+    body: StacTabBarView(
+      children: [
+        StacContainer(color: StacColors.grey),
+        StacContainer(color: StacColors.orange),
+        StacContainer(color: StacColors.grey),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "defaultTabController",
   "length": 3,
@@ -127,4 +153,5 @@ To know more about the TabBarView widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 

@@ -13,9 +13,17 @@ To know more about the expanded widget in Flutter, refer to the [official docume
 | flex     | `int`                   | The flex factor to use for the expanded widget. Defaults to `1`. |
 | child    | `Map<String, dynamic>?` | The widget to display inside the expanded widget.                |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacExpanded(
+  flex: 2,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "expanded",
   "flex": 2,
@@ -25,3 +33,4 @@ To know more about the expanded widget in Flutter, refer to the [official docume
   }
 }
 ```
+</CodeGroup>

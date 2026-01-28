@@ -3,7 +3,7 @@ title: "Wrap"
 description: "Documentation for Wrap"
 ---
 
-Stac wrap allows you to build the Flutter wrap widget using JSON
+The Stac Wrap allows you to build a Flutter Wrap widget using JSON.
 To know more about the wrap widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Wrap-class.html).
 
 ## Properties
@@ -21,81 +21,116 @@ To know more about the wrap widget in Flutter, refer to the [official documentat
 | clipBehavior       | `Clip`                       | The content will be clipped (or not) according to this option.                                                        | 
 | children           | `List<Map<String, dynamic>>` | The widgets below this widget in the tree.                                                                            |
 
-## Example JSON
+## Example
 
-```json
-{
-      "type": "wrap",
-      "spacing": 8.0,
-      "runSpacing": 4.0,
-      "children": [
-        {
-          "type": "container",
-          "color": "#FFCDD2",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "1",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#F8BBD0",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "2",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#E1BEE7",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "3",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#D1C4E9",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "4",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-      ]
-    }
+<CodeGroup>
+```dart Dart
+StacWrap(
+  spacing: 8.0,
+  runSpacing: 4.0,
+  children: [
+    StacContainer(
+      color: '#FFCDD2',
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '1', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: '#F8BBD0',
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '2', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: StacColors.purple,
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '3', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: '#D1C4E9',
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '4', style: StacTextStyle(color: StacColors.white))),
+    ),
+  ],
+)
 ```
+
+```json JSON
+{
+  "type": "wrap",
+  "spacing": 8.0,
+  "runSpacing": 4.0,
+  "children": [
+    {
+      "type": "container",
+      "color": "#FFCDD2",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "1",
+          "style": {
+            "color": "#FFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#F8BBD0",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "2",
+          "style": {
+            "color": "#FFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#E1BEE7",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "3",
+          "style": {
+            "color": "#FFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#D1C4E9",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "4",
+          "style": {
+            "color": "#FFFFFF"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+</CodeGroup>
 
 
 

@@ -1,0 +1,296 @@
+---
+title: "State Management"
+description: "Learn how to manage state in Stac applications"
+---
+
+Stac provides built-in state management capabilities that allow you to set, update, and read values throughout your server-driven UI. This guide covers the core concepts and patterns for managing state effectively.
+
+## Overview
+
+State in Stac is managed through:
+- **StacSetValue widget** - Sets state values when a screen loads
+- **StacSetValueAction** - Updates state in response to user interactions
+- **Placeholder syntax** - Reads state values using `{{key}}` notation
+
+## Setting Initial State
+
+Use the `StacSetValue` widget to initialize state when a screen loads:
+
+<CodeGroup>
+```dart Dart
+StacScaffold(
+  body: StacSetValue(
+    values: [
+      {'key': 'counter', 'value': 0},
+      {'key': 'user.name', 'value': 'Guest'},
+      {'key': 'theme', 'value': 'light'},
+    ],
+    child: StacColumn(
+      children: [
+        StacText(data: 'Welcome, {{user.name}}!'),
+        StacText(data: 'Count: {{counter}}'),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "scaffold",
+  "body": {
+    "type": "setValue",
+    "values": [
+      { "key": "counter", "value": 0 },
+      { "key": "user.name", "value": "Guest" },
+      { "key": "theme", "value": "light" }
+    ],
+    "child": {
+      "type": "column",
+      "children": [
+        { "type": "text", "data": "Welcome, {{user.name}}!" },
+        { "type": "text", "data": "Count: {{counter}}" }
+      ]
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Updating State on User Interaction
+
+Use `StacSetValueAction` to update state when users interact with your UI:
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  child: StacText(data: 'Increment'),
+  onPressed: StacSetValueAction(
+    values: [
+      {'key': 'counter', 'value': '{{counter + 1}}'},
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Increment" },
+  "onPressed": {
+    "actionType": "setValue",
+    "values": [
+      { "key": "counter", "value": "{{counter + 1}}" }
+    ]
+  }
+}
+```
+</CodeGroup>
+
+## Reading State Values
+
+State values are read using placeholder syntax `{{key}}`:
+
+| Syntax | Description |
+|--------|-------------|
+| `{{key}}` | Read a simple value |
+| `{{user.name}}` | Read nested object property |
+| `{{items[0]}}` | Read array element |
+| `{{counter + 1}}` | Expression evaluation |
+
+### Example: Dynamic Text
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacText(data: 'Hello, {{username}}!'),
+    StacText(data: 'You have {{notifications.count}} notifications'),
+    StacText(data: 'First item: {{items[0].name}}'),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    { "type": "text", "data": "Hello, {{username}}!" },
+    { "type": "text", "data": "You have {{notifications.count}} notifications" },
+    { "type": "text", "data": "First item: {{items[0].name}}" }
+  ]
+}
+```
+</CodeGroup>
+
+## Conditional Rendering with State
+
+Use `StacConditional` to render different widgets based on state:
+
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: 'isLoggedIn == true',
+  ifTrue: StacText(data: 'Welcome back, {{user.name}}!'),
+  ifFalse: StacElevatedButton(
+    child: StacText(data: 'Sign In'),
+    onPressed: StacNavigateAction(routeName: '/login'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "conditional",
+  "condition": "isLoggedIn == true",
+  "ifTrue": {
+    "type": "text",
+    "data": "Welcome back, {{user.name}}!"
+  },
+  "ifFalse": {
+    "type": "elevatedButton",
+    "child": { "type": "text", "data": "Sign In" },
+    "onPressed": {
+      "actionType": "navigate",
+      "routeName": "/login"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Chaining State Updates with Actions
+
+Execute follow-up actions after state updates:
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  child: StacText(data: 'Login'),
+  onPressed: StacSetValueAction(
+    values: [
+      {'key': 'isLoggedIn', 'value': true},
+      {'key': 'user', 'value': {'name': 'John', 'email': 'john@example.com'}},
+    ],
+    action: StacSnackBarAction(
+      content: StacText(data: 'Welcome, {{user.name}}!'),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Login" },
+  "onPressed": {
+    "actionType": "setValue",
+    "values": [
+      { "key": "isLoggedIn", "value": true },
+      { "key": "user", "value": { "name": "John", "email": "john@example.com" } }
+    ],
+    "action": {
+      "actionType": "showSnackBar",
+      "content": { "type": "text", "data": "Welcome, {{user.name}}!" }
+    }
+  }
+}
+```
+</CodeGroup>
+
+## State with Network Requests
+
+Combine state management with network requests:
+
+<CodeGroup>
+```dart Dart
+StacMultiAction(
+  sync: true,
+  actions: [
+    // Set loading state
+    StacSetValueAction(
+      values: [{'key': 'isLoading', 'value': true}],
+    ),
+    // Make network request
+    StacNetworkRequestAction(
+      url: 'https://api.example.com/user',
+      method: Method.get,
+      results: [
+        StacNetworkResult(
+          statusCode: 200,
+          action: StacSetValueAction(
+            values: [
+              {'key': 'isLoading', 'value': false},
+              {'key': 'user', 'value': '{{response.data}}'},
+            ],
+          ),
+        ),
+        StacNetworkResult(
+          statusCode: 500,
+          action: StacSetValueAction(
+            values: [
+              {'key': 'isLoading', 'value': false},
+              {'key': 'error', 'value': 'Failed to load user'},
+            ],
+          ),
+        ),
+      ],
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "actionType": "multiAction",
+  "sync": true,
+  "actions": [
+    {
+      "actionType": "setValue",
+      "values": [{ "key": "isLoading", "value": true }]
+    },
+    {
+      "actionType": "networkRequest",
+      "url": "https://api.example.com/user",
+      "method": "get",
+      "results": [
+        {
+          "statusCode": 200,
+          "action": {
+            "actionType": "setValue",
+            "values": [
+              { "key": "isLoading", "value": false },
+              { "key": "user", "value": "{{response.data}}" }
+            ]
+          }
+        },
+        {
+          "statusCode": 500,
+          "action": {
+            "actionType": "setValue",
+            "values": [
+              { "key": "isLoading", "value": false },
+              { "key": "error", "value": "Failed to load user" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+</CodeGroup>
+
+## Best Practices
+
+1. **Use descriptive keys**: Use clear, descriptive names like `user.profile.name` instead of `n`
+2. **Initialize state early**: Set default values at the top of your screen hierarchy
+3. **Handle loading states**: Always manage loading/error states for async operations
+4. **Keep state flat when possible**: Deeply nested state can be harder to manage
+5. **Use conditional widgets**: Leverage `StacConditional` for state-based UI changes
+
+## Related
+
+- [StacSetValue Widget](/widgets/set_value)
+- [StacSetValueAction](/actions/set_value)
+- [StacConditional Widget](/widgets/conditional)

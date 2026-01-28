@@ -3,7 +3,7 @@ title: "ListTile"
 description: "Documentation for ListTile"
 ---
 
-Stac list tile allows you to build the Flutter list tile widget using JSON.
+The Stac ListTile allows you to build a Flutter ListTile widget using JSON.
 To know more about the list tile widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/ListTile-class.html).
 
 ## Properties
@@ -35,9 +35,57 @@ To know more about the list tile widget in Flutter, refer to the [official docum
 | minVerticalPadding | `double`              | The minimum padding on the top and bottom of the title and subtitle widgets.                                    |
 | minLeadingWidth    | `double`              | The minimum width allocated for the ListTile.leading widget.                                                    |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacColumn(
+  mainAxisAlignment: StacMainAxisAlignment.start,
+  crossAxisAlignment: StacCrossAxisAlignment.center,
+  children: [
+    StacSizedBox(height: 12),
+    StacListTile(
+      leading: StacImage(src: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'),
+      title: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(
+          data: 'Andrew Symonds',
+          style: StacTextStyle(fontSize: 18),
+        ),
+      ),
+      subtitle: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(
+          data: 'Andrew Symonds was an Australian international cricketer...',
+          style: StacTextStyle(fontSize: 14),
+        ),
+      ),
+      trailing: StacIcon(iconType: 'material', icon: 'more_vert', size: 24),
+    ),
+    StacSizedBox(height: 12),
+    StacListTile(
+      leading: StacImage(src: 'https://cdn-icons-png.flaticon.com/512/3135/3135715.png'),
+      title: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(
+          data: 'Adam Gilchrist',
+          style: StacTextStyle(fontSize: 18),
+        ),
+      ),
+      subtitle: StacPadding(
+        padding: StacEdgeInsets(top: 10),
+        child: StacText(
+          data: 'Adam Craig Gilchrist is an Australian cricket commentator...',
+          style: StacTextStyle(fontSize: 14),
+        ),
+      ),
+      trailing: StacIcon(iconType: 'material', icon: 'more_vert', size: 24),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "column",
   "mainAxisAlignment": "start",
@@ -132,4 +180,5 @@ To know more about the list tile widget in Flutter, refer to the [official docum
   ]
 }
 ```
+</CodeGroup>
 

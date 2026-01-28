@@ -194,8 +194,8 @@ import 'package:example_app/default_stac_options.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
 
-void main() {
-  Stac.initialize(options: defaultStacOptions);
+void main() async {
+  await Stac.initialize(options: defaultStacOptions);
 
   runApp(const MyApp());
 }

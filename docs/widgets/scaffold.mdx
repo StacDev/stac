@@ -31,9 +31,34 @@ To know more about the scaffold widget in Flutter, refer to the [official docume
 | endDrawerEnableOpenDragGesture | `bool`                               | Whether the end drawer can be opened with a drag gesture. Defaults to `true`.           |
 | restorationId                  | `String?`                            | The restoration ID to save and restore the state of the scaffold.                       |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacScaffold(
+  appBar: StacAppBar(
+    title: StacText(data: 'App Bar Title'),
+  ),
+  body: StacCenter(
+    child: StacText(data: 'Hello, World!'),
+  ),
+  floatingActionButton: StacFloatingActionButton(
+    child: StacIcon(icon: 'add'),
+    onPressed: {'type': 'function', 'name': 'onFabPressed'},
+  ),
+  backgroundColor: StacColors.white,
+  drawer: StacDrawer(
+    child: StacColumn(
+      children: [
+        StacText(data: 'Drawer Item 1'),
+        StacText(data: 'Drawer Item 2'),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "scaffold",
   "appBar": {
@@ -80,3 +105,4 @@ To know more about the scaffold widget in Flutter, refer to the [official docume
   }
 }
 ```
+</CodeGroup>

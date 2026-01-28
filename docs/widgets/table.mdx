@@ -20,130 +20,198 @@ To know more about the Table widget in Flutter, refer to the [official documenta
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTable(
+  columnWidths: {
+    1: StacFixedColumnWidth(value: 200),
+  },
+  defaultColumnWidth: StacFlexColumnWidth(value: 1),
+  textDirection: StacTextDirection.ltr,
+  defaultVerticalAlignment: StacTableCellVerticalAlignment.bottom,
+  border: StacTableBorder(
+    color: '#428AF5',
+    width: 1.0,
+    style: StacBorderStyle.solid,
+    borderRadius: StacBorderRadius.all(16.0),
+  ),
+  children: [
+    StacTableRow(
+      children: [
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 1')),
+          ),
+        ),
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 2')),
+          ),
+        ),
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 3')),
+          ),
+        ),
+      ],
+    ),
+    StacTableRow(
+      children: [
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 1')),
+          ),
+        ),
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 2')),
+          ),
+        ),
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 3')),
+          ),
+        ),
+      ],
+    ),
+  ],
+)
+```
+
+```json JSON
 {
-      "type": "table",
-      "columnWidths": {
-        "1": {
-          "type": "fixedColumnWidth",
-          "value": 200
-        }
-      },
-      "defaultColumnWidth": {
-        "type": "flexColumnWidth",
-        "value": 1
-      },
-      "textDirection": "ltr",
-      "defaultVerticalAlignment": "bottom",
-      "border": {
-        "color": "#428AF5",
-        "width": 1.0,
-        "style": "solid",
-        "borderRadius": {
-          "topLeft": 16.0,
-          "topRight": 16.0,
-          "bottomLeft": 16.0,
-          "bottomRight": 16.0
-        }
-      },
+  "type": "table",
+  "columnWidths": {
+    "1": {
+      "type": "fixedColumnWidth",
+      "value": 200
+    }
+  },
+  "defaultColumnWidth": {
+    "type": "flexColumnWidth",
+    "value": 1
+  },
+  "textDirection": "ltr",
+  "defaultVerticalAlignment": "bottom",
+  "border": {
+    "color": "#428AF5",
+    "width": 1.0,
+    "style": "solid",
+    "borderRadius": {
+      "topLeft": 16.0,
+      "topRight": 16.0,
+      "bottomLeft": 16.0,
+      "bottomRight": 16.0
+    }
+  },
+  "children": [
+    {
+      "type": "tableRow",
       "children": [
         {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
               "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 1"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 2"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 3"
-                  }
-                }
+                "type": "text",
+                "data": "Header 1"
               }
             }
-          ]
+          }
         },
         {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
               "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 1"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 2"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 3"
-                  }
-                }
+                "type": "text",
+                "data": "Header 2"
               }
             }
-          ]
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Header 3"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "tableRow",
+      "children": [
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 1"
+              }
+            }
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 2"
+              }
+            }
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 3"
+              }
+            }
+          }
         }
       ]
     }
+  ]
+}
 ```
+</CodeGroup>

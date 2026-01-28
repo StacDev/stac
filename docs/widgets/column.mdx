@@ -18,9 +18,29 @@ To know more about the column widget in Flutter, refer to the [official document
 | spacing            | `double`                     | The spacing between children. Defaults to `0`.                                                   |
 | children           | `List<Map<String, dynamic>>` | The list of widgets to display inside the column. Defaults to an empty list.                     |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacColumn(
+  mainAxisAlignment: StacMainAxisAlignment.center,
+  crossAxisAlignment: StacCrossAxisAlignment.start,
+  mainAxisSize: StacMainAxisSize.min,
+  textDirection: StacTextDirection.ltr,
+  verticalDirection: StacVerticalDirection.up,
+  spacing: 10,
+  children: [
+    StacText(data: 'Hello, World!'),
+    StacContainer(
+      width: 100,
+      height: 100,
+      color: StacColors.red,
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "column",
   "mainAxisAlignment": "center",
@@ -43,3 +63,4 @@ To know more about the column widget in Flutter, refer to the [official document
   ]
 }
 ```
+</CodeGroup>

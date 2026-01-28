@@ -21,9 +21,20 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
 | strokeWidth     | `double`                      | The width of the refresh indicator's stroke. Defaults to `RefreshProgressIndicator.defaultStrokeWidth`.                                  |
 | triggerMode     | `RefreshIndicatorTriggerMode` | The mode that controls when the refresh indicator will be triggered. Defaults to `RefreshIndicatorTriggerMode.onEdge`.                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacRefreshIndicator(
+  onRefresh: StacNetworkRequestAction(
+    url: 'https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json',
+    method: Method.get,
+    contentType: 'application/json',
+  ),
+)
+```
+
+```json JSON
 {
   "type": "refreshIndicator",
   "onRefresh": {
@@ -34,3 +45,4 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
   }
 }
 ```
+</CodeGroup>

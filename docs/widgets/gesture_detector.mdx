@@ -7,9 +7,28 @@ The `GestureDetector` widget in Stac allows you to detect various gestures and u
 
 ## Usage
 
-To use a GestureDetector in your Stac JSON, specify the widget type as "gestureDetector" and provide a child widget along with any gesture callbacks you want to handle.
+To use a GestureDetector in your Stac, specify the widget type as "gestureDetector" and provide a child widget along with any gesture callbacks you want to handle.
 
-```json
+<CodeGroup>
+```dart Dart
+StacGestureDetector(
+  child: StacContainer(
+    color: StacColors.blue,
+    width: 200,
+    height: 200,
+    alignment: StacAlignment.center,
+    child: StacText(
+      data: 'Tap me!',
+      style: StacTextStyle(color: StacColors.white, fontSize: 20),
+    ),
+  ),
+  onTap: StacSnackBarAction(
+    content: StacText(data: 'This is a Snackbar'),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "gestureDetector",
   "child": {
@@ -36,6 +55,7 @@ To use a GestureDetector in your Stac JSON, specify the widget type as "gestureD
   }
 }
 ```
+</CodeGroup>
 
 ## Properties
 
@@ -135,7 +155,19 @@ To use a GestureDetector in your Stac JSON, specify the widget type as "gestureD
 
 ### Simple Tap Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacGestureDetector(
+  onTap: StacNavigateAction(routeName: '/details'),
+  child: StacContainer(
+    padding: StacEdgeInsets.all(16),
+    color: StacColors.grey,
+    child: StacText(data: 'Navigate to Details'),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "gestureDetector",
   "onTap": {
@@ -153,10 +185,25 @@ To use a GestureDetector in your Stac JSON, specify the widget type as "gestureD
   }
 }
 ```
+</CodeGroup>
 
 ### Drag Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacGestureDetector(
+  onHorizontalDragEnd: {'actionType': 'handleSwipe'},
+  child: StacContainer(
+    width: 200,
+    height: 200,
+    color: StacColors.grey,
+    alignment: StacAlignment.center,
+    child: StacText(data: 'Swipe horizontally'),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "gestureDetector",
   "onHorizontalDragEnd": {
@@ -175,10 +222,29 @@ To use a GestureDetector in your Stac JSON, specify the widget type as "gestureD
   }
 }
 ```
+</CodeGroup>
 
 ### Long Press Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacGestureDetector(
+  onLongPress: StacDialogAction(
+    title: 'Long Press Detected',
+    content: StacText(data: 'You performed a long press on the widget.'),
+  ),
+  child: StacContainer(
+    padding: StacEdgeInsets.all(16),
+    decoration: StacBoxDecoration(color: StacColors.green, borderRadius: StacBorderRadius.all(8)),
+    child: StacText(
+      data: 'Long press me',
+      style: StacTextStyle(color: StacColors.white),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "gestureDetector",
   "onLongPress": {
@@ -203,6 +269,7 @@ To use a GestureDetector in your Stac JSON, specify the widget type as "gestureD
   }
 }
 ```
+</CodeGroup>
 
 ## Action Handling
 

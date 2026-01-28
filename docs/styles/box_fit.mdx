@@ -17,12 +17,18 @@ The `fit` property supports the following values:
 | `none`      | Positions the child without scaling, potentially allowing it to overflow the box.   |
 | `scaleDown` | Scales the child down to fit within the box only if it is larger than the box.      |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacFittedBox(fit: StacBoxFit.contain)
+```
+
+```json JSON
 {
   "type": "fittedBox",
   "fit": "contain"
 }
 ```
+</CodeGroup>
 

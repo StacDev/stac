@@ -37,9 +37,40 @@ To know more about the alert dialog widget in Flutter, refer to the [official do
 | alignment                    | `StacAlignmentGeometry?`     | The alignment of the alert dialog.                                                           |
 | scrollable                   | `bool`                        | Whether the alert dialog is scrollable. Defaults to `false`.                                 |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacAlertDialog(
+  content: StacPadding(
+    padding: StacEdgeInsets(
+      top: 0,
+      left: 12,
+      right: 12,
+      bottom: 8,
+    ),
+    child: StacText(
+      data: 'Discard draft?',
+      textAlign: StacTextAlign.center,
+      style: StacTextStyle(fontSize: 14),
+    ),
+  ),
+  actions: [
+    StacTextButton(
+      child: StacText(data: 'CANCEL'),
+      onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    ),
+    StacSizedBox(width: 8),
+    StacTextButton(
+      child: StacText(data: 'DISCARD'),
+      onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    ),
+    StacSizedBox(width: 12),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "alertDialog",
   "content": {
@@ -93,3 +124,4 @@ To know more about the alert dialog widget in Flutter, refer to the [official do
   ]
 }
 ```
+</CodeGroup>

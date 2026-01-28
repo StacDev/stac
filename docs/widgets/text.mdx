@@ -3,7 +3,7 @@ title: "Text"
 description: "Documentation for Text"
 ---
 
-Stac text allows you to build the Flutter text widget using JSON.
+The Stac Text allows you to build a Flutter Text widget using JSON.
 To know more about the text widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Text-class.html).
 
 ## Properties
@@ -23,16 +23,28 @@ To know more about the text widget in Flutter, refer to the [official documentat
 | textWidthBasis  | `TextWidthBasis?`     | The width basis for the text.                      |
 | selectionColor  | `String?`             | The color of the text selection.                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Hello, World!',
+  style: StacTextStyle(
+    color: StacColors.white,
+    fontSize: 24.0,
+  ),
+)
+```
+
+```json JSON
 {
-  "type":  "text",
-  "data":  "Hello, World!",
-  "style":  {
-    "color":  "#FFFFFF",
-    "fontSize":  24.0
+  "type": "text",
+  "data": "Hello, World!",
+  "style": {
+    "color": "#FFFFFF",
+    "fontSize": 24.0
   }
 }
 ```
+</CodeGroup>
 

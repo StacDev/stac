@@ -24,14 +24,33 @@ Above three properties defined are optional. i.e. `StacBorderRadius` can be defi
 
 ## Example
 
-// Generic Declaration
-```json
+### Generic Declaration
+
+<CodeGroup>
+```dart Dart
+StacBorderRadius.all(16.0)
+```
+
+```json JSON
 {
     "borderRadius": 16.0
 }
 ```
-// Explicit Declaration
-```json
+</CodeGroup>
+
+### Explicit Declaration (Object)
+
+<CodeGroup>
+```dart Dart
+StacBorderRadius(
+  topLeft: 16.0,
+  topRight: 16.0,
+  bottomLeft: 16.0,
+  bottomRight: 16.0,
+)
+```
+
+```json JSON
 {
     "borderRadius": {
         "topLeft": 16.0,
@@ -41,15 +60,23 @@ Above three properties defined are optional. i.e. `StacBorderRadius` can be defi
     }
 }
 ```
+</CodeGroup>
 
-// Explicit Declaration (List)
-```json
+### Explicit Declaration (List)
+
+<CodeGroup>
+```dart Dart
+StacBorderRadius.only(
+  topLeft: 16.0,
+  topRight: 16.0,
+  bottomLeft: 16.0,
+  bottomRight: 16.0,
+)
+```
+
+```json JSON
 {
-    "borderRadius": [
-    16.0, 
-    16.0, 
-    16.0, 
-    16.0
-    ]
+    "borderRadius": [16.0, 16.0, 16.0, 16.0]
 }
 ```
+</CodeGroup>

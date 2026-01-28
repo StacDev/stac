@@ -20,7 +20,22 @@ To know more about the TableBorder class in Flutter, refer to the [official docu
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTableBorder(
+  color: StacColors.black,
+  width: 1.0,
+  style: StacBorderStyle.solid,
+  borderRadius: StacBorderRadius(
+    topLeft: 16.0,
+    topRight: 16.0,
+    bottomLeft: 16.0,
+    bottomRight: 16.0,
+  ),
+)
+```
+
+```json JSON
 {
     "tableBorder": {
         "color": "#000000",
@@ -35,3 +50,4 @@ To know more about the TableBorder class in Flutter, refer to the [official docu
     }
 }
 ```
+</CodeGroup>

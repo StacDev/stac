@@ -34,9 +34,40 @@ To know more about the Chip widget in Flutter, refer to the [official documentat
 | avatarBoxConstraints       | `StacBoxConstraints?`         | The constraints for the avatar.                                                                |
 | deleteIconBoxConstraints   | `StacBoxConstraints?`         | The constraints for the delete icon.                                                           |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacChip(
+  avatar: StacCircleAvatar(
+    backgroundColor: StacColors.red,
+    child: StacText(data: 'A'),
+  ),
+  label: StacText(data: 'Chip Label'),
+  labelStyle: StacTextStyle(color: StacColors.black, fontSize: 14),
+  labelPadding: StacEdgeInsets(left: 8, top: 4, right: 8, bottom: 4),
+  deleteIcon: StacIcon(icon: 'delete'),
+  deleteIconColor: StacColors.red,
+  deleteButtonTooltipMessage: 'Delete',
+  side: StacBorderSide(color: StacColors.black, width: 1.0),
+  shape: StacRoundedRectangleBorder(borderRadius: 8.0),
+  clipBehavior: StacClip.antiAlias,
+  autofocus: false,
+  color: StacColors.white,
+  backgroundColor: '#EEEEEE',
+  padding: StacEdgeInsets(left: 8, top: 4, right: 8, bottom: 4),
+  visualDensity: StacVisualDensity(horizontal: 0.0, vertical: 0.0),
+  materialTapTargetSize: StacMaterialTapTargetSize.padded,
+  elevation: 2.0,
+  shadowColor: StacColors.black,
+  surfaceTintColor: StacColors.white,
+  iconTheme: StacIconThemeData(color: StacColors.black, size: 24.0),
+  avatarBoxConstraints: StacBoxConstraints(minWidth: 24.0, minHeight: 24.0),
+  deleteIconBoxConstraints: StacBoxConstraints(minWidth: 24.0, minHeight: 24.0),
+)
+```
+
+```json JSON
 {
   "type": "chip",
   "avatar": {
@@ -107,3 +138,4 @@ To know more about the Chip widget in Flutter, refer to the [official documentat
   }
 }
 ```
+</CodeGroup>

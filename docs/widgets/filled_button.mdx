@@ -19,9 +19,23 @@ To know more about the filled button widget in Flutter, refer to the [official d
 | clipBehavior  | `Clip`                  | Determines how the content should be clipped. Defaults to `Clip.none`.             |
 | child         | `Map<String, dynamic>`  | The widget to display inside the button.                                           |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacFilledButton(
+  onPressed: StacNoneAction(),
+  style: StacButtonStyle(
+    backgroundColor: StacColors.amber,
+    foregroundColor: StacColors.black,
+  ),
+  autofocus: false,
+  clipBehavior: StacClip.none,
+  child: StacText(data: 'Click Me!'),
+)
+```
+
+```json JSON
 {
   "type": "filledButton",
   "onPressed": {},
@@ -40,3 +54,4 @@ To know more about the filled button widget in Flutter, refer to the [official d
   }
 }
 ```
+</CodeGroup>

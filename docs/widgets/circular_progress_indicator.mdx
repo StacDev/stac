@@ -3,7 +3,7 @@ title: "CircularProgressIndicator"
 description: "Documentation for CircularProgressIndicator"
 ---
 
-Stac circularProgressIndicator allows you to build the Flutter CircularProgressIndicator widget using JSON. 
+The Stac CircularProgressIndicator allows you to build a Flutter CircularProgressIndicator widget using JSON. 
 To know more about the CircularProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html).
 
 ## Properties
@@ -20,9 +20,19 @@ To know more about the CircularProgressIndicator widget in Flutter, refer to the
 | strokeCap       | `StrokeCap` | The progress indicator's line ending.                              |
 
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCircularProgressIndicator(
+  color: '#541204',
+  strokeWidth: 6,
+  backgroundColor: StacColors.amber,
+  strokeCap: StacStrokeCap.round,
+)
+```
+
+```json JSON
 {
   "type": "circularProgressIndicator",
   "color": "#541204",
@@ -31,5 +41,6 @@ To know more about the CircularProgressIndicator widget in Flutter, refer to the
   "strokeCap": "round"
 }
 ```
+</CodeGroup>
 
 
