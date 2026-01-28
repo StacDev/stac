@@ -64,6 +64,7 @@ export 'package:stac/src/parsers/widgets/stac_sized_box/stac_sized_box_parser.da
 export 'package:stac/src/parsers/widgets/stac_slider/stac_slider_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sliver_app_bar/stac_sliver_app_bar_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sliver_visibility/stac_sliver_visibility_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_sliver_fill_remaining/stac_sliver_fill_remaining_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sliver_opacity/stac_sliver_opacity_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sliver_safe_area/stac_sliver_safe_area_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_sliver_padding/stac_sliver_padding_parser.dart';
