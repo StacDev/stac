@@ -1,21 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:stac/src/framework/stac_app_theme.dart';
+import 'package:stac/src/framework/stac_router.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac_logger/stac_logger.dart';
 
+/// A convenience widget that wraps [MaterialApp.router] with Stac support.
+///
+/// [StacApp] provides several ways to configure routing:
+///
+/// ## Using GoRouter directly
+///
+/// ```dart
+/// final router = GoRouter(
+///   routes: [...],
+/// );
+///
+/// StacApp(
+///   goRouter: router,
+/// )
+/// ```
+///
+/// ## Using a list of routes (auto-configures StacRouter)
+///
+/// ```dart
+/// StacApp(
+///   routes: [
+///     GoRoute(path: '/', builder: (ctx, state) => HomeScreen()),
+///     GoRoute(
+///       name: 'checkout',
+///       path: '/checkout/:cartId',
+///       builder: (ctx, state) => CheckoutScreen(...),
+///     ),
+///   ],
+/// )
+/// ```
+///
+/// ## Pure Stac Cloud mode
+///
+/// ```dart
+/// StacApp.stac(
+///   initialRoute: '/home',
+/// )
+/// ```
 class StacApp extends StatefulWidget {
+  /// Creates a [StacApp] with the specified routes.
+  ///
+  /// Either [goRouter] or [routes] should be provided.
+  /// If [routes] is provided, [StacRouter.configure] is called automatically.
   const StacApp({
     super.key,
-    this.navigatorKey,
+    this.goRouter,
+    this.routes,
+    this.initialLocation = '/',
+    this.redirect,
     this.scaffoldMessengerKey,
-    this.homeBuilder,
-    Map<String, WidgetBuilder> this.routes = const <String, WidgetBuilder>{},
-    this.initialRoute,
-    this.onGenerateRoute,
-    this.onGenerateInitialRoutes,
-    this.onUnknownRoute,
-    List<NavigatorObserver> this.navigatorObservers =
-        const <NavigatorObserver>[],
     this.builder,
     this.title = '',
     this.onGenerateTitle,
@@ -42,21 +81,22 @@ class StacApp extends StatefulWidget {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    this.useInheritedMediaQuery = false,
-  }) : routeInformationProvider = null,
-       routeInformationParser = null,
-       routerDelegate = null,
-       backButtonDispatcher = null,
-       routerConfig = null;
+  });
 
-  const StacApp.router({
+  /// Creates a [StacApp] configured for pure Stac Cloud mode.
+  ///
+  /// In this mode, all screens are fetched from Stac Cloud.
+  /// No user-defined routes are needed.
+  ///
+  /// ```dart
+  /// StacApp.stac(
+  ///   initialRoute: '/home',
+  /// )
+  /// ```
+  StacApp.stac({
     super.key,
+    required String initialRoute,
     this.scaffoldMessengerKey,
-    this.routeInformationProvider,
-    this.routeInformationParser,
-    this.routerDelegate,
-    this.routerConfig,
-    this.backButtonDispatcher,
     this.builder,
     this.title = '',
     this.onGenerateTitle,
@@ -83,69 +123,124 @@ class StacApp extends StatefulWidget {
     this.actions,
     this.restorationScopeId,
     this.scrollBehavior,
-    this.useInheritedMediaQuery = false,
-  }) : navigatorObservers = null,
-       navigatorKey = null,
-       onGenerateRoute = null,
-       homeBuilder = null,
-       onGenerateInitialRoutes = null,
-       onUnknownRoute = null,
+  }) : goRouter = null,
        routes = null,
-       initialRoute = null;
+       initialLocation = '/_stac${initialRoute.startsWith('/') ? initialRoute : '/$initialRoute'}',
+       redirect = null;
 
   @override
   State<StacApp> createState() => _StacAppState();
 
-  final GlobalKey<NavigatorState>? navigatorKey;
+  /// An existing [GoRouter] instance to use.
+  ///
+  /// If provided, [routes] is ignored.
+  final GoRouter? goRouter;
+
+  /// User-defined routes.
+  ///
+  /// These are passed to [StacRouter.configure] which combines them
+  /// with Stac internal routes.
+  final List<RouteBase>? routes;
+
+  /// The initial location for the router.
+  ///
+  /// Defaults to '/'.
+  final String initialLocation;
+
+  /// Global redirect logic.
+  final GoRouterRedirect? redirect;
+
+  /// Key for the scaffold messenger.
   final GlobalKey<ScaffoldMessengerState>? scaffoldMessengerKey;
-  final Widget? Function(BuildContext)? homeBuilder;
-  final Map<String, WidgetBuilder>? routes;
-  final String? initialRoute;
-  final RouteFactory? onGenerateRoute;
-  final InitialRouteListFactory? onGenerateInitialRoutes;
-  final RouteFactory? onUnknownRoute;
-  final List<NavigatorObserver>? navigatorObservers;
-  final RouteInformationProvider? routeInformationProvider;
-  final RouteInformationParser<Object>? routeInformationParser;
-  final RouterDelegate<Object>? routerDelegate;
-  final BackButtonDispatcher? backButtonDispatcher;
-  final RouterConfig<Object>? routerConfig;
+
+  /// A builder for adding widgets above the navigator.
   final TransitionBuilder? builder;
+
+  /// The title of the application.
   final String title;
+
+  /// Generates the title based on context.
   final GenerateAppTitle? onGenerateTitle;
-  final StacAppTheme? theme;
-  final StacAppTheme? darkTheme;
-  final ThemeData? highContrastTheme;
-  final ThemeData? highContrastDarkTheme;
-  final ThemeMode? themeMode;
-  final Duration themeAnimationDuration;
-  final Curve themeAnimationCurve;
+
+  /// The primary color of the application.
   final Color? color;
+
+  /// The light theme for the application.
+  final StacAppTheme? theme;
+
+  /// The dark theme for the application.
+  final StacAppTheme? darkTheme;
+
+  /// The high contrast light theme.
+  final ThemeData? highContrastTheme;
+
+  /// The high contrast dark theme.
+  final ThemeData? highContrastDarkTheme;
+
+  /// The theme mode (light, dark, or system).
+  final ThemeMode? themeMode;
+
+  /// Duration of theme animations.
+  final Duration themeAnimationDuration;
+
+  /// Curve for theme animations.
+  final Curve themeAnimationCurve;
+
+  /// The locale for the application.
   final Locale? locale;
+
+  /// Localization delegates.
   final Iterable<LocalizationsDelegate<dynamic>>? localizationsDelegates;
+
+  /// Callback for resolving the locale from a list.
   final LocaleListResolutionCallback? localeListResolutionCallback;
+
+  /// Callback for resolving the locale.
   final LocaleResolutionCallback? localeResolutionCallback;
+
+  /// Supported locales.
   final Iterable<Locale> supportedLocales;
-  final bool showPerformanceOverlay;
-  final bool checkerboardRasterCacheImages;
-  final bool checkerboardOffscreenLayers;
-  final bool showSemanticsDebugger;
-  final bool debugShowCheckedModeBanner;
-  final Map<ShortcutActivator, Intent>? shortcuts;
-  final Map<Type, Action<Intent>>? actions;
-  final String? restorationScopeId;
-  final ScrollBehavior? scrollBehavior;
+
+  /// Whether to show the material grid overlay.
   final bool debugShowMaterialGrid;
-  final bool useInheritedMediaQuery;
+
+  /// Whether to show the performance overlay.
+  final bool showPerformanceOverlay;
+
+  /// Whether to checkerboard raster cache images.
+  final bool checkerboardRasterCacheImages;
+
+  /// Whether to checkerboard offscreen layers.
+  final bool checkerboardOffscreenLayers;
+
+  /// Whether to show the semantics debugger.
+  final bool showSemanticsDebugger;
+
+  /// Whether to show the debug banner.
+  final bool debugShowCheckedModeBanner;
+
+  /// Keyboard shortcuts.
+  final Map<ShortcutActivator, Intent>? shortcuts;
+
+  /// Actions for intents.
+  final Map<Type, Action<Intent>>? actions;
+
+  /// Restoration scope ID.
+  final String? restorationScopeId;
+
+  /// Scroll behavior.
+  final ScrollBehavior? scrollBehavior;
 }
 
 class _StacAppState extends State<StacApp> {
   Future<_ResolvedStacThemes>? _themesFuture;
   _ResolvedStacThemes? _resolvedThemes;
+  GoRouter? _router;
 
   @override
   void initState() {
     super.initState();
+    _initRouter();
     _themesFuture = _resolveThemes();
     _themesFuture!
         .then((themes) {
@@ -165,63 +260,27 @@ class _StacAppState extends State<StacApp> {
         });
   }
 
+  void _initRouter() {
+    if (widget.goRouter != null) {
+      _router = widget.goRouter;
+      // Also configure StacRouter so StacNavigator works
+      StacRouter.configure(router: widget.goRouter);
+    } else {
+      _router = StacRouter.configure(
+        routes: widget.routes,
+        initialLocation: widget.initialLocation,
+        redirect: widget.redirect,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_resolvedThemes == null) {
       return const _LoadingWidget();
     }
 
-    if (widget.routerDelegate != null || widget.routerConfig != null) {
-      return _buildMaterialAppRouter(context, _resolvedThemes!);
-    }
-    return _buildMaterialApp(context, _resolvedThemes!);
-  }
-
-  Widget _buildMaterialApp(BuildContext context, _ResolvedStacThemes themes) {
-    return MaterialApp(
-      navigatorKey: widget.navigatorKey,
-      scaffoldMessengerKey: widget.scaffoldMessengerKey,
-      home: Builder(
-        builder: (context) {
-          if (widget.homeBuilder != null) {
-            return widget.homeBuilder!(context) ?? const SizedBox();
-          }
-          return const SizedBox();
-        },
-      ),
-      routes: widget.routes ?? {},
-      initialRoute: widget.initialRoute,
-      onGenerateRoute: widget.onGenerateRoute,
-      onGenerateInitialRoutes: widget.onGenerateInitialRoutes,
-      onUnknownRoute: widget.onUnknownRoute,
-      navigatorObservers: widget.navigatorObservers ?? [],
-      builder: widget.builder,
-      title: widget.title,
-      onGenerateTitle: widget.onGenerateTitle,
-      theme: themes.theme?.parse(context),
-      darkTheme: themes.darkTheme?.parse(context),
-      highContrastTheme: widget.highContrastTheme,
-      highContrastDarkTheme: widget.highContrastDarkTheme,
-      themeMode: widget.themeMode,
-      themeAnimationDuration: widget.themeAnimationDuration,
-      themeAnimationCurve: widget.themeAnimationCurve,
-      color: widget.color,
-      locale: widget.locale,
-      localizationsDelegates: widget.localizationsDelegates,
-      localeListResolutionCallback: widget.localeListResolutionCallback,
-      localeResolutionCallback: widget.localeResolutionCallback,
-      supportedLocales: widget.supportedLocales,
-      showPerformanceOverlay: widget.showPerformanceOverlay,
-      checkerboardRasterCacheImages: widget.checkerboardRasterCacheImages,
-      checkerboardOffscreenLayers: widget.checkerboardOffscreenLayers,
-      showSemanticsDebugger: widget.showSemanticsDebugger,
-      debugShowCheckedModeBanner: widget.debugShowCheckedModeBanner,
-      shortcuts: widget.shortcuts,
-      actions: widget.actions,
-      restorationScopeId: widget.restorationScopeId,
-      scrollBehavior: widget.scrollBehavior,
-      debugShowMaterialGrid: widget.debugShowMaterialGrid,
-    );
+    return _buildMaterialAppRouter(context, _resolvedThemes!);
   }
 
   Widget _buildMaterialAppRouter(
@@ -230,11 +289,7 @@ class _StacAppState extends State<StacApp> {
   ) {
     return MaterialApp.router(
       scaffoldMessengerKey: widget.scaffoldMessengerKey,
-      routeInformationProvider: widget.routeInformationProvider,
-      routeInformationParser: widget.routeInformationParser,
-      routerDelegate: widget.routerDelegate,
-      routerConfig: widget.routerConfig,
-      backButtonDispatcher: widget.backButtonDispatcher,
+      routerConfig: _router,
       builder: widget.builder,
       title: widget.title,
       onGenerateTitle: widget.onGenerateTitle,

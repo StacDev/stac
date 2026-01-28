@@ -1,3 +1,16 @@
+## 2.0.0
+
+### Breaking Changes
+
+- **BREAKING**: `NavigationStyle` enum values changed
+  - Removed: `pushAndRemoveAll`, `popAll`, `pushNamedAndRemoveAll`, `pushReplacementNamed`
+  - Added: `go`, `goNamed`, `pushStac`, `goStac`, `pushJson`, `pushAsset`, `pushNetwork`
+- **BREAKING**: `StacNavigateAction` model fields changed
+  - Removed: `arguments`
+  - Added: `path`, `stacRoute`, `pathParameters`, `queryParameters`, `extra`
+
+See stac package changelog for full migration details.
+
 ## 1.2.0
 
 - Added `StacBadge` widget model for displaying badges with labels or counts

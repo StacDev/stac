@@ -7,3 +7,5 @@ export 'package:stac/src/utils/utils.dart';
 // Theme exports
 export 'package:stac_core/stac_core.dart' show StacTheme;
 export 'package:stac_framework/stac_framework.dart';
+// go_router exports for route configuration
+export 'package:go_router/go_router.dart' show GoRoute, GoRouter, GoRouterState, RouteBase, ShellRoute;

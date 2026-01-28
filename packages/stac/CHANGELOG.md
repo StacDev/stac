@@ -1,3 +1,44 @@
+## 2.0.0
+
+### Breaking Changes
+
+- **BREAKING**: Replaced Navigator with go_router for navigation
+- **BREAKING**: `StacApp` constructor signature changed
+  - Removed: `navigatorKey`, `routes` (Map), `initialRoute`, `onGenerateRoute`, `onUnknownRoute`, `navigatorObservers`, `homeBuilder`, `onGenerateInitialRoutes`
+  - Added: `routes` (List<RouteBase>), `goRouter`, `initialLocation`, `redirect`
+  - Added: `StacApp.stac()` constructor for pure Stac Cloud mode
+- **BREAKING**: `NavigationStyle` enum values changed
+  - Removed: `pushAndRemoveAll`, `popAll`, `pushNamedAndRemoveAll`, `pushReplacementNamed`
+  - Added: `go`, `goNamed`, `pushStac`, `goStac`, `pushJson`, `pushAsset`, `pushNetwork`
+- **BREAKING**: `StacNavigateAction` model updated
+  - Removed: `arguments`
+  - Added: `path`, `stacRoute`, `pathParameters`, `queryParameters`, `extra`
+
+### Added
+
+- `StacNavigator` - Simple static API for navigation
+  - `go()`, `push()`, `pop()`, `pushReplacement()` - Path-based navigation
+  - `goNamed()`, `pushNamed()` - Named route navigation
+  - `goStac()`, `pushStac()` - Stac Cloud screen navigation
+  - `pushJson()`, `pushAsset()`, `pushNetwork()` - Dynamic content navigation
+- `StacRouter` - Router configuration and helpers
+  - `configure()` - Set up go_router with Stac routes
+  - `stacRoute()` - Helper to create Stac Cloud routes
+- `StacArgs` - Access navigation arguments in Stac screens via `{{args.key}}`
+- Support for passing arguments between all screen types (Stac→Stac, Stac→Flutter, Flutter→Stac)
+- Deep linking support via go_router
+- go_router exports (`GoRoute`, `GoRouter`, `GoRouterState`, `RouteBase`, `ShellRoute`)
+
+### Changed
+
+- Navigation now uses go_router instead of Flutter Navigator
+- Stac Cloud screens accessed via `/_stac/:routeName` internal route
+- Dynamic screens (JSON, asset, network) accessed via `/_stac/dynamic`
+
+### Migration Guide
+
+See documentation for migration steps from Navigator to go_router.
+
 ## 1.2.0
 
 - Added screen caching and offline support

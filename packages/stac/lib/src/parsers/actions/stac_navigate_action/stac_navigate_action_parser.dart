@@ -1,10 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/framework/stac_navigator.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
+/// Parser for [StacNavigateAction] that delegates to [StacNavigator].
+///
+/// This parser handles all navigation styles defined in [NavigationStyle]
+/// and routes them to the appropriate [StacNavigator] method.
 class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
   const StacNavigateActionParser();
 
@@ -17,89 +21,63 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
 
   @override
   FutureOr onCall(BuildContext context, StacNavigateAction model) {
-    Widget? widget;
-    if (model.widgetJson != null) {
-      widget = Stac.fromJson(model.widgetJson, context);
-    } else if (model.request != null) {
-      widget = Stac.fromNetwork(context: context, request: model.request!);
-    } else if (model.assetPath != null) {
-      widget = Stac.fromAssets(model.assetPath!);
-    } else if (model.routeName != null &&
-        (model.navigationStyle == null ||
-            model.navigationStyle == NavigationStyle.push ||
-            model.navigationStyle == NavigationStyle.pushReplacement ||
-            model.navigationStyle == NavigationStyle.pushAndRemoveAll)) {
-      // If a routeName is provided and we're using a push-style navigation,
-      // render the remote screen using the Stac(routeName) widget.
-      widget = Stac(routeName: model.routeName!);
-    }
-    return _navigate(
-      context: context,
-      navigationStyle: model.navigationStyle ?? NavigationStyle.push,
-      routeName: model.routeName,
-      result: model.result,
-      arguments: model.arguments,
-      widget: widget,
-    );
-  }
+    final navigationStyle = model.navigationStyle ?? NavigationStyle.push;
 
-  static Future<dynamic>? _navigate<T extends Object?>({
-    required BuildContext context,
-    NavigationStyle navigationStyle = NavigationStyle.push,
-    Widget? widget,
-    String? routeName,
-    T? result,
-    T? arguments,
-  }) {
     switch (navigationStyle) {
-      case NavigationStyle.push:
-        return Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
-        );
+      // ============ Path-based Navigation ============
 
-      case NavigationStyle.pop:
-        Navigator.pop(context, result);
-        break;
+      case NavigationStyle.go:
+        StacNavigator.go(model.path!, extra: model.extra);
+        return null;
+
+      case NavigationStyle.push:
+        return StacNavigator.push(model.path!, extra: model.extra);
 
       case NavigationStyle.pushReplacement:
-        return Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
-          result: result,
-        );
+        return StacNavigator.pushReplacement(model.path!, extra: model.extra);
 
-      case NavigationStyle.pushAndRemoveAll:
-        return Navigator.pushAndRemoveUntil(
-          context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
-          ModalRoute.withName('/'),
-        );
+      case NavigationStyle.pop:
+        StacNavigator.pop(model.result);
+        return null;
 
-      case NavigationStyle.popAll:
-        Navigator.popUntil(context, ModalRoute.withName('/'));
-        break;
+      // ============ Named Route Navigation ============
+
+      case NavigationStyle.goNamed:
+        StacNavigator.goNamed(
+          model.routeName!,
+          pathParameters: model.pathParameters ?? const {},
+          queryParameters: model.queryParameters ?? const {},
+          extra: model.extra,
+        );
+        return null;
 
       case NavigationStyle.pushNamed:
-        return Navigator.pushNamed(context, routeName!, arguments: arguments);
-
-      case NavigationStyle.pushNamedAndRemoveAll:
-        return Navigator.pushNamedAndRemoveUntil(
-          context,
-          routeName!,
-          ModalRoute.withName('/'),
-          arguments: arguments,
+        return StacNavigator.pushNamed(
+          model.routeName!,
+          pathParameters: model.pathParameters ?? const {},
+          queryParameters: model.queryParameters ?? const {},
+          extra: model.extra,
         );
 
-      case NavigationStyle.pushReplacementNamed:
-        return Navigator.pushReplacementNamed(
-          context,
-          routeName!,
-          result: result,
-          arguments: arguments,
-        );
+      // ============ Stac Cloud Navigation ============
+
+      case NavigationStyle.goStac:
+        StacNavigator.goStac(model.stacRoute!, extra: model.extra);
+        return null;
+
+      case NavigationStyle.pushStac:
+        return StacNavigator.pushStac(model.stacRoute!, extra: model.extra);
+
+      // ============ Dynamic Content Navigation ============
+
+      case NavigationStyle.pushJson:
+        return StacNavigator.pushJson(model.widgetJson!, args: model.extra);
+
+      case NavigationStyle.pushAsset:
+        return StacNavigator.pushAsset(model.assetPath!, args: model.extra);
+
+      case NavigationStyle.pushNetwork:
+        return StacNavigator.pushNetwork(model.request!, args: model.extra);
     }
-
-    return null;
   }
 }

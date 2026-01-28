@@ -4,74 +4,166 @@ description: "Documentation for Navigate Action"
 ---
 
 The Stac Navigate Action allows you to perform navigation actions in a Flutter application using JSON.
-To know more about navigation in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Navigator-class.html).
+Stac uses [go_router](https://pub.dev/packages/go_router) for navigation, providing declarative routing, deep linking, and path parameters support.
 
 ## Properties
 
-| Property         | Type                    | Description                                                                 |
-|------------------|-------------------------|-----------------------------------------------------------------------------|
-| request          | `StacNetworkRequest?`  | The network request to perform before navigation.                           |
-| widgetJson       | `Map<String, dynamic>?` | The JSON representation of the widget to navigate to.                       |
-| assetPath        | `String?`               | The asset path of the widget to navigate to.                                |
-| routeName        | `String?`               | The name of the route to navigate to.                                       |
-| navigationStyle  | `NavigationStyle?`      | The style of navigation (e.g., push, pop, pushReplacement, etc.).           |
-| result           | `Map<String, dynamic>?` | The result to return when popping the route.                                |
-| arguments        | `Map<String, dynamic>?` | The arguments to pass to the route.                                         |
-
+| Property         | Type                     | Description                                                                 |
+|------------------|--------------------------|-----------------------------------------------------------------------------|
+| path             | `String?`                | The route path for path-based navigation (e.g., `/products/123`).           |
+| routeName        | `String?`                | The named route for Flutter screens defined with `GoRoute.name`.            |
+| stacRoute        | `String?`                | The Stac Cloud route name for server-driven screens.                        |
+| widgetJson       | `Map<String, dynamic>?`  | The JSON representation of the widget to navigate to.                       |
+| assetPath        | `String?`                | The asset path of the widget to navigate to.                                |
+| request          | `StacNetworkRequest?`    | The network request to fetch the destination widget JSON.                   |
+| navigationStyle  | `NavigationStyle?`       | The style of navigation (see below).                                        |
+| pathParameters   | `Map<String, String>?`   | Path parameters for named routes.                                           |
+| queryParameters  | `Map<String, String>?`   | Query parameters to append to the URL.                                      |
+| extra            | `Map<String, dynamic>?`  | Extra data to pass to the destination screen.                               |
+| result           | `Map<String, dynamic>?`  | The result to return when popping the route.                                |
 
 ### NavigationStyle
 
-The `NavigationStyle` enum defines the different styles of navigation that can be used in the Stac Navigate Action.
+The `NavigationStyle` enum defines the different styles of navigation.
 
-| Value                   | Description                                               |
-|-------------------------|-----------------------------------------------------------|
-| `push`                  | Pushes a new route onto the navigator stack.              |
-| `pop`                   | Pops the current route off the navigator stack.           |
-| `pushReplacement`       | Replaces the current route with a new route.              |
-| `pushAndRemoveAll`      | Pushes a new route and removes all the previous routes.   |
-| `popAll`                | Pops all the routes off the navigator stack.              |
-| `pushNamed`             | Pushes a named route onto the navigator stack.            |
-| `pushNamedAndRemoveAll` | Pushes a named route and removes all the previous routes. |
-| `pushReplacementNamed`  | Replaces the current route with a named route.            |
+| Value             | Description                                                              |
+|-------------------|--------------------------------------------------------------------------|
+| `go`              | Navigate to a path, replacing the entire navigation stack.               |
+| `push`            | Push a new route onto the navigation stack.                              |
+| `pushReplacement` | Replace the current route with a new one.                                |
+| `pop`             | Pop the current route from the navigation stack.                         |
+| `goNamed`         | Navigate to a named route, replacing the entire stack.                   |
+| `pushNamed`       | Push a named route onto the navigation stack.                            |
+| `goStac`          | Navigate to a Stac Cloud screen, replacing the entire stack.             |
+| `pushStac`        | Push a Stac Cloud screen onto the navigation stack.                      |
+| `pushJson`        | Push a screen from inline JSON widget definition.                        |
+| `pushAsset`       | Push a screen from a local asset file.                                   |
+| `pushNetwork`     | Push a screen from a network request.                                    |
 
-## Example JSON
+## Passing Arguments
 
-### Navigate with a Network Request
+Arguments can be passed using the `extra` property and accessed in Stac screens using `{{args.key}}` syntax.
 
 ```json
 {
   "actionType": "navigate",
-  "request": {
-    "url": "https://example.com/api",
-    "method": "get"
-  },
-  "navigationStyle": "push"
+  "navigationStyle": "pushStac",
+  "stacRoute": "productDetails",
+  "extra": {
+    "productId": "123",
+    "productName": "Widget Pro"
+  }
 }
 ```
 
-### Navigate with a Widget JSON
+In the destination Stac screen:
+
+```json
+{
+  "type": "text",
+  "data": "Product: {{args.productName}}"
+}
+```
+
+## Example JSON
+
+### Path-based Navigation
+
+Navigate to a path, replacing the entire navigation stack:
 
 ```json
 {
   "actionType": "navigate",
+  "navigationStyle": "go",
+  "path": "/home"
+}
+```
+
+Push a path onto the navigation stack:
+
+```json
+{
+  "actionType": "navigate",
+  "navigationStyle": "push",
+  "path": "/products/123",
+  "extra": {
+    "source": "homepage"
+  }
+}
+```
+
+### Named Route Navigation
+
+Navigate to a Flutter screen defined with `GoRoute.name`:
+
+```json
+{
+  "actionType": "navigate",
+  "navigationStyle": "pushNamed",
+  "routeName": "checkout",
+  "pathParameters": {
+    "cartId": "abc123"
+  },
+  "queryParameters": {
+    "promo": "SUMMER20"
+  }
+}
+```
+
+### Stac Cloud Navigation
+
+Navigate to a Stac Cloud screen (no route definition needed):
+
+```json
+{
+  "actionType": "navigate",
+  "navigationStyle": "pushStac",
+  "stacRoute": "profile",
+  "extra": {
+    "userId": "{{user.id}}"
+  }
+}
+```
+
+### Pop with Result
+
+```json
+{
+  "actionType": "navigate",
+  "navigationStyle": "pop",
+  "result": {
+    "selectedId": "item_42"
+  }
+}
+```
+
+### Navigate with Inline JSON Widget
+
+```json
+{
+  "actionType": "navigate",
+  "navigationStyle": "pushJson",
   "widgetJson": {
     "type": "scaffold",
     "appBar": {
       "type": "appBar",
       "title": {
         "type": "text",
-        "data": "My App"
+        "data": "{{args.title}}"
       }
     },
     "body": {
       "type": "center",
       "child": {
         "type": "text",
-        "data": "Hello, World!"
+        "data": "Hello, {{args.name}}!"
       }
     }
   },
-  "navigationStyle": "push"
+  "extra": {
+    "title": "Welcome",
+    "name": "John"
+  }
 }
 ```
 
@@ -80,17 +172,63 @@ The `NavigationStyle` enum defines the different styles of navigation that can b
 ```json
 {
   "actionType": "navigate",
-  "assetPath": "assets/widgets/my_widget.json",
-  "navigationStyle": "push"
+  "navigationStyle": "pushAsset",
+  "assetPath": "assets/screens/help.json",
+  "extra": {
+    "topic": "getting-started"
+  }
 }
 ```
 
-### Navigate with a Route Name
+### Navigate with a Network Request
 
 ```json
 {
   "actionType": "navigate",
-  "routeName": "/home",
-  "navigationStyle": "pushNamed"
+  "navigationStyle": "pushNetwork",
+  "request": {
+    "url": "https://api.example.com/screens/promo",
+    "method": "GET",
+    "headers": {
+      "Authorization": "Bearer {{auth.token}}"
+    }
+  },
+  "extra": {
+    "campaignId": "summer2024"
+  }
 }
 ```
+
+## Dart Usage
+
+You can also use `StacNavigator` directly in Dart code:
+
+```dart
+// Path-based navigation
+StacNavigator.go('/home');
+StacNavigator.push('/products/123');
+StacNavigator.pop();
+
+// Named route navigation
+StacNavigator.pushNamed('checkout', pathParameters: {'cartId': 'abc'});
+
+// Stac Cloud navigation
+StacNavigator.pushStac('profile', extra: {'userId': '123'});
+
+// Dynamic content navigation
+StacNavigator.pushJson({'type': 'scaffold', ...});
+StacNavigator.pushAsset('assets/screens/help.json');
+StacNavigator.pushNetwork(request);
+```
+
+## Migration from v1.x
+
+If you're migrating from Stac v1.x, note the following changes:
+
+| Old Style                | New Style     | Notes                              |
+|--------------------------|---------------|------------------------------------|
+| `pushAndRemoveAll`       | `go`          | Use `go` to replace entire stack   |
+| `popAll`                 | `go('/')`     | Navigate to root with `go`         |
+| `pushNamedAndRemoveAll`  | `goNamed`     | Use `goNamed` to replace stack     |
+| `pushReplacementNamed`   | N/A           | Use `pushReplacement` with path    |
+| `arguments`              | `extra`       | Field renamed                      |

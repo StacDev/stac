@@ -32,12 +32,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StacApp(
+    return StacApp.stac(
       title: 'Flutter Demo',
       theme: StacAppTheme(name: "movie_app_dark"),
-      homeBuilder: (_) {
-        return Stac(routeName: 'onboarding_screen');
-      },
+      initialRoute: 'onboarding_screen',
     );
   }
 }
