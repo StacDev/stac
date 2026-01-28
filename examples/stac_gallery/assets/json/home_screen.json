@@ -1245,6 +1245,30 @@
     },
     "title": {
       "type": "text",
+      "data": "Stac Sliver Grid"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A SliverGrid widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_grid_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
+      "iconType": "cupertino",
+      "icon": "app_fill"
+    },
+    "title": {
+      "type": "text",
       "data": "Stac Sliver Padding"
     },
     "subtitle": {
