@@ -1288,6 +1288,29 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "list"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver List"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Sliver List widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_list_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "iconType": "cupertino",
       "icon": "app_fill"
     },

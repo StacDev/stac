@@ -125,6 +125,7 @@
                             "widgets/single_child_scroll_view",
                             "widgets/slider",
                             "widgets/sliver_app_bar",
+                            "widgets/sliver_list",
                             "widgets/sliver_visibility",
                             "widgets/sliver_opacity",
                             "widgets/sliver_safe_area",

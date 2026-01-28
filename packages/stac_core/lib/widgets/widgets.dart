@@ -68,6 +68,7 @@ export 'sized_box/stac_sized_box.dart';
 export 'slider/stac_slider.dart';
 export 'sliver_app_bar/stac_sliver_app_bar.dart';
 export 'sliver_visibility/stac_sliver_visibility.dart';
+export 'sliver_list/stac_sliver_list.dart';
 export 'sliver_opacity/stac_sliver_opacity.dart';
 export 'sliver_safe_area/stac_sliver_safe_area.dart';
 export 'sliver_padding/stac_sliver_padding.dart';
