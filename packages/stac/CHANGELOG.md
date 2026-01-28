@@ -1,3 +1,7 @@
+## 1.3.0-dev.1
+
+- **BREAKING**: Refactored caching to use global configuration via `Stac.initialize()`. See [Caching Docs](https://docs.stac.dev/concepts/caching) for migration guide.
+
 ## 1.2.0
 
 - Added screen caching and offline support

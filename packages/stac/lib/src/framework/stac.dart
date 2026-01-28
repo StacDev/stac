@@ -63,17 +63,18 @@ typedef StacErrorWidgetBuilder =
 ///
 /// ## Caching
 ///
-/// By default, Stac uses an optimistic caching strategy that returns
-/// cached data immediately while fetching updates in the background.
+/// By default, Stac uses a network-first caching strategy that always
+/// fetches the latest content, falling back to cache when offline.
+/// Configure caching globally during initialization:
 ///
 /// ```dart
-/// Stac(
-///   routeName: '/home',
+/// await Stac.initialize(
+///   options: StacOptions(projectId: 'your-project-id'),
 ///   cacheConfig: StacCacheConfig(
 ///     strategy: StacCacheStrategy.cacheFirst,
 ///     maxAge: Duration(hours: 24),
 ///   ),
-/// )
+/// );
 /// ```
 ///
 /// ## Custom Loading and Error States
@@ -105,16 +106,12 @@ class Stac extends StatelessWidget {
   /// Optionally provide [loadingWidget] and [errorWidget] to customize
   /// the loading and error states. If not provided, defaults are used.
   ///
-  /// The [cacheConfig] controls caching behavior. Defaults to optimistic
-  /// caching which returns cached data immediately and updates in background.
+  /// Cache behavior is configured globally via [Stac.initialize].
   const Stac({
     super.key,
     required this.routeName,
     this.loadingWidget,
     this.errorWidget,
-    this.cacheConfig = const StacCacheConfig(
-      strategy: StacCacheStrategy.optimistic,
-    ),
   });
 
   /// The route name identifying the screen to fetch from Stac Cloud.
@@ -133,32 +130,6 @@ class Stac extends StatelessWidget {
   ///
   /// If `null`, an empty [SizedBox] is shown on error.
   final Widget? errorWidget;
-
-  /// Configuration for cache behavior.
-  ///
-  /// Controls cache strategy, TTL, background refresh, and more.
-  ///
-  /// Defaults to optimistic caching strategy.
-  ///
-  /// Example:
-  /// ```dart
-  /// Stac(
-  ///   routeName: '/home',
-  ///   cacheConfig: StacCacheConfig(
-  ///     maxAge: Duration(hours: 24),
-  ///     strategy: StacCacheStrategy.optimistic,
-  ///   ),
-  /// )
-  /// ```
-  ///
-  /// Or use presets:
-  /// ```dart
-  /// Stac(
-  ///   routeName: '/home',
-  ///   cacheConfig: StacCacheConfig.cacheFirst,
-  /// )
-  /// ```
-  final StacCacheConfig cacheConfig;
 
   /// Initializes Stac with the provided configuration.
   ///
@@ -191,6 +162,9 @@ class Stac extends StatelessWidget {
   /// - [errorWidgetBuilder]: Custom builder for error widgets shown when
   ///   parsing fails.
   ///
+  /// - [cacheConfig]: Global cache configuration for all Stac widgets and
+  ///   StacCloud calls. Defaults to networkFirst strategy if not provided.
+  ///
   /// ## Example
   ///
   /// ```dart
@@ -213,6 +187,7 @@ class Stac extends StatelessWidget {
     bool showErrorWidgets = true,
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
+    StacCacheConfig? cacheConfig,
   }) async {
     return StacService.initialize(
       options: options,
@@ -223,6 +198,7 @@ class Stac extends StatelessWidget {
       showErrorWidgets: showErrorWidgets,
       logStackTraces: logStackTraces,
       errorWidgetBuilder: errorWidgetBuilder,
+      cacheConfig: cacheConfig,
     );
   }
 
@@ -232,7 +208,6 @@ class Stac extends StatelessWidget {
       routeName: routeName,
       loadingWidget: loadingWidget,
       errorWidget: errorWidget,
-      cacheConfig: cacheConfig,
     );
   }
 
@@ -346,13 +321,11 @@ class _StacView extends StatelessWidget {
     required this.routeName,
     this.loadingWidget,
     this.errorWidget,
-    required this.cacheConfig,
   });
 
   final String routeName;
   final Widget? loadingWidget;
   final Widget? errorWidget;
-  final StacCacheConfig cacheConfig;
 
   @override
   Widget build(BuildContext context) {
@@ -362,10 +335,7 @@ class _StacView extends StatelessWidget {
     }
 
     return FutureBuilder<Response?>(
-      future: StacCloud.fetchScreen(
-        routeName: routeName,
-        cacheConfig: cacheConfig,
-      ),
+      future: StacCloud.fetchScreen(routeName: routeName),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return loadingWidget ?? const _LoadingWidget();
