@@ -70,6 +70,7 @@ export 'sliver_app_bar/stac_sliver_app_bar.dart';
 export 'sliver_visibility/stac_sliver_visibility.dart';
 export 'sliver_opacity/stac_sliver_opacity.dart';
 export 'sliver_safe_area/stac_sliver_safe_area.dart';
+export 'sliver_off_stage/stac_sliver_off_stage.dart';
 export 'sliver_padding/stac_sliver_padding.dart';
 export 'sliver_to_box_adapter/stac_sliver_to_box_adapter.dart';
 export 'spacer/stac_spacer.dart';

@@ -1288,6 +1288,29 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "visibility"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Sliver Offstage"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Sliver Offstage widget"
+    },
+    "style": "list",
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/sliver_off_stage_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "iconType": "cupertino",
       "icon": "app_fill"
     },

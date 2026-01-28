@@ -1,0 +1,42 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "customScrollView",
+        "slivers": [
+            {
+                "type": "sliverOffstage",
+                "offstage": false,
+                "sliver": {
+                    "type": "sliverToBoxAdapter",
+                    "child": {
+                        "type": "container",
+                        "height": 120,
+                        "color": "primary",
+                        "child": {
+                            "type": "center",
+                            "child": {
+                                "type": "text",
+                                "data": "This sliver can be hidden"
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "type": "sliverToBoxAdapter",
+                "child": {
+                    "type": "container",
+                    "height": 120,
+                    "color": "primary",
+                    "child": {
+                        "type": "center",
+                        "child": {
+                            "type": "text",
+                            "data": "Main Content"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

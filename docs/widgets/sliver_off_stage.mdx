@@ -1,0 +1,42 @@
+---
+title: "SliverOffstage"
+description: "Documentation for SliverOffstage"
+---
+
+The Stac SliverOffstage allows you to build a Flutter `SliverOffstage`
+widget using JSON.
+
+It conditionally hides or shows a sliver without removing it from the
+sliver tree. When the sliver is offstage, it is not painted and does not
+occupy any space in the scroll view.
+
+To learn more about the SliverOffstage widget in Flutter, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/SliverOffstage-class.html).
+
+## Properties
+
+| Property | Type                    | Description                                                       |
+|--------|-------------------------|-------------------------------------------------------------------|
+| offstage | `bool`                | Whether the sliver should be hidden. Defaults to `true`.          |
+| sliver  | `Map<String, dynamic>?` | The sliver widget to conditionally hide or show.                  |
+
+> **Note**
+>
+> `SliverOffstage` only accepts **sliver widgets** as its child.
+> To hide regular widgets, use `Offstage` instead.
+
+## Example JSON
+
+```json
+{
+  "type": "sliverOffstage",
+  "offstage": false,
+  "sliver": {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "text",
+      "data": "This sliver is visible"
+    }
+  }
+}
+```
