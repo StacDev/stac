@@ -50,6 +50,7 @@ export 'list_tile/stac_list_tile.dart';
 export 'list_view/stac_list_view.dart';
 export 'network_widget/stac_network_widget.dart';
 export 'opacity/stac_opacity.dart';
+export 'offstage/stac_offstage.dart';
 export 'outlined_button/stac_outlined_button.dart';
 export 'padding/stac_padding.dart';
 export 'page_view/stac_page_view.dart';

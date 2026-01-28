@@ -1,0 +1,41 @@
+---
+title: "Offstage"
+description: "Documentation for Offstage"
+---
+
+The Stac Offstage allows you to build a Flutter `Offstage` widget using JSON.
+
+It controls whether a widget is visible without removing it from the widget tree.
+When the widget is offstage, it is not painted, does not occupy any space in the
+layout, and does not participate in hit testing.
+
+This widget is useful for conditionally showing or hiding content while preserving
+widget state.
+
+To learn more about the Offstage widget in Flutter, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/Offstage-class.html).
+
+## Properties
+
+| Property  | Type                    | Description                                           |
+|----------|-------------------------|-------------------------------------------------------|
+| offstage | `bool`                  | Whether the child should be hidden. Defaults to `true`. |
+| child    | `Map<String, dynamic>?` | The widget below this widget in the tree.             |
+
+> **Note**
+>
+> Unlike `Visibility`, `Offstage` completely removes the widget from layout
+> while keeping it in the widget tree.
+
+## Example JSON
+
+```json
+{
+  "type": "offstage",
+  "offstage": false,
+  "child": {
+    "type": "text",
+    "data": "This widget is visible"
+  }
+}
+```

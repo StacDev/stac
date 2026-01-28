@@ -153,6 +153,9 @@ enum WidgetType {
   /// Network widget
   networkWidget,
 
+  /// Offstage widget
+  offstage,
+
   /// Opacity widget
   opacity,
 

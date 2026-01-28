@@ -111,6 +111,7 @@ class StacService {
     const StacLinearProgressIndicatorParser(),
     const StacHeroParser(),
     const StacRadioParser(),
+    const StacOffstageParser(),
     const StacRadioGroupParser(),
     const StacSliderParser(),
     const StacSliverAppBarParser(),

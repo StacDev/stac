@@ -1,0 +1,22 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "offstage",
+            "offstage": false,
+            "child": {
+                "type": "container",
+                "height": 120,
+                "color": "primary",
+                "child": {
+                    "type": "center",
+                    "child": {
+                        "type": "text",
+                        "data": "I am visible"
+                    }
+                }
+            }
+        }
+    }
+}

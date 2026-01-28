@@ -89,6 +89,7 @@
                             "widgets/icon",
                             "widgets/image",
                             "widgets/opacity",
+                            "widgets/offstage",
                             "widgets/placeholder",
                             "widgets/visibility"
                         ]

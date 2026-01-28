@@ -1382,6 +1382,28 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "disabled_visible"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Offstage"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "A Stac Offstage widget"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/offstage_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "apartment"
     },
     "title": {
