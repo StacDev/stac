@@ -63,8 +63,8 @@ typedef StacErrorWidgetBuilder =
 ///
 /// ## Caching
 ///
-/// By default, Stac uses an optimistic caching strategy that returns
-/// cached data immediately while fetching updates in the background.
+/// By default, Stac uses a network-first caching strategy that always
+/// fetches the latest content, falling back to cache when offline.
 /// Configure caching globally during initialization:
 ///
 /// ```dart
@@ -163,7 +163,7 @@ class Stac extends StatelessWidget {
   ///   parsing fails.
   ///
   /// - [cacheConfig]: Global cache configuration for all Stac widgets and
-  ///   StacCloud calls. Defaults to optimistic caching if not provided.
+  ///   StacCloud calls. Defaults to networkFirst strategy if not provided.
   ///
   /// ## Example
   ///
