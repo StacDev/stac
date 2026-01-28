@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
 import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac.dart';
+import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/actions/stac_form_validate/stac_form_validate_parser.dart';
@@ -161,6 +162,12 @@ class StacService {
   // Optional global parse-error widget builder supplied by the app.
   static StacErrorWidgetBuilder? _errorWidgetBuilder;
 
+  // Default cache configuration for all Stac widgets and StacCloud calls.
+  static StacCacheConfig _defaultCacheConfig = const StacCacheConfig(
+    strategy: StacCacheStrategy.networkFirst,
+  );
+  static StacCacheConfig get defaultCacheConfig => _defaultCacheConfig;
+
   static Future<void> initialize({
     StacOptions? options,
     List<StacParser> parsers = const [],
@@ -170,8 +177,12 @@ class StacService {
     bool showErrorWidgets = true,
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
+    StacCacheConfig? cacheConfig,
   }) async {
     _options = options;
+    if (cacheConfig != null) {
+      _defaultCacheConfig = cacheConfig;
+    }
     _parsers.addAll(parsers);
     _actionParsers.addAll(actionParsers);
     StacRegistry.instance.registerAll(_parsers, override);

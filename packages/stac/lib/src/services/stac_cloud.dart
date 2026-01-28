@@ -50,24 +50,18 @@ class StacCloud {
 
   /// Fetches an artifact from Stac Cloud with intelligent caching.
   ///
-  /// The [cacheConfig] parameter controls caching behavior:
-  /// - Strategy: How to handle cache vs network
-  /// - maxAge: How long cache is valid
-  /// - refreshInBackground: Whether to update stale cache in background
-  /// - staleWhileRevalidate: Use expired cache while fetching fresh data
-  ///
-  /// Defaults to [StacCacheConfig.optimistic] if not provided.
+  /// Uses the global cache configuration from [StacService.defaultCacheConfig],
+  /// which is set via [Stac.initialize].
   static Future<Response?> _fetchArtifact({
     required StacArtifactType artifactType,
     required String artifactName,
-    StacCacheConfig cacheConfig = const StacCacheConfig(
-      strategy: StacCacheStrategy.optimistic,
-    ),
   }) async {
     final options = StacService.options;
     if (options == null) {
       throw Exception('StacOptions is not set');
     }
+
+    final cacheConfig = StacService.defaultCacheConfig;
 
     // Handle network-only strategy
     if (cacheConfig.strategy == StacCacheStrategy.networkOnly) {
@@ -140,23 +134,12 @@ class StacCloud {
 
   /// Fetches a screen from Stac Cloud with intelligent caching.
   ///
-  /// The [cacheConfig] parameter controls caching behavior:
-  /// - Strategy: How to handle cache vs network
-  /// - maxAge: How long cache is valid
-  /// - refreshInBackground: Whether to update stale cache in background
-  /// - staleWhileRevalidate: Use expired cache while fetching fresh data
-  ///
-  /// Defaults to [StacCacheConfig.optimistic] if not provided.
-  static Future<Response?> fetchScreen({
-    required String routeName,
-    StacCacheConfig cacheConfig = const StacCacheConfig(
-      strategy: StacCacheStrategy.optimistic,
-    ),
-  }) async {
+  /// Uses the global cache configuration from [StacService.defaultCacheConfig],
+  /// which is set via [Stac.initialize].
+  static Future<Response?> fetchScreen({required String routeName}) async {
     return _fetchArtifact(
       artifactType: StacArtifactType.screen,
       artifactName: routeName,
-      cacheConfig: cacheConfig,
     );
   }
 
@@ -213,8 +196,8 @@ class StacCloud {
         saveToCache: true,
       );
     } catch (e) {
-      // Network failed, use stale cache if available and staleWhileRevalidate is true
-      if (cachedArtifact != null && config.staleWhileRevalidate) {
+      // Network failed, use stale cache if available
+      if (cachedArtifact != null) {
         Log.d(
           'StacCloud: Using stale cache for ${artifactType.name} $artifactName due to network error',
         );
@@ -232,10 +215,9 @@ class StacCloud {
     required bool isCacheValid,
     required StacCacheConfig config,
   }) async {
-    // If cache exists and is valid (or staleWhileRevalidate is true)
-    if (cachedArtifact != null &&
-        (isCacheValid || config.staleWhileRevalidate)) {
-      // Update in background if configured
+    // If cache exists (show stale cache while revalidating)
+    if (cachedArtifact != null) {
+      // Update in background if configured or cache is stale
       if (config.refreshInBackground || !isCacheValid) {
         _fetchAndUpdateArtifactInBackground(
           artifactType: artifactType,
@@ -246,7 +228,7 @@ class StacCloud {
       return _buildArtifactCacheResponse(artifactType, cachedArtifact);
     }
 
-    // No valid cache, must fetch from network
+    // No cache, must fetch from network
     return _fetchArtifactFromNetwork(
       artifactType: artifactType,
       artifactName: artifactName,
@@ -369,23 +351,12 @@ class StacCloud {
 
   /// Fetches a theme from Stac Cloud with intelligent caching.
   ///
-  /// The [cacheConfig] parameter controls caching behavior:
-  /// - Strategy: How to handle cache vs network
-  /// - maxAge: How long cache is valid
-  /// - refreshInBackground: Whether to update stale cache in background
-  /// - staleWhileRevalidate: Use expired cache while fetching fresh data
-  ///
-  /// Defaults to [StacCacheConfig.optimistic] if not provided.
-  static Future<Response?> fetchTheme({
-    required String themeName,
-    StacCacheConfig cacheConfig = const StacCacheConfig(
-      strategy: StacCacheStrategy.optimistic,
-    ),
-  }) async {
+  /// Uses the global cache configuration from [StacService.defaultCacheConfig],
+  /// which is set via [Stac.initialize].
+  static Future<Response?> fetchTheme({required String themeName}) async {
     return _fetchArtifact(
       artifactType: StacArtifactType.theme,
       artifactName: themeName,
-      cacheConfig: cacheConfig,
     );
   }
 
