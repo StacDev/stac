@@ -40,19 +40,6 @@ enum StacCacheStrategy {
 ///   ),
 /// );
 /// ```
-///
-/// ## Using Presets
-///
-/// ```dart
-/// // For offline-first apps
-/// cacheConfig: StacCacheConfig.offlineFirst
-///
-/// // For real-time data
-/// cacheConfig: StacCacheConfig.realTime
-///
-/// // For fast loading with background updates
-/// cacheConfig: StacCacheConfig.fastWithUpdates
-/// ```
 class StacCacheConfig {
   /// Creates a [StacCacheConfig] instance.
   const StacCacheConfig({

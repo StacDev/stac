@@ -137,24 +137,6 @@ cacheConfig: StacCacheConfig(
 | `maxAge` | `Duration?` | `null` | Maximum age before cache is considered stale. `null` means no time-based expiration |
 | `refreshInBackground` | `bool` | `true` | Whether to fetch fresh data in background when showing cached content |
 
-### Presets
-
-Use built-in presets for common scenarios:
-
-```dart
-// For offline-first apps
-cacheConfig: StacCacheConfig.offlineFirst
-
-// For real-time data (always fetch)
-cacheConfig: StacCacheConfig.realTime
-
-// For fast loading with background updates
-cacheConfig: StacCacheConfig.fastWithUpdates
-
-// For static content (7-day cache)
-cacheConfig: StacCacheConfig.staticContent
-```
-
 ### Setting Cache Duration
 
 Control how long cached data remains valid:
