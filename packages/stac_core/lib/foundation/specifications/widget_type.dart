@@ -210,6 +210,9 @@ enum WidgetType {
   /// Sliver grid widget
   sliverGrid,
 
+  /// Sliver List widget
+  sliverList,
+
   /// Sliver visibility widget
   sliverVisibility,
 

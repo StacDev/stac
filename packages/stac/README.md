@@ -40,6 +40,7 @@ This approach separates your app's presentation layer from its business logic, e
 - 🎛 Actions & navigation: Control routes and API calls from the backend.
 - 📝 Forms & validation: Built-in form state and validation rules.
 - 🎨 Theming: Brand and layout via JSON with Stac Theme.
+- 💾 Caching: Intelligent screen caching with configurable strategies.
 - 🔌 Extensible: Add custom widgets, actions, and native integrations.
 
 ## Documentation

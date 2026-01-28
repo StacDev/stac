@@ -10,13 +10,6 @@ context.
 To learn more about Flutter’s `SliverGrid`, refer to the
 [official documentation](https://api.flutter.dev/flutter/widgets/SliverGrid-class.html).
 
-> ⚠️ **Note**
->
-> `sliverGrid` must be placed **inside the `slivers` property of a `customScrollView`**.
-> Each child of a `sliverGrid` must be a **box widget** (for example `container`,
-> `card`, `column`, etc.), not another sliver.
-
----
 
 ## Properties
 
@@ -32,7 +25,11 @@ To learn more about Flutter’s `SliverGrid`, refer to the
 | addSemanticIndexes     | `bool?`                       | Whether to add semantic indexes for children. Defaults to `true`.           |
 | children               | `List<Map<String, dynamic>>?` | The list of widgets rendered as grid items.                                 |
 
----
+> ⚠️ **Note**
+>
+> `sliverGrid` must be placed **inside the `slivers` property of a `customScrollView`**.
+> Each child of a `sliverGrid` must be a **box widget** (for example `container`,
+> `card`, `column`, etc.), not another sliver.
 
 ## Example JSON
 
