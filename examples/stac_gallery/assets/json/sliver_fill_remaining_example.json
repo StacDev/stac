@@ -1,0 +1,19 @@
+{
+    "type": "scaffold",
+    "body": {
+        "type": "customScrollView",
+        "slivers": [
+            {
+                "type": "sliverFillRemaining",
+                "hasScrollBody": false,
+                "child": {
+                    "type": "center",
+                    "child": {
+                        "type": "text",
+                        "data": "This fills the remaining space"
+                    }
+                }
+            }
+        ]
+    }
+}

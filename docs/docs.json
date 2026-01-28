@@ -126,6 +126,7 @@
                             "widgets/slider",
                             "widgets/sliver_app_bar",
                             "widgets/sliver_grid",
+                            "widgets/sliver_fill_remaining",
                             "widgets/sliver_list",
                             "widgets/sliver_visibility",
                             "widgets/sliver_opacity",

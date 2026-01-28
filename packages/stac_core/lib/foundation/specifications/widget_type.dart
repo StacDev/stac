@@ -210,6 +210,9 @@ enum WidgetType {
   /// Sliver grid widget
   sliverGrid,
 
+  /// Sliver fill remaining widget
+  sliverFillRemaining,
+
   /// Sliver List widget
   sliverList,
 
