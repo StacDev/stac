@@ -61,49 +61,6 @@ class StacCacheConfig {
     this.refreshInBackground = true,
   });
 
-  // ─────────────────────────────────────────────────────────────────────────
-  // Presets
-  // ─────────────────────────────────────────────────────────────────────────
-
-  /// Preset for offline-first apps.
-  ///
-  /// Uses cache whenever available, only fetches from network when cache
-  /// is missing or expired. Refreshes cache in background.
-  static const offlineFirst = StacCacheConfig(
-    strategy: StacCacheStrategy.cacheFirst,
-    refreshInBackground: true,
-  );
-
-  /// Preset for real-time data.
-  ///
-  /// Always fetches from network, uses cache only as fallback on failure.
-  static const realTime = StacCacheConfig(
-    strategy: StacCacheStrategy.networkFirst,
-    refreshInBackground: false,
-  );
-
-  /// Preset for fast loading with eventual consistency.
-  ///
-  /// Shows cached content immediately while fetching updates in background.
-  /// This is the default strategy.
-  static const fastWithUpdates = StacCacheConfig(
-    strategy: StacCacheStrategy.optimistic,
-    refreshInBackground: true,
-  );
-
-  /// Preset for static content that rarely changes.
-  ///
-  /// Uses cache with a long TTL (7 days), refreshes in background.
-  static const staticContent = StacCacheConfig(
-    strategy: StacCacheStrategy.cacheFirst,
-    maxAge: Duration(days: 7),
-    refreshInBackground: true,
-  );
-
-  // ─────────────────────────────────────────────────────────────────────────
-  // Properties
-  // ─────────────────────────────────────────────────────────────────────────
-
   /// Maximum age of cached data before it's considered stale.
   ///
   /// When `null`, cache validity is determined by version only.
