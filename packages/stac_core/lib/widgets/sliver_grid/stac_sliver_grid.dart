@@ -30,47 +30,47 @@ part 'stac_sliver_grid.g.dart';
 ///
 /// {@tool snippet}
 /// JSON Example:
-// ```json
-// {
-//   "type": "sliverGrid",
-//   "crossAxisCount": 2,
-//   "mainAxisSpacing": 16,
-//   "crossAxisSpacing": 16,
-//   "childAspectRatio": 1,
-//   "children": [
-//     {
-//       "type": "container",
-//       "color": "#4CAF50",
-//       "child": {
-//         "type": "center",
-//         "child": {
-//           "type": "text",
-//           "data": "Grid Item 1",
-//           "style": {
-//             "color": "#FFFFFF",
-//             "fontWeight": "bold"
-//           }
-//         }
-//       }
-//     },
-//     {
-//       "type": "container",
-//       "color": "#4CAF50",
-//       "child": {
-//         "type": "center",
-//         "child": {
-//           "type": "text",
-//           "data": "Grid Item 2",
-//           "style": {
-//             "color": "#FFFFFF",
-//             "fontWeight": "bold"
-//           }
-//         }
-//       }
-//     }
-//   ]
-// }
-// ```
+/// ```json
+/// {
+///   "type": "sliverGrid",
+///   "crossAxisCount": 2,
+///   "mainAxisSpacing": 16,
+///   "crossAxisSpacing": 16,
+///   "childAspectRatio": 1,
+///   "children": [
+///     {
+///       "type": "container",
+///       "color": "#4CAF50",
+///       "child": {
+///         "type": "center",
+///         "child": {
+///           "type": "text",
+///           "data": "Grid Item 1",
+///           "style": {
+///             "color": "#FFFFFF",
+///             "fontWeight": "bold"
+///           }
+///         }
+///       }
+///     },
+///     {
+///       "type": "container",
+///       "color": "#4CAF50",
+///       "child": {
+///         "type": "center",
+///         "child": {
+///           "type": "text",
+///           "data": "Grid Item 2",
+///           "style": {
+///             "color": "#FFFFFF",
+///             "fontWeight": "bold"
+///           }
+///         }
+///       }
+///     }
+///   ]
+/// }
+/// ```
 /// {@end-tool}
 ///
 /// See also:
