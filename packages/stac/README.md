@@ -37,6 +37,10 @@ This approach separates your app's presentation layer from its business logic, e
 - 🚀 Instant updates: Ship UI without app store releases.
 - 🧩 JSON‑driven UI: Define widgets in JSON; render natively.
 - 📦 Dart to JSON: Write Stac widgets in Dart and deploy to Stac Cloud.
+- 🎛 Actions & navigation: Control routes and API calls from the backend.
+- 📝 Forms & validation: Built-in form state and validation rules.
+- 🎨 Theming: Brand and layout via JSON with Stac Theme.
+- 🔌 Extensible: Add custom widgets, actions, and native integrations.
 
 ## Stac DSL/Dart Example
 
@@ -60,10 +64,6 @@ class MyButton extends StatelessWidget {
 ```
 
 For more details, see the [documentation](https://docs.stac.dev/).
-- 🎛 Actions & navigation: Control routes and API calls from the backend.
-- 📝 Forms & validation: Built-in form state and validation rules.
-- 🎨 Theming: Brand and layout via JSON with Stac Theme.
-- 🔌 Extensible: Add custom widgets, actions, and native integrations.
 
 ## Documentation
 
