@@ -1,23 +1,26 @@
 /// Defines different cache strategies for Stac screens.
+///
+/// These strategies follow industry-standard patterns used in service workers
+/// (Workbox), HTTP caching (RFC 5861), and data fetching libraries (SWR).
 enum StacCacheStrategy {
-  /// Always fetch from network, update cache in background.
-  /// Best for real-time data.
+  /// Always fetch from network, use cache as fallback on failure.
+  /// Best for: real-time data, frequently changing content.
   networkFirst,
 
   /// Use cache if available and valid, fallback to network.
-  /// Best for offline-first apps.
+  /// Best for: offline-first apps, read-heavy content.
   cacheFirst,
 
-  /// Return cache immediately, update in background.
-  /// Best for fast loading with eventual consistency.
+  /// Return cache immediately, update in background (stale-while-revalidate).
+  /// Best for: fast loading with eventual consistency.
   optimistic,
 
   /// Only use cache, never fetch from network.
-  /// Best for offline-only mode.
+  /// Best for: offline-only mode, airplane mode.
   cacheOnly,
 
   /// Only use network, never cache.
-  /// Best for sensitive data that shouldn't be cached.
+  /// Best for: sensitive data that shouldn't persist.
   networkOnly,
 }
 
@@ -26,74 +29,70 @@ enum StacCacheStrategy {
 /// This class allows fine-grained control over how screens are cached,
 /// when they expire, and how updates are handled.
 ///
-/// Example:
+/// ## Basic Usage
+///
 /// ```dart
-/// Stac(
-///   routeName: '/home',
+/// await Stac.initialize(
+///   options: StacOptions(...),
 ///   cacheConfig: StacCacheConfig(
 ///     maxAge: Duration(hours: 24),
 ///     strategy: StacCacheStrategy.optimistic,
 ///   ),
-/// )
+/// );
 /// ```
 class StacCacheConfig {
   /// Creates a [StacCacheConfig] instance.
   const StacCacheConfig({
     this.maxAge,
-    this.strategy = StacCacheStrategy.optimistic,
+    this.strategy = StacCacheStrategy.networkFirst,
     this.refreshInBackground = true,
-    this.staleWhileRevalidate = false,
   });
 
-  /// Maximum age of cached data before it's considered expired.
+  /// Maximum age of cached data before it's considered stale.
   ///
-  /// When `null`, cache never expires based on time (only version updates matter).
+  /// When `null`, cache validity is determined by version only.
   ///
   /// Examples:
-  /// - `Duration(hours: 1)` - Cache expires after 1 hour
-  /// - `Duration(days: 7)` - Cache expires after 7 days
-  /// - `Duration(minutes: 30)` - Cache expires after 30 minutes
+  /// - `Duration(hours: 1)` - Cache is stale after 1 hour
+  /// - `Duration(days: 7)` - Cache is stale after 7 days
   final Duration? maxAge;
 
   /// The caching strategy to use.
   ///
-  /// Defaults to [StacCacheStrategy.optimistic].
+  /// Defaults to [StacCacheStrategy.networkFirst].
   final StacCacheStrategy strategy;
 
-  /// Whether to refresh cache in the background when data is stale but valid.
+  /// Whether to refresh cache in the background.
   ///
-  /// Only applies to [StacCacheStrategy.optimistic] and [StacCacheStrategy.cacheFirst].
+  /// When `true` (default): Shows cached data immediately, fetches updates
+  /// in background for the next load.
   ///
-  /// When `true`: Shows cached data, fetches updates in background
-  /// When `false`: Only updates when cache is completely invalid
+  /// When `false`: Only fetches when cache is invalid or missing.
+  ///
+  /// Only applies to [StacCacheStrategy.optimistic] and
+  /// [StacCacheStrategy.cacheFirst].
   final bool refreshInBackground;
 
-  /// Use stale cache while revalidating (fetch in background).
-  ///
-  /// When `true`: Even expired cache will be shown while fetching fresh data.
-  /// When `false`: Expired cache is treated as invalid.
-  ///
-  /// Useful for providing instant UI even when cache is expired.
-  final bool staleWhileRevalidate;
+  // ─────────────────────────────────────────────────────────────────────────
+  // Methods
+  // ─────────────────────────────────────────────────────────────────────────
 
   /// Creates a copy of this config with the given fields replaced.
   StacCacheConfig copyWith({
     Duration? maxAge,
     StacCacheStrategy? strategy,
     bool? refreshInBackground,
-    bool? staleWhileRevalidate,
   }) {
     return StacCacheConfig(
       maxAge: maxAge ?? this.maxAge,
       strategy: strategy ?? this.strategy,
       refreshInBackground: refreshInBackground ?? this.refreshInBackground,
-      staleWhileRevalidate: staleWhileRevalidate ?? this.staleWhileRevalidate,
     );
   }
 
   @override
   String toString() {
-    return 'StacCacheConfig(maxAge: $maxAge, strategy: $strategy, refreshInBackground: $refreshInBackground, staleWhileRevalidate: $staleWhileRevalidate)';
+    return 'StacCacheConfig(maxAge: $maxAge, strategy: $strategy, refreshInBackground: $refreshInBackground)';
   }
 
   @override
@@ -103,17 +102,11 @@ class StacCacheConfig {
     return other is StacCacheConfig &&
         other.maxAge == maxAge &&
         other.strategy == strategy &&
-        other.refreshInBackground == refreshInBackground &&
-        other.staleWhileRevalidate == staleWhileRevalidate;
+        other.refreshInBackground == refreshInBackground;
   }
 
   @override
   int get hashCode {
-    return Object.hash(
-      maxAge,
-      strategy,
-      refreshInBackground,
-      staleWhileRevalidate,
-    );
+    return Object.hash(maxAge, strategy, refreshInBackground);
   }
 }

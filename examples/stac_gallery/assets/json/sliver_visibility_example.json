@@ -1,0 +1,34 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Sliver Visibility"
+        }
+    },
+    "body": {
+        "type": "customScrollView",
+        "slivers": [
+            {
+                "type": "sliverVisibility",
+                "visible": true,
+                "sliver": {
+                    "type": "sliverToBoxAdapter",
+                    "child": {
+                        "type": "container",
+                        "height": 200,
+                        "color": "secondary",
+                        "child": {
+                            "type": "center",
+                            "child": {
+                                "type": "text",
+                                "data": "This sliver is conditionally visible"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

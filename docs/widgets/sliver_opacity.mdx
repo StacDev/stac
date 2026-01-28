@@ -1,0 +1,43 @@
+---
+title: "SliverOpacity"
+description: "Documentation for SliverOpacity"
+---
+
+The Stac SliverOpacity allows you to apply opacity to an entire sliver inside a `CustomScrollView`.
+
+It is useful for creating fade effects on scrollable content.
+
+To know more about the SliverOpacity widget in Flutter, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/SliverOpacity-class.html).
+
+## Properties
+
+| Property                  | Type                    | Description                                                                 |
+|---------------------------|-------------------------|-----------------------------------------------------------------------------|
+| opacity                   | `double`                | The opacity to apply to the sliver. Must be between `0.0` and `1.0`.        |
+| alwaysIncludeSemantics    | `bool?`                 | Whether the sliver is always included in the semantics tree. Defaults to `false`. |
+| sliver                    | `Map<String, dynamic>?` | The sliver widget to which the opacity is applied.                          |
+
+## Example JSON
+
+```json
+{
+  "type": "sliverOpacity",
+  "opacity": 0.5,
+  "sliver": {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "container",
+      "height": 200,
+      "color": "red",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "I am a faded sliver"
+        }
+      }
+    }
+  }
+}
+```

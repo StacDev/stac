@@ -207,6 +207,21 @@ enum WidgetType {
   /// Sliver app bar widget
   sliverAppBar,
 
+  /// Sliver visibility widget
+  sliverVisibility,
+
+  /// Sliver opacity widget
+  sliverOpacity,
+
+  /// Sliver safe area widget
+  sliverSafeArea,
+
+  /// Sliver padding widget
+  sliverPadding,
+
+  /// Sliver to box adapter widget
+  sliverToBoxAdapter,
+
   /// Spacer widget
   spacer,
 
