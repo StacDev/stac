@@ -9,8 +9,8 @@ The `StacSetValueAction` allows you to set or update values in the application s
 
 | Property | Type                          | Description                                                      |
 |----------|-------------------------------|------------------------------------------------------------------|
-| values   | `List<Map<String, dynamic>>?` | List of key-value pairs to write to the application state.       |
-| action   | `StacAction?`                 | Optional action to execute after the values are set.             |
+| values   | `List<Map<String, dynamic>>`  | List of key-value pairs to write to the application state.       |
+| action   | `StacAction`                  | Optional action to execute after the values are set.             |
 
 Each item in `values` should contain:
 - `key`: The state key to set

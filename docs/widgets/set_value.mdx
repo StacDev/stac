@@ -10,7 +10,7 @@ The Stac SetValue widget allows you to set multiple key-value pairs in the appli
 | Property | Type                          | Description                                                      |
 |----------|-------------------------------|------------------------------------------------------------------|
 | values   | `List<Map<String, dynamic>>`  | List of key-value pairs to set in the application state.         |
-| child    | `Map<String, dynamic>?`       | Optional child widget to render after the values are set.        |
+| child    | `StacWidget`                  | Optional child widget to render after the values are set.        |
 
 Each item in `values` should contain:
 - `key`: The state key to set

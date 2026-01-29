@@ -10,12 +10,12 @@ To know more about the Hero widget in Flutter, refer to the [official documentat
 
 | Property                   | Type                    | Description                                                                 |
 |----------------------------|-------------------------|-----------------------------------------------------------------------------|
-| tag                        | `dynamic`               | **Required.** The hero tag used to match heroes across routes.              |
-| child                      | `Map<String, dynamic>`  | **Required.** The widget subtree for this hero.                             |
-| createRectTween            | `Map<String, dynamic>?` | Optional rectangle tween configuration for the hero animation.              |
-| flightShuttleBuilder       | `Map<String, dynamic>?` | Optional widget used as the in-flight shuttle during the hero animation.    |
-| placeholderBuilder         | `Map<String, dynamic>?` | Optional placeholder widget displayed while the destination hero builds.    |
-| transitionOnUserGestures   | `bool?`                 | Whether the hero should participate in a user gesture driven transition.    |
+| tag                        | `String`                | **Required.** The hero tag used to match heroes across routes.              |
+| child                      | `StacWidget`            | **Required.** The widget subtree for this hero.                             |
+| createRectTween            | `StacWidget`            | Optional rectangle tween configuration for the hero animation.              |
+| flightShuttleBuilder       | `StacWidget`            | Optional widget used as the in-flight shuttle during the hero animation.    |
+| placeholderBuilder         | `StacWidget`            | Optional placeholder widget displayed while the destination hero builds.    |
+| transitionOnUserGestures   | `bool`                  | Whether the hero should participate in a user gesture driven transition.    |
 
 ## Example
 

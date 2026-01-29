@@ -10,19 +10,19 @@ To know more about the Badge widget in Flutter, refer to the [official documenta
 
 | Property         | Type                      | Description                                                                                    |
 |------------------|---------------------------|------------------------------------------------------------------------------------------------|
-| backgroundColor  | `String?`                 | The badge's fill color (hex string). Defaults to `ColorScheme.error` from theme.               |
-| textColor        | `String?`                 | The color of the badge's label text (hex string). Defaults to `ColorScheme.onError` from theme. |
-| smallSize        | `double?`                 | The diameter of the badge if [label] is null. Defaults to 6.0.                                |
-| largeSize        | `double?`                 | The badge's height if [label] is non-null. Defaults to 16.0.                                 |
-| textStyle        | `StacTextStyle?`          | The text style for the badge's label.                                                         |
-| padding          | `StacEdgeInsets?`         | The padding added to the badge's label. Defaults to 4 pixels horizontal.                       |
-| alignment        | `StacAlignmentGeometry?`  | Combined with [offset] to determine the location of the [label]. Defaults to `AlignmentDirectional.topEnd`. |
-| offset           | `StacOffset?`            | Combined with [alignment] to determine the location of the [label].                          |
-| label            | `Map<String, dynamic>?`   | The badge's content, typically a [StacText] widget. If null, displays as a small filled circle. |
-| count            | `int?`                    | Convenience property for creating a badge with a numeric label. Automatically creates label showing count or '[maxCount]+' if count exceeds maxCount. |
-| maxCount         | `int?`                    | Maximum count value before showing '[maxCount]+' format. Only used when [count] is provided. Defaults to 999. |
-| isLabelVisible   | `bool?`                   | If false, the badge's [label] is not included. Defaults to `true`.                            |
-| child            | `Map<String, dynamic>?`   | The widget that the badge is stacked on top of. Typically an Icon or IconButton.              |
+| backgroundColor  | `StacColor`               | The badge's fill color (hex string). Defaults to `ColorScheme.error` from theme.               |
+| textColor        | `StacColor`               | The color of the badge's label text (hex string). Defaults to `ColorScheme.onError` from theme. |
+| smallSize        | `double`                  | The diameter of the badge if [label] is null. Defaults to 6.0.                                |
+| largeSize        | `double`                  | The badge's height if [label] is non-null. Defaults to 16.0.                                 |
+| textStyle        | `StacTextStyle`           | The text style for the badge's label.                                                         |
+| padding          | `StacEdgeInsets`          | The padding added to the badge's label. Defaults to 4 pixels horizontal.                       |
+| alignment        | `StacAlignmentGeometry`   | Combined with [offset] to determine the location of the [label]. Defaults to `AlignmentDirectional.topEnd`. |
+| offset           | `StacOffset`              | Combined with [alignment] to determine the location of the [label].                          |
+| label            | `StacWidget`              | The badge's content, typically a [StacText] widget. If null, displays as a small filled circle. |
+| count            | `int`                     | Convenience property for creating a badge with a numeric label. Automatically creates label showing count or '[maxCount]+' if count exceeds maxCount. |
+| maxCount         | `int`                     | Maximum count value before showing '[maxCount]+' format. Only used when [count] is provided. Defaults to 999. |
+| isLabelVisible   | `bool`                    | If false, the badge's [label] is not included. Defaults to `true`.                            |
+| child            | `StacWidget`              | The widget that the badge is stacked on top of. Typically an Icon or IconButton.              |
 
 ## Example
 

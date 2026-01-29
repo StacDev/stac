@@ -22,13 +22,13 @@ The `dynamicView` widget allows you to fetch data from an API and render it usin
 | Property      | Type                   | Required | Description                                                           |
 | ------------- | ---------------------- | -------- | --------------------------------------------------------------------- |
 | request       | `StacNetworkRequest`   | Yes      | API request configuration (url, method, headers, etc.)                |
-| template      | `Map<String, dynamic>` | Yes      | Template to render with data from the API response                    |
+| template      | `StacWidget`           | Yes      | Template to render with data from the API response                    |
 | targetPath    | `String`               | No       | Path to extract specific data from the API response                   |
 | resultTarget  | `String`               | No       | Key name to use when applying data to the template                    |
-| loaderWidget  | `Map<String, dynamic>` | No       | Custom widget to display while loading data                           |
-| errorWidget   | `Map<String, dynamic>` | No       | Custom widget to display when an error occurs                         |
-| itemTemplate  | `Map<String, dynamic>` | No       | Template to render each item in a list of items from the API response |
-| emptyTemplate | `Map<String, dynamic>` | No       | Template to render when the API response contains an empty list       |
+| loaderWidget  | `StacWidget`           | No       | Custom widget to display while loading data                           |
+| errorWidget   | `StacWidget`           | No       | Custom widget to display when an error occurs                         |
+| itemTemplate  | `StacWidget`           | No       | Template to render each item in a list of items from the API response |
+| emptyTemplate | `StacWidget`           | No       | Template to render when the API response contains an empty list       |
 
 ## Basic Usage
 

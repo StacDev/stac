@@ -10,8 +10,8 @@ The Stac Conditional allows you to conditionally render widgets based on a boole
 | Property  | Type                   | Description                                                                 |
 |-----------|------------------------|-----------------------------------------------------------------------------|
 | condition | `String`               | **Required.** The boolean expression to evaluate at runtime.                |
-| ifTrue    | `Map<String, dynamic>` | **Required.** The widget to render when condition evaluates to true.        |
-| ifFalse   | `Map<String, dynamic>?`| The widget to render when condition evaluates to false. Renders empty if null. |
+| ifTrue    | `StacWidget`           | **Required.** The widget to render when condition evaluates to true.        |
+| ifFalse   | `StacWidget`           | The widget to render when condition evaluates to false. Renders empty if null. |
 
 ## Example
 

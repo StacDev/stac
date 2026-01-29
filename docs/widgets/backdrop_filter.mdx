@@ -10,10 +10,10 @@ To know more about the BackdropFilter widget in Flutter, refer to the official d
 
 | Property  | Type                   | Description                                                                                |
 |-----------|------------------------|--------------------------------------------------------------------------------------------|
-| `filter`  | `Map<String, dynamic>` | The image filter to apply to the existing painted content before painting the child.       |
-| `child`   | `Map<String, dynamic>?`| The widget to paint after applying the filter to the existing painted content.             |
+| `filter`  | `StacImageFilter`      | The image filter to apply to the existing painted content before painting the child.       |
+| `child`   | `StacWidget`           | The widget to paint after applying the filter to the existing painted content.             |
 | `enabled` | `bool`                 | Whether the filter should be applied. When false, the child is drawn without a filter. Defaults to `true`. |
-| `blendMode` | `String?` | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
+| `blendMode` | `StacBlendMode`      | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
 
 ## Filter Types
 
@@ -48,8 +48,8 @@ The `filter` property accepts different types of image filters. Here are the sup
 | Property  | Type                   | Description                                                     |
 |-----------|------------------------|-----------------------------------------------------------------|
 | `type`    | `String`               | Must be set to `"compose"`.                                      |
-| `inner`   | `Map<String, dynamic>` | The inner filter to apply first.                                 |
-| `outer`   | `Map<String, dynamic>` | The outer filter to apply after the inner filter.                |
+| `inner`   | `StacImageFilter`      | The inner filter to apply first.                                 |
+| `outer`   | `StacImageFilter`      | The outer filter to apply after the inner filter.                |
 
 ## Usage Recommendations
 
