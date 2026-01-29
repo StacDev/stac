@@ -1,0 +1,81 @@
+---
+title: "SliverList"
+description: "Documentation for SliverList"
+---
+
+The Stac SliverList allows you to build a Flutter sliver list widget using JSON.
+It displays its children in a linear, scrollable list within a sliver context.
+
+This widget must be used inside a `CustomScrollView`.
+To learn more about the SliverList widget in Flutter, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/SliverList-class.html).
+
+## Properties
+
+| Property                 | Type                         | Description                                                                 |
+|--------------------------|------------------------------|-----------------------------------------------------------------------------|
+| children                 | `List<Map<String, dynamic>>?` | The list of widgets to display in the sliver list. Each child must be a box widget. |
+| addAutomaticKeepAlives   | `bool?`                      | Whether to add automatic keep-alives for the children. Defaults to `true`. |
+| addRepaintBoundaries     | `bool?`                      | Whether to wrap children in repaint boundaries. Defaults to `true`.        |
+| addSemanticIndexes       | `bool?`                      | Whether to add semantic indexes for the children. Defaults to `true`.      |
+| semanticIndexOffset      | `int?`                       | An offset added to each child’s semantic index. Useful when combining multiple slivers. |
+
+> **Note**
+>  
+> Children of `SliverList` must be **box widgets** (for example `Container`, `Text`, etc.).
+> To apply padding, opacity, or other sliver-level effects, wrap the `SliverList`
+> with widgets such as `SliverPadding` or `SliverOpacity`.
+
+## Example JSON
+
+```json
+{
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverList",
+        "children": [
+          {
+            "type": "container",
+            "height": 80,
+            "color": "primary",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 1"
+              }
+            }
+          },
+          {
+            "type": "container",
+            "height": 80,
+            "color": "secondary",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 2"
+              }
+            }
+          },
+          {
+            "type": "container",
+            "height": 80,
+            "color": "success",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 3"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+```
