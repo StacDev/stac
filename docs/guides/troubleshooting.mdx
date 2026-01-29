@@ -100,9 +100,9 @@ StacContainer(
 3. If using a custom widget, ensure the parser is registered:
 
 ```dart
-final defaultStacOptions = StacOptions(
-  projectId: 'your-project-id',
-  widgetParsers: [
+await Stac.initialize(
+  options: defaultStacOptions,
+  parsers: [
     MyCustomWidgetParser(), // Register your parser
   ],
 );
@@ -162,12 +162,12 @@ StacText(data: 'Hello, {{username}}!') // Wrong - case sensitive
 
 ### Network request fails
 
-**Problem:** `StacNetworkRequestAction` returns errors.
+**Problem:** `StacNetworkRequest` returns errors.
 
 **Debug checklist:**
 1. **Check URL format:**
 ```dart
-StacNetworkRequestAction(
+StacNetworkRequest(
   url: 'https://api.example.com/data', // Full URL with protocol
   method: Method.get,
 )
@@ -175,7 +175,7 @@ StacNetworkRequestAction(
 
 2. **Verify headers:**
 ```dart
-StacNetworkRequestAction(
+StacNetworkRequest(
   url: 'https://api.example.com/data',
   headers: {
     'Authorization': 'Bearer {{token}}',
@@ -206,7 +206,7 @@ results: [
 
 ## Build Issues
 
-### Dart DSL compile errors
+### Dart compile errors
 
 **Problem:** `stac build` fails with Dart errors.
 
@@ -217,7 +217,7 @@ results: [
 import 'package:stac_core/stac_core.dart'; // Add this
 ```
 
-2. **Trailing commas:** Dart DSL benefits from trailing commas:
+2. **Trailing commas:** Dart benefits from trailing commas:
 ```dart
 StacColumn(
   children: [
@@ -250,10 +250,7 @@ StacColumn(
 1. **Force refresh in app:** Restart the app completely
 2. **Check deployment success:** Look for success message in CLI
 3. **Verify project ID:** Ensure `default_stac_options.dart` has correct project ID
-4. **Clear cache:** If using caching, clear it:
-```dart
-Stac.clearCache();
-```
+4. **Check cache config:** If using caching, try using `StacCacheStrategy.networkFirst` to ensure latest content is fetched
 
 ### "Project not found" error
 

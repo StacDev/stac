@@ -1,13 +1,13 @@
 ---
-title: "Migration Guide: JSON to Dart DSL"
-description: "Step-by-step guide to migrate from JSON to Stac Dart DSL"
+title: "Migration Guide: JSON to Dart"
+description: "Step-by-step guide to migrate from JSON to Stac Dart "
 ---
 
-This guide helps you migrate existing Stac JSON configurations to the new Dart DSL format. The Dart DSL provides type safety, IDE autocompletion, and a more natural development experience.
+This guide helps you migrate existing Stac JSON configurations to the new Dart  format. The Dart  provides type safety, IDE autocompletion, and a more natural development experience.
 
-## Why Migrate to Dart DSL?
+## Why Migrate to Dart?
 
-| Feature | JSON | Dart DSL |
+| Feature | JSON | Dart |
 |---------|------|----------|
 | Type Safety | No | Yes |
 | IDE Autocompletion | Limited | Full |
@@ -21,7 +21,7 @@ This guide helps you migrate existing Stac JSON configurations to the new Dart D
 
 JSON `type` fields map to `Stac` + PascalCase class names:
 
-| JSON Type | Dart DSL Class |
+| JSON Type | Dart  Class |
 |-----------|----------------|
 | `text` | `StacText` |
 | `container` | `StacContainer` |
@@ -34,12 +34,12 @@ JSON `type` fields map to `Stac` + PascalCase class names:
 
 JSON `actionType` fields map to `Stac` + PascalCase + `Action`:
 
-| JSON actionType | Dart DSL Class |
+| JSON actionType | Dart Class |
 |-----------------|----------------|
 | `navigate` | `StacNavigateAction` |
 | `showDialog` | `StacDialogAction` |
 | `showSnackBar` | `StacSnackBarAction` |
-| `networkRequest` | `StacNetworkRequestAction` |
+| `networkRequest` | `StacNetworkRequest` |
 | `setValue` | `StacSetValueAction` |
 
 ## Step-by-Step Migration
@@ -54,7 +54,7 @@ JSON `actionType` fields map to `Stac` + PascalCase + `Action`:
 }
 ```
 
-**After (Dart DSL):**
+**After (Dart):**
 ```dart
 StacText(data: 'Hello, World!')
 ```
@@ -75,7 +75,7 @@ StacText(data: 'Hello, World!')
 }
 ```
 
-**After (Dart DSL):**
+**After (Dart):**
 ```dart
 StacContainer(
   width: 200.0,
@@ -100,7 +100,7 @@ StacContainer(
 }
 ```
 
-**After (Dart DSL):**
+**After (Dart):**
 ```dart
 StacColumn(
   mainAxisAlignment: StacMainAxisAlignment.center,
@@ -126,7 +126,7 @@ StacColumn(
 }
 ```
 
-**After (Dart DSL):**
+**After (Dart):**
 ```dart
 StacElevatedButton(
   child: StacText(data: 'Click Me'),
@@ -154,7 +154,7 @@ StacElevatedButton(
 }
 ```
 
-**After (Dart DSL):**
+**After (Dart):**
 ```dart
 StacContainer(
   decoration: StacBoxDecoration(
@@ -164,7 +164,7 @@ StacContainer(
       StacBoxShadow(
         color: StacColors.black,
         blurRadius: 10.0,
-        offset: StacOffset(x: 0.0, y: 4.0),
+        offset: StacOffset(dx: 0.0, dy: 4.0),
       ),
     ],
   ),
@@ -182,14 +182,14 @@ StacContainer(
 }
 ```
 
-**Dart DSL:**
+**Dart:**
 ```dart
 padding: StacEdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)
 ```
 
 ### Colors
 
-| JSON | Dart DSL |
+| JSON | Dart |
 |------|----------|
 | `"#FFFFFF"` | `StacColors.white` |
 | `"#000000"` | `StacColors.black` |
@@ -202,7 +202,7 @@ padding: StacEdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)
 
 **JSON string values become Dart enums:**
 
-| JSON | Dart DSL |
+| JSON | Dart |
 |------|----------|
 | `"center"` | `StacMainAxisAlignment.center` |
 | `"spaceBetween"` | `StacMainAxisAlignment.spaceBetween` |
@@ -280,7 +280,7 @@ StacWidget homeScreen() {
 
 ## Build and Deploy
 
-After migrating, build your Dart DSL to JSON:
+After migrating, build your Dart to JSON:
 
 ```bash
 # Build all screens
