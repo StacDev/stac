@@ -63,8 +63,8 @@ class StacImage extends StacWidget {
     this.filterQuality,
     this.semanticLabel,
     this.excludeFromSemantics,
-  })  : src = path,
-        imageType = StacImageType.asset;
+  }) : src = path,
+       imageType = StacImageType.asset;
 
   /// Creates an image widget that loads from a network URL.
   const StacImage.network(
@@ -78,8 +78,8 @@ class StacImage extends StacWidget {
     this.filterQuality,
     this.semanticLabel,
     this.excludeFromSemantics,
-  })  : src = url,
-        imageType = StacImageType.network;
+  }) : src = url,
+       imageType = StacImageType.network;
 
   /// Creates an image widget that loads from a local file path.
   const StacImage.file(
@@ -93,8 +93,8 @@ class StacImage extends StacWidget {
     this.filterQuality,
     this.semanticLabel,
     this.excludeFromSemantics,
-  })  : src = path,
-        imageType = StacImageType.file;
+  }) : src = path,
+       imageType = StacImageType.file;
 
   /// The source path or URL of the image to display.
   final String src;
