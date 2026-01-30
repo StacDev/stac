@@ -26,9 +26,38 @@ To learn more about the SliverList widget in Flutter, refer to the
 > To apply padding, opacity, or other sliver-level effects, wrap the `SliverList`
 > with widgets such as `SliverPadding` or `SliverOpacity`.
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+const StacSliverList(
+  children: [
+    StacContainer(
+      height: 80,
+      color: StacColor.primary,
+      child: StacCenter(
+        child: StacText(data: 'List Item 1'),
+      ),
+    ),
+    StacContainer(
+      height: 80,
+      color: StacColor.secondary,
+      child: StacCenter(
+        child: StacText(data: 'List Item 2'),
+      ),
+    ),
+    StacContainer(
+      height: 80,
+      color: StacColor.success,
+      child: StacCenter(
+        child: StacText(data: 'List Item 3'),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "scaffold",
   "body": {
@@ -79,3 +108,4 @@ To learn more about the SliverList widget in Flutter, refer to the
   }
 }
 ```
+</CodeGroup>

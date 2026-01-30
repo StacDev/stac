@@ -26,9 +26,19 @@ To learn more about the SliverFillRemaining widget in Flutter, refer to the
 > `SliverFillRemaining` is typically placed **at the end** of a `CustomScrollView`
 > to ensure it fills the remaining viewport space correctly.
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+const StacSliverFillRemaining(
+  hasScrollBody: false,
+  child: StacCenter(
+    child: StacText(data: 'This content fills the remaining space'),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "sliverFillRemaining",
   "hasScrollBody": false,
@@ -41,3 +51,4 @@ To learn more about the SliverFillRemaining widget in Flutter, refer to the
   }
 }
 ```
+</CodeGroup>
