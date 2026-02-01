@@ -10,140 +10,208 @@ To know more about the Table widget in Flutter, refer to the [official documenta
 
 | Property                 | Type                               | Description                                                                                                                                                                                                     |
 |--------------------------|------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| columnWidths             | `Map<int, StacTableColumnWidth>?` | Determines the column width on a column by column basis, if a particular column entry has null width `defaultColumnWidth` is used. See [`StacTableColumnWidth`](./../styles_and_attributes/table_column_width) |
-| defaultColumnWidth       | `StacTableColumnWidth?`           | Determines the  default column width. Defaults to `flexColumnWidth`. See [`StacTableColumnWidth`](./../styles_and_attributes/table_column_width)                                                               |
-| textDirection            | `TextDirection?`                   | Determines the direction in which the columns are ordered. Can be `rtl` or `ltr`. Defaults to `rtl`.                                                                                                            |
-| border                   | `StacTableBorder?`                | Defines the border style for `StacTable`. See [`StacTableBorder`](./../styles_and_attributes/table_border).                                                                                                   |
-| defaultVerticalAlignment | `TableCellVerticalAlignment?`      | Defines the verticalAlignment for the cells that don't specify a verticalAlignment. Can be `top`, `middle`, `bottom`, `baseline`, `fill` & `intrinsicHeight` Defaults to `top`.                                 |
-| textBaseLine             | `TextBaseline?`                    | Defines the text baseline to use when verticalAlignment is `baseline`. Can be `alphabetic` or `ideographic`. There is no default value.                                                                         |
-| children                 | `List<StacTableRow>`              | Rows that will be populated in the table. See [`StacTableRow`](./table_row).                                                                                                                                   |
+| columnWidths             | `Map<int, StacTableColumnWidth>`   | Determines the column width on a column by column basis, if a particular column entry has null width `defaultColumnWidth` is used. See [`StacTableColumnWidth`](./../styles_and_attributes/table_column_width) |
+| defaultColumnWidth       | `StacTableColumnWidth`             | Determines the  default column width. Defaults to `flexColumnWidth`. See [`StacTableColumnWidth`](./../styles_and_attributes/table_column_width)                                                               |
+| textDirection            | `StacTextDirection`                | Determines the direction in which the columns are ordered. Can be `rtl` or `ltr`. Defaults to `rtl`.                                                                                                            |
+| border                   | `StacTableBorder`                  | Defines the border style for `StacTable`. See [`StacTableBorder`](./../styles_and_attributes/table_border).                                                                                                   |
+| defaultVerticalAlignment | `StacTableCellVerticalAlignment`   | Defines the verticalAlignment for the cells that don't specify a verticalAlignment. Can be `top`, `middle`, `bottom`, `baseline`, `fill` & `intrinsicHeight` Defaults to `top`.                                 |
+| textBaseLine             | `StacTextBaseline`                 | Defines the text baseline to use when verticalAlignment is `baseline`. Can be `alphabetic` or `ideographic`. There is no default value.                                                                         |
+| children                 | `List<StacTableRow>`               | Rows that will be populated in the table. See [`StacTableRow`](./table_row).                                                                                                                                   |
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTable(
+  columnWidths: {
+    1: StacFixedColumnWidth(value: 200),
+  },
+  defaultColumnWidth: StacFlexColumnWidth(value: 1),
+  textDirection: StacTextDirection.ltr,
+  defaultVerticalAlignment: StacTableCellVerticalAlignment.bottom,
+  border: StacTableBorder(
+    color: '#428AF5',
+    width: 1.0,
+    style: StacBorderStyle.solid,
+    borderRadius: StacBorderRadius.all(16.0),
+  ),
+  children: [
+    StacTableRow(
+      children: [
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 1')),
+          ),
+        ),
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 2')),
+          ),
+        ),
+        StacTableCell(
+          child: StacContainer(
+            color: '#40000000',
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Header 3')),
+          ),
+        ),
+      ],
+    ),
+    StacTableRow(
+      children: [
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 1')),
+          ),
+        ),
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 2')),
+          ),
+        ),
+        StacTableCell(
+          child: StacSizedBox(
+            height: 50.0,
+            child: StacCenter(child: StacText(data: 'Row 1, Cell 3')),
+          ),
+        ),
+      ],
+    ),
+  ],
+)
+```
+
+```json JSON
 {
-      "type": "table",
-      "columnWidths": {
-        "1": {
-          "type": "fixedColumnWidth",
-          "value": 200
-        }
-      },
-      "defaultColumnWidth": {
-        "type": "flexColumnWidth",
-        "value": 1
-      },
-      "textDirection": "ltr",
-      "defaultVerticalAlignment": "bottom",
-      "border": {
-        "color": "#428AF5",
-        "width": 1.0,
-        "style": "solid",
-        "borderRadius": {
-          "topLeft": 16.0,
-          "topRight": 16.0,
-          "bottomLeft": 16.0,
-          "bottomRight": 16.0
-        }
-      },
+  "type": "table",
+  "columnWidths": {
+    "1": {
+      "type": "fixedColumnWidth",
+      "value": 200
+    }
+  },
+  "defaultColumnWidth": {
+    "type": "flexColumnWidth",
+    "value": 1
+  },
+  "textDirection": "ltr",
+  "defaultVerticalAlignment": "bottom",
+  "border": {
+    "color": "#428AF5",
+    "width": 1.0,
+    "style": "solid",
+    "borderRadius": {
+      "topLeft": 16.0,
+      "topRight": 16.0,
+      "bottomLeft": 16.0,
+      "bottomRight": 16.0
+    }
+  },
+  "children": [
+    {
+      "type": "tableRow",
       "children": [
         {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
               "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 1"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 2"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "container",
-                "color": "#40000000",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Header 3"
-                  }
-                }
+                "type": "text",
+                "data": "Header 1"
               }
             }
-          ]
+          }
         },
         {
-          "type": "tableRow",
-          "children": [
-            {
-              "type": "tableCell",
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
               "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 1"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 2"
-                  }
-                }
-              }
-            },
-            {
-              "type": "tableCell",
-              "child": {
-                "type": "sizedBox",
-                "height": 50.0,
-                "child": {
-                  "type": "center",
-                  "child": {
-                    "type": "text",
-                    "data": "Row 1, Cell 3"
-                  }
-                }
+                "type": "text",
+                "data": "Header 2"
               }
             }
-          ]
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "container",
+            "color": "#40000000",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Header 3"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "tableRow",
+      "children": [
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 1"
+              }
+            }
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 2"
+              }
+            }
+          }
+        },
+        {
+          "type": "tableCell",
+          "child": {
+            "type": "sizedBox",
+            "height": 50.0,
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "Row 1, Cell 3"
+              }
+            }
+          }
         }
       ]
     }
+  ]
+}
 ```
+</CodeGroup>

@@ -3,21 +3,44 @@ title: "Align"
 description: "Documentation for Align"
 ---
 
-Stac align allows you to build the Flutter align widget using JSON.
+The Stac Align allows you to build a Flutter Align widget using JSON.
 To know more about the align widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Align-class.html).
 
 ## Properties
 
 | Property     | Type                  | Description                                                                   |
 |--------------|-----------------------|-------------------------------------------------------------------------------|
-| alignment    | `StacAlignment`      | How to align the child.                                                       |
+| alignment    | `StacAlignment`       | How to align the child.                                                       |
 | widthFactor  | `double`              | If non-null, sets its width to the child's width multiplied by this factor.   |
 | heightFactor | `double`              | If non-null, sets its height to the child's height multiplied by this factor. |
-| child        | `Map<String,dynamic>` | The widget below this widget in the tree.                                     |
+| child        | `StacWidget`          | The widget below this widget in the tree.                                     |
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacAlign(
+  alignment: StacAlignment.topEnd,
+  child: StacContainer(
+    color: '#FC5632',
+    clipBehavior: StacClip.hardEdge,
+    height: 250,
+    width: 200,
+    child: StacAlign(
+      alignment: StacAlignment.bottomCenter,
+      child: StacText(
+        data: 'Flutter',
+        style: StacTextStyle(
+          fontSize: 23,
+          fontWeight: StacFontWeight.w600,
+        ),
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "align",
   "alignment": "topEnd",
@@ -42,3 +65,4 @@ To know more about the align widget in Flutter, refer to the [official documenta
   }
 }
 ```
+</CodeGroup>

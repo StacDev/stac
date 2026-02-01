@@ -1,0 +1,279 @@
+---
+title: "Text Style"
+description: "Documentation for Text Style"
+---
+
+The Stac TextStyle classes allow you to style text with fonts, colors, sizes, and decorations. There are two variants: custom text styles and theme-based text styles.
+
+## Custom Text Style Properties
+
+| Property              | Type      | Description                                              |
+|-----------------------|-----------|----------------------------------------------------------|
+| inherit               | `bool?`   | Whether to inherit from ambient DefaultTextStyle.        |
+| color                 | `String?` | Text color.                                              |
+| backgroundColor       | `String?` | Background color behind text.                            |
+| fontSize              | `double?` | Font size in logical pixels.                             |
+| fontWeight            | `String?` | Font weight (normal, bold, w100-w900).                   |
+| fontStyle             | `String?` | Font style: `normal` or `italic`.                        |
+| letterSpacing         | `double?` | Spacing between letters.                                 |
+| wordSpacing           | `double?` | Spacing between words.                                   |
+| textBaseline          | `String?` | Baseline alignment.                                      |
+| height                | `double?` | Line height as multiple of font size.                    |
+| decorationColor       | `String?` | Color for text decorations.                              |
+| decorationStyle       | `String?` | Decoration style: solid, dotted, dashed, wavy.           |
+| decorationThickness   | `double?` | Thickness of decorations.                                |
+| fontFamily            | `String?` | Font family name.                                        |
+| fontFamilyFallback    | `List?`   | Fallback font families.                                  |
+| overflow              | `String?` | Text overflow: clip, fade, ellipsis, visible.            |
+
+## Basic Example
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Hello, World!',
+  style: StacTextStyle(
+    fontSize: 24.0,
+    fontWeight: StacFontWeight.bold,
+    color: StacColors.blue,
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "text",
+  "data": "Hello, World!",
+  "style": {
+    "fontSize": 24.0,
+    "fontWeight": "bold",
+    "color": "#2196F3"
+  }
+}
+```
+</CodeGroup>
+
+## Font Weights
+
+Available font weights:
+
+| Value   | Description           |
+|---------|-----------------------|
+| `w100`  | Thin                  |
+| `w200`  | Extra Light           |
+| `w300`  | Light                 |
+| `w400`  | Normal (default)      |
+| `w500`  | Medium                |
+| `w600`  | Semi Bold             |
+| `w700`  | Bold                  |
+| `w800`  | Extra Bold            |
+| `w900`  | Black                 |
+| `normal`| Same as w400          |
+| `bold`  | Same as w700          |
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacText(
+      data: 'Light Text',
+      style: StacTextStyle(fontWeight: StacFontWeight.w300),
+    ),
+    StacText(
+      data: 'Normal Text',
+      style: StacTextStyle(fontWeight: StacFontWeight.normal),
+    ),
+    StacText(
+      data: 'Bold Text',
+      style: StacTextStyle(fontWeight: StacFontWeight.bold),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "text",
+      "data": "Light Text",
+      "style": { "fontWeight": "w300" }
+    },
+    {
+      "type": "text",
+      "data": "Normal Text",
+      "style": { "fontWeight": "normal" }
+    },
+    {
+      "type": "text",
+      "data": "Bold Text",
+      "style": { "fontWeight": "bold" }
+    }
+  ]
+}
+```
+</CodeGroup>
+
+## Text Decorations
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacText(
+      data: 'Underlined Text',
+      style: StacTextStyle(
+        decoration: StacTextDecoration.underline,
+        decorationColor: StacColors.red,
+        decorationStyle: StacTextDecorationStyle.solid,
+      ),
+    ),
+    StacText(
+      data: 'Strikethrough Text',
+      style: StacTextStyle(
+        decoration: StacTextDecoration.lineThrough,
+      ),
+    ),
+    StacText(
+      data: 'Wavy Underline',
+      style: StacTextStyle(
+        decoration: StacTextDecoration.underline,
+        decorationStyle: StacTextDecorationStyle.wavy,
+        decorationColor: StacColors.blue,
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "text",
+      "data": "Underlined Text",
+      "style": {
+        "decoration": "underline",
+        "decorationColor": "#F44336",
+        "decorationStyle": "solid"
+      }
+    },
+    {
+      "type": "text",
+      "data": "Strikethrough Text",
+      "style": { "decoration": "lineThrough" }
+    },
+    {
+      "type": "text",
+      "data": "Wavy Underline",
+      "style": {
+        "decoration": "underline",
+        "decorationStyle": "wavy",
+        "decorationColor": "#2196F3"
+      }
+    }
+  ]
+}
+```
+</CodeGroup>
+
+## Theme-Based Text Style
+
+Use theme text styles to follow Material Design typography:
+
+| Theme Style      | Description                    |
+|------------------|--------------------------------|
+| `displayLarge`   | Largest display text           |
+| `displayMedium`  | Medium display text            |
+| `displaySmall`   | Small display text             |
+| `headlineLarge`  | Largest headline               |
+| `headlineMedium` | Medium headline                |
+| `headlineSmall`  | Small headline                 |
+| `titleLarge`     | Largest title                  |
+| `titleMedium`    | Medium title                   |
+| `titleSmall`     | Small title                    |
+| `bodyLarge`      | Large body text                |
+| `bodyMedium`     | Medium body text (default)     |
+| `bodySmall`      | Small body text                |
+| `labelLarge`     | Large label (buttons)          |
+| `labelMedium`    | Medium label                   |
+| `labelSmall`     | Small label                    |
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacText(
+      data: 'Headline',
+      style: StacThemeTextStyle(textTheme: StacMaterialTextStyle.headlineLarge),
+    ),
+    StacText(
+      data: 'Body text goes here',
+      style: StacThemeTextStyle(textTheme: StacMaterialTextStyle.bodyMedium),
+    ),
+    StacText(
+      data: 'Caption',
+      style: StacThemeTextStyle(textTheme: StacMaterialTextStyle.labelSmall),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "text",
+      "data": "Headline",
+      "style": { "textTheme": "headlineLarge" }
+    },
+    {
+      "type": "text",
+      "data": "Body text goes here",
+      "style": { "textTheme": "bodyMedium" }
+    },
+    {
+      "type": "text",
+      "data": "Caption",
+      "style": { "textTheme": "labelSmall" }
+    }
+  ]
+}
+```
+</CodeGroup>
+
+## Complete Example
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Styled Text Example',
+  style: StacTextStyle(
+    fontSize: 18.0,
+    fontWeight: StacFontWeight.w600,
+    color: StacColors.blue,
+    letterSpacing: 1.2,
+    height: 1.5,
+    fontStyle: StacFontStyle.italic,
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "text",
+  "data": "Styled Text Example",
+  "style": {
+    "fontSize": 18.0,
+    "fontWeight": "w600",
+    "color": "#2196F3",
+    "letterSpacing": 1.2,
+    "height": 1.5,
+    "fontStyle": "italic"
+  }
+}
+```
+</CodeGroup>

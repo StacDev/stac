@@ -10,20 +10,31 @@ To know more about the circle avatar widget in Flutter, refer to the [official d
 
 | Property                | Type                    | Description                                                                 |
 |-------------------------|-------------------------|-----------------------------------------------------------------------------|
-| child                   | `Map<String, dynamic>?` | The widget to display inside the circle avatar.                             |
-| backgroundColor         | `String?`               | The background color of the circle avatar.                                  |
-| backgroundImage         | `String?`               | The background image of the circle avatar.                                  |
-| foregroundImage         | `String?`               | The foreground image of the circle avatar.                                  |
-| onBackgroundImageError  | `Map<String, dynamic>?` | The error widget to display if the background image fails to load.          |
-| onForegroundImageError  | `Map<String, dynamic>?` | The error widget to display if the foreground image fails to load.          |
-| foregroundColor         | `String?`               | The color of the circle avatar's foreground elements.                       |
-| radius                  | `double?`               | The radius of the circle avatar.                                            |
-| minRadius               | `double?`               | The minimum radius of the circle avatar.                                    |
-| maxRadius               | `double?`               | The maximum radius of the circle avatar.                                    |
+| child                   | `StacWidget`            | The widget to display inside the circle avatar.                             |
+| backgroundColor         | `StacColor`             | The background color of the circle avatar.                                  |
+| backgroundImage         | `String`                | The background image of the circle avatar.                                  |
+| foregroundImage         | `String`                | The foreground image of the circle avatar.                                  |
+| onBackgroundImageError  | `StacAction`            | The error widget to display if the background image fails to load.          |
+| onForegroundImageError  | `StacAction`            | The error widget to display if the foreground image fails to load.          |
+| foregroundColor         | `StacColor`             | The color of the circle avatar's foreground elements.                       |
+| radius                  | `double`                | The radius of the circle avatar.                                            |
+| minRadius               | `double`                | The minimum radius of the circle avatar.                                    |
+| maxRadius               | `double`                | The maximum radius of the circle avatar.                                    |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCircleAvatar(
+  backgroundColor: StacColors.red,
+  foregroundColor: StacColors.white,
+  backgroundImage: 'https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg',
+  radius: 50,
+  child: StacText(data: 'A'),
+)
+```
+
+```json JSON
 {
   "type": "circleAvatar",
   "backgroundColor": "#FF0000",
@@ -36,3 +47,4 @@ To know more about the circle avatar widget in Flutter, refer to the [official d
   }
 }
 ```
+</CodeGroup>

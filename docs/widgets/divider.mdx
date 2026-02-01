@@ -1,0 +1,102 @@
+---
+title: "Divider"
+description: "Documentation for Divider"
+---
+
+The Stac Divider allows you to build a Flutter Divider widget using JSON. It creates a thin horizontal line with padding on either side.
+To know more about the Divider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Divider-class.html).
+
+## Properties
+
+| Property   | Type        | Description                                              |
+|------------|-------------|----------------------------------------------------------|
+| height     | `double`    | The divider's height extent (total space occupied).      |
+| thickness  | `double`    | The thickness of the line drawn within the divider.      |
+| indent     | `double`    | The amount of empty space to the leading edge.           |
+| endIndent  | `double`    | The amount of empty space to the trailing edge.          |
+| color      | `StacColor` | The color to use when painting the line.                 |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacDivider(
+  thickness: 2.0,
+  color: StacColors.red,
+  indent: 16.0,
+  endIndent: 16.0,
+)
+```
+
+```json JSON
+{
+  "type": "divider",
+  "thickness": 2.0,
+  "color": "#FF0000",
+  "indent": 16.0,
+  "endIndent": 16.0
+}
+```
+</CodeGroup>
+
+## Divider in a List
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacListTile(
+      title: StacText(data: 'Item 1'),
+    ),
+    StacDivider(
+      height: 1.0,
+      thickness: 1.0,
+      color: StacColors.grey,
+    ),
+    StacListTile(
+      title: StacText(data: 'Item 2'),
+    ),
+    StacDivider(
+      height: 1.0,
+      thickness: 1.0,
+      color: StacColors.grey,
+    ),
+    StacListTile(
+      title: StacText(data: 'Item 3'),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "listTile",
+      "title": { "type": "text", "data": "Item 1" }
+    },
+    {
+      "type": "divider",
+      "height": 1.0,
+      "thickness": 1.0,
+      "color": "#E0E0E0"
+    },
+    {
+      "type": "listTile",
+      "title": { "type": "text", "data": "Item 2" }
+    },
+    {
+      "type": "divider",
+      "height": 1.0,
+      "thickness": 1.0,
+      "color": "#E0E0E0"
+    },
+    {
+      "type": "listTile",
+      "title": { "type": "text", "data": "Item 3" }
+    }
+  ]
+}
+```
+</CodeGroup>

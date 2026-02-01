@@ -51,6 +51,51 @@ class StacImage extends StacWidget {
     this.excludeFromSemantics,
   });
 
+  /// Creates an image widget that loads from application assets.
+  const StacImage.asset(
+    String path, {
+    this.alignment,
+    this.color,
+    this.width,
+    this.height,
+    this.fit,
+    this.repeat,
+    this.filterQuality,
+    this.semanticLabel,
+    this.excludeFromSemantics,
+  }) : src = path,
+       imageType = StacImageType.asset;
+
+  /// Creates an image widget that loads from a network URL.
+  const StacImage.network(
+    String url, {
+    this.alignment,
+    this.color,
+    this.width,
+    this.height,
+    this.fit,
+    this.repeat,
+    this.filterQuality,
+    this.semanticLabel,
+    this.excludeFromSemantics,
+  }) : src = url,
+       imageType = StacImageType.network;
+
+  /// Creates an image widget that loads from a local file path.
+  const StacImage.file(
+    String path, {
+    this.alignment,
+    this.color,
+    this.width,
+    this.height,
+    this.fit,
+    this.repeat,
+    this.filterQuality,
+    this.semanticLabel,
+    this.excludeFromSemantics,
+  }) : src = path,
+       imageType = StacImageType.file;
+
   /// The source path or URL of the image to display.
   final String src;
 

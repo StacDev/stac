@@ -8,17 +8,31 @@ To know more about the stack widget in Flutter, refer to the [official documenta
 
 ## Properties
 
-| Property      | Type                         | Description                                                                                                          |
-|---------------|------------------------------|----------------------------------------------------------------------------------------------------------------------|
-| alignment     | `StacAlignmentDirectional`  | How to align the non-positioned and partially-positioned children. Defaults to `StacAlignmentDirectional.topStart`. |
-| clipBehavior  | `Clip`                       | How to clip the content. Defaults to `Clip.hardEdge`.                                                                |
-| fit           | `StackFit`                   | How to size the non-positioned children. Defaults to `StackFit.loose`.                                               |
-| textDirection | `TextDirection?`             | The text direction to use for resolving alignment.                                                                   |
-| children      | `List<Map<String, dynamic>>` | The list of widgets to display inside the stack. Defaults to an empty list.                                          |
+| Property      | Type                   | Description                                                                                                          |
+|---------------|------------------------|----------------------------------------------------------------------------------------------------------------------|
+| alignment     | `StacAlignment`        | How to align the non-positioned and partially-positioned children. Defaults to `StacAlignment.topStart`.            |
+| clipBehavior  | `StacClip`             | How to clip the content. Defaults to `StacClip.hardEdge`.                                                            |
+| fit           | `StacStackFit`         | How to size the non-positioned children. Defaults to `StacStackFit.loose`.                                           |
+| textDirection | `StacTextDirection`    | The text direction to use for resolving alignment.                                                                   |
+| children      | `List<StacWidget>`     | The list of widgets to display inside the stack. Defaults to an empty list.                                          |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacStack(
+  alignment: StacAlignment.center,
+  clipBehavior: StacClip.antiAlias,
+  fit: StacStackFit.expand,
+  textDirection: StacTextDirection.ltr,
+  children: [
+    StacText(data: 'Hello, World!'),
+    StacContainer(width: 100, height: 100, color: StacColors.red),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "stack",
   "alignment": "center",
@@ -39,3 +53,4 @@ To know more about the stack widget in Flutter, refer to the [official documenta
   ]
 }
 ```
+</CodeGroup>

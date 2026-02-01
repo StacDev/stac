@@ -8,19 +8,40 @@ To know more about the column widget in Flutter, refer to the [official document
 
 ## Properties
 
-| Property           | Type                         | Description                                                                                      |
-|--------------------|------------------------------|--------------------------------------------------------------------------------------------------|
-| mainAxisAlignment  | `MainAxisAlignment`          | How the children should be placed along the main axis. Defaults to `MainAxisAlignment.start`.    |
-| crossAxisAlignment | `CrossAxisAlignment`         | How the children should be placed along the cross axis. Defaults to `CrossAxisAlignment.center`. |
-| mainAxisSize       | `MainAxisSize`               | How much space should be occupied in the main axis. Defaults to `MainAxisSize.max`.              |
-| textDirection      | `TextDirection?`             | The text direction to use for resolving alignment.                                               |
-| verticalDirection  | `VerticalDirection`          | The vertical direction to use for laying out children. Defaults to `VerticalDirection.down`.     |
-| spacing            | `double`                     | The spacing between children. Defaults to `0`.                                                   |
-| children           | `List<Map<String, dynamic>>` | The list of widgets to display inside the column. Defaults to an empty list.                     |
+| Property           | Type                       | Description                                                                                      |
+|--------------------|----------------------------|--------------------------------------------------------------------------------------------------|
+| mainAxisAlignment  | `StacMainAxisAlignment`    | How the children should be placed along the main axis. Defaults to `MainAxisAlignment.start`.    |
+| crossAxisAlignment | `StacCrossAxisAlignment`   | How the children should be placed along the cross axis. Defaults to `CrossAxisAlignment.center`. |
+| mainAxisSize       | `StacMainAxisSize`         | How much space should be occupied in the main axis. Defaults to `MainAxisSize.max`.              |
+| textDirection      | `StacTextDirection`        | The text direction to use for resolving alignment.                                               |
+| verticalDirection  | `StacVerticalDirection`    | The vertical direction to use for laying out children. Defaults to `VerticalDirection.down`.     |
+| textBaseline       | `StacTextBaseline`         | The baseline to use for aligning text.                                                           |
+| spacing            | `double`                   | The spacing between children. Defaults to `0`.                                                   |
+| children           | `List<StacWidget>`         | The list of widgets to display inside the column. Defaults to an empty list.                     |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacColumn(
+  mainAxisAlignment: StacMainAxisAlignment.center,
+  crossAxisAlignment: StacCrossAxisAlignment.start,
+  mainAxisSize: StacMainAxisSize.min,
+  textDirection: StacTextDirection.ltr,
+  verticalDirection: StacVerticalDirection.up,
+  spacing: 10,
+  children: [
+    StacText(data: 'Hello, World!'),
+    StacContainer(
+      width: 100,
+      height: 100,
+      color: StacColors.red,
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "column",
   "mainAxisAlignment": "center",
@@ -43,3 +64,4 @@ To know more about the column widget in Flutter, refer to the [official document
   ]
 }
 ```
+</CodeGroup>

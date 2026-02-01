@@ -12,15 +12,26 @@ To know more about the LimitedBox widget in Flutter, refer to the [official docu
 |-------------|-------------------------|------------------------------------------------------------------------------------------------------|
 | `maxHeight` | `double`                | The maximum height for the child if the parent's height is unbounded. Defaults to `double.infinity`. |
 | `maxWidth`  | `double`                | The maximum width for the child if the parent's width is unbounded. Defaults to `double.infinity`.   |
-| `child`     | `Map<String, dynamic>?` | The child widget represented as a JSON object.                                                       |
+| `child`     | `StacWidget`            | The child widget represented as a JSON object.                                                       |
 
 ---
 
-## Example JSON
+## Example
 
 ### Example 1: Limited Box with Default Constraints
 
-```json
+<CodeGroup>
+```dart Dart
+StacLimitedBox(
+  child: StacContainer(
+    width: 100,
+    height: 100,
+    color: StacColors.red,
+  ),
+)
+```
+
+```json JSON
 {
   "type": "limitedBox",
   "child": {
@@ -31,10 +42,23 @@ To know more about the LimitedBox widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 
 ### Example 2: Limited Box with Custom Constraints
 
-```json
+<CodeGroup>
+```dart Dart
+StacLimitedBox(
+  maxHeight: 200.0,
+  maxWidth: 300.0,
+  child: StacText(
+    data: 'Hello, World! from Limited Box',
+    style: StacTextStyle(fontSize: 16, color: StacColors.black),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "limitedBox",
   "maxHeight": 200.0,
@@ -49,4 +73,5 @@ To know more about the LimitedBox widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 

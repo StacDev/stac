@@ -10,22 +10,22 @@ To know more about the BottomNavigationBar widget in Flutter, refer to the [offi
 
 | Property                | Type                                  | Description                                                                    |
 |-------------------------|---------------------------------------|--------------------------------------------------------------------------------|
-| items                   | `List<StacBottomNavigationBarItem>`  | The items to be displayed in the bottom navigation bar.                        |
-| elevation               | `double?`                             | The z-coordinate at which to place this bottom navigation bar.                 |
-| bottomNavigationBarType | `BottomNavigationBarType?`            | The type of the bottom navigation bar.                                         |
-| fixedColor              | `String?`                             | The color of the selected item when `type` is `BottomNavigationBarType.fixed`. |
-| backgroundColor         | `String?`                             | The background color of the bottom navigation bar.                             |
+| items                   | `List<StacBottomNavigationBarItem>`   | The items to be displayed in the bottom navigation bar.                        |
+| elevation               | `double`                              | The z-coordinate at which to place this bottom navigation bar.                 |
+| bottomNavigationBarType | `StacBottomNavigationBarType`         | The type of the bottom navigation bar.                                         |
+| fixedColor              | `StacColor`                           | The color of the selected item when `type` is `BottomNavigationBarType.fixed`. |
+| backgroundColor         | `StacColor`                           | The background color of the bottom navigation bar.                             |
 | iconSize                | `double`                              | The size of the icons in the bottom navigation bar. Defaults to `24`.          |
-| selectedItemColor       | `String?`                             | The color of the selected item.                                                |
-| unselectedItemColor     | `String?`                             | The color of the unselected items.                                             |
+| selectedItemColor       | `StacColor`                           | The color of the selected item.                                                |
+| unselectedItemColor     | `StacColor`                           | The color of the unselected items.                                             |
 | selectedFontSize        | `double`                              | The font size of the selected item. Defaults to `14.0`.                        |
 | unselectedFontSize      | `double`                              | The font size of the unselected items. Defaults to `12.0`.                     |
-| selectedLabelStyle      | `StacTextStyle?`                     | The text style of the selected item label.                                     |
-| unselectedLabelStyle    | `StacTextStyle?`                     | The text style of the unselected item labels.                                  |
-| showSelectedLabels      | `bool?`                               | Whether to show labels for selected items.                                     |
-| showUnselectedLabels    | `bool?`                               | Whether to show labels for unselected items.                                   |
-| enableFeedback          | `bool?`                               | Whether to enable feedback for taps.                                           |
-| landscapeLayout         | `BottomNavigationBarLandscapeLayout?` | The layout of the bottom navigation bar in landscape mode.                     |
+| selectedLabelStyle      | `StacTextStyle`                       | The text style of the selected item label.                                     |
+| unselectedLabelStyle    | `StacTextStyle`                       | The text style of the unselected item labels.                                  |
+| showSelectedLabels      | `bool`                                | Whether to show labels for selected items.                                     |
+| showUnselectedLabels    | `bool`                                | Whether to show labels for unselected items.                                   |
+| enableFeedback          | `bool`                                | Whether to enable feedback for taps.                                           |
+| landscapeLayout         | `StacBottomNavigationBarLandscapeLayout` | The layout of the bottom navigation bar in landscape mode.                     |
 
 ## DefaultBottomNavigationController
 
@@ -36,8 +36,8 @@ DefaultBottomNavigationController is an inherited widget that is used to share a
 | Property      | Type                    | Description                                                                 |
 |---------------|-------------------------|-----------------------------------------------------------------------------|
 | length        | `int`                   | The number of items in the bottom navigation bar.                           |
-| initialIndex  | `int?`                  | The initial index of the selected item.                                     |
-| child         | `Map<String, dynamic>`  | The widget below this widget in the tree.                                   |
+| initialIndex  | `int`                   | The initial index of the selected item.                                     |
+| child         | `StacWidget`            | The widget below this widget in the tree.                                   |
 
 
 ## BottomNavigationBarItem
@@ -49,11 +49,11 @@ To know more about the BottomNavigationBarItem widget in Flutter, refer to the [
 
 | Property        | Type                    | Description                                                                 |
 |-----------------|-------------------------|-----------------------------------------------------------------------------|
-| icon            | `Map<String, dynamic>`  | The icon to display in the bottom navigation bar item.                      |
+| icon            | `StacWidget`            | The icon to display in the bottom navigation bar item.                      |
 | label           | `String`                | The label to display in the bottom navigation bar item.                     |
-| activeIcon      | `Map<String, dynamic>?` | The icon to display when the item is active.                                |
-| backgroundColor | `String?`               | The background color of the bottom navigation bar item.                     |
-| tooltip         | `String?`               | The tooltip text to display when the item is long-pressed.                  |
+| activeIcon      | `StacWidget`            | The icon to display when the item is active.                                |
+| backgroundColor | `StacColor`             | The background color of the bottom navigation bar item.                     |
+| tooltip         | `String`                | The tooltip text to display when the item is long-pressed.                  |
 
 ## BottomNavigationView
 
@@ -63,12 +63,62 @@ A page view that displays the widget which corresponds to the currently selected
 
 | Property | Type                          | Description                                      |
 |----------|-------------------------------|--------------------------------------------------|
-| children | `List<Map<String, dynamic>>`  | The widgets below this widget in the tree.       |
+| children | `List<StacWidget>`            | The widgets below this widget in the tree.       |
 
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDefaultBottomNavigationController(
+  length: 3,
+  child: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Bottom Navigation Screen'),
+    ),
+    body: StacBottomNavigationView(
+      children: [
+        StacCenter(
+          child: StacText(
+            data: 'Home',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Search',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Profile',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+      ],
+    ),
+    bottomNavigationBar: StacBottomNavigationBar(
+      items: [
+        StacBottomNavigationBarItem(
+          label: 'Home',
+          icon: StacIcon(iconType: 'material', icon: 'home'),
+        ),
+        StacBottomNavigationBarItem(
+          label: 'Search',
+          icon: StacIcon(iconType: 'material', icon: 'search'),
+        ),
+        StacBottomNavigationBarItem(
+          label: 'Profile',
+          icon: StacIcon(iconType: 'material', icon: 'account_circle'),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "defaultBottomNavigationController",
   "length": 3,
@@ -151,3 +201,4 @@ A page view that displays the widget which corresponds to the currently selected
   }
 }
 ```
+</CodeGroup>

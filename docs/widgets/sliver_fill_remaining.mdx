@@ -1,0 +1,54 @@
+---
+title: "SliverFillRemaining"
+description: "Documentation for SliverFillRemaining"
+---
+
+The Stac SliverFillRemaining allows you to build a Flutter `SliverFillRemaining`
+widget using JSON.
+
+It fills the remaining space in a `CustomScrollView` after all preceding slivers
+have been laid out. This widget is commonly used for empty states, footers,
+or centered content.
+
+To learn more about the SliverFillRemaining widget in Flutter, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/SliverFillRemaining-class.html).
+
+## Properties
+
+| Property        | Type                    | Description                                                                 |
+|-----------------|-------------------------|-----------------------------------------------------------------------------|
+| child           | `Map<String, dynamic>?` | The widget to display in the remaining space.                               |
+| hasScrollBody   | `bool`                  | Whether the child has a scrollable body. Defaults to `true`.                |
+| fillOverscroll  | `bool`                  | Whether the sliver should stretch to fill the overscroll area. Defaults to `false`. |
+
+> **Note**
+>
+> `SliverFillRemaining` is typically placed **at the end** of a `CustomScrollView`
+> to ensure it fills the remaining viewport space correctly.
+
+## Example
+
+<CodeGroup>
+```dart Dart
+const StacSliverFillRemaining(
+  hasScrollBody: false,
+  child: StacCenter(
+    child: StacText(data: 'This content fills the remaining space'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "sliverFillRemaining",
+  "hasScrollBody": false,
+  "child": {
+    "type": "center",
+    "child": {
+      "type": "text",
+      "data": "This content fills the remaining space"
+    }
+  }
+}
+```
+</CodeGroup>

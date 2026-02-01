@@ -8,20 +8,31 @@ To know more about the icon widget in Flutter, refer to the [official documentat
 
 ## Properties
 
-| Property      | Type             | Description                                                         |
-|---------------|------------------|---------------------------------------------------------------------|
-| icon          | `String`         | The name of the icon to display.                                    |
-| iconType      | `IconType`       | The type of the icon (material, cupertino). Defaults to `material`. |
-| size          | `double?`        | The size of the icon.                                               |
-| color         | `String?`        | The color of the icon.                                              |
-| semanticLabel | `String?`        | The semantic label for the icon.                                    |
-| textDirection | `TextDirection?` | The text direction for the icon.                                    |
+| Property      | Type                  | Description                                                         |
+|---------------|-----------------------|---------------------------------------------------------------------|
+| icon          | `String`              | The name of the icon to display.                                    |
+| iconType      | `StacIconType`        | The type of the icon (material, cupertino). Defaults to `material`. |
+| size          | `double`              | The size of the icon.                                               |
+| color         | `StacColor`           | The color of the icon.                                              |
+| semanticLabel | `String`              | The semantic label for the icon.                                    |
+| textDirection | `StacTextDirection`   | The text direction for the icon.                                    |
 
 > Note: To check the available icons, refer to  [Icon utils](https://github.com/StacDev/stac/blob/dev/packages/stac/lib/src/utils/icon_utils.dart).
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacIcon(
+  icon: 'home',
+  size: 24.0,
+  color: StacColors.black,
+  semanticLabel: 'Home Icon',
+  textDirection: StacTextDirection.ltr,
+)
+```
+
+```json JSON
 {
   "type": "icon",
   "icon": "home",
@@ -31,3 +42,4 @@ To know more about the icon widget in Flutter, refer to the [official documentat
   "textDirection": "ltr"
 }
 ```
+</CodeGroup>

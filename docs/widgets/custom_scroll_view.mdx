@@ -9,22 +9,38 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/CustomScrol
 
 ## Properties
 
-| Property                | Type                                | Description                                                                                                         |
-|-------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| slivers                 | `List<Map<String, dynamic>>`        | The slivers to place inside the viewport.                                                                           |
-| scrollDirection         | `Axis`                              | The axis along which the scroll view scrolls. Defaults to `Axis.vertical`.                                          |
-| reverse                 | `bool`                              | Whether the scroll view scrolls in the reverse direction. Defaults to `false`.                                      |
-| padding                 | `StacEdgeInsets?`                   | The amount of space by which to inset the child.                                                                    |
-| primary                 | `bool?`                             | Whether this is the primary scroll view associated with the parent.                                                 |
-| physics                 | `StacScrollPhysics?`                | How the scroll view should respond to user input.                                                                   |
-| dragStartBehavior       | `DragStartBehavior`                 | Determines the way that drag start behavior is handled. Defaults to `DragStartBehavior.start`.                      |
-| clipBehavior            | `Clip`                              | The content will be clipped (or not) according to this option. Defaults to `Clip.hardEdge`.                         |
-| restorationId           | `String?`                           | The restoration ID to save and restore the state of the scroll view.                                                |
-| keyboardDismissBehavior | `ScrollViewKeyboardDismissBehavior` | Configures how the scroll view should dismiss the keyboard. Defaults to `ScrollViewKeyboardDismissBehavior.manual`. |
+| Property                | Type                                    | Description                                                                                                         |
+|-------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| slivers                 | `List<StacWidget>`                      | The slivers to place inside the viewport.                                                                           |
+| scrollDirection         | `StacAxis`                              | The axis along which the scroll view scrolls. Defaults to `Axis.vertical`.                                          |
+| reverse                 | `bool`                                  | Whether the scroll view scrolls in the reverse direction. Defaults to `false`.                                      |
+| padding                 | `StacEdgeInsets`                        | The amount of space by which to inset the child.                                                                    |
+| primary                 | `bool`                                  | Whether this is the primary scroll view associated with the parent.                                                 |
+| physics                 | `StacScrollPhysics`                     | How the scroll view should respond to user input.                                                                   |
+| dragStartBehavior       | `StacDragStartBehavior`                 | Determines the way that drag start behavior is handled. Defaults to `DragStartBehavior.start`.                      |
+| clipBehavior            | `StacClip`                              | The content will be clipped (or not) according to this option. Defaults to `Clip.hardEdge`.                         |
+| restorationId           | `String`                                | The restoration ID to save and restore the state of the scroll view.                                                |
+| keyboardDismissBehavior | `StacScrollViewKeyboardDismissBehavior` | Configures how the scroll view should dismiss the keyboard. Defaults to `ScrollViewKeyboardDismissBehavior.manual`. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCustomScrollView(
+  slivers: [
+    StacSliverAppBar(
+      title: StacText(data: 'SliverAppBar'),
+      leading: StacIconButton(
+        icon: StacIcon(iconType: 'material', icon: 'menu'),
+        onPressed: {},
+      ),
+      backgroundColor: 'primary',
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "customScrollView",
   "slivers": [
@@ -43,8 +59,9 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/CustomScrol
         },
         "onPressed": {}
       },
-      "backgroundColor": "primary",
+      "backgroundColor": "primary"
     }
   ]
 }
 ```
+</CodeGroup>

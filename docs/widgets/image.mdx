@@ -9,36 +9,126 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 
 ## Properties
 
-| Property    | Type             | Description                                                                                               |
-|-------------|------------------|-----------------------------------------------------------------------------------------------------------|
-| `src`       | `String`         | The source of the image. For example, a URL for network images, file path for file images, or asset path. |
-| `alignment` | `StacAlignment` | The alignment of the image within its container. Defaults to `StacAlignment.center`.                     |
-| `imageType` | `StacImageType` | The type of the image source: `file`, `network`, or `asset`. Defaults to `StacImageType.network`.        |
-| `color`     | `String?`        | The color to blend with the image, provided in hex format (e.g., `#FF0000` for red).                      |
-| `width`     | `double?`        | The width of the image in logical pixels.                                                                 |
-| `height`    | `double?`        | The height of the image in logical pixels.                                                                |
-| `fit`       | `BoxFit?`        | How the image should be inscribed into the space allocated during layout.                                 |
+| Property              | Type                  | Description                                                                 |
+|-----------------------|-----------------------|-----------------------------------------------------------------------------|
+| `src`                 | `String`              | The source path or URL of the image to display.                             |
+| `alignment`           | `StacAlignment`       | How to align the image within its bounds.                                   |
+| `imageType`           | `StacImageType`       | The type of image source: `asset`, `network`, or `file`.                    |
+| `color`               | `StacColor`           | A color filter to apply to the image.                                       |
+| `width`               | `double`              | The width of the image in logical pixels.                                   |
+| `height`              | `double`              | The height of the image in logical pixels.                                  |
+| `fit`                 | `StacBoxFit`          | How the image should be inscribed into the space allocated during layout.   |
+| `repeat`              | `StacImageRepeat`     | How the image should be repeated if it doesn't fill its layout bounds.      |
+| `filterQuality`       | `StacFilterQuality`   | The quality level for image filtering operations.                           |
+| `semanticLabel`       | `String`              | A semantic description of the image for accessibility.                      |
+| `excludeFromSemantics`| `bool`                | Whether to exclude this image from semantics.                               |
 
-## Enum: StacImageType
+## Constructors
 
-| Value     | Description                                 |
-|-----------|---------------------------------------------|
-| `file`    | Load the image from a local file.           |
-| `network` | Load the image from a network URL.          |
-| `asset`   | Load the image from Flutter's asset bundle. |
+### StacImage.asset
 
-## Example JSON
+Creates an image widget that loads from Flutter's asset bundle.
 
-```json
+<CodeGroup>
+```dart Dart
+const StacImage.asset(
+  'assets/logo.png',
+  width: 200,
+  height: 100,
+  fit: StacBoxFit.cover,
+)
+```
+
+```json JSON
+{
+  "type": "image",
+  "src": "assets/logo.png",
+  "imageType": "asset",
+  "width": 200,
+  "height": 100,
+  "fit": "cover"
+}
+```
+</CodeGroup>
+
+---
+
+### StacImage.network
+
+Creates an image widget that loads from a network URL.
+
+<CodeGroup>
+```dart Dart
+const StacImage.network(
+  'https://example.com/image.png',
+  width: 200,
+  height: 100,
+  fit: StacBoxFit.contain,
+)
+```
+
+```json JSON
 {
   "type": "image",
   "src": "https://example.com/image.png",
-  "alignment": "center",
   "imageType": "network",
-  "color": "#FFFFFF",
-  "width": 200.0,
-  "height": 100.0,
+  "width": 200,
+  "height": 100,
   "fit": "contain"
 }
 ```
+</CodeGroup>
+
+---
+
+### StacImage.file
+
+Creates an image widget that loads from a local file path.
+
+<CodeGroup>
+```dart Dart
+const StacImage.file(
+  '/path/to/image.png',
+  width: 200,
+  height: 100,
+)
+```
+
+```json JSON
+{
+  "type": "image",
+  "src": "/path/to/image.png",
+  "imageType": "file",
+  "width": 200,
+  "height": 100
+}
+```
+</CodeGroup>
+
+---
+
+### StacImage (Default)
+
+The default constructor allows you to specify any image source with the `imageType` property.
+
+<CodeGroup>
+```dart Dart
+const StacImage(
+  src: 'assets/logo.png',
+  width: 200,
+  height: 100,
+  fit: StacBoxFit.cover,
+)
+```
+
+```json JSON
+{
+  "type": "image",
+  "src": "assets/logo.png",
+  "width": 200,
+  "height": 100,
+  "fit": "cover"
+}
+```
+</CodeGroup>
 

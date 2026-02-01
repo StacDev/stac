@@ -10,29 +10,54 @@ To know more about the icon button widget in Flutter, refer to the [official doc
 
 | Property       | Type                    | Description                                                                        |
 |----------------|-------------------------|------------------------------------------------------------------------------------|
-| iconSize       | `double?`               | The size of the icon inside the button.                                            |
-| padding        | `StacEdgeInsets?`      | The padding inside the button.                                                     |
-| alignment      | `StacAlignment?`       | How the icon should be aligned within the button.                                  |
-| splashRadius   | `double?`               | The radius of the splash effect.                                                   |
-| color          | `String?`               | The color to paint the icon.                                                       |
-| focusColor     | `String?`               | The color to paint the button when it has the input focus.                         |
-| hoverColor     | `String?`               | The color to paint the button when a pointer is hovering over it.                  |
-| highlightColor | `String?`               | The color to paint the button when it is pressed.                                  |
-| splashColor    | `String?`               | The color to paint the splash effect when the button is pressed.                   |
-| disabledColor  | `String?`               | The color to paint the icon when the button is disabled.                           |
-| onPressed      | `Map<String, dynamic>?` | The callback that is called when the button is tapped.                             |
+| iconSize       | `double`                | The size of the icon inside the button.                                            |
+| padding        | `StacEdgeInsets`        | The padding inside the button.                                                     |
+| alignment      | `StacAlignment`         | How the icon should be aligned within the button.                                  |
+| splashRadius   | `double`                | The radius of the splash effect.                                                   |
+| color          | `StacColor`             | The color to paint the icon.                                                       |
+| focusColor     | `StacColor`             | The color to paint the button when it has the input focus.                         |
+| hoverColor     | `StacColor`             | The color to paint the button when a pointer is hovering over it.                  |
+| highlightColor | `StacColor`             | The color to paint the button when it is pressed.                                  |
+| splashColor    | `StacColor`             | The color to paint the splash effect when the button is pressed.                   |
+| disabledColor  | `StacColor`             | The color to paint the icon when the button is disabled.                           |
+| onPressed      | `StacAction`            | The callback that is called when the button is tapped.                             |
 | autofocus      | `bool`                  | Whether the button should be focused when the page is loaded. Defaults to `false`. |
-| tooltip        | `String?`               | The text to display when the user long-presses the button.                         |
-| enableFeedback | `bool?`                 | Whether to provide acoustic and/or haptic feedback.                                |
-| constraints    | `StacBoxConstraints?`  | The constraints for the button.                                                    |
-| style          | `StacButtonStyle?`     | The style to apply to the button.                                                  |
-| isSelected     | `bool?`                 | Whether the button is selected.                                                    |
-| selectedIcon   | `Map<String, dynamic>?` | The icon to display when the button is selected.                                   |
-| icon           | `Map<String, dynamic>?` | The icon to display inside the button.                                             |
+| tooltip        | `String`                | The text to display when the user long-presses the button.                         |
+| enableFeedback | `bool`                  | Whether to provide acoustic and/or haptic feedback.                                |
+| constraints    | `StacBoxConstraints`    | The constraints for the button.                                                    |
+| style          | `StacButtonStyle`       | The style to apply to the button.                                                  |
+| isSelected     | `bool`                  | Whether the button is selected.                                                    |
+| selectedIcon   | `StacWidget`            | The icon to display when the button is selected.                                   |
+| icon           | `StacWidget`            | The icon to display inside the button.                                             |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacIconButton(
+  iconSize: 24.0,
+  padding: StacEdgeInsets(left: 8.0, top: 8.0, right: 8.0, bottom: 8.0),
+  alignment: StacAlignment.center,
+  splashRadius: 20.0,
+  color: StacColors.black,
+  focusColor: StacColors.amber,
+  hoverColor: '#FF9800',
+  highlightColor: '#FF5722',
+  splashColor: '#FFEB3B',
+  disabledColor: '#BDBDBD',
+  onPressed: StacNoneAction(),
+  autofocus: false,
+  tooltip: 'Add Item',
+  enableFeedback: true,
+  constraints: StacBoxConstraints(minWidth: 48.0, minHeight: 48.0),
+  style: StacButtonStyle(backgroundColor: StacColors.amber, foregroundColor: StacColors.black),
+  isSelected: false,
+  selectedIcon: StacIcon(icon: 'check'),
+  icon: StacIcon(icon: 'add'),
+)
+```
+
+```json JSON
 {
   "type": "iconButton",
   "iconSize": 24.0,
@@ -73,3 +98,4 @@ To know more about the icon button widget in Flutter, refer to the [official doc
   }
 }
 ```
+</CodeGroup>

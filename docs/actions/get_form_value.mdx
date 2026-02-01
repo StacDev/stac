@@ -11,13 +11,17 @@ The `StacGetFormValueAction` class is used to retrieve a form value in Stac appl
 |-----------|----------|------------------------------------|
 | id        | `String` | The ID of the form field to get.   |
 
-## Example JSON
+## Example
 
-### Get Form Value Action JSON
+<CodeGroup>
+```dart Dart
+StacGetFormValueAction(id: 'username')
+```
 
-```json
+```json JSON
 {
   "actionType": "getFormValue",
   "id": "username"
 }
 ```
+</CodeGroup>

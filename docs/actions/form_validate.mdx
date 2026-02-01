@@ -7,16 +7,26 @@ The `StacFormValidateAction` class is used to validate a form in Stac applicatio
 
 ## Properties
 
-| Property    | Type                    | Description                                                                 |
-|-------------|-------------------------|-----------------------------------------------------------------------------|
-| isValid     | `Map<String, dynamic>`  | The action to perform if the form is valid.                                 |
-| isNotValid  | `Map<String, dynamic>`  | The action to perform if the form is not valid.                             |
+| Property    | Type           | Description                                                                 |
+|-------------|----------------|-----------------------------------------------------------------------------|
+| isValid     | `StacAction`   | The action to perform if the form is valid.                                 |
+| isNotValid  | `StacAction`   | The action to perform if the form is not valid.                             |
 
-## Example JSON
+## Example
 
-### Form Validate Action JSON
+<CodeGroup>
+```dart Dart
+StacFormValidateAction(
+  isValid: StacDialogAction(
+    widget: StacText(data: 'Form is valid!'),
+  ),
+  isNotValid: StacDialogAction(
+    widget: StacText(data: 'Form is not valid!'),
+  ),
+)
+```
 
-```json
+```json JSON
 {
   "actionType": "validateForm",
   "isValid": {
@@ -35,3 +45,4 @@ The `StacFormValidateAction` class is used to validate a form in Stac applicatio
   }
 }
 ```
+</CodeGroup>

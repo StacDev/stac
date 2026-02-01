@@ -8,21 +8,23 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
 <Tabs>
   <Tab title="macOS / Linux">
     ```bash
-    # Install Stac CLI
     curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
     ```
 
+    Verify installation:
+
     ```bash
-    # Verify installation
     stac --version
     ```
   </Tab>
   <Tab title="Windows">
-    ```bash
-    # Install Stac CLI
+    ```powershell
     irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
-    
-    # Verify installation
+    ```
+
+    Verify installation:
+
+    ```powershell
     stac --version
     ```
   </Tab>
@@ -47,25 +49,21 @@ Before using most CLI commands, you'll need to authenticate with Stac Cloud.
 
 ### Login
 
+This opens your browser for OAuth authentication. Your credentials are securely stored locally.
+
 ```bash
-# Authenticate with Google OAuth
-#
-# This opens your browser for OAuth authentication
-# Your credentials are securely stored locally
 stac login
 ```
 
 ### Check Status
 
 ```bash
-# Check your authentication status
 stac status
 ```
 
 ### Logout
 
 ```bash
-# Clear stored authentication tokens
 stac logout
 ```
 
@@ -74,7 +72,6 @@ stac logout
 Use this to set up Stac in an existing Flutter/Dart project. It links your local app to a Stac Cloud project and scaffolds required files.
 
 ```bash
-# Initialize Stac in the current project
 stac init
 ```
 
@@ -97,21 +94,29 @@ stac init
 └── pubspec.yaml
 ```
 
-## Building Widgets
-
 ### Convert Dart to JSON
 
+Build all widgets in current project:
+
 ```bash
-# Build all widgets in current project
 stac build
+```
 
-# Build specific project directory
+Build specific project directory:
+
+```bash
 stac build --project /path/to/project
+```
 
-# Build with validation (enabled by default)
+Build with validation (enabled by default):
+
+```bash
 stac build --validate
+```
 
-# Build with verbose output
+Build with verbose output:
+
+```bash
 stac build --verbose
 ```
 
@@ -125,21 +130,29 @@ stac build --verbose
 
 The build command converts Stac widget definitions from the `stac/` folder into JSON format in the `build/` folder.
 
-## Deployment
-
 ### Deploy to Stac Cloud
 
+Build and deploy to Stac Cloud:
+
 ```bash
-# Build and deploy to Stac Cloud
 stac deploy
+```
 
-# Deploy specific project directory
+Deploy specific project directory:
+
+```bash
 stac deploy --project /path/to/project
+```
 
-# Skip build and deploy existing files
+Skip build and deploy existing files:
+
+```bash
 stac deploy --skip-build
+```
 
-# Deploy with verbose output
+Deploy with verbose output:
+
+```bash
 stac deploy --verbose
 ```
 
@@ -155,15 +168,17 @@ stac deploy --verbose
   By default, `stac deploy` automatically runs `stac build` before deploying. Use `--skip-build` to deploy existing build files without rebuilding.
 </Note>
 
-## Cloud Project Management
-
 ### List Projects
 
-```bash
-# List all your Stac Cloud projects
-stac project list
+List all your Stac Cloud projects:
 
-# Output as JSON format
+```bash
+stac project list
+```
+
+Output as JSON format:
+
+```bash
 stac project list --json
 ```
 
@@ -176,34 +191,41 @@ The list command shows:
 ### Create New Project
 
 ```bash
-# Create a new project on Stac Cloud
 stac project create --name "My App" --description "My SDUI app"
+```
 
-# Short form
+Short form:
+
+```bash
 stac project create -n "My App" -d "My SDUI app"
 ```
 
 After creating a project, run `stac init` to initialize it locally.
 
-## Development Workflow
-
 ### Typical Workflow
 
+1. Authenticate with Stac Cloud (one-time):
+
 ```bash
-# 1. Authenticate with Stac Cloud (one-time)
 stac login
+```
 
-# 2. List available projects
+2. List available projects:
+
+```bash
 stac project list
+```
 
-# 3. Initialize a project in your Flutter/Dart app
+3. Initialize a project in your Flutter/Dart app:
+
+```bash
 cd your-flutter-project
 stac init
+```
 
-# 4. Create your widget definitions in stac/ folder
-# Edit stac/your_screen.dart
+4. Create your widget definitions in the `stac/` folder, then deploy:
 
-# 5. Deploy to Stac Cloud
+```bash
 stac deploy
 ```
 

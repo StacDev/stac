@@ -14,17 +14,27 @@ To learn more about the `Placeholder` widget, refer to the [official Flutter doc
 
 | Property         | Type                    | Description                                                                                             |
 |------------------|-------------------------|---------------------------------------------------------------------------------------------------------|
-| `color`          | `String?`               | The hex color to paint behind the child. Defaults to `#455A64` (Blue Grey 700).                         |
-| `strokeWidth`    | `double?`               | The width of the lines used to draw the placeholder box. Defaults to `2.0`.                             |
-| `fallbackWidth`  | `double?`               | The width to use when the placeholder is in a situation with an unbounded width. Defaults to `400.0`.   |
-| `fallbackHeight` | `double?`               | The height to use when the placeholder is in a situation with an unbounded height. Defaults to `400.0`. |
-| `child`          | `Map<String, dynamic>?` | The widget to be displayed inside the placeholder box.                                                  |
+| `color`          | `StacColor`             | The hex color to paint behind the child. Defaults to `#455A64` (Blue Grey 700).                         |
+| `strokeWidth`    | `double`                | The width of the lines used to draw the placeholder box. Defaults to `2.0`.                             |
+| `fallbackWidth`  | `double`                | The width to use when the placeholder is in a situation with an unbounded width. Defaults to `400.0`.   |
+| `fallbackHeight` | `double`                | The height to use when the placeholder is in a situation with an unbounded height. Defaults to `400.0`. |
+| `child`          | `StacWidget`            | The widget to be displayed inside the placeholder box.                                                  |
 
 ---
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacPlaceholder(
+  color: '#455A64',
+  strokeWidth: 2.0,
+  fallbackWidth: 400.0,
+  fallbackHeight: 400.0,
+)
+```
+
+```json JSON
 {
   "type": "placeholder",
   "color": "#455A64",
@@ -33,4 +43,5 @@ To learn more about the `Placeholder` widget, refer to the [official Flutter doc
   "fallbackHeight": 400.0
 }
 ```
+</CodeGroup>
 

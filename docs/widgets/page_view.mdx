@@ -10,24 +10,59 @@ To know more about the PageView widget in Flutter, refer to the [official docume
 
 | Property               | Type                         | Description                                                                   |
 |------------------------|------------------------------|-------------------------------------------------------------------------------|
-| scrollDirection        | `Axis`                       | The axis along which the page view scrolls. Defaults to `Axis.horizontal`.    |
+| scrollDirection        | `StacAxis`                   | The axis along which the page view scrolls. Defaults to `Axis.horizontal`.    |
 | reverse                | `bool`                       | Whether the page view scrolls in the reverse direction. Defaults to `false`.  |
-| physics                | `StacScrollPhysics?`        | The physics for the scroll view.                                              |
+| physics                | `StacScrollPhysics`          | The physics for the scroll view.                                              |
 | pageSnapping           | `bool`                       | Whether the page view should snap to page boundaries. Defaults to `true`.     |
-| onPageChanged          | `Map<String, dynamic>?`      | The callback that is called when the page changes.                            |
-| dragStartBehavior      | `DragStartBehavior`          | The drag start behavior. Defaults to `DragStartBehavior.start`.               |
+| onPageChanged          | `StacAction`                 | The callback that is called when the page changes.                            |
+| dragStartBehavior      | `StacDragStartBehavior`      | The drag start behavior. Defaults to `DragStartBehavior.start`.               |
 | allowImplicitScrolling | `bool`                       | Whether to allow implicit scrolling. Defaults to `false`.                     |
-| restorationId          | `String?`                    | The restoration ID to save and restore the scroll offset.                     |
-| clipBehavior           | `Clip`                       | The clip behavior of the page view. Defaults to `Clip.hardEdge`.              |
+| restorationId          | `String`                     | The restoration ID to save and restore the scroll offset.                     |
+| clipBehavior           | `StacClip`                   | The clip behavior of the page view. Defaults to `Clip.hardEdge`.              |
 | padEnds                | `bool`                       | Whether to pad the ends of the page view. Defaults to `true`.                 |
 | initialPage            | `int`                        | The initial page to show. Defaults to `0`.                                    |
 | keepPage               | `bool`                       | Whether to save the current page. Defaults to `true`.                         |
 | viewportFraction       | `double`                     | The fraction of the viewport that each page should occupy. Defaults to `1.0`. |
-| children               | `List<Map<String, dynamic>>` | The widgets below this widget in the tree. Defaults to an empty list.         |
+| children               | `List<StacWidget>`           | The widgets below this widget in the tree. Defaults to an empty list.         |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacPageView(
+  children: [
+    StacContainer(
+      color: StacColors.grey,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 1',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColors.orange,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 2',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColors.grey,
+      child: StacCenter(
+        child: StacText(
+          data: 'Page 3',
+          style: StacTextStyle(fontSize: 23, fontWeight: StacFontWeight.w400),
+        ),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "pageView",
   "children": [
@@ -79,3 +114,4 @@ To know more about the PageView widget in Flutter, refer to the [official docume
   ]
 }
 ```
+</CodeGroup>

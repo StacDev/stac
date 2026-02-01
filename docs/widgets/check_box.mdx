@@ -8,27 +8,46 @@ To know more about the CheckBox widget in Flutter, refer to the [official docume
 
 ## Properties
 
-| Property              | Type                     | Description                                                                                        |
-|-----------------------|--------------------------|----------------------------------------------------------------------------------------------------|
-| id                    | `String?`                | The identifier for the checkbox.                                                                   |
-| value                 | `bool?`                  | The current value of the checkbox.                                                                 |
-| tristate              | `bool`                   | Whether this checkbox is in a tristate mode. Defaults to `false`.                                  |
-| onChanged             | `Map<String, dynamic>?`  | The callback that is called when the value changes.                                                |
-| mouseCursor           | `StacMouseCursor?`      | The cursor for a mouse pointer when it enters or is hovering over the checkbox.                    |
-| activeColor           | `String?`                | The color to use when this checkbox is checked.                                                    |
-| fillColor             | `StacMaterialColor?`    | The color to use for the fill of the checkbox.                                                     |
-| checkColor            | `String?`                | The color to use for the check icon.                                                               |
-| focusColor            | `String?`                | The color to use for the checkbox's focus color.                                                   |
-| hoverColor            | `String?`                | The color to use for the checkbox's hover color.                                                   |
-| overlayColor          | `StacMaterialColor?`    | The color to use for the checkbox's overlay color.                                                 |
-| splashRadius          | `double?`                | The splash radius of the checkbox's tap target.                                                    |
-| materialTapTargetSize | `MaterialTapTargetSize?` | Configures the minimum size of the tap target.                                                     |
-| autofocus             | `bool`                   | Whether this checkbox should focus itself if nothing else is already focused. Defaults to `false`. |
-| isError               | `bool`                   | Whether this checkbox is in an error state. Defaults to `false`.                                   |
+| Property              | Type                        | Description                                                                                        |
+|-----------------------|-----------------------------|----------------------------------------------------------------------------------------------------| 
+| id                    | `String`                    | The identifier for the checkbox.                                                                   |
+| value                 | `bool`                      | The current value of the checkbox.                                                                 |
+| tristate              | `bool`                      | Whether this checkbox is in a tristate mode. Defaults to `false`.                                  |
+| onChanged             | `StacAction`                | The callback that is called when the value changes.                                                |
+| mouseCursor           | `StacMouseCursor`           | The cursor for a mouse pointer when it enters or is hovering over the checkbox.                    |
+| activeColor           | `StacColor`                 | The color to use when this checkbox is checked.                                                    |
+| fillColor             | `StacMaterialColor`         | The color to use for the fill of the checkbox.                                                     |
+| checkColor            | `StacColor`                 | The color to use for the check icon.                                                               |
+| focusColor            | `StacColor`                 | The color to use for the checkbox's focus color.                                                   |
+| hoverColor            | `StacColor`                 | The color to use for the checkbox's hover color.                                                   |
+| overlayColor          | `StacMaterialColor`         | The color to use for the checkbox's overlay color.                                                 |
+| splashRadius          | `double`                    | The splash radius of the checkbox's tap target.                                                    |
+| materialTapTargetSize | `StacMaterialTapTargetSize` | Configures the minimum size of the tap target.                                                     |
+| autofocus             | `bool`                      | Whether this checkbox should focus itself if nothing else is already focused. Defaults to `false`. |
+| isError               | `bool`                      | Whether this checkbox is in an error state. Defaults to `false`.                                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCheckBox(
+  id: 'checkbox_1',
+  value: true,
+  tristate: false,
+  mouseCursor: StacMouseCursor.click,
+  activeColor: StacColors.red,
+  fillColor: StacMaterialColor(color: StacColors.green),
+  checkColor: StacColors.blue,
+  focusColor: StacColors.yellow,
+  hoverColor: StacColors.pink,
+  splashRadius: 20.0,
+  materialTapTargetSize: StacMaterialTapTargetSize.padded,
+  autofocus: true,
+  isError: false,
+)
+```
+
+```json JSON
 {
   "type": "checkBox",
   "id": "checkbox_1",
@@ -49,3 +68,4 @@ To know more about the CheckBox widget in Flutter, refer to the [official docume
   "isError": false
 }
 ```
+</CodeGroup>

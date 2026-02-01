@@ -14,9 +14,28 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverPaddi
 | padding  | `Map<String, dynamic>` | The amount of space by which to inset the child. |
 | sliver   | `Map<String, dynamic>` | The sliver widget inside the padding.            |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSliverPadding(
+  padding: StacEdgeInsets.all(16.0),
+  sliver: StacSliverToBoxAdapter(
+    child: StacContainer(
+      height: 150,
+      color: StacColors.green,
+      child: StacCenter(
+        child: StacText(
+          data: 'I am a Box inside a SliverPadding!',
+          style: StacTextStyle(color: StacColors.white, fontWeight: StacFontWeight.bold),
+        ),
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "sliverPadding",
   "padding": 16.0,
@@ -41,3 +60,4 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverPaddi
   }
 }
 ```
+</CodeGroup>

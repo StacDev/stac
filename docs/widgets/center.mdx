@@ -10,13 +10,20 @@ To know more about the center widget in Flutter, refer to the [official document
 
 | Property     | Type                    | Description                                         |
 |--------------|-------------------------|-----------------------------------------------------|
-| widthFactor  | `double?`               | The factor by which to multiply the child's width.  |
-| heightFactor | `double?`               | The factor by which to multiply the child's height. |
-| child        | `Map<String, dynamic>?` | The widget to display inside the center.            |
+| widthFactor  | `double`                | The factor by which to multiply the child's width.  |
+| heightFactor | `double`                | The factor by which to multiply the child's height. |
+| child        | `StacWidget`            | The widget to display inside the center.            |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCenter(
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "center",
   "child": {
@@ -25,3 +32,4 @@ To know more about the center widget in Flutter, refer to the [official document
   }
 }
 ```
+</CodeGroup>

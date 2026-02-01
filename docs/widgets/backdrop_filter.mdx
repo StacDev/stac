@@ -10,10 +10,10 @@ To know more about the BackdropFilter widget in Flutter, refer to the official d
 
 | Property  | Type                   | Description                                                                                |
 |-----------|------------------------|--------------------------------------------------------------------------------------------|
-| `filter`  | `Map<String, dynamic>` | The image filter to apply to the existing painted content before painting the child.       |
-| `child`   | `Map<String, dynamic>?`| The widget to paint after applying the filter to the existing painted content.             |
+| `filter`  | `StacImageFilter`      | The image filter to apply to the existing painted content before painting the child.       |
+| `child`   | `StacWidget`           | The widget to paint after applying the filter to the existing painted content.             |
 | `enabled` | `bool`                 | Whether the filter should be applied. When false, the child is drawn without a filter. Defaults to `true`. |
-| `blendMode` | `String?` | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
+| `blendMode` | `StacBlendMode`      | The blend mode to apply when blending the filter with the existing content. Defaults to `BlendMode.srcOver`. Refer to [BlendMode](https://api.flutter.dev/flutter/dart-ui/BlendMode.html) for available values. |
 
 ## Filter Types
 
@@ -48,8 +48,8 @@ The `filter` property accepts different types of image filters. Here are the sup
 | Property  | Type                   | Description                                                     |
 |-----------|------------------------|-----------------------------------------------------------------|
 | `type`    | `String`               | Must be set to `"compose"`.                                      |
-| `inner`   | `Map<String, dynamic>` | The inner filter to apply first.                                 |
-| `outer`   | `Map<String, dynamic>` | The outer filter to apply after the inner filter.                |
+| `inner`   | `StacImageFilter`      | The inner filter to apply first.                                 |
+| `outer`   | `StacImageFilter`      | The outer filter to apply after the inner filter.                |
 
 ## Usage Recommendations
 
@@ -60,11 +60,41 @@ For best results with BackdropFilter:
 3. Include a semi-transparent container as the child of the BackdropFilter to make the effect visible
 4. Use `fit: expand` on the Stack to ensure proper sizing
 
-## Example JSON
+## Example
 
 ### Example 1: Frosted Glass Effect
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(16),
+  child: StacSizedBox(
+    height: 200,
+    width: 300,
+    child: StacStack(
+      fit: StacStackFit.expand,
+      children: [
+        StacContainer(
+          decoration: StacBoxDecoration(
+            image: StacDecorationImage(
+              src: 'https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg',
+              fit: StacBoxFit.cover,
+            ),
+          ),
+        ),
+        StacBackdropFilter(
+          filter: StacImageFilter.blur(sigmaX: 15.0, sigmaY: 15.0),
+          child: StacContainer(
+            decoration: StacBoxDecoration(color: '#80FFFFFF'),
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": {
@@ -106,10 +136,41 @@ For best results with BackdropFilter:
   }
 }
 ```
+</CodeGroup>
 
 ### Example 2: Dilate Filter Effect
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(16),
+  child: StacSizedBox(
+    height: 200,
+    width: 300,
+    child: StacStack(
+      fit: StacStackFit.expand,
+      children: [
+        StacContainer(
+          decoration: StacBoxDecoration(
+            image: StacDecorationImage(
+              src: 'https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg',
+              fit: StacBoxFit.cover,
+            ),
+          ),
+        ),
+        StacBackdropFilter(
+          filter: StacImageFilter.dilate(radiusX: 2.0, radiusY: 2.0),
+          child: StacContainer(
+            decoration: StacBoxDecoration(color: '#80FFFFFF'),
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": {
@@ -151,10 +212,44 @@ For best results with BackdropFilter:
   }
 }
 ```
+</CodeGroup>
 
 ### Example 3: Compose Filter (Blur + Dilate)
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(16),
+  child: StacSizedBox(
+    height: 200,
+    width: 300,
+    child: StacStack(
+      fit: StacStackFit.expand,
+      children: [
+        StacContainer(
+          decoration: StacBoxDecoration(
+            image: StacDecorationImage(
+              src: 'https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg',
+              fit: StacBoxFit.cover,
+            ),
+          ),
+        ),
+        StacBackdropFilter(
+          filter: StacImageFilter.compose(
+            outer: StacImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+            inner: StacImageFilter.dilate(radiusX: 2.0, radiusY: 2.0),
+          ),
+          child: StacContainer(
+            decoration: StacBoxDecoration(color: '#80FFFFFF'),
+          ),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": {
@@ -204,6 +299,7 @@ For best results with BackdropFilter:
   }
 }
 ```
+</CodeGroup>
 
 ## Common Issues and Solutions
 

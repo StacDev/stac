@@ -1,0 +1,167 @@
+---
+title: "SliverGrid"
+description: "Documentation for SliverGrid"
+---
+
+The Stac **SliverGrid** allows you to build a Flutter `SliverGrid` widget using JSON.
+It displays its children in a two-dimensional scrollable grid within a sliver
+context.
+
+To learn more about Flutter’s `SliverGrid`, refer to the
+[official documentation](https://api.flutter.dev/flutter/widgets/SliverGrid-class.html).
+
+
+## Properties
+
+| Property               | Type                          | Description                                                                 |
+|------------------------|-------------------------------|-----------------------------------------------------------------------------|
+| crossAxisCount         | `int?`                        | Number of children in the cross axis (e.g. number of columns).              |
+| mainAxisSpacing        | `double?`                     | Space between children in the main axis. Defaults to `0.0`.                 |
+| crossAxisSpacing       | `double?`                     | Space between children in the cross axis. Defaults to `0.0`.                |
+| childAspectRatio       | `double?`                     | Ratio of the cross-axis to the main-axis extent of each child. Defaults to `1.0`. |
+| mainAxisExtent         | `double?`                     | Fixed extent of each child in the main axis.                                |
+| addAutomaticKeepAlives | `bool?`                       | Whether to add automatic keep-alives for children. Defaults to `true`.      |
+| addRepaintBoundaries   | `bool?`                       | Whether to wrap children in repaint boundaries. Defaults to `true`.         |
+| addSemanticIndexes     | `bool?`                       | Whether to add semantic indexes for children. Defaults to `true`.           |
+| children               | `List<Map<String, dynamic>>?` | The list of widgets rendered as grid items.                                 |
+
+> ⚠️ **Note**
+>
+> `sliverGrid` must be placed **inside the `slivers` property of a `customScrollView`**.
+> Each child of a `sliverGrid` must be a **box widget** (for example `container`,
+> `card`, `column`, etc.), not another sliver.
+
+## Example
+
+<CodeGroup>
+```dart Dart
+const StacSliverGrid(
+  crossAxisCount: 2,
+  mainAxisSpacing: 16,
+  crossAxisSpacing: 16,
+  childAspectRatio: 1,
+  children: [
+    StacContainer(
+      color: StacColor('#4CAF50'),
+      child: StacCenter(
+        child: StacText(
+          data: 'Grid Item 1',
+          style: StacTextStyle(
+            color: StacColor('#FFFFFF'),
+            fontWeight: StacFontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColor('#4CAF50'),
+      child: StacCenter(
+        child: StacText(
+          data: 'Grid Item 2',
+          style: StacTextStyle(
+            color: StacColor('#FFFFFF'),
+            fontWeight: StacFontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColor('#4CAF50'),
+      child: StacCenter(
+        child: StacText(
+          data: 'Grid Item 3',
+          style: StacTextStyle(
+            color: StacColor('#FFFFFF'),
+            fontWeight: StacFontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+    StacContainer(
+      color: StacColor('#4CAF50'),
+      child: StacCenter(
+        child: StacText(
+          data: 'Grid Item 4',
+          style: StacTextStyle(
+            color: StacColor('#FFFFFF'),
+            fontWeight: StacFontWeight.bold,
+          ),
+        ),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "sliverGrid",
+  "crossAxisCount": 2,
+  "mainAxisSpacing": 16,
+  "crossAxisSpacing": 16,
+  "childAspectRatio": 1,
+  "children": [
+    {
+      "type": "container",
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "Grid Item 1",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "Grid Item 2",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "Grid Item 3",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "Grid Item 4",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+</CodeGroup>

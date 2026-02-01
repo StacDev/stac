@@ -37,7 +37,15 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
 
 #### Basic Tooltip
 
-```json
+<CodeGroup>
+```dart Dart
+StacTooltip(
+  message: 'This is a basic tooltip',
+  child: StacIcon(icon: 'info', size: 32),
+)
+```
+
+```json JSON
 {
   "type": "tooltip",
   "message": "This is a basic tooltip",
@@ -48,10 +56,26 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
   }
 }
 ```
+</CodeGroup>
 
 #### Styled Tooltip
 
-```json
+<CodeGroup>
+```dart Dart
+StacTooltip(
+  message: 'Custom styled tooltip',
+  preferBelow: false,
+  verticalOffset: 12,
+  decoration: StacBoxDecoration(
+    color: StacColors.green,
+    borderRadius: StacBorderRadius.all(6),
+  ),
+  textStyle: StacTextStyle(color: StacColors.white, fontSize: 14, fontWeight: StacFontWeight.bold),
+  child: StacIcon(icon: 'palette', size: 32),
+)
+```
+
+```json JSON
 {
   "type": "tooltip",
   "message": "Custom styled tooltip",
@@ -78,9 +102,22 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
   }
 }
 ```
+</CodeGroup>
+
 #### Tooltip with Delay & Duration
 
-```json
+<CodeGroup>
+```dart Dart
+StacTooltip(
+  message: 'Appears after 1s, stays 3s',
+  waitDuration: StacDuration(milliseconds: 1000),
+  showDuration: StacDuration(milliseconds: 3000),
+  exitDuration: StacDuration(milliseconds: 300),
+  child: StacIcon(icon: 'timer', size: 32),
+)
+```
+
+```json JSON
 {
   "type": "tooltip",
   "message": "Appears after 1s, stays 3s",
@@ -100,9 +137,23 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
   }
 }
 ```
+</CodeGroup>
+
 #### Tooltip on IconButton
 
-```json
+<CodeGroup>
+```dart Dart
+StacTooltip(
+  message: 'Notifications',
+  child: StacIconButton(
+    icon: StacIcon(icon: 'notifications', size: 24),
+    padding: StacEdgeInsets.all(0),
+    onPressed: StacNoneAction(),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "tooltip",
   "message": "Notifications",
@@ -125,9 +176,24 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
   }
 }
 ```
+</CodeGroup>
+
 #### Tooltip with Rich Text Message
 
-```json
+<CodeGroup>
+```dart Dart
+StacTooltip(
+  richMessage: StacTextSpan(
+    children: [
+      StacTextSpan(text: 'Bold ', style: StacTextStyle(fontWeight: StacFontWeight.bold)),
+      StacTextSpan(text: 'and normal text'),
+    ],
+  ),
+  child: StacIcon(icon: 'text_fields', size: 32),
+)
+```
+
+```json JSON
 {
   "type": "tooltip",
   "richMessage": {
@@ -151,5 +217,6 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
   }
 }
 ```
+</CodeGroup>
 
 

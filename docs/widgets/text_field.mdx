@@ -9,35 +9,47 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
 
 | Property           | Type                        | Description                                                                    |
 |--------------------|-----------------------------|--------------------------------------------------------------------------------|
-| decoration         | `StacInputDecoration?`     | The decoration to show around the text field.                                  |
+| decoration         | `StacInputDecoration`       | The decoration to show around the text field.                                  |
 | initialValue       | `String`                    | The initial value to be set in the text field.                                 |
-| keyboardType       | `StacTextInputType?`       | The type of keyboard to use for editing the text.                              |
-| textInputAction    | `TextInputAction?`          | The action button to use for the keyboard.                                     |
-| textCapitalization | `TextCapitalization`        | How the text should be capitalized.                                            |
-| style              | `StacTextStyle?`           | The style to use for the text being edited.                                    |
-| textAlign          | `TextAlign`                 | How the text should be aligned horizontally.                                   |
-| textAlignVertical  | `StacTextAlignVertical?`   | How the text should be aligned vertically.                                     |
-| textDirection      | `TextDirection?`            | The direction in which the text flows.                                         |
+| keyboardType       | `StacTextInputType`         | The type of keyboard to use for editing the text.                              |
+| textInputAction    | `StacTextInputAction`       | The action button to use for the keyboard.                                     |
+| textCapitalization | `StacTextCapitalization`    | How the text should be capitalized.                                            |
+| style              | `StacTextStyle`             | The style to use for the text being edited.                                    |
+| textAlign          | `StacTextAlign`             | How the text should be aligned horizontally.                                   |
+| textAlignVertical  | `StacTextAlignVertical`     | How the text should be aligned vertically.                                     |
+| textDirection      | `StacTextDirection`         | The direction in which the text flows.                                         |
 | readOnly           | `bool`                      | Whether the text field is read-only.                                           |
-| showCursor         | `bool?`                     | Whether to show the cursor.                                                    |
+| showCursor         | `bool`                      | Whether to show the cursor.                                                    |
 | expands            | `bool`                      | Whether the text field should expand to fill its parent.                       |
 | autofocus          | `bool`                      | Whether the text field should focus itself if nothing else is already focused. |
 | obscuringCharacter | `String`                    | The character to use when obscuring text.                                      |
-| maxLines           | `int?`                      | The maximum number of lines for the text to span.                              |
-| minLines           | `int?`                      | The minimum number of lines for the text to span.                              |
-| maxLength          | `int?`                      | The maximum number of characters to allow in the text field.                   |
+| maxLines           | `int`                       | The maximum number of lines for the text to span.                              |
+| minLines           | `int`                       | The minimum number of lines for the text to span.                              |
+| maxLength          | `int`                       | The maximum number of characters to allow in the text field.                   |
 | obscureText        | `bool`                      | Whether to hide the text being edited.                                         |
 | enableSuggestions  | `bool`                      | Whether to show input suggestions as the user types.                           |
-| enabled            | `bool?`                     | Whether the text field is enabled.                                             |
+| enabled            | `bool`                      | Whether the text field is enabled.                                             |
 | cursorWidth        | `double`                    | The width of the cursor.                                                       |
-| cursorHeight       | `double?`                   | The height of the cursor.                                                      |
-| cursorColor        | `String?`                   | The color of the cursor.                                                       |
-| hintText           | `String?`                   | The hint text to display when the text field is empty.                         |
-| inputFormatters    | `List<StacInputFormatter>` | The list of input formatters to apply to the text field.                       |
+| cursorHeight       | `double`                    | The height of the cursor.                                                      |
+| cursorColor        | `StacColor`                 | The color of the cursor.                                                       |
+| hintText           | `String`                    | The hint text to display when the text field is empty.                         |
+| inputFormatters    | `List<StacInputFormatter>`  | The list of input formatters to apply to the text field.                       |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTextField(
+  initialValue: 'Enter text here',
+  decoration: StacInputDecoration(hintText: 'Enter your name'),
+  style: StacTextStyle(color: StacColors.black, fontSize: 16.0),
+  textAlign: StacTextAlign.center,
+  obscureText: false,
+  maxLength: 50,
+)
+```
+
+```json JSON
 {
   "type": "textField",
   "initialValue": "Enter text here",
@@ -52,3 +64,5 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
   "obscureText": false,
   "maxLength": 50
 }
+```
+</CodeGroup>

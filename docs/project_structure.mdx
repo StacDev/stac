@@ -5,9 +5,10 @@ description: "Learn how a typical Stac-powered Flutter app is organized"
 
 This guide explains the overall structure of a Stac project. It covers where the UI is defined, how parsers are organized, and how themes and routes fit together.
 
+## Basic Structure
 
 ```
-├─ flutter_project
+├─ flutter_project/
 ├── lib/
 │   ├── app/                        # Feature-specific code (optional)
 │   ├── default_stac_options.dart   # Default StacOptions for Stac configuration
@@ -18,6 +19,189 @@ This guide explains the overall structure of a Stac project. It covers where the
 └── pubspec.yaml
 ```
 
-- **default_stac_options.dart** contains the StacOptions for the project.
-- **main.dart** is the entry point for the Flutter app and Stac initialization.
-- **stac/** contains the Stac widgets.
+## Key Files
+
+### default_stac_options.dart
+
+Contains the `StacOptions` configuration for your project, including project name and ID.
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+StacOptions get defaultStacOptions => StacOptions(
+  name: 'your-project-name',
+  projectId: 'your-project-id',
+  description: 'Optional project description',
+);
+```
+
+### main.dart
+
+Entry point for the Flutter app where Stac is initialized. Custom parsers are registered here:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+import 'default_stac_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Stac.initialize(
+    options: defaultStacOptions,
+    parsers: [],       // Custom widget parsers
+    actionParsers: [], // Custom action parsers
+  );
+  runApp(const MyApp());
+}
+```
+
+### stac/ folder
+
+Contains your Stac widget definitions written in Dart. Each file can contain one or more `@StacScreen` annotated functions.
+
+## Extended Structure
+
+For larger projects, here's a recommended structure:
+
+```
+├─ flutter_project/
+├── lib/
+│   ├── app/
+│   │   ├── parsers/                  # Custom widget and action parsers
+│   │   │   ├── widgets/
+│   │   │   │   └── custom_chart_parser.dart
+│   │   │   └── actions/
+│   │   │       └── analytics_action_parser.dart
+│   │   └── theme/
+│   │       └── app_theme.dart        # Theme configuration
+│   ├── default_stac_options.dart
+│   └── main.dart
+├── stac/
+│   ├── screens/                      # Organized by feature
+│   │   ├── home/
+│   │   │   └── home_screen.dart
+│   │   ├── profile/
+│   │   │   └── profile_screen.dart
+│   │   └── settings/
+│   │       └── settings_screen.dart
+│   ├── components/                   # Reusable UI components
+│   │   ├── header.dart
+│   │   └── footer.dart
+│   └── .build/                       # Generated JSON (auto-created)
+│       ├── home_screen.json
+│       ├── profile_screen.json
+│       └── settings_screen.json
+├── pubspec.lock
+└── pubspec.yaml
+```
+
+## Build Output
+
+When you run `stac build` or `stac deploy`, the Dart files are converted to JSON and placed in `stac/.build/`:
+
+```
+stac/
+├── home_screen.dart          # Your Dart source
+└── .build/
+    └── home_screen.json      # Generated JSON output
+```
+
+<Note>
+The `.build` folder is automatically created and should typically be added to `.gitignore` since it's generated from your Dart source files.
+</Note>
+
+## Custom Parsers
+
+Custom widget and action parsers extend Stac's capabilities. Place them in a dedicated folder and register them in `Stac.initialize`:
+
+```dart
+// lib/app/parsers/widgets/custom_chart_parser.dart
+import 'package:stac_framework/stac_framework.dart';
+
+class CustomChartParser extends StacParser<CustomChart> {
+  @override
+  String get type => 'customChart';
+
+  @override
+  CustomChart getModel(Map<String, dynamic> json) {
+    return CustomChart.fromJson(json);
+  }
+
+  @override
+  Widget parse(BuildContext context, CustomChart model) {
+    return MyChartWidget(data: model.data);
+  }
+}
+```
+
+```dart
+// lib/main.dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  parsers: [
+    CustomChartParser(),
+  ],
+  actionParsers: [
+    AnalyticsActionParser(),
+  ],
+);
+```
+
+## Theme Configuration
+
+Themes can be configured through Stac Cloud or locally via `StacApp`:
+
+```dart
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StacApp(
+      title: 'My App',
+      theme: StacAppTheme(name: 'light_theme'),
+      darkTheme: StacAppTheme(name: 'dark_theme'),
+      themeMode: ThemeMode.system,
+      homeBuilder: (context) => Stac(routeName: 'home_screen'),
+    );
+  }
+}
+```
+
+You can also use JSON-based themes:
+
+```dart
+StacApp(
+  theme: StacAppTheme.json(payload: myThemeJson),
+  // ...
+)
+```
+
+## Multiple Screens Organization
+
+For apps with many screens, organize by feature or route:
+
+```
+stac/
+├── auth/
+│   ├── login_screen.dart
+│   ├── signup_screen.dart
+│   └── forgot_password_screen.dart
+├── dashboard/
+│   ├── home_screen.dart
+│   └── stats_screen.dart
+└── settings/
+    ├── settings_screen.dart
+    └── profile_screen.dart
+```
+
+Each file uses the `@StacScreen` annotation:
+
+```dart
+@StacScreen(screenName: 'login')
+StacWidget loginScreen() {
+  return StacScaffold(
+    body: StacCenter(
+      child: StacText(data: 'Login'),
+    ),
+  );
+}
+```

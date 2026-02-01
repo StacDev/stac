@@ -3,99 +3,134 @@ title: "Wrap"
 description: "Documentation for Wrap"
 ---
 
-Stac wrap allows you to build the Flutter wrap widget using JSON
+The Stac Wrap allows you to build a Flutter Wrap widget using JSON.
 To know more about the wrap widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Wrap-class.html).
 
 ## Properties
 
 | Property           | Type                         | Description                                                                                                           |
 |--------------------|------------------------------|-----------------------------------------------------------------------------------------------------------------------|
-| Axis               | `Axis`                       | The direction to use as the main axis.                                                                                |
-| alignment          | `WrapAlignment`              | How the children within a run should be placed in the main axis.                                                      |
+| direction          | `StacAxis`                   | The direction to use as the main axis.                                                                                |
+| alignment          | `StacWrapAlignment`          | How the children within a run should be placed in the main axis.                                                      |
 | spacing            | `double`                     | How much space to place between children in a run in the main axis.                                                   |
-| runAlignment       | `WrapAlignment`              | How the runs themselves should be placed in the cross axis.                                                           |
+| runAlignment       | `StacWrapAlignment`          | How the runs themselves should be placed in the cross axis.                                                           |
 | runSpacing         | `double`                     | How much space to place between the runs themselves in the cross axis.                                                |
-| crossAxisAlignment | `WrapCrossAxisAlignment`     | How the children within a run should be aligned relative to each other in the cross axis.                             |
-| textDirection      | `TextDirection`              | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
-| verticalDirection  | `VerticalDirection`          | Determines the order to lay children out vertically and how to interpret start and end in the vertical direction.     |
-| clipBehavior       | `Clip`                       | The content will be clipped (or not) according to this option.                                                        | 
-| children           | `List<Map<String, dynamic>>` | The widgets below this widget in the tree.                                                                            |
+| crossAxisAlignment | `StacWrapCrossAlignment`     | How the children within a run should be aligned relative to each other in the cross axis.                             |
+| textDirection      | `StacTextDirection`          | Determines the order to lay children out horizontally and how to interpret start and end in the horizontal direction. |
+| verticalDirection  | `StacVerticalDirection`      | Determines the order to lay children out vertically and how to interpret start and end in the vertical direction.     |
+| clipBehavior       | `StacClip`                   | The content will be clipped (or not) according to this option.                                                        | 
+| children           | `List<StacWidget>`           | The widgets below this widget in the tree.                                                                            |
 
-## Example JSON
+## Example
 
-```json
-{
-      "type": "wrap",
-      "spacing": 8.0,
-      "runSpacing": 4.0,
-      "children": [
-        {
-          "type": "container",
-          "color": "#FFCDD2",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "1",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#F8BBD0",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "2",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#E1BEE7",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "3",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-        {
-          "type": "container",
-          "color": "#D1C4E9",
-          "width": 100,
-          "height": 100,
-          "child": {
-            "type": "center",
-            "child": {
-              "type": "text",
-              "data": "4",
-              "style": {
-                "color": "#FFFFFF"
-              }
-            }
-          }
-        },
-      ]
-    }
+<CodeGroup>
+```dart Dart
+StacWrap(
+  spacing: 8.0,
+  runSpacing: 4.0,
+  children: [
+    StacContainer(
+      color: StacColors.red,
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '1', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: StacColors.pink,
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '2', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: StacColors.purple,
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '3', style: StacTextStyle(color: StacColors.white))),
+    ),
+    StacContainer(
+      color: StacColors.deepPurple,
+      width: 100,
+      height: 100,
+      child: StacCenter(child: StacText(data: '4', style: StacTextStyle(color: StacColors.white))),
+    ),
+  ],
+)
 ```
+
+```json JSON
+{
+  "type": "wrap",
+  "spacing": 8.0,
+  "runSpacing": 4.0,
+  "children": [
+    {
+      "type": "container",
+      "color": "#FFF44336",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "1",
+          "style": {
+            "color": "#FFFFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#FFE91E63",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "2",
+          "style": {
+            "color": "#FFFFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#FF9C27B0",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "3",
+          "style": {
+            "color": "#FFFFFFFF"
+          }
+        }
+      }
+    },
+    {
+      "type": "container",
+      "color": "#FF673AB7",
+      "width": 100,
+      "height": 100,
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "4",
+          "style": {
+            "color": "#FFFFFFFF"
+          }
+        }
+      }
+    }
+  ]
+}
+```
+</CodeGroup>
 
 
 

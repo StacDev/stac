@@ -44,7 +44,17 @@ When any individual border side is specified (`top`, `right`, `bottom`, or `left
 
 ### Uniform Border (All Sides)
 
-```json
+<CodeGroup>
+```dart Dart
+StacBorder(
+  color: StacColors.red,
+  width: 2.0,
+  borderStyle: StacBorderStyle.solid,
+  strokeAlign: 0.0,
+)
+```
+
+```json JSON
 {
   "border": {
     "color": "#FF0000",
@@ -54,10 +64,21 @@ When any individual border side is specified (`top`, `right`, `bottom`, or `left
   }
 }
 ```
+</CodeGroup>
 
 ### Individual Border Sides
 
-```json
+<CodeGroup>
+```dart Dart
+StacBorder(
+  top: StacBorderSide(color: StacColors.red, width: 2.0, style: StacBorderStyle.solid, strokeAlign: 0.0),
+  right: StacBorderSide(color: StacColors.green, width: 1.0, style: StacBorderStyle.solid),
+  bottom: StacBorderSide(color: StacColors.blue, width: 3.0, style: StacBorderStyle.solid),
+  left: StacBorderSide(color: StacColors.yellow, width: 1.5, style: StacBorderStyle.solid),
+)
+```
+
+```json JSON
 {
   "border": {
     "top": {
@@ -84,12 +105,21 @@ When any individual border side is specified (`top`, `right`, `bottom`, or `left
   }
 }
 ```
+</CodeGroup>
 
 ### Partial Border Sides
 
 You can specify only some sides, and the others will default to `BorderSide.none`:
 
-```json
+<CodeGroup>
+```dart Dart
+StacBorder(
+  top: StacBorderSide(color: StacColors.red, width: 2.0, style: StacBorderStyle.solid),
+  bottom: StacBorderSide(color: StacColors.blue, width: 2.0, style: StacBorderStyle.solid),
+)
+```
+
+```json JSON
 {
   "border": {
     "top": {
@@ -105,10 +135,35 @@ You can specify only some sides, and the others will default to `BorderSide.none
   }
 }
 ```
+</CodeGroup>
 
 ### Complete Container Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacContainer(
+  width: 200,
+  height: 100,
+  decoration: StacBoxDecoration(
+    color: StacColors.grey,
+    border: StacBorder(
+      top: StacBorderSide(color: StacColors.red, width: 3.0, style: StacBorderStyle.solid),
+      right: StacBorderSide(color: StacColors.green, width: 2.0, style: StacBorderStyle.solid),
+      bottom: StacBorderSide(color: StacColors.blue, width: 3.0, style: StacBorderStyle.solid),
+      left: StacBorderSide(color: StacColors.yellow, width: 2.0, style: StacBorderStyle.solid),
+    ),
+    borderRadius: StacBorderRadius(topLeft: 8.0, topRight: 8.0, bottomLeft: 8.0, bottomRight: 8.0),
+  ),
+  child: StacCenter(
+    child: StacText(
+      data: 'Custom Borders',
+      style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.bold),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "container",
   "width": 200,
@@ -157,6 +212,7 @@ You can specify only some sides, and the others will default to `BorderSide.none
   }
 }
 ```
+</CodeGroup>
 
 ## See Also
 

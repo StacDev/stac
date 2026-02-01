@@ -10,13 +10,13 @@ To know more about navigation in Flutter, refer to the [official documentation](
 
 | Property         | Type                    | Description                                                                 |
 |------------------|-------------------------|-----------------------------------------------------------------------------|
-| request          | `StacNetworkRequest?`  | The network request to perform before navigation.                           |
-| widgetJson       | `Map<String, dynamic>?` | The JSON representation of the widget to navigate to.                       |
-| assetPath        | `String?`               | The asset path of the widget to navigate to.                                |
-| routeName        | `String?`               | The name of the route to navigate to.                                       |
-| navigationStyle  | `NavigationStyle?`      | The style of navigation (e.g., push, pop, pushReplacement, etc.).           |
-| result           | `Map<String, dynamic>?` | The result to return when popping the route.                                |
-| arguments        | `Map<String, dynamic>?` | The arguments to pass to the route.                                         |
+| request          | `StacNetworkRequest`    | The network request to perform before navigation.                           |
+| widgetJson       | `Map<String, dynamic>`  | The JSON representation of the widget to navigate to.                       |
+| assetPath        | `String`                | The asset path of the widget to navigate to.                                |
+| routeName        | `String`                | The name of the route to navigate to.                                       |
+| navigationStyle  | `NavigationStyle`       | The style of navigation (e.g., push, pop, pushReplacement, etc.).           |
+| result           | `Map<String, dynamic>`  | The result to return when popping the route.                                |
+| arguments        | `Map<String, dynamic>`  | The arguments to pass to the route.                                         |
 
 
 ### NavigationStyle
@@ -34,11 +34,22 @@ The `NavigationStyle` enum defines the different styles of navigation that can b
 | `pushNamedAndRemoveAll` | Pushes a named route and removes all the previous routes. |
 | `pushReplacementNamed`  | Replaces the current route with a named route.            |
 
-## Example JSON
+## Examples
 
 ### Navigate with a Network Request
 
-```json
+<CodeGroup>
+```dart Dart
+StacNavigateAction(
+  request: StacNetworkRequest(
+    url: 'https://example.com/api',
+    method: Method.get,
+  ),
+  navigationStyle: NavigationStyle.push,
+)
+```
+
+```json JSON
 {
   "actionType": "navigate",
   "request": {
@@ -48,10 +59,26 @@ The `NavigationStyle` enum defines the different styles of navigation that can b
   "navigationStyle": "push"
 }
 ```
+</CodeGroup>
 
-### Navigate with a Widget JSON
+### Navigate with a Widget
 
-```json
+<CodeGroup>
+```dart Dart
+StacNavigateAction(
+  widgetJson: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'My App'),
+    ),
+    body: StacCenter(
+      child: StacText(data: 'Hello, World!'),
+    ),
+  ),
+  navigationStyle: NavigationStyle.push,
+)
+```
+
+```json JSON
 {
   "actionType": "navigate",
   "widgetJson": {
@@ -74,23 +101,42 @@ The `NavigationStyle` enum defines the different styles of navigation that can b
   "navigationStyle": "push"
 }
 ```
+</CodeGroup>
 
 ### Navigate with an Asset Path
 
-```json
+<CodeGroup>
+```dart Dart
+StacNavigateAction(
+  assetPath: 'assets/widgets/my_widget.json',
+  navigationStyle: NavigationStyle.push,
+)
+```
+
+```json JSON
 {
   "actionType": "navigate",
   "assetPath": "assets/widgets/my_widget.json",
   "navigationStyle": "push"
 }
 ```
+</CodeGroup>
 
 ### Navigate with a Route Name
 
-```json
+<CodeGroup>
+```dart Dart
+StacNavigateAction(
+  routeName: '/home',
+  navigationStyle: NavigationStyle.pushNamed,
+)
+```
+
+```json JSON
 {
   "actionType": "navigate",
   "routeName": "/home",
   "navigationStyle": "pushNamed"
 }
 ```
+</CodeGroup>

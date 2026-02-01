@@ -10,24 +10,60 @@ To know more about the CarouselView widget in Flutter, refer to the [official do
 
 | Property         | Type                          | Description                                                                 |
 |------------------|-------------------------------|-----------------------------------------------------------------------------|
-| carouselType     | `StacCarouselViewType`       | The type of the carousel. Defaults to `StacCarouselViewType.regular`.      |
-| padding          | `StacEdgeInsets?`            | The amount of space by which to inset the carousel.                         |
-| backgroundColor  | `String?`                     | The background color of the carousel.                                       |
-| elevation        | `double?`                     | The z-coordinate at which to place this carousel.                           |
-| overlayColor     | `String?`                     | The color of the carousel's overlay.                                        |
+| carouselType     | `StacCarouselViewType`        | The type of the carousel. Defaults to `StacCarouselViewType.regular`.      |
+| padding          | `StacEdgeInsets`              | The amount of space by which to inset the carousel.                         |
+| backgroundColor  | `StacColor`                   | The background color of the carousel.                                       |
+| elevation        | `double`                      | The z-coordinate at which to place this carousel.                           |
+| overlayColor     | `StacColor`                   | The color of the carousel's overlay.                                        |
 | itemSnapping     | `bool`                        | Whether the items should snap into place. Defaults to `false`.              |
 | shrinkExtent     | `double`                      | The amount by which to shrink the carousel. Defaults to `0.0`.              |
-| scrollDirection  | `Axis`                        | The axis along which the carousel scrolls. Defaults to `Axis.horizontal`.   |
+| scrollDirection  | `StacAxis`                    | The axis along which the carousel scrolls. Defaults to `Axis.horizontal`.   |
 | reverse          | `bool`                        | Whether the carousel scrolls in the reverse direction. Defaults to `false`. |
-| onTap            | `Map<String, dynamic>?`       | The callback that is called when an item is tapped.                         |
+| onTap            | `StacAction`                  | The callback that is called when an item is tapped.                         |
 | enableSplash     | `bool`                        | Whether to enable splash effect on tap. Defaults to `true`.                 |
-| itemExtent       | `double?`                     | The extent of each item in the carousel.                                    |
-| flexWeights      | `List<int>?`                  | The flex weights for the items in the carousel.                             |
-| children         | `List<Map<String, dynamic>>`  | The widgets below this widget in the tree.                                  |
+| itemExtent       | `double`                      | The extent of each item in the carousel.                                    |
+| flexWeights      | `List<int>`                   | The flex weights for the items in the carousel.                             |
+| children         | `List<StacWidget>`            | The widgets below this widget in the tree.                                  |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacCarouselView(
+  carouselType: StacCarouselViewType.weighted,
+  padding: StacEdgeInsets.all(12),
+  backgroundColor: StacColors.white,
+  elevation: 5.0,
+  overlayColor: StacColors.red,
+  itemSnapping: true,
+  shrinkExtent: 0.0,
+  scrollDirection: StacAxis.horizontal,
+  reverse: false,
+  onTap: {'type': 'callback', 'name': 'onItemTap'},
+  enableSplash: true,
+  itemExtent: 300,
+  flexWeights: [1, 7, 1],
+  children: [
+    StacImage(
+      height: 400,
+      fit: StacBoxFit.cover,
+      src: 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png',
+    ),
+    StacImage(
+      height: 400,
+      fit: StacBoxFit.cover,
+      src: 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png',
+    ),
+    StacImage(
+      height: 400,
+      fit: StacBoxFit.cover,
+      src: 'https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png',
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "carouselView",
   "carouselType": "weighted",
@@ -68,3 +104,4 @@ To know more about the CarouselView widget in Flutter, refer to the [official do
   ]
 }
 ```
+</CodeGroup>

@@ -7,16 +7,55 @@ The `StacMultiAction` allows you to execute multiple actions with ease.
 
 ## Multi Action Properties
 
-| Property | Type              | Description                                       |
-| --- |-------------------|---------------------------------------------------|
-| actions | `List<Map<String, dynamic>?>?` | The list of actions to be performed |
+| Property | Type                | Description                                       |
+| --- |---------------------|---------------------------------------------------|
+| actions | `List<StacAction>` | The list of actions to be performed |
 | sync | `bool` | Whether to execute the actions in syncronous or parallel. Defaults to `false`. |
 
-## Multi Action JSON
+## Example
 
 This example will allow you to show a snackbar through `StacShowSnackBarAction`, execute a network request through `StacNetworkRequest` and show another snackbar right after.
 
-```json
+<CodeGroup>
+```dart Dart
+StacMultiAction(
+  sync: true,
+  actions: [
+    StacSnackBarAction(
+      content: StacText(data: 'Executing request...'),
+      action: StacSnackBarActionButton(
+        label: 'Done',
+        textColor: StacColors.blue,
+        onPressed: StacNoneAction(),
+      ),
+      behavior: SnackBarBehavior.floating,
+    ),
+    StacNetworkRequestAction(
+      url: 'https://example.com/api',
+      method: Method.get,
+      queryParameters: {'page': 1},
+      headers: {'Authorization': 'Bearer token'},
+      contentType: 'application/json',
+      body: {'data': 'example'},
+      results: [
+        StacNetworkResult(statusCode: 200, action: StacNoneAction()),
+        StacNetworkResult(statusCode: 404, action: StacNoneAction()),
+      ],
+    ),
+    StacSnackBarAction(
+      content: StacText(data: 'Request executed'),
+      action: StacSnackBarActionButton(
+        label: 'Done',
+        textColor: StacColors.blue,
+        onPressed: StacNoneAction(),
+      ),
+      behavior: SnackBarBehavior.floating,
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "actionType": "multiAction",
   "sync": true,
@@ -79,3 +118,4 @@ This example will allow you to show a snackbar through `StacShowSnackBarAction`,
   ]
 }
 ```
+</CodeGroup>

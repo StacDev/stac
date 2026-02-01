@@ -3,7 +3,7 @@ title: "RadioGroup"
 description: "Documentation for RadioGroup"
 ---
 
-Stac radioGroup allows you to build the Flutter Radio widgets using JSON. 
+The Stac RadioGroup allows you to build Flutter Radio widgets using JSON. 
 To know more about the Radio widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Radio-class.html).
 
 ## RadioGroup Properties
@@ -11,38 +11,84 @@ To know more about the Radio widget in Flutter, refer to the [official documenta
 | Property   | Type                   | Description                                                |
 |------------|------------------------|------------------------------------------------------------|
 | id         | `String`               | The id will be used to save the selected value of radio.   |
-| groupValue | `dynamic`              | The currently selected value for a group of radio buttons. |
-| child      | `Map<String, dynamic>` | The child of radioGroup.                                   |
+| groupValue | `String`               | The currently selected value for a group of radio buttons. |
+| child      | `StacWidget`           | The child of radioGroup.                                   |
 
 ## Radio Properties
 
-| Property                   | Type                    | Description                                                                                                     |
-|----------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------|
-| radioType                  | `StacRadioType`        | The type of radio.                                                                                              |
-| value                      | `dynamic`               | The value represented by this radio.                                                                            |
-| mouseCursor                | `StacMouseCursor`      | The cursor for a mouse pointer when it enters or is hovering over the radio.                                    |
-| toggleable                 | `bool`                  | Set to true if this wanted to deselect when selected.                                                           |
-| activeColor                | `String`                | The color to use when this radio button is selected.                                                            |
-| inactiveColor              | `String`                | The color to use when this radio button is not selected.                                                        |
-| fillColor                  | `String`                | The color that fills the radio button, in all WidgetStates.                                                     |
-| focusColor                 | `String`                | The color for the radio's Material when it has the input focus.                                                 |
-| hoverColor                 | `String`                | The color for the radio's Material when a pointer is hovering over it.                                          |
-| overlayColor               | `String`                | The color for the radio's Material.                                                                             |
-| splashRadius               | `double`                | The splash radius of the circular Material ink response.                                                        |
-| materialTapTargetSize      | `MaterialTapTargetSize` | Configures the minimum size of the tap target.                                                                  |
-| visualDensity              | `StacVisualDensity`    | Defines how compact the radio's layout will be.                                                                 |
-| autofocus                  | `bool`                  | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
-| useCheckmarkStyle          | `bool`                  | Controls whether the radio displays in a checkbox style or the default iOS radio style.                         |
-| useCupertinoCheckmarkStyle | `bool`                  | Controls whether the checkmark style is used in an iOS-style radio.                                             |
-| enabled                    | `bool`                  | Whether this radio is enabled for user interaction.                                                             |
-| backgroundColor            | `String`                | The background color of the radio.                                                                               |
-| side                       | `StacBorderSide`        | The border side of the radio.                                                                                    |
-| innerRadius                | `double`                | The inner radius of the radio in logical pixels.                                                                |
+| Property                   | Type                        | Description                                                                                                     |
+|----------------------------|-----------------------------|-----------------------------------------------------------------------------------------------------------------|
+| radioType                  | `StacRadioType`             | The type of radio.                                                                                              |
+| value                      | `String`                    | The value represented by this radio.                                                                            |
+| mouseCursor                | `StacMouseCursor`           | The cursor for a mouse pointer when it enters or is hovering over the radio.                                    |
+| toggleable                 | `bool`                      | Set to true if this wanted to deselect when selected.                                                           |
+| activeColor                | `StacColor`                 | The color to use when this radio button is selected.                                                            |
+| inactiveColor              | `StacColor`                 | The color to use when this radio button is not selected.                                                        |
+| fillColor                  | `StacColor`                 | The color that fills the radio button, in all WidgetStates.                                                     |
+| focusColor                 | `StacColor`                 | The color for the radio's Material when it has the input focus.                                                 |
+| hoverColor                 | `StacColor`                 | The color for the radio's Material when a pointer is hovering over it.                                          |
+| overlayColor               | `StacColor`                 | The color for the radio's Material.                                                                             |
+| splashRadius               | `double`                    | The splash radius of the circular Material ink response.                                                        |
+| materialTapTargetSize      | `StacMaterialTapTargetSize` | Configures the minimum size of the tap target.                                                                  |
+| visualDensity              | `StacVisualDensity`         | Defines how compact the radio's layout will be.                                                                 |
+| autofocus                  | `bool`                      | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
+| useCheckmarkStyle          | `bool`                      | Controls whether the radio displays in a checkbox style or the default iOS radio style.                         |
+| useCupertinoCheckmarkStyle | `bool`                      | Controls whether the checkmark style is used in an iOS-style radio.                                             |
+| enabled                    | `bool`                      | Whether this radio is enabled for user interaction.                                                             |
+| backgroundColor            | `StacColor`                 | The background color of the radio.                                                                               |
+| side                       | `StacBorderSide`            | The border side of the radio.                                                                                    |
+| innerRadius                | `double`                    | The inner radius of the radio in logical pixels.                                                                |
 
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacRadioGroup(
+  child: StacColumn(
+    children: [
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '1',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Male',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '2',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Female',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+      StacListTile(
+        leading: StacRadio(
+          radioType: StacRadioType.adaptive,
+          value: '3',
+          groupValue: '1',
+        ),
+        title: StacText(
+          data: 'Other',
+          textAlign: StacTextAlign.center,
+          style: StacTextStyle(fontSize: 21),
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+```json JSON
 {
   "type": "radioGroup",
   "child": {
@@ -103,5 +149,6 @@ To know more about the Radio widget in Flutter, refer to the [official documenta
   }
 }
 ```
+</CodeGroup>
 
 

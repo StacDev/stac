@@ -15,55 +15,85 @@ To know more about the TableRow widget in Flutter, refer to the [official docume
 
 ## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacTableRow(
+  children: [
+    StacTableCell(
+      child: StacContainer(
+        color: '#40000000',
+        height: 50.0,
+        child: StacCenter(child: StacText(data: 'Header 1')),
+      ),
+    ),
+    StacTableCell(
+      child: StacContainer(
+        color: '#40000000',
+        height: 50.0,
+        child: StacCenter(child: StacText(data: 'Header 2')),
+      ),
+    ),
+    StacTableCell(
+      child: StacContainer(
+        color: '#40000000',
+        height: 50.0,
+        child: StacCenter(child: StacText(data: 'Header 3')),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
-    "type": "tableRow",
-    "children": [
+  "type": "tableRow",
+  "children": [
     {
-        "type": "tableCell",
-        "child": {
+      "type": "tableCell",
+      "child": {
         "type": "container",
         "color": "#40000000",
         "height": 50.0,
         "child": {
-            "type": "center",
-            "child": {
+          "type": "center",
+          "child": {
             "type": "text",
             "data": "Header 1"
-            }
+          }
         }
-        }
+      }
     },
     {
-        "type": "tableCell",
-        "child": {
+      "type": "tableCell",
+      "child": {
         "type": "container",
         "color": "#40000000",
         "height": 50.0,
         "child": {
-            "type": "center",
-            "child": {
+          "type": "center",
+          "child": {
             "type": "text",
             "data": "Header 2"
-            }
+          }
         }
-        }
+      }
     },
     {
-        "type": "tableCell",
-        "child": {
+      "type": "tableCell",
+      "child": {
         "type": "container",
         "color": "#40000000",
         "height": 50.0,
         "child": {
-            "type": "center",
-            "child": {
+          "type": "center",
+          "child": {
             "type": "text",
             "data": "Header 3"
-            }
+          }
         }
-        }
+      }
     }
-    ]
-},
+  ]
+}
 ```
+</CodeGroup>

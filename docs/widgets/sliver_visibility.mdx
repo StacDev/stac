@@ -25,9 +25,25 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverVisib
 | maintainSemantics        | `bool`                  | Whether to maintain semantics when the sliver is hidden.                   |
 | maintainInteractivity    | `bool`                  | Whether to maintain interactivity when the sliver is hidden.               |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSliverVisibility(
+  visible: false,
+  sliver: StacSliverToBoxAdapter(
+    child: StacContainer(
+      height: 180,
+      color: 'warning',
+      child: StacCenter(
+        child: StacText(data: 'This sliver is hidden'),
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "sliverVisibility",
   "visible": false,
@@ -48,3 +64,4 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverVisib
   }
 }
 ```
+</CodeGroup>

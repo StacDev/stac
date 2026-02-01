@@ -3,29 +3,44 @@ title: "Positioned"
 description: "Documentation for Positioned"
 ---
 
-The Stac Positioned allows you to build a Flutter positioned widget using JSON.
-To know more about the positioned widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Positioned-class.html).
+The Stac Positioned widget controls where a child of a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) is positioned. It corresponds to Flutter's Positioned widget and allows precise positioning using coordinates and optional sizing constraints. Use it with JSON to declare positioned children inside a Stack.
+
+To learn more about the Positioned widget in Flutter, see the [official documentation](https://api.flutter.dev/flutter/widgets/Positioned-class.html).
+
+## Positioning constraints
+
+Only **two of the three** horizontal values (`left`, `right`, `width`) may be set; at least one must be omitted or null. Similarly, only **two of the three** vertical values (`top`, `bottom`, `height`) may be set; at least one must be omitted or null.
 
 ## Properties
 
-| Property       | Type                    | Description                                                                                 |
-|----------------|-------------------------|---------------------------------------------------------------------------------------------|
-| positionedType | `StacPositionedType?`  | The type of positioned widget. Can be `directional`, `fill`, or `fromRect`.                 |
-| left           | `double?`               | The distance from the left edge of the parent.                                              |
-| top            | `double?`               | The distance from the top edge of the parent.                                               |
-| right          | `double?`               | The distance from the right edge of the parent.                                             |
-| bottom         | `double?`               | The distance from the bottom edge of the parent.                                            |
-| width          | `double?`               | The width of the child.                                                                     |
-| height         | `double?`               | The height of the child.                                                                    |
-| start          | `double?`               | The distance from the start edge of the parent (for `directional` type).                    |
-| end            | `double?`               | The distance from the end edge of the parent (for `directional` type).                      |
-| textDirection  | `TextDirection`         | The text direction to use for resolving `start` and `end`. Defaults to `TextDirection.ltr`. |
-| rect           | `StacRect?`            | The rectangle to position the child (for `fromRect` type).                                  |
-| child          | `Map<String, dynamic>?` | The widget to display inside the positioned widget.                                         |
+| Property | Type         | Description                                      |
+|----------|--------------|--------------------------------------------------|
+| left     | `double?`    | The distance from the left edge of the stack.    |
+| top      | `double?`    | The distance from the top edge of the stack.     |
+| right    | `double?`    | The distance from the right edge of the stack.   |
+| bottom   | `double?`    | The distance from the bottom edge of the stack.  |
+| width    | `double?`    | The width of the positioned child.               |
+| height   | `double?`    | The height of the positioned child.              |
+| child    | `StacWidget` | The widget to position within the stack.         |
 
-## Example JSON
+<Note>
+The Dart API also supports named constructors: `StacPositioned.fill()`, `StacPositioned.fromRect()`, `StacPositioned.fromRelativeRect()`, and `StacPositioned.directional()`. These are not available in JSON format.
+</Note>
 
-```json
+## Example
+
+<CodeGroup>
+```dart Dart
+StacPositioned(
+  left: 10,
+  top: 20,
+  right: 30,
+  bottom: 40,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "positioned",
   "left": 10,
@@ -38,57 +53,62 @@ To know more about the positioned widget in Flutter, refer to the [official docu
   }
 }
 ```
+</CodeGroup>
 
-## Example JSON for `directional`
+## Dart-Only Constructors
 
-```json
-{
-  "type": "positioned",
-  "positionedType": "directional",
-  "start": 10,
-  "top": 20,
-  "width": 100,
-  "height": 50,
-  "textDirection": "ltr",
-  "child": {
-    "type": "text",
-    "data": "Hello, World!"
-  }
-}
+The following named constructors are available in Dart but not in JSON:
+
+### `StacPositioned.fill()`
+
+Creates a positioned widget with `left`, `top`, `right`, and `bottom` defaulting to `0.0`, so the child fills the stack unless overridden.
+
+```dart
+StacPositioned.fill(
+  left: 10,
+  top: 20,
+  right: 30,
+  bottom: 40,
+  child: StacText(data: 'Fills the stack'),
+)
 ```
 
-### Example JSON for `fill`
+### `StacPositioned.fromRect()`
 
-```json
-{
-  "type": "positioned",
-  "positionedType": "fill",
-  "left": 10,
-  "top": 20,
-  "right": 30,
-  "bottom": 40,
-  "child": {
-    "type": "text",
-    "data": "Hello, World!"
-  }
-}
+Creates a positioned widget from a `StacRect`, setting `left`, `top`, `width`, and `height`. `right` and `bottom` are set to null.
+
+```dart
+StacPositioned.fromRect(
+  rect: StacRect(left: 10, top: 20, width: 100, height: 50),
+  child: StacText(data: 'From rect'),
+)
 ```
 
-### Example JSON for fromRect
+### `StacPositioned.fromRelativeRect()`
 
-```json
-{
-  "type": "positioned",
-  "positionedType": "fromRect",
-  "rect": {
-    "left": 10,
-    "top": 20,
-    "right": 110,
-    "bottom": 70
-  },
-  "child": {
-    "type": "text",
-    "data": "Hello, World!"
-  }
-}
+Creates a positioned widget from relative edges: `left`, `top`, `right`, and `bottom` are required; `width` and `height` are null.
+
+```dart
+StacPositioned.fromRelativeRect(
+  left: 10,
+  top: 20,
+  right: 30,
+  bottom: 40,
+  child: StacText(data: 'Relative rect'),
+)
+```
+
+### `StacPositioned.directional()`
+
+Creates a positioned widget using `start` and `end` instead of `left` and `right`. The mapping depends on `textDirection`: for LTR, `start` → `left` and `end` → `right`; for RTL, the opposite. Only two of `start`, `end`, and `width` may be set; only two of `top`, `bottom`, and `height` may be set.
+
+```dart
+StacPositioned.directional(
+  textDirection: StacTextDirection.ltr,
+  start: 10,
+  top: 20,
+  width: 100,
+  height: 50,
+  child: StacText(data: 'Directional positioning'),
+)
 ```

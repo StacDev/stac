@@ -10,19 +10,40 @@ To know more about the Drawer widget in Flutter, refer to the [official document
 
 | Property         | Type                | Description                                                        |
 |------------------|---------------------|--------------------------------------------------------------------|
-| backgroundColor  | `String?`           | The background color of the drawer.                                |
-| elevation        | `double?`           | The z-coordinate at which to place this drawer.                    |
-| shadowColor      | `String?`           | The color of the drawer's shadow.                                  |
-| surfaceTintColor | `String?`           | The surface tint color of the drawer.                              |
-| shape            | `StacShapeBorder?`  | The shape of the drawer.                                           |
-| width            | `double?`           | The width of the drawer.                                           |
-| child            | `Map<String, dynamic>?` | The widget below this widget in the tree.                     |
-| semanticLabel    | `String?`           | The semantic label for the drawer.                                 |
-| clipBehavior     | `Clip?`             | The clip behavior of the drawer.                                   |
+| backgroundColor  | `StacColor`         | The background color of the drawer.                                |
+| elevation        | `double`            | The z-coordinate at which to place this drawer.                    |
+| shadowColor      | `StacColor`         | The color of the drawer's shadow.                                  |
+| surfaceTintColor | `StacColor`         | The surface tint color of the drawer.                              |
+| shape            | `StacShapeBorder`   | The shape of the drawer.                                           |
+| width            | `double`            | The width of the drawer.                                           |
+| child            | `StacWidget`        | The widget below this widget in the tree.                          |
+| semanticLabel    | `String`            | The semantic label for the drawer.                                 |
+| clipBehavior     | `StacClip`          | The clip behavior of the drawer.                                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDrawer(
+  backgroundColor: StacColors.white,
+  elevation: 16.0,
+  shadowColor: StacColors.black,
+  surfaceTintColor: '#F2F2F2',
+  shape: StacRoundedRectangleBorder(borderRadius: 16),
+  width: 304.0,
+  semanticLabel: 'Navigation Drawer',
+  clipBehavior: StacClip.antiAlias,
+  child: StacColumn(
+    children: [
+      StacText(data: 'Drawer Header'),
+      StacText(data: 'Item 1'),
+      StacText(data: 'Item 2'),
+    ],
+  ),
+)
+```
+
+```json JSON
 {
   "type": "drawer",
   "backgroundColor": "#FFFFFF",
@@ -54,4 +75,5 @@ To know more about the Drawer widget in Flutter, refer to the [official document
     ]
   }
 }
-``` 
+```
+</CodeGroup> 

@@ -10,36 +10,67 @@ To know more about the alert dialog widget in Flutter, refer to the [official do
 
 | Property                     | Type                          | Description                                                                                  |
 |------------------------------|-------------------------------|----------------------------------------------------------------------------------------------|
-| icon                         | `Map<String, dynamic>?`       | The icon to display in the alert dialog.                                                     |
-| iconPadding                  | `StacEdgeInsets?`            | The padding around the icon.                                                                 |
-| iconColor                    | `String?`                     | The color of the icon.                                                                       |
-| title                        | `Map<String, dynamic>?`       | The title widget of the alert dialog.                                                        |
-| titlePadding                 | `StacEdgeInsets?`            | The padding around the title.                                                                |
-| titleTextStyle               | `StacTextStyle?`             | The text style of the title.                                                                 |
-| content                      | `Map<String, dynamic>?`       | The content widget of the alert dialog.                                                      |
-| contentPadding               | `StacEdgeInsets?`            | The padding around the content.                                                              |
-| contentTextStyle             | `StacTextStyle?`             | The text style of the content.                                                               |
-| actions                      | `List<Map<String, dynamic>>?` | The actions to display in the alert dialog.                                                  |
-| actionsPadding               | `StacEdgeInsets?`            | The padding around the actions.                                                              |
-| actionsAlignment             | `MainAxisAlignment?`          | The alignment of the actions.                                                                |
-| actionsOverflowAlignment     | `OverflowBarAlignment?`       | The overflow alignment of the actions.                                                       |
-| actionsOverflowDirection     | `VerticalDirection?`          | The overflow direction of the actions.                                                       |
-| actionsOverflowButtonSpacing | `double?`                     | The spacing between overflow buttons.                                                        |
-| buttonPadding                | `StacEdgeInsets?`            | The padding around the buttons.                                                              |
-| backgroundColor              | `String?`                     | The background color of the alert dialog.                                                    |
-| elevation                    | `double?`                     | The elevation of the alert dialog.                                                           |
-| shadowColor                  | `String?`                     | The shadow color of the alert dialog.                                                        |
-| surfaceTintColor             | `String?`                     | The surface tint color of the alert dialog.                                                  |
-| semanticLabel                | `String?`                     | The semantic label for the alert dialog.                                                     |
-| insetPadding                 | `StacEdgeInsets`             | The padding around the alert dialog. Defaults to `left: 40, right: 40, top: 24, bottom: 24`. |
-| clipBehavior                 | `Clip`                        | The clip behavior of the alert dialog. Defaults to `Clip.none`.                              |
-| shape                        | `StacShapeBorder?`           | The shape of the alert dialog.                                                               |
-| alignment                    | `StacAlignmentGeometry?`     | The alignment of the alert dialog.                                                           |
+| icon                         | `StacWidget`                  | The icon to display in the alert dialog.                                                     |
+| iconPadding                  | `StacEdgeInsets`              | The padding around the icon.                                                                 |
+| iconColor                    | `StacColor`                   | The color of the icon.                                                                       |
+| title                        | `StacWidget`                  | The title widget of the alert dialog.                                                        |
+| titlePadding                 | `StacEdgeInsets`              | The padding around the title.                                                                |
+| titleTextStyle               | `StacTextStyle`               | The text style of the title.                                                                 |
+| content                      | `StacWidget`                  | The content widget of the alert dialog.                                                      |
+| contentPadding               | `StacEdgeInsets`              | The padding around the content.                                                              |
+| contentTextStyle             | `StacTextStyle`               | The text style of the content.                                                               |
+| actions                      | `List<StacWidget>`            | The actions to display in the alert dialog.                                                  |
+| actionsPadding               | `StacEdgeInsets`              | The padding around the actions.                                                              |
+| actionsAlignment             | `StacMainAxisAlignment`       | The alignment of the actions.                                                                |
+| actionsOverflowAlignment     | `StacOverflowBarAlignment`    | The overflow alignment of the actions.                                                       |
+| actionsOverflowDirection     | `StacVerticalDirection`       | The overflow direction of the actions.                                                       |
+| actionsOverflowButtonSpacing | `double`                      | The spacing between overflow buttons.                                                        |
+| buttonPadding                | `StacEdgeInsets`              | The padding around the buttons.                                                              |
+| backgroundColor              | `StacColor`                   | The background color of the alert dialog.                                                    |
+| elevation                    | `double`                      | The elevation of the alert dialog.                                                           |
+| shadowColor                  | `StacColor`                   | The shadow color of the alert dialog.                                                        |
+| surfaceTintColor             | `StacColor`                   | The surface tint color of the alert dialog.                                                  |
+| semanticLabel                | `String`                      | The semantic label for the alert dialog.                                                     |
+| insetPadding                 | `StacEdgeInsets`              | The padding around the alert dialog. Defaults to `left: 40, right: 40, top: 24, bottom: 24`. |
+| clipBehavior                 | `StacClip`                    | The clip behavior of the alert dialog. Defaults to `Clip.none`.                              |
+| shape                        | `StacShapeBorder`             | The shape of the alert dialog.                                                               |
+| alignment                    | `StacAlignmentGeometry`       | The alignment of the alert dialog.                                                           |
 | scrollable                   | `bool`                        | Whether the alert dialog is scrollable. Defaults to `false`.                                 |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacAlertDialog(
+  content: StacPadding(
+    padding: StacEdgeInsets(
+      top: 0,
+      left: 12,
+      right: 12,
+      bottom: 8,
+    ),
+    child: StacText(
+      data: 'Discard draft?',
+      textAlign: StacTextAlign.center,
+      style: StacTextStyle(fontSize: 14),
+    ),
+  ),
+  actions: [
+    StacTextButton(
+      child: StacText(data: 'CANCEL'),
+      onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    ),
+    StacSizedBox(width: 8),
+    StacTextButton(
+      child: StacText(data: 'DISCARD'),
+      onPressed: StacNavigateAction(navigationStyle: NavigationStyle.pop),
+    ),
+    StacSizedBox(width: 12),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "alertDialog",
   "content": {
@@ -93,3 +124,4 @@ To know more about the alert dialog widget in Flutter, refer to the [official do
   ]
 }
 ```
+</CodeGroup>

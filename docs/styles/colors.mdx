@@ -34,7 +34,16 @@ These are the opacities for black color [`12`, `26`, `38`, `45`, `54`, `87`].
 ## Example
 
 ### Example 1: Theme color
-```json
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Hello World!',
+  style: StacTextStyle(color: 'primary'),
+)
+```
+
+```json JSON
 {
   "type": "text",
   "data": "Hello World!",
@@ -43,9 +52,19 @@ These are the opacities for black color [`12`, `26`, `38`, `45`, `54`, `87`].
   }
 }
 ```
+</CodeGroup>
 
 ### Example 2: Hex color
-```json
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Hello World!',
+  style: StacTextStyle(color: '#000000'),
+)
+```
+
+```json JSON
 {
   "type": "text",
   "data": "Hello World!",
@@ -54,9 +73,19 @@ These are the opacities for black color [`12`, `26`, `38`, `45`, `54`, `87`].
   }
 }
 ```
+</CodeGroup>
 
 ### Example 3: Name color
-```json
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Hello World!',
+  style: StacTextStyle(color: StacColors.black),
+)
+```
+
+```json JSON
 {
   "type": "text",
   "data": "Hello World!",
@@ -65,4 +94,5 @@ These are the opacities for black color [`12`, `26`, `38`, `45`, `54`, `87`].
   }
 }
 ```
+</CodeGroup>
 

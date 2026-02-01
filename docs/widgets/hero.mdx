@@ -1,0 +1,106 @@
+---
+title: "Hero"
+description: "Documentation for Hero"
+---
+
+The Stac Hero allows you to build a Flutter Hero widget using JSON. It enables hero animations between routes by tagging widgets with the same tag.
+To know more about the Hero widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Hero-class.html).
+
+## Properties
+
+| Property                   | Type                    | Description                                                                 |
+|----------------------------|-------------------------|-----------------------------------------------------------------------------|
+| tag                        | `String`                | **Required.** The hero tag used to match heroes across routes.              |
+| child                      | `StacWidget`            | **Required.** The widget subtree for this hero.                             |
+| createRectTween            | `StacWidget`            | Optional rectangle tween configuration for the hero animation.              |
+| flightShuttleBuilder       | `StacWidget`            | Optional widget used as the in-flight shuttle during the hero animation.    |
+| placeholderBuilder         | `StacWidget`            | Optional placeholder widget displayed while the destination hero builds.    |
+| transitionOnUserGestures   | `bool`                  | Whether the hero should participate in a user gesture driven transition.    |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacHero(
+  tag: 'userAvatar',
+  child: StacImage(network: 'https://example.com/avatar.png'),
+)
+```
+
+```json JSON
+{
+  "type": "hero",
+  "tag": "userAvatar",
+  "child": {
+    "type": "image",
+    "network": "https://example.com/avatar.png"
+  }
+}
+```
+</CodeGroup>
+
+## Hero Animation Example
+
+Here's an example showing a hero animation from a list to a detail page:
+
+<CodeGroup>
+```dart Dart
+// List Item
+StacGestureDetector(
+  onTap: StacNavigateAction(
+    routeName: '/detail',
+  ),
+  child: StacHero(
+    tag: 'product-1',
+    child: StacImage(
+      network: 'https://example.com/product.png',
+      width: 100.0,
+      height: 100.0,
+    ),
+  ),
+)
+
+// Detail Page
+StacHero(
+  tag: 'product-1',
+  child: StacImage(
+    network: 'https://example.com/product.png',
+    width: 300.0,
+    height: 300.0,
+  ),
+)
+```
+
+```json JSON
+// List Item
+{
+  "type": "gestureDetector",
+  "onTap": {
+    "actionType": "navigate",
+    "routeName": "/detail"
+  },
+  "child": {
+    "type": "hero",
+    "tag": "product-1",
+    "child": {
+      "type": "image",
+      "network": "https://example.com/product.png",
+      "width": 100.0,
+      "height": 100.0
+    }
+  }
+}
+
+// Detail Page
+{
+  "type": "hero",
+  "tag": "product-1",
+  "child": {
+    "type": "image",
+    "network": "https://example.com/product.png",
+    "width": 300.0,
+    "height": 300.0
+  }
+}
+```
+</CodeGroup>

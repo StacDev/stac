@@ -14,15 +14,15 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | dropdownMenuEntries  | `List<StacDropdownMenuEntries>` | The entries to display in the dropdown menu.              |
 | initialSelection     | `dynamic`                       | The initial selection value.                              |
 | enabled              | `bool`                          | Whether the dropdown menu is enabled. Defaults to `true`. |
-| label                | `Map<String, dynamic>?`         | The label to display for the dropdown menu.               |
-| leadingIcon          | `Map<String, dynamic>?`         | The icon to display at the start of the dropdown menu.    |
-| trailingIcon         | `Map<String, dynamic>?`         | The icon to display at the end of the dropdown menu.      |
-| hintText             | `String?`                       | The hint text to display when no selection is made.       |
-| errorText            | `String?`                       | The error text to display when there is an error.         |
-| width                | `double?`                       | The width of the dropdown menu.                           |
-| menuHeight           | `double?`                       | The height of the dropdown menu.                          |
-| inputDecorationTheme | `StacInputDecorationTheme?`     | The theme to use for the input decoration.                |
-| textStyle            | `StacTextStyle?`                | The text style to use for the dropdown menu.              |
+| label                | `StacWidget`                    | The label to display for the dropdown menu.               |
+| leadingIcon          | `StacWidget`                    | The icon to display at the start of the dropdown menu.    |
+| trailingIcon         | `StacWidget`                    | The icon to display at the end of the dropdown menu.      |
+| hintText             | `String`                        | The hint text to display when no selection is made.       |
+| errorText            | `String`                        | The error text to display when there is an error.         |
+| width                | `double`                        | The width of the dropdown menu.                           |
+| menuHeight           | `double`                        | The height of the dropdown menu.                          |
+| inputDecorationTheme | `StacInputDecorationTheme`      | The theme to use for the input decoration.                |
+| textStyle            | `StacTextStyle`                 | The text style to use for the dropdown menu.              |
 | enableFilter         | `bool`                          | Whether to enable filtering. Defaults to `true`.          |
 | enableSearch         | `bool`                          | Whether to enable search. Defaults to `true`.             |
 | requestFocusOnTap    | `bool`                          | Whether to request focus on tap. Defaults to `true`.      |
@@ -40,13 +40,39 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | value        | `dynamic`               | The value associated with this entry.              |
 | label        | `String`                | The label to display for this entry.               |
 | enabled      | `bool`                  | Whether this entry is enabled. Defaults to `true`. |
-| leadingIcon  | `Map<String, dynamic>?` | The icon to display at the start of this entry.    |
-| trailingIcon | `Map<String, dynamic>?` | The icon to display at the end of this entry.      |
-| style        | `StacButtonStyle?`      | The style to use for this entry.                   |
+| leadingIcon  | `StacWidget`            | The icon to display at the start of this entry.    |
+| trailingIcon | `StacWidget`            | The icon to display at the end of this entry.      |
+| style        | `StacButtonStyle`       | The style to use for this entry.                   |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacDropdownMenu(
+  label: StacText(data: 'Select an option'),
+  hintText: 'Please select',
+  width: 200,
+  dropdownMenuEntries: [
+    StacDropdownMenuEntry(
+      value: 'option1',
+      label: 'Option 1',
+      leadingIcon: StacIcon(icon: 'home'),
+    ),
+    StacDropdownMenuEntry(
+      value: 'option2',
+      label: 'Option 2',
+      leadingIcon: StacIcon(icon: 'settings'),
+    ),
+    StacDropdownMenuEntry(
+      value: 'option3',
+      label: 'Option 3',
+      leadingIcon: StacIcon(icon: 'favorite'),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "type": "dropdownMenu",
   "label": {
@@ -83,3 +109,4 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
   ]
 }
 ```
+</CodeGroup>

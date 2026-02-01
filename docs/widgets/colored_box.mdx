@@ -10,12 +10,20 @@ To know more about the colored box widget in Flutter, refer to the [official doc
 
 | Property | Type                    | Description                                      |
 |----------|-------------------------|--------------------------------------------------|
-| color    | `String`                | The color to paint the background of the box.    |
-| child    | `Map<String, dynamic>?` | The widget to display inside the colored box.    |
+| color    | `StacColor`             | The color to paint the background of the box.    |
+| child    | `StacWidget`            | The widget to display inside the colored box.    |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacColoredBox(
+  color: StacColors.red,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "coloredBox",
   "color": "#FF0000",
@@ -25,3 +33,4 @@ To know more about the colored box widget in Flutter, refer to the [official doc
   }
 }
 ```
+</CodeGroup>

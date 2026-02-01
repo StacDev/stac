@@ -10,12 +10,45 @@ To know more about the form widget in Flutter, refer to the [official documentat
 
 | Property          | Type                    | Description                                                                 |
 |-------------------|-------------------------|-----------------------------------------------------------------------------|
-| autovalidateMode  | `AutovalidateMode?`     | The mode to control auto validation.                                        |
-| child             | `Map<String, dynamic>`  | The widget to display inside the form.                                      |
+| autovalidateMode  | `StacAutovalidateMode`  | The mode to control auto validation.                                        |
+| child             | `StacWidget`            | The widget to display inside the form.                                      |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacForm(
+  autovalidateMode: StacAutovalidateMode.always,
+  child: StacColumn(
+    children: [
+      StacTextFormField(
+        id: 'username',
+        decoration: StacInputDecoration(labelText: 'Username'),
+      ),
+      StacTextFormField(
+        id: 'password',
+        decoration: StacInputDecoration(labelText: 'Password'),
+      ),
+      StacFilledButton(
+        child: StacText(data: 'Submit'),
+        onPressed: StacFormValidateAction(
+          isValid: StacNetworkRequestAction(
+            url: 'https://dummyjson.com/auth/login',
+            method: Method.post,
+            contentType: 'application/json',
+            body: {
+              'username': StacGetFormValueAction(id: 'username'),
+              'password': StacGetFormValueAction(id: 'password'),
+            },
+          ),
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+```json JSON
 {
   "type": "form",
   "autovalidateMode": "always",
@@ -66,3 +99,4 @@ To know more about the form widget in Flutter, refer to the [official documentat
   }
 }
 ```
+</CodeGroup>

@@ -35,9 +35,19 @@ To know more about the SelectableText widget in Flutter, refer to the [official 
 > `textScaleFactor` is deprecated. Use `textScaler` instead.
 > Example migration: `textScaler: 1.5` corresponds to `TextScaler.linear(1.5)`.
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSelectableText(
+  data: 'This is a selectable text',
+  style: StacTextStyle(fontSize: 18, fontWeight: StacFontWeight.w600),
+  showCursor: true,
+  cursorColor: StacColors.red,
+)
+```
+
+```json JSON
 {
   "type": "selectableText",
   "data": "This is a selectable text",
@@ -49,3 +59,4 @@ To know more about the SelectableText widget in Flutter, refer to the [official 
   "cursorColor": "#FF0000"
 }
 ```
+</CodeGroup>

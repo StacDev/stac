@@ -10,13 +10,22 @@ To know more about the flexible widget in Flutter, refer to the [official docume
 
 | Property | Type                    | Description                                                                              |
 |----------|-------------------------|------------------------------------------------------------------------------------------|
-| child    | `Map<String, dynamic>?` | The widget to display inside the flexible widget.                                        |
+| child    | `StacWidget`            | The widget to display inside the flexible widget.                                        |
 | flex     | `int`                   | The flex factor to use for the flexible widget. Defaults to `1`.                         |
-| fit      | `FlexFit`               | How the child should be inscribed into the available space. Defaults to `FlexFit.loose`. |
+| fit      | `StacFlexFit`           | How the child should be inscribed into the available space. Defaults to `FlexFit.loose`. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacFlexible(
+  flex: 2,
+  fit: StacFlexFit.tight,
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
 {
   "type": "flexible",
   "flex": 2,
@@ -27,3 +36,4 @@ To know more about the flexible widget in Flutter, refer to the [official docume
   }
 }
 ```
+</CodeGroup>

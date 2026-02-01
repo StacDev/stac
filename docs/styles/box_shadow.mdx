@@ -1,0 +1,282 @@
+---
+title: "Box Shadow"
+description: "Documentation for Box Shadow"
+---
+
+The Stac BoxShadow class creates shadow effects for containers and other widgets. Multiple shadows can be combined for complex effects.
+
+## Properties
+
+| Property     | Type                    | Description                                              |
+|--------------|-------------------------|----------------------------------------------------------|
+| color        | `String?`               | Shadow color.                                            |
+| blurRadius   | `double?`               | Blur radius in logical pixels.                           |
+| offset       | `Map<String, dynamic>?` | Shadow offset with `x` and `y` values.                   |
+| spreadRadius | `double?`               | Spread radius (positive expands, negative contracts).    |
+| blurStyle    | `String?`               | Blur style: `normal`, `solid`, `outer`, `inner`.         |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(12.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: StacColors.black,
+        blurRadius: 10.0,
+        offset: StacOffset(x: 0.0, y: 4.0),
+        spreadRadius: 0.0,
+      ),
+    ],
+  ),
+  padding: StacEdgeInsets.all(16.0),
+  child: StacText(data: 'Card with Shadow'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 12.0,
+    "boxShadow": [
+      {
+        "color": "#000000",
+        "blurRadius": 10.0,
+        "offset": { "x": 0.0, "y": 4.0 },
+        "spreadRadius": 0.0
+      }
+    ]
+  },
+  "padding": 16.0,
+  "child": {
+    "type": "text",
+    "data": "Card with Shadow"
+  }
+}
+```
+</CodeGroup>
+
+## Shadow with Opacity
+
+For semi-transparent shadows, use color with alpha:
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(8.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: '#26000000', // 15% opacity black
+        blurRadius: 15.0,
+        offset: StacOffset(x: 0.0, y: 8.0),
+        spreadRadius: -2.0,
+      ),
+    ],
+  ),
+  child: StacText(data: 'Subtle Shadow'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 8.0,
+    "boxShadow": [
+      {
+        "color": "#26000000",
+        "blurRadius": 15.0,
+        "offset": { "x": 0.0, "y": 8.0 },
+        "spreadRadius": -2.0
+      }
+    ]
+  },
+  "child": {
+    "type": "text",
+    "data": "Subtle Shadow"
+  }
+}
+```
+</CodeGroup>
+
+## Multiple Shadows
+
+Combine multiple shadows for depth effects:
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(16.0),
+    boxShadow: [
+      // Ambient shadow
+      StacBoxShadow(
+        color: '#1A000000',
+        blurRadius: 20.0,
+        offset: StacOffset(x: 0.0, y: 2.0),
+        spreadRadius: 0.0,
+      ),
+      // Key shadow
+      StacBoxShadow(
+        color: '#33000000',
+        blurRadius: 10.0,
+        offset: StacOffset(x: 0.0, y: 6.0),
+        spreadRadius: -4.0,
+      ),
+    ],
+  ),
+  padding: StacEdgeInsets.all(24.0),
+  child: StacText(data: 'Elevated Card'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 16.0,
+    "boxShadow": [
+      {
+        "color": "#1A000000",
+        "blurRadius": 20.0,
+        "offset": { "x": 0.0, "y": 2.0 },
+        "spreadRadius": 0.0
+      },
+      {
+        "color": "#33000000",
+        "blurRadius": 10.0,
+        "offset": { "x": 0.0, "y": 6.0 },
+        "spreadRadius": -4.0
+      }
+    ]
+  },
+  "padding": 24.0,
+  "child": {
+    "type": "text",
+    "data": "Elevated Card"
+  }
+}
+```
+</CodeGroup>
+
+## Colored Shadows
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.purple, StacColors.blue],
+      begin: StacAlignment.topLeft,
+      end: StacAlignment.bottomRight,
+    ),
+    borderRadius: StacBorderRadius.all(16.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: '#662196F3', // Blue shadow with 40% opacity
+        blurRadius: 20.0,
+        offset: StacOffset(x: 0.0, y: 10.0),
+        spreadRadius: 0.0,
+      ),
+    ],
+  ),
+  padding: StacEdgeInsets.all(24.0),
+  child: StacText(
+    data: 'Colorful Shadow',
+    style: StacTextStyle(color: StacColors.white),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#9C27B0", "#2196F3"],
+      "begin": "topLeft",
+      "end": "bottomRight"
+    },
+    "borderRadius": 16.0,
+    "boxShadow": [
+      {
+        "color": "#662196F3",
+        "blurRadius": 20.0,
+        "offset": { "x": 0.0, "y": 10.0 },
+        "spreadRadius": 0.0
+      }
+    ]
+  },
+  "padding": 24.0,
+  "child": {
+    "type": "text",
+    "data": "Colorful Shadow",
+    "style": { "color": "#FFFFFF" }
+  }
+}
+```
+</CodeGroup>
+
+## Elevation Levels
+
+Common elevation patterns based on Material Design:
+
+| Level | Blur Radius | Offset Y | Spread | Use Case          |
+|-------|-------------|----------|--------|-------------------|
+| 1     | 2.0         | 1.0      | 0.0    | Cards             |
+| 2     | 4.0         | 2.0      | 0.0    | Buttons           |
+| 3     | 8.0         | 4.0      | 0.0    | FAB               |
+| 4     | 12.0        | 6.0      | 0.0    | Navigation drawer |
+| 5     | 16.0        | 8.0      | 0.0    | Modal bottom sheet|
+
+<CodeGroup>
+```dart Dart
+// Elevation 2 (like a raised button)
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(8.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: '#33000000',
+        blurRadius: 4.0,
+        offset: StacOffset(x: 0.0, y: 2.0),
+      ),
+    ],
+  ),
+  child: StacText(data: 'Elevation 2'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 8.0,
+    "boxShadow": [
+      {
+        "color": "#33000000",
+        "blurRadius": 4.0,
+        "offset": { "x": 0.0, "y": 2.0 }
+      }
+    ]
+  },
+  "child": {
+    "type": "text",
+    "data": "Elevation 2"
+  }
+}
+```
+</CodeGroup>

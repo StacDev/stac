@@ -3,7 +3,7 @@ title: "Network Request Action"
 description: "Documentation for Network Request Action"
 ---
 
-The `NetworkRequestAction` class is used to make network requests in Stac applications.
+The `StacNetworkRequest` class is used to make network requests in Stac applications.
 
 ## Properties
 
@@ -37,9 +37,31 @@ The `StacNetworkResult` class is used to handle different status codes in the St
 | statusCode | `int`    | The status code to handle.                              |
 | action     | `Action` | The action to perform when the status code is received. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacNetworkRequest(
+  url: 'https://example.com/api',
+  method: Method.get,
+  queryParameters: {'page': 1},
+  headers: {'Authorization': 'Bearer token'},
+  contentType: 'application/json',
+  body: {'data': 'example'},
+  results: [
+    StacNetworkResult(
+      statusCode: 200,
+      action: StacNoneAction(),
+    ),
+    StacNetworkResult(
+      statusCode: 404,
+      action: StacNoneAction(),
+    ),
+  ],
+)
+```
+
+```json JSON
 {
   "actionType": "networkRequest",
   "url": "https://example.com/api",
@@ -70,4 +92,5 @@ The `StacNetworkResult` class is used to handle different status codes in the St
   ]
 }
 ```
+</CodeGroup>
 

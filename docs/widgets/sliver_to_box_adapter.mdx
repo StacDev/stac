@@ -13,9 +13,28 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBox
 |----------|-------------------------|--------------------------------------|
 | child    | `Map<String, dynamic>?` | The widget contained by this sliver. |
 
-## Example JSON
+## Example
 
-```json
+<CodeGroup>
+```dart Dart
+StacSliverPadding(
+  padding: StacEdgeInsets.all(16),
+  sliver: StacSliverToBoxAdapter(
+    child: StacContainer(
+      height: 150,
+      color: StacColors.green,
+      child: StacCenter(
+        child: StacText(
+          data: 'I am a Box inside a SliverToBoxAdapter!',
+          style: StacTextStyle(color: StacColors.white, fontWeight: StacFontWeight.bold),
+        ),
+      ),
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "sliverPadding",
   "padding": 16,
@@ -39,3 +58,5 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBox
     }
   }
 }
+```
+</CodeGroup>

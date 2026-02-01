@@ -7,7 +7,20 @@ The `ClipRRect` widget in Stac allows you to clip its child using rounded rectan
 
 ## Usage
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(8.0),
+  clipBehavior: StacClip.antiAlias,
+  child: StacContainer(
+    color: StacColors.red,
+    height: 100,
+    width: 100,
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": 8.0,
@@ -20,14 +33,15 @@ The `ClipRRect` widget in Stac allows you to clip its child using rounded rectan
   }
 }
 ```
+</CodeGroup>
 
 ## Properties
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `borderRadius` | `StacBorderRadius` | `StacBorderRadius()` (0 for all corners) | The border radius of the rounded corners. Can be specified as a single value, a list of 4 values, or an object with individual corner values. |
-| `clipBehavior` | `Clip` | `antiAlias` | The clipping behavior when content extends beyond the rounded rectangle. |
-| `child` | `Widget` | Required | The widget to clip with rounded corners. |
+| `clipBehavior` | `StacClip` | `antiAlias` | The clipping behavior when content extends beyond the rounded rectangle. |
+| `child` | `StacWidget` | Required | The widget to clip with rounded corners. |
 
 ## BorderRadius Format Options
 
@@ -35,27 +49,63 @@ The `borderRadius` property can be specified in multiple formats:
 
 ### Single Value (applies to all corners)
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(8.0),
+  child: /* ... */,
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": 8.0,
   "child": { ... }
 }
 ```
+</CodeGroup>
 
 ### List Format (topLeft, topRight, bottomLeft, bottomRight)
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.only(
+    topLeft: 8.0,
+    topRight: 16.0,
+    bottomLeft: 8.0,
+    bottomRight: 16.0,
+  ),
+  child: /* ... */,
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": [8.0, 16.0, 8.0, 16.0],
   "child": { ... }
 }
 ```
+</CodeGroup>
 
 ### Object Format (specify each corner individually)
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius(
+    topLeft: 8.0,
+    topRight: 16.0,
+    bottomLeft: 8.0,
+    bottomRight: 16.0,
+  ),
+  child: /* ... */,
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": {
@@ -67,6 +117,7 @@ The `borderRadius` property can be specified in multiple formats:
   "child": { ... }
 }
 ```
+</CodeGroup>
 
 ## Clip Behavior Options
 
@@ -81,7 +132,19 @@ The `clipBehavior` property accepts the following values:
 
 ### Basic Rounded Container
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(12.0),
+  child: StacContainer(
+    color: StacColors.blue,
+    height: 100,
+    width: 200,
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": 12.0,
@@ -93,10 +156,24 @@ The `clipBehavior` property accepts the following values:
   }
 }
 ```
+</CodeGroup>
 
 ### Rounded Image
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius.all(8.0),
+  child: StacImage(
+    src: 'https://example.com/image.jpg',
+    width: 200,
+    height: 200,
+    fit: StacBoxFit.cover,
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": 8.0,
@@ -109,10 +186,36 @@ The `clipBehavior` property accepts the following values:
   }
 }
 ```
+</CodeGroup>
 
 ### Card with Different Corner Radii
 
-```json
+<CodeGroup>
+```dart Dart
+StacClipRRect(
+  borderRadius: StacBorderRadius(
+    topLeft: 20.0,
+    topRight: 20.0,
+    bottomLeft: 0.0,
+    bottomRight: 0.0,
+  ),
+  child: StacContainer(
+    color: StacColors.white,
+    padding: StacEdgeInsets.all(16.0),
+    child: StacColumn(
+      children: [
+        StacText(
+          data: 'Card Title',
+          style: StacTextStyle(fontSize: 18.0, fontWeight: StacFontWeight.bold),
+        ),
+        StacText(data: 'Card content goes here'),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
 {
   "type": "clipRRect",
   "borderRadius": {
@@ -145,6 +248,7 @@ The `clipBehavior` property accepts the following values:
   }
 }
 ```
+</CodeGroup>
 
 ## Related Widgets
 

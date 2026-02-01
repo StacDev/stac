@@ -1,0 +1,123 @@
+---
+title: "Set Value"
+description: "Documentation for Set Value"
+---
+
+The Stac SetValue widget allows you to set multiple key-value pairs in the application's state and optionally render a child widget. It's useful for managing application state through JSON configuration.
+
+## Properties
+
+| Property | Type                          | Description                                                      |
+|----------|-------------------------------|------------------------------------------------------------------|
+| values   | `List<Map<String, dynamic>>`  | List of key-value pairs to set in the application state.         |
+| child    | `StacWidget`                  | Optional child widget to render after the values are set.        |
+
+Each item in `values` should contain:
+- `key`: The state key to set
+- `value`: The value to assign
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacSetValue(
+  values: [
+    {'key': 'userName', 'value': 'John Doe'},
+    {'key': 'isLoggedIn', 'value': true},
+  ],
+  child: StacText(data: 'Welcome!'),
+)
+```
+
+```json JSON
+{
+  "type": "setValue",
+  "values": [
+    { "key": "userName", "value": "John Doe" },
+    { "key": "isLoggedIn", "value": true }
+  ],
+  "child": {
+    "type": "text",
+    "data": "Welcome!"
+  }
+}
+```
+</CodeGroup>
+
+## Initializing State on Screen Load
+
+Use `StacSetValue` to initialize state when a screen loads:
+
+<CodeGroup>
+```dart Dart
+StacScaffold(
+  body: StacSetValue(
+    values: [
+      {'key': 'currentPage', 'value': 'home'},
+      {'key': 'selectedTab', 'value': 0},
+      {'key': 'filters', 'value': {'category': 'all', 'sortBy': 'date'}},
+    ],
+    child: StacColumn(
+      children: [
+        StacText(data: 'Home Page'),
+        // ... rest of the UI
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "scaffold",
+  "body": {
+    "type": "setValue",
+    "values": [
+      { "key": "currentPage", "value": "home" },
+      { "key": "selectedTab", "value": 0 },
+      { "key": "filters", "value": { "category": "all", "sortBy": "date" } }
+    ],
+    "child": {
+      "type": "column",
+      "children": [
+        { "type": "text", "data": "Home Page" }
+      ]
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Reading State Values
+
+After setting values with `StacSetValue`, you can read them using placeholder syntax `{{key}}`:
+
+<CodeGroup>
+```dart Dart
+StacSetValue(
+  values: [
+    {'key': 'greeting', 'value': 'Hello'},
+    {'key': 'user.name', 'value': 'Alice'},
+  ],
+  child: StacText(data: '{{greeting}}, {{user.name}}!'),
+)
+```
+
+```json JSON
+{
+  "type": "setValue",
+  "values": [
+    { "key": "greeting", "value": "Hello" },
+    { "key": "user.name", "value": "Alice" }
+  ],
+  "child": {
+    "type": "text",
+    "data": "{{greeting}}, {{user.name}}!"
+  }
+}
+```
+</CodeGroup>
+
+<Note>
+For action-based state updates (e.g., on button press), see [StacSetValueAction](/actions/set_value).
+</Note>
