@@ -264,13 +264,12 @@ StacWidget _buildSimilarMoviesListViewTemplate() {
     'shrinkWrap': true,
     'separator': StacSizedBox(width: 8).toJson(),
     'itemTemplate': StacGestureDetector(
-      onTap: StacAction.fromJson({
-        'actionType': 'setValue',
-        'values': [
+      onTap: StacSetValueAction(
+        values: [
           {'key': 'movie_id', 'value': '{{data.id}}'},
         ],
-        'action': {'actionType': 'navigate', 'routeName': 'detail_screen'},
-      }),
+        action: StacNavigator.pushStac('detail_screen'),
+      ),
       child: StacClipRRect(
         borderRadius: StacBorderRadius.all(6),
         child: StacImage(

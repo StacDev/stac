@@ -59,7 +59,7 @@ StacWidget onboardingScreen() {
                       child: StacText(
                         data: AppStrings.onboardingGetStartedButton,
                       ),
-                      onPressed: StacNavigateAction(routeName: 'home_screen'),
+                      onPressed: StacNavigator.pushStac('home_screen'),
                     ),
                   ),
                 ],

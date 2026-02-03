@@ -1,142 +1,121 @@
 ---
 title: "Navigate Action"
-description: "Documentation for Navigate Action"
+description: "API reference for the Navigate action: properties and NavigationStyle."
 ---
 
-The Stac Navigate Action allows you to perform navigation actions in a Flutter application using JSON.
-To know more about navigation in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Navigator-class.html).
+The **Navigate** action performs navigation in a Flutter app from JSON or Dart. For an overview of how navigation works in Stac (destinations, `StacNavigator`, and when to use each option), see [Navigation in Stac](/concepts/navigation_in_stac). For Flutter’s Navigator model, see the [official documentation](https://api.flutter.dev/flutter/widgets/Navigator-class.html).
 
-## Properties
+## Property reference
 
-| Property         | Type                    | Description                                                                 |
-|------------------|-------------------------|-----------------------------------------------------------------------------|
-| request          | `StacNetworkRequest`    | The network request to perform before navigation.                           |
-| widgetJson       | `Map<String, dynamic>`  | The JSON representation of the widget to navigate to.                       |
-| assetPath        | `String`                | The asset path of the widget to navigate to.                                |
-| routeName        | `String`                | The name of the route to navigate to.                                       |
-| navigationStyle  | `NavigationStyle`       | The style of navigation (e.g., push, pop, pushReplacement, etc.).           |
-| result           | `Map<String, dynamic>`  | The result to return when popping the route.                                |
-| arguments        | `Map<String, dynamic>`  | The arguments to pass to the route.                                         |
+You specify **where** to go with exactly one of: `request`, `widgetJson`, `assetPath`, or `routeName`. You specify **how** to go with `navigationStyle`. For pop-style navigation only `navigationStyle` (and optionally `result`) is used.
 
+### request
 
-### NavigationStyle
+| | |
+|---|---|
+| **Type** | `StacNetworkRequest` |
+| **Required** | No (optional; use one of request, widgetJson, assetPath, routeName for push-style) |
+| **JSON key** | `request` |
 
-The `NavigationStyle` enum defines the different styles of navigation that can be used in the Stac Navigate Action.
+Network request used to load the destination screen JSON. The response body is parsed as Stac widget JSON and shown as the new route. Use for server-driven screens loaded at navigation time.
 
-| Value                   | Description                                               |
-|-------------------------|-----------------------------------------------------------|
-| `push`                  | Pushes a new route onto the navigator stack.              |
-| `pop`                   | Pops the current route off the navigator stack.           |
-| `pushReplacement`       | Replaces the current route with a new route.              |
-| `pushAndRemoveAll`      | Pushes a new route and removes all the previous routes.   |
-| `popAll`                | Pops all the routes off the navigator stack.              |
-| `pushNamed`             | Pushes a named route onto the navigator stack.            |
-| `pushNamedAndRemoveAll` | Pushes a named route and removes all the previous routes. |
-| `pushReplacementNamed`  | Replaces the current route with a named route.            |
+**Used with:** `navigationStyle` = `push`, `pushReplacement`, or `pushAndRemoveAll`.
 
-## Examples
+See [Network Request Action](/actions/network_request) for `StacNetworkRequest` fields (url, method, headers, body, etc.).
 
-### Navigate with a Network Request
+---
 
-<CodeGroup>
-```dart Dart
-StacNavigateAction(
-  request: StacNetworkRequest(
-    url: 'https://example.com/api',
-    method: Method.get,
-  ),
-  navigationStyle: NavigationStyle.push,
-)
-```
+### widgetJson
 
-```json JSON
-{
-  "actionType": "navigate",
-  "request": {
-    "url": "https://example.com/api",
-    "method": "get"
-  },
-  "navigationStyle": "push"
-}
-```
-</CodeGroup>
+| | |
+|---|---|
+| **Type** | `Map<String, dynamic>` |
+| **Required** | No (optional; use one of request, widgetJson, assetPath, routeName for push-style) |
+| **JSON key** | `widgetJson` |
 
-### Navigate with a Widget
+Inline Stac widget tree (JSON map) used as the destination screen. No network or asset load; the screen is defined entirely in the action. Good for one-off or dynamic screens.
 
-<CodeGroup>
-```dart Dart
-StacNavigateAction(
-  widgetJson: StacScaffold(
-    appBar: StacAppBar(
-      title: StacText(data: 'My App'),
-    ),
-    body: StacCenter(
-      child: StacText(data: 'Hello, World!'),
-    ),
-  ),
-  navigationStyle: NavigationStyle.push,
-)
-```
+**Used with:** `navigationStyle` = `push`, `pushReplacement`, or `pushAndRemoveAll`.
 
-```json JSON
-{
-  "actionType": "navigate",
-  "widgetJson": {
-    "type": "scaffold",
-    "appBar": {
-      "type": "appBar",
-      "title": {
-        "type": "text",
-        "data": "My App"
-      }
-    },
-    "body": {
-      "type": "center",
-      "child": {
-        "type": "text",
-        "data": "Hello, World!"
-      }
-    }
-  },
-  "navigationStyle": "push"
-}
-```
-</CodeGroup>
+---
 
-### Navigate with an Asset Path
+### assetPath
 
-<CodeGroup>
-```dart Dart
-StacNavigateAction(
-  assetPath: 'assets/widgets/my_widget.json',
-  navigationStyle: NavigationStyle.push,
-)
-```
+| | |
+|---|---|
+| **Type** | `String` |
+| **Required** | No (optional; use one of request, widgetJson, assetPath, routeName for push-style) |
+| **JSON key** | `assetPath` |
 
-```json JSON
-{
-  "actionType": "navigate",
-  "assetPath": "assets/widgets/my_widget.json",
-  "navigationStyle": "push"
-}
-```
-</CodeGroup>
+Path to a local asset file (e.g. in `assets/`) that contains the Stac widget JSON for the destination screen. The file is loaded and parsed when navigating. Good for bundled or offline screens.
 
-### Navigate with a Route Name
+**Used with:** `navigationStyle` = `push`, `pushReplacement`, or `pushAndRemoveAll`.
 
-<CodeGroup>
-```dart Dart
-StacNavigateAction(
-  routeName: '/home',
-  navigationStyle: NavigationStyle.pushNamed,
-)
-```
+---
 
-```json JSON
-{
-  "actionType": "navigate",
-  "routeName": "/home",
-  "navigationStyle": "pushNamed"
-}
-```
-</CodeGroup>
+### routeName
+
+| | |
+|---|---|
+| **Type** | `String` |
+| **Required** | No (optional; use one of request, widgetJson, assetPath, routeName for push-style) |
+| **JSON key** | `routeName` |
+
+- With **Stac screens** (push, pushReplacement, pushAndRemoveAll): name of the Stac screen (e.g. from your `/stac` folder or Stac Cloud). The Stac runtime resolves it to a widget (e.g. via `Stac(routeName: routeName)`).
+- With **Flutter named routes** (pushNamed, pushReplacementNamed, pushNamedAndRemoveAll): the route name registered in your app’s route table (e.g. `'/home'`, `'/settings'`).
+
+**Used with:** any push-style `navigationStyle`. For Flutter routes use `pushNamed`, `pushReplacementNamed`, or `pushNamedAndRemoveAll`; for Stac screens use `push`, `pushReplacement`, or `pushAndRemoveAll`.
+
+---
+
+### navigationStyle
+
+| | |
+|---|---|
+| **Type** | `NavigationStyle` (enum) |
+| **Required** | No (defaults to `push` when a destination is provided) |
+| **JSON key** | `navigationStyle` |
+
+Controls how the navigation is performed: push, pop, replace, or clear stack. When omitted and a destination is given, behavior is `push`.
+
+**Values:**
+
+| Value | Description |
+|-------|-------------|
+| `push` | Pushes a new route on top of the current one. Use with `request`, `widgetJson`, `assetPath`, or `routeName` (Stac screen). |
+| `pop` | Pops the current route. Optional `result` is returned to the previous route. No destination. |
+| `pushReplacement` | Replaces the current route with a new one. Use with `request`, `widgetJson`, `assetPath`, or `routeName`. Optional `result` for the replaced route. |
+| `pushAndRemoveAll` | Pushes a new route and removes all routes below it. Use with `request`, `widgetJson`, `assetPath`, or `routeName`. |
+| `popAll` | Pops until the root route. No destination. |
+| `pushNamed` | Pushes a Flutter named route. Use with `routeName` (and optionally `arguments`). |
+| `pushReplacementNamed` | Replaces the current route with a Flutter named route. Use with `routeName`; optional `result` and `arguments`. |
+| `pushNamedAndRemoveAll` | Pushes a Flutter named route and removes all previous routes. Use with `routeName` and optionally `arguments`. |
+
+---
+
+### result
+
+| | |
+|---|---|
+| **Type** | `Map<String, dynamic>` |
+| **Required** | No |
+| **JSON key** | `result` |
+
+Data returned to the previous route when the current route is removed.
+
+- **`pop`**: passed as the second argument to `Navigator.pop(context, result)`.
+- **`pushReplacement`** / **`pushReplacementNamed`**: passed as the `result` to the replacement call so the previous route receives it when the new route is later popped.
+
+---
+
+### arguments
+
+| | |
+|---|---|
+| **Type** | `Map<String, dynamic>` |
+| **Required** | No |
+| **JSON key** | `arguments` |
+
+Arguments passed to the new route. For **Stac screens** (push/pushReplacement/pushAndRemoveAll + routeName), the Stac runtime can use these when building the screen. For **Flutter named routes** (pushNamed, pushReplacementNamed, pushNamedAndRemoveAll), this is the `arguments` object passed to `Navigator.pushNamed(..., arguments: arguments)`.
+
+For examples (Dart and JSON), see [Navigation in Stac](/concepts/navigation_in_stac#examples).

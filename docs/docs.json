@@ -40,6 +40,7 @@
                         "icon": "book",
                         "pages": [
                             "concepts/rendering_stac_widgets",
+                            "concepts/navigation_in_stac",
                             "concepts/caching",
                             "concepts/custom_widgets",
                             "concepts/custom_actions",
