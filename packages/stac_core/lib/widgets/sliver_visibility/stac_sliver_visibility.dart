@@ -84,6 +84,7 @@ class StacSliverVisibility extends StacWidget {
   @override
   String get type => WidgetType.sliverVisibility.name;
 
+  /// Creates a [StacSliverVisibility] from a JSON map.
   factory StacSliverVisibility.fromJson(Map<String, dynamic> json) =>
       _$StacSliverVisibilityFromJson(json);
 

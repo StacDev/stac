@@ -2,6 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:stac_core/core/converters/double_converter.dart';
 import 'package:stac_core/core/stac_widget.dart';
 import 'package:stac_core/foundation/foundation.dart';
+
 part 'stac_sliver_opacity.g.dart';
 
 /// A Stac model representing Flutter's [SliverOpacity] widget.
@@ -64,6 +65,7 @@ class StacSliverOpacity extends StacWidget {
   @override
   String get type => WidgetType.sliverOpacity.name;
 
+  /// Creates a [StacSliverOpacity] from a JSON map.
   factory StacSliverOpacity.fromJson(Map<String, dynamic> json) =>
       _$StacSliverOpacityFromJson(json);
 
