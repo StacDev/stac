@@ -1,3 +1,14 @@
+## 1.3.0
+
+- Added `StacSliverToBoxAdapter` widget model
+- Added `StacSliverPadding` widget model
+- Added `StacSliverSafeArea` widget model
+- Added `StacSliverOpacity` widget model
+- Added `StacSliverVisibility` widget model
+- Added `StacSliverList` widget model
+- Added `StacSliverFillRemaining` widget model
+- Added `StacSliverGrid` widget model
+
 ## 1.2.0
 
 - Added `StacBadge` widget model for displaying badges with labels or counts

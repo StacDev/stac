@@ -1,6 +1,21 @@
-## 1.3.0-dev.1
+## 1.3.0
 
 - **BREAKING**: Refactored caching to use global configuration via `Stac.initialize()`. See [Caching Docs](https://docs.stac.dev/concepts/caching) for migration guide.
+- refactor: Centralize cache configuration to `Stac.initialize` and set `networkFirst` as default cache strategy
+- feat: Add DSL entry to documentation JSON
+- feat: Add stacSliverToBoxAdapter widget, parser, example, and documentation
+- feat: Add stacSliverPadding widget, parser, example, and documentation
+- feat: Add stacSliverSafeArea widget, parser, example, and documentation
+- feat: Add stacSliverOpacity widget, parser, example, and documentation
+- feat: Add stacSliverVisibility widget, parser, example, and documentation
+- feat: Add stacSliverList widget, parser, example, and documentation
+- feat: Add stacSliverFillRemaining widget, parser, example, and documentation
+- feat: Add stacSliverGrid widget, parser, example, and documentation
+- feat: Enhance the Positioned widget with new constructors
+- feat: Add constructors for StacImage widget to support asset, network, and file sources
+- feat: StacNavigator API and navigation documentation
+- docs: Comprehensive documentation improvements with Dart examples
+- docs: Add Dart code examples and wrap all examples in a CodeGroup component for sliver widget documentation
 
 ## 1.2.0
 
