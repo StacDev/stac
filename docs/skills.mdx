@@ -1,0 +1,97 @@
+---
+title: "Stac Agent Skills"
+description: "AI-powered skills that help you build, troubleshoot, and extend Stac applications"
+---
+
+Think of Stac Skills as expert assistants that know Stac inside and out. They help you set up projects, build screens, create custom widgets, and fix issues—all while following best practices.
+
+## Installation
+
+Install all Stac skills with one command:
+
+```bash
+npx skills add https://github.com/StacDev/stac
+```
+
+That's it. Your AI assistant now has access to all Stac skills.
+
+## What are Skills?
+
+Skills are AI helpers that understand how Stac works. They can:
+- Walk you through setup step-by-step
+- Generate code that follows Stac patterns
+- Debug issues and suggest fixes
+- Scaffold custom widgets and actions
+
+Each skill combines workflows, reference guides, and scripts to give you exactly what you need.
+
+## Available Skills
+
+### stac-quickstart
+
+Get your Stac project up and running. Perfect for first-time setup or when you need to verify everything's configured correctly.
+
+**Use when**: Setting up Stac CLI, running your first `stac init/build/deploy`, or troubleshooting setup issues.
+
+**What it does**: Checks your environment, validates project structure, and guides you through the initial setup.
+
+**Try it**: `Use $stac-quickstart to initialize my Flutter app with Stac and deploy a first screen.`
+
+---
+
+### stac-screen-builder
+
+Turn product requirements into Stac DSL screens. Converts "I need a login screen" into actual, working Stac code.
+
+**Use when**: Creating new screens, refactoring existing ones, or converting designs to Stac DSL.
+
+**What it does**: Maps UI requirements to widgets/actions, applies style patterns, and generates valid Stac DSL.
+
+**Try it**: `Use $stac-screen-builder to turn product requirements into Stac DSL screens and themes.`
+
+**Includes**: Widget selection guides, action recipes, style patterns, and navigation best practices.
+
+---
+
+### stac-custom-extensions
+
+Build custom widgets and actions that work seamlessly with Stac. Handles all the boilerplate so you can focus on your logic.
+
+**Use when**: Creating custom `StacParser` or `StacActionParser` implementations, or adding app-specific widgets/actions.
+
+**What it does**: Scaffolds model and parser files, ensures proper registration, and validates everything works.
+
+**Try it**: `Use $stac-custom-extensions to scaffold a custom widget or action parser for my Stac app.`
+
+**Includes**: Checklists for widgets and actions, parser registration guide, and converter patterns.
+
+---
+
+### stac-troubleshooter
+
+When things break, this skill figures out why and tells you exactly how to fix it.
+
+**Use when**: Builds fail, screens don't render, cache issues, or migration problems.
+
+**What it does**: Runs diagnostics, categorizes issues, and provides exact fix commands with verification steps.
+
+**Try it**: `Use $stac-troubleshooter to diagnose why my Stac screen is not building, deploying, or rendering.`
+
+**Includes**: Error playbooks, cache debugging, navigation troubleshooting, migration guide, and common gotchas.
+
+## How to Use Skills
+
+Just mention what you're trying to do. Your AI assistant will automatically use the right skill. For example:
+
+- "Set up Stac in my project" → uses `stac-quickstart`
+- "Create a login screen" → uses `stac-screen-builder`
+- "My build is failing" → uses `stac-troubleshooter`
+
+You can also reference skills directly: `Use $stac-screen-builder to...`
+
+## What's Next?
+
+- Browse the `skills/` directory to see what's available
+- Check out reference guides for specific patterns
+- Use skills when starting new features or projects
+- Create your own skills for team-specific workflows
