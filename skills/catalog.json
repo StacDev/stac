@@ -1,0 +1,26 @@
+[
+  {
+    "name": "stac-quickstart",
+    "description": "Initialize and validate a Stac-enabled Flutter project and run first deploy.",
+    "path": "skills/stac-quickstart",
+    "default_prompt": "Use $stac-quickstart to initialize my Flutter app with Stac and deploy a first screen."
+  },
+  {
+    "name": "stac-screen-builder",
+    "description": "Build and scaffold Stac DSL screens and themes from product requirements.",
+    "path": "skills/stac-screen-builder",
+    "default_prompt": "Use $stac-screen-builder to turn product requirements into Stac DSL screens and themes."
+  },
+  {
+    "name": "stac-custom-extensions",
+    "description": "Scaffold custom Stac widget/action models and parser integrations.",
+    "path": "skills/stac-custom-extensions",
+    "default_prompt": "Use $stac-custom-extensions to scaffold a custom widget or action parser for my Stac app."
+  },
+  {
+    "name": "stac-troubleshooter",
+    "description": "Diagnose Stac build, deploy, rendering, caching, and navigation issues.",
+    "path": "skills/stac-troubleshooter",
+    "default_prompt": "Use $stac-troubleshooter to diagnose why my Stac screen is not building, deploying, or rendering."
+  }
+]
