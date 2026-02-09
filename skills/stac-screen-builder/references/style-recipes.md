@@ -8,8 +8,8 @@
 ## Text
 
 - Use theme styles before hardcoded values:
-- `StacThemeData.textTheme.titleLarge`
-- `StacThemeData.textTheme.bodyMedium`
+  - `StacThemeData.textTheme.titleLarge`
+  - `StacThemeData.textTheme.bodyMedium`
 
 ## Color
 
