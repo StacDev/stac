@@ -37,8 +37,8 @@ def main() -> int:
     args = parse_args()
     screen_name = args.screen_name.strip()
 
-    if not re.fullmatch(r"[a-z0-9_]+", screen_name):
-        print("[FAIL] --screen-name must match [a-z0-9_]+")
+    if not re.fullmatch(r"[a-z][a-z0-9_]*", screen_name):
+        print("[FAIL] --screen-name must start with a lowercase letter and contain only [a-z0-9_]")
         return 1
 
     skill_root = Path(__file__).resolve().parents[1]
