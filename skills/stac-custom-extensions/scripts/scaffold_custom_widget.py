@@ -68,10 +68,20 @@ def main() -> int:
     model_file = out_dir / f"{file_basename}.dart"
     parser_file = out_dir / f"{file_basename}_parser.dart"
 
+    # Pre-check both files before writing to avoid partial creation
+    if not args.force:
+        if model_file.exists():
+            print(f"[FAIL] File already exists: {model_file}")
+            return 1
+        if parser_file.exists():
+            print(f"[FAIL] File already exists: {parser_file}")
+            return 1
+
     try:
         write_file(model_file, render(model_template, mapping), args.force)
         write_file(parser_file, render(parser_template, mapping), args.force)
     except FileExistsError as exc:
+        # This should not happen due to pre-check, but handle it anyway
         print(f"[FAIL] {exc}")
         return 1
 
