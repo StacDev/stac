@@ -73,11 +73,12 @@ def main() -> int:
 
     if stac_dir.exists() and stac_dir.is_dir():
         add_result(results, "pass", "stac-directory", str(stac_dir))
+        found = has_annotation(stac_dir)
         add_result(
             results,
-            "pass" if has_annotation(stac_dir) else "fail",
+            "pass" if found else "fail",
             "stac-screen-annotation",
-            "Found @StacScreen in stac/" if has_annotation(stac_dir) else "No @StacScreen found in stac/",
+            "Found @StacScreen in stac/" if found else "No @StacScreen found in stac/",
         )
     else:
         add_result(results, "fail", "stac-directory", str(stac_dir))
