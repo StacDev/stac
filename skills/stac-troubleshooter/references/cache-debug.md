@@ -12,8 +12,11 @@
 3. Clear cache when necessary:
 
 ```dart
-await StacCloud.clearScreenCache('/home');
-await StacCloud.clearAllCache();
+// Clear a specific screen cache
+StacCloud.clearScreenCache('/home');
+
+// Or clear all cached screens
+StacCloud.clearAllCache();
 ```
 
 ## Recovery
