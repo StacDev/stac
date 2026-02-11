@@ -61,7 +61,7 @@ function registerWrapCodeActions(context) {
 }
 function registerSnippets(context) {
     const provider = new stacSnippetCompletionProvider_1.StacSnippetCompletionProvider();
-    context.subscriptions.push(vscode.languages.registerCompletionItemProvider('dart', provider, '.'));
+    context.subscriptions.push(vscode.languages.registerCompletionItemProvider('dart', provider, ' '));
 }
 function registerWrapCommands(context) {
     const commandByPreset = {

@@ -31,7 +31,7 @@ function registerWrapCodeActions(context: vscode.ExtensionContext) {
 function registerSnippets(context: vscode.ExtensionContext) {
   const provider = new StacSnippetCompletionProvider();
   context.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider('dart', provider, '.'),
+    vscode.languages.registerCompletionItemProvider('dart', provider, ' '),
   );
 }
 

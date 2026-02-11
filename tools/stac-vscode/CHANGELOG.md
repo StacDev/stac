@@ -13,6 +13,8 @@ All notable changes to the "stac-vscode" extension will be documented in this fi
   - Wrap with `StacExpanded`
   - Wrap with `Stac widget...`
 - Added generated Stac widget catalog from `packages/stac_core`.
-- Added generated `stac.*` snippets for widgets, actions, screens, and themes.
+- Added two snippets:
+  - `stac screen`
+  - `stac theme`
 - Added extension configuration for wrap/snippet behavior.
 - Added provider and utility tests for wrapping/snippets.

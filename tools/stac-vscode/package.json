@@ -1,7 +1,7 @@
 {
   "name": "stac-vscode",
   "displayName": "stac_vscode",
-  "description": "VS Code tooling for Stac DSL: wrap quick fixes and snippet catalog.",
+  "description": "VS Code tooling for Stac DSL: wrap quick fixes plus screen/theme snippets.",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.109.0"
@@ -90,7 +90,7 @@
         "stacVscode.enableSnippets": {
           "type": "boolean",
           "default": true,
-          "description": "Enable stac.* snippet completions in Stac DSL contexts."
+          "description": "Enable `stac screen` and `stac theme` snippets in Stac DSL contexts."
         }
       }
     }

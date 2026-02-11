@@ -12,19 +12,22 @@ VS Code tooling for Stac DSL development.
   - Wrap with `StacSizedBox`
   - Wrap with `StacExpanded`
   - Wrap with `Stac widget...` (type any Stac widget class)
-- Generated Stac snippet catalog with `stac.*` prefixes.
-  - `stac.widget.*`
-  - `stac.action.*`
-  - `stac.screen`
-  - `stac.theme`
+- Two Stac DSL snippets:
+  - type `stac screen` for a new screen template
+  - type `stac theme` for a new theme template
 
 ## Wrap Quick Fix Scope
 
 Wrap quick fixes are available in any Dart file, but only when cursor/selection is on a `Stac*(` widget expression.
 
-## Snippet Scope
+## Snippet Usage
 
-Snippets are shown only in Stac DSL contexts:
+Snippets are shown only in Stac DSL contexts, then type:
+
+- `stac screen`
+- `stac theme`
+
+Stac DSL context is any Dart file where one of these is true:
 
 - file path contains `/stac/`, or
 - file includes `@StacScreen` or `@StacThemeRef`, or
@@ -45,7 +48,7 @@ Snippets are shown only in Stac DSL contexts:
 
 - `stacVscode.enableWrapQuickFix`: enable/disable wrap quick fixes.
 - `stacVscode.wrapPresets`: choose preset wrappers shown in quick-fix menu.
-- `stacVscode.enableSnippets`: enable/disable `stac.*` snippet completions.
+- `stacVscode.enableSnippets`: enable/disable `stac screen`/`stac theme` snippets.
 
 ## Development
 

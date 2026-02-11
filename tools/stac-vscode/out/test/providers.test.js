@@ -76,27 +76,28 @@ suite('Providers', () => {
         const dslSource = [
             "import 'package:stac_core/stac_core.dart';",
             'void buildStac() {',
-            '  stac.',
+            '  stac ',
             '}',
         ].join('\n');
         const dslDocument = await vscode.workspace.openTextDocument({
             language: 'dart',
             content: dslSource,
         });
-        const dslPosition = dslDocument.positionAt(dslSource.indexOf('stac.') + 'stac.'.length);
+        const dslPosition = dslDocument.positionAt(dslSource.indexOf('stac ') + 'stac '.length);
         const dslItems = provider.provideCompletionItems(dslDocument, dslPosition);
-        assert.ok(dslItems.some((item) => item.label === 'stac.widget.container'));
-        assert.ok(dslItems.some((item) => item.label === 'stac.action.navigate'));
+        assert.ok(dslItems.some((item) => item.label === 'stac screen'));
+        assert.ok(dslItems.some((item) => item.label === 'stac theme'));
+        assert.strictEqual(dslItems.length, 2);
         const plainSource = [
             'void notDsl() {',
-            '  stac.',
+            '  stac theme',
             '}',
         ].join('\n');
         const plainDocument = await vscode.workspace.openTextDocument({
             language: 'dart',
             content: plainSource,
         });
-        const plainPosition = plainDocument.positionAt(plainSource.indexOf('stac.') + 'stac.'.length);
+        const plainPosition = plainDocument.positionAt(plainSource.indexOf('stac theme') + 'stac theme'.length);
         const plainItems = provider.provideCompletionItems(plainDocument, plainPosition);
         assert.strictEqual(plainItems.length, 0);
     });
