@@ -1,0 +1,117 @@
+{
+  "name": "stac-vscode",
+  "displayName": "stac_vscode",
+  "description": "VS Code tooling for Stac DSL: wrap quick fixes and snippet catalog.",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:dart",
+    "onCommand:stac-vscode.wrapWithStacContainer",
+    "onCommand:stac-vscode.wrapWithStacPadding",
+    "onCommand:stac-vscode.wrapWithStacCenter",
+    "onCommand:stac-vscode.wrapWithStacAlign",
+    "onCommand:stac-vscode.wrapWithStacSizedBox",
+    "onCommand:stac-vscode.wrapWithStacExpanded",
+    "onCommand:stac-vscode.wrapWithStacWidget",
+    "onCommand:stac-vscode.regenerateCatalog"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "stac-vscode.wrapWithStacContainer",
+        "title": "Wrap with StacContainer"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacPadding",
+        "title": "Wrap with StacPadding"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacCenter",
+        "title": "Wrap with StacCenter"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacAlign",
+        "title": "Wrap with StacAlign"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacSizedBox",
+        "title": "Wrap with StacSizedBox"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacExpanded",
+        "title": "Wrap with StacExpanded"
+      },
+      {
+        "command": "stac-vscode.wrapWithStacWidget",
+        "title": "Wrap with Stac widget..."
+      },
+      {
+        "command": "stac-vscode.regenerateCatalog",
+        "title": "Stac: Regenerate Catalog"
+      }
+    ],
+    "configuration": {
+      "title": "Stac VS Code",
+      "properties": {
+        "stacVscode.enableWrapQuickFix": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Cmd+. Stac wrap quick fixes when cursor is on a Stac widget expression."
+        },
+        "stacVscode.wrapPresets": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "StacContainer",
+              "StacPadding",
+              "StacCenter",
+              "StacAlign",
+              "StacSizedBox",
+              "StacExpanded"
+            ]
+          },
+          "default": [
+            "StacContainer",
+            "StacPadding",
+            "StacCenter",
+            "StacAlign",
+            "StacSizedBox",
+            "StacExpanded"
+          ],
+          "description": "Preset wrappers to display in quick-fix menu."
+        },
+        "stacVscode.enableSnippets": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable stac.* snippet completions in Stac DSL contexts."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "generate:catalog": "node ./scripts/generate-catalog.mjs",
+    "compile": "npm run generate:catalog && tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.109.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "typescript-eslint": "^8.54.0",
+    "eslint": "^9.39.2",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
