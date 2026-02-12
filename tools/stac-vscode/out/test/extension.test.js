@@ -40,6 +40,10 @@ suite('Extension Test Suite', () => {
         assert.ok(constants_1.COMMANDS.wrapWithStacContainer);
         assert.ok(constants_1.COMMANDS.wrapWithStacWidget);
         assert.ok(constants_1.COMMANDS.regenerateCatalog);
+        assert.ok(constants_1.COMMANDS.previewOpen);
+        assert.ok(constants_1.COMMANDS.previewRefresh);
+        assert.ok(constants_1.COMMANDS.previewStop);
+        assert.ok(constants_1.COMMANDS.previewSelectScreen);
     });
 });
 //# sourceMappingURL=extension.test.js.map

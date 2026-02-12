@@ -6,5 +6,9 @@ suite('Extension Test Suite', () => {
 		assert.ok(COMMANDS.wrapWithStacContainer);
 		assert.ok(COMMANDS.wrapWithStacWidget);
 		assert.ok(COMMANDS.regenerateCatalog);
+		assert.ok(COMMANDS.previewOpen);
+		assert.ok(COMMANDS.previewRefresh);
+		assert.ok(COMMANDS.previewStop);
+		assert.ok(COMMANDS.previewSelectScreen);
 	});
 });

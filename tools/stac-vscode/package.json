@@ -2,9 +2,15 @@
   "name": "stac-vscode",
   "displayName": "stac_vscode",
   "description": "VS Code tooling for Stac DSL: wrap quick fixes plus screen/theme snippets.",
-  "version": "0.1.0",
+  "version": "0.1.7",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StacDev/stac.git",
+    "directory": "tools/stac-vscode"
+  },
   "engines": {
-    "vscode": "^1.109.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
     "Other"
@@ -18,7 +24,10 @@
     "onCommand:stac-vscode.wrapWithStacSizedBox",
     "onCommand:stac-vscode.wrapWithStacExpanded",
     "onCommand:stac-vscode.wrapWithStacWidget",
-    "onCommand:stac-vscode.regenerateCatalog"
+    "onCommand:stac-vscode.regenerateCatalog",
+    "onCommand:stac-vscode.preview.open",
+    "onCommand:stac-vscode.preview.stop",
+    "onCommand:stac-vscode.preview.selectScreen"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -54,6 +63,22 @@
       {
         "command": "stac-vscode.regenerateCatalog",
         "title": "Stac: Regenerate Catalog"
+      },
+      {
+        "command": "stac-vscode.preview.open",
+        "title": "Stac: Open Preview",
+        "icon": {
+          "light": "media/preview-open-light.svg",
+          "dark": "media/preview-open-dark.svg"
+        }
+      },
+      {
+        "command": "stac-vscode.preview.stop",
+        "title": "Stac: Stop Preview"
+      },
+      {
+        "command": "stac-vscode.preview.selectScreen",
+        "title": "Stac: Select Preview Screen"
       }
     ],
     "configuration": {
@@ -91,8 +116,64 @@
           "type": "boolean",
           "default": true,
           "description": "Enable `stac screen` and `stac theme` snippets in Stac DSL contexts."
+        },
+        "stacVscode.preview.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the Stac right-side preview panel commands."
+        },
+        "stacVscode.preview.autoRefreshOnSave": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically refresh Stac preview on Dart file save when preview is open."
+        },
+        "stacVscode.preview.jsonStrategy": {
+          "type": "string",
+          "enum": [
+            "runnerThenBuild",
+            "runnerOnly",
+            "buildOnly"
+          ],
+          "default": "runnerThenBuild",
+          "description": "JSON generation strategy for preview: use direct runner first with build fallback, runner only, or build only."
+        },
+        "stacVscode.preview.buildCommand": {
+          "type": "string",
+          "default": "stac build --project \"${projectFolder}\"",
+          "description": "Build command used for preview fallback mode. Supports ${projectFolder} and ${workspaceFolder} tokens."
+        },
+        "stacVscode.preview.outputDirCandidates": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "stac/.build",
+            "build/screens",
+            "build"
+          ],
+          "description": "Candidate output directories searched for <screenName>.json after fallback build."
+        },
+        "stacVscode.preview.hostPort": {
+          "type": "number",
+          "default": 47841,
+          "description": "Port used by the local Flutter preview host."
+        },
+        "stacVscode.preview.startupTimeoutMs": {
+          "type": "number",
+          "default": 120000,
+          "description": "Timeout in milliseconds for starting the preview host."
         }
       }
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "stac-vscode.preview.open",
+          "when": "resourceLangId == dart && config.stacVscode.preview.enable",
+          "group": "navigation@1"
+        }
+      ]
     }
   },
   "scripts": {
@@ -105,7 +186,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.109.0",
+    "@types/vscode": "^1.80.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "typescript-eslint": "^8.54.0",

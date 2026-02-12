@@ -40,6 +40,7 @@ const node_util_1 = require("node:util");
 const path = __importStar(require("node:path"));
 const vscode = __importStar(require("vscode"));
 const constants_1 = require("./core/constants");
+const previewManager_1 = require("./preview/previewManager");
 const stacSnippetCompletionProvider_1 = require("./snippets/stacSnippetCompletionProvider");
 const applyWrapEdit_1 = require("./wrap/applyWrapEdit");
 const findWrappableExpression_1 = require("./wrap/findWrappableExpression");
@@ -47,11 +48,14 @@ const pickCustomWrapper_1 = require("./wrap/pickCustomWrapper");
 const stacWrapCodeActionProvider_1 = require("./wrap/stacWrapCodeActionProvider");
 const wrapperTemplates_1 = require("./wrap/wrapperTemplates");
 const execFileAsync = (0, node_util_1.promisify)(node_child_process_1.execFile);
+let previewManager;
 function activate(context) {
     registerWrapCodeActions(context);
     registerSnippets(context);
     registerWrapCommands(context);
     registerRegenerateCatalogCommand(context);
+    previewManager = new previewManager_1.PreviewManager(context);
+    previewManager.register();
 }
 function registerWrapCodeActions(context) {
     const provider = new stacWrapCodeActionProvider_1.StacWrapCodeActionProvider();
@@ -141,5 +145,10 @@ function registerRegenerateCatalogCommand(context) {
     });
     context.subscriptions.push(disposable);
 }
-function deactivate() { }
+async function deactivate() {
+    if (previewManager) {
+        await previewManager.dispose();
+        previewManager = undefined;
+    }
+}
 //# sourceMappingURL=extension.js.map

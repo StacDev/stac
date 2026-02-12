@@ -3,6 +3,7 @@ import { promisify } from 'node:util';
 import * as path from 'node:path';
 import * as vscode from 'vscode';
 import { COMMANDS, WRAP_PRESET_IDS } from './core/constants';
+import { PreviewManager } from './preview/previewManager';
 import { StacSnippetCompletionProvider } from './snippets/stacSnippetCompletionProvider';
 import { applyWrapWorkspaceEdit } from './wrap/applyWrapEdit';
 import { findWrappableExpression } from './wrap/findWrappableExpression';
@@ -11,12 +12,15 @@ import { StacWrapCodeActionProvider } from './wrap/stacWrapCodeActionProvider';
 import { getPresetWrapper } from './wrap/wrapperTemplates';
 
 const execFileAsync = promisify(execFile);
+let previewManager: PreviewManager | undefined;
 
 export function activate(context: vscode.ExtensionContext) {
   registerWrapCodeActions(context);
   registerSnippets(context);
   registerWrapCommands(context);
   registerRegenerateCatalogCommand(context);
+  previewManager = new PreviewManager(context);
+  previewManager.register();
 }
 
 function registerWrapCodeActions(context: vscode.ExtensionContext) {
@@ -151,4 +155,9 @@ function registerRegenerateCatalogCommand(context: vscode.ExtensionContext) {
   context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export async function deactivate() {
+  if (previewManager) {
+    await previewManager.dispose();
+    previewManager = undefined;
+  }
+}
