@@ -1,8 +1,10 @@
 import * as vscode from 'vscode';
 import { existsSync } from 'node:fs';
 import * as path from 'node:path';
+import { spawn } from 'node:child_process';
 import { COMMANDS, SETTINGS } from '../core/constants';
 import { generatePreviewJson } from './jsonGeneration';
+import { readJsonFile } from './jsonResolver';
 import { PreviewHostProcess } from './previewHostProcess';
 import { PreviewPanel } from './previewPanel';
 import {
@@ -10,11 +12,14 @@ import {
   discoverScreens,
   pickScreenDescriptor,
 } from './screenDiscovery';
+import { discoverThemesInWorkspace } from './themeDiscovery';
+import { writeThemeRunnerArtifacts } from './runnerScript';
 import type {
   PreviewJsonStrategy,
   PreviewOutboundMessage,
   PreviewRenderMessage,
   PreviewWebviewMessage,
+  ThemeDescriptor,
 } from './types';
 
 interface PreviewSettings {
@@ -50,12 +55,23 @@ export class PreviewManager implements vscode.Disposable {
 
   private lastRenderRequestId?: string;
 
+  private discoveredThemes: ThemeDescriptor[] = [];
+
+  private selectedThemeName?: string;
+
+  private themeJsonCache = new Map<string, Record<string, unknown>>();
+
   private pendingRefresh?: {
     uri: vscode.Uri;
     cursorOffset?: number;
   };
 
   private refreshRunning = false;
+
+  /** Timestamp of the last explicit refresh (openPreview / refreshPreview). Used to suppress
+   *  duplicate renders from handleDidChangeActiveEditor / handleDidChangeSelection that fire
+   *  concurrently with the explicit refresh. */
+  private lastExplicitRefreshTime = 0;
 
   constructor(context: vscode.ExtensionContext) {
     this.context = context;
@@ -109,6 +125,9 @@ export class PreviewManager implements vscode.Disposable {
     this.preferredScreenByDocument.delete(editor.document.uri.fsPath);
     await this.ensurePanelAndHost(settings);
 
+    await this.refreshThemeList();
+
+    this.lastExplicitRefreshTime = Date.now();
     this.enqueueRefresh(editor.document.uri);
   }
 
@@ -122,6 +141,7 @@ export class PreviewManager implements vscode.Disposable {
     if (editor && editor.document.languageId === 'dart') {
       this.activeDocumentUri = editor.document.uri;
       const cursorOffset = editor.document.offsetAt(editor.selection.active);
+      this.lastExplicitRefreshTime = Date.now();
       this.enqueueRefresh(editor.document.uri, cursorOffset);
       return;
     }
@@ -193,16 +213,34 @@ export class PreviewManager implements vscode.Disposable {
       return;
     }
 
-    if (document.uri.fsPath !== this.activeDocumentUri.fsPath) {
+    // Invalidate theme cache if the saved file is a theme source
+    const isThemeFile = this.discoveredThemes.some(
+      (t) => t.filePath === document.uri.fsPath,
+    );
+    if (isThemeFile) {
+      // Only invalidate themes from this file, not all themes
+      for (const theme of this.discoveredThemes) {
+        if (theme.filePath === document.uri.fsPath) {
+          this.themeJsonCache.delete(theme.themeName);
+        }
+      }
+      this.outputChannel.appendLine(
+        `[preview] Theme file saved, cache invalidated: ${document.uri.fsPath}`,
+      );
+    }
+
+    // Refresh if the saved file is the active screen document OR a theme file with a selected theme
+    const isActiveScreen = document.uri.fsPath === this.activeDocumentUri.fsPath;
+    if (!isActiveScreen && !(isThemeFile && this.selectedThemeName)) {
       return;
     }
 
     const editor = vscode.window.activeTextEditor;
-    const cursorOffset = editor && editor.document.uri.fsPath === document.uri.fsPath
+    const cursorOffset = editor && editor.document.uri.fsPath === this.activeDocumentUri.fsPath
       ? editor.document.offsetAt(editor.selection.active)
       : undefined;
 
-    this.enqueueRefresh(document.uri, cursorOffset);
+    this.enqueueRefresh(this.activeDocumentUri, cursorOffset);
   }
 
   private async handleDidChangeActiveEditor(
@@ -210,6 +248,11 @@ export class PreviewManager implements vscode.Disposable {
   ): Promise<void> {
     const settings = this.getSettings();
     if (!settings.enabled) {
+      return;
+    }
+
+    // Suppress if an explicit refresh (open/refresh command) was triggered very recently
+    if (Date.now() - this.lastExplicitRefreshTime < 2000) {
       return;
     }
 
@@ -251,6 +294,11 @@ export class PreviewManager implements vscode.Disposable {
 
     const screens = discoverScreens(document);
     if (screens.length === 0) {
+      return;
+    }
+
+    // Suppress if an explicit refresh was triggered very recently
+    if (Date.now() - this.lastExplicitRefreshTime < 2000) {
       return;
     }
 
@@ -370,12 +418,25 @@ export class PreviewManager implements vscode.Disposable {
       timestamp: new Date().toISOString(),
       requestId: createRenderRequestId(),
     };
+
+    // Attach theme JSON if a theme is selected
+    if (this.selectedThemeName) {
+      const themeJson = await this.resolveThemeJson(projectRoot);
+      if (themeJson) {
+        payload.theme = themeJson;
+      }
+    }
+
     this.lastRequestedScreenName = screen.screenName;
     this.lastRenderRequestId = payload.requestId;
+    this.lastRenderMessage = payload;
+
+    if (!this.panel) {
+      return;
+    }
 
     await this.panel.postRender(payload);
-    this.lastRenderMessage = payload;
-    await this.panel.postState(
+    this.panel?.postState(
       'ready',
       `Preview payload sent for ${screen.screenName} via ${result.source}.`,
     );
@@ -399,6 +460,25 @@ export class PreviewManager implements vscode.Disposable {
       this.panel.onDidReceiveMessage((message) => {
         void this.handleWebviewMessage(message);
       });
+      // When the user clicks the preview panel, VS Code makes it the "active"
+      // editor group.  Any subsequent file-open from the explorer would then
+      // create a new split column instead of opening in the editor column.
+      // To prevent this, shift focus back to the last active text editor after
+      // a short delay (enough for webview click events to fire).
+      this.panel.onDidChangeViewState((e) => {
+        if (e.webviewPanel.active) {
+          setTimeout(() => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+              void vscode.window.showTextDocument(
+                editor.document,
+                editor.viewColumn,
+                false,
+              );
+            }
+          }, 200);
+        }
+      });
     } else {
       this.panel.updateHostUrl(hostUrl);
       this.panel.reveal();
@@ -415,6 +495,22 @@ export class PreviewManager implements vscode.Disposable {
       if (this.panel && this.lastRenderMessage) {
         void this.panel.postRender(this.lastRenderMessage);
       }
+      if (this.panel && this.discoveredThemes.length > 0) {
+        void this.panel.postThemes(
+          this.discoveredThemes.map((t) => ({ themeName: t.themeName })),
+          this.selectedThemeName ?? null,
+        );
+      }
+      return;
+    }
+
+    if (message.type === 'stac.preview.selectTheme') {
+      this.selectedThemeName = message.themeName ?? undefined;
+      this.outputChannel.appendLine(
+        `[preview] Theme selected: ${this.selectedThemeName ?? 'none'}`,
+      );
+      // Fast-path: reuse last screen JSON, only re-resolve theme
+      await this.reRenderWithCurrentTheme();
       return;
     }
 
@@ -523,6 +619,175 @@ export class PreviewManager implements vscode.Disposable {
 
       current = parent;
     }
+  }
+
+  /**
+   * Re-render using the last screen JSON but with fresh theme resolution.
+   * Avoids expensive screen JSON regeneration when only the theme changes.
+   */
+  private async reRenderWithCurrentTheme(): Promise<void> {
+    if (!this.panel || !this.lastRenderMessage) {
+      // No previous render; fall back to full refresh
+      if (this.activeDocumentUri) {
+        this.enqueueRefresh(this.activeDocumentUri);
+      }
+      return;
+    }
+
+    const projectRoot = this.activeDocumentUri
+      ? this.resolveProjectRoot(
+        await vscode.workspace.openTextDocument(this.activeDocumentUri),
+      )
+      : undefined;
+
+    const payload: PreviewRenderMessage = {
+      ...this.lastRenderMessage,
+      theme: undefined,
+      requestId: createRenderRequestId(),
+      timestamp: new Date().toISOString(),
+    };
+
+    if (this.selectedThemeName && projectRoot) {
+      const themeJson = await this.resolveThemeJson(projectRoot);
+      if (themeJson) {
+        payload.theme = themeJson;
+      }
+    }
+
+    this.lastRenderRequestId = payload.requestId;
+    this.lastRenderMessage = payload;
+
+    if (!this.panel) {
+      return;
+    }
+
+    await this.panel.postRender(payload);
+  }
+
+  private async refreshThemeList(): Promise<void> {
+    const workspaceFolder = vscode.workspace.workspaceFolders?.at(0)?.uri.fsPath;
+    if (!workspaceFolder) {
+      return;
+    }
+
+    try {
+      this.discoveredThemes = await discoverThemesInWorkspace(workspaceFolder);
+      this.outputChannel.appendLine(
+        `[preview] Discovered ${this.discoveredThemes.length} theme(s): ${this.discoveredThemes.map((t) => t.themeName).join(', ') || 'none'}`,
+      );
+
+      if (this.panel) {
+        void this.panel.postThemes(
+          this.discoveredThemes.map((t) => ({ themeName: t.themeName })),
+          this.selectedThemeName ?? null,
+        );
+      }
+    } catch (error) {
+      this.outputChannel.appendLine(`[preview] Theme discovery failed: ${String(error)}`);
+    }
+  }
+
+  private async resolveThemeJson(projectRoot: string): Promise<Record<string, unknown> | undefined> {
+    if (!this.selectedThemeName) {
+      return undefined;
+    }
+
+    // Check cache first
+    const cached = this.themeJsonCache.get(this.selectedThemeName);
+    if (cached) {
+      return cached;
+    }
+
+    const theme = this.discoveredThemes.find(
+      (t) => t.themeName === this.selectedThemeName,
+    );
+    if (!theme || !theme.topLevel) {
+      this.outputChannel.appendLine(
+        `[preview] Theme "${this.selectedThemeName}" not found or not top-level.`,
+      );
+      return undefined;
+    }
+
+    try {
+      const artifacts = await writeThemeRunnerArtifacts(
+        projectRoot,
+        theme.filePath,
+        theme.functionOrGetterName,
+        theme.themeName,
+        theme.isGetter,
+      );
+
+      this.outputChannel.appendLine(
+        `[preview] Running theme runner: ${artifacts.scriptPath}`,
+      );
+
+      const result = await this.runDartCommand(
+        ['run', artifacts.scriptPath, artifacts.outputPath],
+        projectRoot,
+      );
+
+      if (result.exitCode !== 0) {
+        this.outputChannel.appendLine(
+          `[preview] Theme runner failed (exit ${result.exitCode}).`,
+        );
+        return undefined;
+      }
+
+      const json = await readJsonFile(artifacts.outputPath);
+      this.themeJsonCache.set(this.selectedThemeName, json);
+      return json;
+    } catch (error) {
+      this.outputChannel.appendLine(
+        `[preview] Failed to generate theme JSON: ${String(error)}`,
+      );
+      return undefined;
+    }
+  }
+
+  private runDartCommand(
+    args: readonly string[],
+    cwd: string,
+    timeoutMs = 30_000,
+  ): Promise<{ exitCode: number }> {
+    return new Promise((resolve, reject) => {
+      const child = spawn('dart', [...args], { cwd, env: process.env });
+      let settled = false;
+
+      const timer = setTimeout(() => {
+        if (!settled) {
+          settled = true;
+          child.kill();
+          this.outputChannel.appendLine(
+            `[preview] dart command timed out after ${timeoutMs}ms`,
+          );
+          resolve({ exitCode: 124 });
+        }
+      }, timeoutMs);
+
+      child.stdout.on('data', (chunk: Buffer | string) => {
+        this.outputChannel.append(chunk.toString());
+      });
+
+      child.stderr.on('data', (chunk: Buffer | string) => {
+        this.outputChannel.append(chunk.toString());
+      });
+
+      child.on('error', (error) => {
+        if (!settled) {
+          settled = true;
+          clearTimeout(timer);
+          reject(error);
+        }
+      });
+
+      child.on('close', (code) => {
+        if (!settled) {
+          settled = true;
+          clearTimeout(timer);
+          resolve({ exitCode: code ?? 1 });
+        }
+      });
+    });
   }
 
   private getSettings(): PreviewSettings {

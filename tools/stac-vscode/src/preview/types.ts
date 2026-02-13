@@ -6,6 +6,7 @@ export interface PreviewRenderMessage {
   type: 'stac.preview.render';
   screenName: string;
   json: Record<string, unknown>;
+  theme?: Record<string, unknown>;
   sourcePath: string;
   timestamp: string;
   requestId: string;
@@ -44,6 +45,16 @@ export interface PreviewWebviewReadyEvent {
   type: 'stac.preview.webview.ready';
 }
 
+export interface PreviewThemesMessage {
+  type: 'stac.preview.themes';
+  themes: Array<{ themeName: string }>;
+}
+
+export interface PreviewSelectThemeMessage {
+  type: 'stac.preview.selectTheme';
+  themeName: string | null;
+}
+
 export type PreviewOutboundMessage =
   | PreviewReadyEvent
   | PreviewRenderedEvent
@@ -52,7 +63,8 @@ export type PreviewOutboundMessage =
 export type PreviewWebviewMessage =
   | PreviewOutboundMessage
   | PreviewRetryMessage
-  | PreviewWebviewReadyEvent;
+  | PreviewWebviewReadyEvent
+  | PreviewSelectThemeMessage;
 
 export interface ScreenDescriptor {
   screenName: string;
@@ -69,4 +81,12 @@ export interface JsonGenerationResult {
   source: 'runner' | 'build';
   json: Record<string, unknown>;
   jsonPath: string;
+}
+
+export interface ThemeDescriptor {
+  themeName: string;
+  filePath: string;
+  functionOrGetterName: string;
+  isGetter: boolean;
+  topLevel: boolean;
 }

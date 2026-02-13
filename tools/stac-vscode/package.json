@@ -1,33 +1,41 @@
 {
   "name": "stac-vscode",
-  "displayName": "stac_vscode",
-  "description": "VS Code tooling for Stac DSL: wrap quick fixes plus screen/theme snippets.",
-  "version": "0.1.7",
+  "displayName": "Stac",
+  "description": "Build Server-Driven UI with Stac — live preview, wrap quick-fixes, and snippets for Flutter.",
+  "version": "0.1.0",
+  "publisher": "StacDev",
   "license": "MIT",
+  "icon": "media/icon.png",
+  "homepage": "https://stac.dev",
+  "bugs": {
+    "url": "https://github.com/StacDev/stac/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/StacDev/stac.git",
     "directory": "tools/stac-vscode"
   },
+  "galleryBanner": {
+    "color": "#0B0B0D",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
   "categories": [
+    "Programming Languages",
+    "Snippets",
     "Other"
   ],
+  "keywords": [
+    "stac",
+    "flutter",
+    "dart",
+    "server-driven-ui",
+    "preview"
+  ],
   "activationEvents": [
-    "onLanguage:dart",
-    "onCommand:stac-vscode.wrapWithStacContainer",
-    "onCommand:stac-vscode.wrapWithStacPadding",
-    "onCommand:stac-vscode.wrapWithStacCenter",
-    "onCommand:stac-vscode.wrapWithStacAlign",
-    "onCommand:stac-vscode.wrapWithStacSizedBox",
-    "onCommand:stac-vscode.wrapWithStacExpanded",
-    "onCommand:stac-vscode.wrapWithStacWidget",
-    "onCommand:stac-vscode.regenerateCatalog",
-    "onCommand:stac-vscode.preview.open",
-    "onCommand:stac-vscode.preview.stop",
-    "onCommand:stac-vscode.preview.selectScreen"
+    "onLanguage:dart"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -68,8 +76,8 @@
         "command": "stac-vscode.preview.open",
         "title": "Stac: Open Preview",
         "icon": {
-          "light": "media/preview-open-light.svg",
-          "dark": "media/preview-open-dark.svg"
+          "light": "media/preview-icon-light.svg",
+          "dark": "media/preview-icon.svg"
         }
       },
       {

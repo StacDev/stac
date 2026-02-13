@@ -42,10 +42,69 @@ export function collectStacExpressionRanges(text: string): StacExpressionRange[]
 }
 
 function findMatchingParen(text: string, openParenOffset: number): number {
+  type State = 'normal' | 'single' | 'double' | 'lineComment' | 'blockComment';
+  let state: State = 'normal';
+  let escaped = false;
   let depth = 0;
 
   for (let index = openParenOffset; index < text.length; index += 1) {
     const char = text[index];
+    const next = text[index + 1];
+
+    if (state === 'lineComment') {
+      if (char === '\n') {
+        state = 'normal';
+      }
+      continue;
+    }
+
+    if (state === 'blockComment') {
+      if (char === '*' && next === '/') {
+        state = 'normal';
+        index += 1;
+      }
+      continue;
+    }
+
+    if (state === 'single') {
+      if (!escaped && char === "'") {
+        state = 'normal';
+      }
+      escaped = !escaped && char === '\\';
+      continue;
+    }
+
+    if (state === 'double') {
+      if (!escaped && char === '"') {
+        state = 'normal';
+      }
+      escaped = !escaped && char === '\\';
+      continue;
+    }
+
+    if (char === '/' && next === '/') {
+      state = 'lineComment';
+      index += 1;
+      continue;
+    }
+
+    if (char === '/' && next === '*') {
+      state = 'blockComment';
+      index += 1;
+      continue;
+    }
+
+    if (char === "'") {
+      state = 'single';
+      escaped = false;
+      continue;
+    }
+
+    if (char === '"') {
+      state = 'double';
+      escaped = false;
+      continue;
+    }
 
     if (char === '(') {
       depth += 1;

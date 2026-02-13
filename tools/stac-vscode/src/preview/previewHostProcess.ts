@@ -72,11 +72,36 @@ export class PreviewHostProcess {
     const running = this.process;
     this.process = undefined;
     running.kill('SIGTERM');
+
+    // Wait for the process to exit so the port is actually released
+    await new Promise<void>((resolve) => {
+      const timeout = setTimeout(() => {
+        running.kill('SIGKILL');
+        resolve();
+      }, 5000);
+
+      running.on('close', () => {
+        clearTimeout(timeout);
+        resolve();
+      });
+    });
   }
 
   private async startInternal(): Promise<string> {
     await this.ensurePreviewHostDependencies();
     const maxPortRetries = 10;
+
+    // Pre-check: if the initial port is busy, find a free one BEFORE spawning
+    // flutter (avoids the slow fail-then-retry cycle)
+    if (!(await canBindPort(this.port))) {
+      this.outputChannel.appendLine(
+        `[preview] Port ${this.port} is already in use, finding a free port...`,
+      );
+      const freePort = await findAvailablePort(this.port + 1, 30);
+      if (freePort !== undefined) {
+        this.port = freePort;
+      }
+    }
 
     for (let attempt = 0; attempt <= maxPortRetries; attempt += 1) {
       this.outputChannel.appendLine(

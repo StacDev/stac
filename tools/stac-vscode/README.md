@@ -1,85 +1,65 @@
-# Stac VS Code Extension
+# Stac — Server-Driven UI for Flutter
 
-VS Code tooling for Stac DSL development.
+Build and preview Server-Driven UI screens with the **Stac** framework — directly inside VS Code.
 
-## Features
+## ✨ Features
 
-- Cmd+. quick-fix wrapping for Stac widgets in Dart files.
-  - Wrap with `StacContainer`
-  - Wrap with `StacPadding`
-  - Wrap with `StacCenter`
-  - Wrap with `StacAlign`
-  - Wrap with `StacSizedBox`
-  - Wrap with `StacExpanded`
-  - Wrap with `Stac widget...` (type any Stac widget class)
-- Two Stac DSL snippets:
-  - type `stac screen` for a new screen template
-  - type `stac theme` for a new theme template
-- Right-side Stac preview panel:
-  - `Stac: Open Preview`
-  - `Stac: Select Preview Screen`
-  - `Stac: Stop Preview`
-  - JSON generation strategy: runner fast path (`screen().toJson()`) with build fallback.
+### 🔴 Live Preview
+Open a side-by-side preview of any `@StacScreen` — updates on save, supports theme selection, and renders with Android/iOS/Web platform simulation.
 
-## Wrap Quick Fix Scope
+- **`Stac: Open Preview`** — launch the preview panel for the active screen
+- **Device toggles** — switch between Android, iOS, and Web viewports
+- **Theme picker** — select any `@StacThemeRef` theme to preview with
 
-Wrap quick fixes are available in any Dart file, but only when cursor/selection is on a `Stac*(` widget expression.
+### 🔧 Wrap Quick Fixes
+Place your cursor on any Stac widget expression and press **Cmd+.** to wrap it:
 
-## Snippet Usage
+- `StacContainer`, `StacPadding`, `StacCenter`, `StacAlign`, `StacSizedBox`, `StacExpanded`
+- **Wrap with Stac widget…** — type any Stac widget class name
 
-Snippets are shown only in Stac DSL contexts, then type:
+### 📝 Snippets
+Type in a Stac DSL context (files containing `@StacScreen`, `@StacThemeRef`, or `package:stac_core`):
 
-- `stac screen`
-- `stac theme`
+- `stac screen` — new screen template
+- `stac theme` — new theme template
 
-Stac DSL context is any Dart file where one of these is true:
+## ⚙️ Extension Settings
 
-- file path contains `/stac/`, or
-- file includes `@StacScreen` or `@StacThemeRef`, or
-- file imports `package:stac_core/stac_core.dart`.
+| Setting | Default | Description |
+|---|---|---|
+| `stacVscode.enableWrapQuickFix` | `true` | Enable wrap quick-fix actions |
+| `stacVscode.wrapPresets` | All presets | Preset wrappers in quick-fix menu |
+| `stacVscode.enableSnippets` | `true` | Enable `stac screen`/`stac theme` snippets |
+| `stacVscode.preview.enable` | `true` | Enable preview commands |
+| `stacVscode.preview.autoRefreshOnSave` | `true` | Refresh preview on save |
+| `stacVscode.preview.jsonStrategy` | `runnerThenBuild` | JSON generation strategy |
+| `stacVscode.preview.hostPort` | `47841` | Local preview host port |
+| `stacVscode.preview.startupTimeoutMs` | `120000` | Host startup timeout |
+
+## Requirements
+
+- **Flutter SDK** with Dart `3.9.2+`
+- A Flutter project using the [Stac](https://stac.dev) framework
 
 ## Commands
 
-- `Wrap with StacContainer`
-- `Wrap with StacPadding`
-- `Wrap with StacCenter`
-- `Wrap with StacAlign`
-- `Wrap with StacSizedBox`
-- `Wrap with StacExpanded`
-- `Wrap with Stac widget...`
-- `Stac: Regenerate Catalog`
-- `Stac: Open Preview`
-- `Stac: Select Preview Screen`
-- `Stac: Stop Preview`
+| Command | Description |
+|---|---|
+| `Stac: Open Preview` | Open live preview panel |
+| `Stac: Select Preview Screen` | Switch to a different screen in the current file |
+| `Stac: Stop Preview` | Stop the preview host |
+| `Stac: Regenerate Catalog` | Rebuild widget catalog from `stac_core` |
 
-## Extension Settings
+## Troubleshooting
 
-- `stacVscode.enableWrapQuickFix`: enable/disable wrap quick fixes.
-- `stacVscode.wrapPresets`: choose preset wrappers shown in quick-fix menu.
-- `stacVscode.enableSnippets`: enable/disable `stac screen`/`stac theme` snippets.
-- `stacVscode.preview.enable`: enable/disable preview commands.
-- `stacVscode.preview.autoRefreshOnSave`: refresh preview on save.
-- `stacVscode.preview.jsonStrategy`: `runnerThenBuild`, `runnerOnly`, `buildOnly`.
-- `stacVscode.preview.buildCommand`: fallback build command. Supports `${projectFolder}` and `${workspaceFolder}` tokens.
-- `stacVscode.preview.outputDirCandidates`: JSON output lookup directories.
-- `stacVscode.preview.hostPort`: local preview host port.
-- `stacVscode.preview.startupTimeoutMs`: preview host startup timeout (default `120000` for first-run Flutter web builds).
+If the preview doesn't start, open **Output → Stac Preview** for detailed logs.
 
-## Development
+## Links
 
-```bash
-npm run compile
-npm run lint
-npm run test
-```
+- [Stac Documentation](https://stac.dev)
+- [GitHub Repository](https://github.com/StacDev/stac)
+- [Report Issues](https://github.com/StacDev/stac/issues)
 
-## Preview Requirements
+## License
 
-- Flutter SDK with Dart `3.9.2+`.
-- If preview startup fails, open **Output** panel and select **Stac Preview** for detailed logs.
-
-Catalog generation:
-
-```bash
-npm run generate:catalog
-```
+[MIT](LICENSE)
