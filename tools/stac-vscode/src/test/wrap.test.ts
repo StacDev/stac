@@ -81,7 +81,9 @@ suite('Wrap utilities', () => {
     assert.strictEqual(target, undefined);
   });
 
-  test('builds wrapped expression with child property', () => {
+  test('builds wrapped expression with child property (single-line)', () => {
+    // baseIndent='  ' simulates widget on a line with 2-space indent
+    // First line should NOT include baseIndent (replacement starts mid-line)
     const wrapped = buildWrappedExpression(
       {
         wrapperName: 'StacContainer',
@@ -97,6 +99,55 @@ suite('Wrap utilities', () => {
     assert.strictEqual(
       wrapped,
       "StacContainer(\n    child: StacText(data: 'Hello'),\n  )",
+    );
+  });
+
+  test('builds wrapped expression with multiline child (preserves relative indent)', () => {
+    // Simulates expression captured mid-line: first line has no indent,
+    // rest lines have document indent that gets dedented.
+    const inner = `StacAlign(
+  alignment: StacAlignmentDirectional.center,
+  child: StacCenter(child: StacText(data: 'Hi')),
+)`;
+    const wrapped = buildWrappedExpression(
+      {
+        wrapperName: 'StacWidget',
+        title: 'Wrap with Stac widget',
+        childMode: 'child',
+        beforeChildArgs: [],
+      },
+      inner,
+      '    ',
+      '  ',
+    );
+
+    assert.strictEqual(
+      wrapped,
+      `StacWidget(
+      child: StacAlign(
+        alignment: StacAlignmentDirectional.center,
+        child: StacCenter(child: StacText(data: 'Hi')),
+      ),
+    )`,
+    );
+  });
+
+  test('builds wrapped expression with beforeChildArgs (e.g. StacPadding)', () => {
+    const wrapped = buildWrappedExpression(
+      {
+        wrapperName: 'StacPadding',
+        title: 'Wrap with StacPadding',
+        childMode: 'child',
+        beforeChildArgs: ['padding: StacEdgeInsets.all(8)'],
+      },
+      "StacCenter(child: StacText(data: 'Hi'))",
+      '  ',
+      '  ',
+    );
+
+    assert.strictEqual(
+      wrapped,
+      "StacPadding(\n    padding: StacEdgeInsets.all(8),\n    child: StacCenter(child: StacText(data: 'Hi')),\n  )",
     );
   });
 

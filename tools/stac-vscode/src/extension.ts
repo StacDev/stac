@@ -6,10 +6,13 @@ import { COMMANDS, WRAP_PRESET_IDS } from './core/constants';
 import { PreviewManager } from './preview/previewManager';
 import { StacSnippetCompletionProvider } from './snippets/stacSnippetCompletionProvider';
 import { applyWrapWorkspaceEdit } from './wrap/applyWrapEdit';
+import { createRemoveWidgetEdit } from './wrap/removeWidget';
 import { findWrappableExpression } from './wrap/findWrappableExpression';
-import { pickCustomWrapperTemplate } from './wrap/pickCustomWrapper';
 import { StacWrapCodeActionProvider } from './wrap/stacWrapCodeActionProvider';
-import { getPresetWrapper } from './wrap/wrapperTemplates';
+import {
+  CUSTOM_WIDGET_PLACEHOLDER_TEMPLATE,
+  getPresetWrapper,
+} from './wrap/wrapperTemplates';
 
 const execFileAsync = promisify(execFile);
 let previewManager: PreviewManager | undefined;
@@ -87,24 +90,51 @@ function registerWrapCommands(context: vscode.ExtensionContext) {
         return;
       }
 
-      const template = await pickCustomWrapperTemplate();
-      if (!template) {
-        return;
-      }
-
-      if (contextTarget.target.widgetName === template.wrapperName) {
-        return;
-      }
-
-      await applyWrapWorkspaceEdit(
-        contextTarget.document,
-        contextTarget.target,
-        template,
+      const { document, target } = contextTarget;
+      const applied = await applyWrapWorkspaceEdit(
+        document,
+        target,
+        CUSTOM_WIDGET_PLACEHOLDER_TEMPLATE,
       );
+      if (!applied) {
+        return;
+      }
+
+      // Select "StacWidget" so user can type the widget/class name inline (Flutter-style)
+      const placeholderLength = CUSTOM_WIDGET_PLACEHOLDER_TEMPLATE.wrapperName.length;
+      const selection = new vscode.Range(
+        target.range.start,
+        target.range.start.translate(0, placeholderLength),
+      );
+      const editor = await vscode.window.showTextDocument(document.uri, {
+        selection,
+        preserveFocus: false,
+      });
+      editor.revealRange(selection);
     },
   );
 
-  context.subscriptions.push(customDisposable);
+
+
+
+  const removeDisposable = vscode.commands.registerCommand(
+    COMMANDS.removeStacWidget,
+    async (uri?: vscode.Uri, range?: vscode.Range) => {
+      const contextTarget = await resolveWrapTarget(uri, range);
+      if (!contextTarget) {
+        return;
+      }
+
+      const { document, target } = contextTarget;
+      const edit = createRemoveWidgetEdit(document, target);
+      if (!edit) {
+        return;
+      }
+
+      await vscode.workspace.applyEdit(edit);
+    },
+  );
+  context.subscriptions.push(removeDisposable);
 }
 
 async function resolveWrapTarget(uri?: vscode.Uri, range?: vscode.Range) {

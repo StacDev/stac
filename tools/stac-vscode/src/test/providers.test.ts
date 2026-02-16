@@ -25,7 +25,7 @@ suite('Providers', () => {
     assert.ok(titles.includes('Wrap with StacAlign'));
     assert.ok(titles.includes('Wrap with StacSizedBox'));
     assert.ok(titles.includes('Wrap with StacExpanded'));
-    assert.ok(titles.includes('Wrap with Stac widget...'));
+    assert.ok(titles.includes('Wrap with Stac widget'));
   });
 
   test('quick fix list does not appear on non-stac constructors', async () => {

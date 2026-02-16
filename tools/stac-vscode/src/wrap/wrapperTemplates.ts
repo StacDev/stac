@@ -32,7 +32,7 @@ export const PRESET_WRAPPERS: ReadonlyArray<WrapperTemplate> = [
     wrapperName: 'StacAlign',
     title: 'Wrap with StacAlign',
     childMode: 'child',
-    beforeChildArgs: ['alignment: StacAlignment.center'],
+    beforeChildArgs: ['alignment: StacAlignmentDirectional.center'],
   },
   {
     wrapperName: 'StacSizedBox',
@@ -51,6 +51,14 @@ export const PRESET_WRAPPERS: ReadonlyArray<WrapperTemplate> = [
 export const PRESET_WRAPPER_NAMES = PRESET_WRAPPERS.map(
   (template) => template.wrapperName,
 );
+
+/** Placeholder template for "Wrap with Stac widget" — no pop-up; user types the class name inline. */
+export const CUSTOM_WIDGET_PLACEHOLDER_TEMPLATE: WrapperTemplate = {
+  wrapperName: 'StacWidget',
+  title: 'Wrap with Stac widget',
+  childMode: 'child',
+  beforeChildArgs: [],
+};
 
 export function templateFromWidgetCatalog(
   widget: WidgetCatalogEntry,

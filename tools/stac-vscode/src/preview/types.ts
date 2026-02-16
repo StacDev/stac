@@ -41,6 +41,11 @@ export interface PreviewErrorEvent {
   requestId?: string;
 }
 
+export interface PreviewLogEvent {
+  type: 'stac.preview.log';
+  message: string;
+}
+
 export interface PreviewWebviewReadyEvent {
   type: 'stac.preview.webview.ready';
 }
@@ -58,7 +63,8 @@ export interface PreviewSelectThemeMessage {
 export type PreviewOutboundMessage =
   | PreviewReadyEvent
   | PreviewRenderedEvent
-  | PreviewErrorEvent;
+  | PreviewErrorEvent
+  | PreviewLogEvent;
 
 export type PreviewWebviewMessage =
   | PreviewOutboundMessage

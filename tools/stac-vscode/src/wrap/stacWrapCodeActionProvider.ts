@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { COMMANDS, SETTINGS, WRAP_PRESET_IDS, type WrapPresetId } from '../core/constants';
 import { findWrappableExpression } from './findWrappableExpression';
+import { findChildExpression } from './removeWidget';
 import { getPresetWrapper } from './wrapperTemplates';
 
 const WRAP_COMMANDS: Record<WrapPresetId, string> = {
@@ -61,15 +62,31 @@ export class StacWrapCodeActionProvider implements vscode.CodeActionProvider {
     }
 
     const customAction = new vscode.CodeAction(
-      'Wrap with Stac widget...',
+      'Wrap with Stac widget',
       vscode.CodeActionKind.QuickFix,
     );
     customAction.command = {
       command: COMMANDS.wrapWithStacWidget,
-      title: 'Wrap with Stac widget...',
+      title: 'Wrap with Stac widget',
       arguments: [document.uri, target.range],
     };
     actions.push(customAction);
+
+
+
+    const childExpression = findChildExpression(target.expression);
+    if (childExpression) {
+      const removeAction = new vscode.CodeAction(
+        'Remove this Stac Widget',
+        vscode.CodeActionKind.QuickFix,
+      );
+      removeAction.command = {
+        command: COMMANDS.removeStacWidget,
+        title: 'Remove this Stac Widget',
+        arguments: [document.uri, target.range],
+      };
+      actions.push(removeAction);
+    }
 
     return actions;
   }

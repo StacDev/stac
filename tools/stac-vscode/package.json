@@ -66,7 +66,7 @@
       },
       {
         "command": "stac-vscode.wrapWithStacWidget",
-        "title": "Wrap with Stac widget..."
+        "title": "Wrap with Stac widget"
       },
       {
         "command": "stac-vscode.regenerateCatalog",
@@ -194,13 +194,17 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.80.0",
+    "@types/js-yaml": "^4.0.9",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.54.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.2",
     "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.54.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
   }
 }

@@ -4,8 +4,10 @@ import 'dart:js_interop';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:stac/stac.dart';
 import 'package:web/web.dart' as web;
+import 'package:http/http.dart' as http;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -114,6 +116,11 @@ class _PreviewAppState extends State<_PreviewApp> {
       return;
     }
 
+    if (type == 'stac.preview.loadFonts') {
+      _loadFonts(message['fonts']);
+      return;
+    }
+
     if (type != 'stac.preview.render') return;
 
     try {
@@ -156,11 +163,60 @@ class _PreviewAppState extends State<_PreviewApp> {
     }
   }
 
+  Future<void> _loadFonts(dynamic fontsPayload) async {
+    if (fontsPayload is! List) return;
+
+    final futures = <Future<void>>[];
+
+    for (final fontData in fontsPayload) {
+      if (fontData is! Map) continue;
+      final family = fontData['family'] as String?;
+      final urls = fontData['urls'] as List?;
+
+      if (family == null || urls == null) continue;
+
+      futures.add(_loadFontFamily(family, urls));
+    }
+
+    await Future.wait(futures);
+
+    // Trigger rebuild to apply new fonts
+    if (mounted) setState(() {});
+  }
+
+  Future<void> _loadFontFamily(String family, List urls) async {
+    final loader = FontLoader(family);
+    for (final url in urls) {
+      if (url is String) {
+        loader.addFont(_fetchFont(url));
+      }
+    }
+    try {
+      await loader.load();
+      _log('Loaded font family: $family');
+    } catch (e) {
+      _log('Failed to load font family $family: $e');
+    }
+  }
+
+  Future<ByteData> _fetchFont(String url) async {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      return ByteData.view(response.bodyBytes.buffer);
+    } else {
+      throw Exception('Failed to load font from $url: ${response.statusCode}');
+    }
+  }
+
   void _announceReady() {
     _post({
       'type': 'stac.preview.ready',
       'message': 'Flutter preview host ready.',
     });
+  }
+
+  void _log(String message) {
+    _post({'type': 'stac.preview.log', 'message': message});
   }
 
   void _post(Map<String, dynamic> payload) {

@@ -3,8 +3,11 @@ import { existsSync } from 'node:fs';
 import * as path from 'node:path';
 import { spawn } from 'node:child_process';
 import { COMMANDS, SETTINGS } from '../core/constants';
+import { AssetServer } from './assetServer';
+import { findFontsInPubspec } from './fontDiscovery';
 import { generatePreviewJson } from './jsonGeneration';
 import { readJsonFile } from './jsonResolver';
+import { transformJson } from './jsonTransformer';
 import { PreviewHostProcess } from './previewHostProcess';
 import { PreviewPanel } from './previewPanel';
 import {
@@ -42,6 +45,8 @@ export class PreviewManager implements vscode.Disposable {
   private panelHostPort?: number;
 
   private hostProcess?: PreviewHostProcess;
+
+  private assetServer?: AssetServer;
 
   private hostSettingsKey?: string;
 
@@ -168,6 +173,11 @@ export class PreviewManager implements vscode.Disposable {
       await this.hostProcess.stop();
       this.hostProcess = undefined;
       this.hostSettingsKey = undefined;
+    }
+
+    if (this.assetServer) {
+      this.assetServer.stop();
+      this.assetServer = undefined;
     }
   }
 
@@ -395,6 +405,13 @@ export class PreviewManager implements vscode.Disposable {
     );
     void this.panel.postState('building', `Building preview for ${screen.screenName}...`);
 
+    // Start asset server if not running or if workspace changed (simple check: just ensure running)
+    if (!this.assetServer) {
+      this.assetServer = new AssetServer((msg) => this.outputChannel.appendLine(msg));
+    }
+    // We assume projectRoot is the root for assets.
+    const assetServerPort = await this.assetServer.start(projectRoot);
+
     const result = await generatePreviewJson({
       workspaceRoot: projectRoot,
       sourceFilePath: document.uri.fsPath,
@@ -410,10 +427,39 @@ export class PreviewManager implements vscode.Disposable {
       outputChannel: this.outputChannel,
     });
 
+    // Transform JSON to rewrite asset URLs
+    const transformedJson = transformJson(result.json, assetServerPort);
+
+    // Discover and send fonts
+    try {
+      const fonts = await findFontsInPubspec(projectRoot);
+      if (fonts.length > 0) {
+        // Rewrite font asset paths to local server URLs
+        const fontsPayload = fonts.map(f => ({
+          family: f.family,
+          urls: f.fonts.map(asset =>
+            `http://127.0.0.1:${assetServerPort}/${asset.asset.replace(/^\//, '')}`
+          )
+        }));
+
+        this.panel?.postMessage({
+          type: 'stac.preview.loadFonts',
+          fonts: fontsPayload
+        });
+        this.outputChannel.appendLine(
+          `[preview] Sending ${fonts.length} font families to host.`
+        );
+      } else {
+        this.outputChannel.appendLine('[preview] No fonts found in pubspec.yaml.');
+      }
+    } catch (e) {
+      this.outputChannel.appendLine(`[preview] Failed to load fonts: ${e}`);
+    }
+
     const payload: PreviewRenderMessage = {
       type: 'stac.preview.render',
       screenName: screen.screenName,
-      json: result.json,
+      json: transformedJson,
       sourcePath: result.jsonPath,
       timestamp: new Date().toISOString(),
       requestId: createRenderRequestId(),
@@ -565,6 +611,12 @@ export class PreviewManager implements vscode.Disposable {
       if (this.panel) {
         void this.panel.postState('error', detail);
       }
+      return;
+    }
+
+    if (message.type === 'stac.preview.log') {
+      const detail = message.message;
+      this.outputChannel.appendLine(`[preview] [host] ${detail}`);
     }
   }
 

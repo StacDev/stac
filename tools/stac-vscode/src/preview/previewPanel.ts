@@ -103,6 +103,10 @@ export class PreviewPanel implements vscode.Disposable {
     } as PreviewThemesMessage & { selectedThemeName: string | null });
   }
 
+  postMessage(message: unknown): Thenable<boolean> {
+    return this.panel.webview.postMessage(message);
+  }
+
   dispose() {
     while (this.disposables.length > 0) {
       const item = this.disposables.pop();
@@ -502,6 +506,10 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
           return;
         }
         startDelivery();
+      }
+
+      if (message.type === 'stac.preview.loadFonts') {
+        postRenderToFrame(message);
       }
     });
 

@@ -51,3 +51,4 @@ tools/stac-vscode/out/
 tools/stac-vscode/build/
 *.vsix
 .eslintcache
+.vscode-test/

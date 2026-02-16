@@ -13,6 +13,7 @@ export const COMMANDS = {
   previewRefresh: 'stac-vscode.preview.refresh',
   previewStop: 'stac-vscode.preview.stop',
   previewSelectScreen: 'stac-vscode.preview.selectScreen',
+  removeStacWidget: 'stac-vscode.removeStacWidget',
 } as const;
 
 export const SETTINGS = {
