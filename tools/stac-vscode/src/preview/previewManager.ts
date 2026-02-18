@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { existsSync } from 'node:fs';
+import { existsSync, statSync } from 'node:fs';
 import * as path from 'node:path';
 import { spawn } from 'node:child_process';
 import { COMMANDS, SETTINGS } from '../core/constants';
@@ -66,6 +66,8 @@ export class PreviewManager implements vscode.Disposable {
 
   private themeJsonCache = new Map<string, Record<string, unknown>>();
 
+  private readonly resolvedProjectRoots = new Set<string>();
+
   private pendingRefresh?: {
     uri: vscode.Uri;
     cursorOffset?: number;
@@ -128,7 +130,18 @@ export class PreviewManager implements vscode.Disposable {
 
     this.activeDocumentUri = editor.document.uri;
     this.preferredScreenByDocument.delete(editor.document.uri.fsPath);
-    await this.ensurePanelAndHost(settings);
+
+    // Show the panel immediately so the user sees the loading state right away.
+    // Use the configured port — if it turns out to be busy, ensurePanelAndHost
+    // will recreate the panel with the actual port once the host is ready.
+    this.createOrUpdatePanel(
+      `http://127.0.0.1:${settings.hostPort}`,
+      settings.hostPort,
+    );
+
+    // Eagerly trigger host startup — runs in background while we discover themes
+    // and prepare content.  refreshDocument() will await the host when it needs the panel.
+    this.warmUpHost(settings);
 
     await this.refreshThemeList();
 
@@ -215,33 +228,61 @@ export class PreviewManager implements vscode.Disposable {
       return;
     }
 
-    if (document.languageId !== 'dart') {
-      return;
-    }
-
     if (!this.panel || !this.activeDocumentUri) {
       return;
     }
 
-    // Invalidate theme cache if the saved file is a theme source
-    const isThemeFile = this.discoveredThemes.some(
-      (t) => t.filePath === document.uri.fsPath,
+    const fsPath = document.uri.fsPath;
+
+    // pubspec.yaml changes can affect fonts, assets, and package resolution — refresh the preview
+    if (fsPath.endsWith('pubspec.yaml')) {
+      this.outputChannel.appendLine(
+        '[preview] pubspec.yaml saved, refreshing preview for asset/font/package changes.',
+      );
+      const projectRoot = this.resolveProjectRoot(document);
+      if (projectRoot) {
+        this.resolvedProjectRoots.delete(projectRoot);
+      }
+      this.enqueueRefresh(this.activeDocumentUri);
+      return;
+    }
+
+    if (document.languageId !== 'dart') {
+      return;
+    }
+
+    // Invalidate theme cache if the saved file is a known theme source
+    const isKnownThemeFile = this.discoveredThemes.some(
+      (t) => t.filePath === fsPath,
     );
-    if (isThemeFile) {
-      // Only invalidate themes from this file, not all themes
+    if (isKnownThemeFile) {
       for (const theme of this.discoveredThemes) {
-        if (theme.filePath === document.uri.fsPath) {
+        if (theme.filePath === fsPath) {
           this.themeJsonCache.delete(theme.themeName);
         }
       }
       this.outputChannel.appendLine(
-        `[preview] Theme file saved, cache invalidated: ${document.uri.fsPath}`,
+        `[preview] Theme file saved, cache invalidated: ${fsPath}`,
       );
     }
 
-    // Refresh if the saved file is the active screen document OR a theme file with a selected theme
-    const isActiveScreen = document.uri.fsPath === this.activeDocumentUri.fsPath;
-    if (!isActiveScreen && !(isThemeFile && this.selectedThemeName)) {
+    // Re-discover themes if the saved file contains @StacThemeRef (new or existing)
+    // to pick up newly added themes without a full restart.
+    const fileText = document.getText();
+    const mightContainTheme = fileText.includes('@StacThemeRef');
+    let hasNewThemes = false;
+    if (mightContainTheme || isKnownThemeFile) {
+      const previousNames = new Set(this.discoveredThemes.map((t) => t.themeName));
+      await this.refreshThemeList();
+      hasNewThemes = this.discoveredThemes.some((t) => !previousNames.has(t.themeName));
+    }
+
+    const isActiveScreen = fsPath === this.activeDocumentUri.fsPath;
+    const isThemeFileNow = this.discoveredThemes.some(
+      (t) => t.filePath === fsPath,
+    );
+
+    if (!isActiveScreen && !isThemeFileNow && !hasNewThemes) {
       return;
     }
 
@@ -382,11 +423,6 @@ export class PreviewManager implements vscode.Disposable {
       throw new Error('Unable to find a Dart/Flutter project root (pubspec.yaml) for preview.');
     }
 
-    await this.ensurePanelAndHost(settings);
-    if (!this.panel) {
-      throw new Error('Preview panel is not available.');
-    }
-
     const screens = discoverScreens(document);
     if (screens.length === 0) {
       throw new Error('No @StacScreen declarations found in this document.');
@@ -403,38 +439,59 @@ export class PreviewManager implements vscode.Disposable {
     this.outputChannel.appendLine(
       `[preview] Rendering screen ${screen.screenName} from ${document.uri.fsPath}`,
     );
-    void this.panel.postState('building', `Building preview for ${screen.screenName}...`);
 
-    // Start asset server if not running or if workspace changed (simple check: just ensure running)
     if (!this.assetServer) {
       this.assetServer = new AssetServer((msg) => this.outputChannel.appendLine(msg));
     }
-    // We assume projectRoot is the root for assets.
-    const assetServerPort = await this.assetServer.start(projectRoot);
 
-    const result = await generatePreviewJson({
-      workspaceRoot: projectRoot,
-      sourceFilePath: document.uri.fsPath,
-      screenName: screen.screenName,
-      functionName: screen.functionName,
-      runnerSupported: screen.runnerSupported,
-      strategy: settings.strategy,
-      buildCommand: expandBuildCommandTokens(settings.buildCommand, {
-        workspaceFolder: this.resolveWorkspaceFolderPath(document),
-        projectFolder: projectRoot,
+    // Ensure package resolution is set up before running any dart scripts
+    await this.ensurePackageResolution(projectRoot);
+
+    // Start content generation immediately — JSON generation, theme resolution,
+    // font discovery, and asset server are all independent and can run in parallel
+    // with each other AND with the Flutter host compilation.
+    const contentPromise = Promise.all([
+      this.assetServer.start(projectRoot),
+      generatePreviewJson({
+        workspaceRoot: projectRoot,
+        sourceFilePath: document.uri.fsPath,
+        screenName: screen.screenName,
+        functionName: screen.functionName,
+        runnerSupported: screen.runnerSupported,
+        strategy: settings.strategy,
+        buildCommand: expandBuildCommandTokens(settings.buildCommand, {
+          workspaceFolder: this.resolveWorkspaceFolderPath(document),
+          projectFolder: projectRoot,
+        }),
+        outputDirCandidates: settings.outputDirCandidates,
+        outputChannel: this.outputChannel,
       }),
-      outputDirCandidates: settings.outputDirCandidates,
-      outputChannel: this.outputChannel,
-    });
+      findFontsInPubspec(projectRoot).catch(() => []),
+      this.selectedThemeName
+        ? this.resolveThemeJson(projectRoot).catch((e) => {
+            this.outputChannel.appendLine(`[preview] Theme resolution failed: ${String(e)}`);
+            return undefined;
+          })
+        : Promise.resolve(undefined),
+    ]);
 
-    // Transform JSON to rewrite asset URLs
+    // Wait for host and panel — on first open this blocks while the Flutter web
+    // server compiles, but content generation is running in parallel above.
+    // On subsequent refreshes this returns instantly.
+    await this.ensurePanelAndHost(settings);
+    if (!this.panel) {
+      throw new Error('Preview panel is not available.');
+    }
+
+    void this.panel.postState('building', `Building preview for ${screen.screenName}...`);
+
+    // Await content results (likely already done if host startup was the bottleneck)
+    const [assetServerPort, result, fonts, themeJson] = await contentPromise;
+
     const transformedJson = transformJson(result.json, assetServerPort);
 
-    // Discover and send fonts
     try {
-      const fonts = await findFontsInPubspec(projectRoot);
       if (fonts.length > 0) {
-        // Rewrite font asset paths to local server URLs
         const fontsPayload = fonts.map(f => ({
           family: f.family,
           urls: f.fonts.map(asset =>
@@ -465,12 +522,8 @@ export class PreviewManager implements vscode.Disposable {
       requestId: createRenderRequestId(),
     };
 
-    // Attach theme JSON if a theme is selected
-    if (this.selectedThemeName) {
-      const themeJson = await this.resolveThemeJson(projectRoot);
-      if (themeJson) {
-        payload.theme = themeJson;
-      }
+    if (themeJson) {
+      payload.theme = themeJson;
     }
 
     this.lastRequestedScreenName = screen.screenName;
@@ -488,11 +541,7 @@ export class PreviewManager implements vscode.Disposable {
     );
   }
 
-  private async ensurePanelAndHost(settings: PreviewSettings): Promise<void> {
-    const host = await this.getOrCreateHostProcess(settings);
-    const hostUrl = await host.ensureStarted();
-    const hostPort = host.hostPort;
-
+  private createOrUpdatePanel(hostUrl: string, hostPort: number): void {
     if (!this.panel || this.panelHostPort !== hostPort) {
       if (this.panel) {
         this.panel.dispose();
@@ -529,6 +578,12 @@ export class PreviewManager implements vscode.Disposable {
       this.panel.updateHostUrl(hostUrl);
       this.panel.reveal();
     }
+  }
+
+  private async ensurePanelAndHost(settings: PreviewSettings): Promise<void> {
+    const host = await this.getOrCreateHostProcess(settings);
+    const hostUrl = await host.ensureStarted();
+    this.createOrUpdatePanel(hostUrl, host.hostPort);
   }
 
   private async handleWebviewMessage(message: PreviewWebviewMessage): Promise<void> {
@@ -639,6 +694,13 @@ export class PreviewManager implements vscode.Disposable {
     return this.hostProcess;
   }
 
+  private warmUpHost(settings: PreviewSettings): void {
+    void this.getOrCreateHostProcess(settings).then(
+      (host) => host.ensureStarted(),
+      () => { /* Startup errors are handled when ensurePanelAndHost is awaited */ },
+    );
+  }
+
   private resolveWorkspaceFolderPath(document: vscode.TextDocument): string | undefined {
     const workspaceFolder = vscode.workspace.getWorkspaceFolder(document.uri);
     if (workspaceFolder) {
@@ -728,6 +790,11 @@ export class PreviewManager implements vscode.Disposable {
         `[preview] Discovered ${this.discoveredThemes.length} theme(s): ${this.discoveredThemes.map((t) => t.themeName).join(', ') || 'none'}`,
       );
 
+      if (this.discoveredThemes.length > 0 && !this.selectedThemeName) {
+        this.selectedThemeName = this.discoveredThemes[0].themeName;
+        this.outputChannel.appendLine(`[preview] Auto-selected theme: ${this.selectedThemeName}`);
+      }
+
       if (this.panel) {
         void this.panel.postThemes(
           this.discoveredThemes.map((t) => ({ themeName: t.themeName })),
@@ -773,8 +840,10 @@ export class PreviewManager implements vscode.Disposable {
         `[preview] Running theme runner: ${artifacts.scriptPath}`,
       );
 
+      // Use relative path from project root so dart run can resolve packages correctly
+      const relativeScriptPath = path.relative(projectRoot, artifacts.scriptPath);
       const result = await this.runDartCommand(
-        ['run', artifacts.scriptPath, artifacts.outputPath],
+        ['run', relativeScriptPath, artifacts.outputPath],
         projectRoot,
       );
 
@@ -796,13 +865,79 @@ export class PreviewManager implements vscode.Disposable {
     }
   }
 
+  private async ensurePackageResolution(projectRoot: string): Promise<void> {
+    if (this.resolvedProjectRoots.has(projectRoot)) {
+      return;
+    }
+
+    const pubspecPath = path.join(projectRoot, 'pubspec.yaml');
+    if (!existsSync(pubspecPath)) {
+      return;
+    }
+
+    const packageConfigPath = path.join(projectRoot, '.dart_tool', 'package_config.json');
+    let needsResolution = !existsSync(packageConfigPath);
+
+    if (!needsResolution) {
+      try {
+        const pubspecMtime = statSync(pubspecPath).mtimeMs;
+        const configMtime = statSync(packageConfigPath).mtimeMs;
+        needsResolution = pubspecMtime > configMtime;
+      } catch {
+        needsResolution = true;
+      }
+    }
+
+    if (!needsResolution) {
+      this.resolvedProjectRoots.add(projectRoot);
+      return;
+    }
+
+    try {
+      const pubspecContent = await vscode.workspace.fs.readFile(
+        vscode.Uri.file(pubspecPath),
+      );
+      const pubspecText = Buffer.from(pubspecContent).toString('utf8');
+      const isFlutterProject = /\bflutter\s*:/.test(pubspecText);
+
+      const command = isFlutterProject ? 'flutter' : 'dart';
+      this.outputChannel.appendLine(
+        `[preview] Running ${command} pub get to resolve packages...`,
+      );
+
+      const result = await this.runDartCommand(
+        ['pub', 'get'],
+        projectRoot,
+        120_000,
+        command,
+      );
+
+      if (result.exitCode === 0) {
+        this.resolvedProjectRoots.add(projectRoot);
+      } else {
+        this.outputChannel.appendLine(
+          `[preview] Warning: ${command} pub get failed (exit ${result.exitCode}). Package resolution may fail.`,
+        );
+      }
+    } catch (error) {
+      this.outputChannel.appendLine(
+        `[preview] Warning: Failed to ensure package resolution: ${String(error)}`,
+      );
+    }
+  }
+
   private runDartCommand(
     args: readonly string[],
     cwd: string,
     timeoutMs = 30_000,
+    command = 'dart',
   ): Promise<{ exitCode: number }> {
     return new Promise((resolve, reject) => {
-      const child = spawn('dart', [...args], { cwd, env: process.env });
+      const child = spawn(command, [...args], {
+        cwd,
+        env: process.env,
+        shell: process.platform === 'win32',
+      });
       let settled = false;
 
       const timer = setTimeout(() => {

@@ -25,6 +25,7 @@ class _PreviewApp extends StatefulWidget {
 class _PreviewAppState extends State<_PreviewApp> {
   Map<String, dynamic>? _json;
   Map<String, dynamic>? _themeJson;
+  String? _requestId;
   TargetPlatform? _targetPlatform;
   Timer? _readyPingTimer;
   bool _receivedFirstPayload = false;
@@ -32,6 +33,7 @@ class _PreviewAppState extends State<_PreviewApp> {
   @override
   void initState() {
     super.initState();
+    _log('Preview host initState');
     web.window.addEventListener('message', _onMessage.toJS);
     _announceReady();
     _readyPingTimer = Timer.periodic(const Duration(seconds: 2), (timer) {
@@ -54,40 +56,69 @@ class _PreviewAppState extends State<_PreviewApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      themeAnimationDuration: Duration.zero,
       theme:
           _buildThemeData(context) ??
           (_targetPlatform != null
               ? ThemeData(platform: _targetPlatform)
               : null),
-      home: Scaffold(
-        body: _json == null
-            ? const Center(child: CircularProgressIndicator())
-            : Builder(
-                builder: (context) {
-                  final widget = Stac.fromJson(_json, context);
-                  if (widget == null) {
-                    return const Center(
-                      child: Text(
-                        'Unable to render preview.',
-                        style: TextStyle(color: Colors.red),
-                      ),
-                    );
-                  }
-                  return widget;
-                },
+      home: _json == null
+          ? const Scaffold(body: SizedBox.shrink()) // Hide loader - webview shows progress bar instead
+          : KeyedSubtree(
+              key: ValueKey(_requestId),
+              child: Scaffold(
+                body: Builder(
+                  builder: (context) {
+                    final widget = Stac.fromJson(_json, context);
+                    if (widget == null) {
+                      return const Center(
+                        child: Text(
+                          'Unable to render preview.',
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      );
+                    }
+                    return widget;
+                  },
+                ),
               ),
-      ),
+            ),
     );
   }
 
+  ThemeData? _cachedThemeData;
+  Map<String, dynamic>? _lastThemeJson;
+  TargetPlatform? _lastTargetPlatform;
+
   ThemeData? _buildThemeData(BuildContext context) {
-    if (_themeJson == null) return null;
+    if (_themeJson == null && _targetPlatform == null) {
+      _cachedThemeData = null;
+      _lastThemeJson = null;
+      _lastTargetPlatform = null;
+      return null;
+    }
+
+    if (_themeJson == _lastThemeJson &&
+        _targetPlatform == _lastTargetPlatform) {
+      return _cachedThemeData;
+    }
+
     try {
-      final stacTheme = StacTheme.fromJson(_themeJson!);
-      final themeData = stacTheme.parse(context);
-      if (_targetPlatform != null && themeData != null) {
-        return themeData.copyWith(platform: _targetPlatform);
+      ThemeData? themeData;
+      if (_themeJson != null) {
+        final stacTheme = StacTheme.fromJson(_themeJson!);
+        themeData = stacTheme.parse(context);
       }
+
+      if (_targetPlatform != null) {
+        themeData = (themeData ?? ThemeData.light()).copyWith(
+          platform: _targetPlatform,
+        );
+      }
+
+      _lastThemeJson = _themeJson;
+      _lastTargetPlatform = _targetPlatform;
+      _cachedThemeData = themeData;
       return themeData;
     } catch (_) {
       return null;
@@ -95,10 +126,15 @@ class _PreviewAppState extends State<_PreviewApp> {
   }
 
   void _onMessage(web.MessageEvent event) {
+    _log('Received message event');
     final message = _normalize(event.data.dartify());
-    if (message == null) return;
+    if (message == null) {
+      _log('Failed to normalize message');
+      return;
+    }
 
     final type = message['type'];
+    _log('Message type: $type');
 
     // Handle platform change
     if (type == 'stac.preview.setPlatform') {
@@ -135,6 +171,7 @@ class _PreviewAppState extends State<_PreviewApp> {
       final json = _deepCast(payload);
       final screenName = (message['screenName'] as String?) ?? 'screen';
       final requestId = message['requestId']?.toString();
+      _log('Processing render payload for $screenName, requestId: $requestId');
 
       // Parse optional theme
       Map<String, dynamic>? themeJson;
@@ -146,7 +183,9 @@ class _PreviewAppState extends State<_PreviewApp> {
       setState(() {
         _json = json;
         _themeJson = themeJson;
+        _requestId = requestId;
       });
+      _log('State updated with new JSON');
 
       _post({
         'type': 'stac.preview.rendered',
@@ -155,6 +194,7 @@ class _PreviewAppState extends State<_PreviewApp> {
         'requestId': requestId,
       });
     } catch (error) {
+      _log('Preview host error: $error');
       _post({
         'type': 'stac.preview.error',
         'message': 'Preview host failed: $error',

@@ -110,8 +110,9 @@ export class PreviewHostProcess {
       );
       this.hostOutputBuffer = '';
       this.lastExitCode = undefined;
+      const command = 'flutter';
       this.process = spawn(
-        'flutter',
+        command,
         [
           'run',
           '-d',
@@ -126,6 +127,7 @@ export class PreviewHostProcess {
         {
           cwd: this.hostDir,
           env: process.env,
+          shell: process.platform === 'win32',
         },
       );
 
@@ -232,11 +234,14 @@ export class PreviewHostProcess {
 
   private async waitForHostHealthy(): Promise<void> {
     const startedAt = Date.now();
-    while (Date.now() - startedAt < this.startupTimeoutMs) {
-      if (await this.isHealthy()) {
-        return;
-      }
+    // The HTTP health check alone is insufficient: Flutter's web-server starts
+    // responding before Dart-to-JS compilation finishes, so the iframe would
+    // load an incomplete page.  Wait for Flutter's stdout to confirm the app is
+    // actually being served before declaring the host ready.
+    const servingPattern = 'is being served at';
+    let stdoutPatternSeen = false;
 
+    while (Date.now() - startedAt < this.startupTimeoutMs) {
       if (!this.process) {
         const excerpt = summarizeOutput(this.hostOutputBuffer);
         throw new Error(
@@ -248,6 +253,14 @@ export class PreviewHostProcess {
             .filter((line) => line.length > 0)
             .join(' '),
         );
+      }
+
+      if (!stdoutPatternSeen) {
+        stdoutPatternSeen = this.hostOutputBuffer.includes(servingPattern);
+      }
+
+      if (stdoutPatternSeen && await this.isHealthy()) {
+        return;
       }
 
       await new Promise<void>((resolve) => {
@@ -287,9 +300,11 @@ function runCommand(
 ): Promise<CommandResult> {
   return new Promise((resolve, reject) => {
     let buffered = '';
+
     const child = spawn(command, [...args], {
       cwd,
       env: process.env,
+      shell: process.platform === 'win32',
     });
 
     child.stdout.on('data', (chunk: Buffer | string) => {

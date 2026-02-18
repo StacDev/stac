@@ -113,9 +113,7 @@ function registerWrapCommands(context: vscode.ExtensionContext) {
       editor.revealRange(selection);
     },
   );
-
-
-
+  context.subscriptions.push(customDisposable);
 
   const removeDisposable = vscode.commands.registerCommand(
     COMMANDS.removeStacWidget,

@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process';
+import * as path from 'node:path';
 import * as vscode from 'vscode';
 import { runBuildFallback, type BuildFallbackOptions, type BuildFallbackResult } from './buildFallback';
 import { readJsonFile } from './jsonResolver';
@@ -77,7 +78,9 @@ async function runRunnerFastPath(
   options.outputChannel.appendLine(
     `[preview] Running runner fast path: ${artifacts.scriptPath}`,
   );
-  const runnerCommand = ['run', artifacts.scriptPath, artifacts.outputPath];
+  // Use relative path from workspace root so dart run can resolve packages correctly
+  const relativeScriptPath = path.relative(options.workspaceRoot, artifacts.scriptPath);
+  const runnerCommand = ['run', relativeScriptPath, artifacts.outputPath];
   const result = await runCommand('dart', runnerCommand, options.workspaceRoot, options.outputChannel);
   if (result.exitCode !== 0) {
     throw new RunnerError(`Runner command failed (exit ${result.exitCode}).`);
@@ -124,6 +127,7 @@ function runCommand(
     const child = spawn(command, [...args], {
       cwd,
       env: process.env,
+      shell: process.platform === 'win32',
     });
 
     child.stdout.on('data', (chunk: Buffer | string) => {

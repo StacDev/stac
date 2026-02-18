@@ -30,6 +30,15 @@ export async function runBuildFallback(
 
   const jsonPath = resolveScreenJsonPath(workspaceRoot, screenName, outputDirCandidates);
   if (!jsonPath) {
+    // Debug info: reconstruct tried paths
+    const fs = await import('node:fs');
+    const path = await import('node:path');
+    const tried = outputDirCandidates.map(c => {
+      const base = path.isAbsolute(c) ? c : path.join(workspaceRoot, c);
+      return path.join(base, `${screenName}.json`);
+    });
+    outputChannel.appendLine(`[preview] Failed to find JSON. Checked paths:\n${tried.map(p => `  - ${p} (exists: ${fs.existsSync(p)})`).join('\n')}`);
+
     throw new Error(`Unable to find ${screenName}.json after build fallback.`);
   }
 

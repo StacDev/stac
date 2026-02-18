@@ -206,6 +206,26 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       height: 14px;
       fill: currentColor;
     }
+    .btn-icon {
+      border: 1px solid var(--vscode-input-border, transparent);
+      background: var(--vscode-button-secondaryBackground);
+      color: var(--vscode-button-secondaryForeground);
+      border-radius: 4px;
+      padding: 3px 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0.9;
+    }
+    .btn-icon:hover {
+      opacity: 1;
+    }
+    .btn-icon svg {
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+    }
     #themeSelect {
       border: 1px solid var(--vscode-input-border, transparent);
       background: var(--vscode-input-background);
@@ -226,11 +246,17 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       overflow: hidden;
       opacity: 0;
       transition: opacity 0.2s;
+      pointer-events: none;
     }
-    .progress-bar.active { opacity: 1; }
-    .progress-bar::after {
+    .progress-bar.active {
+      opacity: 1;
+    }
+    .progress-bar.active::after {
       content: '';
       display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 40%;
       height: 100%;
       background: var(--vscode-progressBar-background, #0078d4);
@@ -285,25 +311,27 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       <span id="statusText">Starting preview host...</span>
       <div class="right">
         <div class="device-toggle">
-          <button id="btnAndroid" type="button" title="Android">
+          <button id="btnAndroid" type="button" class="active" title="Android">
             <svg viewBox="0 0 24 24"><path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h2v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zm-4.97-5.84l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48A5.84 5.84 0 0 0 12 1c-.96 0-1.86.23-2.66.63L7.85.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31A5.983 5.983 0 0 0 6 7h12c0-2.21-1.2-4.15-2.97-5.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>
           </button>
           <button id="btnIos" type="button" title="iOS">
             <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           </button>
-          <button id="btnWeb" type="button" class="active" title="Web">
+          <button id="btnWeb" type="button" title="Web">
             <svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm1 2v12h16V6H4z"/></svg>
           </button>
         </div>
+        <button id="retryButton" type="button" class="btn-icon" title="Refresh">
+          <svg viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+        </button>
         <select id="themeSelect" class="hidden" title="Theme">
           <option value="">No Theme</option>
         </select>
-        <button id="retryButton" type="button">Refresh</button>
       </div>
     </div>
     <div id="progressBar" class="progress-bar"></div>
   </div>
-  <div id="frameWrap" class="frame-wrap" data-device="web">
+  <div id="frameWrap" class="frame-wrap" data-device="android">
     <div class="mobile-frame">
       <iframe id="previewFrame" src="${escapedHostUrl}"></iframe>
     </div>
@@ -332,7 +360,13 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     let hostReady = false;
     let deliveryTimer = null;
     let latestDeliveredRequestId = null;
-    let currentDevice = 'web';
+    let currentDevice = 'android';
+    let iframeReadyTimeout = null;
+    let iframeReloadCount = 0;
+    const MAX_IFRAME_RELOADS = 2;
+    const IFRAME_READY_TIMEOUT_MS = 8000;
+    let isLoadingState = true; // Start with loading state active
+    progressBar.classList.add('active'); // Show loader immediately
 
     retryButton.addEventListener('click', () => {
       vscode.postMessage({ type: 'stac.preview.retry' });
@@ -370,6 +404,15 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       latestDeliveredRequestId = null;
       if (latestRenderMessage) {
         startDelivery();
+      }
+      clearTimeout(iframeReadyTimeout);
+      if (iframeReloadCount < MAX_IFRAME_RELOADS) {
+        iframeReadyTimeout = setTimeout(() => {
+          if (!hostReady && frame.src) {
+            iframeReloadCount++;
+            frame.src = frame.src;
+          }
+        }, IFRAME_READY_TIMEOUT_MS);
       }
     });
 
@@ -449,11 +492,8 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
         const hostMessage = normalized;
         if (hostMessage.type === 'stac.preview.ready') {
           hostReady = true;
-          // Always re-deliver when the Flutter app signals ready.
-          // On cold start the app takes seconds to initialise after
-          // the iframe 'load' event, so earlier postMessage calls
-          // are silently lost.  Re-sending here guarantees the first
-          // render is received.
+          clearTimeout(iframeReadyTimeout);
+          iframeReloadCount = 0;
           latestDeliveredRequestId = null;
           if (latestRenderMessage) {
             startDelivery();
@@ -461,6 +501,11 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
         }
         if (hostMessage.type === 'stac.preview.rendered') {
           markDelivered(hostMessage);
+          // Hide progress bar when Flutter app confirms render is complete
+          if (isLoadingState) {
+            isLoadingState = false;
+            progressBar.classList.remove('active');
+          }
         }
         vscode.postMessage(hostMessage);
         return;
@@ -473,27 +518,47 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
 
       if (message.type === 'stac.preview.state') {
         statusText.textContent = message.message || 'Preview update';
-        const loading = message.state === 'building' || message.state === 'loading';
-        progressBar.classList.toggle('active', loading);
+        // Show progress bar for: starting, building, loading, ready (payload sent but not rendered yet)
+        // Hide progress bar for: rendered, error
+        const loading = message.state === 'building' 
+          || message.state === 'loading' 
+          || message.state === 'starting'
+          || message.state === 'ready';
+        // Only update progress bar state if it's actually changing to prevent flicker
+        if (loading !== isLoadingState) {
+          isLoadingState = loading;
+          if (loading) {
+            progressBar.classList.add('active');
+          } else {
+            progressBar.classList.remove('active');
+          }
+        }
         return;
       }
 
       if (message.type === 'stac.preview.themes') {
         const themes = message.themes || [];
-        // Clear existing options (keep first "No Theme" option)
-        while (themeSelect.options.length > 1) {
-          themeSelect.remove(1);
-        }
-        for (const t of themes) {
+        // Clear all options
+        themeSelect.innerHTML = '';
+
+        if (themes.length === 0) {
           const opt = document.createElement('option');
-          opt.value = t.themeName;
-          opt.textContent = t.themeName;
+          opt.value = '';
+          opt.textContent = 'No Theme';
           themeSelect.appendChild(opt);
+        } else {
+          for (const t of themes) {
+            const opt = document.createElement('option');
+            opt.value = t.themeName;
+            opt.textContent = t.themeName;
+            themeSelect.appendChild(opt);
+          }
         }
-        // Show/hide dropdown
-        themeSelect.classList.toggle('hidden', themes.length === 0);
-        // Restore selection (or reset to "No Theme")
-        themeSelect.value = message.selectedThemeName || '';
+
+        // Always show the dropdown when themes info is received
+        themeSelect.classList.remove('hidden');
+        // Restore selection
+        themeSelect.value = message.selectedThemeName || (themes.length > 0 ? themes[0].themeName : '');
         return;
       }
 
