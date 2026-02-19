@@ -275,8 +275,10 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       flex: 1;
       display: flex;
       justify-content: center;
+      align-items: center;
       overflow: hidden;
       background: var(--vscode-editor-background);
+      position: relative;
     }
     .frame-wrap[data-device="web"] iframe {
       width: 100%;
@@ -289,10 +291,11 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     .mobile-frame {}
     .frame-wrap[data-device="android"] .mobile-frame,
     .frame-wrap[data-device="ios"] .mobile-frame {
-      width: 390px;
-      height: 844px;
-      max-width: 100%;
-      margin-top: 32px;
+      /* Base device size for a typical phone (390x844),
+         but scale down to fit shorter editor panes. */
+      width: min(390px, 100%);
+      aspect-ratio: 390 / 844;
+      max-height: calc(100% - 32px); /* leave room for zoom control */
       border: 1px solid rgba(136, 136, 136, 0.4);
       border-radius: 8px;
       overflow: hidden;
@@ -301,6 +304,49 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     .frame-wrap[data-device="ios"] iframe {
       width: 100%;
       height: 100%;
+    }
+    .zoom-control {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: var(--vscode-editorWidget-background, #2d2d2d);
+      border: 1px solid var(--vscode-editorWidget-border, rgba(128, 128, 128, 0.35));
+      border-radius: 4px;
+      padding: 2px 2px 2px 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      z-index: 10;
+    }
+    .zoom-control.hidden {
+      display: none;
+    }
+    .zoom-control button {
+      border: none;
+      background: transparent;
+      color: var(--vscode-editor-foreground, #fff);
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      border-radius: 50%;
+    }
+    .zoom-control button:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .zoom-control .zoom-value {
+      min-width: 44px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--vscode-editor-foreground, #fff);
+      padding: 0 4px;
     }
   </style>
 </head>
@@ -332,8 +378,13 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     <div id="progressBar" class="progress-bar"></div>
   </div>
   <div id="frameWrap" class="frame-wrap" data-device="android">
-    <div class="mobile-frame">
+    <div class="mobile-frame" id="mobileFrame">
       <iframe id="previewFrame" src="${escapedHostUrl}"></iframe>
+    </div>
+    <div id="zoomControl" class="zoom-control" title="Preview zoom">
+      <button id="zoomOut" type="button" aria-label="Zoom out">−</button>
+      <span class="zoom-value" id="zoomValue">100%</span>
+      <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
     </div>
   </div>
 
@@ -349,6 +400,14 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     const btnAndroid = document.getElementById('btnAndroid');
     const btnIos = document.getElementById('btnIos');
     const btnWeb = document.getElementById('btnWeb');
+    const mobileFrame = document.getElementById('mobileFrame');
+    const zoomControl = document.getElementById('zoomControl');
+    const zoomValue = document.getElementById('zoomValue');
+    const zoomOutBtn = document.getElementById('zoomOut');
+    const zoomInBtn = document.getElementById('zoomIn');
+    const ZOOM_LEVELS = [50, 75, 90, 100, 125, 150];
+    let zoomIndex = ZOOM_LEVELS.indexOf(100);
+    if (zoomIndex < 0) zoomIndex = 3;
     const hostOrigin = new URL(frame.src).origin;
     const targetOrigin = hostOrigin;
     const hostEventTypes = new Set([
@@ -377,12 +436,32 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       vscode.postMessage({ type: 'stac.preview.selectTheme', themeName: value });
     });
 
+    function applyZoom() {
+      const pct = ZOOM_LEVELS[zoomIndex];
+      if (mobileFrame) {
+        const scale = pct / 100;
+        mobileFrame.style.transform = scale === 1 ? '' : 'scale(' + scale + ')';
+        mobileFrame.style.transformOrigin = 'center center';
+      }
+      if (zoomValue) zoomValue.textContent = pct + '%';
+      if (zoomOutBtn) zoomOutBtn.disabled = zoomIndex <= 0;
+      if (zoomInBtn) zoomInBtn.disabled = zoomIndex >= ZOOM_LEVELS.length - 1;
+    }
+
     function setDevice(device) {
       currentDevice = device;
       frameWrap.setAttribute('data-device', device);
       btnAndroid.classList.toggle('active', device === 'android');
       btnIos.classList.toggle('active', device === 'ios');
       btnWeb.classList.toggle('active', device === 'web');
+      if (zoomControl) {
+        zoomControl.classList.toggle('hidden', device === 'web');
+      }
+      if (device === 'web' && mobileFrame) {
+        mobileFrame.style.transform = '';
+      } else {
+        applyZoom();
+      }
       // Send platform to the Flutter host
       const platformMap = { android: 'android', ios: 'ios', web: 'web' };
       if (frame.contentWindow) {
@@ -398,6 +477,21 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
     btnAndroid.addEventListener('click', () => setDevice('android'));
     btnIos.addEventListener('click', () => setDevice('ios'));
     btnWeb.addEventListener('click', () => setDevice('web'));
+
+    zoomOutBtn.addEventListener('click', () => {
+      if (zoomIndex > 0) {
+        zoomIndex--;
+        applyZoom();
+      }
+    });
+    zoomInBtn.addEventListener('click', () => {
+      if (zoomIndex < ZOOM_LEVELS.length - 1) {
+        zoomIndex++;
+        applyZoom();
+      }
+    });
+
+    applyZoom();
 
     frame.addEventListener('load', () => {
       hostReady = false;
