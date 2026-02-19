@@ -16,11 +16,21 @@ extension StacInputBorderParser on StacInputBorder? {
       case StacInputBorderType.none:
         return InputBorder.none;
       case StacInputBorderType.underlineInputBorder:
-        return UnderlineInputBorder(borderSide: side);
+        return UnderlineInputBorder(
+          borderSide: side,
+          borderRadius:
+              border.borderRadius?.parse ??
+              BorderRadius.only(
+                topLeft: Radius.circular(4.0),
+                topRight: Radius.circular(4.0),
+              ),
+        );
       case StacInputBorderType.outlineInputBorder:
         return OutlineInputBorder(
           borderSide: side,
-          borderRadius: border.borderRadius?.parse ?? BorderRadius.zero,
+          borderRadius:
+              border.borderRadius?.parse ??
+              BorderRadius.all(Radius.circular(4.0)),
           gapPadding: border.gapPadding ?? 4.0,
         );
     }
