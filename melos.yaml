@@ -11,10 +11,13 @@ scripts:
     exec: dart format .
   get:
     exec: flutter pub get
+  # Run build_runner in dependency order so generated .g.dart files exist
+  # before packages that depend on them try to read them.
   build:
-    exec: dart run build_runner build --delete-conflicting-outputs
-    packageFilters:
-      ignore: [stac_framework, movie_app, stac_logger]
+    steps:
+      - melos exec --scope="stac_core" -- "dart run build_runner build --delete-conflicting-outputs"
+      - melos exec --scope="stac" -- "dart run build_runner build --delete-conflicting-outputs"
+      - melos exec --scope="counter_example" --scope="stac_gallery" --scope="stac_webview" -- "dart run build_runner build --delete-conflicting-outputs"
   watch:
     exec: dart run build_runner watch --delete-conflicting-outputs
     packageFilters:

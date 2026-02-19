@@ -54,6 +54,12 @@ extension StacInputDecorationThemeParser on StacInputDecorationTheme? {
       fillColor: this?.fillColor.toColor(context),
       alignLabelWithHint: this?.alignLabelWithHint ?? false,
       constraints: this?.constraints?.parse,
+      errorBorder: this?.errorBorder.parse(context),
+      focusedBorder: this?.focusedBorder.parse(context),
+      focusedErrorBorder: this?.focusedErrorBorder.parse(context),
+      disabledBorder: this?.disabledBorder.parse(context),
+      enabledBorder: this?.enabledBorder.parse(context),
+      border: this?.border.parse(context),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:stac_core/core/stac_widget.dart';
+import 'package:stac_core/foundation/borders/stac_input_border/stac_input_border.dart';
 import 'package:stac_core/foundation/colors/stac_color/stac_colors.dart';
 import 'package:stac_core/foundation/geometry/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac_core/foundation/text/stac_text_style/stac_text_style.dart';
@@ -59,6 +60,12 @@ class StacInputDecoration extends StacElement {
     this.filled,
     this.fillColor,
     this.alignLabelWithHint,
+    this.errorBorder,
+    this.focusedBorder,
+    this.focusedErrorBorder,
+    this.disabledBorder,
+    this.enabledBorder,
+    this.border,
   });
 
   /// A widget to display before the decoration's container.
@@ -122,6 +129,24 @@ class StacInputDecoration extends StacElement {
   /// Whether to align the floating label with the input's hint/center.
   /// Useful for multi-line inputs so the label isn't vertically centered.
   final bool? alignLabelWithHint;
+
+  /// Border to show when the input has an error.
+  final StacInputBorder? errorBorder;
+
+  /// Border to show when the input is focused.
+  final StacInputBorder? focusedBorder;
+
+  /// Border to show when the input is focused and has an error.
+  final StacInputBorder? focusedErrorBorder;
+
+  /// Border to show when the input is disabled.
+  final StacInputBorder? disabledBorder;
+
+  /// Border to show when the input is enabled and not focused.
+  final StacInputBorder? enabledBorder;
+
+  /// Default border (used when no other border is specified).
+  final StacInputBorder? border;
 
   /// Creates a [StacInputDecoration] from a JSON map.
   ///

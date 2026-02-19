@@ -17,9 +17,9 @@ topics:
 dependencies:
   flutter:
     sdk: flutter
-  webview_flutter: ^4.13.0
-  json_annotation: ^4.9.0
-  stac_core: ^1.0.0
+  webview_flutter: ^4.13.1
+  json_annotation: ^4.10.0
+  stac_core: ^1.3.0
   stac_framework: ^1.0.0
 
 dev_dependencies:
