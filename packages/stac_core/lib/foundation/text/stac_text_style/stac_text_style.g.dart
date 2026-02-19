@@ -116,16 +116,68 @@ const _$StacTextStyleTypeEnumMap = {
   StacTextStyleType.theme: 'theme',
 };
 
-StacThemeTextStyle _$StacThemeTextStyleFromJson(Map<String, dynamic> json) =>
-    StacThemeTextStyle(
-      textTheme: $enumDecode(_$StacMaterialTextStyleEnumMap, json['textTheme']),
-    );
+StacThemeTextStyle _$StacThemeTextStyleFromJson(
+  Map<String, dynamic> json,
+) => StacThemeTextStyle(
+  textTheme: $enumDecode(_$StacMaterialTextStyleEnumMap, json['textTheme']),
+  inherit: json['inherit'] as bool?,
+  color: json['color'] as String?,
+  backgroundColor: json['backgroundColor'] as String?,
+  fontSize: (json['fontSize'] as num?)?.toDouble(),
+  fontWeight: $enumDecodeNullable(_$StacFontWeightEnumMap, json['fontWeight']),
+  fontStyle: $enumDecodeNullable(_$StacFontStyleEnumMap, json['fontStyle']),
+  letterSpacing: (json['letterSpacing'] as num?)?.toDouble(),
+  wordSpacing: (json['wordSpacing'] as num?)?.toDouble(),
+  textBaseline: $enumDecodeNullable(
+    _$StacTextBaselineEnumMap,
+    json['textBaseline'],
+  ),
+  height: (json['height'] as num?)?.toDouble(),
+  leadingDistribution: $enumDecodeNullable(
+    _$StacTextLeadingDistributionEnumMap,
+    json['leadingDistribution'],
+  ),
+  decorationColor: json['decorationColor'] as String?,
+  decorationStyle: $enumDecodeNullable(
+    _$StacTextDecorationStyleEnumMap,
+    json['decorationStyle'],
+  ),
+  decorationThickness: (json['decorationThickness'] as num?)?.toDouble(),
+  debugLabel: json['debugLabel'] as String?,
+  fontFamily: json['fontFamily'] as String?,
+  fontFamilyFallback: (json['fontFamilyFallback'] as List<dynamic>?)
+      ?.map((e) => e as String)
+      .toList(),
+  package: json['package'] as String?,
+  overflow: $enumDecodeNullable(_$StacTextOverflowEnumMap, json['overflow']),
+);
 
-Map<String, dynamic> _$StacThemeTextStyleToJson(StacThemeTextStyle instance) =>
-    <String, dynamic>{
-      'type': _$StacTextStyleTypeEnumMap[instance.type]!,
-      'textTheme': _$StacMaterialTextStyleEnumMap[instance.textTheme]!,
-    };
+Map<String, dynamic> _$StacThemeTextStyleToJson(
+  StacThemeTextStyle instance,
+) => <String, dynamic>{
+  'type': _$StacTextStyleTypeEnumMap[instance.type]!,
+  'textTheme': _$StacMaterialTextStyleEnumMap[instance.textTheme]!,
+  'inherit': instance.inherit,
+  'color': instance.color,
+  'backgroundColor': instance.backgroundColor,
+  'fontSize': instance.fontSize,
+  'fontWeight': _$StacFontWeightEnumMap[instance.fontWeight],
+  'fontStyle': _$StacFontStyleEnumMap[instance.fontStyle],
+  'letterSpacing': instance.letterSpacing,
+  'wordSpacing': instance.wordSpacing,
+  'textBaseline': _$StacTextBaselineEnumMap[instance.textBaseline],
+  'height': instance.height,
+  'leadingDistribution':
+      _$StacTextLeadingDistributionEnumMap[instance.leadingDistribution],
+  'decorationColor': instance.decorationColor,
+  'decorationStyle': _$StacTextDecorationStyleEnumMap[instance.decorationStyle],
+  'decorationThickness': instance.decorationThickness,
+  'debugLabel': instance.debugLabel,
+  'fontFamily': instance.fontFamily,
+  'fontFamilyFallback': instance.fontFamilyFallback,
+  'package': instance.package,
+  'overflow': _$StacTextOverflowEnumMap[instance.overflow],
+};
 
 const _$StacMaterialTextStyleEnumMap = {
   StacMaterialTextStyle.displayLarge: 'displayLarge',

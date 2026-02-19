@@ -14,38 +14,77 @@ extension StacTextStyleParser on StacTextStyle {
       case StacTextStyleType.theme:
         final themeStyle = (this as StacThemeTextStyle).textTheme;
         final textTheme = Theme.of(context).textTheme;
+        TextStyle? textStyle;
         switch (themeStyle) {
           case StacMaterialTextStyle.displayLarge:
-            return textTheme.displayLarge;
+            textStyle = textTheme.displayLarge;
+            break;
           case StacMaterialTextStyle.displayMedium:
-            return textTheme.displayMedium;
+            textStyle = textTheme.displayMedium;
+            break;
           case StacMaterialTextStyle.displaySmall:
-            return textTheme.displaySmall;
+            textStyle = textTheme.displaySmall;
+            break;
           case StacMaterialTextStyle.headlineLarge:
-            return textTheme.headlineLarge;
+            textStyle = textTheme.headlineLarge;
+            break;
           case StacMaterialTextStyle.headlineMedium:
-            return textTheme.headlineMedium;
+            textStyle = textTheme.headlineMedium;
+            break;
           case StacMaterialTextStyle.headlineSmall:
-            return textTheme.headlineSmall;
+            textStyle = textTheme.headlineSmall;
+            break;
           case StacMaterialTextStyle.titleLarge:
-            return textTheme.titleLarge;
+            textStyle = textTheme.titleLarge;
+            break;
           case StacMaterialTextStyle.titleMedium:
-            return textTheme.titleMedium;
+            textStyle = textTheme.titleMedium;
+            break;
           case StacMaterialTextStyle.titleSmall:
-            return textTheme.titleSmall;
+            textStyle = textTheme.titleSmall;
+            break;
           case StacMaterialTextStyle.bodyLarge:
-            return textTheme.bodyLarge;
+            textStyle = textTheme.bodyLarge;
+            break;
           case StacMaterialTextStyle.bodyMedium:
-            return textTheme.bodyMedium;
+            textStyle = textTheme.bodyMedium;
+            break;
           case StacMaterialTextStyle.bodySmall:
-            return textTheme.bodySmall;
+            textStyle = textTheme.bodySmall;
+            break;
           case StacMaterialTextStyle.labelLarge:
-            return textTheme.labelLarge;
+            textStyle = textTheme.labelLarge;
+            break;
           case StacMaterialTextStyle.labelMedium:
-            return textTheme.labelMedium;
+            textStyle = textTheme.labelMedium;
+            break;
           case StacMaterialTextStyle.labelSmall:
-            return textTheme.labelSmall;
+            textStyle = textTheme.labelSmall;
+            break;
         }
+
+        final themeRef = this as StacThemeTextStyle;
+        return textStyle?.copyWith(
+          inherit: themeRef.inherit,
+          color: themeRef.color?.toColor(context),
+          backgroundColor: themeRef.backgroundColor?.toColor(context),
+          fontSize: themeRef.fontSize,
+          fontWeight: themeRef.fontWeight?.parse,
+          fontStyle: themeRef.fontStyle?.parse,
+          letterSpacing: themeRef.letterSpacing,
+          wordSpacing: themeRef.wordSpacing,
+          textBaseline: themeRef.textBaseline?.parse,
+          height: themeRef.height,
+          leadingDistribution: themeRef.leadingDistribution?.parse,
+          decorationColor: themeRef.decorationColor?.toColor(context),
+          decorationStyle: themeRef.decorationStyle?.parse,
+          decorationThickness: themeRef.decorationThickness,
+          debugLabel: themeRef.debugLabel,
+          fontFamily: themeRef.fontFamily,
+          fontFamilyFallback: themeRef.fontFamilyFallback,
+          package: themeRef.package,
+          overflow: themeRef.overflow?.parse,
+        );
       case StacTextStyleType.custom:
         final style = this as StacCustomTextStyle;
         return TextStyle(
