@@ -523,7 +523,6 @@ class StacCustomTextStyle extends StacTextStyle {
 /// { "type": "theme", "textTheme": "bodyMedium" }
 /// ```
 @JsonSerializable()
-@JsonSerializable()
 class StacThemeTextStyle extends StacTextStyle {
   /// A text style that references a style from `ThemeData.textTheme`.
   ///
