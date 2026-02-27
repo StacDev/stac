@@ -1,6 +1,6 @@
 import 'package:movie_app/constants/app_constants.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel.dart';
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'home_screen')
 StacWidget homeScreen() {

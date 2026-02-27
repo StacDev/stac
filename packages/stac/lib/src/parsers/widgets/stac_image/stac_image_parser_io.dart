@@ -4,7 +4,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 
 class StacImageParser extends StacParser<StacImage> {
   const StacImageParser();

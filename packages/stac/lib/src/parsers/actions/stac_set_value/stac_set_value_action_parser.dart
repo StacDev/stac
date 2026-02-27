@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 
 class StacSetValueActionParser extends StacActionParser<StacSetValueAction> {
   const StacSetValueActionParser();
