@@ -432,12 +432,15 @@ class UpgradeService {
   }
 
   Future<void> _extractTarGz(String archivePath, String destDir) async {
-    final result = await Process.run('tar', [
-      '-xzf',
-      archivePath,
-      '-C',
-      destDir,
-    ], runInShell: false);
+    final result = await Process.run(
+        'tar',
+        [
+          '-xzf',
+          archivePath,
+          '-C',
+          destDir,
+        ],
+        runInShell: false);
     if (result.exitCode != 0) {
       throw StacException('Failed to extract archive: ${result.stderr}');
     }
@@ -445,15 +448,18 @@ class UpgradeService {
 
   Future<void> _extractZip(String archivePath, String destDir) async {
     // Use PowerShell to extract on Windows
-    final result = await Process.run('powershell', [
-      '-Command',
-      'Expand-Archive',
-      '-Path',
-      archivePath,
-      '-DestinationPath',
-      destDir,
-      '-Force',
-    ], runInShell: false);
+    final result = await Process.run(
+        'powershell',
+        [
+          '-Command',
+          'Expand-Archive',
+          '-Path',
+          archivePath,
+          '-DestinationPath',
+          destDir,
+          '-Force',
+        ],
+        runInShell: false);
     if (result.exitCode != 0) {
       throw StacException('Failed to extract archive: ${result.stderr}');
     }
@@ -476,9 +482,8 @@ class UpgradeService {
     await File(filePath).openRead().forEach(sink.add);
     sink.close();
     final hash = await sink.hash();
-    final actual = hash.bytes
-        .map((b) => b.toRadixString(16).padLeft(2, '0'))
-        .join();
+    final actual =
+        hash.bytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
 
     if (expected.toLowerCase() != actual.toLowerCase()) {
       throw StacException(

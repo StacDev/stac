@@ -44,11 +44,11 @@ class UiLoads {
     }
 
     return UiLoads(
-      currentPeriodUiLoadCount: (data['currentPeriodUiLoadCount'] as num?)
-          ?.toInt(),
+      currentPeriodUiLoadCount:
+          (data['currentPeriodUiLoadCount'] as num?)?.toInt(),
       lastUiLoadCountFlushed: (data['lastUiLoadCountFlushed'] as num?)?.toInt(),
-      lastUiLoadsFlushedDelta: (data['lastUiLoadsFlushedDelta'] as num?)
-          ?.toInt(),
+      lastUiLoadsFlushedDelta:
+          (data['lastUiLoadsFlushedDelta'] as num?)?.toInt(),
       lastUiLoadsCountFlushedAt: DateTimeUtils.parseDateTime(
         data['lastUiLoadsCountFlushedAt'],
       ),

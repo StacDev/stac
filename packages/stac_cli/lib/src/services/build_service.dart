@@ -194,19 +194,19 @@ class BuildService {
 
       final description =
           RegExp(r"description:\s*'([^']*)'").firstMatch(content)?.group(1) ??
-          'Stac';
+              'Stac';
 
       final projectId =
           RegExp(r"projectId:\s*'([^']*)'").firstMatch(content)?.group(1) ??
-          'stac';
+              'stac';
 
       final sourceDir =
           RegExp(r"sourceDir:\s*'([^']*)'").firstMatch(content)?.group(1) ??
-          'stac';
+              'stac';
 
       final outputDir =
           RegExp(r"outputDir:\s*'([^']*)'").firstMatch(content)?.group(1) ??
-          'stac/.build';
+              'stac/.build';
 
       return StacOptions(
         name: name,
@@ -322,12 +322,10 @@ class BuildService {
     required StacDslArtifactType type,
   }) {
     final artifacts = <StacDslArtifact>[];
-    final annotationName = type == StacDslArtifactType.screen
-        ? 'StacScreen'
-        : 'StacThemeRef';
-    final parameterName = type == StacDslArtifactType.screen
-        ? 'screenName'
-        : 'name';
+    final annotationName =
+        type == StacDslArtifactType.screen ? 'StacScreen' : 'StacThemeRef';
+    final parameterName =
+        type == StacDslArtifactType.screen ? 'screenName' : 'name';
     final callablePrefixPattern = type == StacDslArtifactType.screen
         ? r'(?:StacWidget\s+)?'
         : r'(?:StacTheme\s+)?';
@@ -517,19 +515,18 @@ Future<void> main(List<String> args) async {
   ) async {
     try {
       // Execute Dart file in project context for proper dependency resolution
-      final result =
-          await Process.run(
-            'dart',
-            ['run', path.basename(scriptFile.path)],
-            workingDirectory: projectDir,
-            runInShell: Platform
-                .isWindows, // Use shell on Windows for proper PATH resolution
-          ).timeout(
-            const Duration(seconds: 60),
-            onTimeout: () {
-              throw Exception('Script execution timed out after 60 seconds');
-            },
-          );
+      final result = await Process.run(
+        'dart',
+        ['run', path.basename(scriptFile.path)],
+        workingDirectory: projectDir,
+        runInShell: Platform
+            .isWindows, // Use shell on Windows for proper PATH resolution
+      ).timeout(
+        const Duration(seconds: 60),
+        onTimeout: () {
+          throw Exception('Script execution timed out after 60 seconds');
+        },
+      );
 
       final stdout = result.stdout.toString();
       final stderr = result.stderr.toString();

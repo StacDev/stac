@@ -7,29 +7,30 @@ part of 'subscription.dart';
 // **************************************************************************
 
 Subscription _$SubscriptionFromJson(Map<String, dynamic> json) => Subscription(
-  subscriptionId: json['subscriptionId'] as String?,
-  productId: json['productId'] as String?,
-  customerId: json['customerId'] as String?,
-  status: $enumDecodeNullable(_$SubscriptionStatusEnumMap, json['status']),
-  environment: $enumDecodeNullable(
-    _$SubscriptionEnvironmentEnumMap,
-    json['environment'],
-  ),
-  currentPeriodStart: const FirestoreDateTimeNullable().fromJson(
-    json['currentPeriodStart'],
-  ),
-  currentPeriodEnd: const FirestoreDateTimeNullable().fromJson(
-    json['currentPeriodEnd'],
-  ),
-  lastRenewedAt: const FirestoreDateTimeNullable().fromJson(
-    json['lastRenewedAt'],
-  ),
-  updatedAt: const FirestoreDateTimeNullable().fromJson(json['updatedAt']),
-  cancelOnPeriodEnd: json['cancelOnPeriodEnd'] as bool?,
-  additionalUsageBillingEnabled: json['additionalUsageBillingEnabled'] as bool?,
-  spendLimitEnabled: json['spendLimitEnabled'] as bool?,
-  alertThreshold: (json['alertThreshold'] as num?)?.toDouble(),
-);
+      subscriptionId: json['subscriptionId'] as String?,
+      productId: json['productId'] as String?,
+      customerId: json['customerId'] as String?,
+      status: $enumDecodeNullable(_$SubscriptionStatusEnumMap, json['status']),
+      environment: $enumDecodeNullable(
+        _$SubscriptionEnvironmentEnumMap,
+        json['environment'],
+      ),
+      currentPeriodStart: const FirestoreDateTimeNullable().fromJson(
+        json['currentPeriodStart'],
+      ),
+      currentPeriodEnd: const FirestoreDateTimeNullable().fromJson(
+        json['currentPeriodEnd'],
+      ),
+      lastRenewedAt: const FirestoreDateTimeNullable().fromJson(
+        json['lastRenewedAt'],
+      ),
+      updatedAt: const FirestoreDateTimeNullable().fromJson(json['updatedAt']),
+      cancelOnPeriodEnd: json['cancelOnPeriodEnd'] as bool?,
+      additionalUsageBillingEnabled:
+          json['additionalUsageBillingEnabled'] as bool?,
+      spendLimitEnabled: json['spendLimitEnabled'] as bool?,
+      alertThreshold: (json['alertThreshold'] as num?)?.toDouble(),
+    );
 
 Map<String, dynamic> _$SubscriptionToJson(Subscription instance) =>
     <String, dynamic>{
