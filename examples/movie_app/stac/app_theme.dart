@@ -1,4 +1,4 @@
-import 'package:stac/stac.dart';
+import 'package:stac/stac_core.dart';
 
 @StacThemeRef(name: "movie_app_dark")
 StacTheme get darkTheme => _buildTheme(

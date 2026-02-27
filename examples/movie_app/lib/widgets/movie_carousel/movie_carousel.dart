@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stac/stac_core.dart';
+import 'package:stac/stac.dart';
 
 part 'movie_carousel.g.dart';
 
