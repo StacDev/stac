@@ -61,7 +61,7 @@ class InitCommand extends BaseCommand {
     // Select or create project
     Project? project = await _selectOrCreateProjectInteractively();
     if (project == null) {
-      return 1;
+      return 0;
     }
 
     ConsoleLogger.info('Initializing project: ${project.name}');
