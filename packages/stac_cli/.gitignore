@@ -10,8 +10,6 @@ build/
 .env.local
 .env.*.local
 
-# Melos local overrides
-pubspec_overrides.yaml
 
 # IDE
 .idea/
