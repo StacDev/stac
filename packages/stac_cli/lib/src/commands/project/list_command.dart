@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import '../../services/project_service.dart';
 import '../../utils/console_logger.dart';
 import '../base_command.dart';
@@ -35,7 +37,7 @@ class ListCommand extends BaseCommand {
       if (outputJson) {
         // Output as JSON
         final jsonOutput = projects.map((p) => p.toJson()).toList();
-        ConsoleLogger.plain(jsonOutput.toString());
+        ConsoleLogger.plain(jsonEncode(jsonOutput));
       } else {
         // Human-readable output
         ConsoleLogger.info('Found ${projects.length} project(s):');
