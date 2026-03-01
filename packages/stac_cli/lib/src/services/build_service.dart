@@ -82,6 +82,7 @@ class BuildService {
           );
 
           await _processArtifacts(
+            projectDir: projectDir,
             sourceFile: sourceFile,
             relativePath: relativePath,
             artifacts: stacScreenArtifacts,
@@ -101,6 +102,7 @@ class BuildService {
           );
 
           await _processArtifacts(
+            projectDir: projectDir,
             sourceFile: sourceFile,
             relativePath: relativePath,
             artifacts: stacThemeArtifacts,
@@ -402,13 +404,13 @@ class BuildService {
   /// Execute a specific callable (function or getter) and retrieve its toJson()
   Future<Map<String, dynamic>?> _convertCallableToJson(
     File file,
-    String callableName, {
+    String callableName,
+    String projectDir, {
     bool isGetter = false,
   }) async {
     ConsoleLogger.debug(
       'Converting ${isGetter ? 'getter' : 'function'} $callableName to JSON',
     );
-    final projectDir = _findProjectRoot() ?? Directory.current.path;
     final scriptContent = _createWrapperScript(
       file,
       callableName,
@@ -470,6 +472,7 @@ Future<void> main(List<String> args) async {
   }
 
   Future<void> _processArtifacts({
+    required String projectDir,
     required File sourceFile,
     required String relativePath,
     required List<StacDslArtifact> artifacts,
@@ -483,6 +486,7 @@ Future<void> main(List<String> args) async {
         final json = await _convertCallableToJson(
           sourceFile,
           artifact.callableName,
+          projectDir,
           isGetter: artifact.isGetter,
         );
 
