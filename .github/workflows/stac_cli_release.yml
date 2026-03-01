@@ -79,7 +79,7 @@ jobs:
 
       - name: Compile (Linux/macOS)
         if: runner.os != 'Windows'
-        working-directory: stac_cli
+        working-directory: packages/stac_cli
         shell: bash
         run: |
           mkdir -p build
@@ -96,7 +96,7 @@ jobs:
 
       - name: Compile (Windows)
         if: runner.os == 'Windows'
-        working-directory: stac_cli
+        working-directory: packages/stac_cli
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path build | Out-Null
@@ -109,7 +109,7 @@ jobs:
 
       - name: Package artifact (Linux/macOS)
         if: runner.os != 'Windows'
-        working-directory: stac_cli
+        working-directory: packages/stac_cli
         shell: bash
         run: |
           OS=$(uname -s | tr '[:upper:]' '[:lower:]')
@@ -124,7 +124,7 @@ jobs:
 
       - name: Package artifact (Windows)
         if: runner.os == 'Windows'
-        working-directory: stac_cli
+        working-directory: packages/stac_cli
         shell: pwsh
         run: |
           $OS = 'windows'
@@ -142,14 +142,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.pkg_nix.outputs.artifact }}
-          path: stac_cli/${{ steps.pkg_nix.outputs.artifact }}.tar.gz
+          path: packages/stac_cli/${{ steps.pkg_nix.outputs.artifact }}.tar.gz
 
       - name: Upload artifact (Windows)
         if: runner.os == 'Windows'
         uses: actions/upload-artifact@v4
         with:
           name: ${{ steps.pkg_win.outputs.artifact }}
-          path: stac_cli/${{ steps.pkg_win.outputs.artifact }}.zip
+          path: packages/stac_cli/${{ steps.pkg_win.outputs.artifact }}.zip
 
   release:
     name: Create GitHub Release and upload assets
