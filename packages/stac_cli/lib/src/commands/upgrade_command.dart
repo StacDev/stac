@@ -15,7 +15,6 @@ class UpgradeCommand extends BaseCommand {
   UpgradeCommand() {
     argParser.addOption(
       'version',
-      abbr: 'v',
       help: 'Specific version to install (e.g., 1.2.0)',
     );
     argParser.addFlag(
