@@ -23,7 +23,7 @@ Custom widgets enable you to:
 
 Before creating a custom widget, ensure you have:
 
-1. **Dependencies**: `stac_core` and `json_annotation` packages
+1. **Dependencies**: `stac` and `json_annotation` packages
 2. **Code Generation**: `build_runner` for generating JSON serialization code
 3. **Parser**: A corresponding parser to render your widget.
 
@@ -35,8 +35,7 @@ Create a new file (e.g., `lib/widgets/stac_custom_badge.dart`) and define your w
 
 ```dart
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stac_core/core/stac_widget.dart';
-import 'package:stac_core/foundation/foundation.dart';
+import 'package:stac/stac_core.dart';
 
 part 'stac_custom_badge.g.dart';
 
@@ -182,7 +181,7 @@ Stac provides converters for special types. Use them when needed:
 For `double` fields that may come as integers in JSON:
 
 ```dart
-import 'package:stac_core/core/converters/double_converter.dart';
+import 'package:stac/stac_core.dart';
 
 @JsonSerializable()
 class StacCustomWidget extends StacWidget {
@@ -205,7 +204,7 @@ class StacCustomWidget extends StacWidget {
 For child widgets in your custom widget:
 
 ```dart
-import 'package:stac_core/core/converters/stac_widget_converter.dart';
+import 'package:stac/stac_core.dart';
 
 @JsonSerializable(explicitToJson: true)
 class StacCustomContainer extends StacWidget {
@@ -249,7 +248,7 @@ class StacCustomWidget extends StacWidget {
 **In Dart (stac/ folder)**
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 import 'package:your_app/widgets/stac_custom_badge.dart';
 
 @StacScreen(screenName: 'profile')

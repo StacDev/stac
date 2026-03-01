@@ -103,7 +103,6 @@ We'll select "Create a new project". Name it `stac demo` and press enter.
 Stac will now initialize the project and you'll see a message saying
 
 ```bash
-[SUCCESS] ✓ Added dependency: stac_core
 [SUCCESS] ✓ Project initialized successfully!
 [INFO] Next steps:
 [INFO]   1. Add your Stac widgets definitions to /stac
@@ -113,7 +112,7 @@ Stac will now initialize the project and you'll see a message saying
 
 `stac init` will add the following to your project:
 - `stac/hello_world.dart` – A Hello World example widget. All your Stac widgets live in the `stac` folder.
-- Adds `stac` and `stac_core` to your `pubspec.yaml`.
+- Adds `stac` to your `pubspec.yaml`.
 - Creates `default_stac_options.dart`, which defines your `StacOptions` (e.g., project name and ID).
 
 
@@ -122,7 +121,7 @@ Stac will now initialize the project and you'll see a message saying
 Head over to `stac/hello_world.dart` and build the widget. Use the `@StacScreen` annotation to mark the widget as a screen.
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'hello_world')
 StacWidget helloWorld() {
