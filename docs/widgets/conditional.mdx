@@ -3,22 +3,26 @@ title: "Conditional"
 description: "Documentation for Conditional"
 ---
 
-The Stac Conditional allows you to conditionally render widgets based on a boolean expression. It evaluates the condition at runtime and renders either the `ifTrue` or `ifFalse` widget.
+## Overview
+
+The `conditional` widget renders different widgets based on a boolean expression evaluated at runtime. It evaluates the `condition` string against the current application state and renders either the `ifTrue` or `ifFalse` widget accordingly. This enables server-driven conditional UI logic without writing custom code.
 
 ## Properties
 
-| Property  | Type                   | Description                                                                 |
-|-----------|------------------------|-----------------------------------------------------------------------------|
-| condition | `String`               | **Required.** The boolean expression to evaluate at runtime.                |
-| ifTrue    | `StacWidget`           | **Required.** The widget to render when condition evaluates to true.        |
-| ifFalse   | `StacWidget`           | The widget to render when condition evaluates to false. Renders empty if null. |
+| Property    | Type         | Required | Description                                                                          |
+|-------------|--------------|----------|--------------------------------------------------------------------------------------|
+| `condition` | `String`     | Yes      | The boolean expression to evaluate at runtime against the current application state. |
+| `ifTrue`    | `StacWidget` | Yes      | The widget to render when the condition evaluates to `true`.                         |
+| `ifFalse`   | `StacWidget` | No       | The widget to render when the condition evaluates to `false`. Renders an empty `SizedBox` if omitted. |
 
-## Example
+---
+
+## Basic Usage
 
 <CodeGroup>
 ```dart Dart
 StacConditional(
-  condition: 'user.isLoggedIn == true',
+  condition: 'isLoggedIn == true',
   ifTrue: StacText(data: 'Welcome back!'),
   ifFalse: StacText(data: 'Please sign in'),
 )
@@ -27,7 +31,7 @@ StacConditional(
 ```json JSON
 {
   "type": "conditional",
-  "condition": "user.isLoggedIn == true",
+  "condition": "isLoggedIn == true",
   "ifTrue": {
     "type": "text",
     "data": "Welcome back!"
@@ -40,7 +44,70 @@ StacConditional(
 ```
 </CodeGroup>
 
-## Conditional with Complex Widgets
+---
+
+## Condition Expression Syntax
+
+The `condition` property accepts boolean expressions that are evaluated against the current application state. Supported operators:
+
+| Operator | Description              | Example                        |
+|----------|--------------------------|--------------------------------|
+| `==`     | Equality                 | `user.role == 'admin'`         |
+| `!=`     | Inequality               | `user.name != null`            |
+| `>`      | Greater than             | `cart.total > 100`             |
+| `<`      | Less than                | `items.length < 5`             |
+| `>=`     | Greater than or equal    | `user.age >= 18`               |
+| `<=`     | Less than or equal       | `score <= 50`                  |
+| `&&`     | Logical AND              | `isLoggedIn == true && isVerified == true` |
+| `\|\|`   | Logical OR               | `role == 'admin' \|\| role == 'moderator'` |
+
+<Note>
+The `condition` is evaluated at runtime by Stac's expression resolver against the current application state. State values are referenced by their key names directly in the expression.
+</Note>
+
+---
+
+## Examples
+
+### Example 1: Role-Based Access Control
+
+Show different UI based on the user's role:
+
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: "user.role == 'admin'",
+  ifTrue: StacElevatedButton(
+    child: StacText(data: 'Admin Panel'),
+    onPressed: StacNavigateAction(routeName: '/admin'),
+  ),
+  ifFalse: StacText(data: 'Access Restricted'),
+)
+```
+
+```json JSON
+{
+  "type": "conditional",
+  "condition": "user.role == 'admin'",
+  "ifTrue": {
+    "type": "elevatedButton",
+    "child": { "type": "text", "data": "Admin Panel" },
+    "onPressed": {
+      "actionType": "navigate",
+      "routeName": "/admin"
+    }
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Access Restricted"
+  }
+}
+```
+</CodeGroup>
+
+### Example 2: Empty State Handling
+
+Render a list or an empty state based on item count:
 
 <CodeGroup>
 ```dart Dart
@@ -49,14 +116,13 @@ StacConditional(
   ifTrue: StacListView(
     children: [
       StacText(data: 'Your items:'),
-      // ... list items
     ],
   ),
   ifFalse: StacCenter(
     child: StacColumn(
       mainAxisAlignment: StacMainAxisAlignment.center,
       children: [
-        StacIcon(icon: 'empty_box', size: 64.0),
+        StacIcon(icon: 'inbox', size: 64.0),
         StacSizedBox(height: 16.0),
         StacText(data: 'No items found'),
         StacSizedBox(height: 8.0),
@@ -86,7 +152,7 @@ StacConditional(
       "type": "column",
       "mainAxisAlignment": "center",
       "children": [
-        { "type": "icon", "icon": "empty_box", "size": 64.0 },
+        { "type": "icon", "icon": "inbox", "size": 64.0 },
         { "type": "sizedBox", "height": 16.0 },
         { "type": "text", "data": "No items found" },
         { "type": "sizedBox", "height": 8.0 },
@@ -105,16 +171,132 @@ StacConditional(
 ```
 </CodeGroup>
 
-## Condition Expression Syntax
+### Example 3: Combined Logical Conditions
 
-The `condition` property accepts expressions that are evaluated against the current state. Common patterns include:
+Combine multiple conditions using `&&` or `||`:
 
-- **Equality**: `user.role == 'admin'`
-- **Boolean check**: `user.isVerified == true`
-- **Comparison**: `cart.total > 100`
-- **Length check**: `items.length > 0`
-- **Null check**: `user.name != null`
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: 'isLoggedIn == true && isVerified == true',
+  ifTrue: StacText(data: 'Full access granted'),
+  ifFalse: StacText(data: 'Please complete verification'),
+)
+```
 
-<Note>
-The condition is evaluated at runtime by Stac's expression resolver against the current application state.
-</Note>
+```json JSON
+{
+  "type": "conditional",
+  "condition": "isLoggedIn == true && isVerified == true",
+  "ifTrue": {
+    "type": "text",
+    "data": "Full access granted"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Please complete verification"
+  }
+}
+```
+</CodeGroup>
+
+### Example 4: Conditional Without a False Branch
+
+When only `ifTrue` is provided, nothing is rendered when the condition is false:
+
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: 'showBanner == true',
+  ifTrue: StacCard(
+    child: StacText(data: 'Special offer: 20% off today!'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "conditional",
+  "condition": "showBanner == true",
+  "ifTrue": {
+    "type": "card",
+    "child": {
+      "type": "text",
+      "data": "Special offer: 20% off today!"
+    }
+  }
+}
+```
+</CodeGroup>
+
+### Example 5: Using with SetValue
+
+Use `setValue` to initialize state and `conditional` to react to it:
+
+<CodeGroup>
+```dart Dart
+StacSetValue(
+  values: [
+    {'key': 'isPremium', 'value': true},
+  ],
+  child: StacConditional(
+    condition: 'isPremium == true',
+    ifTrue: StacText(data: 'Premium content unlocked'),
+    ifFalse: StacElevatedButton(
+      child: StacText(data: 'Upgrade to Premium'),
+      onPressed: StacNavigateAction(routeName: '/upgrade'),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "setValue",
+  "values": [
+    { "key": "isPremium", "value": true }
+  ],
+  "child": {
+    "type": "conditional",
+    "condition": "isPremium == true",
+    "ifTrue": {
+      "type": "text",
+      "data": "Premium content unlocked"
+    },
+    "ifFalse": {
+      "type": "elevatedButton",
+      "child": { "type": "text", "data": "Upgrade to Premium" },
+      "onPressed": {
+        "actionType": "navigate",
+        "routeName": "/upgrade"
+      }
+    }
+  }
+}
+```
+</CodeGroup>
+
+---
+
+## Conditional vs Visibility
+
+Both `conditional` and `visibility` can hide/show content, but they serve different purposes:
+
+| Feature             | `conditional`                              | `visibility`                              |
+|---------------------|--------------------------------------------|-------------------------------------------|
+| Condition type      | Evaluated string expression                | Static boolean property                   |
+| State awareness     | Yes — reads from application state         | No — uses a fixed `visible` value         |
+| False branch        | Custom `ifFalse` widget                    | `replacement` widget (defaults to empty)  |
+| Maintain state/size | No                                         | Yes — supports `maintainState`, `maintainSize`, etc. |
+
+Use `conditional` when the rendering decision depends on runtime state. Use `visibility` when you need to preserve widget state or size while toggling visibility.
+
+---
+
+## Best Practices
+
+1. **Keep conditions simple** — complex logic is harder to debug server-side. Prefer single comparisons or at most one `&&`/`||` combination.
+2. **Always provide `ifFalse` for user-facing conditionals** — omitting it renders an invisible `SizedBox`, which can confuse users if they expect some feedback.
+3. **Initialize state before using it** — use the [`setValue`](/widgets/set_value) widget to ensure state keys exist before the `conditional` tries to evaluate them.
+4. **Use descriptive state keys** — prefer `user.isLoggedIn` over `flag1` for maintainable server-driven UIs.
+5. **Avoid deep nesting** — multiple nested `conditional` widgets can be hard to read. Consider restructuring your data model instead.
