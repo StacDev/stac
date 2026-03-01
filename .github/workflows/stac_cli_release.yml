@@ -1,0 +1,242 @@
+name: stac_cli release
+
+on:
+  push:
+    tags:
+      - "stac-cli-v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version (e.g. 0.0.4)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  # Set to your public releases repository, e.g. myorg/stac-cli
+  RELEASES_REPO: ${{secrets.STAC_RELEASES_REPO}}
+  # A Personal Access Token (classic or fine-grained) with repo:public_repo scope for the releases repo
+  GH_PAT: ${{ secrets.STAC_RELEASES_TOKEN }}
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux (x64)
+            os: ubuntu-latest
+            arch: x64
+          - name: macOS (Apple Silicon)
+            os: macos-latest
+            arch: arm64
+          - name: macOS (Intel)
+            os: macos-15-intel
+            arch: x64
+          - name: Windows (x64)
+            os: windows-latest
+            arch: x64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Setup Flutter (needed for workspace dependencies)
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Resolve version (tag or manual)
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if [[ -z "${{ inputs.version }}" ]]; then
+              echo "Manual run requires 'version' input" >&2; exit 1
+            fi
+            TAG="stac-cli-v${{ inputs.version }}"
+            VERSION="${{ inputs.version }}"
+          else
+            # Tag format: stac-cli-vX.Y.Z
+            TAG="${GITHUB_REF##*/}"
+            VERSION="${TAG#stac-cli-v}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Install melos
+        run: dart pub global activate melos
+
+      - name: Bootstrap workspace
+        run: melos bootstrap
+
+      - name: Compile (Linux/macOS)
+        if: runner.os != 'Windows'
+        working-directory: stac_cli
+        shell: bash
+        run: |
+          mkdir -p build
+          echo "Compiling for ${{ matrix.arch }} (${{ matrix.name }})..."
+          dart compile exe bin/stac_cli.dart \
+            --define=STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" \
+            --define=STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" \
+            --define=STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" \
+            --define=STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" \
+            -o build/stac
+          echo "✓ Binary compiled successfully"
+          ls -lh build/stac
+          file build/stac
+
+      - name: Compile (Windows)
+        if: runner.os == 'Windows'
+        working-directory: stac_cli
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force -Path build | Out-Null
+          dart compile exe bin/stac_cli.dart `
+            --define=STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" `
+            --define=STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" `
+            --define=STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" `
+            --define=STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" `
+            -o build/stac.exe
+
+      - name: Package artifact (Linux/macOS)
+        if: runner.os != 'Windows'
+        working-directory: stac_cli
+        shell: bash
+        run: |
+          OS=$(uname -s | tr '[:upper:]' '[:lower:]')
+          ARCH="${{ matrix.arch }}"
+          ART_NAME="stac_cli_${{ steps.version.outputs.version }}_${OS}_${ARCH}"
+          tar -C build -czf "${ART_NAME}.tar.gz" stac
+          
+          echo "artifact=${ART_NAME}" >> $GITHUB_OUTPUT
+          echo "✓ Created ${ART_NAME}.tar.gz"
+          ls -lh "${ART_NAME}.tar.gz"
+        id: pkg_nix
+
+      - name: Package artifact (Windows)
+        if: runner.os == 'Windows'
+        working-directory: stac_cli
+        shell: pwsh
+        run: |
+          $OS = 'windows'
+          $ARCH = '${{ matrix.arch }}'
+          $ART_NAME = "stac_cli_${{ steps.version.outputs.version }}_${OS}_${ARCH}"
+          Compress-Archive -Path build/stac.exe -DestinationPath "$ART_NAME.zip" -Force
+          
+          echo "artifact=$ART_NAME" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+          Write-Host "✓ Created $ART_NAME.zip"
+          Get-Item "$ART_NAME.zip" | Format-List
+        id: pkg_win
+
+      - name: Upload artifact (Linux/macOS)
+        if: runner.os != 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.pkg_nix.outputs.artifact }}
+          path: stac_cli/${{ steps.pkg_nix.outputs.artifact }}.tar.gz
+
+      - name: Upload artifact (Windows)
+        if: runner.os == 'Windows'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.pkg_win.outputs.artifact }}
+          path: stac_cli/${{ steps.pkg_win.outputs.artifact }}.zip
+
+  release:
+    name: Create GitHub Release and upload assets
+    runs-on: ubuntu-latest
+    needs: build
+    if: ${{ success() }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version (tag or manual)
+        id: version
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if [[ -z "${{ inputs.version }}" ]]; then
+              echo "Manual run requires 'version' input" >&2; exit 1
+            fi
+            TAG="stac-cli-v${{ inputs.version }}"
+            VERSION="${{ inputs.version }}"
+          else
+            TAG="${GITHUB_REF##*/}"
+            VERSION="${TAG#stac-cli-v}"
+          fi
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+
+      - name: List dist
+        run: ls -R dist | sed -n '1,200p'
+
+      - name: Setup gh
+        run: |
+          echo "GH CLI version:" && gh --version || true
+        env:
+          GH_TOKEN: ${{ env.GH_PAT }}
+
+      - name: Create or update release in public releases repo
+        shell: bash
+        env:
+          GH_TOKEN: ${{ env.GH_PAT }}
+          RELEASES_REPO: ${{ env.RELEASES_REPO }}
+        run: |
+          if [[ -z "$RELEASES_REPO" ]]; then
+            echo "✗ Error: RELEASES_REPO secret is not set"
+            echo "Please set STAC_RELEASES_REPO in repository secrets"
+            exit 1
+          fi
+          if [[ -z "$GH_TOKEN" ]]; then
+            echo "✗ Error: STAC_RELEASES_TOKEN is not set"
+            echo "Please set a PAT with access to $RELEASES_REPO"
+            exit 1
+          fi
+
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          
+          echo "Creating release: $TAG in $RELEASES_REPO"
+
+          # Create release if it doesn't exist
+          if ! gh release view "$TAG" --repo "$RELEASES_REPO" >/dev/null 2>&1; then
+            gh release create "$TAG" \
+              --repo "$RELEASES_REPO" \
+              --title "stac_cli $VERSION" \
+              --notes "Automated release for stac_cli $VERSION"
+            echo "✓ Created release $TAG"
+          else
+            echo "ℹ Release $TAG already exists, updating..."
+          fi
+
+          # Upload all artifacts
+          shopt -s nullglob
+          for artifact_dir in dist/*; do
+            if [[ -d "$artifact_dir" ]]; then
+              for file in "$artifact_dir"/*; do
+                if [[ -f "$file" ]]; then
+                  echo "Uploading: $(basename "$file")"
+                  gh release upload "$TAG" "$file" \
+                    --repo "$RELEASES_REPO" \
+                    --clobber
+                fi
+              done
+            fi
+          done
+          
+          echo "✓ Release complete: https://github.com/$RELEASES_REPO/releases/tag/$TAG"
