@@ -82,7 +82,9 @@ class FileUtils {
   }
 
   /// Best-effort owner-only directory permissions on Unix-like systems.
-  static Future<void> enforceDirectoryOwnerOnlyAccess(String directoryPath) async {
+  static Future<void> enforceDirectoryOwnerOnlyAccess(
+    String directoryPath,
+  ) async {
     if (Platform.isWindows) return;
     try {
       final result = await Process.run('chmod', ['700', directoryPath]);
@@ -106,7 +108,9 @@ class FileUtils {
         throw Exception(result.stderr);
       }
     } catch (e) {
-      ConsoleLogger.warning('Could not enforce secure file permissions for $filePath');
+      ConsoleLogger.warning(
+        'Could not enforce secure file permissions for $filePath',
+      );
       ConsoleLogger.debug('chmod 600 failed: $e');
     }
   }

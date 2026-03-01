@@ -9,10 +9,15 @@ enum Environment { dev, prod }
 // Flip this to switch environments.
 const Environment currentEnvironment = Environment.prod;
 
-Map<String, String> _resolvedEnvironment = Map.unmodifiable(Platform.environment);
+Map<String, String> _resolvedEnvironment = Map.unmodifiable(
+  Platform.environment,
+);
 
 void configureEnvironment(Map<String, String> loadedEnvironment) {
-  final merged = <String, String>{...loadedEnvironment, ...Platform.environment};
+  final merged = <String, String>{
+    ...loadedEnvironment,
+    ...Platform.environment,
+  };
   _resolvedEnvironment = Map.unmodifiable(merged);
 }
 
