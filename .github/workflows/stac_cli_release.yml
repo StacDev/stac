@@ -85,10 +85,6 @@ jobs:
           mkdir -p build
           echo "Compiling for ${{ matrix.arch }} (${{ matrix.name }})..."
           dart compile exe bin/stac_cli.dart \
-            --define=STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" \
-            --define=STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" \
-            --define=STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" \
-            --define=STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" \
             -o build/stac
           echo "✓ Binary compiled successfully"
           ls -lh build/stac
@@ -100,12 +96,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path build | Out-Null
-          dart compile exe bin/stac_cli.dart `
-            --define=STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" `
-            --define=STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" `
-            --define=STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" `
-            --define=STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" `
-            -o build/stac.exe
+          dart compile exe bin/stac_cli.dart -o build/stac.exe
 
       - name: Package artifact (Linux/macOS)
         if: runner.os != 'Windows'
@@ -226,17 +217,23 @@ jobs:
 
           # Upload all artifacts
           shopt -s nullglob
+          uploaded_count=0
           for artifact_dir in dist/*; do
             if [[ -d "$artifact_dir" ]]; then
               for file in "$artifact_dir"/*; do
                 if [[ -f "$file" ]]; then
                   echo "Uploading: $(basename "$file")"
-                  gh release upload "$TAG" "$file" \
-                    --repo "$RELEASES_REPO" \
-                    --clobber
+                  if gh release upload "$TAG" "$file" --repo "$RELEASES_REPO" --clobber; then
+                    uploaded_count=$((uploaded_count + 1))
+                  fi
                 fi
               done
             fi
           done
+          
+          if [[ $uploaded_count -eq 0 ]]; then
+            echo "✗ Error: No artifacts were found to upload for $TAG in $RELEASES_REPO"
+            exit 1
+          fi
           
           echo "✓ Release complete: https://github.com/$RELEASES_REPO/releases/tag/$TAG"
