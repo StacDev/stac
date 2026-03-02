@@ -166,7 +166,8 @@ class AuthService {
 
       final authToken = AuthToken(
         accessToken: newIdToken,
-        refreshToken: newRefreshToken ??
+        refreshToken:
+            newRefreshToken ??
             refreshToken, // Keep old refresh token if new one not provided
         expiresAt: expiresAt,
         scopes: _scopes,
@@ -278,13 +279,10 @@ class AuthService {
           await Process.run('xdg-open', [authUrl.toString()]);
           ConsoleLogger.info('Opening browser for authentication...');
         } else if (Platform.isWindows) {
-          await Process.run(
-              'rundll32',
-              [
-                'url.dll,FileProtocolHandler',
-                authUrl.toString(),
-              ],
-              runInShell: false);
+          await Process.run('rundll32', [
+            'url.dll,FileProtocolHandler',
+            authUrl.toString(),
+          ], runInShell: false);
           ConsoleLogger.info('Opening browser for authentication...');
         }
       } catch (e) {

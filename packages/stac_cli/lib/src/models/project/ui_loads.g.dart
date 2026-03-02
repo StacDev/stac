@@ -7,25 +7,23 @@ part of 'ui_loads.dart';
 // **************************************************************************
 
 UiLoads _$UiLoadsFromJson(Map<String, dynamic> json) => UiLoads(
-      currentPeriodUiLoadCount:
-          (json['currentPeriodUiLoadCount'] as num?)?.toInt(),
-      lastUiLoadCountFlushed: (json['lastUiLoadCountFlushed'] as num?)?.toInt(),
-      lastUiLoadsFlushedDelta:
-          (json['lastUiLoadsFlushedDelta'] as num?)?.toInt(),
-      lastUiLoadsCountFlushedAt: const FirestoreDateTimeNullable().fromJson(
-        json['lastUiLoadsCountFlushedAt'],
-      ),
-      lastUiLoadsUploadError: json['lastUiLoadsUploadError'] as String?,
-      lifetimeUiLoadCount: (json['lifetimeUiLoadCount'] as num?)?.toInt(),
-    );
+  currentPeriodUiLoadCount: (json['currentPeriodUiLoadCount'] as num?)?.toInt(),
+  lastUiLoadCountFlushed: (json['lastUiLoadCountFlushed'] as num?)?.toInt(),
+  lastUiLoadsFlushedDelta: (json['lastUiLoadsFlushedDelta'] as num?)?.toInt(),
+  lastUiLoadsCountFlushedAt: const FirestoreDateTimeNullable().fromJson(
+    json['lastUiLoadsCountFlushedAt'],
+  ),
+  lastUiLoadsUploadError: json['lastUiLoadsUploadError'] as String?,
+  lifetimeUiLoadCount: (json['lifetimeUiLoadCount'] as num?)?.toInt(),
+);
 
 Map<String, dynamic> _$UiLoadsToJson(UiLoads instance) => <String, dynamic>{
-      'currentPeriodUiLoadCount': instance.currentPeriodUiLoadCount,
-      'lastUiLoadCountFlushed': instance.lastUiLoadCountFlushed,
-      'lastUiLoadsFlushedDelta': instance.lastUiLoadsFlushedDelta,
-      'lastUiLoadsCountFlushedAt': const FirestoreDateTimeNullable().toJson(
-        instance.lastUiLoadsCountFlushedAt,
-      ),
-      'lastUiLoadsUploadError': instance.lastUiLoadsUploadError,
-      'lifetimeUiLoadCount': instance.lifetimeUiLoadCount,
-    };
+  'currentPeriodUiLoadCount': instance.currentPeriodUiLoadCount,
+  'lastUiLoadCountFlushed': instance.lastUiLoadCountFlushed,
+  'lastUiLoadsFlushedDelta': instance.lastUiLoadsFlushedDelta,
+  'lastUiLoadsCountFlushedAt': const FirestoreDateTimeNullable().toJson(
+    instance.lastUiLoadsCountFlushedAt,
+  ),
+  'lastUiLoadsUploadError': instance.lastUiLoadsUploadError,
+  'lifetimeUiLoadCount': instance.lifetimeUiLoadCount,
+};

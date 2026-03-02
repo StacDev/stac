@@ -8,11 +8,11 @@ class AuthException extends StacException {
 /// Exception thrown when user is not authenticated
 class NotAuthenticatedException extends AuthException {
   const NotAuthenticatedException()
-      : super('Not authenticated. Please run "stac login" first.');
+    : super('Not authenticated. Please run "stac login" first.');
 }
 
 /// Exception thrown when authentication fails
 class AuthenticationFailedException extends AuthException {
   const AuthenticationFailedException([String? reason])
-      : super('Authentication failed${reason != null ? ': $reason' : ''}');
+    : super('Authentication failed${reason != null ? ': $reason' : ''}');
 }

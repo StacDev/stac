@@ -67,7 +67,8 @@ class StacTemplateBuilderParser extends StacParser<StacTemplateBuilder> {
         jsonDecode(jsonEncode(model.child.toJson())) as Map<String, dynamic>;
 
     final childType = childJson['type'] as String?;
-    if (childType == null || !_layoutWidgetTypesWithChildren.contains(childType)) {
+    if (childType == null ||
+        !_layoutWidgetTypesWithChildren.contains(childType)) {
       throw FormatException(
         'TemplateBuilder child must be a layout widget that supports "children". '
         'Got type: ${childType ?? "null"}. '
