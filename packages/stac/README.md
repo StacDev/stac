@@ -148,7 +148,7 @@ StacWidget loginScreen() {
           ),
           StacSpacer(),
           primaryButton(
-            text: 'Procced',
+            text: 'Proceed',
             onPressed: StacNavigator.pushStac('home_screen'),
           ),
         ],
