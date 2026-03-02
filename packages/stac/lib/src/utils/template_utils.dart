@@ -73,7 +73,17 @@ dynamic processTemplateRecursively(
         if (value.contains('{{') && value.contains('}}')) {
           String processedValue = value;
           final regex = RegExp(r'\{\{([^}]+)\}\}');
-          final matches = regex.allMatches(value);
+          final matches = regex.allMatches(value).toList();
+
+          if (matches.length == 1 && value.trim() == matches.first.group(0)) {
+            final dataKey = matches.first.group(1)!.trim();
+            final keys = dataKey.split('.');
+            final dataValue = extractNestedData(data, keys);
+            if (dataValue != null) {
+              template[key] = dataValue;
+              continue;
+            }
+          }
 
           for (final match in matches) {
             final placeholder = match.group(0)!;
@@ -178,7 +188,15 @@ dynamic resolveDynamicDataInJson(dynamic json, BuildContext context) {
 
     final regex = RegExp(r'\{\{([^}]+)\}\}');
     String result = json;
-    final matches = regex.allMatches(json);
+    final matches = regex.allMatches(json).toList();
+
+    if (matches.length == 1 && json.trim() == matches.first.group(0)) {
+      final expression = matches.first.group(1)!.trim();
+      final resolved = scope.resolveExpression(expression);
+      if (resolved != null) {
+        return resolved;
+      }
+    }
 
     for (final match in matches) {
       final placeholder = match.group(0)!;
