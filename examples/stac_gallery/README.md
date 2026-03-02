@@ -1,16 +1,25 @@
-# stac_gallery
+# Stac Gallery
 
-A Stac gallery app to showcase all the Stac widgets
+A gallery application built to showcase all the widgets and components available in the Stac Server-Driven UI framework. It acts as a live interactive catalog for developers.
 
-## Getting Started
+## What this demonstrates
 
-This project is a starting point for a Flutter application.
+- Real-world usage of every built-in Stac widget.
+- Action handlers (navigation, dialogs, form submissions).
+- Theming and responsive layouts purely driven by JSON.
 
-A few resources to get you started if this is your first Flutter project:
+## How to run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Ensure you have Flutter installed.
+2. Navigate to this directory:
+   ```bash
+   cd examples/stac_gallery
+   ```
+3. Get dependencies:
+   ```bash
+   flutter pub get
+   ```
+4. Run the app:
+   ```bash
+   flutter run
+   ```

@@ -1,5 +1,8 @@
 # Stac Framework
 
+[![pub package](https://img.shields.io/pub/v/stac_framework.svg?label=stac_framework&color=blue)](https://pub.dev/packages/stac_framework)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 The Stac Framework package contains the framework files for [Stac](https://github.com/StacDev/stac), such as StacParser and StacActionParser. These classes provide a simple way to create custom parsers for widgets and actions in Stac. This can be useful for extending the functionality of Stac or for implementing custom widgets and actions.
 
 Here are some examples of how the Stac Framework package can be used:

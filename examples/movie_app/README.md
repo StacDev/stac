@@ -1,16 +1,26 @@
-# movie_app
+# Movie App Example
 
-A new Flutter project.
+A comprehensive example of building a full-featured application using the Stac Server-Driven UI framework. This movie application fetches data and UI layouts dynamically to display movie listings and details.
 
-## Getting Started
+## What this demonstrates
 
-This project is a starting point for a Flutter application.
+- Complex dynamic layouts using Stac components.
+- Network data fetching combined with SDUI.
+- Navigating between different server-driven screens.
+- Global theming using the Stac theme system.
 
-A few resources to get you started if this is your first Flutter project:
+## How to run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Ensure you have Flutter installed.
+2. Navigate to this directory:
+   ```bash
+   cd examples/movie_app
+   ```
+3. Get dependencies:
+   ```bash
+   flutter pub get
+   ```
+4. Run the app:
+   ```bash
+   flutter run
+   ```

@@ -1,11 +1,19 @@
 # stac_cli
 
-Official CLI for managing Stac SDUI projects.
+Official command-line interface for the [Stac](https://pub.dev/packages/stac) SDUI framework. Use this CLI to quickly initialize Stac configurations, build projects, log in to Stac Cloud, and manage deployments.
+
+📚 **[Full CLI Documentation available at docs.stac.dev/cli](https://docs.stac.dev/cli)**
 
 ## Install
 
+**macOS / Linux**
 ```bash
-dart pub global activate --source path .
+curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+```
+
+**Windows (PowerShell)**
+```powershell
+irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
 ```
 
 ## Quick start
