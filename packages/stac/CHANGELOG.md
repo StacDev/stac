@@ -1,3 +1,13 @@
+## 1.4.0
+
+- feat: Add stac agent skills by @divyanshub024 in https://github.com/StacDev/stac/pull/444
+- feat: Enhance input decoration with new border options by @divyanshub024 in https://github.com/StacDev/stac/pull/449
+- feat(stac, stac_core): Add copyWith support to textTheme by @divyanshub024 in https://github.com/StacDev/stac/pull/450
+- feat(stac): Re-export stac_core through stac package by @divyanshub024 in https://github.com/StacDev/stac/pull/455
+- feat: Migrate linting from `flutter_lints` to `lints/recommended`, update dev dependencies, and ignore `pubspec_overrides.yaml` files by @divyanshub024 in https://github.com/StacDev/stac/pull/460
+- docs: Improve package READMEs with quick start guides & detailed features by @divyanshub024 in https://github.com/StacDev/stac/pull/462
+- fix: Fix formatting in README.md by @divyanshub024 in https://github.com/StacDev/stac/pull/463
+
 ## 1.3.1
 
 - fix: Bump `stac_core`to ^1.3.0

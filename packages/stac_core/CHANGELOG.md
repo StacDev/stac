@@ -1,3 +1,7 @@
+## 1.4.0
+
+- feat: Add copyWith support to textTheme by @divyanshub024 in https://github.com/StacDev/stac/pull/450
+
 ## 1.3.0
 
 - Added `StacSliverToBoxAdapter` widget model
