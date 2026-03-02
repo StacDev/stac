@@ -178,7 +178,7 @@ StacWidget primaryButton({
 ```
 </td>
 <td width="30%" align="center" valign="top">
-  <img src="https://github.com/StacDev/stac/blob/dev/assets/login.png?raw=true" alt="Stac Form Screen" height="840" />
+  <img src="https://github.com/StacDev/stac/blob/dev/assets/login.png" alt="Stac Form Screen" height="840" />
 </td>
 </tr>
 </table>
