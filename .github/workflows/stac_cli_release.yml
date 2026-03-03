@@ -85,6 +85,10 @@ jobs:
           mkdir -p build
           echo "Compiling for ${{ matrix.arch }} (${{ matrix.name }})..."
           dart compile exe bin/stac_cli.dart \
+            -D STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" \
+            -D STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" \
+            -D STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" \
+            -D STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" \
             -o build/stac
           echo "✓ Binary compiled successfully"
           ls -lh build/stac
@@ -96,7 +100,12 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force -Path build | Out-Null
-          dart compile exe bin/stac_cli.dart -o build/stac.exe
+          dart compile exe bin/stac_cli.dart `
+            -D STAC_BASE_API_URL="${{ secrets.STAC_BASE_API_URL }}" `
+            -D STAC_GOOGLE_CLIENT_ID="${{ secrets.STAC_GOOGLE_CLIENT_ID }}" `
+            -D STAC_GOOGLE_CLIENT_SECRET="${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}" `
+            -D STAC_FIREBASE_API_KEY="${{ secrets.STAC_FIREBASE_API_KEY }}" `
+            -o build/stac.exe
 
       - name: Package artifact (Linux/macOS)
         if: runner.os != 'Windows'
