@@ -43,12 +43,12 @@ suite('Preview Assets Tests', () => {
 
         const port = await server.start(workspaceRoot);
 
-        const response = await new Promise<{ statusCode: number, data: string }>((resolve) => {
+        const response = await new Promise<{ statusCode: number, data: string }>((resolve, reject) => {
             http.get(`http://127.0.0.1:${port}/test.png`, (res) => {
                 let data = '';
                 res.on('data', chunk => data += chunk);
                 res.on('end', () => resolve({ statusCode: res.statusCode ?? 0, data }));
-            });
+            }).on('error', reject);
         });
 
         assert.strictEqual(response.statusCode, 200);
@@ -68,11 +68,11 @@ suite('Preview Assets Tests', () => {
 
         const port = await server.start(workspaceRoot);
 
-        const response = await new Promise<{ statusCode: number, headers: any }>((resolve) => {
+        const response = await new Promise<{ statusCode: number, headers: any }>((resolve, reject) => {
             http.get(`http://127.0.0.1:${port}/test.ttf`, (res) => {
                 res.resume();
                 resolve({ statusCode: res.statusCode ?? 0, headers: res.headers });
-            });
+            }).on('error', reject);
         });
 
         assert.strictEqual(response.statusCode, 200);

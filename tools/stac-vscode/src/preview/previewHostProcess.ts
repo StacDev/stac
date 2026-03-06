@@ -101,6 +101,9 @@ export class PreviewHostProcess {
       const freePort = await findAvailablePort(this.port + 1, 30);
       if (freePort !== undefined) {
         this.port = freePort;
+      } else {
+        this.outputChannel.appendLine(`[preview] No free port found after port ${this.port}. Aborting startup.`);
+        throw new Error(`Preview host port ${this.port} is busy and no free port was found.`);
       }
     }
 

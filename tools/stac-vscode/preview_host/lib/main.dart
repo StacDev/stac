@@ -29,12 +29,14 @@ class _PreviewAppState extends State<_PreviewApp> {
   TargetPlatform? _targetPlatform;
   Timer? _readyPingTimer;
   bool _receivedFirstPayload = false;
+  JSFunction? _onMessageJs;
 
   @override
   void initState() {
     super.initState();
     _log('Preview host initState');
-    web.window.addEventListener('message', _onMessage.toJS);
+    _onMessageJs = _onMessage.toJS;
+    web.window.addEventListener('message', _onMessageJs!);
     _announceReady();
     _readyPingTimer = Timer.periodic(const Duration(seconds: 2), (timer) {
       if (_receivedFirstPayload || !mounted || timer.tick >= 10) {
@@ -47,7 +49,10 @@ class _PreviewAppState extends State<_PreviewApp> {
 
   @override
   void dispose() {
-    web.window.removeEventListener('message', _onMessage.toJS);
+    if (_onMessageJs != null) {
+      web.window.removeEventListener('message', _onMessageJs!);
+      _onMessageJs = null;
+    }
     _readyPingTimer?.cancel();
     super.dispose();
   }
@@ -63,7 +68,9 @@ class _PreviewAppState extends State<_PreviewApp> {
               ? ThemeData(platform: _targetPlatform)
               : null),
       home: _json == null
-          ? const Scaffold(body: SizedBox.shrink()) // Hide loader - webview shows progress bar instead
+          ? const Scaffold(
+              body: SizedBox.shrink(),
+            ) // Hide loader - webview shows progress bar instead
           : KeyedSubtree(
               key: ValueKey(_requestId),
               child: Scaffold(
@@ -240,11 +247,21 @@ class _PreviewAppState extends State<_PreviewApp> {
   }
 
   Future<ByteData> _fetchFont(String url) async {
-    final response = await http.get(Uri.parse(url));
-    if (response.statusCode == 200) {
-      return ByteData.view(response.bodyBytes.buffer);
-    } else {
-      throw Exception('Failed to load font from $url: ${response.statusCode}');
+    try {
+      final response = await http
+          .get(Uri.parse(url))
+          .timeout(const Duration(seconds: 10));
+      if (response.statusCode == 200) {
+        return ByteData.view(response.bodyBytes.buffer);
+      } else {
+        throw Exception(
+          'Failed to load font from $url: ${response.statusCode}',
+        );
+      }
+    } on TimeoutException {
+      throw Exception('Timed out loading font from $url');
+    } catch (e) {
+      throw Exception('Failed to load font from $url: $e');
     }
   }
 

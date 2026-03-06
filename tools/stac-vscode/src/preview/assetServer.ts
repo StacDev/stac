@@ -45,9 +45,18 @@ export class AssetServer {
 
             try {
                 const url = new URL(req.url ?? '', `http://127.0.0.1:${port}`);
-                // Basic security: prevent traversing up via ..
-                const safePath = path.normalize(url.pathname).replace(/^(\.\.[\/\\])+/, '');
-                const filePath = path.join(workspaceRoot, safePath);
+
+                // Construct file path and resolve it to absolute path
+                const requestPath = url.pathname.replace(/^\/+/, '');
+                const filePath = path.resolve(workspaceRoot, requestPath);
+
+                // Verify the resolved path is inside workspaceRoot
+                const relativePath = path.relative(workspaceRoot, filePath);
+                if (relativePath.startsWith('..') || path.isAbsolute(relativePath)) {
+                    res.writeHead(403);
+                    res.end('Forbidden: outside workspace boundaries');
+                    return;
+                }
 
                 if (!fs.existsSync(filePath)) {
                     res.writeHead(404);

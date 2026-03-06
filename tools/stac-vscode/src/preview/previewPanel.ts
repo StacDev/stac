@@ -533,11 +533,26 @@ function getWebviewHtml(webview: vscode.Webview, hostUrl: string): string {
       if (!latestRenderMessage) return;
       stopDelivery();
       postRenderToFrame(latestRenderMessage);
+      
+      let attempts = 0;
+      const maxAttempts = 60; // Up to 60 seconds roughly depending on interval
+      
       deliveryTimer = setInterval(() => {
+        attempts++;
         if (!latestRenderMessage) {
           stopDelivery();
           return;
         }
+        
+        if (attempts >= maxAttempts) {
+          stopDelivery();
+          vscode.postMessage({ type: 'stac.preview.error', message: 'Preview delivery timed out' });
+          statusText.textContent = 'Preview rendering timed out';
+          progressBar.classList.remove('active');
+          isLoadingState = false;
+          return;
+        }
+        
         postRenderToFrame(latestRenderMessage);
       }, hostReady ? 1000 : 500);
     }

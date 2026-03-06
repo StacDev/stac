@@ -48,6 +48,8 @@ export class PreviewManager implements vscode.Disposable {
 
   private assetServer?: AssetServer;
 
+  private lastAssetRoot?: string;
+
   private hostSettingsKey?: string;
 
   private activeDocumentUri?: vscode.Uri;
@@ -191,6 +193,7 @@ export class PreviewManager implements vscode.Disposable {
     if (this.assetServer) {
       this.assetServer.stop();
       this.assetServer = undefined;
+      this.lastAssetRoot = undefined;
     }
   }
 
@@ -442,7 +445,12 @@ export class PreviewManager implements vscode.Disposable {
 
     if (!this.assetServer) {
       this.assetServer = new AssetServer((msg) => this.outputChannel.appendLine(msg));
+    } else if (this.lastAssetRoot && this.lastAssetRoot !== projectRoot) {
+      this.outputChannel.appendLine(`[preview] Project root changed, restarting asset server...`);
+      this.assetServer.stop();
+      this.assetServer = new AssetServer((msg) => this.outputChannel.appendLine(msg));
     }
+    this.lastAssetRoot = projectRoot;
 
     // Ensure package resolution is set up before running any dart scripts
     await this.ensurePackageResolution(projectRoot);
@@ -469,9 +477,9 @@ export class PreviewManager implements vscode.Disposable {
       findFontsInPubspec(projectRoot).catch(() => []),
       this.selectedThemeName
         ? this.resolveThemeJson(projectRoot).catch((e) => {
-            this.outputChannel.appendLine(`[preview] Theme resolution failed: ${String(e)}`);
-            return undefined;
-          })
+          this.outputChannel.appendLine(`[preview] Theme resolution failed: ${String(e)}`);
+          return undefined;
+        })
         : Promise.resolve(undefined),
     ]);
 
