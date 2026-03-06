@@ -9,3 +9,7 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 **/.vscode-test.*
+preview_host/.dart_tool/**
+preview_host/build/**
+preview_host/.flutter-plugins
+preview_host/.flutter-plugins-dependencies
