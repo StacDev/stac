@@ -2,6 +2,10 @@
 
 All notable changes to the "stac-vscode" extension will be documented in this file.
 
+## [0.2.0]
+
+- Bug fixes & improvements
+
 ## [0.1.0]
 
 ### Live Preview
