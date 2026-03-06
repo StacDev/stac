@@ -7,6 +7,8 @@ Build and preview Server-Driven UI screens with the **Stac** framework — direc
 ### 🔴 Live Preview
 Open a side-by-side preview of any `@StacScreen` — updates on save, supports theme selection, and renders with Android/iOS/Web platform simulation.
 
+![Stac Live Preview](media/stac_preview.png)
+
 - **`Stac: Open Preview`** — launch the preview panel for the active screen
 - **Device toggles** — switch between Android, iOS, and Web viewports
 - **Theme picker** — select any `@StacThemeRef` theme to preview with
