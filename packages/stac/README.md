@@ -22,26 +22,166 @@
 
 # Stac
 
-**Stac** is a **Server-Driven UI (SDUI) framework for Flutter** that allows you to build, update, and deliver dynamic user interfaces without redeploying your app.
-Instead of hard-coding every widget in Flutter, you define your UI as **Stac Widgets** that render at runtime from JSON.
+**Stac** is a **Server-Driven UI (SDUI) framework for Flutter**. It lets you build and update your app's UI on the fly, without waiting for app store reviews!
+Instead of hard-coding everything in your app, you write your UI using **Stac's intuitive Dart DSL**. Your server then delivers this UI as a JSON payload, and Stac automatically renders it natively on the client at runtime.
 
-This approach separates your app's presentation layer from its business logic, enabling teams to:
+Why use Stac?
 
-- **Ship updates instantly.** Just update your StacWidgets and push them to Stac Cloud.
-- **Feature Experimentation** (A/B testing, personalization, etc.) without new releases.
-- **Maintain consistency** across platforms using a unified schema.
-- **Empower non-developers** (like designers or PMs) to manage layout and content.
+- **Ship instantly:** Tweak your UI in Dart, push it to your server, and boom—your users see it immediately.
+- **A/B testing made easy:** Try out different layouts or personalize the experience without rolling out a new app version.
+- **Build once:** Keep your UI consistent across iOS, Android, and Web with a unified backend schema.
+- **Move faster:** Let your backend dictate layouts directly without ever touching the client-side Flutter codebase.
 
-## Features
+## Features 📦
 
-- 🚀 Instant updates: Ship UI without app store releases.
-- 🧩 JSON‑driven UI: Define widgets in JSON; render natively.
-- 📦 Dart to JSON: Write Stac widgets in Dart and deploy to Stac Cloud.
-- 🎛 Actions & navigation: Control routes and API calls from the backend.
-- 📝 Forms & validation: Built-in form state and validation rules.
-- 🎨 Theming: Brand and layout via JSON with Stac Theme.
-- 💾 Caching: Intelligent screen caching with configurable strategies.
-- 🔌 Extensible: Add custom widgets, actions, and native integrations.
+- 🚀 **Instant updates:** Push UI changes straight from your server. No app store waiting rooms.
+- 💻 **Familiar Dart syntax:** Write your server UI using our purely Dart DSL. It feels just like writing traditional Flutter code!
+- 🧩 **Native rendering:** Stac translates your server's payload into lightning-fast native Flutter widgets on the client.
+- 🧱 **Prebuilt components:** Comes with a massive library of ready-to-use standard Flutter widgets.
+- 🌐 **Network requests:** Trigger API calls and manage data directly from your server payload.
+- 🧭 **Navigation:** Control routing, open dialogs, and trigger bottom sheets from the backend.
+- 📝 **Forms & validation:** We handle the messy form state and validation for you.
+- 🎨 **Dynamic theming:** Change colors, fonts, and layouts on the fly using `StacTheme`.
+- 💾 **Smart caching:** Built-in screen caching so your app feels blazing fast, even on flaky networks.
+- 🛠️ **Custom widgets:** Need a custom chart or native integration? Easily build and register your own UI components.
+
+## Quick Start
+
+It's super easy to get started. You just need to initialize Stac and tell it which screen to load.
+
+### 1. Initialize Stac
+Set up Stac in your app's `main.dart` and provide a `routeName` to fetch from your server.
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+// import 'package:my_app/default_stac_options.dart';
+
+void main() async {
+  // Initialize Stac with optional custom configurations
+  await Stac.initialize(options: defaultStacOptions);
+  
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Stac App',
+      // Pass a routeName to load your dynamic SDUI screen!
+      home: Stac(routeName: 'get_started'),
+    );
+  }
+}
+```
+
+### 2. Write your UI
+You can author your screens using Stac's Dart package. It feels just like writing normal Flutter code, but it compiles down to JSON!
+
+<table width="100%">
+<tr>
+<td width="70%">
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+import '../widgets/primary_button.dart';
+
+@StacScreen(screenName: "loginScreen")
+StacWidget loginScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(
+      leading: StacIconButton(
+        onPressed: StacNavigator.pop(),
+        icon: StacIcon(
+          icon: StacIcons.chevron_left,
+          color: StacColors.onSurfaceVariant,
+        ),
+      ),
+    ),
+    body: StacPadding(
+      padding: StacEdgeInsets.symmetric(horizontal: 20),
+      child: StacColumn(
+        crossAxisAlignment: StacCrossAxisAlignment.start,
+        children: [
+          StacRow(
+            crossAxisAlignment: StacCrossAxisAlignment.end,
+            children: [
+              StacText(
+                data: 'Sign in',
+                style: StacThemeData.textTheme.titleLarge,
+              ),
+              StacSizedBox(width: 10),
+              StacExpanded(
+                child: StacDivider(
+                  height: 20,
+                  thickness: 1,
+                  color: StacColors.black,
+                ),
+              ),
+            ],
+          ),
+          StacSizedBox(height: 32),
+          StacTextField(
+            decoration: StacInputDecoration( 
+              labelText: 'Email',
+              labelStyle: StacThemeData.textTheme.bodyMedium,
+            ),
+          ),
+          StacSizedBox(height: 24),
+          StacTextField(
+            decoration: StacInputDecoration(
+              labelText: 'Password',
+              labelStyle: StacThemeData.textTheme.bodyMedium,
+            ),
+            obscureText: true,
+            maxLines: 1,
+          ),
+          StacSizedBox(height: 4),
+          StacTextButton(
+            onPressed: StacNavigator.pushStac('forgot_password_screen'),
+            child: StacText(data: 'Forgot password?'),
+          ),
+          StacSpacer(),
+          primaryButton(
+            text: 'Proceed',
+            onPressed: StacNavigator.pushStac('home_screen'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+StacWidget primaryButton({
+  required String text,
+  required StacAction onPressed,
+}) {
+  return StacPadding(
+    padding: StacEdgeInsets.only(top: 20, bottom: 48),
+    child: StacFilledButton(
+      onPressed: onPressed,
+      child: StacRow(
+        children: [
+          StacText(data: text),
+          StacSpacer(),
+          StacIcon(icon: StacIcons.arrow_forward, size: 20),
+        ],
+      ),
+    ),
+  );
+}
+```
+</td>
+<td width="30%" align="center" valign="top">
+  <img src="https://github.com/StacDev/stac/blob/dev/assets/login.png" alt="Stac Form Screen" height="840" />
+</td>
+</tr>
+</table>
 
 ## Documentation
 
@@ -71,12 +211,3 @@ This project is licensed under the MIT License - see the [LICENSE](/LICENSE) fil
 </a>
 </p>
 
-[github_stars]: https://img.shields.io/github/stars/StacDev/stac
-[github_stars_link]: https://github.com/StacDev/stac/stargazers 
-[license_badge]: https://img.shields.io/badge/license-MIT-blue.png
-[license_link]: https://opensource.org/licenses/MIT
-[stac_banner]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png
-[form_screen]: https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/form_screen_image.png
-[divyanshu_github]: https://github.com/divyanshub024
-[rahul_linkedin]: https://www.linkedin.com/in/bybisht
-[stac_website]: https://stac.dev/

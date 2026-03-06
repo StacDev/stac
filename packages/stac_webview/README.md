@@ -1,6 +1,9 @@
 # Stac Web View
 
-A webView support for [Stac](https://pub.dev/packages/stac).
+[![pub package](https://img.shields.io/pub/v/stac_webview.svg?label=stac_webview&color=blue)](https://pub.dev/packages/stac_webview)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+A WebView support package for [Stac](https://pub.dev/packages/stac).
 
 ## Usage
 

@@ -53,7 +53,7 @@ flutter_project/
 Screens are defined in the `stac/screens/` folder (or directly in `stac/`). Each screen is a Dart function annotated with `@StacScreen`:
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'home_screen')
 StacWidget homeScreen() {
@@ -79,7 +79,7 @@ StacWidget homeScreen() {
 Themes are defined in the `stac/theme/` folder using the `@StacThemeRef` annotation:
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacThemeRef(name: "app_theme")
 StacTheme get appTheme => StacTheme(
@@ -189,7 +189,7 @@ stac deploy --verbose
 Here's a complete example showing a screen with navigation, network requests, and theming:
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'movie_detail')
 StacWidget movieDetailScreen() {

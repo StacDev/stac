@@ -1,4 +1,0 @@
-# melos_managed_dependency_overrides: stac_logger
-dependency_overrides:
-  stac_logger:
-    path: ../stac_logger

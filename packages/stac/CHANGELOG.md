@@ -1,3 +1,10 @@
+## 1.4.0
+
+- feat: enhance input decoration with new border options.
+- feat: add copyWith support to textTheme.
+- feat: re-export stac_core through stac package.
+- docs: improve package READMEs with quick start guides & detailed features.
+
 ## 1.3.1
 
 - fix: Bump `stac_core`to ^1.3.0
