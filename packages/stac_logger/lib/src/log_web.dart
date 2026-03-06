@@ -1,7 +1,20 @@
-import 'package:flutter/foundation.dart';
 import 'package:stac_logger/src/log_interface.dart';
 
 LogInterface createLogger() => LogWeb.instance;
+
+/// Whether the app is running in debug mode.
+///
+/// This is a pure Dart equivalent of Flutter's `kDebugMode`.
+/// It evaluates to `true` when assertions are enabled (debug mode)
+/// and `false` in release/profile mode.
+final bool _kDebugMode = () {
+  var isDebug = false;
+  assert(() {
+    isDebug = true;
+    return true;
+  }());
+  return isDebug;
+}();
 
 /// Web/WASM-compatible implementation of LogInterface
 class LogWeb implements LogInterface {
@@ -12,29 +25,29 @@ class LogWeb implements LogInterface {
 
   @override
   void d(dynamic message) {
-    if (kDebugMode) {
-      debugPrint('[DEBUG] $message');
+    if (_kDebugMode) {
+      print('[DEBUG] $message');
     }
   }
 
   @override
   void i(dynamic message) {
-    if (kDebugMode) {
-      debugPrint('[INFO] $message');
+    if (_kDebugMode) {
+      print('[INFO] $message');
     }
   }
 
   @override
   void w(dynamic message) {
-    if (kDebugMode) {
-      debugPrint('[WARNING] $message');
+    if (_kDebugMode) {
+      print('[WARNING] $message');
     }
   }
 
   @override
   void e(dynamic message) {
-    if (kDebugMode) {
-      debugPrint('[ERROR] $message');
+    if (_kDebugMode) {
+      print('[ERROR] $message');
     }
   }
 }

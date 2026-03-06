@@ -23,7 +23,7 @@ Custom actions enable you to:
 
 Before creating a custom action, ensure you have:
 
-1. **Dependencies**: `stac_core` and `json_annotation` packages
+1. **Dependencies**: `stac` and `json_annotation` packages
 2. **Code Generation**: `build_runner` for generating JSON serialization code
 3. **Parser**: A corresponding action parser to execute your action.
 
@@ -35,8 +35,7 @@ Create a new file (e.g., `lib/actions/stac_share_action.dart`) and define your a
 
 ```dart
 import 'package:json_annotation/json_annotation.dart';
-import 'package:stac_core/core/stac_action.dart';
-import 'package:stac_core/foundation/specifications/action_type.dart';
+import 'package:stac/stac_core.dart';
 
 part 'stac_share_action.g.dart';
 
@@ -188,7 +187,7 @@ Similar to widgets, actions can use converters for special types:
 For `double` fields that may come as integers in JSON:
 
 ```dart
-import 'package:stac_core/core/converters/double_converter.dart';
+import 'package:stac/stac_core.dart';
 
 @JsonSerializable()
 class StacCustomAction extends StacAction {
@@ -211,7 +210,7 @@ class StacCustomAction extends StacAction {
 **In Dart (stac/ folder)**
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 import 'package:your_app/actions/stac_share_action.dart';
 
 @StacScreen(screenName: 'article')

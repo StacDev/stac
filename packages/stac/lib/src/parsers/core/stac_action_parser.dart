@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/stac_core.dart';
 
 extension StacActionParserExtension on StacAction? {
   FutureOr<dynamic> parse(BuildContext context) {

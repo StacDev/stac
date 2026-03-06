@@ -1,5 +1,8 @@
 # Stac Logger
 
+[![pub package](https://img.shields.io/pub/v/stac_logger.svg?label=stac_logger&color=blue)](https://pub.dev/packages/stac_logger)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 A lightweight and reusable logging utility for the Stac framework. It switches between implementations—using Flutter's debugPrint on web/WASM platforms and the robust logger package on native platforms—ensuring optimal performance and compatibility across all environments.
 
 ## Getting started

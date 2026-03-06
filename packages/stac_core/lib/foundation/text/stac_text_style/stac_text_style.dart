@@ -528,13 +528,128 @@ class StacThemeTextStyle extends StacTextStyle {
   ///
   /// For example, `style: StacMaterialTextStyle.bodyMedium` maps to
   /// `Theme.of(context).textTheme.bodyMedium`.
-  StacThemeTextStyle({required this.textTheme})
-    : super._(type: StacTextStyleType.theme);
+  StacThemeTextStyle({
+    required this.textTheme,
+    this.inherit,
+    this.color,
+    this.backgroundColor,
+    this.fontSize,
+    this.fontWeight,
+    this.fontStyle,
+    this.letterSpacing,
+    this.wordSpacing,
+    this.textBaseline,
+    this.height,
+    this.leadingDistribution,
+    this.decorationColor,
+    this.decorationStyle,
+    this.decorationThickness,
+    this.debugLabel,
+    this.fontFamily,
+    this.fontFamilyFallback,
+    this.package,
+    this.overflow,
+  }) : super._(type: StacTextStyleType.theme);
 
   /// The `TextTheme` style key.
   ///
   /// Type: [StacMaterialTextStyle]
   final StacMaterialTextStyle textTheme;
+
+  /// Whether to inherit styling from the ambient `DefaultTextStyle`.
+  ///
+  /// Type: `bool?`
+  final bool? inherit;
+
+  /// Text color.
+  ///
+  /// Type: [StacColor]
+  final StacColor? color;
+
+  /// Background color behind the text.
+  ///
+  /// Type: [StacColor]
+  final StacColor? backgroundColor;
+
+  /// Font size in logical pixels.
+  ///
+  /// Type: `double?`
+  final double? fontSize;
+
+  /// Font weight.
+  ///
+  /// Type: [StacFontWeight]
+  final StacFontWeight? fontWeight;
+
+  /// Font style (normal/italic).
+  ///
+  /// Type: [StacFontStyle]
+  final StacFontStyle? fontStyle;
+
+  /// Spacing between letters.
+  ///
+  /// Type: `double?`
+  final double? letterSpacing;
+
+  /// Spacing between words.
+  ///
+  /// Type: `double?`
+  final double? wordSpacing;
+
+  /// The baseline to align against.
+  ///
+  /// Type: [StacTextBaseline]
+  final StacTextBaseline? textBaseline;
+
+  /// The height of this text span, as a multiple of font size.
+  ///
+  /// Type: `double?`
+  final double? height;
+
+  /// Strategy for distributing the leading (space above a line).
+  ///
+  /// Type: [StacTextLeadingDistribution]
+  final StacTextLeadingDistribution? leadingDistribution;
+
+  /// Color for text decorations (underline, overline, etc.).
+  ///
+  /// Type: [StacColor]
+  final StacColor? decorationColor;
+
+  /// Style of text decorations (solid, dotted, dashed, etc.).
+  ///
+  /// Type: [StacTextDecorationStyle]
+  final StacTextDecorationStyle? decorationStyle;
+
+  /// Thickness of text decorations in logical pixels.
+  ///
+  /// Type: `double?`
+  final double? decorationThickness;
+
+  /// Optional label used for debugging.
+  ///
+  /// Type: `String?`
+  final String? debugLabel;
+
+  /// The name of the font family to use.
+  ///
+  /// Type: `String?`
+  final String? fontFamily;
+
+  /// Fallback font families to try if [fontFamily] is unavailable.
+  ///
+  /// Type: `List<String>?`
+  final List<String>? fontFamilyFallback;
+
+  /// Optional package name for bundled fonts.
+  ///
+  /// Type: `String?`
+  final String? package;
+
+  /// How visual overflow should be handled.
+  ///
+  /// Type: [StacTextOverflow]
+  final StacTextOverflow? overflow;
 
   /// Creates a [StacThemeTextStyle] from JSON.
   factory StacThemeTextStyle.fromJson(Map<String, dynamic> json) =>
@@ -543,4 +658,50 @@ class StacThemeTextStyle extends StacTextStyle {
   /// Converts this theme text style to JSON.
   @override
   Map<String, dynamic> toJson() => _$StacThemeTextStyleToJson(this);
+
+  /// Creates a copy of this style with the given fields replaced.
+  StacThemeTextStyle copyWith({
+    bool? inherit,
+    StacColor? color,
+    StacColor? backgroundColor,
+    double? fontSize,
+    StacFontWeight? fontWeight,
+    StacFontStyle? fontStyle,
+    double? letterSpacing,
+    double? wordSpacing,
+    StacTextBaseline? textBaseline,
+    double? height,
+    StacTextLeadingDistribution? leadingDistribution,
+    StacColor? decorationColor,
+    StacTextDecorationStyle? decorationStyle,
+    double? decorationThickness,
+    String? debugLabel,
+    String? fontFamily,
+    List<String>? fontFamilyFallback,
+    String? package,
+    StacTextOverflow? overflow,
+  }) {
+    return StacThemeTextStyle(
+      textTheme: textTheme,
+      inherit: inherit ?? this.inherit,
+      color: color ?? this.color,
+      backgroundColor: backgroundColor ?? this.backgroundColor,
+      fontSize: fontSize ?? this.fontSize,
+      fontWeight: fontWeight ?? this.fontWeight,
+      fontStyle: fontStyle ?? this.fontStyle,
+      letterSpacing: letterSpacing ?? this.letterSpacing,
+      wordSpacing: wordSpacing ?? this.wordSpacing,
+      textBaseline: textBaseline ?? this.textBaseline,
+      height: height ?? this.height,
+      leadingDistribution: leadingDistribution ?? this.leadingDistribution,
+      decorationColor: decorationColor ?? this.decorationColor,
+      decorationStyle: decorationStyle ?? this.decorationStyle,
+      decorationThickness: decorationThickness ?? this.decorationThickness,
+      debugLabel: debugLabel ?? this.debugLabel,
+      fontFamily: fontFamily ?? this.fontFamily,
+      fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
+      package: package ?? this.package,
+      overflow: overflow ?? this.overflow,
+    );
+  }
 }

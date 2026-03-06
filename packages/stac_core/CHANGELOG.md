@@ -1,3 +1,7 @@
+## 1.4.0
+  - Added new border option models for input decoration (`StacInputBorder`, etc).
+  - Added `copyWith` method to `StacThemeTextStyle` model.
+
 ## 1.3.0
 
 - Added `StacSliverToBoxAdapter` widget model

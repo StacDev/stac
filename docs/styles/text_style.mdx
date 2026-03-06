@@ -245,6 +245,36 @@ StacColumn(
 ```
 </CodeGroup>
 
+## Overriding Theme Text Styles
+
+You can override specific properties of a theme-based text style using the `copyWith` method (in Dart) or by adding properties alongside `textTheme` (in JSON).
+
+<CodeGroup>
+```dart Dart
+StacText(
+  data: 'Overridden Body Text',
+  style: StacThemeData.textTheme.bodyMedium.copyWith(
+    color: StacColors.red,
+    fontSize: 20,
+    fontWeight: StacFontWeight.bold,
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "text",
+  "data": "Overridden Body Text",
+  "style": {
+    "textTheme": "bodyMedium",
+    "color": "#F44336",
+    "fontSize": 20,
+    "fontWeight": "bold"
+  }
+}
+```
+</CodeGroup>
+
 ## Complete Example
 
 <CodeGroup>

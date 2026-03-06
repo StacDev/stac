@@ -19,6 +19,7 @@ export 'borders/stac_border_side_parser.dart';
 export 'borders/stac_border_style_parser.dart';
 export 'borders/stac_circle_border_parser.dart';
 export 'borders/stac_continuous_rectangle_border_parser.dart';
+export 'borders/stac_input_border_parser.dart';
 export 'borders/stac_rounded_rectangle_border_parser.dart';
 export 'borders/stac_shape_border_parser.dart';
 // Color parsers

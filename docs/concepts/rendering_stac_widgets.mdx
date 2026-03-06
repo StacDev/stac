@@ -40,7 +40,7 @@ The `home_screen` is defined in your `/stac` folder as a Dart file. Here's an ex
 **`stac/home_screen.dart`:**
 
 ```dart
-import 'package:stac_core/stac_core.dart';
+import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'home_screen')
 StacWidget homeScreen() {
@@ -268,7 +268,6 @@ Stac.fromNetwork(
 ```dart
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
-import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 class ApiDrivenScreen extends StatelessWidget {
   const ApiDrivenScreen({super.key});
