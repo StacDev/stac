@@ -262,6 +262,17 @@
                         ]
                     }
                 ]
+            },
+            {
+                "tab": "Tools",
+                "groups": [
+                    {
+                        "group": "Editor Extensions",
+                        "pages": [
+                            "tools/vscode"
+                        ]
+                    }
+                ]
             }
         ]
     },
