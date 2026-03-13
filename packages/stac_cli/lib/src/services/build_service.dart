@@ -494,7 +494,7 @@ Future<void> main(List<String> args) async {
         final cleaned = _cleanJson(json);
         if (cleaned == null) continue;
 
-        final fileName = StringUtils.toSnakeCase(artifact.artifactName);
+        final fileName = artifact.artifactName;
         final outputFilePath = path.join(outputDir, '$fileName.json');
         final jsonString = const JsonEncoder.withIndent('  ').convert(cleaned);
         await FileUtils.writeFile(outputFilePath, jsonString);
