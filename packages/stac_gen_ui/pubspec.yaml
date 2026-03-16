@@ -1,0 +1,34 @@
+name: stac_gen_ui
+description: AI-powered UI generation for Stac using Claude API. Generate Flutter widgets from natural language prompts at runtime.
+version: 0.1.0
+homepage: https://github.com/StacDev/stac
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+topics:
+  - ui
+  - widget
+  - server-driven-ui
+  - dynamic-widgets
+  - ai-generated-ui
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.0.0
+  json_annotation: ^4.10.0
+  stac:
+    path: ../stac
+  stac_core:
+    path: ../stac_core
+  stac_framework:
+    path: ../stac_framework
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.10.1
+  json_serializable: ^6.11.1
