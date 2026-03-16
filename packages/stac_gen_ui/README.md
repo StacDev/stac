@@ -21,23 +21,29 @@ dependencies:
 
 ### 2. Initialize
 
+A single call initializes both Stac Gen UI and the underlying Stac framework — no need to call `Stac.initialize` separately.
+
 ```dart
-import 'package:stac/stac.dart';
 import 'package:stac_gen_ui/stac_gen_ui.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Configure your Claude API key
-  StacGenUiConfig.initialize(apiKey: 'your-claude-api-key');
-
-  // Register the genUi parser
-  await Stac.initialize(
-    parsers: [const StacGenUiParser()],
-  );
+  await StacGenUiConfig.initialize(apiKey: 'your-claude-api-key');
 
   runApp(MyApp());
 }
+```
+
+You can pass all standard Stac options through the same call:
+
+```dart
+await StacGenUiConfig.initialize(
+  apiKey: 'your-claude-api-key',
+  options: StacOptions(projectId: 'your-project-id'),
+  parsers: [MyCustomWidgetParser()],
+  actionParsers: [MyCustomActionParser()],
+);
 ```
 
 ### 3. Use in your app
@@ -81,7 +87,7 @@ final widget = Stac.fromJson(jsonSpec, context);
 ## Configuration
 
 ```dart
-StacGenUiConfig.initialize(
+await StacGenUiConfig.initialize(
   apiKey: 'your-claude-api-key',
   model: 'claude-sonnet-4-20250514',  // default
   maxTokens: 4096,                     // default
