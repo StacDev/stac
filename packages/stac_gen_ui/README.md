@@ -94,6 +94,31 @@ await StacGenUiConfig.initialize(
 );
 ```
 
+## Custom Widgets
+
+If you have custom Stac parsers, register them with `customWidgets` so the AI knows how to use them in generated UI:
+
+```dart
+await StacGenUiConfig.initialize(
+  apiKey: 'your-claude-api-key',
+  parsers: [const RatingBarParser(), const VideoPlayerParser()],
+  customWidgets: [
+    StacCustomWidgetSchema(
+      type: 'ratingBar',
+      description: 'A star rating bar widget',
+      example: '{"type": "ratingBar", "rating": 4.5, "maxRating": 5, "size": 24, "color": "#FFD700"}',
+    ),
+    StacCustomWidgetSchema(
+      type: 'videoPlayer',
+      description: 'A video player widget with controls',
+      example: '{"type": "videoPlayer", "url": "https://example.com/video.mp4", "autoPlay": false}',
+    ),
+  ],
+);
+```
+
+The `parsers` parameter registers them with Stac's parser system, while `customWidgets` teaches the AI their JSON structure. Both are needed for the AI to generate and render custom widgets.
+
 ## Custom System Prompt
 
 Add extra instructions for Claude using `systemPromptExtras`:

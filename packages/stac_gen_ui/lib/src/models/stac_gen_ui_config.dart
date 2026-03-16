@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:stac/stac.dart';
+import 'package:stac_gen_ui/src/models/stac_custom_widget_schema.dart';
 import 'package:stac_gen_ui/src/parsers/stac_gen_ui_parser.dart';
 
 /// Configuration and initialization for the Stac Gen UI package.
@@ -16,6 +17,7 @@ class StacGenUiConfig {
   static String? _apiKey;
   static String _model = 'claude-sonnet-4-20250514';
   static int _maxTokens = 4096;
+  static List<StacCustomWidgetSchema> _customWidgets = const [];
 
   /// Initializes both Stac Gen UI and the underlying Stac framework.
   ///
@@ -30,6 +32,7 @@ class StacGenUiConfig {
   /// - [options]: Stac Cloud project configuration.
   /// - [parsers]: Additional custom widget parsers (genUi is added automatically).
   /// - [actionParsers]: Custom action parsers.
+  /// - [customWidgets]: Descriptions of custom widgets so the AI can use them.
   /// - [dio]: Custom Dio instance for Stac network requests.
   /// - [override]: If `true`, allows re-initialization.
   /// - [showErrorWidgets]: Show error widgets on parse failure (default: true).
@@ -43,6 +46,7 @@ class StacGenUiConfig {
     StacOptions? options,
     List<StacParser> parsers = const [],
     List<StacActionParser> actionParsers = const [],
+    List<StacCustomWidgetSchema> customWidgets = const [],
     Dio? dio,
     bool override = false,
     bool showErrorWidgets = true,
@@ -53,6 +57,7 @@ class StacGenUiConfig {
     _apiKey = apiKey;
     if (model != null) _model = model;
     if (maxTokens != null) _maxTokens = maxTokens;
+    _customWidgets = customWidgets;
 
     await Stac.initialize(
       options: options,
@@ -85,4 +90,7 @@ class StacGenUiConfig {
 
   /// The maximum number of tokens for the Claude response.
   static int get maxTokens => _maxTokens;
+
+  /// Custom widget schemas registered during initialization.
+  static List<StacCustomWidgetSchema> get customWidgets => _customWidgets;
 }

@@ -1,3 +1,6 @@
+import 'package:stac_gen_ui/src/models/stac_custom_widget_schema.dart';
+import 'package:stac_gen_ui/src/models/stac_gen_ui_config.dart';
+
 /// Builds the system prompt for Claude with the Stac widget catalog.
 ///
 /// Uses a minimal prompt approach (~2000 tokens) with widget type names
@@ -6,16 +9,31 @@ class StacSchemaProvider {
   StacSchemaProvider._();
 
   /// Builds the complete system prompt for Claude.
+  ///
+  /// Includes built-in widget types, key rules, examples, and any
+  /// [StacCustomWidgetSchema]s registered via [StacGenUiConfig.initialize].
   static String buildSystemPrompt({String? extras}) {
     final buffer = StringBuffer();
 
     buffer.writeln(_role);
     buffer.writeln();
     buffer.writeln(_widgetTypes);
+
+    final customWidgets = StacGenUiConfig.customWidgets;
+    if (customWidgets.isNotEmpty) {
+      buffer.writeln();
+      buffer.writeln(_buildCustomWidgetSection(customWidgets));
+    }
+
     buffer.writeln();
     buffer.writeln(_rules);
     buffer.writeln();
     buffer.writeln(_examples);
+
+    if (customWidgets.isNotEmpty) {
+      buffer.writeln();
+      buffer.writeln(_buildCustomWidgetExamples(customWidgets));
+    }
 
     if (extras != null && extras.isNotEmpty) {
       buffer.writeln();
@@ -23,6 +41,33 @@ class StacSchemaProvider {
       buffer.writeln(extras);
     }
 
+    return buffer.toString();
+  }
+
+  static String _buildCustomWidgetSection(
+    List<StacCustomWidgetSchema> widgets,
+  ) {
+    final buffer = StringBuffer();
+    buffer.writeln('## Custom Widget Types');
+    for (final widget in widgets) {
+      buffer.writeln('- ${widget.type}: ${widget.description}');
+    }
+    return buffer.toString();
+  }
+
+  static String _buildCustomWidgetExamples(
+    List<StacCustomWidgetSchema> widgets,
+  ) {
+    final withExamples = widgets.where((w) => w.example != null).toList();
+    if (withExamples.isEmpty) return '';
+
+    final buffer = StringBuffer();
+    buffer.writeln('## Custom Widget Examples');
+    for (final widget in withExamples) {
+      buffer.writeln();
+      buffer.writeln('### ${widget.type}');
+      buffer.writeln(widget.example);
+    }
     return buffer.toString();
   }
 
