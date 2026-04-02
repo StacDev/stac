@@ -1,5 +1,6 @@
 import 'package:stac_gen_ui/src/models/stac_custom_widget_schema.dart';
 import 'package:stac_gen_ui/src/models/stac_gen_ui_config.dart';
+import 'package:stac_gen_ui/src/services/stac_prompt_definitions.dart';
 
 /// Builds the system prompt for Claude with the Stac widget catalog.
 ///
@@ -8,6 +9,27 @@ import 'package:stac_gen_ui/src/models/stac_gen_ui_config.dart';
 class StacSchemaProvider {
   StacSchemaProvider._();
 
+  /// Builds a stable prompt section intended for prompt caching.
+  ///
+  /// This section includes role, built-in widget/action catalogs, core rules,
+  /// and examples. Keep this string byte-identical across requests to improve
+  /// cache hit rates.
+  static String buildEphemeralPromptBase() {
+    final buffer = StringBuffer();
+
+    buffer.writeln(_role);
+    buffer.writeln();
+    buffer.writeln(buildWidgetOutlineInstructions());
+    buffer.writeln();
+    buffer.writeln(buildActionOutlineInstructions());
+    buffer.writeln();
+    buffer.writeln(_rules);
+    buffer.writeln();
+    buffer.writeln(_examples);
+
+    return buffer.toString();
+  }
+
   /// Builds the complete system prompt for Claude.
   ///
   /// Includes built-in widget types, key rules, examples, and any
@@ -15,20 +37,13 @@ class StacSchemaProvider {
   static String buildSystemPrompt({String? extras}) {
     final buffer = StringBuffer();
 
-    buffer.writeln(_role);
-    buffer.writeln();
-    buffer.writeln(_widgetTypes);
+    buffer.write(buildEphemeralPromptBase());
 
     final customWidgets = StacGenUiConfig.customWidgets;
     if (customWidgets.isNotEmpty) {
       buffer.writeln();
       buffer.writeln(_buildCustomWidgetSection(customWidgets));
     }
-
-    buffer.writeln();
-    buffer.writeln(_rules);
-    buffer.writeln();
-    buffer.writeln(_examples);
 
     if (customWidgets.isNotEmpty) {
       buffer.writeln();
@@ -42,6 +57,44 @@ class StacSchemaProvider {
     }
 
     return buffer.toString();
+  }
+
+  /// Builds the system prompt as a list of content blocks suitable for the
+  /// Anthropic Messages API with prompt caching.
+  ///
+  /// The stable schema block is marked with `cache_control: {type: "ephemeral"}`
+  /// so repeated requests benefit from cached input tokens.
+  /// Dynamic content (custom widgets, extras) is sent as a separate uncached block.
+  static List<Map<String, dynamic>> buildSystemBlocks({String? extras}) {
+    final blocks = <Map<String, dynamic>>[];
+
+    blocks.add({
+      'type': 'text',
+      'text': buildEphemeralPromptBase(),
+      'cache_control': const {'type': 'ephemeral'},
+    });
+
+    final dynamicBuffer = StringBuffer();
+
+    final customWidgets = StacGenUiConfig.customWidgets;
+    if (customWidgets.isNotEmpty) {
+      dynamicBuffer.writeln(_buildCustomWidgetSection(customWidgets));
+      dynamicBuffer.writeln();
+      dynamicBuffer.writeln(_buildCustomWidgetExamples(customWidgets));
+    }
+
+    if (extras != null && extras.isNotEmpty) {
+      if (dynamicBuffer.isNotEmpty) dynamicBuffer.writeln();
+      dynamicBuffer.writeln('## Additional Instructions');
+      dynamicBuffer.writeln(extras);
+    }
+
+    final dynamicText = dynamicBuffer.toString().trim();
+    if (dynamicText.isNotEmpty) {
+      blocks.add({'type': 'text', 'text': dynamicText});
+    }
+
+    return blocks;
   }
 
   static String _buildCustomWidgetSection(
@@ -76,11 +129,9 @@ class StacSchemaProvider {
       'Generate a JSON specification using the available widget types below. '
       'The JSON will be rendered as Flutter widgets at runtime.';
 
-  static const String _widgetTypes = '''## Available Widget Types
-alertDialog, align, appBar, aspectRatio, autocomplete, backdropFilter, badge, bottomNavigationBar, bottomNavigationView, card, carouselView, center, checkBox, chip, clipOval, clipRRect, circleAvatar, circularProgressIndicator, coloredBox, column, conditional, container, drawer, dropdownMenu, customScrollView, defaultBottomNavigationController, defaultTabController, divider, dynamicView, elevatedButton, expanded, filledButton, fittedBox, flexible, floatingActionButton, form, fractionallySizedBox, gestureDetector, gridView, hero, icon, iconButton, image, inkWell, limitedBox, linearProgressIndicator, listTile, listView, networkWidget, opacity, outlinedButton, padding, pageView, placeholder, positioned, radio, radioGroup, refreshIndicator, row, safeArea, scaffold, selectableText, setValue, singleChildScrollView, sizedBox, slider, sliverAppBar, sliverGrid, sliverFillRemaining, sliverList, sliverVisibility, sliverOpacity, sliverSafeArea, sliverPadding, sliverToBoxAdapter, spacer, stack, tab, tabBar, tabBarView, table, tableCell, text, textButton, textField, textFormField, tooltip, wrap, visibility, verticalDivider''';
-
   static const String _rules = '''## Key Rules
 - Every widget object MUST have a "type" field (camelCase, matching the types above)
+- Every action object MUST have an "actionType" field (camelCase, matching the action types above)
 - Single child: use "child" key. Multiple children: use "children" key (array)
 - Colors: hex strings like "#FF2196F3" (ARGB) or "#2196F3" (RGB), or theme colors like "primary", "primary@50"
 - Padding/margin: {"left": n, "top": n, "right": n, "bottom": n} or a single number for uniform padding
@@ -89,7 +140,8 @@ alertDialog, align, appBar, aspectRatio, autocomplete, backdropFilter, badge, bo
 - Buttons have "onPressed" for actions: {"actionType": "navigate", ...} or {} for no-op
 - Use "scaffold" as root for full-screen layouts
 - Use "form" with "textFormField" for input forms
-- Use "sizedBox" for spacing between widgets''';
+- Use "sizedBox" for spacing between widgets
+- STAC Jsons are static, be careful around adding interactive elements that change the UI and buttons as well since you will be generating just one page''';
 
   static const String _examples = r'''## Examples
 

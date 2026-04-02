@@ -45,7 +45,7 @@ class ClaudeApiService {
     String? systemPromptExtras,
   }) async {
     final dio = Dio();
-    final systemPrompt = StacSchemaProvider.buildSystemPrompt(
+    final systemBlocks = StacSchemaProvider.buildSystemBlocks(
       extras: systemPromptExtras,
     );
 
@@ -55,13 +55,14 @@ class ClaudeApiService {
         headers: {
           'x-api-key': StacGenUiConfig.apiKey,
           'anthropic-version': '2023-06-01',
+          'anthropic-beta': 'prompt-caching-2024-07-31',
           'content-type': 'application/json',
         },
       ),
       data: {
         'model': StacGenUiConfig.model,
         'max_tokens': StacGenUiConfig.maxTokens,
-        'system': systemPrompt,
+        'system': systemBlocks,
         'tools': [_tool],
         'tool_choice': {'type': 'tool', 'name': 'generate_ui'},
         'messages': [
@@ -78,42 +79,138 @@ class ClaudeApiService {
   /// First attempts to extract from tool_use blocks, then falls back to
   /// text content parsing.
   static Map<String, dynamic> _parseResponse(dynamic responseData) {
-    final content = responseData['content'] as List<dynamic>;
+    final root = _asStringKeyedMap(responseData);
+    if (root == null) {
+      throw FormatException(
+        'Claude response was not a JSON object: ${responseData.runtimeType}',
+      );
+    }
 
-    // Look for tool_use block
+    final errorPayload = root['error'];
+    if (errorPayload != null) {
+      throw FormatException('Claude API error: $errorPayload');
+    }
+
+    final content = root['content'];
+    if (content is! List) {
+      throw FormatException(
+        'Claude response missing "content" list; keys: ${root.keys.toList()}',
+      );
+    }
+
+    // Prefer our named tool, then any tool_use (model / proxy quirks).
     for (final block in content) {
-      if (block['type'] == 'tool_use' && block['name'] == 'generate_ui') {
-        final input = block['input'] as Map<String, dynamic>;
-        final stacJson = input['stac_json'];
-        if (stacJson is Map<String, dynamic>) {
-          return stacJson;
+      final blockMap = _asStringKeyedMap(block);
+      if (blockMap == null) continue;
+      if (blockMap['type'] == 'tool_use' && blockMap['name'] == 'generate_ui') {
+        final extracted = _stacJsonFromToolInput(blockMap['input']);
+        if (extracted != null) return extracted;
+      }
+    }
+
+    for (final block in content) {
+      final blockMap = _asStringKeyedMap(block);
+      if (blockMap == null) continue;
+      if (blockMap['type'] == 'tool_use') {
+        final extracted = _stacJsonFromToolInput(blockMap['input']);
+        if (extracted != null) return extracted;
+      }
+    }
+
+    for (final block in content) {
+      final blockMap = _asStringKeyedMap(block);
+      if (blockMap == null) continue;
+      if (blockMap['type'] == 'text') {
+        final text = blockMap['text'];
+        if (text is String && text.isNotEmpty) {
+          try {
+            return _extractJsonFromText(text);
+          } catch (_) {
+            // Try other text blocks or fall through.
+          }
         }
       }
     }
 
-    // Fallback: look for text content and try to extract JSON
-    for (final block in content) {
-      if (block['type'] == 'text') {
-        final text = block['text'] as String;
-        return _extractJsonFromText(text);
+    throw FormatException(
+      'Could not extract Stac JSON from Claude response '
+      '(no usable tool_use or text). stop_reason: ${root['stop_reason']}',
+    );
+  }
+
+  static Map<String, dynamic>? _asStringKeyedMap(dynamic value) {
+    if (value is Map<String, dynamic>) return value;
+    if (value is Map) return Map<String, dynamic>.from(value);
+    return null;
+  }
+
+  /// Reads [stac_json] from tool input, or the whole input if the model
+  /// returned the widget tree at the root of [input].
+  ///
+  /// Handles stringified JSON in [stac_json] and loosely typed maps from
+  /// JSON decoders.
+  static Map<String, dynamic>? _stacJsonFromToolInput(dynamic input) {
+    final map = _asStringKeyedMap(input);
+    if (map == null) return null;
+
+    if (map.containsKey('stac_json')) {
+      final stac = map['stac_json'];
+      if (stac == null) return null;
+
+      final asMap = _asStringKeyedMap(stac);
+      if (asMap != null) return asMap;
+
+      if (stac is String) {
+        final trimmed = stac.trim();
+        if (trimmed.isEmpty) return null;
+        try {
+          final decoded = jsonDecode(trimmed);
+          return _asStringKeyedMap(decoded);
+        } catch (_) {
+          return null;
+        }
       }
+      return null;
     }
 
-    throw const FormatException(
-      'Could not extract Stac JSON from Claude response',
-    );
+    // Some responses put the root widget keys directly on `input`.
+    if (map['type'] is String) {
+      return Map<String, dynamic>.from(map);
+    }
+
+    return null;
   }
 
   /// Extracts JSON from text content, handling markdown code fences.
   static Map<String, dynamic> _extractJsonFromText(String text) {
-    // Try to extract from markdown code fences
     final fenceRegex = RegExp(r'```(?:json)?\s*([\s\S]*?)\s*```');
     final match = fenceRegex.firstMatch(text);
-    final jsonString = match != null ? match.group(1)! : text.trim();
+    if (match != null) {
+      try {
+        final decoded = jsonDecode(match.group(1)!.trim());
+        final m = _asStringKeyedMap(decoded);
+        if (m != null) return m;
+      } catch (_) {
+        // Fall through to whole-text strategies.
+      }
+    }
 
-    final decoded = jsonDecode(jsonString);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
+    final trimmed = text.trim();
+    try {
+      final decoded = jsonDecode(trimmed);
+      final m = _asStringKeyedMap(decoded);
+      if (m != null) return m;
+    } catch (_) {
+      // Fall through.
+    }
+
+    final start = trimmed.indexOf('{');
+    final end = trimmed.lastIndexOf('}');
+    if (start != -1 && end > start) {
+      final slice = trimmed.substring(start, end + 1);
+      final decoded = jsonDecode(slice);
+      final m = _asStringKeyedMap(decoded);
+      if (m != null) return m;
     }
 
     throw const FormatException(

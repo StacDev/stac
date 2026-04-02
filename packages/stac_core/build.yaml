@@ -1,6 +1,8 @@
 targets:
   $default:
     builders:
+      stac_schema_builder|stac_schema_builder:
+        enabled: true
       json_serializable:
         options:
           explicit_to_json: true

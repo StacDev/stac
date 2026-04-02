@@ -16,8 +16,9 @@ class StacGenUiConfig {
 
   static String? _apiKey;
   static String _model = 'claude-sonnet-4-20250514';
-  static int _maxTokens = 4096;
+  static int _maxTokens = 8192;
   static List<StacCustomWidgetSchema> _customWidgets = const [];
+  static bool _stacInitialized = false;
 
   /// Initializes both Stac Gen UI and the underlying Stac framework.
   ///
@@ -70,6 +71,20 @@ class StacGenUiConfig {
       errorWidgetBuilder: errorWidgetBuilder,
       cacheConfig: cacheConfig,
     );
+    _stacInitialized = true;
+  }
+
+  /// Updates generation settings at runtime.
+  ///
+  /// This is useful when users provide API key or token limits from app UI.
+  static void updateGenerationSettings({
+    String? apiKey,
+    String? model,
+    int? maxTokens,
+  }) {
+    if (apiKey != null) _apiKey = apiKey;
+    if (model != null && model.trim().isNotEmpty) _model = model;
+    if (maxTokens != null) _maxTokens = maxTokens;
   }
 
   /// The Claude API key.
@@ -90,6 +105,12 @@ class StacGenUiConfig {
 
   /// The maximum number of tokens for the Claude response.
   static int get maxTokens => _maxTokens;
+
+  /// Whether Stac initialization has completed in this app run.
+  static bool get isStacInitialized => _stacInitialized;
+
+  /// Whether an API key is currently available.
+  static bool get hasApiKey => (_apiKey ?? '').trim().isNotEmpty;
 
   /// Custom widget schemas registered during initialization.
   static List<StacCustomWidgetSchema> get customWidgets => _customWidgets;

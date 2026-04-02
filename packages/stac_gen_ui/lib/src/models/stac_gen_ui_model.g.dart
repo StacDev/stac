@@ -11,22 +11,18 @@ StacGenUiModel _$StacGenUiModelFromJson(Map<String, dynamic> json) =>
       prompt: json['prompt'] as String,
       loaderWidget: json['loaderWidget'] == null
           ? null
-          : StacWidget.fromJson(
-              json['loaderWidget'] as Map<String, dynamic>,
-            ),
+          : StacWidget.fromJson(json['loaderWidget'] as Map<String, dynamic>),
       errorWidget: json['errorWidget'] == null
           ? null
-          : StacWidget.fromJson(
-              json['errorWidget'] as Map<String, dynamic>,
-            ),
+          : StacWidget.fromJson(json['errorWidget'] as Map<String, dynamic>),
       systemPromptExtras: json['systemPromptExtras'] as String?,
     );
 
 Map<String, dynamic> _$StacGenUiModelToJson(StacGenUiModel instance) =>
     <String, dynamic>{
-      'type': instance.type,
       'prompt': instance.prompt,
-      'loaderWidget': instance.loaderWidget?.toJson(),
-      'errorWidget': instance.errorWidget?.toJson(),
+      'loaderWidget': instance.loaderWidget,
+      'errorWidget': instance.errorWidget,
       'systemPromptExtras': instance.systemPromptExtras,
+      'type': instance.type,
     };

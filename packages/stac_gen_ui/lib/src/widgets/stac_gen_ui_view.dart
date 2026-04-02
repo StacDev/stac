@@ -17,10 +17,22 @@ import 'package:stac_gen_ui/src/services/claude_api_service.dart';
 /// ```
 class StacGenUiView extends StatefulWidget {
   /// Creates a [StacGenUiView] with the given model.
-  const StacGenUiView({super.key, required this.model});
+  const StacGenUiView({
+    super.key,
+    required this.model,
+    this.onStacJsonReceived,
+    this.onError,
+  });
 
   /// The model containing the prompt and optional loader/error widgets.
   final StacGenUiModel model;
+
+  /// Called when the LLM returns a Stac JSON map, before it is rendered.
+  final void Function(Map<String, dynamic> json)? onStacJsonReceived;
+
+  /// Called when generation fails, parsing/rendering throws, or
+  /// [Stac.fromJson] returns null (unsupported type / parse error).
+  final void Function(Object error, StackTrace stackTrace)? onError;
 
   @override
   State<StacGenUiView> createState() => _StacGenUiViewState();
@@ -48,11 +60,30 @@ class _StacGenUiViewState extends State<StacGenUiView> {
         }
 
         if (snapshot.hasError) {
+          final err = snapshot.error!;
+          final stack = snapshot.stackTrace ?? StackTrace.current;
+          widget.onError?.call(err, stack);
           return _buildErrorWidget(context, snapshot.error);
         }
 
         if (snapshot.hasData) {
-          return Stac.fromJson(snapshot.data!, context) ?? const SizedBox();
+          final json = snapshot.data!;
+          widget.onStacJsonReceived?.call(json);
+          try {
+            final built = Stac.fromJson(json, context);
+            if (built == null) {
+              final message =
+                  'Stac.fromJson returned null (unsupported widget type or parse failure). '
+                  'JSON type: ${json['type']}';
+              final error = StateError(message);
+              final stack = StackTrace.current;
+              widget.onError?.call(error, stack);
+            }
+            return built ?? const SizedBox();
+          } catch (e, stack) {
+            widget.onError?.call(e, stack);
+            return _buildErrorWidget(context, e);
+          }
         }
 
         return const SizedBox();

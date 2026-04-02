@@ -1,4 +1,5 @@
 import 'package:stac_logger/stac_logger.dart';
+import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
 class StacRegistry {
@@ -74,6 +75,70 @@ class StacRegistry {
 
   StacActionParser<dynamic>? getActionParser(String type) {
     return _stacActionParsers[type];
+  }
+
+  /// Returns widget schema for [type].
+  ///
+  /// Priority:
+  /// 1) parser-provided schema via [StacSchemaProvider]
+  /// 2) generated stac_core schema map
+  Map<String, dynamic>? getWidgetSchema(String type) {
+    final parser = _stacParsers[type];
+    final schemaProvider = parser is StacSchemaProvider
+        ? parser as StacSchemaProvider
+        : null;
+    if (schemaProvider != null) {
+      return schemaProvider.jsonSchema;
+    }
+    return stacGeneratedWidgetSchemas[type];
+  }
+
+  /// Returns action schema for [actionType].
+  ///
+  /// Priority:
+  /// 1) parser-provided schema via [StacSchemaProvider]
+  /// 2) generated stac_core schema map
+  Map<String, dynamic>? getActionSchema(String actionType) {
+    final parser = _stacActionParsers[actionType];
+    final schemaProvider = parser is StacSchemaProvider
+        ? parser as StacSchemaProvider
+        : null;
+    if (schemaProvider != null) {
+      return schemaProvider.jsonSchema;
+    }
+    return stacGeneratedActionSchemas[actionType];
+  }
+
+  /// Returns all widget schemas with parser-provided overrides applied.
+  Map<String, Map<String, dynamic>> getAllWidgetSchemas() {
+    final merged = <String, Map<String, dynamic>>{
+      ...stacGeneratedWidgetSchemas,
+    };
+    _stacParsers.forEach((type, parser) {
+      final schemaProvider = parser is StacSchemaProvider
+          ? parser as StacSchemaProvider
+          : null;
+      if (schemaProvider != null) {
+        merged[type] = schemaProvider.jsonSchema;
+      }
+    });
+    return merged;
+  }
+
+  /// Returns all action schemas with parser-provided overrides applied.
+  Map<String, Map<String, dynamic>> getAllActionSchemas() {
+    final merged = <String, Map<String, dynamic>>{
+      ...stacGeneratedActionSchemas,
+    };
+    _stacActionParsers.forEach((type, parser) {
+      final schemaProvider = parser is StacSchemaProvider
+          ? parser as StacSchemaProvider
+          : null;
+      if (schemaProvider != null) {
+        merged[type] = schemaProvider.jsonSchema;
+      }
+    });
+    return merged;
   }
 
   dynamic setValue(String key, dynamic value) {

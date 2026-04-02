@@ -369,6 +369,26 @@ class StacService {
     return null;
   }
 
+  /// Returns schema for a registered widget [type].
+  static Map<String, dynamic>? getWidgetSchema(String type) {
+    return StacRegistry.instance.getWidgetSchema(type);
+  }
+
+  /// Returns schema for a registered action [actionType].
+  static Map<String, dynamic>? getActionSchema(String actionType) {
+    return StacRegistry.instance.getActionSchema(actionType);
+  }
+
+  /// Returns all available widget schemas (generated + parser overrides).
+  static Map<String, Map<String, dynamic>> getAllWidgetSchemas() {
+    return StacRegistry.instance.getAllWidgetSchemas();
+  }
+
+  /// Returns all available action schemas (generated + parser overrides).
+  static Map<String, Map<String, dynamic>> getAllActionSchemas() {
+    return StacRegistry.instance.getAllActionSchemas();
+  }
+
   static Widget fromNetwork({
     required StacNetworkRequest request,
     required BuildContext context,

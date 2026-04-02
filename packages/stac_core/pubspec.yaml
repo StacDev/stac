@@ -22,3 +22,5 @@ dev_dependencies:
   lints: ^6.0.0
   build_runner: ^2.5.4
   json_serializable: ^6.9.5
+  stac_schema_builder:
+    path: ../stac_schema_builder

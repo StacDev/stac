@@ -1,0 +1,16 @@
+name: stac_schema_builder
+description: Code generator for runtime Stac JSON schemas.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  analyzer: ^8.2.0
+  build: ^4.0.1
+  glob: ^2.1.2
+  source_gen: ^4.0.2
+
+dev_dependencies:
+  lints: ^6.0.0

@@ -1,0 +1,7 @@
+builders:
+  stac_schema_builder:
+    import: "package:stac_schema_builder/stac_schema_builder.dart"
+    builder_factories: ["stacSchemaBuilder"]
+    build_extensions: {"$package$": ["lib/src/generated/stac_schemas.g.dart"]}
+    auto_apply: dependents
+    build_to: source
