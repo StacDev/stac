@@ -118,6 +118,13 @@ class DeployService {
     ConsoleLogger.info(
       'Screens → success: $screenSuccess, failed: $screenFail | Themes → success: $themeSuccess, failed: $themeFail',
     );
+
+    if (totalFailures == 0) {
+      final consoleUrl = 'https://console.stac.dev/project/$projectId';
+      ConsoleLogger.info(
+        'Open your project in the Stac Console to inspect your screens and themes: $consoleUrl',
+      );
+    }
   }
 
   /// Upload a single screen JSON to Cloud Functions API
