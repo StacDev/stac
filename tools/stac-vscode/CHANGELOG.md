@@ -2,6 +2,10 @@
 
 All notable changes to the "stac-vscode" extension will be documented in this file.
 
+## [0.3.0]
+
+- Bump `stac` dependency to ^1.4.0 for enhanced input decoration, `copyWith` support for text themes, and re-exported `stac_core`.
+
 ## [0.2.0]
 
 - Bug fixes & improvements

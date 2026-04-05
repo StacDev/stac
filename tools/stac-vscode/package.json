@@ -2,7 +2,7 @@
   "name": "stac-vscode",
   "displayName": "Stac",
   "description": "Build Server-Driven UI with Stac — live preview, wrap quick-fixes, and snippets for Flutter.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "publisher": "StacDev",
   "license": "MIT",
   "icon": "media/icon.png",
