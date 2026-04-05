@@ -22,7 +22,7 @@ void main() {
       // Setup a clean temporary sandbox for this test.
       final tempDir = Directory.systemTemp.createTempSync('stac_cli_test');
       final filePath = path.join(tempDir.path, 'test_file.txt');
-      
+
       try {
         // 1. Initial State: file should not exist.
         expect(await FileUtils.fileExists(filePath), isFalse);

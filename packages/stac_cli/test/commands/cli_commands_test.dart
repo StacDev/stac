@@ -18,7 +18,7 @@ void main() {
         'STAC_GOOGLE_CLIENT_ID': 'test-client-id',
         'STAC_FIREBASE_API_KEY': 'test-api-key',
       });
-      
+
       runner = CommandRunner<int>('stac', 'Stac CLI test runner');
       runner.addCommand(BuildCommand());
       runner.addCommand(InitCommand());
