@@ -5,48 +5,51 @@ description: "Understand the central hub for widget parsers, action parsers, and
 
 The **Stac Registry** is the "brain" of the Stac framework. It acts as a centralized, in-memory repository that manages how the engine translates static JSON data into live Flutter widgets and functional actions.
 
-## What is Stac Registry?
+## 1. What is Stac Registry?
 
-At its core, the Stac Registry is a singleton service that maintains three primary maps:
+The Stac Registry is a singleton service that serves as a lookup table for the rendering engine. It manages three primary areas:
+- **Widget Parsers**: Mapping of JSON `type` strings (e.g., `"text"`) to their respective `StacParser`.
+- **Action Parsers**: Mapping of logic triggers (e.g., `"navigate"`) to their `StacActionParser`.
+- **Global Variables**: A key-value store for placeholder resolution (e.g., `{{userName}}`).
 
-1.  **Widget Parsers**: A registry of every UI component type (e.g., `"text"`, `"column"`, `"custom_card"`) and the logic required to build it.
-2.  **Action Parsers**: A registry of logic triggers (e.g., `"navigate"`, `"network_request"`) that can be executed from the UI.
-3.  **Global Variables**: A key-value store for dynamic data binding (e.g., `userName`, `isLoggedIn`) that can be referenced directly in your SDUI JSON.
+## 2. Why and when it should be used?
 
-## Why and When should it be used?
+The Registry is used whenever you need to:
+- **Extend Stac**: Register custom widget or action parsers that are not included in the core library.
+- **Manage Dynamic Data**: Inject application state (like user info or theme settings) into your SDUI screens without re-fetching JSON.
+- **Custom Logic**: Trigger specific application logic directly from a server-side payload.
 
-The Registry is essential for any Stac-powered application because it provides the **lookup table** for the rendering engine. You will interact with it when:
+## 3. How it fits into Stac Architecture
 
-- **Registering Custom Widgets**: When you build a widget that isn't part of the core library, you must tell the Registry how to parse its JSON type.
-- **Injecting Third-Party Actions**: If you use a plugin (like a payment gateway or analytics) that needs to be triggered from a server-side JSON payload.
-- **Managing Dynamic State**: When you need to update a value in the app (like a theme toggle or user ID) and have that change reflected in dynamic screens via `{{variable_name}}` placeholders.
+The Registry acts as the bridge between **Server JSON** and **Native Flutter execution**.
 
-## Architecture & Data Flow
+### Architecture Flow
 
-The Registry sits between your **Server Data** and your **Flutter App**, acting as a translation layer.
+```mermaid
+graph TD
+    A[Server JSON] --> B(Variable Resolver)
+    B --> C{Stac Registry}
+    C -->|Lookup Parser| D[Widget Parser]
+    C -->|Lookup Action| E[Action Parser]
+    D --> F[Native Flutter Widget]
+    E --> G[Logic Execution]
+```
 
-1.  **JSON Payload**: The app receives a JSON object: `{"type": "text", "data": "Hello {{name}}"}`.
-2.  **Variable Resolution**: The Registry looks up the value for `name` and replaces the placeholder.
-3.  **Parser Lookup**: The engine asks the Registry for the parser associated with the type `"text"`.
-4.  **Native Rendering**: The Registry returns the `StacTextParser`, which produces the final Flutter `Text` widget.
+### Data Flow Steps
+1. **Placeholder Resolution**: The `Variable Resolver` swaps any `{{variable}}` placeholders in the JSON with real values from the Registry.
+2. **Parser Discovery**: The Stac engine queries the Registry for the parser matching the JSON's `type` field.
+3. **Execution**: The found parser converts the JSON data into a Flutter widget or executes the requested action.
 
----
-
-## Basic Usage
+## 4. Basic Usage Example
 
 ### Registering a Custom Parser
-
-To extend Stac with your own components, you register your parsers during the application initialization.
+You typically register your custom parsers during the application's initialization phase.
 
 ```dart
 void main() async {
-  // Initialize Stac and register custom parsers
   await Stac.initialize(
     parsers: [
       const MyCustomWidgetParser(),
-    ],
-    actionParsers: [
-      const MyAnalyticsActionParser(),
     ],
   );
 
@@ -54,40 +57,34 @@ void main() async {
 }
 ```
 
-### Managing Global State
-
-You can store and retrieve values in the Registry that are automatically accessible to your Dynamic Screens.
+### Using Global Variables
+Store a value in the Registry and reference it in your SDUI screens.
 
 ```dart
-// Setting a global variable
-StacRegistry.instance.setValue('apiVersion', 'v2.1');
-
-// Retrieving a value
-final version = StacRegistry.instance.getValue('apiVersion');
-
-// Removing a value
-StacRegistry.instance.removeValue('apiVersion');
+// Set a global variable
+StacRegistry.instance.setValue('userName', 'Alex Smith');
 ```
 
-In your Server JSON, you can now reference this variable:
-
+**JSON Usage:**
 ```json
 {
   "type": "text",
-  "data": "Running on Stac API Version: {{apiVersion}}"
+  "data": "Welcome back, {{userName}}!"
 }
 ```
 
-## Advanced: Overriding Default Parsers
+> [!TIP]
+> **Variable Resolution is Recursive.** If you store a complex Map in the Registry, you can access nested properties in your JSON using dot notation (e.g., `{{user.profile.name}}`).
 
-The Registry also allows you to replace a built-in Stac parser with your own logic by using the `override` flag. This is useful if you want to customize the behavior of standard widgets (like `StacText`) across your entire app.
+### 5. Overriding Core Behavior (Global Styling)
+If you want to change how a standard widget like `StacText` behaves globally (e.g., to force all text to be uppercase or add a custom logging interceptor), you can override the default parser.
 
 ```dart
 StacRegistry.instance.register(
-  const MyEnhancedTextParser(), 
-  override: true,
+  const MyBrandedTextParser(), 
+  override: true, // This replaces the core "text" parser
 );
 ```
 
-> [!TIP]
-> Use the `override` feature sparingly. It is a powerful way to enforce global design patterns or logging across all dynamic components.
+> [!WARNING]
+> **Memory Management.** Since the Registry is a Singleton, registrations and values persist for the entire lifecycle of the application. Always use `removeValue()` to clear sensitive user data when they log out to avoid memory leaks or data exposure.
