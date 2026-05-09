@@ -1,0 +1,89 @@
+{
+  "type": "defaultNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Navigation Bar Screen"
+      }
+    },
+    "body": {
+      "type": "navigationView",
+      "children": [
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "navigationBar",
+      "labelBehavior": "alwaysShow",
+      "destinations": [
+        {
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -96,6 +96,9 @@ part 'stac_default_bottom_navigation_controller.g.dart';
 ///
 /// See also:
 ///  * Flutter's DefaultTabController docs (https://api.flutter.dev/flutter/material/DefaultTabController-class.html)
+@Deprecated(
+  'Use StacDefaultNavigationController (type: "defaultNavigationController") instead. Will be removed in a future release.',
+)
 @JsonSerializable()
 class StacDefaultBottomNavigationController extends StacWidget {
   /// Creates a [StacDefaultBottomNavigationController] with the specified properties.

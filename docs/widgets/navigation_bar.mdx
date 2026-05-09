@@ -1,0 +1,317 @@
+---
+title: "NavigationBar"
+description: "Documentation for NavigationBar"
+---
+
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const navigationBarPreviewJson = {
+  "type": "defaultNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Navigation Bar Screen"
+      }
+    },
+    "body": {
+      "type": "navigationView",
+      "children": [
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "navigationBar",
+      "destinations": [
+        {
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
+      ]
+    }
+  }
+};
+export const navigationBarPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
+The Stac NavigationBar lets you build a Material 3 Flutter NavigationBar widget using JSON. It can be placed in the `bottomNavigationBar` slot of a `StacScaffold` and pairs with a `StacDefaultNavigationController` (with a `StacNavigationView` body) to drive selection state.
+
+To know more about the NavigationBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/NavigationBar-class.html).
+
+## Properties
+
+| Property                  | Type                                          | Description                                                                              |
+|---------------------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| destinations              | `List<StacNavigationDestination>`             | The destinations shown in the navigation bar.                                            |
+| animationDuration         | `StacDuration`                                | Transition time for each destination as it goes between selected and unselected.         |
+| selectedIndex             | `int`                                         | Initial selected index. Ignored if a `StacDefaultNavigationController` is provided.      |
+| backgroundColor           | `StacColor`                                   | The color of the navigation bar itself.                                                  |
+| elevation                 | `double`                                      | The z-coordinate at which to place this navigation bar.                                  |
+| shadowColor               | `StacColor`                                   | The color used for the drop shadow to indicate elevation.                                |
+| surfaceTintColor          | `StacColor`                                   | The color used as an overlay on `backgroundColor` to indicate elevation.                 |
+| indicatorColor            | `StacColor`                                   | The color of the selected destination's indicator.                                       |
+| indicatorShape            | `StacBorder`                                  | The shape of the selected destination's indicator.                                       |
+| height                    | `double`                                      | The height of the navigation bar.                                                        |
+| labelBehavior             | `StacNavigationDestinationLabelBehavior`      | Defines how labels are laid out and when they are displayed.                             |
+| labelTextStyle            | `StacTextStyle`                               | The text style for destination labels.                                                   |
+| labelPadding              | `StacEdgeInsets`                              | The padding around each destination's label widget.                                      |
+| maintainBottomViewPadding | `bool`                                        | Whether the underlying `SafeArea` maintains the bottom `viewPadding` instead of `padding`.|
+
+## NavigationDestination
+
+The Stac NavigationDestination represents a single destination inside a NavigationBar. To know more, refer to the [official documentation](https://api.flutter.dev/flutter/material/NavigationDestination-class.html).
+
+### Properties
+
+| Property     | Type           | Description                                                       |
+|--------------|----------------|-------------------------------------------------------------------|
+| icon         | `StacWidget`   | The icon shown when this destination is unselected.               |
+| label        | `String`       | The text label for this destination.                              |
+| selectedIcon | `StacWidget`   | The icon shown when this destination is selected.                 |
+| tooltip      | `String`       | Tooltip text shown on long press.                                 |
+| enabled      | `bool`         | Whether this destination is enabled. Defaults to `true`.          |
+
+## Example
+
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+StacDefaultNavigationController(
+  length: 3,
+  child: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Navigation Bar Screen'),
+    ),
+    body: StacNavigationView(
+      children: [
+        StacCenter(
+          child: StacText(
+            data: 'Home',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Search',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+        StacCenter(
+          child: StacText(
+            data: 'Profile',
+            style: StacTextStyle(fontSize: 24),
+          ),
+        ),
+      ],
+    ),
+    bottomNavigationBar: StacNavigationBar(
+      destinations: [
+        StacNavigationDestination(
+          label: 'Home',
+          icon: StacIcon(iconType: 'material', icon: 'home_outlined'),
+          selectedIcon: StacIcon(iconType: 'material', icon: 'home'),
+        ),
+        StacNavigationDestination(
+          label: 'Search',
+          icon: StacIcon(iconType: 'material', icon: 'search'),
+        ),
+        StacNavigationDestination(
+          label: 'Profile',
+          icon: StacIcon(iconType: 'material', icon: 'account_circle_outlined'),
+          selectedIcon: StacIcon(iconType: 'material', icon: 'account_circle'),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+  </Tab>
+  <Tab title="JSON">
+
+```json
+{
+  "type": "defaultNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Navigation Bar Screen"
+      }
+    },
+    "body": {
+      "type": "navigationView",
+      "children": [
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "navigationBar",
+      "destinations": [
+        {
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle_outlined"
+          },
+          "selectedIcon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={navigationBarPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: navigationBarPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

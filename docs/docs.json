@@ -133,6 +133,7 @@
                             "widgets/linear_progress_indicator",
                             "widgets/list_tile",
                             "widgets/listview",
+                            "widgets/navigation_bar",
                             "widgets/network_widget",
                             "widgets/outlined_button",
                             "widgets/page_view",
