@@ -49,7 +49,10 @@ class _DefaultNavigationControllerWidgetState
 
     _controller = NavigationController(
       length: widget.model.length,
-      initialIndex: widget.model.initialIndex ?? 0,
+      initialIndex: _clampIndex(
+        widget.model.initialIndex ?? 0,
+        widget.model.length,
+      ),
     );
 
     _controller.addListener(_onIndexChange);
@@ -66,7 +69,7 @@ class _DefaultNavigationControllerWidgetState
 
     final nextIndex = oldWidget.model.initialIndex == widget.model.initialIndex
         ? _clampIndex(_controller.index, widget.model.length)
-        : widget.model.initialIndex ?? 0;
+        : _clampIndex(widget.model.initialIndex ?? 0, widget.model.length);
 
     _controller.removeListener(_onIndexChange);
     _controller.dispose();
@@ -159,8 +162,9 @@ class NavigationScope extends InheritedWidget {
 /// widgets and views.
 class NavigationController extends ChangeNotifier {
   /// Creates a [NavigationController] with the specified properties.
-  NavigationController({this.initialIndex = 0, required this.length})
-    : _index = initialIndex;
+  NavigationController({int initialIndex = 0, required this.length})
+    : initialIndex = _clampIndex(initialIndex, length),
+      _index = _clampIndex(initialIndex, length);
 
   /// The initial index when the controller is created.
   final int initialIndex;
@@ -176,8 +180,30 @@ class NavigationController extends ChangeNotifier {
   /// Sets the current selected index.
   set index(int value) => _changeIndex(value);
 
+  static int _clampIndex(int index, int length) {
+    if (length <= 0) {
+      return 0;
+    }
+
+    return index.clamp(0, length - 1);
+  }
+
+  void _validateIndex(int value) {
+    if (length <= 0) {
+      if (value == 0) {
+        return;
+      }
+
+      throw RangeError.range(value, 0, 0, 'value');
+    }
+
+    if (value < 0 || value >= length) {
+      throw RangeError.range(value, 0, length - 1, 'value');
+    }
+  }
+
   void _changeIndex(int value) {
-    assert(value >= 0 && (value < length || length == 0));
+    _validateIndex(value);
 
     if (value == _index || length < 2) {
       return;
