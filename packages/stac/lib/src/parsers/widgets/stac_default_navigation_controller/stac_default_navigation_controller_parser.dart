@@ -35,6 +35,14 @@ class _DefaultNavigationControllerWidgetState
     extends State<_DefaultNavigationControllerWidget> {
   late NavigationController _controller;
 
+  int _clampIndex(int index, int length) {
+    if (length <= 0) {
+      return 0;
+    }
+
+    return index.clamp(0, length - 1);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -47,8 +55,37 @@ class _DefaultNavigationControllerWidgetState
     _controller.addListener(_onIndexChange);
   }
 
+  @override
+  void didUpdateWidget(covariant _DefaultNavigationControllerWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.model.length == widget.model.length &&
+        oldWidget.model.initialIndex == widget.model.initialIndex) {
+      return;
+    }
+
+    final nextIndex = oldWidget.model.initialIndex == widget.model.initialIndex
+        ? _clampIndex(_controller.index, widget.model.length)
+        : widget.model.initialIndex ?? 0;
+
+    _controller.removeListener(_onIndexChange);
+    _controller.dispose();
+    _controller = NavigationController(
+      length: widget.model.length,
+      initialIndex: nextIndex,
+    );
+    _controller.addListener(_onIndexChange);
+  }
+
   void _onIndexChange() {
     setState(() {});
+  }
+
+  @override
+  void dispose() {
+    _controller.removeListener(_onIndexChange);
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -56,6 +93,7 @@ class _DefaultNavigationControllerWidgetState
     return NavigationScope(
       length: widget.model.length,
       controller: _controller,
+      index: _controller.index,
       child: widget.model.child.parse(context) ?? const SizedBox(),
     );
   }
@@ -73,6 +111,7 @@ class NavigationScope extends InheritedWidget {
     required super.child,
     required this.length,
     required this.controller,
+    required this.index,
   });
 
   /// The number of navigation destinations.
@@ -81,11 +120,19 @@ class NavigationScope extends InheritedWidget {
   /// The controller that manages the current navigation index.
   final NavigationController controller;
 
+  /// The current navigation index.
+  final int index;
+
+  /// Returns the [NavigationScope] from the widget tree, or `null` if none
+  /// is found in scope.
+  static NavigationScope? maybeOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<NavigationScope>();
+  }
+
   /// Returns the [NavigationScope] from the widget tree, or `null` if none
   /// is found in scope.
   static NavigationScope? of(BuildContext context) {
-    final NavigationScope? result = context
-        .dependOnInheritedWidgetOfExactType<NavigationScope>();
+    final NavigationScope? result = maybeOf(context);
 
     if (result != null) {
       return result;
@@ -98,8 +145,10 @@ class NavigationScope extends InheritedWidget {
   }
 
   @override
-  bool updateShouldNotify(covariant InheritedWidget oldWidget) {
-    return oldWidget.child != child;
+  bool updateShouldNotify(covariant NavigationScope oldWidget) {
+    return oldWidget.length != length ||
+        oldWidget.controller != controller ||
+        oldWidget.index != index;
   }
 }
 

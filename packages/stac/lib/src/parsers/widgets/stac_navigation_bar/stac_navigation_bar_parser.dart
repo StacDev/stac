@@ -31,23 +31,36 @@ class _NavigationBarWidget extends StatelessWidget {
 
   final StacNavigationBar model;
 
+  int _clampIndex(int index, int length) {
+    if (length <= 0) {
+      return 0;
+    }
+
+    return index.clamp(0, length - 1);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = NavigationScope.of(context)?.controller;
+    final controller = NavigationScope.maybeOf(context)?.controller;
+    final destinations = model.destinations
+        .map(
+          (destination) => NavigationDestination(
+            icon: destination.icon.parse(context) ?? const SizedBox(),
+            selectedIcon: destination.selectedIcon?.parse(context),
+            label: destination.label,
+            tooltip: destination.tooltip,
+            enabled: destination.enabled ?? true,
+          ),
+        )
+        .toList();
+    final selectedIndex = _clampIndex(
+      controller?.index ?? model.selectedIndex ?? 0,
+      destinations.length,
+    );
 
     return NavigationBar(
-      destinations: model.destinations
-          .map(
-            (destination) => NavigationDestination(
-              icon: destination.icon.parse(context) ?? const SizedBox(),
-              selectedIcon: destination.selectedIcon?.parse(context),
-              label: destination.label,
-              tooltip: destination.tooltip,
-              enabled: destination.enabled ?? true,
-            ),
-          )
-          .toList(),
-      selectedIndex: controller?.index ?? model.selectedIndex ?? 0,
+      destinations: destinations,
+      selectedIndex: selectedIndex,
       onDestinationSelected: (index) {
         if (controller != null) {
           controller.index = index;

@@ -9,7 +9,7 @@ part 'stac_navigation_bar.g.dart';
 ///
 /// Displays a horizontal bar of [StacNavigationDestination]s, typically
 /// placed in [StacScaffold]'s `bottomNavigationBar` slot. Pair with a
-/// [StacDefaultBottomNavigationController] to drive selection state.
+/// [StacDefaultNavigationController] to drive selection state.
 ///
 /// Dart example:
 /// ```dart
@@ -82,7 +82,7 @@ class StacNavigationBar extends StacWidget {
   final StacDuration? animationDuration;
 
   /// The initial selected destination index. Ignored when a
-  /// [StacDefaultBottomNavigationController] is provided.
+  /// [StacDefaultNavigationController] is provided.
   ///
   /// Type: [int]
   final int? selectedIndex;
