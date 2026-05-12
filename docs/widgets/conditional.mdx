@@ -3,6 +3,22 @@ title: "Conditional"
 description: "Documentation for Conditional"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const conditionalPreviewJson = {
+  "type": "conditional",
+  "condition": "user.isLoggedIn == true",
+  "ifTrue": {
+    "type": "text",
+    "data": "Welcome back!"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Please sign in"
+  }
+};
+export const conditionalPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Conditional allows you to conditionally render widgets based on a boolean expression. It evaluates the condition at runtime and renders either the `ifTrue` or `ifFalse` widget.
 
 ## Properties
@@ -15,8 +31,10 @@ The Stac Conditional allows you to conditionally render widgets based on a boole
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacConditional(
   condition: 'user.isLoggedIn == true',
   ifTrue: StacText(data: 'Welcome back!'),
@@ -24,7 +42,10 @@ StacConditional(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "conditional",
   "condition": "user.isLoggedIn == true",
@@ -38,8 +59,40 @@ StacConditional(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={conditionalPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: conditionalPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Conditional with Complex Widgets
 
 <CodeGroup>

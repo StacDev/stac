@@ -86,6 +86,11 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
                 return InputFormatterType.allow.format(formatter.rule ?? '');
               case StacInputFormatterType.deny:
                 return InputFormatterType.deny.format(formatter.rule ?? '');
+              case StacInputFormatterType.mask:
+                return InputFormatterType.mask.format(
+                  formatter.rule ?? '',
+                  mask: formatter.mask,
+                );
             }
           })
           .toList(),

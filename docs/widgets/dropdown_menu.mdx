@@ -3,6 +3,51 @@ title: "DropdownMenu"
 description: "Documentation for DropdownMenu"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const dropdownMenuPreviewJson = {
+  "type": "dropdownMenu",
+  "label": {
+    "type": "text",
+    "data": "Select an option"
+  },
+  "hintText": "Please select",
+  "width": 200,
+  "inputFormatters": [
+    {
+      "type": "deny",
+      "rule": "\\s"
+    }
+  ],
+  "dropdownMenuEntries": [
+    {
+      "value": "option1",
+      "label": "Option 1",
+      "leadingIcon": {
+        "type": "icon",
+        "icon": "home"
+      }
+    },
+    {
+      "value": "option2",
+      "label": "Option 2",
+      "leadingIcon": {
+        "type": "icon",
+        "icon": "settings"
+      }
+    },
+    {
+      "value": "option3",
+      "label": "Option 3",
+      "leadingIcon": {
+        "type": "icon",
+        "icon": "favorite"
+      }
+    }
+  ]
+};
+export const dropdownMenuPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac DropdownMenu allows you to build a Flutter DropdownMenu widget using JSON.
 To know more about the DropdownMenu widget in Flutter, refer to
 the [official documentation](https://api.flutter.dev/flutter/material/DropdownMenu-class.html).
@@ -26,6 +71,7 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | enableFilter         | `bool`                          | Whether to enable filtering. Defaults to `true`.          |
 | enableSearch         | `bool`                          | Whether to enable search. Defaults to `true`.             |
 | requestFocusOnTap    | `bool`                          | Whether to request focus on tap. Defaults to `true`.      |
+| inputFormatters      | `List<StacInputFormatter>`      | Input formatters for editable dropdown text. Supports `allow`, `deny`, and `mask`. |
 
 ## DropdownMenuEntry
 
@@ -46,12 +92,17 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDropdownMenu(
   label: StacText(data: 'Select an option'),
   hintText: 'Please select',
   width: 200,
+  inputFormatters: [
+    StacInputFormatter(type: StacInputFormatterType.deny, rule: r'\s'),
+  ],
   dropdownMenuEntries: [
     StacDropdownMenuEntry(
       value: 'option1',
@@ -72,7 +123,10 @@ StacDropdownMenu(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "dropdownMenu",
   "label": {
@@ -81,13 +135,19 @@ StacDropdownMenu(
   },
   "hintText": "Please select",
   "width": 200,
+  "inputFormatters": [
+    {
+      "type": "deny",
+      "rule": "\\s"
+    }
+  ],
   "dropdownMenuEntries": [
     {
       "value": "option1",
       "label": "Option 1",
       "leadingIcon": {
         "type": "icon",
-        "iconData": "home"
+        "icon": "home"
       }
     },
     {
@@ -95,7 +155,7 @@ StacDropdownMenu(
       "label": "Option 2",
       "leadingIcon": {
         "type": "icon",
-        "iconData": "settings"
+        "icon": "settings"
       }
     },
     {
@@ -103,10 +163,43 @@ StacDropdownMenu(
       "label": "Option 3",
       "leadingIcon": {
         "type": "icon",
-        "iconData": "favorite"
+        "icon": "favorite"
       }
     }
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={dropdownMenuPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: dropdownMenuPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

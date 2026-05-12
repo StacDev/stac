@@ -3,12 +3,29 @@ title: "ClipRRect"
 description: "Documentation for ClipRRect"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const clipRrectPreviewJson = {
+  "type": "clipRRect",
+  "borderRadius": 8,
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "container",
+    "color": "#FF0000",
+    "height": 100,
+    "width": 100
+  }
+};
+export const clipRrectPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The `ClipRRect` widget in Stac allows you to clip its child using rounded rectangles. This is useful when you want to create UI elements with rounded corners.
 
 ## Usage
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacClipRRect(
   borderRadius: StacBorderRadius.all(8.0),
   clipBehavior: StacClip.antiAlias,
@@ -20,10 +37,13 @@ StacClipRRect(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "clipRRect",
-  "borderRadius": 8.0,
+  "borderRadius": 8,
   "clipBehavior": "antiAlias",
   "child": {
     "type": "container",
@@ -33,8 +53,40 @@ StacClipRRect(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={clipRrectPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: clipRrectPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Properties
 
 | Property | Type | Default | Description |

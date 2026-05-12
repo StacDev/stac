@@ -3,6 +3,18 @@ title: "Visibility"
 description: "Documentation for Visibility"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const visibilityPreviewJson = {
+  "type": "visibility",
+  "child": {
+    "type": "text",
+    "data": "I am visible!"
+  },
+  "visible": true
+};
+export const visibilityPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 Stac Visibility allows you to build the Flutter Visibility widget using JSON.
 To know more about the Visibility widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Visibility-class.html).
 
@@ -27,15 +39,20 @@ To know more about the Visibility widget in Flutter, refer to the [official docu
 
 ### Example 1: Basic Visibility
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacVisibility(
   child: StacText(data: 'I am visible!'),
   visible: true,
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "visibility",
   "child": {
@@ -45,8 +62,40 @@ StacVisibility(
   "visible": true
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={visibilityPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: visibilityPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ### Example 2: Hidden with Replacement
 
 <CodeGroup>

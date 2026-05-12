@@ -12,6 +12,7 @@ extension StacInputDecorationParser on StacInputDecoration {
       icon: icon?.parse(context),
       labelText: labelText,
       labelStyle: labelStyle?.parse(context),
+      floatingLabelBehavior: _parseFloatingLabelBehavior(floatingLabelBehavior),
       hintText: hintText,
       hintStyle: hintStyle?.parse(context),
       helperText: helperText,
@@ -36,5 +37,18 @@ extension StacInputDecorationParser on StacInputDecoration {
       enabledBorder: enabledBorder.parse(context),
       border: border.parse(context),
     );
+  }
+}
+
+FloatingLabelBehavior? _parseFloatingLabelBehavior(String? behavior) {
+  switch (behavior) {
+    case 'always':
+      return FloatingLabelBehavior.always;
+    case 'never':
+      return FloatingLabelBehavior.never;
+    case 'auto':
+      return FloatingLabelBehavior.auto;
+    default:
+      return null;
   }
 }

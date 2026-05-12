@@ -3,6 +3,18 @@ title: "ColoredBox"
 description: "Documentation for ColoredBox"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const coloredBoxPreviewJson = {
+  "type": "coloredBox",
+  "color": "#FF0000",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+};
+export const coloredBoxPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Colored Box allows you to build a Flutter colored box widget using JSON.
 To know more about the colored box widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/ColoredBox-class.html).
 
@@ -15,15 +27,20 @@ To know more about the colored box widget in Flutter, refer to the [official doc
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacColoredBox(
   color: StacColors.red,
   child: StacText(data: 'Hello, World!'),
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "coloredBox",
   "color": "#FF0000",
@@ -33,4 +50,37 @@ StacColoredBox(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={coloredBoxPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: coloredBoxPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

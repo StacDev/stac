@@ -3,6 +3,32 @@ title: "CustomScrollView"
 description: "Documentation for CustomScrollView"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const customScrollViewPreviewJson = {
+  "type": "customScrollView",
+  "slivers": [
+    {
+      "type": "sliverAppBar",
+      "title": {
+        "type": "text",
+        "data": "SliverAppBar"
+      },
+      "leading": {
+        "type": "iconButton",
+        "icon": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "menu"
+        },
+        "onPressed": {}
+      },
+      "backgroundColor": "primary"
+    }
+  ]
+};
+export const customScrollViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac CustomScrollView allows you to build a Flutter CustomScrollView widget using JSON.
 To know more about the CustomScrollView widget in Flutter, refer to
 the [official documentation](https://api.flutter.dev/flutter/widgets/CustomScrollView-class.html).
@@ -24,8 +50,10 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/CustomScrol
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCustomScrollView(
   slivers: [
     StacSliverAppBar(
@@ -40,7 +68,10 @@ StacCustomScrollView(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "customScrollView",
   "slivers": [
@@ -64,4 +95,37 @@ StacCustomScrollView(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={customScrollViewPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: customScrollViewPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

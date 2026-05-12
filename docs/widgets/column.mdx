@@ -3,6 +3,31 @@ title: "Column"
 description: "Documentation for Column"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const columnPreviewJson = {
+  "type": "column",
+  "mainAxisAlignment": "center",
+  "crossAxisAlignment": "start",
+  "mainAxisSize": "min",
+  "textDirection": "ltr",
+  "verticalDirection": "up",
+  "spacing": 10,
+  "children": [
+    {
+      "type": "text",
+      "data": "Hello, World!"
+    },
+    {
+      "type": "container",
+      "width": 100,
+      "height": 100,
+      "color": "#FF0000"
+    }
+  ]
+};
+export const columnPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Column allows you to build a Flutter column widget using JSON.
 To know more about the column widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Column-class.html).
 
@@ -21,8 +46,10 @@ To know more about the column widget in Flutter, refer to the [official document
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacColumn(
   mainAxisAlignment: StacMainAxisAlignment.center,
   crossAxisAlignment: StacCrossAxisAlignment.start,
@@ -41,7 +68,10 @@ StacColumn(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "column",
   "mainAxisAlignment": "center",
@@ -64,4 +94,37 @@ StacColumn(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={columnPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: columnPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

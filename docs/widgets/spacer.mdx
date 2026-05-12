@@ -3,6 +3,14 @@ title: "Spacer"
 description: "Documentation for Spacer"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const spacerPreviewJson = {
+  "type": "spacer",
+  "flex": 2
+};
+export const spacerPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Spacer allows you to build a Flutter spacer widget using JSON.
 To know more about the spacer widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Spacer-class.html).
 
@@ -14,15 +22,53 @@ To know more about the spacer widget in Flutter, refer to the [official document
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSpacer(flex: 2)
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "spacer",
   "flex": 2
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={spacerPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: spacerPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

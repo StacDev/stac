@@ -3,6 +3,29 @@ title: "SliverFillRemaining"
 description: "Documentation for SliverFillRemaining"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverFillRemainingPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverFillRemaining",
+        "hasScrollBody": false,
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "This content fills the remaining space"
+          }
+        }
+      }
+    ]
+  }
+};
+export const sliverFillRemainingPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverFillRemaining allows you to build a Flutter `SliverFillRemaining`
 widget using JSON.
 
@@ -28,8 +51,10 @@ To learn more about the SliverFillRemaining widget in Flutter, refer to the
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 const StacSliverFillRemaining(
   hasScrollBody: false,
   child: StacCenter(
@@ -38,17 +63,61 @@ const StacSliverFillRemaining(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "sliverFillRemaining",
-  "hasScrollBody": false,
-  "child": {
-    "type": "center",
-    "child": {
-      "type": "text",
-      "data": "This content fills the remaining space"
-    }
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverFillRemaining",
+        "hasScrollBody": false,
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "This content fills the remaining space"
+          }
+        }
+      }
+    ]
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverFillRemainingPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverFillRemainingPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

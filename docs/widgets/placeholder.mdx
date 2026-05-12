@@ -3,6 +3,17 @@ title: "Placeholder"
 description: "Documentation for Placeholder"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const placeholderPreviewJson = {
+  "type": "placeholder",
+  "color": "#455A64",
+  "strokeWidth": 2,
+  "fallbackWidth": 400,
+  "fallbackHeight": 400
+};
+export const placeholderPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac `Placeholder` widget allows you to build the Flutter Placeholder widget using JSON.
 is used to draw a box that serves as a placeholder in your Flutter UI. It is typically used to represent areas where widgets are yet to be added or for debugging layout constraints.
 
@@ -24,8 +35,10 @@ To learn more about the `Placeholder` widget, refer to the [official Flutter doc
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacPlaceholder(
   color: '#455A64',
   strokeWidth: 2.0,
@@ -34,14 +47,49 @@ StacPlaceholder(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "placeholder",
   "color": "#455A64",
-  "strokeWidth": 2.0,
-  "fallbackWidth": 400.0,
-  "fallbackHeight": 400.0
+  "strokeWidth": 2,
+  "fallbackWidth": 400,
+  "fallbackHeight": 400
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={placeholderPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: placeholderPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

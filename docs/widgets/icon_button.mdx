@@ -3,6 +3,53 @@ title: "IconButton"
 description: "Documentation for IconButton"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const iconButtonPreviewJson = {
+  "type": "iconButton",
+  "iconSize": 24,
+  "padding": {
+    "left": 8,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
+  },
+  "alignment": "center",
+  "splashRadius": 20,
+  "color": "#000000",
+  "focusColor": "#FFC107",
+  "hoverColor": "#FF9800",
+  "highlightColor": "#FF5722",
+  "splashColor": "#FFEB3B",
+  "disabledColor": "#BDBDBD",
+  "onPressed": {},
+  "autofocus": false,
+  "tooltip": "Add Item",
+  "enableFeedback": true,
+  "constraints": {
+    "minWidth": 48,
+    "minHeight": 48
+  },
+  "style": {
+    "backgroundColor": "#FFC107",
+    "foregroundColor": "#000000",
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 8
+    }
+  },
+  "isSelected": false,
+  "selectedIcon": {
+    "type": "icon",
+    "icon": "check"
+  },
+  "icon": {
+    "type": "icon",
+    "icon": "add"
+  }
+};
+export const iconButtonPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Icon Button allows you to build a Flutter icon button widget using JSON.
 To know more about the icon button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/IconButton-class.html).
 
@@ -32,8 +79,10 @@ To know more about the icon button widget in Flutter, refer to the [official doc
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacIconButton(
   iconSize: 24.0,
   padding: StacEdgeInsets(left: 8.0, top: 8.0, right: 8.0, bottom: 8.0),
@@ -50,25 +99,32 @@ StacIconButton(
   tooltip: 'Add Item',
   enableFeedback: true,
   constraints: StacBoxConstraints(minWidth: 48.0, minHeight: 48.0),
-  style: StacButtonStyle(backgroundColor: StacColors.amber, foregroundColor: StacColors.black),
+  style: StacButtonStyle(
+    backgroundColor: StacColors.amber,
+    foregroundColor: StacColors.black,
+    shape: StacRoundedRectangleBorder(borderRadius: 8),
+  ),
   isSelected: false,
   selectedIcon: StacIcon(icon: 'check'),
   icon: StacIcon(icon: 'add'),
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "iconButton",
-  "iconSize": 24.0,
+  "iconSize": 24,
   "padding": {
-    "left": 8.0,
-    "top": 8.0,
-    "right": 8.0,
-    "bottom": 8.0
+    "left": 8,
+    "top": 8,
+    "right": 8,
+    "bottom": 8
   },
   "alignment": "center",
-  "splashRadius": 20.0,
+  "splashRadius": 20,
   "color": "#000000",
   "focusColor": "#FFC107",
   "hoverColor": "#FF9800",
@@ -80,12 +136,16 @@ StacIconButton(
   "tooltip": "Add Item",
   "enableFeedback": true,
   "constraints": {
-    "minWidth": 48.0,
-    "minHeight": 48.0
+    "minWidth": 48,
+    "minHeight": 48
   },
   "style": {
     "backgroundColor": "#FFC107",
-    "foregroundColor": "#000000"
+    "foregroundColor": "#000000",
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 8
+    }
   },
   "isSelected": false,
   "selectedIcon": {
@@ -98,4 +158,37 @@ StacIconButton(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={iconButtonPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: iconButtonPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

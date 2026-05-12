@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/foundation/text/stac_font_style_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_font_weight_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_baseline_parser.dart';
+import 'package:stac/src/parsers/foundation/text/stac_text_decoration_line_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_decoration_style_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_leading_distribution_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_overflow_parser.dart';
@@ -99,6 +100,7 @@ extension StacTextStyleParser on StacTextStyle {
           textBaseline: style.textBaseline?.parse,
           height: style.height,
           leadingDistribution: style.leadingDistribution?.parse,
+          decoration: style.decoration?.parse,
           decorationColor: style.decorationColor?.toColor(context),
           decorationStyle: style.decorationStyle?.parse,
           decorationThickness: style.decorationThickness,

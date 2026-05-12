@@ -3,6 +3,21 @@ title: "SafeArea"
 description: "Documentation for SafeArea"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const safeAreaPreviewJson = {
+  "type": "safeArea",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": {
+      "color": "#FFFFFF",
+      "fontSize": 24
+    }
+  }
+};
+export const safeAreaPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 Stac `SafeArea` allows you to build the Flutter SafeArea widget using JSON. 
 To know more about the SafeArea widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/SafeArea-class.html).
 
@@ -20,8 +35,10 @@ To know more about the SafeArea widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSafeArea(
   child: StacText(
     data: 'Hello, World!',
@@ -30,7 +47,10 @@ StacSafeArea(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "safeArea",
   "child": {
@@ -38,10 +58,42 @@ StacSafeArea(
     "data": "Hello, World!",
     "style": {
       "color": "#FFFFFF",
-      "fontSize": 24.0
+      "fontSize": 24
     }
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={safeAreaPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: safeAreaPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

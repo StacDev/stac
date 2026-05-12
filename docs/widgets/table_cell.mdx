@@ -3,6 +3,26 @@ title: "TableCell"
 description: "Documentation for TableCell"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const tableCellPreviewJson = {
+  "type": "tableCell",
+  "verticalAlignment": "top",
+  "child": {
+    "type": "container",
+    "color": "#40000000",
+    "height": 50,
+    "child": {
+      "type": "center",
+      "child": {
+        "type": "text",
+        "data": "Header 1"
+      }
+    }
+  }
+};
+export const tableCellPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 StacTableCell allows you to define the Flutter TableCell widget using JSON.
 To know more about the TableCell widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/TableCell-class.html).
 
@@ -14,8 +34,10 @@ To know more about the TableCell widget in Flutter, refer to the [official docum
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacTableCell(
   verticalAlignment: StacTableCellVerticalAlignment.top,
   child: StacContainer(
@@ -28,14 +50,17 @@ StacTableCell(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "tableCell",
   "verticalAlignment": "top",
   "child": {
     "type": "container",
     "color": "#40000000",
-    "height": 50.0,
+    "height": 50,
     "child": {
       "type": "center",
       "child": {
@@ -46,4 +71,37 @@ StacTableCell(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={tableCellPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: tableCellPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,33 @@ title: "SliverToBoxAdapter"
 description: "A sliver that contains a single box widget."
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverToBoxAdapterPreviewJson = {
+  "type": "sliverPadding",
+  "padding": 16,
+  "sliver": {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "container",
+      "height": 150,
+      "color": "#4CAF50",
+      "child": {
+        "type": "center",
+        "child": {
+          "type": "text",
+          "data": "I am a Box inside a SliverToBoxAdapter!",
+          "style": {
+            "color": "#FFFFFF",
+            "fontWeight": "bold"
+          }
+        }
+      }
+    }
+  }
+};
+export const sliverToBoxAdapterPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverToBoxAdapter allows you to build a Flutter sliver-to-box-adapter widget using JSON. It creates a sliver that contains a single box widget.
 To know more about the sliver-to-box-adapter widget in Flutter, refer to
 the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBoxAdapter-class.html).
@@ -15,8 +42,10 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverToBox
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSliverPadding(
   padding: StacEdgeInsets.all(16),
   sliver: StacSliverToBoxAdapter(
@@ -34,7 +63,10 @@ StacSliverPadding(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "sliverPadding",
   "padding": 16,
@@ -59,4 +91,37 @@ StacSliverPadding(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverToBoxAdapterPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverToBoxAdapterPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

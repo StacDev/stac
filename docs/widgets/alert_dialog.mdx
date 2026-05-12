@@ -3,6 +3,62 @@ title: "AlertDialog"
 description: "Documentation for AlertDialog"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const alertDialogPreviewJson = {
+  "type": "alertDialog",
+  "content": {
+    "type": "padding",
+    "padding": {
+      "top": 0,
+      "left": 12,
+      "right": 12,
+      "bottom": 8
+    },
+    "child": {
+      "type": "text",
+      "data": "Discard draft?",
+      "align": "center",
+      "style": {
+        "fontSize": 14
+      }
+    }
+  },
+  "actions": [
+    {
+      "type": "textButton",
+      "child": {
+        "type": "text",
+        "data": "CANCEL"
+      },
+      "onPressed": {
+        "actionType": "navigate",
+        "navigationStyle": "pop"
+      }
+    },
+    {
+      "type": "sizedBox",
+      "width": 8
+    },
+    {
+      "type": "textButton",
+      "child": {
+        "type": "text",
+        "data": "DISCARD"
+      },
+      "onPressed": {
+        "actionType": "navigate",
+        "navigationStyle": "pop"
+      }
+    },
+    {
+      "type": "sizedBox",
+      "width": 12
+    }
+  ]
+};
+export const alertDialogPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac AlertDialog allows you to build a Flutter alert dialog widget using JSON.
 To know more about the alert dialog widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/AlertDialog-class.html).
 
@@ -39,8 +95,10 @@ To know more about the alert dialog widget in Flutter, refer to the [official do
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacAlertDialog(
   content: StacPadding(
     padding: StacEdgeInsets(
@@ -70,7 +128,10 @@ StacAlertDialog(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "alertDialog",
   "content": {
@@ -124,4 +185,37 @@ StacAlertDialog(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={alertDialogPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: alertDialogPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

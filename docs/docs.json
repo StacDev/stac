@@ -41,6 +41,7 @@
                         "icon": "book",
                         "pages": [
                             "concepts/rendering_stac_widgets",
+                            "concepts/stac_registry",
                             "concepts/navigation_in_stac",
                             "concepts/caching",
                             "concepts/custom_widgets",

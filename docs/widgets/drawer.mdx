@@ -3,6 +3,41 @@ title: "Drawer"
 description: "Documentation for Drawer"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const drawerPreviewJson = {
+  "type": "drawer",
+  "backgroundColor": "#FFFFFF",
+  "elevation": 16,
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#F2F2F2",
+  "shape": {
+    "type": "roundedRectangleBorder",
+    "borderRadius": 16
+  },
+  "width": 304,
+  "semanticLabel": "Navigation Drawer",
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "column",
+    "children": [
+      {
+        "type": "text",
+        "data": "Drawer Header"
+      },
+      {
+        "type": "text",
+        "data": "Item 1"
+      },
+      {
+        "type": "text",
+        "data": "Item 2"
+      }
+    ]
+  }
+};
+export const drawerPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Drawer allows you to build a Flutter Drawer widget using JSON.
 To know more about the Drawer widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Drawer-class.html).
 
@@ -22,8 +57,10 @@ To know more about the Drawer widget in Flutter, refer to the [official document
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDrawer(
   backgroundColor: StacColors.white,
   elevation: 16.0,
@@ -43,18 +80,21 @@ StacDrawer(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "drawer",
   "backgroundColor": "#FFFFFF",
-  "elevation": 16.0,
+  "elevation": 16,
   "shadowColor": "#000000",
   "surfaceTintColor": "#F2F2F2",
   "shape": {
     "type": "roundedRectangleBorder",
     "borderRadius": 16
   },
-  "width": 304.0,
+  "width": 304,
   "semanticLabel": "Navigation Drawer",
   "clipBehavior": "antiAlias",
   "child": {
@@ -76,4 +116,37 @@ StacDrawer(
   }
 }
 ```
-</CodeGroup> 
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={drawerPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: drawerPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,33 @@ title: "Row"
 description: "Documentation for Row"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const rowPreviewJson = {
+  "type": "row",
+  "mainAxisAlignment": "center",
+  "crossAxisAlignment": "center",
+  "spacing": 12,
+  "children": [
+    {
+      "type": "image",
+      "src": "https://images.pexels.com/photos/2718416/pexels-photo-2718416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "width": 100
+    },
+    {
+      "type": "image",
+      "src": "https://images.pexels.com/photos/121629/pexels-photo-121629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "width": 100
+    },
+    {
+      "type": "image",
+      "src": "https://images.pexels.com/photos/1414642/pexels-photo-1414642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "width": 100
+    }
+  ]
+};
+export const rowPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Row allows you to build a Flutter Row widget using JSON.
 To know more about the row widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Row-class.html).
 
@@ -21,8 +48,10 @@ To know more about the row widget in Flutter, refer to the [official documentati
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacRow(
   mainAxisAlignment: StacMainAxisAlignment.center,
   crossAxisAlignment: StacCrossAxisAlignment.center,
@@ -44,7 +73,10 @@ StacRow(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "row",
   "mainAxisAlignment": "center",
@@ -69,4 +101,37 @@ StacRow(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={rowPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: rowPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

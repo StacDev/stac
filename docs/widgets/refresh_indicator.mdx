@@ -3,6 +3,52 @@ title: "RefreshIndicator"
 description: "Documentation for RefreshIndicator"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const refreshIndicatorPreviewJson = {
+  "type": "refreshIndicator",
+  "onRefresh": {
+    "actionType": "request",
+    "url": "https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
+    "method": "get",
+    "contentType": "application/json"
+  },
+  "child": {
+    "type": "listView",
+    "children": [
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Pull down to refresh"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 1"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 2"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 3"
+        }
+      }
+    ]
+  }
+};
+export const refreshIndicatorPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac RefreshIndicator allows you to build a Flutter RefreshIndicator widget using JSON.
 To know more about the RefreshIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/RefreshIndicator-class.html).
 
@@ -23,18 +69,31 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacRefreshIndicator(
   onRefresh: StacNetworkRequestAction(
     url: 'https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json',
     method: Method.get,
     contentType: 'application/json',
   ),
+  child: StacListView(
+    children: [
+      StacListTile(title: StacText(data: 'Pull down to refresh')),
+      StacListTile(title: StacText(data: 'Item 1')),
+      StacListTile(title: StacText(data: 'Item 2')),
+      StacListTile(title: StacText(data: 'Item 3')),
+    ],
+  ),
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "refreshIndicator",
   "onRefresh": {
@@ -42,7 +101,73 @@ StacRefreshIndicator(
     "url": "https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json",
     "method": "get",
     "contentType": "application/json"
+  },
+  "child": {
+    "type": "listView",
+    "children": [
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Pull down to refresh"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 1"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 2"
+        }
+      },
+      {
+        "type": "listTile",
+        "title": {
+          "type": "text",
+          "data": "Item 3"
+        }
+      }
+    ]
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={refreshIndicatorPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: refreshIndicatorPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -19,8 +19,9 @@ The Stac TextStyle classes allow you to style text with fonts, colors, sizes, an
 | wordSpacing           | `double?` | Spacing between words.                                   |
 | textBaseline          | `String?` | Baseline alignment.                                      |
 | height                | `double?` | Line height as multiple of font size.                    |
+| decoration            | `String?` | Decoration line: `none`, `underline`, `overline`, `lineThrough`. |
 | decorationColor       | `String?` | Color for text decorations.                              |
-| decorationStyle       | `String?` | Decoration style: solid, dotted, dashed, wavy.           |
+| decorationStyle       | `String?` | Decoration style: `solid`, `double`, `dotted`, `dashed`, `wavy`. |
 | decorationThickness   | `double?` | Thickness of decorations.                                |
 | fontFamily            | `String?` | Font family name.                                        |
 | fontFamilyFallback    | `List?`   | Fallback font families.                                  |
@@ -124,7 +125,7 @@ StacColumn(
     StacText(
       data: 'Underlined Text',
       style: StacTextStyle(
-        decoration: StacTextDecoration.underline,
+        decoration: StacTextDecorationLine.underline,
         decorationColor: StacColors.red,
         decorationStyle: StacTextDecorationStyle.solid,
       ),
@@ -132,13 +133,13 @@ StacColumn(
     StacText(
       data: 'Strikethrough Text',
       style: StacTextStyle(
-        decoration: StacTextDecoration.lineThrough,
+        decoration: StacTextDecorationLine.lineThrough,
       ),
     ),
     StacText(
       data: 'Wavy Underline',
       style: StacTextStyle(
-        decoration: StacTextDecoration.underline,
+        decoration: StacTextDecorationLine.underline,
         decorationStyle: StacTextDecorationStyle.wavy,
         decorationColor: StacColors.blue,
       ),

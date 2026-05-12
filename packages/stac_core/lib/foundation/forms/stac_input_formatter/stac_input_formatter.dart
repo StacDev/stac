@@ -10,13 +10,19 @@ part 'stac_input_formatter.g.dart';
 @JsonSerializable()
 class StacInputFormatter extends StacElement {
   /// Creates an input formatter with the specified type and optional rule.
-  const StacInputFormatter({required this.type, this.rule});
+  const StacInputFormatter({required this.type, this.rule, this.mask});
 
   /// Formatter behavior: allow or deny based on a regular expression rule.
   final StacInputFormatterType type;
 
   /// Regular expression string used by the formatter.
   final String? rule;
+
+  /// Input mask used when [type] is [StacInputFormatterType.mask].
+  ///
+  /// `#` positions consume characters that match [rule]. All other characters
+  /// are inserted as fixed separators.
+  final String? mask;
 
   /// Creates a [StacInputFormatter] from a JSON map.
   factory StacInputFormatter.fromJson(Map<String, dynamic> json) =>
@@ -37,4 +43,7 @@ enum StacInputFormatterType {
 
   /// Deny characters that match the provided regex [rule].
   deny,
+
+  /// Apply a simple input mask. `#` consumes allowed input characters.
+  mask,
 }

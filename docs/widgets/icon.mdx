@@ -3,6 +3,18 @@ title: "Icon"
 description: "Documentation for Icon"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const iconPreviewJson = {
+  "type": "icon",
+  "icon": "home",
+  "size": 24,
+  "color": "#000000",
+  "semanticLabel": "Home Icon",
+  "textDirection": "ltr"
+};
+export const iconPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Icon allows you to build a Flutter icon widget using JSON.
 To know more about the icon widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Icon-class.html).
 
@@ -21,8 +33,10 @@ To know more about the icon widget in Flutter, refer to the [official documentat
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacIcon(
   icon: 'home',
   size: 24.0,
@@ -32,14 +46,50 @@ StacIcon(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "icon",
   "icon": "home",
-  "size": 24.0,
+  "size": 24,
   "color": "#000000",
   "semanticLabel": "Home Icon",
   "textDirection": "ltr"
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={iconPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: iconPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,39 @@ title: "Container"
 description: "Documentation for Container"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const containerPreviewJson = {
+  "type": "container",
+  "alignment": "center",
+  "padding": {
+    "top": 16,
+    "bottom": 16,
+    "left": 16,
+    "right": 16
+  },
+  "decoration": {
+    "color": "#FF5733",
+    "borderRadius": {
+      "topLeft": 16,
+      "topRight": 16,
+      "bottomLeft": 16,
+      "bottomRight": 16
+    }
+  },
+  "width": 200,
+  "height": 200,
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": {
+      "color": "#FFFFFF",
+      "fontSize": 24
+    }
+  }
+};
+export const containerPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Container allows you to build a Flutter Container widget using JSON. 
 To know more about the container widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Container-class.html).
 
@@ -23,11 +56,12 @@ To know more about the container widget in Flutter, refer to the [official docum
 | child                | `StacWidget`           | The child widget of the container.                |
 | clipBehavior         | `StacClip`             | The clip behavior of the container.               |
 
-
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacContainer(
   alignment: StacAlignment.center,
   padding: StacEdgeInsets(
@@ -57,37 +91,72 @@ StacContainer(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "container",
   "alignment": "center",
   "padding": {
-    "top": 16.0,
-    "bottom": 16.0,
-    "left": 16.0,
-    "right": 16.0
+    "top": 16,
+    "bottom": 16,
+    "left": 16,
+    "right": 16
   },
   "decoration": {
     "color": "#FF5733",
     "borderRadius": {
-      "topLeft": 16.0,
-      "topRight": 16.0,
-      "bottomLeft": 16.0,
-      "bottomRight": 16.0
+      "topLeft": 16,
+      "topRight": 16,
+      "bottomLeft": 16,
+      "bottomRight": 16
     }
   },
-  "width": 200.0,
-  "height": 200.0,
+  "width": 200,
+  "height": 200,
   "child": {
     "type": "text",
     "data": "Hello, World!",
     "style": {
       "color": "#FFFFFF",
-      "fontSize": 24.0
+      "fontSize": 24
     }
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={containerPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: containerPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 

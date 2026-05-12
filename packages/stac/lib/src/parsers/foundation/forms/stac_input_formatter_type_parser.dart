@@ -8,6 +8,8 @@ extension StacInputFormatterTypeCoreParser on StacInputFormatterType {
         return InputFormatterType.allow;
       case StacInputFormatterType.deny:
         return InputFormatterType.deny;
+      case StacInputFormatterType.mask:
+        return InputFormatterType.mask;
     }
   }
 }

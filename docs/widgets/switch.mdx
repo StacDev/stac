@@ -3,6 +3,15 @@ title: "Switch"
 description: "Documentation for Switch"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const switchPreviewJson = {
+  "type": "switch",
+  "switchType": "cupertino",
+  "value": true
+};
+export const switchPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac `Switch` widget allows you to build the Flutter Switch widget using JSON.
 To know more about the Switch widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Switch-class.html).
 
@@ -39,23 +48,60 @@ To know more about the Switch widget in Flutter, refer to the [official document
 
 ### Example 1: Cupertino Switch
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSwitch(
   switchType: StacSwitchType.cupertino,
   value: true,
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "switch",
   "switchType": "cupertino",
   "value": true
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={switchPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: switchPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ### Example 2: Adaptive Switch
 
 <CodeGroup>

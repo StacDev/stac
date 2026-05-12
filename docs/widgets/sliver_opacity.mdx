@@ -3,6 +3,37 @@ title: "SliverOpacity"
 description: "Documentation for SliverOpacity"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverOpacityPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverOpacity",
+        "opacity": 0.5,
+        "sliver": {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "container",
+            "height": 200,
+            "color": "red",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "I am a faded sliver"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+};
+export const sliverOpacityPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverOpacity allows you to apply opacity to an entire sliver inside a `CustomScrollView`.
 
 It is useful for creating fade effects on scrollable content.
@@ -20,8 +51,10 @@ To know more about the SliverOpacity widget in Flutter, refer to the
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSliverOpacity(
   opacity: 0.5,
   sliver: StacSliverToBoxAdapter(
@@ -36,25 +69,69 @@ StacSliverOpacity(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "sliverOpacity",
-  "opacity": 0.5,
-  "sliver": {
-    "type": "sliverToBoxAdapter",
-    "child": {
-      "type": "container",
-      "height": 200,
-      "color": "red",
-      "child": {
-        "type": "center",
-        "child": {
-          "type": "text",
-          "data": "I am a faded sliver"
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverOpacity",
+        "opacity": 0.5,
+        "sliver": {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "container",
+            "height": 200,
+            "color": "red",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "I am a faded sliver"
+              }
+            }
+          }
         }
       }
-    }
+    ]
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverOpacityPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverOpacityPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

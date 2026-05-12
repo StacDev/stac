@@ -3,6 +3,20 @@ title: "AspectRatio"
 description: "Documentation for AspectRatio"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const aspectRatioPreviewJson = {
+  "type": "aspectRatio",
+  "aspectRatio": 1.33,
+  "child": {
+    "type": "container",
+    "color": "#FF5733",
+    "width": 100,
+    "height": 100
+  }
+};
+export const aspectRatioPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac AspectRatio allows you to build a Flutter AspectRatio widget using JSON.
 To know more about the aspectRatio widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/AspectRatio-class.html).
 
@@ -17,8 +31,10 @@ To know more about the aspectRatio widget in Flutter, refer to the [official doc
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacAspectRatio(
   aspectRatio: 1.33,
   child: StacContainer(
@@ -29,7 +45,10 @@ StacAspectRatio(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "aspectRatio",
   "aspectRatio": 1.33,
@@ -41,5 +60,37 @@ StacAspectRatio(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={aspectRatioPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: aspectRatioPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

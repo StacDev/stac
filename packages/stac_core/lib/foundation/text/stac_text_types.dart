@@ -132,3 +132,18 @@ enum StacTextDecorationStyle {
   /// Wavy line decoration.
   wavy,
 }
+
+/// Line painted on text (maps to Flutter [TextDecoration]).
+enum StacTextDecorationLine {
+  /// No line decoration.
+  none,
+
+  /// Underline.
+  underline,
+
+  /// Overline.
+  overline,
+
+  /// Strikethrough.
+  lineThrough,
+}

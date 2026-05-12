@@ -3,6 +3,60 @@ title: "TableRow"
 description: "Documentation for TableRow"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const tableRowPreviewJson = {
+  "type": "tableRow",
+  "children": [
+    {
+      "type": "tableCell",
+      "child": {
+        "type": "container",
+        "color": "#40000000",
+        "height": 50,
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Header 1"
+          }
+        }
+      }
+    },
+    {
+      "type": "tableCell",
+      "child": {
+        "type": "container",
+        "color": "#40000000",
+        "height": 50,
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Header 2"
+          }
+        }
+      }
+    },
+    {
+      "type": "tableCell",
+      "child": {
+        "type": "container",
+        "color": "#40000000",
+        "height": 50,
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Header 3"
+          }
+        }
+      }
+    }
+  ]
+};
+export const tableRowPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 StacTableRow allows you to define the Flutter TableRow widget using JSON.
 To know more about the TableRow widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/TableRow-class.html).
 
@@ -15,8 +69,10 @@ To know more about the TableRow widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacTableRow(
   children: [
     StacTableCell(
@@ -44,7 +100,10 @@ StacTableRow(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "tableRow",
   "children": [
@@ -53,7 +112,7 @@ StacTableRow(
       "child": {
         "type": "container",
         "color": "#40000000",
-        "height": 50.0,
+        "height": 50,
         "child": {
           "type": "center",
           "child": {
@@ -68,7 +127,7 @@ StacTableRow(
       "child": {
         "type": "container",
         "color": "#40000000",
-        "height": 50.0,
+        "height": 50,
         "child": {
           "type": "center",
           "child": {
@@ -83,7 +142,7 @@ StacTableRow(
       "child": {
         "type": "container",
         "color": "#40000000",
-        "height": 50.0,
+        "height": 50,
         "child": {
           "type": "center",
           "child": {
@@ -96,4 +155,37 @@ StacTableRow(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={tableRowPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: tableRowPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

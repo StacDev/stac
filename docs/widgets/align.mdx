@@ -3,36 +3,68 @@ title: "Align"
 description: "Documentation for Align"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const alignPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "align",
+    "child": {
+      "type": "container",
+      "color": "#FC5632",
+      "height": 250,
+      "width": 200,
+      "child": {
+        "type": "align",
+        "alignment": "bottomCenter",
+        "child": {
+          "type": "text",
+          "data": "Flutter",
+          "style": {
+            "fontSize": 23,
+            "fontWeight": "w600"
+          }
+        }
+      }
+    }
+  }
+};
+export const alignPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Align allows you to build a Flutter Align widget using JSON.
 To know more about the align widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Align-class.html).
 
+The playground centers the root widget; this example wraps `Align` in a `Scaffold` body so it gets full-screen constraints.
+
 ## Properties
 
-| Property     | Type                  | Description                                                                   |
-|--------------|-----------------------|-------------------------------------------------------------------------------|
-| alignment    | `StacAlignment`       | How to align the child.                                                       |
+| Property     | Type                       | Description                                                                   |
+|--------------|----------------------------|-------------------------------------------------------------------------------|
+| alignment    | `StacAlignmentDirectional` | How to align the child.                                                       |
 | widthFactor  | `double`              | If non-null, sets its width to the child's width multiplied by this factor.   |
 | heightFactor | `double`              | If non-null, sets its height to the child's height multiplied by this factor. |
 | child        | `StacWidget`          | The widget below this widget in the tree.                                     |
 
 ## Example
 
-<CodeGroup>
-```dart Dart
-StacAlign(
-  alignment: StacAlignment.topEnd,
-  child: StacContainer(
-    color: '#FC5632',
-    clipBehavior: StacClip.hardEdge,
-    height: 250,
-    width: 200,
-    child: StacAlign(
-      alignment: StacAlignment.bottomCenter,
-      child: StacText(
-        data: 'Flutter',
-        style: StacTextStyle(
-          fontSize: 23,
-          fontWeight: StacFontWeight.w600,
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+StacScaffold(
+  body: StacAlign(
+    child: StacContainer(
+      color: '#FC5632',
+      height: 250,
+      width: 200,
+      child: StacAlign(
+        alignment: StacAlignmentDirectional.bottomCenter,
+        child: StacText(
+          data: 'Flutter',
+          style: StacTextStyle(
+            fontSize: 23,
+            fontWeight: StacFontWeight.w600,
+          ),
         ),
       ),
     ),
@@ -40,29 +72,69 @@ StacAlign(
 )
 ```
 
-```json JSON
+  </Tab>
+
+  <Tab title="JSON">
+
+
+```json
 {
-  "type": "align",
-  "alignment": "topEnd",
-  "child": {
-    "type": "container",
-    "color": "#FC5632",
-    "clipBehavior": "hardEdge",
-    "height": 250,
-    "width": 200,
+  "type": "scaffold",
+  "body": {
+    "type": "align",
     "child": {
-      "type": "align",
-      "alignment": "bottomCenter",
+      "type": "container",
+      "color": "#FC5632",
+      "height": 250,
+      "width": 200,
       "child": {
-        "type": "text",
-        "data": "Flutter",
-        "style": {
-          "fontSize": 23,
-          "fontWeight": "w600"
+        "type": "align",
+        "alignment": "bottomCenter",
+        "child": {
+          "type": "text",
+          "data": "Flutter",
+          "style": {
+            "fontSize": 23,
+            "fontWeight": "w600"
+          }
         }
       }
     }
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={alignPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: alignPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

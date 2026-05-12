@@ -3,6 +3,18 @@ title: "Image"
 description: "Documentation for Image"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const imagePreviewJson = {
+  "type": "image",
+  "src": "assets/logo.png",
+  "imageType": "asset",
+  "width": 200,
+  "height": 100,
+  "fit": "cover"
+};
+export const imagePreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The `Image` widget allows you to display an image in your Flutter app using JSON. It supports images from multiple sources, including assets, files, and network URLs, and provides customization options such as alignment, color, width, height, and fit.
 
 To learn more about the equivalent Flutter widgets and their properties, refer to the [official Flutter documentation for Image](https://api.flutter.dev/flutter/widgets/Image-class.html).
@@ -29,8 +41,10 @@ To learn more about the equivalent Flutter widgets and their properties, refer t
 
 Creates an image widget that loads from Flutter's asset bundle.
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 const StacImage.asset(
   'assets/logo.png',
   width: 200,
@@ -39,7 +53,10 @@ const StacImage.asset(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "image",
   "src": "assets/logo.png",
@@ -49,8 +66,40 @@ const StacImage.asset(
   "fit": "cover"
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={imagePreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: imagePreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ---
 
 ### StacImage.network

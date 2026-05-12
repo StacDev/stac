@@ -3,6 +3,46 @@ title: "FloatingActionButton"
 description: "Documentation for FloatingActionButton"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const floatingActionButtonPreviewJson = {
+  "type": "floatingActionButton",
+  "onPressed": {},
+  "textStyle": {
+    "fontSize": 16,
+    "color": "#FFFFFF"
+  },
+  "buttonType": "small",
+  "autofocus": false,
+  "icon": {
+    "type": "icon",
+    "icon": "add"
+  },
+  "backgroundColor": "#FFC107",
+  "foregroundColor": "#000000",
+  "focusColor": "#FF5722",
+  "hoverColor": "#FF9800",
+  "splashColor": "#FFEB3B",
+  "extendedTextStyle": {
+    "fontSize": 14,
+    "color": "#FFFFFF"
+  },
+  "elevation": 6,
+  "focusElevation": 8,
+  "hoverElevation": 10,
+  "disabledElevation": 2,
+  "highlightElevation": 12,
+  "extendedIconLabelSpacing": 8,
+  "enableFeedback": true,
+  "tooltip": "Add Item",
+  "heroTag": "fab1",
+  "child": {
+    "type": "text",
+    "data": "Add"
+  }
+};
+export const floatingActionButtonPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Floating Action Button allows you to build a Flutter floating action button widget using JSON.
 To know more about the floating action button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/FloatingActionButton-class.html).
 
@@ -34,8 +74,10 @@ To know more about the floating action button widget in Flutter, refer to the [o
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacFloatingActionButton(
   onPressed: StacNoneAction(),
   textStyle: StacTextStyle(fontSize: 16, color: StacColors.white),
@@ -61,7 +103,10 @@ StacFloatingActionButton(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "floatingActionButton",
   "onPressed": {},
@@ -84,12 +129,12 @@ StacFloatingActionButton(
     "fontSize": 14,
     "color": "#FFFFFF"
   },
-  "elevation": 6.0,
-  "focusElevation": 8.0,
-  "hoverElevation": 10.0,
-  "disabledElevation": 2.0,
-  "highlightElevation": 12.0,
-  "extendedIconLabelSpacing": 8.0,
+  "elevation": 6,
+  "focusElevation": 8,
+  "hoverElevation": 10,
+  "disabledElevation": 2,
+  "highlightElevation": 12,
+  "extendedIconLabelSpacing": 8,
   "enableFeedback": true,
   "tooltip": "Add Item",
   "heroTag": "fab1",
@@ -99,4 +144,37 @@ StacFloatingActionButton(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={floatingActionButtonPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: floatingActionButtonPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

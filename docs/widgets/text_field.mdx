@@ -3,6 +3,24 @@ title: "TextField"
 description: "Documentation for TextField"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const textFieldPreviewJson = {
+  "type": "textField",
+  "initialValue": "Enter text here",
+  "decoration": {
+    "hintText": "Enter your name"
+  },
+  "style": {
+    "color": "#000000",
+    "fontSize": 16
+  },
+  "textAlign": "center",
+  "obscureText": false,
+  "maxLength": 50
+};
+export const textFieldPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac TextField allows you to build a Flutter text field widget using JSON. To know more about the text field widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TextField-class.html).
 
 ## Properties
@@ -33,12 +51,21 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
 | cursorHeight       | `double`                    | The height of the cursor.                                                      |
 | cursorColor        | `StacColor`                 | The color of the cursor.                                                       |
 | hintText           | `String`                    | The hint text to display when the text field is empty.                         |
-| inputFormatters    | `List<StacInputFormatter>`  | The list of input formatters to apply to the text field.                       |
+
+## StacInputDecoration
+
+`decoration` supports Flutter input decoration fields such as `labelText`, `hintText`, prefix/suffix content, borders, fill colors, and `floatingLabelBehavior`.
+
+| Property              | Type     | Description                                                        |
+|-----------------------|----------|--------------------------------------------------------------------|
+| floatingLabelBehavior | `String` | Controls when the label floats. Supported values: `auto`, `always`, `never`. |
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacTextField(
   initialValue: 'Enter text here',
   decoration: StacInputDecoration(hintText: 'Enter your name'),
@@ -49,7 +76,10 @@ StacTextField(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "textField",
   "initialValue": "Enter text here",
@@ -58,11 +88,44 @@ StacTextField(
   },
   "style": {
     "color": "#000000",
-    "fontSize": 16.0
+    "fontSize": 16
   },
   "textAlign": "center",
   "obscureText": false,
   "maxLength": 50
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={textFieldPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: textFieldPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

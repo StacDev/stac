@@ -3,14 +3,45 @@ title: "GestureDetector"
 description: "Documentation for GestureDetector"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const gestureDetectorPreviewJson = {
+  "type": "gestureDetector",
+  "child": {
+    "type": "container",
+    "color": "#2196F3",
+    "width": 200,
+    "height": 200,
+    "alignment": "center",
+    "child": {
+      "type": "text",
+      "data": "Tap me!",
+      "style": {
+        "color": "#FFFFFF",
+        "fontSize": 20
+      }
+    }
+  },
+  "onTap": {
+    "actionType": "showSnackBar",
+    "content": {
+      "type": "text",
+      "data": "This is a Snackbar"
+    }
+  }
+};
+export const gestureDetectorPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The `GestureDetector` widget in Stac allows you to detect various gestures and user interactions within your application. It wraps Flutter's native GestureDetector widget, providing a JSON-based interface to handle touch events, taps, drags, and more.
 
 ## Usage
 
 To use a GestureDetector in your Stac, specify the widget type as "gestureDetector" and provide a child widget along with any gesture callbacks you want to handle.
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacGestureDetector(
   child: StacContainer(
     color: StacColors.blue,
@@ -28,7 +59,10 @@ StacGestureDetector(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "gestureDetector",
   "child": {
@@ -55,8 +89,40 @@ StacGestureDetector(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={gestureDetectorPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: gestureDetectorPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Properties
 
 ### Child Widget

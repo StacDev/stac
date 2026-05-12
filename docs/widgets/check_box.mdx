@@ -3,6 +3,29 @@ title: "CheckBox"
 description: "Documentation for CheckBox"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const checkBoxPreviewJson = {
+  "type": "checkBox",
+  "id": "checkbox_1",
+  "value": true,
+  "tristate": false,
+  "mouseCursor": "click",
+  "activeColor": "#FF0000",
+  "fillColor": {
+    "type": "materialColor",
+    "color": "#00FF00"
+  },
+  "checkColor": "#0000FF",
+  "focusColor": "#FFFF00",
+  "hoverColor": "#FF00FF",
+  "splashRadius": 20,
+  "materialTapTargetSize": "padded",
+  "autofocus": true,
+  "isError": false
+};
+export const checkBoxPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac CheckBox allows you to build a Flutter CheckBox widget using JSON.
 To know more about the CheckBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Checkbox-class.html).
 
@@ -28,8 +51,10 @@ To know more about the CheckBox widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCheckBox(
   id: 'checkbox_1',
   value: true,
@@ -47,7 +72,10 @@ StacCheckBox(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "checkBox",
   "id": "checkbox_1",
@@ -62,10 +90,43 @@ StacCheckBox(
   "checkColor": "#0000FF",
   "focusColor": "#FFFF00",
   "hoverColor": "#FF00FF",
-  "splashRadius": 20.0,
+  "splashRadius": 20,
   "materialTapTargetSize": "padded",
   "autofocus": true,
   "isError": false
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={checkBoxPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: checkBoxPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
