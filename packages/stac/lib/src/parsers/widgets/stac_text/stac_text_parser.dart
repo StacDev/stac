@@ -81,6 +81,7 @@ class StacTextParser extends StacParser<StacText> {
       textBaseline: overrideParsed.textBaseline,
       height: overrideParsed.height,
       leadingDistribution: overrideParsed.leadingDistribution,
+      decoration: overrideParsed.decoration,
       decorationColor: overrideParsed.decorationColor,
       decorationStyle: overrideParsed.decorationStyle,
       decorationThickness: overrideParsed.decorationThickness,

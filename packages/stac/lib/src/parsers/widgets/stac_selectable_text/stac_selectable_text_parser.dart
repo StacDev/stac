@@ -92,6 +92,7 @@ class StacSelectableTextParser extends StacParser<StacSelectableText> {
       textBaseline: overrideParsed.textBaseline,
       height: overrideParsed.height,
       leadingDistribution: overrideParsed.leadingDistribution,
+      decoration: overrideParsed.decoration,
       decorationColor: overrideParsed.decorationColor,
       decorationStyle: overrideParsed.decorationStyle,
       decorationThickness: overrideParsed.decorationThickness,

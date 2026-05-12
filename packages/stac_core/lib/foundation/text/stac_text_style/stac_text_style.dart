@@ -199,6 +199,7 @@ abstract class StacTextStyle implements StacElement {
     StacTextBaseline? textBaseline,
     double? height,
     StacTextLeadingDistribution? leadingDistribution,
+    StacTextDecorationLine? decoration,
     StacColor? decorationColor,
     StacTextDecorationStyle? decorationStyle,
     double? decorationThickness,
@@ -220,6 +221,7 @@ abstract class StacTextStyle implements StacElement {
       textBaseline: textBaseline,
       height: height,
       leadingDistribution: leadingDistribution,
+      decoration: decoration,
       decorationColor: decorationColor,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
@@ -349,6 +351,7 @@ class StacCustomTextStyle extends StacTextStyle {
     this.textBaseline,
     this.height,
     this.leadingDistribution,
+    this.decoration,
     this.decorationColor,
     this.decorationStyle,
     this.decorationThickness,
@@ -414,6 +417,11 @@ class StacCustomTextStyle extends StacTextStyle {
   /// Type: [StacTextLeadingDistribution]
   StacTextLeadingDistribution? leadingDistribution;
 
+  /// Drawn line on the text (underline, strikethrough, etc.).
+  ///
+  /// Type: [StacTextDecorationLine]
+  StacTextDecorationLine? decoration;
+
   /// Color for text decorations (underline, overline, etc.).
   ///
   /// Type: [StacColor]
@@ -475,6 +483,7 @@ class StacCustomTextStyle extends StacTextStyle {
     StacTextBaseline? textBaseline,
     double? height,
     StacTextLeadingDistribution? leadingDistribution,
+    StacTextDecorationLine? decoration,
     StacColor? decorationColor,
     StacTextDecorationStyle? decorationStyle,
     double? decorationThickness,
@@ -496,6 +505,7 @@ class StacCustomTextStyle extends StacTextStyle {
       textBaseline: textBaseline ?? this.textBaseline,
       height: height ?? this.height,
       leadingDistribution: leadingDistribution ?? this.leadingDistribution,
+      decoration: decoration ?? this.decoration,
       decorationColor: decorationColor ?? this.decorationColor,
       decorationStyle: decorationStyle ?? this.decorationStyle,
       decorationThickness: decorationThickness ?? this.decorationThickness,

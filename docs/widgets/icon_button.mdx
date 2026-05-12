@@ -32,7 +32,11 @@ export const iconButtonPreviewJson = {
   },
   "style": {
     "backgroundColor": "#FFC107",
-    "foregroundColor": "#000000"
+    "foregroundColor": "#000000",
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 8
+    }
   },
   "isSelected": false,
   "selectedIcon": {
@@ -95,7 +99,11 @@ StacIconButton(
   tooltip: 'Add Item',
   enableFeedback: true,
   constraints: StacBoxConstraints(minWidth: 48.0, minHeight: 48.0),
-  style: StacButtonStyle(backgroundColor: StacColors.amber, foregroundColor: StacColors.black),
+  style: StacButtonStyle(
+    backgroundColor: StacColors.amber,
+    foregroundColor: StacColors.black,
+    shape: StacRoundedRectangleBorder(borderRadius: 8),
+  ),
   isSelected: false,
   selectedIcon: StacIcon(icon: 'check'),
   icon: StacIcon(icon: 'add'),
@@ -133,7 +141,11 @@ StacIconButton(
   },
   "style": {
     "backgroundColor": "#FFC107",
-    "foregroundColor": "#000000"
+    "foregroundColor": "#000000",
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 8
+    }
   },
   "isSelected": false,
   "selectedIcon": {

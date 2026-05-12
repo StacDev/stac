@@ -55,12 +55,20 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
   void initState() {
     super.initState();
 
-    _controller = TextEditingController(text: widget.model.initialValue);
     _obscureText = widget.model.obscureText ?? false;
 
-    if (widget.model.id != null) {
-      widget.formScope?.formData[widget.model.id!] = widget.model.initialValue;
+    String resolvedText = widget.model.initialValue ?? '';
+    final id = widget.model.id;
+    final scope = widget.formScope;
+    if (id != null && scope != null) {
+      final existing = scope.formData[id];
+      if (existing != null && existing.toString().trim().isNotEmpty) {
+        resolvedText = existing.toString();
+      }
+      scope.formData[id] = resolvedText;
     }
+
+    _controller = TextEditingController(text: resolvedText);
   }
 
   @override
@@ -108,8 +116,10 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
       decoration: widget.model.decoration?.parse(context),
       inputFormatters: widget.model.inputFormatters
           ?.map(
-            (inputFormatter) =>
-                inputFormatter.type.parse.format(inputFormatter.rule ?? ""),
+            (inputFormatter) => inputFormatter.type.parse.format(
+              inputFormatter.rule ?? "",
+              mask: inputFormatter.mask,
+            ),
           )
           .toList(),
       validator: (value) {

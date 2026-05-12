@@ -51,7 +51,14 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
 | cursorHeight       | `double`                    | The height of the cursor.                                                      |
 | cursorColor        | `StacColor`                 | The color of the cursor.                                                       |
 | hintText           | `String`                    | The hint text to display when the text field is empty.                         |
-| inputFormatters    | `List<StacInputFormatter>`  | The list of input formatters to apply to the text field.                       |
+
+## StacInputDecoration
+
+`decoration` supports Flutter input decoration fields such as `labelText`, `hintText`, prefix/suffix content, borders, fill colors, and `floatingLabelBehavior`.
+
+| Property              | Type     | Description                                                        |
+|-----------------------|----------|--------------------------------------------------------------------|
+| floatingLabelBehavior | `String` | Controls when the label floats. Supported values: `auto`, `always`, `never`. |
 
 ## Example
 

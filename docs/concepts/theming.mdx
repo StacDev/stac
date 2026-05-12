@@ -230,3 +230,35 @@ StacButtonStyle(
   shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
 )
 ```
+
+### Floating Action Button Theme
+
+Use `floatingActionButtonTheme` to customize colors, elevation, shape, icon sizing, and layout constraints for floating action buttons:
+
+```dart
+StacFloatingActionButtonThemeData(
+  backgroundColor: '#95E183',
+  foregroundColor: '#050608',
+  elevation: 6,
+  shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(16)),
+  sizeConstraints: StacBoxConstraints(minWidth: 56, minHeight: 56),
+)
+```
+
+```json
+{
+  "floatingActionButtonTheme": {
+    "backgroundColor": "#95E183",
+    "foregroundColor": "#050608",
+    "elevation": 6,
+    "shape": {
+      "type": "roundedRectangleBorder",
+      "borderRadius": 16
+    },
+    "sizeConstraints": {
+      "minWidth": 56,
+      "minHeight": 56
+    }
+  }
+}
+```
