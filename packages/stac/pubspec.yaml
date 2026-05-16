@@ -18,6 +18,7 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^4.9.0
+  flutter_validators: ^1.2.0
   dio: ^5.9.0
   stac_framework: ^1.0.0
   cached_network_image: ^3.4.1
