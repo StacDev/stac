@@ -19,6 +19,7 @@ import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_tool_tip/stac_tool_tip_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
+import 'package:stac/src/utils/template_utils.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -130,6 +131,7 @@ class StacService {
     const StacAspectRatioParser(),
     const StacFittedBoxParser(),
     const StacLimitedBoxParser(),
+    const StacDynamicDataProviderParser(),
     const StacDynamicViewParser(),
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),
@@ -142,6 +144,7 @@ class StacService {
     const StacBackdropFilterParser(),
     const StacVerticalDividerParser(),
     const StacSelectableTextParser(),
+    const StacTemplateBuilderParser(),
   ];
 
   static final _actionParsers = <StacActionParser>[
@@ -238,7 +241,12 @@ class StacService {
           ? json
           : resolveVariablesInJson(json, StacRegistry.instance);
 
-      final model = stacParser.getModel(resolvedJson);
+      // Second pass: resolve {{providerId.path}} from DynamicDataScope
+      final fullyResolved = widgetType == WidgetType.setValue.name
+          ? resolvedJson
+          : resolveDynamicDataInJson(resolvedJson, context);
+
+      final model = stacParser.getModel(fullyResolved);
       return stacParser.parse(context, model);
     } catch (e, stackTrace) {
       // Log error with full context
@@ -295,7 +303,12 @@ class StacService {
           ? widget.toJson()
           : resolveVariablesInJson(widget.toJson(), StacRegistry.instance);
 
-      final model = stacParser.getModel(resolvedJson);
+      // Second pass: resolve {{providerId.path}} from DynamicDataScope
+      final fullyResolved = widgetType == WidgetType.setValue.name
+          ? resolvedJson
+          : resolveDynamicDataInJson(resolvedJson, context);
+
+      final model = stacParser.getModel(fullyResolved);
       return stacParser.parse(context, model);
     } catch (e, stackTrace) {
       _logError(

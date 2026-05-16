@@ -26,6 +26,8 @@ export 'package:stac/src/parsers/widgets/stac_default_tab_controller/stac_defaul
 export 'package:stac/src/parsers/widgets/stac_divider/stac_divider_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_drawer/stac_drawer_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_dropdown_menu/stac_dropdown_menu_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_dynamic_data_provider/dynamic_data_scope.dart';
+export 'package:stac/src/parsers/widgets/stac_dynamic_data_provider/stac_dynamic_data_provider_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_dynamic_view/stac_dynamic_view_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_elevated_button/stac_elevated_button_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_expanded/stac_expanded_parser.dart';
@@ -82,6 +84,7 @@ export 'package:stac/src/parsers/widgets/stac_tab_bar/stac_tab_bar_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_tab_bar_view/stac_tab_bar_view_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_table/stac_table_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_table_cell/stac_table_cell_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_template_builder/stac_template_builder_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_text_button/stac_text_button_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_text_field/stac_text_field_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_text_form_field/stac_text_form_field_parser.dart';

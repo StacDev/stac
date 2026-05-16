@@ -91,6 +91,9 @@ enum WidgetType {
   /// Divider widget
   divider,
 
+  /// Dynamic data provider widget
+  dynamicDataProvider,
+
   /// Dynamic view widget
   dynamicView,
 
@@ -265,6 +268,9 @@ enum WidgetType {
 
   /// Table cell widget
   tableCell,
+
+  /// Template builder widget
+  templateBuilder,
 
   /// Text widget
   text,
