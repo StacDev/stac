@@ -267,6 +267,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_validators:
+    dependency: transitive
+    description:
+      name: flutter_validators
+      sha256: "00cc032a0eafaf5f0d4b1a3ed3347d52cd4bface4c1853ebbf1faf183bab346d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
