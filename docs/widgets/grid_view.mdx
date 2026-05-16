@@ -3,6 +3,51 @@ title: "GridView"
 description: "Documentation for GridView"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const gridViewPreviewJson = {
+  "type": "gridView",
+  "scrollDirection": "vertical",
+  "reverse": false,
+  "primary": false,
+  "physics": {
+    "type": "scrollPhysics",
+    "name": "bouncing"
+  },
+  "shrinkWrap": false,
+  "padding": {
+    "left": 10,
+    "top": 10,
+    "right": 10,
+    "bottom": 10
+  },
+  "crossAxisCount": 2,
+  "mainAxisSpacing": 10,
+  "crossAxisSpacing": 10,
+  "childAspectRatio": 1,
+  "mainAxisExtent": 100,
+  "addAutomaticKeepAlives": true,
+  "addRepaintBoundaries": true,
+  "addSemanticIndexes": true,
+  "cacheExtent": 100,
+  "children": [
+    {
+      "type": "text",
+      "data": "Item 1"
+    },
+    {
+      "type": "text",
+      "data": "Item 2"
+    }
+  ],
+  "semanticChildCount": 2,
+  "dragStartBehavior": "start",
+  "keyboardDismissBehavior": "manual",
+  "restorationId": "grid_view_1",
+  "clipBehavior": "hardEdge"
+};
+export const gridViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac GridView allows you to build a Flutter GridView widget using JSON.
 To know more about the GridView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/GridView-class.html).
 
@@ -34,8 +79,10 @@ To know more about the GridView widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacGridView(
   scrollDirection: StacAxis.vertical,
   reverse: false,
@@ -64,7 +111,10 @@ StacGridView(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "gridView",
   "scrollDirection": "vertical",
@@ -82,14 +132,14 @@ StacGridView(
     "bottom": 10
   },
   "crossAxisCount": 2,
-  "mainAxisSpacing": 10.0,
-  "crossAxisSpacing": 10.0,
-  "childAspectRatio": 1.0,
-  "mainAxisExtent": 100.0,
+  "mainAxisSpacing": 10,
+  "crossAxisSpacing": 10,
+  "childAspectRatio": 1,
+  "mainAxisExtent": 100,
   "addAutomaticKeepAlives": true,
   "addRepaintBoundaries": true,
   "addSemanticIndexes": true,
-  "cacheExtent": 100.0,
+  "cacheExtent": 100,
   "children": [
     {
       "type": "text",
@@ -107,4 +157,37 @@ StacGridView(
   "clipBehavior": "hardEdge"
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={gridViewPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: gridViewPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

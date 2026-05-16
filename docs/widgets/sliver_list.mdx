@@ -3,6 +3,59 @@ title: "SliverList"
 description: "Documentation for SliverList"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverListPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverList",
+        "children": [
+          {
+            "type": "container",
+            "height": 80,
+            "color": "primary",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 1"
+              }
+            }
+          },
+          {
+            "type": "container",
+            "height": 80,
+            "color": "secondary",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 2"
+              }
+            }
+          },
+          {
+            "type": "container",
+            "height": 80,
+            "color": "success",
+            "child": {
+              "type": "center",
+              "child": {
+                "type": "text",
+                "data": "List Item 3"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+};
+export const sliverListPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverList allows you to build a Flutter sliver list widget using JSON.
 It displays its children in a linear, scrollable list within a sliver context.
 
@@ -28,8 +81,10 @@ To learn more about the SliverList widget in Flutter, refer to the
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 const StacSliverList(
   children: [
     StacContainer(
@@ -57,7 +112,10 @@ const StacSliverList(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "scaffold",
   "body": {
@@ -108,4 +166,37 @@ const StacSliverList(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverListPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverListPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,91 @@ title: "BottomNavigationBar"
 description: "Documentation for BottomNavigationBar"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const bottomNavigationBarPreviewJson = {
+  "type": "defaultBottomNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Bottom Navigation Screen"
+      }
+    },
+    "body": {
+      "type": "bottomNavigationView",
+      "children": [
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "bottomNavigationBar",
+      "items": [
+        {
+          "type": "navigationBarItem",
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
+      ]
+    }
+  }
+};
+export const bottomNavigationBarPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac BottomNavigationBar allows you to build a Flutter BottomNavigationBar widget using JSON.
 To know more about the BottomNavigationBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html).
 
@@ -39,7 +124,6 @@ DefaultBottomNavigationController is an inherited widget that is used to share a
 | initialIndex  | `int`                   | The initial index of the selected item.                                     |
 | child         | `StacWidget`            | The widget below this widget in the tree.                                   |
 
-
 ## BottomNavigationBarItem
 
 The Stac BottomNavigationBarItem allows you to build a Flutter BottomNavigationBarItem using JSON.
@@ -65,11 +149,12 @@ A page view that displays the widget which corresponds to the currently selected
 |----------|-------------------------------|--------------------------------------------------|
 | children | `List<StacWidget>`            | The widgets below this widget in the tree.       |
 
-
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDefaultBottomNavigationController(
   length: 3,
   child: StacScaffold(
@@ -118,7 +203,10 @@ StacDefaultBottomNavigationController(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "defaultBottomNavigationController",
   "length": 3,
@@ -201,4 +289,37 @@ StacDefaultBottomNavigationController(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={bottomNavigationBarPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: bottomNavigationBarPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

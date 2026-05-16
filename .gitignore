@@ -1,5 +1,6 @@
 # Miscellaneous
 *.class
+**/node_modules/
 *.log
 *.pyc
 *.swp
@@ -45,3 +46,10 @@ mason-lock.json
 
 # FVM Version Cache
 .fvm/
+
+# VS Code extension (stac-vscode)
+tools/stac-vscode/out/
+tools/stac-vscode/build/
+*.vsix
+.eslintcache
+.vscode-test/

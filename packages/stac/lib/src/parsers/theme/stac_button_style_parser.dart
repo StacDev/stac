@@ -122,7 +122,7 @@ extension StacButtonStyleParser on StacButtonStyle {
       maximumSize: maximumSize?.parse,
       iconSize: iconSize,
       side: side?.parse(context),
-      // shape: shape?.parse(context),
+      shape: shape?.parse(context),
       padding: padding?.parse,
       enabledMouseCursor: enabledMouseCursor?.parse,
       disabledMouseCursor: disabledMouseCursor?.parse,

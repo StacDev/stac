@@ -19,14 +19,4 @@ class StringUtils {
         .replaceAll('Â½', '½') // Fix fraction encoding issues
         .replaceAll('Â¾', '¾'); // Fix fraction encoding issues
   }
-
-  /// Converts a camelCase/PascalCase string to snake_case.
-  static String toSnakeCase(String value) {
-    return value
-        .replaceAllMapped(
-          RegExp(r'[A-Z]'),
-          (match) => '_${match.group(0)!.toLowerCase()}',
-        )
-        .replaceFirst(RegExp(r'^_'), '');
-  }
 }

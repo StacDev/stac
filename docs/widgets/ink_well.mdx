@@ -3,9 +3,41 @@ title: "InkWell"
 description: "Documentation for InkWell"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const inkWellPreviewJson = {
+  "type": "inkWell",
+  "child": {
+    "type": "padding",
+    "padding": {
+      "top": 20,
+      "bottom": 20,
+      "right": 20,
+      "left": 20
+    },
+    "child": {
+      "type": "text",
+      "data": "Hello, World! from Inkwell",
+      "textAlign": "center"
+    }
+  },
+  "splashColor": "#E1BEE7",
+  "borderRadius": {
+    "topLeft": 20,
+    "topRight": 20,
+    "bottomLeft": 20,
+    "bottomRight": 20
+  },
+  "radius": 20,
+  "hoverDuration": {
+    "seconds": 10
+  },
+  "onTap": {}
+};
+export const inkWellPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 **Stac InkWell** allows you to build the Flutter `InkWell` widget using JSON.  
 To learn more about the `InkWell` widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/InkWell-class.html).
-
 
 ## Properties
 | Property                | Type                         | Description                                                                 |
@@ -41,8 +73,10 @@ To learn more about the `InkWell` widget in Flutter, refer to the [official docu
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacInkWell(
   child: StacPadding(
     padding: StacEdgeInsets(top: 20, bottom: 20, right: 20, left: 20),
@@ -64,7 +98,10 @@ StacInkWell(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "inkWell",
   "child": {
@@ -95,5 +132,37 @@ StacInkWell(
   "onTap": {}
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={inkWellPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: inkWellPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

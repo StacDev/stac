@@ -3,6 +3,35 @@ title: "Opacity"
 description: "Documentation for Opacity"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const opacityPreviewJson = {
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Opacity"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "opacity",
+      "opacity": 0.5,
+      "child": {
+        "type": "text",
+        "data": "Opacity Widget",
+        "style": {
+          "fontSize": 23,
+          "fontWeight": "w600"
+        }
+      }
+    }
+  }
+};
+export const opacityPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Opacity allows you to build a Flutter Opacity widget using JSON.
 To know more about the Slider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Opacity-class.html).
 
@@ -15,8 +44,10 @@ To know more about the Slider widget in Flutter, refer to the [official document
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacScaffold(
   appBar: StacAppBar(
     title: StacText(data: 'Opacity'),
@@ -33,7 +64,10 @@ StacScaffold(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "scaffold",
   "appBar": {
@@ -60,5 +94,37 @@ StacScaffold(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={opacityPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: opacityPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

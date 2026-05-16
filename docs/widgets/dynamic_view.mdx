@@ -3,6 +3,21 @@ title: "Dynamic View"
 description: "Documentation for Dynamic View"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const dynamicViewPreviewJson = {
+  "type": "dynamicView",
+  "request": {
+    "url": "https://api.example.com/user/1",
+    "method": "get"
+  },
+  "template": {
+    "type": "text",
+    "data": "Hello, {{name}}!"
+  }
+};
+export const dynamicViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 ## Overview
 
 The `dynamicView` widget allows you to fetch data from an API and render it using a template. This powerful feature enables dynamic content rendering based on remote data sources, making it perfect for creating data-driven UIs without writing custom code.
@@ -32,8 +47,10 @@ The `dynamicView` widget allows you to fetch data from an API and render it usin
 
 ## Basic Usage
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDynamicView(
   request: StacNetworkRequest(
     url: 'https://api.example.com/user/1',
@@ -43,7 +60,10 @@ StacDynamicView(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "dynamicView",
   "request": {
@@ -56,8 +76,40 @@ StacDynamicView(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={dynamicViewPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: dynamicViewPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Data Placeholders
 
 Use double curly braces `{{placeholder}}` to insert data from the API response into your template:

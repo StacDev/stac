@@ -81,10 +81,32 @@ jobs:
         if: runner.os != 'Windows'
         working-directory: packages/stac_cli
         shell: bash
+        env:
+          STAC_BASE_API_URL: ${{ secrets.STAC_BASE_API_URL }}
+          STAC_GOOGLE_CLIENT_ID: ${{ secrets.STAC_GOOGLE_CLIENT_ID }}
+          STAC_GOOGLE_CLIENT_SECRET: ${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}
+          STAC_FIREBASE_API_KEY: ${{ secrets.STAC_FIREBASE_API_KEY }}
         run: |
+          # Preflight: abort if any required secret is missing
+          missing=0
+          for var in STAC_BASE_API_URL STAC_GOOGLE_CLIENT_ID STAC_GOOGLE_CLIENT_SECRET STAC_FIREBASE_API_KEY; do
+            if [[ -z "${!var}" ]]; then
+              echo "✗ Error: Required secret $var is empty or not set" >&2
+              missing=1
+            fi
+          done
+          if [[ $missing -ne 0 ]]; then
+            echo "Aborting: one or more required secrets are missing" >&2
+            exit 1
+          fi
+
           mkdir -p build
           echo "Compiling for ${{ matrix.arch }} (${{ matrix.name }})..."
           dart compile exe bin/stac_cli.dart \
+            -D STAC_BASE_API_URL="$STAC_BASE_API_URL" \
+            -D STAC_GOOGLE_CLIENT_ID="$STAC_GOOGLE_CLIENT_ID" \
+            -D STAC_GOOGLE_CLIENT_SECRET="$STAC_GOOGLE_CLIENT_SECRET" \
+            -D STAC_FIREBASE_API_KEY="$STAC_FIREBASE_API_KEY" \
             -o build/stac
           echo "✓ Binary compiled successfully"
           ls -lh build/stac
@@ -94,9 +116,33 @@ jobs:
         if: runner.os == 'Windows'
         working-directory: packages/stac_cli
         shell: pwsh
+        env:
+          STAC_BASE_API_URL: ${{ secrets.STAC_BASE_API_URL }}
+          STAC_GOOGLE_CLIENT_ID: ${{ secrets.STAC_GOOGLE_CLIENT_ID }}
+          STAC_GOOGLE_CLIENT_SECRET: ${{ secrets.STAC_GOOGLE_CLIENT_SECRET }}
+          STAC_FIREBASE_API_KEY: ${{ secrets.STAC_FIREBASE_API_KEY }}
         run: |
+          # Preflight: abort if any required secret is missing
+          $missing = 0
+          foreach ($var in @('STAC_BASE_API_URL', 'STAC_GOOGLE_CLIENT_ID', 'STAC_GOOGLE_CLIENT_SECRET', 'STAC_FIREBASE_API_KEY')) {
+            $val = [Environment]::GetEnvironmentVariable($var)
+            if ([string]::IsNullOrWhiteSpace($val)) {
+              Write-Error "✗ Error: Required secret $var is empty or not set"
+              $missing = 1
+            }
+          }
+          if ($missing -ne 0) {
+            Write-Error "Aborting: one or more required secrets are missing"
+            exit 1
+          }
+
           New-Item -ItemType Directory -Force -Path build | Out-Null
-          dart compile exe bin/stac_cli.dart -o build/stac.exe
+          dart compile exe bin/stac_cli.dart `
+            -D STAC_BASE_API_URL="$env:STAC_BASE_API_URL" `
+            -D STAC_GOOGLE_CLIENT_ID="$env:STAC_GOOGLE_CLIENT_ID" `
+            -D STAC_GOOGLE_CLIENT_SECRET="$env:STAC_GOOGLE_CLIENT_SECRET" `
+            -D STAC_FIREBASE_API_KEY="$env:STAC_FIREBASE_API_KEY" `
+            -o build/stac.exe
 
       - name: Package artifact (Linux/macOS)
         if: runner.os != 'Windows'
@@ -212,7 +258,7 @@ jobs:
               --notes "Automated release for stac_cli $VERSION"
             echo "✓ Created release $TAG"
           else
-            echo "ℹ Release $TAG already exists, updating..."
+            echo "Release $TAG already exists, updating..."
           fi
 
           # Upload all artifacts

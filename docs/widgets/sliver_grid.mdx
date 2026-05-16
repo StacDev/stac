@@ -3,13 +3,90 @@ title: "SliverGrid"
 description: "Documentation for SliverGrid"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverGridPreviewJson = {
+  "type": "customScrollView",
+  "slivers": [
+    {
+      "type": "sliverGrid",
+      "crossAxisCount": 2,
+      "mainAxisSpacing": 16,
+      "crossAxisSpacing": 16,
+      "childAspectRatio": 1,
+      "children": [
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 1",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 2",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 3",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 4",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+};
+export const sliverGridPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac **SliverGrid** allows you to build a Flutter `SliverGrid` widget using JSON.
 It displays its children in a two-dimensional scrollable grid within a sliver
 context.
 
 To learn more about Flutter’s `SliverGrid`, refer to the
 [official documentation](https://api.flutter.dev/flutter/widgets/SliverGrid-class.html).
-
 
 ## Properties
 
@@ -33,135 +110,182 @@ To learn more about Flutter’s `SliverGrid`, refer to the
 
 ## Example
 
-<CodeGroup>
-```dart Dart
-const StacSliverGrid(
-  crossAxisCount: 2,
-  mainAxisSpacing: 16,
-  crossAxisSpacing: 16,
-  childAspectRatio: 1,
-  children: [
-    StacContainer(
-      color: StacColor('#4CAF50'),
-      child: StacCenter(
-        child: StacText(
-          data: 'Grid Item 1',
-          style: StacTextStyle(
-            color: StacColor('#FFFFFF'),
-            fontWeight: StacFontWeight.bold,
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+const StacCustomScrollView(
+  slivers: [
+    StacSliverGrid(
+      crossAxisCount: 2,
+      mainAxisSpacing: 16,
+      crossAxisSpacing: 16,
+      childAspectRatio: 1,
+      children: [
+        StacContainer(
+          color: StacColor('#4CAF50'),
+          child: StacCenter(
+            child: StacText(
+              data: 'Grid Item 1',
+              style: StacTextStyle(
+                color: StacColor('#FFFFFF'),
+                fontWeight: StacFontWeight.bold,
+              ),
+            ),
           ),
         ),
-      ),
-    ),
-    StacContainer(
-      color: StacColor('#4CAF50'),
-      child: StacCenter(
-        child: StacText(
-          data: 'Grid Item 2',
-          style: StacTextStyle(
-            color: StacColor('#FFFFFF'),
-            fontWeight: StacFontWeight.bold,
+        StacContainer(
+          color: StacColor('#4CAF50'),
+          child: StacCenter(
+            child: StacText(
+              data: 'Grid Item 2',
+              style: StacTextStyle(
+                color: StacColor('#FFFFFF'),
+                fontWeight: StacFontWeight.bold,
+              ),
+            ),
           ),
         ),
-      ),
-    ),
-    StacContainer(
-      color: StacColor('#4CAF50'),
-      child: StacCenter(
-        child: StacText(
-          data: 'Grid Item 3',
-          style: StacTextStyle(
-            color: StacColor('#FFFFFF'),
-            fontWeight: StacFontWeight.bold,
+        StacContainer(
+          color: StacColor('#4CAF50'),
+          child: StacCenter(
+            child: StacText(
+              data: 'Grid Item 3',
+              style: StacTextStyle(
+                color: StacColor('#FFFFFF'),
+                fontWeight: StacFontWeight.bold,
+              ),
+            ),
           ),
         ),
-      ),
-    ),
-    StacContainer(
-      color: StacColor('#4CAF50'),
-      child: StacCenter(
-        child: StacText(
-          data: 'Grid Item 4',
-          style: StacTextStyle(
-            color: StacColor('#FFFFFF'),
-            fontWeight: StacFontWeight.bold,
+        StacContainer(
+          color: StacColor('#4CAF50'),
+          child: StacCenter(
+            child: StacText(
+              data: 'Grid Item 4',
+              style: StacTextStyle(
+                color: StacColor('#FFFFFF'),
+                fontWeight: StacFontWeight.bold,
+              ),
+            ),
           ),
         ),
-      ),
+      ],
     ),
   ],
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "sliverGrid",
-  "crossAxisCount": 2,
-  "mainAxisSpacing": 16,
-  "crossAxisSpacing": 16,
-  "childAspectRatio": 1,
-  "children": [
+  "type": "customScrollView",
+  "slivers": [
     {
-      "type": "container",
-      "color": "#4CAF50",
-      "child": {
-        "type": "center",
-        "child": {
-          "type": "text",
-          "data": "Grid Item 1",
-          "style": {
-            "color": "#FFFFFF",
-            "fontWeight": "bold"
+      "type": "sliverGrid",
+      "crossAxisCount": 2,
+      "mainAxisSpacing": 16,
+      "crossAxisSpacing": 16,
+      "childAspectRatio": 1,
+      "children": [
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 1",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 2",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 3",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#4CAF50",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Grid Item 4",
+              "style": {
+                "color": "#FFFFFF",
+                "fontWeight": "bold"
+              }
+            }
           }
         }
-      }
-    },
-    {
-      "type": "container",
-      "color": "#4CAF50",
-      "child": {
-        "type": "center",
-        "child": {
-          "type": "text",
-          "data": "Grid Item 2",
-          "style": {
-            "color": "#FFFFFF",
-            "fontWeight": "bold"
-          }
-        }
-      }
-    },
-    {
-      "type": "container",
-      "color": "#4CAF50",
-      "child": {
-        "type": "center",
-        "child": {
-          "type": "text",
-          "data": "Grid Item 3",
-          "style": {
-            "color": "#FFFFFF",
-            "fontWeight": "bold"
-          }
-        }
-      }
-    },
-    {
-      "type": "container",
-      "color": "#4CAF50",
-      "child": {
-        "type": "center",
-        "child": {
-          "type": "text",
-          "data": "Grid Item 4",
-          "style": {
-            "color": "#FFFFFF",
-            "fontWeight": "bold"
-          }
-        }
-      }
+      ]
     }
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverGridPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverGridPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

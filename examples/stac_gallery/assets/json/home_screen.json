@@ -535,6 +535,28 @@
     "type": "listTile",
     "leading": {
       "type": "icon",
+      "icon": "navigation"
+    },
+    "title": {
+      "type": "text",
+      "data": "Stac Navigation Bar"
+    },
+    "subtitle": {
+      "type": "text",
+      "data": "Material 3 navigation bar with selectable destinations"
+    },
+    "onTap": {
+      "actionType": "navigate",
+      "widgetJson": {
+        "type": "exampleScreen",
+        "assetPath": "assets/json/navigation_bar_example.json"
+      }
+    }
+  },
+  {
+    "type": "listTile",
+    "leading": {
+      "type": "icon",
       "icon": "smart_button_outlined"
     },
     "title": {

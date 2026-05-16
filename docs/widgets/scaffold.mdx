@@ -3,6 +3,55 @@ title: "Scaffold"
 description: "Documentation for Scaffold"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const scaffoldPreviewJson = {
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "App Bar Title"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "text",
+      "data": "Hello, World!"
+    }
+  },
+  "floatingActionButton": {
+    "type": "floatingActionButton",
+    "child": {
+      "type": "icon",
+      "icon": "add"
+    },
+    "onPressed": {
+      "type": "function",
+      "name": "onFabPressed"
+    }
+  },
+  "backgroundColor": "#FFFFFF",
+  "drawer": {
+    "type": "drawer",
+    "child": {
+      "type": "column",
+      "children": [
+        {
+          "type": "text",
+          "data": "Drawer Item 1"
+        },
+        {
+          "type": "text",
+          "data": "Drawer Item 2"
+        }
+      ]
+    }
+  }
+};
+export const scaffoldPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Scaffold allows you to build a Flutter scaffold widget using JSON.
 To know more about the scaffold widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Scaffold-class.html).
 
@@ -36,8 +85,10 @@ To know more about the scaffold widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacScaffold(
   appBar: StacAppBar(
     title: StacText(data: 'App Bar Title'),
@@ -61,7 +112,10 @@ StacScaffold(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "scaffold",
   "appBar": {
@@ -108,4 +162,37 @@ StacScaffold(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={scaffoldPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: scaffoldPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

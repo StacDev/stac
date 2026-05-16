@@ -3,6 +3,29 @@ title: "SliverSafeArea"
 description: "Documentation for SliverSafeArea"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverSafeAreaPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverSafeArea",
+        "top": true,
+        "sliver": {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "text",
+            "data": "Hello World"
+          }
+        }
+      }
+    ]
+  }
+};
+export const sliverSafeAreaPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverSafeArea allows you to build a Flutter sliver safe area widget using JSON.  
 To know more about the safe area widget in Flutter, refer to  
 the [official documentation](https://api.flutter.dev/flutter/widgets/SliverSafeArea-class.html).
@@ -20,8 +43,10 @@ the [official documentation](https://api.flutter.dev/flutter/widgets/SliverSafeA
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSliverSafeArea(
   top: true,
   sliver: StacSliverToBoxAdapter(
@@ -30,17 +55,61 @@ StacSliverSafeArea(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "sliverSafeArea",
-  "top": true,
-  "sliver": {
-    "type": "sliverToBoxAdapter",
-    "child": {
-      "type": "text",
-      "data": "Hello World"
-    }
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverSafeArea",
+        "top": true,
+        "sliver": {
+          "type": "sliverToBoxAdapter",
+          "child": {
+            "type": "text",
+            "data": "Hello World"
+          }
+        }
+      }
+    ]
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverSafeAreaPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverSafeAreaPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

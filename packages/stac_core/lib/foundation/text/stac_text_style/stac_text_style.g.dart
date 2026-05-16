@@ -26,6 +26,10 @@ StacCustomTextStyle _$StacCustomTextStyleFromJson(
     _$StacTextLeadingDistributionEnumMap,
     json['leadingDistribution'],
   ),
+  decoration: $enumDecodeNullable(
+    _$StacTextDecorationLineEnumMap,
+    json['decoration'],
+  ),
   decorationColor: json['decorationColor'] as String?,
   decorationStyle: $enumDecodeNullable(
     _$StacTextDecorationStyleEnumMap,
@@ -57,6 +61,7 @@ Map<String, dynamic> _$StacCustomTextStyleToJson(
   'height': instance.height,
   'leadingDistribution':
       _$StacTextLeadingDistributionEnumMap[instance.leadingDistribution],
+  'decoration': _$StacTextDecorationLineEnumMap[instance.decoration],
   'decorationColor': instance.decorationColor,
   'decorationStyle': _$StacTextDecorationStyleEnumMap[instance.decorationStyle],
   'decorationThickness': instance.decorationThickness,
@@ -94,6 +99,13 @@ const _$StacTextBaselineEnumMap = {
 const _$StacTextLeadingDistributionEnumMap = {
   StacTextLeadingDistribution.proportional: 'proportional',
   StacTextLeadingDistribution.even: 'even',
+};
+
+const _$StacTextDecorationLineEnumMap = {
+  StacTextDecorationLine.none: 'none',
+  StacTextDecorationLine.underline: 'underline',
+  StacTextDecorationLine.overline: 'overline',
+  StacTextDecorationLine.lineThrough: 'lineThrough',
 };
 
 const _$StacTextDecorationStyleEnumMap = {

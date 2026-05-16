@@ -3,6 +3,20 @@ title: "SelectableText"
 description: "Documentation for SelectableText"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const selectableTextPreviewJson = {
+  "type": "selectableText",
+  "data": "This is a selectable text",
+  "style": {
+    "fontSize": 18,
+    "fontWeight": "w600"
+  },
+  "showCursor": true,
+  "cursorColor": "#FF0000"
+};
+export const selectableTextPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 Stac SelectableText allows you to build the Flutter SelectableText widget using JSON.
 To know more about the SelectableText widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/SelectableText-class.html).
 
@@ -37,8 +51,10 @@ To know more about the SelectableText widget in Flutter, refer to the [official 
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSelectableText(
   data: 'This is a selectable text',
   style: StacTextStyle(fontSize: 18, fontWeight: StacFontWeight.w600),
@@ -47,7 +63,10 @@ StacSelectableText(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "selectableText",
   "data": "This is a selectable text",
@@ -59,4 +78,37 @@ StacSelectableText(
   "cursorColor": "#FF0000"
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={selectableTextPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: selectableTextPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

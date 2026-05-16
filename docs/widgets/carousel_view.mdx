@@ -3,6 +3,53 @@ title: "CarouselView"
 description: "Documentation for CarouselView"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const carouselViewPreviewJson = {
+  "type": "carouselView",
+  "carouselType": "weighted",
+  "padding": 12,
+  "backgroundColor": "#FFFFFF",
+  "elevation": 5,
+  "overlayColor": "#FF0000",
+  "itemSnapping": true,
+  "shrinkExtent": 0,
+  "scrollDirection": "horizontal",
+  "reverse": false,
+  "onTap": {
+    "type": "callback",
+    "name": "onItemTap"
+  },
+  "enableSplash": true,
+  "itemExtent": 300,
+  "flexWeights": [
+    1,
+    7,
+    1
+  ],
+  "children": [
+    {
+      "type": "image",
+      "height": 400,
+      "fit": "cover",
+      "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_1.png"
+    },
+    {
+      "type": "image",
+      "height": 400,
+      "fit": "cover",
+      "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_2.png"
+    },
+    {
+      "type": "image",
+      "height": 400,
+      "fit": "cover",
+      "src": "https://flutter.github.io/assets-for-api-docs/assets/material/content_based_color_scheme_3.png"
+    }
+  ]
+};
+export const carouselViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac CarouselView allows you to build a Flutter CarouselView widget using JSON.
 To know more about the CarouselView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Carousel-class.html).
 
@@ -27,8 +74,10 @@ To know more about the CarouselView widget in Flutter, refer to the [official do
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCarouselView(
   carouselType: StacCarouselViewType.weighted,
   padding: StacEdgeInsets.all(12),
@@ -63,16 +112,19 @@ StacCarouselView(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "carouselView",
   "carouselType": "weighted",
   "padding": 12,
   "backgroundColor": "#FFFFFF",
-  "elevation": 5.0,
+  "elevation": 5,
   "overlayColor": "#FF0000",
   "itemSnapping": true,
-  "shrinkExtent": 0.0,
+  "shrinkExtent": 0,
   "scrollDirection": "horizontal",
   "reverse": false,
   "onTap": {
@@ -81,7 +133,11 @@ StacCarouselView(
   },
   "enableSplash": true,
   "itemExtent": 300,
-  "flexWeights": [1, 7, 1],
+  "flexWeights": [
+    1,
+    7,
+    1
+  ],
   "children": [
     {
       "type": "image",
@@ -104,4 +160,37 @@ StacCarouselView(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={carouselViewPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: carouselViewPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

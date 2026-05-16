@@ -3,6 +3,23 @@ title: "FittedBox"
 description: "Documentation for FittedBox"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const fittedBoxPreviewJson = {
+  "type": "fittedBox",
+  "fit": "contain",
+  "alignment": "center",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!",
+    "style": {
+      "fontSize": 20,
+      "color": "#000000"
+    }
+  }
+};
+export const fittedBoxPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 Stac FittedBox allows you to build the Flutter FittedBox widget using JSON.
 To know more about the FittedBox widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/FittedBox-class.html).
 
@@ -21,8 +38,10 @@ To know more about the FittedBox widget in Flutter, refer to the [official docum
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacFittedBox(
   fit: StacBoxFit.contain,
   alignment: StacAlignment.center,
@@ -36,7 +55,10 @@ StacFittedBox(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "fittedBox",
   "fit": "contain",
@@ -51,5 +73,37 @@ StacFittedBox(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={fittedBoxPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: fittedBoxPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,34 @@ title: "Card"
 description: "Documentation for Card"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const cardPreviewJson = {
+  "type": "card",
+  "color": "#FFFFFF",
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#FF0000",
+  "elevation": 5,
+  "shape": {
+    "type": "roundedRectangle",
+    "borderRadius": 10
+  },
+  "borderOnForeground": true,
+  "margin": {
+    "left": 10,
+    "top": 20,
+    "right": 10,
+    "bottom": 20
+  },
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "text",
+    "data": "This is a card."
+  },
+  "semanticContainer": true
+};
+export const cardPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Card allows you to build a Flutter Card widget using JSON.
 To know more about the Card widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Card-class.html).
 
@@ -23,8 +51,10 @@ To know more about the Card widget in Flutter, refer to the [official documentat
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCard(
   color: StacColors.white,
   shadowColor: StacColors.black,
@@ -39,16 +69,19 @@ StacCard(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "card",
   "color": "#FFFFFF",
   "shadowColor": "#000000",
   "surfaceTintColor": "#FF0000",
-  "elevation": 5.0,
+  "elevation": 5,
   "shape": {
     "type": "roundedRectangle",
-    "borderRadius": 10.0
+    "borderRadius": 10
   },
   "borderOnForeground": true,
   "margin": {
@@ -65,4 +98,37 @@ StacCard(
   "semanticContainer": true
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={cardPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: cardPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,59 @@ title: "Form"
 description: "Documentation for Form"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const formPreviewJson = {
+  "type": "form",
+  "autovalidateMode": "always",
+  "child": {
+    "type": "column",
+    "children": [
+      {
+        "type": "textFormField",
+        "id": "username",
+        "decoration": {
+          "labelText": "Username"
+        }
+      },
+      {
+        "type": "textFormField",
+        "id": "password",
+        "decoration": {
+          "labelText": "Password"
+        }
+      },
+      {
+        "type": "filledButton",
+        "child": {
+          "type": "text",
+          "data": "Submit"
+        },
+        "onPressed": {
+          "actionType": "validateForm",
+          "isValid": {
+            "actionType": "networkRequest",
+            "url": "https://dummyjson.com/auth/login",
+            "method": "post",
+            "contentType": "application/json",
+            "body": {
+              "username": {
+                "actionType": "getFormValue",
+                "id": "username"
+              },
+              "password": {
+                "actionType": "getFormValue",
+                "id": "password"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+};
+export const formPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Form allows you to build a Flutter form widget using JSON.
 To know more about the form widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Form-class.html).
 
@@ -15,8 +68,10 @@ To know more about the form widget in Flutter, refer to the [official documentat
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacForm(
   autovalidateMode: StacAutovalidateMode.always,
   child: StacColumn(
@@ -48,7 +103,10 @@ StacForm(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "form",
   "autovalidateMode": "always",
@@ -99,4 +157,37 @@ StacForm(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={formPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: formPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

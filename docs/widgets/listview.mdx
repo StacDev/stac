@@ -3,6 +3,185 @@ title: "List View"
 description: "Documentation for List View"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const listviewPreviewJson = {
+  "type": "listView",
+  "shrinkWrap": true,
+  "separator": {
+    "type": "container",
+    "height": 10
+  },
+  "children": [
+    {
+      "type": "listTile",
+      "leading": {
+        "type": "container",
+        "height": 50,
+        "width": 50,
+        "color": "#165FC7",
+        "child": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "center",
+          "children": [
+            {
+              "type": "text",
+              "data": "1",
+              "style": {
+                "fontSize": 21
+              }
+            }
+          ]
+        }
+      },
+      "title": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item 1",
+          "style": {
+            "fontSize": 18
+          }
+        }
+      },
+      "subtitle": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item description",
+          "style": {
+            "fontSize": 14
+          }
+        }
+      },
+      "trailing": {
+        "type": "icon",
+        "iconType": "material",
+        "icon": "more_vert",
+        "size": 24
+      }
+    },
+    {
+      "type": "listTile",
+      "leading": {
+        "type": "container",
+        "height": 50,
+        "width": 50,
+        "color": "#165FC7",
+        "child": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "center",
+          "children": [
+            {
+              "type": "text",
+              "data": "2",
+              "style": {
+                "fontSize": 21
+              }
+            }
+          ]
+        }
+      },
+      "title": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item 2",
+          "style": {
+            "fontSize": 18
+          }
+        }
+      },
+      "subtitle": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item description",
+          "style": {
+            "fontSize": 14
+          }
+        }
+      },
+      "trailing": {
+        "type": "icon",
+        "iconType": "material",
+        "icon": "more_vert",
+        "size": 24
+      }
+    },
+    {
+      "type": "listTile",
+      "leading": {
+        "type": "container",
+        "height": 50,
+        "width": 50,
+        "color": "#165FC7",
+        "child": {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "center",
+          "children": [
+            {
+              "type": "text",
+              "data": "3",
+              "style": {
+                "fontSize": 21
+              }
+            }
+          ]
+        }
+      },
+      "title": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item 3",
+          "style": {
+            "fontSize": 18
+          }
+        }
+      },
+      "subtitle": {
+        "type": "padding",
+        "padding": {
+          "top": 10
+        },
+        "child": {
+          "type": "text",
+          "data": "Item description",
+          "style": {
+            "fontSize": 14
+          }
+        }
+      },
+      "trailing": {
+        "type": "icon",
+        "iconType": "material",
+        "icon": "more_vert",
+        "size": 24
+      }
+    }
+  ]
+};
+export const listviewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac ListView allows you to build a Flutter ListView widget using JSON.
 To know more about the listview widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/ListView-class.html).
 
@@ -30,8 +209,10 @@ To know more about the listview widget in Flutter, refer to the [official docume
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacListView(
   shrinkWrap: true,
   separator: StacContainer(height: 10),
@@ -87,7 +268,10 @@ StacListView(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "listView",
   "shrinkWrap": true,
@@ -264,6 +448,38 @@ StacListView(
   ]
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={listviewPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: listviewPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 

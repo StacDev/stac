@@ -3,6 +3,29 @@ title: "Stack"
 description: "Documentation for Stack"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const stackPreviewJson = {
+  "type": "stack",
+  "alignment": "center",
+  "clipBehavior": "antiAlias",
+  "fit": "expand",
+  "textDirection": "ltr",
+  "children": [
+    {
+      "type": "text",
+      "data": "Hello, World!"
+    },
+    {
+      "type": "container",
+      "width": 100,
+      "height": 100,
+      "color": "#FF0000"
+    }
+  ]
+};
+export const stackPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Stack allows you to build a Flutter stack widget using JSON.
 To know more about the stack widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Stack-class.html).
 
@@ -18,8 +41,10 @@ To know more about the stack widget in Flutter, refer to the [official documenta
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacStack(
   alignment: StacAlignment.center,
   clipBehavior: StacClip.antiAlias,
@@ -32,7 +57,10 @@ StacStack(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "stack",
   "alignment": "center",
@@ -53,4 +81,37 @@ StacStack(
   ]
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={stackPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: stackPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

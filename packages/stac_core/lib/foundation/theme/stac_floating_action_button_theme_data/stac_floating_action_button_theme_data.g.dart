@@ -19,8 +19,16 @@ StacFloatingActionButtonThemeData _$StacFloatingActionButtonThemeDataFromJson(
   hoverElevation: (json['hoverElevation'] as num?)?.toDouble(),
   disabledElevation: (json['disabledElevation'] as num?)?.toDouble(),
   highlightElevation: (json['highlightElevation'] as num?)?.toDouble(),
+  shape: json['shape'] == null
+      ? null
+      : StacShapeBorder.fromJson(json['shape'] as Map<String, dynamic>),
   enableFeedback: json['enableFeedback'] as bool?,
   iconSize: (json['iconSize'] as num?)?.toDouble(),
+  sizeConstraints: json['sizeConstraints'] == null
+      ? null
+      : StacBoxConstraints.fromJson(
+          json['sizeConstraints'] as Map<String, dynamic>,
+        ),
   extendedIconLabelSpacing: (json['extendedIconLabelSpacing'] as num?)
       ?.toDouble(),
   extendedPadding: json['extendedPadding'] == null
@@ -44,8 +52,10 @@ Map<String, dynamic> _$StacFloatingActionButtonThemeDataToJson(
   'hoverElevation': instance.hoverElevation,
   'disabledElevation': instance.disabledElevation,
   'highlightElevation': instance.highlightElevation,
+  'shape': instance.shape?.toJson(),
   'enableFeedback': instance.enableFeedback,
   'iconSize': instance.iconSize,
+  'sizeConstraints': instance.sizeConstraints?.toJson(),
   'extendedIconLabelSpacing': instance.extendedIconLabelSpacing,
   'extendedPadding': instance.extendedPadding?.toJson(),
   'extendedTextStyle': instance.extendedTextStyle?.toJson(),

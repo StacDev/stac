@@ -3,6 +3,27 @@ title: "Set Value"
 description: "Documentation for Set Value"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const setValuePreviewJson = {
+  "type": "setValue",
+  "values": [
+    {
+      "key": "userName",
+      "value": "John Doe"
+    },
+    {
+      "key": "isLoggedIn",
+      "value": true
+    }
+  ],
+  "child": {
+    "type": "text",
+    "data": "Welcome!"
+  }
+};
+export const setValuePreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SetValue widget allows you to set multiple key-value pairs in the application's state and optionally render a child widget. It's useful for managing application state through JSON configuration.
 
 ## Properties
@@ -18,8 +39,10 @@ Each item in `values` should contain:
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSetValue(
   values: [
     {'key': 'userName', 'value': 'John Doe'},
@@ -29,12 +52,21 @@ StacSetValue(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "setValue",
   "values": [
-    { "key": "userName", "value": "John Doe" },
-    { "key": "isLoggedIn", "value": true }
+    {
+      "key": "userName",
+      "value": "John Doe"
+    },
+    {
+      "key": "isLoggedIn",
+      "value": true
+    }
   ],
   "child": {
     "type": "text",
@@ -42,8 +74,40 @@ StacSetValue(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={setValuePreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: setValuePreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Initializing State on Screen Load
 
 Use `StacSetValue` to initialize state when a screen loads:

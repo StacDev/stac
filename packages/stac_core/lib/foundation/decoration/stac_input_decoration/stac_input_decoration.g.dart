@@ -16,6 +16,7 @@ StacInputDecoration _$StacInputDecorationFromJson(
   labelStyle: json['labelStyle'] == null
       ? null
       : StacTextStyle.fromJson(json['labelStyle']),
+  floatingLabelBehavior: json['floatingLabelBehavior'] as String?,
   hintText: json['hintText'] as String?,
   hintStyle: json['hintStyle'] == null
       ? null
@@ -79,6 +80,7 @@ Map<String, dynamic> _$StacInputDecorationToJson(
   'icon': instance.icon?.toJson(),
   'labelText': instance.labelText,
   'labelStyle': instance.labelStyle?.toJson(),
+  'floatingLabelBehavior': instance.floatingLabelBehavior,
   'hintText': instance.hintText,
   'hintStyle': instance.hintStyle?.toJson(),
   'helperText': instance.helperText,

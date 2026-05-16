@@ -3,6 +3,79 @@ title: "Chip"
 description: "Documentation for Chip"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const chipPreviewJson = {
+  "type": "chip",
+  "avatar": {
+    "type": "circleAvatar",
+    "backgroundColor": "#FF0000",
+    "child": {
+      "type": "text",
+      "data": "A"
+    }
+  },
+  "label": {
+    "type": "text",
+    "data": "Chip Label"
+  },
+  "labelStyle": {
+    "color": "#000000",
+    "fontSize": 14
+  },
+  "labelPadding": {
+    "left": 8,
+    "top": 4,
+    "right": 8,
+    "bottom": 4
+  },
+  "deleteIcon": {
+    "type": "icon",
+    "icon": "delete"
+  },
+  "deleteIconColor": "#FF0000",
+  "deleteButtonTooltipMessage": "Delete",
+  "side": {
+    "color": "#000000",
+    "width": 1
+  },
+  "shape": {
+    "type": "roundedRectangle",
+    "borderRadius": 8
+  },
+  "clipBehavior": "antiAlias",
+  "autofocus": false,
+  "color": "#FFFFFF",
+  "backgroundColor": "#EEEEEE",
+  "padding": {
+    "left": 8,
+    "top": 4,
+    "right": 8,
+    "bottom": 4
+  },
+  "visualDensity": {
+    "horizontal": 0,
+    "vertical": 0
+  },
+  "materialTapTargetSize": "padded",
+  "elevation": 2,
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#FFFFFF",
+  "iconTheme": {
+    "color": "#000000",
+    "size": 24
+  },
+  "avatarBoxConstraints": {
+    "minWidth": 24,
+    "minHeight": 24
+  },
+  "deleteIconBoxConstraints": {
+    "minWidth": 24,
+    "minHeight": 24
+  }
+};
+export const chipPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Chip allows you to build a Flutter Chip widget using JSON.
 To know more about the Chip widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Chip-class.html).
 
@@ -36,8 +109,10 @@ To know more about the Chip widget in Flutter, refer to the [official documentat
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacChip(
   avatar: StacCircleAvatar(
     backgroundColor: StacColors.red,
@@ -67,7 +142,10 @@ StacChip(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "chip",
   "avatar": {
@@ -100,11 +178,11 @@ StacChip(
   "deleteButtonTooltipMessage": "Delete",
   "side": {
     "color": "#000000",
-    "width": 1.0
+    "width": 1
   },
   "shape": {
     "type": "roundedRectangle",
-    "borderRadius": 8.0
+    "borderRadius": 8
   },
   "clipBehavior": "antiAlias",
   "autofocus": false,
@@ -117,25 +195,58 @@ StacChip(
     "bottom": 4
   },
   "visualDensity": {
-    "horizontal": 0.0,
-    "vertical": 0.0
+    "horizontal": 0,
+    "vertical": 0
   },
   "materialTapTargetSize": "padded",
-  "elevation": 2.0,
+  "elevation": 2,
   "shadowColor": "#000000",
   "surfaceTintColor": "#FFFFFF",
   "iconTheme": {
     "color": "#000000",
-    "size": 24.0
+    "size": 24
   },
   "avatarBoxConstraints": {
-    "minWidth": 24.0,
-    "minHeight": 24.0
+    "minWidth": 24,
+    "minHeight": 24
   },
   "deleteIconBoxConstraints": {
-    "minWidth": 24.0,
-    "minHeight": 24.0
+    "minWidth": 24,
+    "minHeight": 24
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={chipPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: chipPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

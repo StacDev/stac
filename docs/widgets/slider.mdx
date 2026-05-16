@@ -3,6 +3,34 @@ title: "Slider"
 description: "Documentation for Slider"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliderPreviewJson = {
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Stac Slider"
+    }
+  },
+  "body": {
+    "type": "form",
+    "child": {
+      "type": "center",
+      "child": {
+        "id": "example_slider",
+        "type": "slider",
+        "sliderType": "material",
+        "value": 20,
+        "max": 100,
+        "divisions": 5
+      }
+    }
+  }
+};
+export const sliderPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Slider allows you to build a Flutter Slider widget using JSON. 
 To know more about the Slider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Slider-class.html).
 
@@ -32,8 +60,10 @@ To know more about the Slider widget in Flutter, refer to the [official document
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacScaffold(
   appBar: StacAppBar(
     title: StacText(data: 'Stac Slider'),
@@ -52,7 +82,10 @@ StacScaffold(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "scaffold",
   "appBar": {
@@ -78,4 +111,37 @@ StacScaffold(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliderPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliderPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

@@ -3,6 +3,18 @@ title: "Vertical Divider"
 description: "Documentation for Vertical Divider"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const verticalDividerPreviewJson = {
+  "type": "verticalDivider",
+  "width": 20,
+  "thickness": 4,
+  "indent": 10,
+  "endIndent": 10,
+  "color": "#21814C"
+};
+export const verticalDividerPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Vertical Divider allows you to build a Flutter vertical divider widget using JSON.
 To know more about the vertical divider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/VerticalDivider-class.html).
 
@@ -18,8 +30,10 @@ To know more about the vertical divider widget in Flutter, refer to the [officia
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacVerticalDivider(
   width: 20,
   thickness: 4,
@@ -29,7 +43,10 @@ StacVerticalDivider(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "verticalDivider",
   "width": 20,
@@ -39,5 +56,37 @@ StacVerticalDivider(
   "color": "#21814C"
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={verticalDividerPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: verticalDividerPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

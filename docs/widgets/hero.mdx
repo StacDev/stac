@@ -3,6 +3,18 @@ title: "Hero"
 description: "Documentation for Hero"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const heroPreviewJson = {
+  "type": "hero",
+  "tag": "userAvatar",
+  "child": {
+    "type": "image",
+    "network": "https://example.com/avatar.png"
+  }
+};
+export const heroPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Hero allows you to build a Flutter Hero widget using JSON. It enables hero animations between routes by tagging widgets with the same tag.
 To know more about the Hero widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Hero-class.html).
 
@@ -19,15 +31,20 @@ To know more about the Hero widget in Flutter, refer to the [official documentat
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacHero(
   tag: 'userAvatar',
   child: StacImage(network: 'https://example.com/avatar.png'),
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "hero",
   "tag": "userAvatar",
@@ -37,8 +54,40 @@ StacHero(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={heroPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: heroPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Hero Animation Example
 
 Here's an example showing a hero animation from a list to a detail page:

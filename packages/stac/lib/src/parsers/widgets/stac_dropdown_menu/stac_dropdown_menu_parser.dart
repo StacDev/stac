@@ -57,9 +57,9 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
       dropdownMenuEntries:
           model.dropdownMenuEntries
               ?.map((e) => e.parse(context))
-              .whereType<DropdownMenuEntry>()
+              .whereType<DropdownMenuEntry<Object>>()
               .toList() ??
-          const <DropdownMenuEntry<dynamic>>[],
+          const <DropdownMenuEntry<Object>>[],
       enabled: model.enabled ?? true,
       width: model.width,
       menuHeight: model.menuHeight,
@@ -86,6 +86,11 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
                 return InputFormatterType.allow.format(formatter.rule ?? '');
               case StacInputFormatterType.deny:
                 return InputFormatterType.deny.format(formatter.rule ?? '');
+              case StacInputFormatterType.mask:
+                return InputFormatterType.mask.format(
+                  formatter.rule ?? '',
+                  mask: formatter.mask,
+                );
             }
           })
           .toList(),

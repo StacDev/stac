@@ -3,6 +3,17 @@ title: "Divider"
 description: "Documentation for Divider"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const dividerPreviewJson = {
+  "type": "divider",
+  "thickness": 2,
+  "color": "#FF0000",
+  "indent": 16,
+  "endIndent": 16
+};
+export const dividerPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Divider allows you to build a Flutter Divider widget using JSON. It creates a thin horizontal line with padding on either side.
 To know more about the Divider widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Divider-class.html).
 
@@ -18,8 +29,10 @@ To know more about the Divider widget in Flutter, refer to the [official documen
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDivider(
   thickness: 2.0,
   color: StacColors.red,
@@ -28,17 +41,52 @@ StacDivider(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "divider",
-  "thickness": 2.0,
+  "thickness": 2,
   "color": "#FF0000",
-  "indent": 16.0,
-  "endIndent": 16.0
+  "indent": 16,
+  "endIndent": 16
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={dividerPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: dividerPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Divider in a List
 
 <CodeGroup>

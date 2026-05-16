@@ -3,6 +3,26 @@ title: "Positioned"
 description: "Documentation for Positioned"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const positionedPreviewJson = {
+  "type": "stack",
+  "children": [
+    {
+      "type": "positioned",
+      "left": 10,
+      "top": 20,
+      "right": 30,
+      "bottom": 40,
+      "child": {
+        "type": "text",
+        "data": "Hello, World!"
+      }
+    }
+  ]
+};
+export const positionedPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Positioned widget controls where a child of a [Stack](https://api.flutter.dev/flutter/widgets/Stack-class.html) is positioned. It corresponds to Flutter's Positioned widget and allows precise positioning using coordinates and optional sizing constraints. Use it with JSON to declare positioned children inside a Stack.
 
 To learn more about the Positioned widget in Flutter, see the [official documentation](https://api.flutter.dev/flutter/widgets/Positioned-class.html).
@@ -29,8 +49,10 @@ The Dart API also supports named constructors: `StacPositioned.fill()`, `StacPos
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacPositioned(
   left: 10,
   top: 20,
@@ -40,21 +62,61 @@ StacPositioned(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "positioned",
-  "left": 10,
-  "top": 20,
-  "right": 30,
-  "bottom": 40,
-  "child": {
-    "type": "text",
-    "data": "Hello, World!"
-  }
+  "type": "stack",
+  "children": [
+    {
+      "type": "positioned",
+      "left": 10,
+      "top": 20,
+      "right": 30,
+      "bottom": 40,
+      "child": {
+        "type": "text",
+        "data": "Hello, World!"
+      }
+    }
+  ]
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={positionedPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: positionedPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ## Dart-Only Constructors
 
 The following named constructors are available in Dart but not in JSON:

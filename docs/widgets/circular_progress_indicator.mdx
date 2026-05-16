@@ -3,6 +3,17 @@ title: "CircularProgressIndicator"
 description: "Documentation for CircularProgressIndicator"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const circularProgressIndicatorPreviewJson = {
+  "type": "circularProgressIndicator",
+  "color": "#541204",
+  "strokeWidth": 6,
+  "backgroundColor": "#FFD700",
+  "strokeCap": "round"
+};
+export const circularProgressIndicatorPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac CircularProgressIndicator allows you to build a Flutter CircularProgressIndicator widget using JSON. 
 To know more about the CircularProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html).
 
@@ -19,11 +30,12 @@ To know more about the CircularProgressIndicator widget in Flutter, refer to the
 | semanticsValue  | `String`        | Provides a textual description of the widget.                      |
 | strokeCap       | `StacStrokeCap` | The progress indicator's line ending.                              |
 
-
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCircularProgressIndicator(
   color: '#541204',
   strokeWidth: 6,
@@ -32,7 +44,10 @@ StacCircularProgressIndicator(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "circularProgressIndicator",
   "color": "#541204",
@@ -41,6 +56,38 @@ StacCircularProgressIndicator(
   "strokeCap": "round"
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={circularProgressIndicatorPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: circularProgressIndicatorPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 

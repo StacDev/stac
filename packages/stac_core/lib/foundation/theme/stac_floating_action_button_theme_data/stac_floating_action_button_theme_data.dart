@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:stac_core/core/core.dart';
+import 'package:stac_core/foundation/borders/stac_shape_border/stac_shape_border.dart';
+import 'package:stac_core/foundation/geometry/stac_box_constraints/stac_box_constraints.dart';
 import 'package:stac_core/foundation/geometry/stac_edge_insets/stac_edge_insets.dart';
 import 'package:stac_core/foundation/text/stac_text_style/stac_text_style.dart';
 
@@ -49,8 +51,10 @@ class StacFloatingActionButtonThemeData implements StacElement {
     this.hoverElevation,
     this.disabledElevation,
     this.highlightElevation,
+    this.shape,
     this.enableFeedback,
     this.iconSize,
+    this.sizeConstraints,
     this.extendedIconLabelSpacing,
     this.extendedPadding,
     this.extendedTextStyle,
@@ -86,11 +90,17 @@ class StacFloatingActionButtonThemeData implements StacElement {
   /// The z-coordinate at which to place this floating action button when it's highlighted.
   final double? highlightElevation;
 
+  /// The shape of this button's [Material].
+  final StacShapeBorder? shape;
+
   /// Whether detected gestures should provide acoustic and/or haptic feedback.
   final bool? enableFeedback;
 
   /// The size of the floating action button's icon.
   final double? iconSize;
+
+  /// Layout constraints for the regular-size floating action button.
+  final StacBoxConstraints? sizeConstraints;
 
   /// The spacing between the icon and label in an extended floating action button.
   final double? extendedIconLabelSpacing;

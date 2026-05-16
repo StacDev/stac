@@ -3,6 +3,21 @@ title: "CircleAvatar"
 description: "Documentation for CircleAvatar"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const circleAvatarPreviewJson = {
+  "type": "circleAvatar",
+  "backgroundColor": "#FF0000",
+  "foregroundColor": "#FFFFFF",
+  "backgroundImage": "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/companies/bettrdo.jpg",
+  "radius": 50,
+  "child": {
+    "type": "text",
+    "data": "A"
+  }
+};
+export const circleAvatarPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac CircleAvatar allows you to build a Flutter circle avatar widget using JSON.
 To know more about the circle avatar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/CircleAvatar-class.html).
 
@@ -23,8 +38,10 @@ To know more about the circle avatar widget in Flutter, refer to the [official d
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacCircleAvatar(
   backgroundColor: StacColors.red,
   foregroundColor: StacColors.white,
@@ -34,7 +51,10 @@ StacCircleAvatar(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "circleAvatar",
   "backgroundColor": "#FF0000",
@@ -47,4 +67,37 @@ StacCircleAvatar(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={circleAvatarPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: circleAvatarPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

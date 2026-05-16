@@ -41,6 +41,7 @@
                         "icon": "book",
                         "pages": [
                             "concepts/rendering_stac_widgets",
+                            "concepts/stac_registry",
                             "concepts/navigation_in_stac",
                             "concepts/caching",
                             "concepts/custom_widgets",
@@ -132,6 +133,7 @@
                             "widgets/linear_progress_indicator",
                             "widgets/list_tile",
                             "widgets/listview",
+                            "widgets/navigation_bar",
                             "widgets/network_widget",
                             "widgets/outlined_button",
                             "widgets/page_view",
@@ -259,6 +261,17 @@
                         "pages": [
                             "styles/table_border",
                             "styles/table_column_width"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Tools",
+                "groups": [
+                    {
+                        "group": "Editor Extensions",
+                        "pages": [
+                            "tools/vscode"
                         ]
                     }
                 ]

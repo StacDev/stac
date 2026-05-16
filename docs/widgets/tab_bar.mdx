@@ -3,6 +3,58 @@ title: "TabBar"
 description: "Documentation for TabBar"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const tabBarPreviewJson = {
+  "type": "defaultTabController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Tabbar"
+      },
+      "bottom": {
+        "type": "tabBar",
+        "tabs": [
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          }
+        ]
+      }
+    },
+    "body": {
+      "type": "tabBarView",
+      "children": [
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        },
+        {
+          "type": "container",
+          "color": "#FC3F1B"
+        },
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        }
+      ]
+    }
+  }
+};
+export const tabBarPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac TabBar allows you to build a Flutter TabBar widget using JSON.
 To know more about the TabBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TabBar-class.html).
 
@@ -58,7 +110,6 @@ To know more about the Tab widget in Flutter, refer to the [official documentati
 | height      | `double`                | The height of the tab.                           |
 | child       | `StacWidget`            | The widget below this widget in the tree.        |
 
-
 ## TabBarView
 
 The Stac TabBarView allows you to build a Flutter TabBarView widget using JSON.
@@ -77,8 +128,10 @@ To know more about the TabBarView widget in Flutter, refer to the [official docu
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacDefaultTabController(
   length: 3,
   child: StacScaffold(
@@ -103,7 +156,10 @@ StacDefaultTabController(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "defaultTabController",
   "length": 3,
@@ -153,5 +209,37 @@ StacDefaultTabController(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={tabBarPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: tabBarPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

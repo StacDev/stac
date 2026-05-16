@@ -3,6 +3,22 @@ title: "LinearProgressIndicator"
 description: "Documentation for LinearProgressIndicator"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const linearProgressIndicatorPreviewJson = {
+  "type": "linearProgressIndicator",
+  "color": "#541204",
+  "minHeight": 6,
+  "backgroundColor": "#FFD700",
+  "borderRadius": {
+    "topLeft": 10,
+    "topRight": 10,
+    "bottomLeft": 10,
+    "bottomRight": 10
+  }
+};
+export const linearProgressIndicatorPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac LinearProgressIndicator allows you to build a Flutter LinearProgressIndicator widget using JSON. 
 To know more about the LinearProgressIndicator widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html).
 
@@ -18,11 +34,12 @@ To know more about the LinearProgressIndicator widget in Flutter, refer to the [
 | semanticsValue  | `String`            | Provides a textual description of the widget.                      |
 | borderRadius    | `StacBorderRadius`  | The border radius for progress indicator.                          |
 
-
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacLinearProgressIndicator(
   color: '#541204',
   minHeight: 6,
@@ -36,7 +53,10 @@ StacLinearProgressIndicator(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "linearProgressIndicator",
   "color": "#541204",
@@ -50,6 +70,38 @@ StacLinearProgressIndicator(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={linearProgressIndicatorPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: linearProgressIndicatorPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 

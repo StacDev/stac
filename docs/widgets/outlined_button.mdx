@@ -3,6 +3,27 @@ title: "OutlinedButton"
 description: "Documentation for OutlinedButton"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const outlinedButtonPreviewJson = {
+  "type": "outlinedButton",
+  "onPressed": {},
+  "onLongPress": {},
+  "onHover": {},
+  "onFocusChange": {},
+  "style": {
+    "backgroundColor": "#FFFFFF",
+    "foregroundColor": "#000000"
+  },
+  "autofocus": false,
+  "clipBehavior": "none",
+  "child": {
+    "type": "text",
+    "data": "Click Me!"
+  }
+};
+export const outlinedButtonPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Outlined Button allows you to build a Flutter outlined button widget using JSON.
 To know more about the outlined button widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/OutlinedButton-class.html).
 
@@ -21,8 +42,10 @@ To know more about the outlined button widget in Flutter, refer to the [official
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacOutlinedButton(
   onPressed: StacNoneAction(),
   style: StacButtonStyle(
@@ -35,7 +58,10 @@ StacOutlinedButton(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "outlinedButton",
   "onPressed": {},
@@ -54,5 +80,37 @@ StacOutlinedButton(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={outlinedButtonPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: outlinedButtonPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

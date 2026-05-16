@@ -3,6 +3,24 @@ title: "Padding"
 description: "Documentation for Padding"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const paddingPreviewJson = {
+  "type": "padding",
+  "padding": {
+    "left": 0,
+    "right": 0
+  },
+  "child": {
+    "type": "container",
+    "color": "#672BFF",
+    "clipBehavior": "hardEdge",
+    "height": 75,
+    "width": 700
+  }
+};
+export const paddingPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Padding allows you to build a Flutter Padding widget using JSON. 
 To know more about the padding widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Padding-class.html).
 
@@ -15,8 +33,10 @@ To know more about the padding widget in Flutter, refer to the [official documen
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacPadding(
   padding: StacEdgeInsets(left: 0, right: 0),
   child: StacContainer(
@@ -28,7 +48,10 @@ StacPadding(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "padding",
   "padding": {
@@ -44,5 +67,37 @@ StacPadding(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={paddingPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: paddingPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

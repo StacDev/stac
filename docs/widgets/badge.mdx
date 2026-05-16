@@ -3,6 +3,24 @@ title: "Badge"
 description: "Documentation for Badge"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const badgePreviewJson = {
+  "type": "badge",
+  "label": {
+    "type": "text",
+    "data": "5"
+  },
+  "child": {
+    "type": "icon",
+    "icon": "notifications",
+    "size": 32
+  },
+  "backgroundColor": "#F44336",
+  "textColor": "#FFFFFF"
+};
+export const badgePreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac Badge allows you to build a Flutter Badge widget using JSON.
 To know more about the Badge widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Badge-class.html).
 
@@ -28,8 +46,10 @@ To know more about the Badge widget in Flutter, refer to the [official documenta
 
 ### Basic Badge with Label
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacBadge(
   label: StacText(data: '5'),
   child: StacIcon(icon: 'notifications', size: 32),
@@ -38,7 +58,10 @@ StacBadge(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "badge",
   "label": {
@@ -54,8 +77,40 @@ StacBadge(
   "textColor": "#FFFFFF"
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={badgePreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: badgePreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 ### Badge with Count
 
 <CodeGroup>

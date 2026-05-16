@@ -3,6 +3,19 @@ title: "Tooltip"
 description: "Documentation for Tooltip"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const toolTipPreviewJson = {
+  "type": "tooltip",
+  "message": "This is a basic tooltip",
+  "child": {
+    "type": "icon",
+    "icon": "info",
+    "size": 32
+  }
+};
+export const toolTipPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The **Stac Tooltip** allows you to build a Flutter `Tooltip` widget using JSON. 
 To learn more about Flutter’s Tooltip widget, refer to the [official Flutter documentation](https://api.flutter.dev/flutter/material/Tooltip-class.html).
 
@@ -37,15 +50,20 @@ To learn more about Flutter’s Tooltip widget, refer to the [official Flutter d
 
 #### Basic Tooltip
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacTooltip(
   message: 'This is a basic tooltip',
   child: StacIcon(icon: 'info', size: 32),
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "tooltip",
   "message": "This is a basic tooltip",
@@ -56,8 +74,40 @@ StacTooltip(
   }
 }
 ```
-</CodeGroup>
 
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={toolTipPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: toolTipPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
 #### Styled Tooltip
 
 <CodeGroup>
@@ -218,5 +268,4 @@ StacTooltip(
 }
 ```
 </CodeGroup>
-
 

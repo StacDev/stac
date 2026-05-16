@@ -3,6 +3,39 @@ title: "TextFormField"
 description: "Documentation for TextFormField"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const textFormFieldPreviewJson = {
+  "type": "textFormField",
+  "id": "date",
+  "autovalidateMode": "onUserInteraction",
+  "inputFormatters": [
+    {
+      "type": "mask",
+      "rule": "\\d",
+      "mask": "##/##/####"
+    }
+  ],
+  "style": {
+    "fontSize": 16,
+    "fontWeight": "w400",
+    "height": 1.5
+  },
+  "decoration": {
+    "labelText": "Date of birth",
+    "hintText": "DD/MM/YYYY",
+    "floatingLabelBehavior": "always",
+    "filled": true,
+    "fillColor": "#FFFFFF",
+    "border": {
+      "type": "outlineInputBorder",
+      "borderRadius": 8,
+      "color": "#24151D29"
+    }
+  }
+};
+export const textFormFieldPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac TextFormField allows you to build a Flutter TextFormField widget using JSON.
 To know more about the TextFormField widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TextFormField-class.html).
 
@@ -48,19 +81,57 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 | inputFormatters               | `List<StacInputFormatter>`      | The list of input formatters to apply to the text. Defaults to an empty list.                                                                      |
 | validatorRules                | `List<StacFormFieldValidator>`  | The list of validator rules to apply to the text. Defaults to an empty list.                                                                       |
 
+## StacInputDecoration
+
+`decoration` supports Flutter input decoration fields such as `labelText`, `hintText`, `prefixIcon`, `suffixIcon`, borders, fill colors, and `floatingLabelBehavior`.
+
+| Property              | Type     | Description                                                        |
+|-----------------------|----------|--------------------------------------------------------------------|
+| floatingLabelBehavior | `String` | Controls when the label floats. Supported values: `auto`, `always`, `never`. |
+
+## Input Formatters
+
+Use `inputFormatters` to restrict or transform user input. The supported formatter `type` values are `allow`, `deny`, and `mask`.
+
+| Property | Type     | Description                                                                 |
+|----------|----------|-----------------------------------------------------------------------------|
+| type     | `String` | Formatter type: `allow`, `deny`, or `mask`.                                  |
+| rule     | `String` | Regular expression used by the formatter.                                    |
+| mask     | `String` | Mask pattern used when `type` is `mask`; `#` consumes matching input values. |
+
+```json
+{
+  "inputFormatters": [
+    {
+      "type": "mask",
+      "rule": "\\d",
+      "mask": "##/##/####"
+    }
+  ]
+}
+```
+
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacTextFormField(
-  id: 'email',
+  id: 'date',
   autovalidateMode: StacAutovalidateMode.onUserInteraction,
-  validatorRules: [
-    StacFormFieldValidator(rule: 'isEmail', message: 'Please enter a valid email'),
+  inputFormatters: [
+    StacInputFormatter(
+      type: StacInputFormatterType.mask,
+      rule: r'\d',
+      mask: '##/##/####',
+    ),
   ],
   style: StacTextStyle(fontSize: 16, fontWeight: StacFontWeight.w400, height: 1.5),
   decoration: StacInputDecoration(
-    hintText: 'Email',
+    labelText: 'Date of birth',
+    hintText: 'DD/MM/YYYY',
+    floatingLabelBehavior: 'always',
     filled: true,
     fillColor: StacColors.white,
     border: StacOutlineInputBorder(borderRadius: 8, color: '#24151D29'),
@@ -68,15 +139,19 @@ StacTextFormField(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
   "type": "textFormField",
-  "id": "email",
+  "id": "date",
   "autovalidateMode": "onUserInteraction",
-  "validatorRules": [
+  "inputFormatters": [
     {
-      "rule": "isEmail",
-      "message": "Please enter a valid email"
+      "type": "mask",
+      "rule": "\\d",
+      "mask": "##/##/####"
     }
   ],
   "style": {
@@ -85,7 +160,9 @@ StacTextFormField(
     "height": 1.5
   },
   "decoration": {
-    "hintText": "Email",
+    "labelText": "Date of birth",
+    "hintText": "DD/MM/YYYY",
+    "floatingLabelBehavior": "always",
     "filled": true,
     "fillColor": "#FFFFFF",
     "border": {
@@ -96,4 +173,37 @@ StacTextFormField(
   }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={textFormFieldPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: textFormFieldPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

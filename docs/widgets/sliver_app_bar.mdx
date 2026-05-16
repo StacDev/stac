@@ -3,6 +3,45 @@ title: "SliverAppBar"
 description: "Documentation for SliverAppBar"
 ---
 
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const sliverAppBarPreviewJson = {
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverAppBar",
+        "title": {
+          "type": "text",
+          "data": "SliverAppBar"
+        },
+        "leading": {
+          "type": "iconButton",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "menu"
+          },
+          "onPressed": {}
+        },
+        "actions": [
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "icon",
+              "iconType": "cupertino",
+              "icon": "heart_solid"
+            },
+            "onPressed": {}
+          }
+        ]
+      }
+    ]
+  }
+};
+export const sliverAppBarPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
 The Stac SliverAppBar allows you to build a Flutter sliver app bar widget using JSON.
 To know more about the app bar widget in Flutter, refer to
 the [official documentation](https://api.flutter.dev/flutter/material/SliverAppBar-class.html).
@@ -46,15 +85,16 @@ the [official documentation](https://api.flutter.dev/flutter/material/SliverAppB
 
 ## Example
 
-<CodeGroup>
-```dart Dart
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
 StacSliverAppBar(
   title: StacText(data: 'SliverAppBar'),
   leading: StacIconButton(
     icon: StacIcon(iconType: 'material', icon: 'menu'),
     onPressed: StacNoneAction(),
   ),
-  backgroundColor: 'primary',
   actions: [
     StacIconButton(
       icon: StacIcon(iconType: 'cupertino', icon: 'heart_solid'),
@@ -64,34 +104,77 @@ StacSliverAppBar(
 )
 ```
 
-```json JSON
+  </Tab>
+  <Tab title="JSON">
+
+```json
 {
-  "type": "sliverAppBar",
-  "title": {
-    "type": "text",
-    "data": "SliverAppBar"
-  },
-  "leading": {
-    "type": "iconButton",
-    "icon": {
-      "type": "icon",
-      "iconType": "material",
-      "icon": "menu"
-    },
-    "onPressed": {}
-  },
-  "backgroundColor": "primary",
-  "actions": [
-    {
-      "type": "iconButton",
-      "icon": {
-        "type": "icon",
-        "iconType": "cupertino",
-        "icon": "heart_solid"
-      },
-      "onPressed": {}
-    }
-  ]
+  "type": "scaffold",
+  "body": {
+    "type": "customScrollView",
+    "slivers": [
+      {
+        "type": "sliverAppBar",
+        "title": {
+          "type": "text",
+          "data": "SliverAppBar"
+        },
+        "leading": {
+          "type": "iconButton",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "menu"
+          },
+          "onPressed": {}
+        },
+        "actions": [
+          {
+            "type": "iconButton",
+            "icon": {
+              "type": "icon",
+              "iconType": "cupertino",
+              "icon": "heart_solid"
+            },
+            "onPressed": {}
+          }
+        ]
+      }
+    ]
+  }
 }
 ```
-</CodeGroup>
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={sliverAppBarPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: sliverAppBarPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>

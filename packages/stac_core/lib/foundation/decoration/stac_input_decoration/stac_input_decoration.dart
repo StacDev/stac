@@ -43,6 +43,7 @@ class StacInputDecoration extends StacElement {
     this.icon,
     this.labelText,
     this.labelStyle,
+    this.floatingLabelBehavior,
     this.hintText,
     this.hintStyle,
     this.helperText,
@@ -76,6 +77,12 @@ class StacInputDecoration extends StacElement {
 
   /// Text style for [labelText].
   final StacTextStyle? labelStyle;
+
+  /// Controls when the label floats above the input.
+  ///
+  /// Supported values mirror Flutter's [FloatingLabelBehavior]: `auto`,
+  /// `always`, and `never`.
+  final String? floatingLabelBehavior;
 
   /// Optional placeholder text.
   final String? hintText;
