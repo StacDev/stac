@@ -153,6 +153,7 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
         if (!isValid) return validator.message ?? 'Invalid input';
       } catch (e) {
         Log.e(e);
+        return validator.message ?? 'Invalid input';
       }
     }
 

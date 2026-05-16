@@ -58,7 +58,15 @@ class InputValidators {
       minOccurrences: _toInt(o?['minOccurrences']) ?? 1,
     ),
     'equals': (v, o) => equals(v, o?['comparison']?.toString() ?? ''),
-    'matches': (v, o) => matches(v, RegExp(o?['pattern']?.toString() ?? '')),
+    'matches': (v, o) {
+      final pattern = o?['pattern']?.toString();
+      if (pattern == null || pattern.isEmpty) return false;
+      try {
+        return matches(v, RegExp(pattern));
+      } catch (_) {
+        return false;
+      }
+    },
     'isStrongPassword': (v, o) => isStrongPassword(
       v,
       minLength: _toInt(o?['minLength']) ?? 8,

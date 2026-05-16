@@ -60,8 +60,11 @@
               "autovalidateMode": "onUserInteraction",
               "validatorRules": [
                 {
-                  "rule": "isStrongPassword",
-                  "message": "Use a stronger password"
+                  "rule": "isLength",
+                  "options": {
+                    "min": 1
+                  },
+                  "message": "Password is required"
                 }
               ]
             },
