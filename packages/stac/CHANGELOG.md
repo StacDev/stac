@@ -1,3 +1,18 @@
+## 1.5.0
+
+- feat: Add support for the `NavigationBar` widget.
+- feat: Add support for the `NavigationView` widget.
+- feat: Add `StacDefaultNavigationController` widget.
+- feat: Integrate `flutter_validators` package, exposing 38 validators (e.g. `isEmail`, `isURL`, `isUUID`, `isInt`, `isStrongPassword`, `isLength`, `matches`) to `StacTextFormField` `validatorRules`.
+- feat: Support parameterized validation rules via the new `options` map on `StacFormFieldValidator` (e.g. `{"min": 8, "max": 20}` for `isLength`, `{"pattern": "..."}` for `matches`, `{"fieldId": "..."}` for `compare`).
+- feat: Add text decoration line/style support to `StacText` and `StacTextStyle`.
+- feat: Add new border options to `StacInputDecoration`.
+- feat: Enhance `StacFloatingActionButtonThemeData` parser.
+- feat: Bump `stac_core` to `^1.5.0`.
+- fix: Mask input formatter rule matching.
+- refactor: Use `DropdownMenuEntry<Object>` for type safety in `StacDropdownMenu`.
+- **BREAKING**: Replaces the homegrown `InputValidationType` validators. The legacy rule strings `isName`, `isPassword`, and `isNotEmpty` are no longer recognized — migrate to `flutter_validators` rules (e.g. `isStrongPassword`, `isLength` with `options.min`, or `matches` with `options.pattern`). Unknown rules now pass validation rather than falling back to a regex.
+
 ## 1.4.0
 
 - feat: enhance input decoration with new border options.

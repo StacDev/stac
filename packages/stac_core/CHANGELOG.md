@@ -1,3 +1,16 @@
+## 1.5.0
+
+- feat: Add `StacNavigationBar` widget model.
+- feat: Add `StacNavigationView` widget model.
+- feat: Add `StacNavigationDestination` model.
+- feat: Add `StacDefaultNavigationController` widget model.
+- feat: Add `options` map to `StacFormFieldValidator` for parameterized rules (e.g. `isLength`, `isStrongPassword`, `matches`, `compare`).
+- feat: Add `StacTextDecorationLine` types and expose `decoration`/`decorationStyle`/`decorationColor`/`decorationThickness` on `StacTextStyle`.
+- feat: Extend `StacInputDecoration` with additional border options.
+- feat: Extend `StacInputFormatter` model.
+- feat: Extend `StacFloatingActionButtonThemeData` with additional properties.
+- chore: Ignore the `public_member_api_docs` lint in the generated icon file.
+
 ## 1.4.0
   - Added new border option models for input decoration (`StacInputBorder`, etc).
   - Added `copyWith` method to `StacThemeTextStyle` model.
