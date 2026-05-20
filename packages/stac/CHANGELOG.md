@@ -1,3 +1,12 @@
+## 1.5.0
+
+- feat: add Material 3 navigation bar, navigation view, and generic navigation controller parsers.
+- feat: use `flutter_validators` for form validation rules with parameterized validator options.
+- feat: add mask input formatter support.
+- feat: add text decoration line parsing for text styles.
+- feat: add floating label behavior parsing for input decoration.
+- fix: use `DropdownMenuEntry<Object>` for safer dropdown menu parsing.
+
 ## 1.4.0
 
 - feat: enhance input decoration with new border options.

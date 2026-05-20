@@ -1,3 +1,11 @@
+## 1.5.0
+
+- Added `StacDefaultNavigationController`, `StacNavigationBar`, `StacNavigationView`, and `StacNavigationDestination` models for Material 3 navigation.
+- Added `mask` input formatter support.
+- Added validator `options` for parameterized form validation rules.
+- Added text decoration line support to `StacTextStyle`.
+- Added `floatingLabelBehavior` support to `StacInputDecoration`.
+
 ## 1.4.0
   - Added new border option models for input decoration (`StacInputBorder`, etc).
   - Added `copyWith` method to `StacThemeTextStyle` model.
