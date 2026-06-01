@@ -495,7 +495,7 @@ packages:
       path: "../stac_core"
       relative: true
     source: path
-    version: "1.4.0"
+    version: "1.5.0"
   stac_logger:
     dependency: "direct overridden"
     description:
