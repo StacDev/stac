@@ -6,7 +6,7 @@ import '../base_command.dart';
 
 /// Command for listing all cloud projects
 class ListCommand extends BaseCommand {
-  final ProjectService _projectService = ProjectService();
+  late final ProjectService _projectService = ProjectService();
 
   @override
   String get name => 'list';

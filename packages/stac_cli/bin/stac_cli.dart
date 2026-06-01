@@ -7,6 +7,7 @@ import 'package:stac_cli/src/commands/auth/logout_command.dart';
 import 'package:stac_cli/src/commands/auth/status_command.dart';
 import 'package:stac_cli/src/commands/build_command.dart';
 import 'package:stac_cli/src/commands/deploy_command.dart';
+import 'package:stac_cli/src/commands/dev_command.dart';
 import 'package:stac_cli/src/commands/init_command.dart';
 import 'package:stac_cli/src/commands/project_command.dart';
 import 'package:stac_cli/src/commands/upgrade_command.dart';
@@ -66,6 +67,7 @@ void main(List<String> arguments) async {
         ..addCommand(InitCommand())
         ..addCommand(ProjectCommand())
         ..addCommand(BuildCommand())
+        ..addCommand(DevCommand())
         ..addCommand(DeployCommand())
         ..addCommand(UpgradeCommand());
 

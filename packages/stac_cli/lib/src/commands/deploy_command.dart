@@ -6,7 +6,7 @@ import 'base_command.dart';
 /// Command for deploying JSON files to the cloud
 class DeployCommand extends BaseCommand {
   final BuildService _buildService = BuildService();
-  final DeployService _deployService = DeployService();
+  late final DeployService _deployService = DeployService();
 
   @override
   String get name => 'deploy';

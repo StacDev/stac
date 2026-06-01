@@ -20,7 +20,15 @@ class StacCloud {
     ),
   );
 
-  static const String _baseUrl = 'https://api.stac.dev';
+  static const String _defaultBaseUrl = 'https://api.stac.dev';
+
+  static String get _baseUrl {
+    final configuredBaseUrl = StacService.options?.apiBaseUrl.trim();
+    if (configuredBaseUrl == null || configuredBaseUrl.isEmpty) {
+      return _defaultBaseUrl;
+    }
+    return configuredBaseUrl.replaceFirst(RegExp(r'/+$'), '');
+  }
 
   /// Gets the fetch URL for a given artifact type.
   static String _getFetchUrl(StacArtifactType artifactType) {
