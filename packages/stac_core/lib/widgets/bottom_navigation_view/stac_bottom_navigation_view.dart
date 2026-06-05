@@ -85,6 +85,9 @@ part 'stac_bottom_navigation_view.g.dart';
 ///
 /// See also:
 ///  * Flutter's `BottomNavigationBar` docs (`https://api.flutter.dev/flutter/material/BottomNavigationBar-class.html`)
+@Deprecated(
+  'Use StacNavigationView (type: "navigationView") instead. Will be removed in a future release.',
+)
 @JsonSerializable()
 class StacBottomNavigationView extends StacWidget {
   /// Creates a [StacBottomNavigationView].

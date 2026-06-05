@@ -510,10 +510,9 @@ packages:
   stac_core:
     dependency: "direct main"
     description:
-      name: stac_core
-      sha256: "855767538be98fb2021ee4d58a85af66e0f40c6317eab94e5a08654c09ce49c0"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../stac_core"
+      relative: true
+    source: path
     version: "1.5.0"
   stac_logger:
     dependency: transitive

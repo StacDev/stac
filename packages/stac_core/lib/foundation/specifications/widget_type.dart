@@ -27,7 +27,7 @@ enum WidgetType {
   /// Bottom navigation bar widget
   bottomNavigationBar,
 
-  /// Bottom navigation view widget
+  /// Bottom navigation view widget.
   bottomNavigationView,
 
   /// Card widget
@@ -78,8 +78,12 @@ enum WidgetType {
   /// Custom scroll view widget
   customScrollView,
 
-  /// Default bottom navigation controller widget
+  /// Default bottom navigation controller widget.
   defaultBottomNavigationController,
+
+  /// Default navigation controller widget. Drives selection state for
+  /// any navigation widget (`bottomNavigationBar`, `navigationBar`, etc.).
+  defaultNavigationController,
 
   /// Default tab controller widget
   defaultTabController,
@@ -149,6 +153,16 @@ enum WidgetType {
 
   /// List view widget
   listView,
+
+  /// Navigation bar widget (Material 3)
+  navigationBar,
+
+  /// Navigation destination widget (Material 3 navigation bar item)
+  navigationDestination,
+
+  /// Navigation view widget. Displays one of its children based on the
+  /// current index from a `defaultNavigationController`.
+  navigationView,
 
   /// Network widget
   networkWidget,

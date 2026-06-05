@@ -129,26 +129,31 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
   }
 
   String? _validate(String? value, StacTextFormField model) {
-    if (value != null && (widget.model.validatorRules?.isNotEmpty ?? false)) {
-      for (final validator in widget.model.validatorRules!) {
-        try {
-          final validationType = InputValidationType.values.firstWhere(
-            (e) => e.name == validator.rule,
-            orElse: () => InputValidationType.general,
-          );
+    if (value == null || !(model.validatorRules?.isNotEmpty ?? false)) {
+      return null;
+    }
 
-          if (validationType == InputValidationType.general) {
-            if (!InputValidationType.general.validate(value, validator.rule)) {
-              return validator.message;
-            }
-          } else {
-            if (!validationType.validate(value, validator.rule)) {
-              return validator.message;
-            }
-          }
-        } catch (e) {
-          Log.e(e);
+    for (final validator in model.validatorRules!) {
+      try {
+        bool isValid;
+        if (validator.rule == 'compare') {
+          final targetId = validator.options?['fieldId'] as String?;
+          final target = targetId == null
+              ? null
+              : widget.formScope?.formData[targetId]?.toString();
+          isValid = value == target;
+        } else {
+          isValid = InputValidators.validate(
+            validator.rule,
+            value,
+            options: validator.options,
+          );
         }
+
+        if (!isValid) return validator.message ?? 'Invalid input';
+      } catch (e) {
+        Log.e(e);
+        return validator.message ?? 'Invalid input';
       }
     }
 

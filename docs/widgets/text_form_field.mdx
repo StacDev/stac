@@ -111,6 +111,64 @@ Use `inputFormatters` to restrict or transform user input. The supported formatt
 }
 ```
 
+## Validator Rules
+
+Use `validatorRules` to validate user input. Each entry is a `StacFormFieldValidator` with a `rule`, an optional `message` shown when validation fails, and an optional `options` map for parameterized rules.
+
+| Property | Type     | Description                                                                          |
+|----------|----------|--------------------------------------------------------------------------------------|
+| rule     | `String` | The validator to apply (see below).                                                  |
+| message  | `String` | Error message shown when validation fails. Defaults to `Invalid input` when omitted. |
+| options  | `Map`    | Arguments for parameterized rules. Ignored by rules that take no arguments.          |
+
+Validators are powered by the [`flutter_validators`](https://pub.dev/packages/flutter_validators) package.
+
+<Note>
+`flutter_validators` treats an empty string as invalid (e.g. `isEmail('')` is
+`false`), so **any field with `validatorRules` is effectively required** — an
+empty value fails validation. There is no built-in "validate only when filled"
+option. For an optional field, omit `validatorRules`; if you need conditional
+validation, handle the blank-input check in your app before applying the rules.
+</Note>
+
+**No-argument rules:** `isAlpha`, `isAlphanumeric`, `isAscii`, `isBase32`, `isBase58`, `isBoolean`, `isCreditCard`, `isDate`, `isDecimal`, `isEmail`, `isFQDN`, `isHexColor`, `isHexadecimal`, `isInt`, `isIP`, `isJson`, `isJWT`, `isLatLong`, `isLowercase`, `isMACAddress`, `isMD5`, `isMongoId`, `isNumeric`, `isOctal`, `isPhone`, `isPort`, `isSemVer`, `isSlug`, `isUppercase`, `isURL`, `isUUID`.
+
+**Parameterized rules** (read arguments from `options`):
+
+| Rule               | Options                                                                 |
+|--------------------|-------------------------------------------------------------------------|
+| `isLength`         | `min` (int), `max` (int, optional)                                      |
+| `isByteLength`     | `min` (int), `max` (int, optional)                                      |
+| `isFloat`          | `min` (double, optional), `max` (double, optional)                      |
+| `isBase64`         | `urlSafe` (bool)                                                        |
+| `isStrongPassword` | `minLength`, `minLowercase`, `minUppercase`, `minNumbers`, `minSymbols` |
+| `contains`         | `seed` (String), `ignoreCase` (bool), `minOccurrences` (int)            |
+| `equals`           | `comparison` (String)                                                   |
+| `isIn`             | `values` (List of String)                                               |
+| `matches`          | `pattern` (String) — a raw regular expression                           |
+| `compare`          | `fieldId` (String) — id of another field to compare values with        |
+
+The `matches` rule matches the pattern *anywhere* in the value, so anchor it with `^...$` for a full-string match. The `compare` rule is useful for confirm-password fields. Remember that every rule fails on empty input, so a field carrying any of these rules is treated as required.
+
+```json
+{
+  "type": "textFormField",
+  "id": "password",
+  "obscureText": true,
+  "validatorRules": [
+    {
+      "rule": "isStrongPassword",
+      "message": "Use a stronger password"
+    },
+    {
+      "rule": "isLength",
+      "options": { "min": 8, "max": 32 },
+      "message": "Password must be 8-32 characters"
+    }
+  ]
+}
+```
+
 ## Example
 
 <Tabs sync={false}>

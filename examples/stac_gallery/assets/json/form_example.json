@@ -34,8 +34,16 @@
               },
               "validatorRules": [
                 {
-                  "rule": "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$",
-                  "message": "Add a valid username"
+                  "rule": "isAlphanumeric",
+                  "message": "Letters and numbers only"
+                },
+                {
+                  "rule": "isLength",
+                  "options": {
+                    "min": 8,
+                    "max": 20
+                  },
+                  "message": "Username must be 8-20 characters"
                 }
               ]
             },
@@ -49,7 +57,16 @@
               "decoration": {
                 "hintText": "Password"
               },
-              "autovalidateMode": "onUserInteraction"
+              "autovalidateMode": "onUserInteraction",
+              "validatorRules": [
+                {
+                  "rule": "isLength",
+                  "options": {
+                    "min": 1
+                  },
+                  "message": "Password is required"
+                }
+              ]
             },
             {
               "type": "sizedBox",
