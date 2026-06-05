@@ -7,14 +7,35 @@ import 'package:path/path.dart' as path;
 void main() {
   group('FileUtils', () {
     // Basic verification of environment-dependent directory getters.
-    test('homeDirectory returns a non-empty string on this OS', () {
+    test('homeDirectory returns a non-empty string on this OS and points to an existing directory', () async {
       final home = FileUtils.homeDirectory;
       expect(home, isNotEmpty);
+      final dir = Directory(home);
+      expect(await dir.exists(), isTrue, reason: 'Home directory must exist');
+      final stat = await dir.stat();
+      expect(stat.type, equals(FileSystemEntityType.directory), reason: 'Home directory path must be a directory');
     });
 
-    test('configDirectory path is generated', () {
+    test('configDirectory path is generated and points to a valid directory', () async {
       final config = FileUtils.configDirectory;
       expect(config, isNotEmpty);
+
+      final dir = Directory(config);
+      final originallyExisted = await dir.exists();
+
+      // Ensure config directory exists (creating it if necessary)
+      await FileUtils.ensureConfigDirectory();
+
+      expect(await dir.exists(), isTrue, reason: 'Config directory must exist after ensuring');
+      final stat = await dir.stat();
+      expect(stat.type, equals(FileSystemEntityType.directory), reason: 'Config directory path must be a directory');
+
+      // Clean up the created config directory if it didn't exist before the test
+      if (!originallyExisted && await dir.exists()) {
+        try {
+          await dir.delete(recursive: true);
+        } catch (_) {}
+      }
     });
 
     // Integrated test for file system operations using a temporary directory.

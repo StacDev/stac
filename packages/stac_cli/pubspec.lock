@@ -101,10 +101,10 @@ packages:
     dependency: transitive
     description:
       name: characters
-      sha256: faf38497bda5ead2a8c7615f4f7939df04333478bf32e4173fcb06d428b5716b
+      sha256: f71061c654a3380576a52b451dd5532377954cf9dbd272a78fc8479606670803
       url: "https://pub.dev"
     source: hosted
-    version: "1.4.1"
+    version: "1.4.0"
   checked_yaml:
     dependency: transitive
     description:
@@ -241,6 +241,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  flutter:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -353,6 +358,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.12.19"
+  material_color_utilities:
+    dependency: transitive
+    description:
+      name: material_color_utilities
+      sha256: f7142bb1154231d7ea5f96bc7bde4bda2a0945d2806bb11670e30b850d56bdec
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.11.1"
   meta:
     dependency: transitive
     description:
@@ -449,6 +462,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  sky_engine:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   source_gen:
     dependency: transitive
     description:
@@ -492,16 +510,18 @@ packages:
   stac_core:
     dependency: "direct main"
     description:
-      path: "../stac_core"
-      relative: true
-    source: path
-    version: "1.4.0"
+      name: stac_core
+      sha256: "855767538be98fb2021ee4d58a85af66e0f40c6317eab94e5a08654c09ce49c0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.0"
   stac_logger:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "../stac_logger"
-      relative: true
-    source: path
+      name: stac_logger
+      sha256: bc3c1cc486d59d2378c1e18bfd9bfa078be564b58d4ae2b3898633c05a02df26
+      url: "https://pub.dev"
+    source: hosted
     version: "1.1.0"
   stack_trace:
     dependency: transitive
@@ -583,6 +603,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  vector_math:
+    dependency: transitive
+    description:
+      name: vector_math
+      sha256: d530bd74fea330e6e364cda7a85019c434070188383e1cd8d9777ee586914c5b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   vm_service:
     dependency: transitive
     description:
@@ -649,3 +677,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.10.0 <4.0.0"
+  flutter: ">=1.17.0"

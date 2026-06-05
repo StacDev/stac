@@ -25,6 +25,10 @@ void main() {
       runner.addCommand(DeployCommand());
     });
 
+    tearDown(() {
+      configureEnvironment({});
+    });
+
     test('build command has correct name and description', () {
       final command = runner.commands['build'];
       expect(command, isNotNull, reason: 'BuildCommand should be registered');
