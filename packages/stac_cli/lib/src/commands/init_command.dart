@@ -92,7 +92,15 @@ class InitCommand extends BaseCommand {
     ).interact();
     if (shouldInstallSkills) {
       ConsoleLogger.info('Installing skills...');
-      await AddCommand().execute();
+      final skillsExitCode = await AddCommand(
+        targetDirectory: targetDir,
+      ).execute();
+      if (skillsExitCode != 0) {
+        ConsoleLogger.warning(
+          'Skills installation encountered an issue. '
+          'You can retry later with: stac skills add',
+        );
+      }
     }
 
     ConsoleLogger.success('✓ Project initialized successfully!');
