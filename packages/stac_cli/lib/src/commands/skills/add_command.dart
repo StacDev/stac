@@ -109,14 +109,21 @@ class AddCommand extends BaseCommand {
 
       int installedCount = 0;
       for (final skill in catalog) {
+        if (skill is! Map) {
+          ConsoleLogger.warning('Skipping invalid catalog entry (not a map): $skill');
+          continue;
+        }
         final skillName = skill['name'];
         final skillPath = skill['path'];
 
-        if (skillName == null || skillPath == null) continue;
+        if (skillName is! String || skillPath is! String) {
+          ConsoleLogger.warning('Skipping invalid catalog entry: $skill');
+          continue;
+        }
 
         // Guard against path-traversal in catalog entries
-        if (_containsPathTraversal(skillName) ||
-            _containsPathTraversal(skillPath as String)) {
+        if (containsPathTraversal(skillName) ||
+            containsPathTraversal(skillPath)) {
           ConsoleLogger.warning(
             'Skipping skill with suspicious name/path: $skillName / $skillPath',
           );
@@ -129,7 +136,8 @@ class AddCommand extends BaseCommand {
 
         // Ensure the resolved source is still inside the repo root
         final sourceCanonical = path.canonicalize(sourceSkillDir.path);
-        if (!sourceCanonical.startsWith(repoRootCanonical)) {
+        if (!path.equals(repoRootCanonical, sourceCanonical) &&
+            !path.isWithin(repoRootCanonical, sourceCanonical)) {
           ConsoleLogger.warning(
             'Skill path $skillPath escapes repo root. Skipping.',
           );
@@ -149,7 +157,8 @@ class AddCommand extends BaseCommand {
 
         // Ensure the resolved target is still inside .agents/skills
         final targetSkillCanonical = path.canonicalize(targetSkillDir.path);
-        if (!targetSkillCanonical.startsWith(targetCanonical)) {
+        if (!path.equals(targetCanonical, targetSkillCanonical) &&
+            !path.isWithin(targetCanonical, targetSkillCanonical)) {
           ConsoleLogger.warning(
             'Skill name $skillName escapes target directory. Skipping.',
           );
@@ -162,7 +171,12 @@ class AddCommand extends BaseCommand {
         await targetSkillDir.create(recursive: true);
 
         // Copy directory contents
-        await _copyDirectory(sourceSkillDir, targetSkillDir);
+        await _copyDirectory(
+          sourceSkillDir,
+          targetSkillDir,
+          sourceCanonical,
+          targetSkillCanonical,
+        );
         ConsoleLogger.success('✓ $skillName (copied)');
         installedCount++;
       }
@@ -183,7 +197,7 @@ class AddCommand extends BaseCommand {
   }
 
   /// Returns true if a name or path segment contains traversal patterns.
-  bool _containsPathTraversal(String value) {
+  bool containsPathTraversal(String value) {
     return value.contains('..') ||
         path.isAbsolute(value) ||
         value.contains(r'\');
@@ -192,18 +206,43 @@ class AddCommand extends BaseCommand {
   Future<void> _copyDirectory(
     Directory source,
     Directory destination,
+    String sourceRootCanonical,
+    String destinationRootCanonical,
   ) async {
-    await for (var entity in source.list(recursive: false)) {
+    await for (var entity in source.list(recursive: false, followLinks: false)) {
+      if (entity is Link) {
+        ConsoleLogger.warning('Skipping symlink: ${entity.path}');
+        continue;
+      }
+
+      final entityCanonical = path.canonicalize(entity.path);
+      // Ensure the source entity is within the allowed source root
+      if (!path.equals(sourceRootCanonical, entityCanonical) &&
+          !path.isWithin(sourceRootCanonical, entityCanonical)) {
+        ConsoleLogger.warning('Skipping out-of-bounds source entity: ${entity.path}');
+        continue;
+      }
+
+      final targetPath = path.join(destination.path, path.basename(entity.path));
+      final targetCanonical = path.canonicalize(targetPath);
+      // Ensure the destination path is within the allowed target root
+      if (!path.equals(destinationRootCanonical, targetCanonical) &&
+          !path.isWithin(destinationRootCanonical, targetCanonical)) {
+        ConsoleLogger.warning('Skipping out-of-bounds destination path: $targetPath');
+        continue;
+      }
+
       if (entity is Directory) {
-        var newDirectory = Directory(
-          path.join(destination.path, path.basename(entity.path)),
+        final newDirectory = Directory(targetPath);
+        await newDirectory.create(recursive: true);
+        await _copyDirectory(
+          entity,
+          newDirectory,
+          sourceRootCanonical,
+          destinationRootCanonical,
         );
-        await newDirectory.create();
-        await _copyDirectory(entity.absolute, newDirectory);
       } else if (entity is File) {
-        await entity.copy(
-          path.join(destination.path, path.basename(entity.path)),
-        );
+        await entity.copy(targetPath);
       }
     }
   }
