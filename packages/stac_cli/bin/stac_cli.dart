@@ -9,6 +9,7 @@ import 'package:stac_cli/src/commands/build_command.dart';
 import 'package:stac_cli/src/commands/deploy_command.dart';
 import 'package:stac_cli/src/commands/init_command.dart';
 import 'package:stac_cli/src/commands/project_command.dart';
+import 'package:stac_cli/src/commands/skills_command.dart';
 import 'package:stac_cli/src/commands/upgrade_command.dart';
 import 'package:stac_cli/src/config/env.dart';
 import 'package:stac_cli/src/exceptions/stac_exception.dart';
@@ -67,6 +68,7 @@ void main(List<String> arguments) async {
         ..addCommand(ProjectCommand())
         ..addCommand(BuildCommand())
         ..addCommand(DeployCommand())
+        ..addCommand(SkillsCommand())
         ..addCommand(UpgradeCommand());
 
   // Add global flags

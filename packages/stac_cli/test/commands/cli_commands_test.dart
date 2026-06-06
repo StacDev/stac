@@ -3,6 +3,8 @@ import 'package:args/command_runner.dart';
 import 'package:stac_cli/src/commands/build_command.dart';
 import 'package:stac_cli/src/commands/init_command.dart';
 import 'package:stac_cli/src/commands/deploy_command.dart';
+import 'package:stac_cli/src/commands/skills_command.dart';
+import 'package:stac_cli/src/commands/skills/add_command.dart';
 import 'package:stac_cli/src/config/env.dart';
 
 /// Test suite for verifying core Stac CLI commands.
@@ -23,6 +25,7 @@ void main() {
       runner.addCommand(BuildCommand());
       runner.addCommand(InitCommand());
       runner.addCommand(DeployCommand());
+      runner.addCommand(SkillsCommand());
     });
 
     tearDown(() {
@@ -48,6 +51,34 @@ void main() {
       expect(command, isNotNull, reason: 'DeployCommand should be registered');
       expect(command!.name, equals('deploy'));
       expect(command.description, isNotEmpty);
+    });
+
+    test('skills command has correct name and description', () {
+      final command = runner.commands['skills'];
+      expect(command, isNotNull, reason: 'SkillsCommand should be registered');
+      expect(command!.name, equals('skills'));
+      expect(command.description, isNotEmpty);
+    });
+
+    test('skills add subcommand is registered', () {
+      final skillsCommand = runner.commands['skills'] as SkillsCommand;
+      expect(skillsCommand.subcommands['add'], isNotNull,
+          reason: 'AddCommand should be registered as a subcommand of skills');
+      expect(skillsCommand.subcommands['add']!.name, equals('add'));
+      expect(skillsCommand.subcommands['add']!.description, isNotEmpty);
+    });
+  });
+
+  group('AddCommand', () {
+    test('has correct name and description', () {
+      final cmd = AddCommand();
+      expect(cmd.name, equals('add'));
+      expect(cmd.description, isNotEmpty);
+    });
+
+    test('does not require auth', () {
+      final cmd = AddCommand();
+      expect(cmd.requiresAuth, isFalse);
     });
   });
 }
