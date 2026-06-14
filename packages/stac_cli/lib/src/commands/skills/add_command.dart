@@ -110,7 +110,9 @@ class AddCommand extends BaseCommand {
       int installedCount = 0;
       for (final skill in catalog) {
         if (skill is! Map) {
-          ConsoleLogger.warning('Skipping invalid catalog entry (not a map): $skill');
+          ConsoleLogger.warning(
+            'Skipping invalid catalog entry (not a map): $skill',
+          );
           continue;
         }
         final skillName = skill['name'];
@@ -130,9 +132,7 @@ class AddCommand extends BaseCommand {
           continue;
         }
 
-        final sourceSkillDir = Directory(
-          path.join(repoRoot.path, skillPath),
-        );
+        final sourceSkillDir = Directory(path.join(repoRoot.path, skillPath));
 
         // Ensure the resolved source is still inside the repo root
         final sourceCanonical = path.canonicalize(sourceSkillDir.path);
@@ -209,7 +209,10 @@ class AddCommand extends BaseCommand {
     String sourceRootCanonical,
     String destinationRootCanonical,
   ) async {
-    await for (var entity in source.list(recursive: false, followLinks: false)) {
+    await for (var entity in source.list(
+      recursive: false,
+      followLinks: false,
+    )) {
       if (entity is Link) {
         ConsoleLogger.warning('Skipping symlink: ${entity.path}');
         continue;
@@ -219,16 +222,23 @@ class AddCommand extends BaseCommand {
       // Ensure the source entity is within the allowed source root
       if (!path.equals(sourceRootCanonical, entityCanonical) &&
           !path.isWithin(sourceRootCanonical, entityCanonical)) {
-        ConsoleLogger.warning('Skipping out-of-bounds source entity: ${entity.path}');
+        ConsoleLogger.warning(
+          'Skipping out-of-bounds source entity: ${entity.path}',
+        );
         continue;
       }
 
-      final targetPath = path.join(destination.path, path.basename(entity.path));
+      final targetPath = path.join(
+        destination.path,
+        path.basename(entity.path),
+      );
       final targetCanonical = path.canonicalize(targetPath);
       // Ensure the destination path is within the allowed target root
       if (!path.equals(destinationRootCanonical, targetCanonical) &&
           !path.isWithin(destinationRootCanonical, targetCanonical)) {
-        ConsoleLogger.warning('Skipping out-of-bounds destination path: $targetPath');
+        ConsoleLogger.warning(
+          'Skipping out-of-bounds destination path: $targetPath',
+        );
         continue;
       }
 

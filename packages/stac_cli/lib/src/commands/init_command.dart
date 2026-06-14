@@ -87,7 +87,8 @@ class InitCommand extends BaseCommand {
 
     // Ask to install skills
     final shouldInstallSkills = Confirm(
-      prompt: 'Install Stac agent skills? (Recommended for AI-assisted development)',
+      prompt:
+          'Install Stac agent skills? (Recommended for AI-assisted development)',
       defaultValue: true,
     ).interact();
     if (shouldInstallSkills) {
