@@ -62,7 +62,7 @@ class AddCommand extends BaseCommand {
       // Extract ZIP
       final archive = ZipDecoder().decodeBytes(zipFile.readAsBytesSync());
       final extractDir = Directory(path.join(tempDir.path, 'extracted'));
-      extractArchiveToDisk(archive, extractDir.path);
+      await extractArchiveToDisk(archive, extractDir.path);
 
       // Find skills/catalog.json
       // The extracted folder usually has a root folder named <repo>-<branch>
