@@ -8,6 +8,7 @@ import '../services/project_service.dart';
 import '../utils/console_logger.dart';
 import '../utils/file_utils.dart';
 import 'base_command.dart';
+import 'skills/add_command.dart';
 
 /// Command for initializing a Stac project from cloud projects
 class InitCommand extends BaseCommand {
@@ -83,6 +84,25 @@ class InitCommand extends BaseCommand {
 
     // Create default_stac_options.dart configuration file
     await _createStacConfigFile(targetDir, project);
+
+    // Ask to install skills
+    final shouldInstallSkills = Confirm(
+      prompt:
+          'Install Stac agent skills? (Recommended for AI-assisted development)',
+      defaultValue: true,
+    ).interact();
+    if (shouldInstallSkills) {
+      ConsoleLogger.info('Installing skills...');
+      final skillsExitCode = await AddCommand(
+        targetDirectory: targetDir,
+      ).execute();
+      if (skillsExitCode != 0) {
+        ConsoleLogger.warning(
+          'Skills installation encountered an issue. '
+          'You can retry later with: stac skills add',
+        );
+      }
+    }
 
     ConsoleLogger.success('✓ Project initialized successfully!');
     ConsoleLogger.info('Next steps:');
