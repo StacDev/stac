@@ -31,12 +31,19 @@ class DeployCommand extends BaseCommand {
       help: 'Skip building before deployment (deploy existing files)',
       negatable: false,
     );
+    argParser.addFlag(
+      'legacy',
+      help:
+          'Use the legacy per-file screen/theme uploads instead of the atomic bundle deploy',
+      negatable: false,
+    );
   }
 
   @override
   Future<int> execute() async {
     final projectPath = argResults?['project'] as String?;
     final skipBuild = argResults?['skip-build'] as bool? ?? false;
+    final legacy = argResults?['legacy'] as bool? ?? false;
 
     try {
       // Build before deploying unless --skip-build is specified
@@ -58,7 +65,7 @@ class DeployCommand extends BaseCommand {
       }
 
       // Deploy the built files
-      await _deployService.deploy(projectPath: projectPath);
+      await _deployService.deploy(projectPath: projectPath, legacy: legacy);
       return 0;
     } catch (e) {
       ConsoleLogger.error('Deployment failed: $e');

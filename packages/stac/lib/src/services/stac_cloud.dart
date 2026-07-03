@@ -3,6 +3,7 @@ import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/models/stac_cache.dart';
+import 'package:stac/src/services/stac_bundle_service.dart';
 import 'package:stac/src/services/stac_cache_service.dart';
 import 'package:stac_logger/stac_logger.dart';
 
@@ -59,6 +60,24 @@ class StacCloud {
     final options = StacService.options;
     if (options == null) {
       throw Exception('StacOptions is not set');
+    }
+
+    // Bundle mode: serve the artifact from the cached bundle (decision 10 —
+    // renders never hit the network; sync keeps the bundle fresh).
+    if (StacService.bundleConfig.enabled) {
+      final bundleResponse = await _fetchArtifactFromBundle(
+        artifactType: artifactType,
+        artifactName: artifactName,
+      );
+      if (bundleResponse != null) {
+        return bundleResponse;
+      }
+      // Absent from the bundle (deleted vs. not-yet-bundled is
+      // indistinguishable): fall through to the legacy per-artifact fetch.
+      Log.w(
+        'StacCloud: ${artifactType.name} $artifactName not found in bundle, '
+        'falling back to per-artifact fetch',
+      );
     }
 
     final cacheConfig = StacService.defaultCacheConfig;
@@ -282,6 +301,34 @@ class StacCloud {
     }
 
     return response;
+  }
+
+  /// Fetches an artifact from the cached bundle (bundle mode).
+  ///
+  /// Returns a [Response] shaped exactly like [_buildArtifactCacheResponse],
+  /// or `null` when the artifact is absent from the bundle.
+  static Future<Response?> _fetchArtifactFromBundle({
+    required StacArtifactType artifactType,
+    required String artifactName,
+  }) async {
+    final stacJson = switch (artifactType) {
+      StacArtifactType.screen => await StacBundleService.getScreenJson(
+        artifactName,
+      ),
+      StacArtifactType.theme => await StacBundleService.getThemeJson(
+        artifactName,
+      ),
+    };
+    if (stacJson == null) return null;
+
+    return Response(
+      requestOptions: RequestOptions(path: _getFetchUrl(artifactType)),
+      data: {
+        'name': artifactName,
+        'stacJson': stacJson,
+        'version': StacBundleService.current?.version ?? 0,
+      },
+    );
   }
 
   /// Builds a Response from cached artifact data.

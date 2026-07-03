@@ -1,3 +1,10 @@
+## 1.7.0
+
+- feat: Bundle deploys — `stac deploy` now publishes all screens and themes in a single atomic `POST /bundles` request (any failure exits non-zero with nothing partially applied).
+- feat: Write a seed bundle to `assets/stac_bundle.json` after every successful deploy so first app launches can hydrate instantly and offline (warns when the asset is not declared in pubspec.yaml).
+- feat: Add `--legacy` flag to `stac deploy` to fall back to the previous per-file screen/theme uploads.
+- fix: `stac build` clears previous `screens`/`themes` outputs before writing, so deleted screens no longer leave stale JSON behind that gets re-deployed.
+
 ## 1.6.0
 
 - feat: Add console URL logging for successful deployments.

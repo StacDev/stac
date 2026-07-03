@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_service.dart';
+import 'package:stac/src/models/stac_bundle_config.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/services/stac_cloud.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
@@ -165,6 +166,11 @@ class Stac extends StatelessWidget {
   /// - [cacheConfig]: Global cache configuration for all Stac widgets and
   ///   StacCloud calls. Defaults to networkFirst strategy if not provided.
   ///
+  /// - [bundleConfig]: Configuration for bundle mode, where all screens and
+  ///   themes are downloaded as a single version-gated bundle. Disabled by
+  ///   default (opt-in); when not provided, legacy per-screen fetching is
+  ///   used.
+  ///
   /// ## Example
   ///
   /// ```dart
@@ -188,6 +194,7 @@ class Stac extends StatelessWidget {
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
     StacCacheConfig? cacheConfig,
+    StacBundleConfig? bundleConfig,
   }) async {
     return StacService.initialize(
       options: options,
@@ -199,6 +206,7 @@ class Stac extends StatelessWidget {
       logStackTraces: logStackTraces,
       errorWidgetBuilder: errorWidgetBuilder,
       cacheConfig: cacheConfig,
+      bundleConfig: bundleConfig,
     );
   }
 
