@@ -30,6 +30,11 @@ class StacBundleUpdater with WidgetsBindingObserver {
   static void start() {
     if (_instance != null) return;
 
+    // Stac.initialize is typically called before runApp, so the widgets
+    // binding may not exist yet; create it before registering a lifecycle
+    // observer (idempotent). Also required for seed-asset loading.
+    WidgetsFlutterBinding.ensureInitialized();
+
     final updater = StacBundleUpdater._();
     WidgetsBinding.instance.addObserver(updater);
     // The app starts foregrounded; arm the polling timer right away.
