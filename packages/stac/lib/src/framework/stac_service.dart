@@ -204,6 +204,10 @@ class StacService {
       if (_bundleConfig.prefetchOnInit && options != null) {
         unawaited(StacBundleService.sync());
       }
+    } else {
+      // A re-initialize can turn bundle mode off; make sure a previously
+      // started updater stops observing and polling.
+      StacBundleUpdater.stop();
     }
     _parsers.addAll(parsers);
     _actionParsers.addAll(actionParsers);

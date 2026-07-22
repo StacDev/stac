@@ -26,9 +26,18 @@ class StacBundleUpdater with WidgetsBindingObserver {
   Timer? _pollingTimer;
 
   /// Registers the updater as a lifecycle observer and starts the polling
-  /// timer when configured. Does nothing if already started.
+  /// timer when configured.
+  ///
+  /// Calling [start] on an already-started updater re-arms the polling
+  /// timer from the current `StacService.bundleConfig`, so a re-initialize
+  /// with a different (or removed) `pollingInterval` takes effect.
   static void start() {
-    if (_instance != null) return;
+    final existing = _instance;
+    if (existing != null) {
+      existing._cancelPollingTimer();
+      existing._startPollingTimer();
+      return;
+    }
 
     // Stac.initialize is typically called before runApp, so the widgets
     // binding may not exist yet; create it before registering a lifecycle
@@ -71,12 +80,13 @@ class StacBundleUpdater with WidgetsBindingObserver {
   }
 
   /// Starts the periodic conditional sync when [StacBundleConfig.pollingInterval]
-  /// is set and no timer is already running.
+  /// is set, replacing any timer already running (so interval changes apply).
   void _startPollingTimer() {
     final interval = StacService.bundleConfig.pollingInterval;
     if (interval == null) return;
 
-    _pollingTimer ??= Timer.periodic(interval, (_) {
+    _pollingTimer?.cancel();
+    _pollingTimer = Timer.periodic(interval, (_) {
       unawaited(StacBundleService.sync());
     });
   }

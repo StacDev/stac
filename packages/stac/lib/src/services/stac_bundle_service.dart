@@ -24,6 +24,10 @@ typedef StacBundleAssetReader = Future<String> Function(String assetPath);
 class StacBundleService {
   const StacBundleService._();
 
+  /// How long [ensureLoaded] waits after a failed sync before triggering
+  /// another automatic sync. Explicit [sync] calls are never backed off.
+  static const Duration _syncFailureBackoff = Duration(seconds: 30);
+
   static Dio _dio = _createDio();
 
   static Dio _createDio() {
@@ -49,8 +53,13 @@ class StacBundleService {
 
   /// Overrides the asset reader used for seed bundle hydration.
   @visibleForTesting
-  static set assetReader(StacBundleAssetReader reader) =>
-      _assetReader = reader;
+  static set assetReader(StacBundleAssetReader reader) => _assetReader = reader;
+
+  static DateTime Function() _now = DateTime.now;
+
+  /// Overrides the clock used for sync-failure backoff; for tests only.
+  @visibleForTesting
+  static set clock(DateTime Function() clock) => _now = clock;
 
   /// The bundle currently held in memory, if any.
   static StacBundle? _bundle;
@@ -60,6 +69,36 @@ class StacBundleService {
 
   /// Whether hydration (store + seed asset) has completed.
   static bool _hydrated = false;
+
+  /// The projectId the in-memory state ([_bundle], [_hydrated], failure
+  /// tracking) belongs to. A re-initialize with a different project drops
+  /// all of it (see [_ensureProject]).
+  static String? _activeProjectId;
+
+  /// Generation counter, bumped by [clear] and by a projectId switch.
+  /// In-flight hydrations/syncs capture it at start and discard their
+  /// results when it has changed by the time they complete.
+  static int _epoch = 0;
+
+  /// When the last sync failed (non-200/304/204 status, malformed body, or
+  /// exception); cleared by any successful sync. Drives the [ensureLoaded]
+  /// backoff.
+  static DateTime? _lastSyncFailureAt;
+
+  /// Whether the last sync failure was a project-level rejection
+  /// (HTTP 403/404 from the bundles endpoint).
+  static bool _projectRejected = false;
+
+  /// Whether the last bundle sync failed because the bundles endpoint
+  /// rejected this project (HTTP 403/404).
+  ///
+  /// Internal signal for `StacCloud`: when no bundle exists and the project
+  /// was rejected, the legacy per-artifact fallback is skipped so failed
+  /// renders don't hammer the per-artifact endpoints.
+  static bool get lastSyncProjectRejected => _projectRejected;
+
+  /// Whether the missing-options warning has been logged already.
+  static bool _warnedMissingOptions = false;
 
   /// In-flight hydration, deduped across concurrent callers.
   static Future<void>? _inFlightHydration;
@@ -85,6 +124,54 @@ class StacBundleService {
     return options.projectId;
   }
 
+  /// The bundles endpoint URL, with any trailing slash on the configured
+  /// base URL normalized away.
+  static String get _bundlesUrl {
+    var baseUrl = _config.baseUrl;
+    while (baseUrl.endsWith('/')) {
+      baseUrl = baseUrl.substring(0, baseUrl.length - 1);
+    }
+    return '$baseUrl/bundles';
+  }
+
+  /// Drops all in-memory bundle state and invalidates any in-flight
+  /// hydration or sync (their results are discarded via the epoch guard).
+  static void _invalidate() {
+    _epoch++;
+    _bundle = null;
+    _hydrated = false;
+    _inFlightHydration = null;
+    _inFlightSync = null;
+    _lastSyncFailureAt = null;
+    _projectRejected = false;
+  }
+
+  /// Re-validates the in-memory state against the current
+  /// `StacService.options.projectId`; a switch (re-initialize with another
+  /// project) drops the old project's bundle so it is never served.
+  static void _ensureProject() {
+    final projectId = _projectId;
+    if (_activeProjectId == projectId) return;
+    if (_activeProjectId != null) {
+      Log.d(
+        'StacBundleService: Project switched from $_activeProjectId to '
+        '$projectId — dropping in-memory bundle state',
+      );
+      _invalidate();
+    }
+    _activeProjectId = projectId;
+  }
+
+  static void _recordSyncFailure({required bool projectRejected}) {
+    _lastSyncFailureAt = _now();
+    _projectRejected = projectRejected;
+  }
+
+  static void _clearSyncFailure() {
+    _lastSyncFailureAt = null;
+    _projectRejected = false;
+  }
+
   /// Runs a conditional bundle version check against the server.
   ///
   /// Sends `GET {baseUrl}/bundles?projectId=..&since=<version>` with
@@ -93,24 +180,57 @@ class StacBundleService {
   /// current bundle; errors (offline, server failures) return the stale
   /// bundle. Concurrent calls are deduped onto a single in-flight request.
   ///
+  /// Returns `null` (with a single warning) when `Stac.initialize` was
+  /// called without options — unawaited resume/poll triggers must never
+  /// throw.
+  ///
   /// Set [force] to skip the conditional headers and re-download the body
-  /// unconditionally.
+  /// unconditionally. A forced call made while a conditional sync is in
+  /// flight runs after it completes instead of being coalesced into it.
   static Future<StacBundle?> sync({bool force = false}) {
-    return _inFlightSync ??= _syncInternal(force: force).whenComplete(() {
-      _inFlightSync = null;
+    if (StacService.options == null) {
+      if (!_warnedMissingOptions) {
+        _warnedMissingOptions = true;
+        Log.w(
+          'StacBundleService: Skipping bundle sync — StacOptions is not set',
+        );
+      }
+      return Future<StacBundle?>.value();
+    }
+
+    final inFlight = _inFlightSync;
+    if (inFlight != null) {
+      if (!force) return inFlight;
+      // Do not silently downgrade a forced sync into the in-flight
+      // conditional one: chain it after the in-flight sync completes.
+      return inFlight.then<StacBundle?>(
+        (_) => sync(force: true),
+        onError: (Object _) => sync(force: true),
+      );
+    }
+
+    late final Future<StacBundle?> future;
+    future = _syncInternal(force: force).whenComplete(() {
+      // clear()/project switches may have already detached this future.
+      if (identical(_inFlightSync, future)) _inFlightSync = null;
     });
+    _inFlightSync = future;
+    return future;
   }
 
   static Future<StacBundle?> _syncInternal({required bool force}) async {
+    _ensureProject();
     final projectId = _projectId;
+    final epoch = _epoch;
 
     // Hydrate first so the request can be conditional on the cached version.
     await _hydrate();
+    if (epoch != _epoch) return null;
 
     final cached = _bundle;
     try {
       final response = await _dio.get<dynamic>(
-        '${_config.baseUrl}/bundles',
+        _bundlesUrl,
         queryParameters: <String, dynamic>{
           'projectId': projectId,
           if (!force && cached != null) 'since': cached.version,
@@ -123,12 +243,20 @@ class StacBundleService {
         ),
       );
 
+      if (epoch != _epoch) {
+        // clear() or a project switch happened mid-request: the result
+        // belongs to state that no longer exists.
+        Log.d('StacBundleService: Discarding sync result from a stale epoch');
+        return null;
+      }
+
       final statusCode = response.statusCode;
 
       if (statusCode == 200) {
         final data = response.data;
         if (data is! Map) {
           Log.w('StacBundleService: Unexpected bundle response body');
+          _recordSyncFailure(projectRejected: false);
           return cached;
         }
 
@@ -139,11 +267,25 @@ class StacBundleService {
         );
         if (bundle == null) {
           Log.w('StacBundleService: Bundle response is missing a version');
+          _recordSyncFailure(projectRejected: false);
           return cached;
         }
 
         _bundle = bundle;
-        await _store.write(bundle);
+        _clearSyncFailure();
+        final wrote = await _store.write(bundle);
+        if (epoch != _epoch) {
+          // clear()/project switch raced the store write: undo it so the
+          // cleared bundle is not resurrected from disk.
+          await _store.clear(bundle.projectId);
+          return null;
+        }
+        if (!wrote) {
+          Log.w(
+            'StacBundleService: Failed to persist bundle v${bundle.version} '
+            'to the store',
+          );
+        }
         _updatesController.add(bundle);
         Log.d('StacBundleService: Synced bundle v${bundle.version}');
         return bundle;
@@ -151,17 +293,32 @@ class StacBundleService {
 
       if (statusCode == 304 || statusCode == 204) {
         // Not modified: keep the cached bundle.
+        _clearSyncFailure();
         return cached;
       }
 
+      _recordSyncFailure(
+        projectRejected: statusCode == 403 || statusCode == 404,
+      );
       Log.w(
         'StacBundleService: Bundle sync failed with status $statusCode, '
         'using ${cached == null ? 'no bundle' : 'stale bundle v${cached.version}'}',
       );
       return cached;
     } catch (e) {
+      if (epoch != _epoch) return null;
+      _recordSyncFailure(projectRejected: false);
       // Offline or server error: keep serving the stale bundle.
-      Log.d('StacBundleService: Bundle sync failed ($e), using stale bundle');
+      if (e is DioException) {
+        // Normal offline/server noise.
+        Log.d('StacBundleService: Bundle sync failed ($e), using stale bundle');
+      } else {
+        // Anything else is a contract break (e.g. malformed 200 body).
+        Log.w(
+          'StacBundleService: Bundle sync failed with unexpected error ($e), '
+          'using stale bundle',
+        );
+      }
       return cached;
     }
   }
@@ -198,22 +355,43 @@ class StacBundleService {
   ///
   /// Only when no bundle exists in either source (first launch of a
   /// seedless app) does this await [sync] so the first screens can render.
+  /// After a failed sync, the automatic sync is suppressed for
+  /// [_syncFailureBackoff] so widget rebuilds don't hammer the server;
+  /// explicit [sync] calls are never backed off.
   static Future<StacBundle?> ensureLoaded() async {
     await _hydrate();
     if (_bundle != null) return _bundle;
+
+    final failedAt = _lastSyncFailureAt;
+    if (failedAt != null && _now().difference(failedAt) < _syncFailureBackoff) {
+      return null;
+    }
     return sync();
   }
 
   /// Hydrates the in-memory bundle once from the store and seed asset.
   static Future<void> _hydrate() {
+    _ensureProject();
     if (_hydrated) return Future.value();
-    return _inFlightHydration ??= _hydrateInternal().whenComplete(() {
-      _hydrated = true;
-      _inFlightHydration = null;
-    });
+    final existing = _inFlightHydration;
+    if (existing != null) return existing;
+
+    final epoch = _epoch;
+    late final Future<void> future;
+    future = _hydrateInternal(epoch)
+        .then((_) {
+          // Only a hydration that completed successfully (and still belongs
+          // to the current epoch) marks the state hydrated.
+          if (epoch == _epoch) _hydrated = true;
+        })
+        .whenComplete(() {
+          if (identical(_inFlightHydration, future)) _inFlightHydration = null;
+        });
+    _inFlightHydration = future;
+    return future;
   }
 
-  static Future<void> _hydrateInternal() async {
+  static Future<void> _hydrateInternal(int epoch) async {
     final projectId = _projectId;
 
     // Read the persisted bundle (schema mismatch reads as empty).
@@ -231,15 +409,25 @@ class StacBundleService {
     // Read the seed asset shipped with the app, when configured.
     final seed = await _readSeed(projectId);
 
+    if (epoch != _epoch) return;
+
     // Highest version wins (an app-store update can ship a seed newer than
     // the cached bundle, and vice versa).
     if (seed != null && (stored == null || seed.version > stored.version)) {
       _bundle = seed;
-      await _store.write(seed);
+      final wrote = await _store.write(seed);
+      if (!wrote) {
+        Log.w(
+          'StacBundleService: Failed to persist seed bundle v${seed.version} '
+          'to the store',
+        );
+      }
       Log.d('StacBundleService: Hydrated from seed bundle v${seed.version}');
     } else if (stored != null) {
       _bundle = stored;
-      Log.d('StacBundleService: Hydrated from stored bundle v${stored.version}');
+      Log.d(
+        'StacBundleService: Hydrated from stored bundle v${stored.version}',
+      );
     }
   }
 
@@ -292,18 +480,25 @@ class StacBundleService {
   }
 
   /// Clears the persisted and in-memory bundle for the current project.
+  ///
+  /// Any in-flight sync result is discarded (it belongs to the state that
+  /// was just cleared), and the next [ensureLoaded] re-hydrates from the
+  /// seed asset/store as on a first launch.
   static Future<bool> clear() async {
-    _bundle = null;
-    return _store.clear(_projectId);
+    final projectId = _projectId;
+    _invalidate();
+    _activeProjectId = projectId;
+    return _store.clear(projectId);
   }
 
   /// Resets all static state; for tests only.
   @visibleForTesting
   static void reset() {
-    _bundle = null;
-    _hydrated = false;
-    _inFlightHydration = null;
-    _inFlightSync = null;
+    _invalidate();
+    _epoch = 0;
+    _activeProjectId = null;
+    _warnedMissingOptions = false;
+    _now = DateTime.now;
     _dio = _createDio();
     _store = const SharedPreferencesBundleStore();
     _assetReader = rootBundle.loadString;

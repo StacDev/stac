@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -94,6 +95,19 @@ const defaultStacOptions = StacOptions(
 
   addTearDown(() => dir.delete(recursive: true));
   return projectDir;
+}
+
+/// Runs [body] capturing everything printed through [ConsoleLogger]
+/// (which uses `print` under the hood) and returns the captured lines.
+Future<List<String>> _capturePrints(Future<void> Function() body) async {
+  final lines = <String>[];
+  await runZoned(
+    body,
+    zoneSpecification: ZoneSpecification(
+      print: (self, parent, zone, line) => lines.add(line),
+    ),
+  );
+  return lines;
 }
 
 void main() {
@@ -245,6 +259,97 @@ void main() {
       await expectLater(
         DeployService(httpClient: client).deploy(projectPath: projectDir),
         throwsA(isA<StacException>()),
+      );
+    });
+
+    test(
+      'versionless success response warns and skips the seed write',
+      () async {
+        final projectDir = await _createFixtureProject(
+          screens: screensFixture,
+          themes: themesFixture,
+        );
+        final client = _FakeHttpClientService(
+          (url, data) async => _jsonResponse(url, 201, {'status': 'ok'}),
+        );
+
+        final prints = await _capturePrints(
+          () =>
+              DeployService(httpClient: client).deploy(projectPath: projectDir),
+        );
+
+        // The deploy itself is still a success and never logs "vnull".
+        final output = prints.join('\n');
+        expect(output, isNot(contains('vnull')));
+        expect(
+          output,
+          contains('✓ Deployed bundle (server did not return a version)'),
+        );
+        expect(output, contains('[WARN]'));
+        expect(output, contains('did not include a bundle version'));
+
+        // No seed with a null version is ever written.
+        expect(
+          File(p.join(projectDir, 'assets', 'stac_bundle.json')).existsSync(),
+          isFalse,
+        );
+      },
+    );
+
+    test(
+      'warns when the seed is declared as bare "assets" (no trailing slash)',
+      () async {
+        final projectDir = await _createFixtureProject(screens: screensFixture);
+        // Flutter only directory-includes `assets/`; a bare `assets` entry
+        // does not cover assets/stac_bundle.json.
+        File(p.join(projectDir, 'pubspec.yaml')).writeAsStringSync('''
+name: fixture
+flutter:
+  assets:
+    - assets
+''');
+        final client = _FakeHttpClientService(
+          (url, data) async => _jsonResponse(url, 201, {
+            'projectId': _projectId,
+            'version': 1,
+            'etag': '"1"',
+            'checksum': 'c',
+          }),
+        );
+
+        final prints = await _capturePrints(
+          () =>
+              DeployService(httpClient: client).deploy(projectPath: projectDir),
+        );
+
+        expect(prints.join('\n'), contains('not declared as a Flutter asset'));
+      },
+    );
+
+    test('accepts "assets/" directory entry as declared', () async {
+      final projectDir = await _createFixtureProject(screens: screensFixture);
+      File(p.join(projectDir, 'pubspec.yaml')).writeAsStringSync('''
+name: fixture
+flutter:
+  assets:
+    - assets/
+''');
+      final client = _FakeHttpClientService(
+        (url, data) async => _jsonResponse(url, 201, {
+          'projectId': _projectId,
+          'version': 1,
+          'etag': '"1"',
+          'checksum': 'c',
+        }),
+      );
+
+      final prints = await _capturePrints(
+        () => DeployService(httpClient: client).deploy(projectPath: projectDir),
+      );
+
+      expect(
+        prints.join('\n'),
+        isNot(contains('not declared as a Flutter asset')),
       );
     });
 

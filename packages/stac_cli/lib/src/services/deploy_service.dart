@@ -161,19 +161,38 @@ class DeployService {
       );
     }
 
-    if (status == 201) {
-      ConsoleLogger.success('✓ Deployed bundle v$version');
+    if (version is! int) {
+      // The deploy succeeded server-side, but the response carries no
+      // usable version. Never write a seed with a null/invalid version —
+      // the client rejects it, silently breaking offline first launches.
+      if (status == 201) {
+        ConsoleLogger.success(
+          '✓ Deployed bundle (server did not return a version)',
+        );
+      } else {
+        ConsoleLogger.info(
+          'No changes — bundle already current (server did not return a version)',
+        );
+      }
+      ConsoleLogger.warning(
+        'The deploy succeeded, but the server response did not include a bundle version. '
+        'Skipping the seed bundle write (assets/stac_bundle.json was not updated).',
+      );
     } else {
-      ConsoleLogger.info('No changes — bundle v$version already current');
-    }
+      if (status == 201) {
+        ConsoleLogger.success('✓ Deployed bundle v$version');
+      } else {
+        ConsoleLogger.info('No changes — bundle v$version already current');
+      }
 
-    await _writeSeedAsset(
-      projectDir: projectDir,
-      projectId: projectId,
-      responseBody: body,
-      screens: screens,
-      themes: themes,
-    );
+      await _writeSeedAsset(
+        projectDir: projectDir,
+        projectId: projectId,
+        responseBody: body,
+        screens: screens,
+        themes: themes,
+      );
+    }
 
     final consoleUrl = 'https://console.stac.dev/project/$projectId';
     ConsoleLogger.info(
@@ -256,9 +275,9 @@ class DeployService {
         if (assets is List) {
           declared = assets.any((entry) {
             final value = entry?.toString().trim();
-            return value == assetEntry ||
-                value == 'assets/' ||
-                value == 'assets';
+            // Note: a bare `assets` entry (no trailing slash) is NOT a
+            // directory include in Flutter, so it does not count.
+            return value == assetEntry || value == 'assets/';
           });
         }
       }

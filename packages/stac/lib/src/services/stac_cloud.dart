@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
@@ -14,12 +15,27 @@ import 'package:stac_logger/stac_logger.dart';
 class StacCloud {
   const StacCloud._();
 
-  static final Dio _dio = Dio(
-    BaseOptions(
-      connectTimeout: const Duration(seconds: 10),
-      receiveTimeout: const Duration(seconds: 30),
-    ),
-  );
+  static Dio _dio = _createDio();
+
+  static Dio _createDio() {
+    return Dio(
+      BaseOptions(
+        connectTimeout: const Duration(seconds: 10),
+        receiveTimeout: const Duration(seconds: 30),
+      ),
+    );
+  }
+
+  /// Overrides the Dio client used for per-artifact requests.
+  @visibleForTesting
+  static set dio(Dio dio) => _dio = dio;
+
+  /// Resets the Dio client and warn-once memos; for tests only.
+  @visibleForTesting
+  static void reset() {
+    _dio = _createDio();
+    _bundleMissWarned.clear();
+  }
 
   static const String _baseUrl = 'https://api.stac.dev';
 
@@ -49,6 +65,11 @@ class StacCloud {
     StacArtifactType.theme: {},
   };
 
+  /// Bundle misses already warned about, keyed by
+  /// `bundleVersion:artifactType:artifactName`, so an artifact absent from
+  /// the bundle warns once per bundle version instead of on every rebuild.
+  static final Set<String> _bundleMissWarned = {};
+
   /// Fetches an artifact from Stac Cloud with intelligent caching.
   ///
   /// Uses the global cache configuration from [StacService.defaultCacheConfig],
@@ -72,12 +93,33 @@ class StacCloud {
       if (bundleResponse != null) {
         return bundleResponse;
       }
+
+      final bundle = StacBundleService.current;
+      if (bundle == null && StacBundleService.lastSyncProjectRejected) {
+        // The bundles endpoint rejected this project (HTTP 403/404).
+        // Falling through would hammer the per-artifact endpoints with
+        // requests that fail the same way; surface the failure instead so
+        // the caller shows its error state.
+        Log.w(
+          'StacCloud: bundle request for project ${options.projectId} was '
+          'rejected by the server; not falling back to per-artifact fetch',
+        );
+        throw Exception(
+          'Failed to fetch ${artifactType.name} "$artifactName": the bundle '
+          'request for project ${options.projectId} was rejected by the '
+          'server',
+        );
+      }
+
       // Absent from the bundle (deleted vs. not-yet-bundled is
       // indistinguishable): fall through to the legacy per-artifact fetch.
-      Log.w(
-        'StacCloud: ${artifactType.name} $artifactName not found in bundle, '
-        'falling back to per-artifact fetch',
-      );
+      final missKey = '${bundle?.version}:${artifactType.name}:$artifactName';
+      if (_bundleMissWarned.add(missKey)) {
+        Log.w(
+          'StacCloud: ${artifactType.name} $artifactName not found in bundle, '
+          'falling back to per-artifact fetch',
+        );
+      }
     }
 
     final cacheConfig = StacService.defaultCacheConfig;
