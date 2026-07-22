@@ -192,6 +192,17 @@ class StacService {
     StacCacheConfig? cacheConfig,
     StacBundleConfig? bundleConfig,
   }) async {
+    // Bundle mode fetches a project's bundle, so it cannot do anything
+    // without a projectId. Reject the misconfiguration here — before any
+    // state is mutated — instead of starting an updater that can only warn
+    // on every resume and poll tick.
+    if ((bundleConfig ?? _bundleConfig).enabled && options == null) {
+      throw ArgumentError(
+        'Bundle mode is enabled but StacOptions is null. Pass options with '
+        'the projectId whose bundle should be fetched to Stac.initialize.',
+      );
+    }
+
     _options = options;
     if (cacheConfig != null) {
       _defaultCacheConfig = cacheConfig;
@@ -200,8 +211,9 @@ class StacService {
       _bundleConfig = bundleConfig;
     }
     if (_bundleConfig.enabled) {
+      // Options are guaranteed non-null here by the validation above.
       StacBundleUpdater.start();
-      if (_bundleConfig.prefetchOnInit && options != null) {
+      if (_bundleConfig.prefetchOnInit) {
         unawaited(StacBundleService.sync());
       }
     } else {

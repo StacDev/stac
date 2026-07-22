@@ -346,23 +346,30 @@ void main() {
       },
     );
 
-    test('sync without options returns null instead of throwing', () async {
-      await StacService.initialize(
-        bundleConfig: const StacBundleConfig(
-          enabled: true,
-          prefetchOnInit: false,
+    test('enabling bundle mode without options fails fast', () async {
+      await expectLater(
+        StacService.initialize(
+          bundleConfig: const StacBundleConfig(
+            enabled: true,
+            prefetchOnInit: false,
+          ),
         ),
+        throwsArgumentError,
+      );
+
+      // Nothing was started, so no resume/poll tick can fire a sync.
+      expect(StacBundleUpdater.instance, isNull);
+      expect(adapter.requests, isEmpty);
+    });
+
+    test('sync without options returns null instead of throwing', () async {
+      // Defense in depth: sync() is public API and may be called directly
+      // before (or without) a successful initialize.
+      await StacService.initialize(
+        bundleConfig: const StacBundleConfig(prefetchOnInit: false),
       );
 
       expect(await StacBundleService.sync(), isNull);
-
-      // Resume/poll ticks go through the same entry point and must not
-      // produce unhandled async exceptions either.
-      StacBundleUpdater.instance!.didChangeAppLifecycleState(
-        AppLifecycleState.resumed,
-      );
-      await Future<void>.delayed(const Duration(milliseconds: 20));
-
       expect(adapter.requests, isEmpty);
     });
 
