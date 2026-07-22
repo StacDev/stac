@@ -38,8 +38,7 @@ class SharedPreferencesBundleStore implements StacBundleStore {
 
   static String _bundleKey(String projectId) => 'stac_bundle_$projectId';
 
-  static String _schemaKey(String projectId) =>
-      'stac_bundle_schema_$projectId';
+  static String _schemaKey(String projectId) => 'stac_bundle_schema_$projectId';
 
   @override
   Future<StacBundle?> read(String projectId) async {
