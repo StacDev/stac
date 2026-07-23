@@ -3,6 +3,7 @@ name: stac
 packages:
   - packages/*
   - examples/*
+  - stac_playground
 
 scripts:
   analyze:

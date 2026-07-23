@@ -576,14 +576,14 @@ packages:
   stac:
     dependency: "direct main"
     description:
-      path: "../../packages/stac"
+      path: "../packages/stac"
       relative: true
     source: path
     version: "1.5.0"
   stac_core:
     dependency: "direct main"
     description:
-      path: "../../packages/stac_core"
+      path: "../packages/stac_core"
       relative: true
     source: path
     version: "1.5.0"

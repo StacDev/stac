@@ -36,7 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   logger: ^2.5.0
   stac:
-    path: ../../packages/stac
+    path: ../packages/stac
   stac_core: ^1.5.0
   re_editor: ^0.10.0
   re_highlight: ^0.0.3
@@ -52,7 +52,7 @@ dependencies:
 dependency_overrides:
   logger: ^1.1.0
   stac_core:
-    path: ../../packages/stac_core
+    path: ../packages/stac_core
 
 dev_dependencies:
   flutter_test:
