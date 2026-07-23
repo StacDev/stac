@@ -130,7 +130,10 @@ class MobileExploreScreen extends StatelessWidget {
                       _MobileSearchField(colors: colors),
                       const SizedBox(height: 24),
                       Text(
-                        '${entries.length} COMPONENTS',
+                        query.isEmpty
+                            ? '${entries.length} COMPONENTS'
+                            : '${entries.length} '
+                                'RESULT${entries.length == 1 ? '' : 'S'}',
                         style: TextStyle(
                           fontSize: 13,
                           fontWeight: FontWeight.w500,
