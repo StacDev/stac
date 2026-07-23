@@ -1,1 +1,0 @@
-packages/stac/README.md
