@@ -19,7 +19,7 @@ import 'package:stac/stac_core.dart';
 /// }
 /// ```
 StacOptions get defaultStacOptions => StacOptions(
-  name: 'movie_app',
-  description: '',
-  projectId: 'pha1PAyoVRqREK5M2k3E',
+  name: 'Movie App',
+  description: 'null',
+  projectId: 's6ibzYZdLBkNsrqdAQGv',
 );

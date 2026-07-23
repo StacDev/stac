@@ -22,6 +22,10 @@ void main() async {
     options: defaultStacOptions,
     dio: dio,
     parsers: [MovieCarouselParser()],
+    bundleConfig: const StacBundleConfig(
+      enabled: true,
+      seedAsset: 'assets/stac_bundle.json',
+    ),
   );
 
   runApp(const MyApp());
@@ -39,5 +43,27 @@ class MyApp extends StatelessWidget {
         return Stac(routeName: 'onboarding_screen');
       },
     );
+  }
+}
+
+class NewScreen extends StatefulWidget {
+  const NewScreen({super.key});
+
+  @override
+  State<NewScreen> createState() => _NewScreenState();
+}
+
+class _NewScreenState extends State<NewScreen> {
+  int a = 2; 
+  a = "deed";
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
