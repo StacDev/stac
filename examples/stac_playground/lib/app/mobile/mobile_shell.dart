@@ -699,7 +699,9 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                             'assets/images/dart_logo.png',
                             width: 16,
                             height: 16,
-                            fit: BoxFit.contain,
+                            // The asset is a wide crop; the design shows it
+                            // center-cropped to a square, not letterboxed.
+                            fit: BoxFit.cover,
                           ),
                         ),
                         label: 'Dart',
