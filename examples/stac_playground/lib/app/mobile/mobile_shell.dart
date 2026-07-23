@@ -372,6 +372,14 @@ class _MobileDrawer extends StatelessWidget {
       child: SafeArea(
         child: ListView(
           children: [
+            link(PhosphorIcons.fileText(), 'Documentation',
+                'https://docs.stac.dev'),
+            link(PhosphorIcons.githubLogo(), 'GitHub',
+                'https://github.com/StacDev/stac'),
+            link(PhosphorIcons.linkedinLogo(), 'LinkedIn',
+                'https://www.linkedin.com/company/stacdev'),
+            link(PhosphorIcons.xLogo(), 'X', 'https://x.com/stac_dev'),
+            Divider(color: colors.outlineVariant),
             SwitchListTile(
               secondary: PhosphorIcon(
                 dark ? PhosphorIcons.moonStars() : PhosphorIcons.sunDim(),
@@ -386,14 +394,6 @@ class _MobileDrawer extends StatelessWidget {
               activeColor: _secondary,
               onChanged: (v) => context.read<HomeCubit>().setMobileDark(v),
             ),
-            Divider(color: colors.outlineVariant),
-            link(PhosphorIcons.fileText(), 'Documentation',
-                'https://docs.stac.dev'),
-            link(PhosphorIcons.githubLogo(), 'GitHub',
-                'https://github.com/StacDev/stac'),
-            link(PhosphorIcons.linkedinLogo(), 'LinkedIn',
-                'https://www.linkedin.com/company/stacdev'),
-            link(PhosphorIcons.xLogo(), 'X', 'https://x.com/stac_dev'),
           ],
         ),
       ),
