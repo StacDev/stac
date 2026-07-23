@@ -120,6 +120,7 @@ void main() {
       'tab_bar',
       'text_button',
       'tool_tip',
+      'web_view',
       'wrap',
     };
     final broken = <String>[];

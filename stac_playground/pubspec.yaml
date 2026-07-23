@@ -38,6 +38,8 @@ dependencies:
   stac:
     path: ../packages/stac
   stac_core: ^1.5.0
+  stac_webview:
+    path: ../packages/stac_webview
   re_editor: ^0.10.0
   re_highlight: ^0.0.3
   # phosphor_flutter 2.1.0 extends IconData, which is a final class as of

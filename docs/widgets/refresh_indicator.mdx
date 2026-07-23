@@ -8,7 +8,7 @@ import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
 export const refreshIndicatorPreviewJson = {
   "type": "refreshIndicator",
   "onRefresh": {
-    "actionType": "request",
+    "actionType": "networkRequest",
     "url": "https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json",
     "method": "get",
     "contentType": "application/json"
@@ -74,7 +74,7 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
 
 ```dart
 StacRefreshIndicator(
-  onRefresh: StacNetworkRequestAction(
+  onRefresh: StacNetworkRequest(
     url: 'https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json',
     method: Method.get,
     contentType: 'application/json',
@@ -97,7 +97,7 @@ StacRefreshIndicator(
 {
   "type": "refreshIndicator",
   "onRefresh": {
-    "actionType": "request",
+    "actionType": "networkRequest",
     "url": "https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json",
     "method": "get",
     "contentType": "application/json"

@@ -156,6 +156,9 @@ const Set<String> _widgetClasses = {
   'StacVerticalDivider',
   'StacVisibility',
   'StacWrap',
+  // From the stac_webview plugin rather than stac_core, but it is a StacWidget
+  // and serializes the same way.
+  'StacWebView',
 };
 
 /// Classes whose `fromJson` expands a bare number into all four sides, so
