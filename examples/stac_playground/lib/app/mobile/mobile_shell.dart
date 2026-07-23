@@ -772,7 +772,7 @@ class _HeaderIcon extends StatelessWidget {
         width: 36,
         height: 36,
         child: Center(
-          child: PhosphorIcon(icon, size: 24, color: colors.onSurface),
+          child: PhosphorIcon(icon, size: 24, color: colors.onSurfaceVariant),
         ),
       ),
     );
