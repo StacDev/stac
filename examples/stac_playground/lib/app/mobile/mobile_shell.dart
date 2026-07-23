@@ -470,7 +470,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                           state.selectedEntry.title,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 1.3,
                             fontVariations: const [FontVariation('wght', 500)],
@@ -478,14 +478,15 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                           ),
                         ),
                       ),
+                      // Toggles the component preview theme only; the app
+                      // theme is switched from the explore drawer.
                       _HeaderIcon(
-                        icon: state.mobileDark
+                        icon: state.darkMode
                             ? PhosphorIcons.sunDim()
                             : PhosphorIcons.moonStars(),
                         colors: colors,
-                        onTap: () => context
-                            .read<HomeCubit>()
-                            .setMobileDark(!state.mobileDark),
+                        onTap: () =>
+                            context.read<HomeCubit>().toggleDarkMode(),
                       ),
                       const SizedBox(width: 4),
                       _HeaderIcon(
@@ -523,7 +524,15 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                       ),
                       const SizedBox(width: 64),
                       _MobileTab(
-                        icon: PhosphorIcons.code(),
+                        customIcon: Opacity(
+                          opacity: _tab == 1 ? 1 : 0.7,
+                          child: Image.asset(
+                            'assets/images/dart_logo.png',
+                            width: 16,
+                            height: 16,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                         label: 'Dart',
                         active: _tab == 1,
                         colors: colors,
@@ -553,17 +562,19 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
     switch (_tab) {
       case 1:
         return _MobileCodeView(
-          key: ValueKey('dart-${state.selectedEntry.id}'),
+          key: ValueKey('dart-${state.selectedEntry.id}-${state.mobileDark}'),
           text: state.dartCode,
           isDart: true,
+          dark: state.mobileDark,
         );
       case 2:
         return _MobileCodeView(
-          key: ValueKey('json-${state.selectedEntry.id}'),
+          key: ValueKey('json-${state.selectedEntry.id}-${state.mobileDark}'),
           text: const JsonEncoder.withIndent('    ').convert(
             jsonDecode(state.jsonElement.toPrettyString()),
           ),
           isDart: false,
+          dark: state.mobileDark,
         );
       default:
         return _MobilePreview(state: state);
@@ -601,14 +612,16 @@ class _HeaderIcon extends StatelessWidget {
 
 class _MobileTab extends StatelessWidget {
   const _MobileTab({
-    required this.icon,
+    this.icon,
+    this.customIcon,
     required this.label,
     required this.active,
     required this.colors,
     required this.onTap,
   });
 
-  final IconData icon;
+  final IconData? icon;
+  final Widget? customIcon;
   final String label;
   final bool active;
   final MobileColors colors;
@@ -630,7 +643,7 @@ class _MobileTab extends StatelessWidget {
         ),
         child: Row(
           children: [
-            PhosphorIcon(icon, size: 16, color: color),
+            customIcon ?? PhosphorIcon(icon!, size: 16, color: color),
             const SizedBox(width: 4),
             Text(
               label,
@@ -655,7 +668,9 @@ class _MobilePreview extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: const AppScrollBehavior(),
-      theme: state.mobileDark ? ThemeData.dark() : ThemeData.light(),
+      // Follows the preview theme toggle in the detail header, independent
+      // of the app theme.
+      theme: state.darkMode ? ThemeData.dark() : ThemeData.light(),
       home: Stac.fromJson(jsonData, context),
     );
   }
@@ -702,21 +717,28 @@ class _FullScreenPreview extends StatelessWidget {
   }
 }
 
-/// Read-only code view with the console editor styling.
+/// Read-only code view with the console editor styling, in a dark
+/// (VS Code Dark+) or light (VS Code Light+) variant following the app theme.
 class _MobileCodeView extends StatefulWidget {
-  const _MobileCodeView({super.key, required this.text, required this.isDart});
+  const _MobileCodeView({
+    super.key,
+    required this.text,
+    required this.isDart,
+    required this.dark,
+  });
 
   final String text;
   final bool isDart;
+  final bool dark;
 
   @override
   State<_MobileCodeView> createState() => _MobileCodeViewState();
 }
 
 class _MobileCodeViewState extends State<_MobileCodeView> {
-  final _font = GoogleFonts.jetBrainsMono(
+  late final _font = GoogleFonts.jetBrainsMono(
     fontSize: 12,
-    color: Colors.white,
+    color: widget.dark ? Colors.white : const Color(0xFF1F1F1F),
     height: 1.5,
   );
   late final CodeLineEditingController _controller =
@@ -724,19 +746,35 @@ class _MobileCodeViewState extends State<_MobileCodeView> {
 
   Map<String, TextStyle> _theme() {
     final f = _font;
+    if (widget.dark) {
+      return {
+        'root': f.copyWith(color: const Color(0xFFD4D4D4)),
+        'punctuation': f.copyWith(color: const Color(0xFFD7BA7D)),
+        'comment': f.copyWith(color: const Color(0xFF6A9955)),
+        'keyword': f.copyWith(color: const Color(0xFF569CD6)),
+        'literal': f.copyWith(color: const Color(0xFF569CD6)),
+        'string': f.copyWith(color: const Color(0xFFCE9178)),
+        'number': f.copyWith(color: const Color(0xFFB5CEA8)),
+        'attr': f.copyWith(color: const Color(0xFF9CDCFE)),
+        'meta': f.copyWith(color: const Color(0xFF9CDCFE)),
+        'title': f.copyWith(color: const Color(0xFFDCDCAA)),
+        'title.class': f.copyWith(color: const Color(0xFF4EC9B0)),
+        'built_in': f.copyWith(color: const Color(0xFF4EC9B0)),
+      };
+    }
     return {
-      'root': f.copyWith(color: const Color(0xFFD4D4D4)),
-      'punctuation': f.copyWith(color: const Color(0xFFD7BA7D)),
-      'comment': f.copyWith(color: const Color(0xFF6A9955)),
-      'keyword': f.copyWith(color: const Color(0xFF569CD6)),
-      'literal': f.copyWith(color: const Color(0xFF569CD6)),
-      'string': f.copyWith(color: const Color(0xFFCE9178)),
-      'number': f.copyWith(color: const Color(0xFFB5CEA8)),
-      'attr': f.copyWith(color: const Color(0xFF9CDCFE)),
-      'meta': f.copyWith(color: const Color(0xFF9CDCFE)),
-      'title': f.copyWith(color: const Color(0xFFDCDCAA)),
-      'title.class': f.copyWith(color: const Color(0xFF4EC9B0)),
-      'built_in': f.copyWith(color: const Color(0xFF4EC9B0)),
+      'root': f.copyWith(color: const Color(0xFF1F1F1F)),
+      'punctuation': f.copyWith(color: const Color(0xFF3B3B3B)),
+      'comment': f.copyWith(color: const Color(0xFF008000)),
+      'keyword': f.copyWith(color: const Color(0xFF0000FF)),
+      'literal': f.copyWith(color: const Color(0xFF0000FF)),
+      'string': f.copyWith(color: const Color(0xFFA31515)),
+      'number': f.copyWith(color: const Color(0xFF098658)),
+      'attr': f.copyWith(color: const Color(0xFF0451A5)),
+      'meta': f.copyWith(color: const Color(0xFF0451A5)),
+      'title': f.copyWith(color: const Color(0xFF795E26)),
+      'title.class': f.copyWith(color: const Color(0xFF267F99)),
+      'built_in': f.copyWith(color: const Color(0xFF267F99)),
     };
   }
 
@@ -748,8 +786,11 @@ class _MobileCodeViewState extends State<_MobileCodeView> {
 
   @override
   Widget build(BuildContext context) {
+    final lineNumber = widget.dark
+        ? Colors.white.withValues(alpha: 0.4)
+        : Colors.black.withValues(alpha: 0.35);
     return Container(
-      color: const Color(0xFF101112),
+      color: widget.dark ? const Color(0xFF101112) : const Color(0xFFF7F7F8),
       child: CodeEditor(
         controller: _controller,
         readOnly: true,
@@ -757,6 +798,8 @@ class _MobileCodeViewState extends State<_MobileCodeView> {
           fontFamily: 'JetBrainsMono',
           fontSize: 12,
           fontHeight: 1.5,
+          textColor:
+              widget.dark ? const Color(0xFFD4D4D4) : const Color(0xFF1F1F1F),
           codeTheme: CodeHighlightTheme(
             languages: widget.isDart
                 ? {'dart': CodeHighlightThemeMode(mode: langDart)}
@@ -773,8 +816,7 @@ class _MobileCodeViewState extends State<_MobileCodeView> {
               DefaultCodeLineNumber(
                 controller: editingController,
                 notifier: notifier,
-                textStyle:
-                    _font.copyWith(color: Colors.white.withValues(alpha: 0.4)),
+                textStyle: _font.copyWith(color: lineNumber),
                 focusedTextStyle: _font,
               ),
               const SizedBox(width: 8),
