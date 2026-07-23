@@ -46,7 +46,7 @@
                 },
                 {
                   "type": "image",
-                  "src": "assets/images/example_image_2.jpeg",
+                  "src": "assets/images/logo_console.png",
                   "imageType": "asset",
                   "height": 150
                 }
@@ -97,7 +97,7 @@
                 },
                 {
                   "type": "image",
-                  "src": "assets/images/example_image_1.jpeg",
+                  "src": "assets/images/dart_logo.png",
                   "imageType": "asset",
                   "height": 150,
                   "width": 100,
@@ -127,7 +127,7 @@
                 {
                   "type": "image",
                   "imageType": "asset",
-                  "src": "assets/images/gallery.svg",
+                  "src": "assets/images/logo.svg",
                   "color": "primary",
                   "height": 100,
                   "width": 100

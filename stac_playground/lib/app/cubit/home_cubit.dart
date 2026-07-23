@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/data/component_entries.dart';
 import 'package:stac_playground/data/playground_entry.dart';
-import 'package:stac_playground/widget/stac_json_editor/json_editor_model.dart';
 
 /// Superset of playground screens and gallery components.
 final List<PlaygroundEntry> playgroundEntries = [
@@ -32,7 +31,7 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit()
       : super(
           HomeState(
-            jsonElement: JsonElement.fromObject(helloStacSample),
+            jsonData: helloStacSample,
             selectedEntry: playgroundEntries.first,
             dartCode: helloStacDartCode,
             showCodeView: true,
@@ -54,7 +53,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(
       state.copyWith(
         selectedEntry: entry,
-        jsonElement: JsonElement.fromObject(json),
+        jsonData: json,
         dartCode: dart,
         edited: false,
       ),
@@ -67,7 +66,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   /// Replace the rendered JSON with the latest valid editor content.
   void updateJsonData(Map<String, dynamic> json) {
-    emit(state.copyWith(jsonElement: JsonElement.fromObject(json)));
+    emit(state.copyWith(jsonData: json));
   }
 
   void setEdited(bool edited) {

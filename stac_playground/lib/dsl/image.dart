@@ -27,7 +27,7 @@ StacWidget imageExample() {
                                 assetPath: 'assets/json/form_example.json')),
                         StacSizedBox(width: 20),
                         StacImage(
-                            src: 'assets/images/example_image_2.jpeg',
+                            src: 'assets/images/logo_console.png',
                             imageType: StacImageType.asset,
                             height: 150)
                       ]),
@@ -57,7 +57,7 @@ StacWidget imageExample() {
                             height: 150),
                         StacSizedBox(width: 20),
                         StacImage(
-                            src: 'assets/images/example_image_1.jpeg',
+                            src: 'assets/images/dart_logo.png',
                             imageType: StacImageType.asset,
                             height: 150,
                             width: 100,
@@ -76,7 +76,7 @@ StacWidget imageExample() {
                         StacSizedBox(width: 20),
                         StacImage(
                             imageType: StacImageType.asset,
-                            src: 'assets/images/gallery.svg',
+                            src: 'assets/images/logo.svg',
                             color: 'primary',
                             height: 100,
                             width: 100)

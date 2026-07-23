@@ -738,9 +738,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
       case 2:
         return _MobileCodeView(
           key: ValueKey('json-${state.selectedEntry.id}-${state.mobileDark}'),
-          text: const JsonEncoder.withIndent('    ').convert(
-            jsonDecode(state.jsonElement.toPrettyString()),
-          ),
+          text: const JsonEncoder.withIndent('    ').convert(state.jsonData),
           isDart: false,
           dark: state.mobileDark,
         );
@@ -831,8 +829,7 @@ class _MobilePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final jsonData =
-        jsonDecode(state.jsonElement.toPrettyString()) as Map<String, dynamic>;
+    final jsonData = state.jsonData;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: const AppScrollBehavior(),

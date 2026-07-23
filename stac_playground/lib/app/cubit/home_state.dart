@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
 import 'package:stac_playground/data/playground_entry.dart';
-import 'package:stac_playground/widget/stac_json_editor/json_editor_model.dart';
 
 enum PreviewDevice {
   mobile(Size(390, 844)),
@@ -22,7 +21,7 @@ enum PlaygroundView { preview, codeDiff }
 
 class HomeState {
   HomeState({
-    required this.jsonElement,
+    required this.jsonData,
     required this.selectedEntry,
     this.dartCode = '',
     this.showCodeView = true,
@@ -36,7 +35,8 @@ class HomeState {
     this.mobileDark = true,
   });
 
-  final JsonElement jsonElement;
+  /// The widget tree currently rendered by the preview.
+  final Map<String, dynamic> jsonData;
   final PlaygroundEntry selectedEntry;
 
   /// Dart DSL source for [selectedEntry] (inline or loaded from assets).
@@ -58,7 +58,7 @@ class HomeState {
   final bool edited;
 
   HomeState copyWith({
-    JsonElement? jsonElement,
+    Map<String, dynamic>? jsonData,
     PlaygroundEntry? selectedEntry,
     String? dartCode,
     bool? showCodeView,
@@ -72,7 +72,7 @@ class HomeState {
     bool? mobileDark,
   }) {
     return HomeState(
-      jsonElement: jsonElement ?? this.jsonElement,
+      jsonData: jsonData ?? this.jsonData,
       selectedEntry: selectedEntry ?? this.selectedEntry,
       dartCode: dartCode ?? this.dartCode,
       showCodeView: showCodeView ?? this.showCodeView,

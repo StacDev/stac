@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +17,7 @@ class CodePreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        final jsonData = jsonDecode(state.jsonElement.toPrettyString());
+        final jsonData = state.jsonData;
         return Container(
           decoration: BoxDecoration(
             color: context.colors.background,

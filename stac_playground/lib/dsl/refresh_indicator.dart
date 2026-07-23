@@ -6,14 +6,14 @@ StacWidget refreshIndicatorExample() {
     body: StacRefreshIndicator(
       onRefresh: StacNetworkRequest(
         url:
-            'https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json',
+            'https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json',
         method: Method.get,
         contentType: 'application/json',
       ),
       child: StacNetworkWidget(
         request: StacNetworkRequest(
           url:
-              'https://raw.githubusercontent.com/StacDev/stac/main/examples/stac_gallery/assets/json/list_view_example.json',
+              'https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json',
           method: Method.get,
         ),
       ),

@@ -14,11 +14,6 @@ analyzer:
     # `lib/dsl` ships as an asset bundle, so Flutter copies every example into
     # build/. Without this, `dart analyze .` reports each one several times over.
     - build/**
-    # Vendored JSON editor. Its lexer, scanner and linked-list utilities are
-    # derived from the Dart SDK sources and are kept close to upstream rather
-    # than restyled to this project's lints. Only `JsonElement` is still used;
-    # the editor widget itself was superseded by re_editor.
-    - lib/widget/stac_json_editor/**
 
 linter:
   # The lint rules applied to this project can be customized in the

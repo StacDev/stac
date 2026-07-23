@@ -536,7 +536,9 @@ class _DslParser {
           pos++;
           continue;
         }
-        if (src[pos] == r'$') {
+        // `$` is literal inside a raw string, so only flag interpolation for
+        // ordinary literals.
+        if (!isRaw && src[pos] == r'$') {
           throw const DslParseException(
             'String interpolation needs evaluation and cannot be previewed.',
           );

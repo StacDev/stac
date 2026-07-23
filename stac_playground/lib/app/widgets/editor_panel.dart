@@ -174,14 +174,11 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
       _baselineText = state.dartCode;
       _baselineIsPristine = true;
     } else {
-      // The current jsonElement carries in-progress edits across
-      // language/view switches; it equals the entry's JSON when unedited.
+      // The current jsonData carries in-progress edits across language/view
+      // switches; it equals the entry's JSON when unedited.
       var text = '';
       try {
-        text = _formatJson(
-          jsonDecode(state.jsonElement.toPrettyString())
-              as Map<String, dynamic>,
-        );
+        text = _formatJson(state.jsonData);
       } catch (_) {}
       _baselineText = text;
       _baselineIsPristine = !state.edited;

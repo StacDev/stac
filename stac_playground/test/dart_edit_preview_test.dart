@@ -65,6 +65,22 @@ StacWidget _row({required String label}) {
     }
   });
 
+  test('raw strings keep a literal dollar sign', () {
+    const rawDollar = r'''
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'demo')
+StacWidget demo() {
+  return StacScaffold(body: StacText(data: r'costs $100'));
+}
+''';
+
+    final result = parseEditorSource(rawDollar, isDart: true);
+
+    expect(result.message, isNull, reason: r'$ is literal in a raw string');
+    expect((result.json!['body'] as Map)['data'], r'costs $100');
+  });
+
   test('Dart needing evaluation reports why the preview stopped', () {
     const withVariable = '''
 import 'package:stac_core/stac_core.dart';
