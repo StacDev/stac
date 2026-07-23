@@ -13,6 +13,8 @@ class PlaygroundEntry {
     this.dartCode,
     this.jsonAsset,
     this.dartAsset,
+    this.icon,
+    this.iconType = 'material',
   });
 
   final String id;
@@ -23,4 +25,8 @@ class PlaygroundEntry {
   final String? dartCode;
   final String? jsonAsset;
   final String? dartAsset;
+
+  /// Icon name rendered through Stac's icon parser (material/cupertino set).
+  final String? icon;
+  final String iconType;
 }

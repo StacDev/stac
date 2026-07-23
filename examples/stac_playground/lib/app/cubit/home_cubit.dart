@@ -15,6 +15,7 @@ final List<PlaygroundEntry> playgroundEntries = [
     description: 'Welcome screen introducing the Stac SDUI framework',
     json: helloStacSample,
     dartCode: helloStacDartCode,
+    icon: 'waving_hand',
   ),
   const PlaygroundEntry(
     id: 'form_screen',
@@ -22,6 +23,7 @@ final List<PlaygroundEntry> playgroundEntries = [
     description: 'Sign-in form with validation, fields and actions',
     json: formSample,
     dartCode: formDartCode,
+    icon: 'login',
   ),
   ...componentEntries,
 ];

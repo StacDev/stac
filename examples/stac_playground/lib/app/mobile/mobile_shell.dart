@@ -25,6 +25,7 @@ class MobileColors {
     required this.onSurface,
     required this.onSurfaceVariant,
     required this.onSurfaceVariantII,
+    required this.iconHex,
   });
 
   factory MobileColors.of(bool dark) => dark
@@ -37,6 +38,7 @@ class MobileColors {
           onSurface: Colors.white,
           onSurfaceVariant: Color(0xB3FFFFFF),
           onSurfaceVariantII: Color(0x80FFFFFF),
+          iconHex: '#B3FFFFFF',
         )
       : const MobileColors(
           surface: Colors.white,
@@ -47,6 +49,7 @@ class MobileColors {
           onSurface: Color(0xFF0B0B0D),
           onSurfaceVariant: Color(0xB30B0B0D),
           onSurfaceVariantII: Color(0x800B0B0D),
+          iconHex: '#B30B0B0D',
         );
 
   final Color surface;
@@ -57,6 +60,9 @@ class MobileColors {
   final Color onSurface;
   final Color onSurfaceVariant;
   final Color onSurfaceVariantII;
+
+  /// [onSurfaceVariant] as a hex string for Stac-rendered icons.
+  final String iconHex;
 }
 
 /// Accent green shared by both themes (Console `secondary` token).
@@ -312,11 +318,26 @@ class _EntryCard extends StatelessWidget {
                 color: colors.container,
                 shape: BoxShape.circle,
               ),
-              child: PhosphorIcon(
-                PhosphorIcons.square(),
-                size: 16,
-                color: colors.onSurfaceVariant,
-              ),
+              child: entry.icon == null
+                  ? PhosphorIcon(
+                      PhosphorIcons.square(),
+                      size: 16,
+                      color: colors.onSurfaceVariant,
+                    )
+                  : SizedBox(
+                      width: 16,
+                      height: 16,
+                      child: Stac.fromJson(
+                        {
+                          'type': 'icon',
+                          'iconType': entry.iconType,
+                          'icon': entry.icon,
+                          'size': 16,
+                          'color': colors.iconHex,
+                        },
+                        context,
+                      ),
+                    ),
             ),
             const SizedBox(width: 12),
             Expanded(

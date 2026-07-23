@@ -8,6 +8,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Displays information and actions relating to the current screen',
     jsonAsset: 'assets/json/app_bar_example.json',
     dartAsset: 'lib/dsl/app_bar.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -16,6 +18,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Create a auto complete widget with list of strings',
     jsonAsset: 'assets/json/auto_complete_example.json',
     dartAsset: 'lib/dsl/auto_complete.dart',
+    icon: 'done_all',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -24,6 +28,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Create a widget with tooltip',
     jsonAsset: 'assets/json/tool_tip_example.json',
     dartAsset: 'lib/dsl/tool_tip.dart',
+    icon: 'info',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -32,6 +38,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Display small status descriptors, counts, or notifications',
     jsonAsset: 'assets/json/badge_example.json',
     dartAsset: 'lib/dsl/badge.dart',
+    icon: 'badge',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -40,6 +48,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Bottom navigation with cross-fading views',
     jsonAsset: 'assets/json/bottom_nav_bar_example.json',
     dartAsset: 'lib/dsl/bottom_nav_bar.dart',
+    icon: 'navigation',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -48,6 +58,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac bottom sheet example',
     jsonAsset: 'assets/json/bottom_sheet_example.json',
     dartAsset: 'lib/dsl/bottom_sheet.dart',
+    icon: 'navigation',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -56,6 +68,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Card is a sheet of material used to represent some related information',
     jsonAsset: 'assets/json/card_example.json',
     dartAsset: 'lib/dsl/card.dart',
+    icon: 'wallet_giftcard',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -64,6 +78,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'The CarouselView presents a scrollable list of items, each of which can dynamically change size based on the chosen layout.',
     jsonAsset: 'assets/json/carousel_view_example.json',
     dartAsset: 'lib/dsl/carousel_view.dart',
+    icon: 'view_carousel',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -72,6 +88,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that centers its child within itself.',
     jsonAsset: 'assets/json/center_example.json',
     dartAsset: 'lib/dsl/center.dart',
+    icon: 'format_align_center',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -80,6 +98,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design panel that slides in horizontally from the edge of a Scaffold',
     jsonAsset: 'assets/json/drawer_example.json',
     dartAsset: 'lib/dsl/drawer.dart',
+    icon: 'menu',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -88,6 +108,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'widget that is used to align its child within itself and optionally sizes itself based on the child\'s size',
     jsonAsset: 'assets/json/align_example.json',
     dartAsset: 'lib/dsl/align.dart',
+    icon: 'format_align_center',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -96,6 +118,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'This is a stac column widget.',
     jsonAsset: 'assets/json/column_example.json',
     dartAsset: 'lib/dsl/column.dart',
+    icon: 'table_rows',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -104,6 +128,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Informs the user about situations that require acknowledgement',
     jsonAsset: 'assets/json/dialog_example.json',
     dartAsset: 'lib/dsl/dialog.dart',
+    icon: 'add_alert',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -112,6 +138,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'This is a stac stack widget.',
     jsonAsset: 'assets/json/stack_example.json',
     dartAsset: 'lib/dsl/stack.dart',
+    icon: 'layers',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -120,6 +148,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Container combines common painting, positioning, and sizing widgets',
     jsonAsset: 'assets/json/container_example.json',
     dartAsset: 'lib/dsl/container.dart',
+    icon: 'apartment',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -128,6 +158,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design elevated button',
     jsonAsset: 'assets/json/elevated_button_example.json',
     dartAsset: 'lib/dsl/elevated_button.dart',
+    icon: 'smart_button',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -136,6 +168,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A floating action button is a circular icon button that hovers over content to promote a primary action in the application',
     jsonAsset: 'assets/json/floating_action_button_example.json',
     dartAsset: 'lib/dsl/floating_action_button.dart',
+    icon: 'blur_circular_rounded',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -144,6 +178,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'An icon button is a picture printed on a Material widget that reacts to touches by filling with color',
     jsonAsset: 'assets/json/icon_example.json',
     dartAsset: 'lib/dsl/icon.dart',
+    icon: 'radio_button_checked',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -152,6 +188,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design icon',
     jsonAsset: 'assets/json/icon_button_example.json',
     dartAsset: 'lib/dsl/icon_button.dart',
+    icon: 'heart_solid',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -160,6 +198,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that displays an image',
     jsonAsset: 'assets/json/image_example.json',
     dartAsset: 'lib/dsl/image.dart',
+    icon: 'image',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -168,6 +208,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Creates an Inkwell effect when tapped',
     jsonAsset: 'assets/json/inkwell_example.json',
     dartAsset: 'lib/dsl/inkwell.dart',
+    icon: 'hand_draw',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -176,6 +218,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A single fixed-height row that typically contains some text as well as a leading or trailing icon',
     jsonAsset: 'assets/json/list_tile_example.json',
     dartAsset: 'lib/dsl/list_tile.dart',
+    icon: 'table_rows_sharp',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -184,6 +228,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A scrollable, linear list of widgets',
     jsonAsset: 'assets/json/list_view_example.json',
     dartAsset: 'lib/dsl/list_view.dart',
+    icon: 'view_list',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -192,6 +238,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Shows examples of different types of navigation types and styles in Stac',
     jsonAsset: 'assets/json/navigation_example.json',
     dartAsset: 'lib/dsl/navigation.dart',
+    icon: 'navigation',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -200,6 +248,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Material 3 navigation bar with selectable destinations',
     jsonAsset: 'assets/json/navigation_bar_example.json',
     dartAsset: 'lib/dsl/navigation_bar.dart',
+    icon: 'navigation',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -208,6 +258,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design outlined button, essentially a TextButton with an outlined border',
     jsonAsset: 'assets/json/outlined_button_example.json',
     dartAsset: 'lib/dsl/outlined_button.dart',
+    icon: 'smart_button_outlined',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -216,6 +268,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that insets its child by the given padding',
     jsonAsset: 'assets/json/padding_example.json',
     dartAsset: 'lib/dsl/padding.dart',
+    icon: 'padding',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -224,6 +278,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design widget that displays a horizontal row of pages',
     jsonAsset: 'assets/json/page_view_example.json',
     dartAsset: 'lib/dsl/page_view.dart',
+    icon: 'table_chart',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -232,6 +288,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that supports the Material "swipe to refresh" idiom.',
     jsonAsset: 'assets/json/refresh_indicator_example.json',
     dartAsset: 'lib/dsl/refresh_indicator.dart',
+    icon: 'refresh',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -240,6 +298,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Layout a list of child widgets in the horizontal direction',
     jsonAsset: 'assets/json/row_example.json',
     dartAsset: 'lib/dsl/row.dart',
+    icon: 'table_rows',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -248,6 +308,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Implements the basic Material Design visual layout structure',
     jsonAsset: 'assets/json/scaffold_example.json',
     dartAsset: 'lib/dsl/scaffold.dart',
+    icon: 'widgets',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -256,6 +318,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A box in which a single widget can be scrolled',
     jsonAsset: 'assets/json/scroll_view_example.json',
     dartAsset: 'lib/dsl/scroll_view.dart',
+    icon: 'swipe_down',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -264,6 +328,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A box with a specified size. If given a child, this widget forces its child to have a specific dimensions.',
     jsonAsset: 'assets/json/sized_box_example.json',
     dartAsset: 'lib/dsl/sized_box.dart',
+    icon: 'space_bar',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -272,6 +338,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Creates an adjustable, empty spacer that can be used to tune the spacing between widgets in a Flex container.',
     jsonAsset: 'assets/json/spacer_example.json',
     dartAsset: 'lib/dsl/spacer.dart',
+    icon: 'space_dashboard',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -280,6 +348,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A switch component that can be toggled via dragging or tapping on it.',
     jsonAsset: 'assets/json/switch_example.json',
     dartAsset: 'lib/dsl/switch.dart',
+    icon: 'toggle_on',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -288,6 +358,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that sizes its child to a fraction of the total available space.',
     jsonAsset: 'assets/json/fractionally_sized_box_example.json',
     dartAsset: 'lib/dsl/fractionally_sized_box.dart',
+    icon: 'space_bar',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -296,6 +368,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A scrollable, 2D array of widgets that are created on demand.',
     jsonAsset: 'assets/json/grid_view_example.json',
     dartAsset: 'lib/dsl/grid_view.dart',
+    icon: 'grid_view',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -304,6 +378,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design widget that displays a horizontal row of tabs',
     jsonAsset: 'assets/json/tab_bar_example.json',
     dartAsset: 'lib/dsl/tab_bar.dart',
+    icon: 'table_chart',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -312,6 +388,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A run of text with a single style.',
     jsonAsset: 'assets/json/text_example.json',
     dartAsset: 'lib/dsl/text.dart',
+    icon: 'text_quote',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -320,6 +398,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A run of text with a single style that can be selected',
     jsonAsset: 'assets/json/selectable_text_example.json',
     dartAsset: 'lib/dsl/selectable_text.dart',
+    icon: 'text_fields',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -328,6 +408,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Text button displays an ink splash on press but does not lift',
     jsonAsset: 'assets/json/text_button_example.json',
     dartAsset: 'lib/dsl/text_button.dart',
+    icon: 'textbox',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -336,6 +418,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Text fields allow users to type text into an app',
     jsonAsset: 'assets/json/text_field_example.json',
     dartAsset: 'lib/dsl/text_field.dart',
+    icon: 'text_fields',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -344,6 +428,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Form Widget',
     jsonAsset: 'assets/json/form_example.json',
     dartAsset: 'lib/dsl/form.dart',
+    icon: 'blur_circular_rounded',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -352,6 +438,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Web View Widget',
     jsonAsset: 'assets/json/web_view_example.json',
     dartAsset: 'lib/dsl/web_view.dart',
+    icon: 'language',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -360,6 +448,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Chips are compact elements that represent an attribute, text, entity, or action',
     jsonAsset: 'assets/json/chip_example.json',
     dartAsset: 'lib/dsl/chip.dart',
+    icon: 'check_box_outline_blank',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -368,6 +458,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget that clips its child using an oval',
     jsonAsset: 'assets/json/clip_oval_example.json',
     dartAsset: 'lib/dsl/clip_oval.dart',
+    icon: 'crop_original',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -376,6 +468,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A widget to creates a wrap layout',
     jsonAsset: 'assets/json/wrap_example.json',
     dartAsset: 'lib/dsl/wrap.dart',
+    icon: 'wrap_text',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -384,6 +478,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design filled button',
     jsonAsset: 'assets/json/filled_button_example.json',
     dartAsset: 'lib/dsl/filled_button.dart',
+    icon: 'smart_button',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -392,6 +488,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Rable widget',
     jsonAsset: 'assets/json/table_example.json',
     dartAsset: 'lib/dsl/table.dart',
+    icon: 'table_rows',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -400,6 +498,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Divider widget',
     jsonAsset: 'assets/json/divider_example.json',
     dartAsset: 'lib/dsl/divider.dart',
+    icon: 'star',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -408,6 +508,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Circular Progress Indicator widget',
     jsonAsset: 'assets/json/circular_progress_indicator_example.json',
     dartAsset: 'lib/dsl/circular_progress_indicator.dart',
+    icon: 'star',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -416,6 +518,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Linear Progress Indicator widget',
     jsonAsset: 'assets/json/linear_progress_indicator_example.json',
     dartAsset: 'lib/dsl/linear_progress_indicator.dart',
+    icon: 'star',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -424,6 +528,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Hero Widget',
     jsonAsset: 'assets/json/hero_example.json',
     dartAsset: 'lib/dsl/hero.dart',
+    icon: 'flight_takeoff',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -432,6 +538,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Radio widget',
     jsonAsset: 'assets/json/radio_example.json',
     dartAsset: 'lib/dsl/radio.dart',
+    icon: 'radio',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -440,6 +548,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Slider widget',
     jsonAsset: 'assets/json/slider_example.json',
     dartAsset: 'lib/dsl/slider.dart',
+    icon: 'slider_horizontal_3',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -448,6 +558,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Sliver App Bar widget',
     jsonAsset: 'assets/json/sliver_app_bar_example.json',
     dartAsset: 'lib/dsl/sliver_app_bar.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -456,6 +568,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A SliverGrid widget',
     jsonAsset: 'assets/json/sliver_grid_example.json',
     dartAsset: 'lib/dsl/sliver_grid.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -464,6 +578,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A SliverPadding widget',
     jsonAsset: 'assets/json/sliver_padding_example.json',
     dartAsset: 'lib/dsl/sliver_padding.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -472,6 +588,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Sliver Safe Area widget',
     jsonAsset: 'assets/json/sliver_safe_area_example.json',
     dartAsset: 'lib/dsl/sliver_safe_area.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -480,6 +598,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Sliver List widget',
     jsonAsset: 'assets/json/sliver_list_example.json',
     dartAsset: 'lib/dsl/sliver_list.dart',
+    icon: 'list',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -488,6 +608,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A sliver that contains a single box widget.',
     jsonAsset: 'assets/json/sliver_to_box_adapter_example.json',
     dartAsset: 'lib/dsl/sliver_to_box_adapter.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -496,6 +618,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Sliver Fill Remaining widget.',
     jsonAsset: 'assets/json/sliver_fill_remaining_example.json',
     dartAsset: 'lib/dsl/sliver_fill_remaining.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -504,6 +628,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Sliver Opacity widget',
     jsonAsset: 'assets/json/sliver_opacity_example.json',
     dartAsset: 'lib/dsl/sliver_opacity.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -512,6 +638,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Sliver Visibility widget',
     jsonAsset: 'assets/json/sliver_visibility_example.json',
     dartAsset: 'lib/dsl/sliver_visibility.dart',
+    icon: 'app_fill',
+    iconType: 'cupertino',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -520,6 +648,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac Opacity widget',
     jsonAsset: 'assets/json/opacity_example.json',
     dartAsset: 'lib/dsl/opacity.dart',
+    icon: 'navigation',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -528,6 +658,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac Placeholder widget',
     jsonAsset: 'assets/json/placeholder_example.json',
     dartAsset: 'lib/dsl/placeholder.dart',
+    icon: 'apartment',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -536,6 +668,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design SnackBar widget',
     jsonAsset: 'assets/json/snackbar_example.json',
     dartAsset: 'lib/dsl/snackbar.dart',
+    icon: 'message',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -544,6 +678,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac AspectRatio widget',
     jsonAsset: 'assets/json/aspect_ratio_example.json',
     dartAsset: 'lib/dsl/aspect_ratio.dart',
+    icon: 'apartment',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -552,6 +688,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac FittedBox widget',
     jsonAsset: 'assets/json/fitted_box_example.json',
     dartAsset: 'lib/dsl/fitted_box.dart',
+    icon: 'apartment',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -560,6 +698,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'A Material Design Stac LimitedBox widget',
     jsonAsset: 'assets/json/limited_box_example.json',
     dartAsset: 'lib/dsl/limited_box.dart',
+    icon: 'apartment',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -568,6 +708,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Fetch data from APIs and render it using templates',
     jsonAsset: 'assets/json/dynamic_view_example.json',
     dartAsset: 'lib/dsl/dynamic_view.dart',
+    icon: 'api',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -576,6 +718,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Fetch data from APIs and render it using templates',
     jsonAsset: 'assets/json/dynamic_list_view_example.json',
     dartAsset: 'lib/dsl/dynamic_list_view.dart',
+    icon: 'api',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -584,6 +728,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Drop down menu to select items',
     jsonAsset: 'assets/json/dropdown_menu_view_example.json',
     dartAsset: 'lib/dsl/dropdown_menu_view.dart',
+    icon: 'api',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -592,6 +738,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Use variables to store and access values',
     jsonAsset: 'assets/json/variable_example.json',
     dartAsset: 'lib/dsl/variable.dart',
+    icon: 'category',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -600,6 +748,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Use if-else conditions in STAC templates',
     jsonAsset: 'assets/json/conditional_example.json',
     dartAsset: 'lib/dsl/conditional.dart',
+    icon: 'code',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
@@ -608,6 +758,8 @@ const List<PlaygroundEntry> componentEntries = [
     description: 'Use backdrop filters',
     jsonAsset: 'assets/json/backdrop_filter_example.json',
     dartAsset: 'lib/dsl/backdrop_filter.dart',
+    icon: 'code',
+    iconType: 'material',
     category: EntryCategory.component,
   ),
 ];
