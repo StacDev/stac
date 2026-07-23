@@ -1,3 +1,8 @@
+// The JSON for this example uses the deprecated `defaultBottomNavigationController`
+// and `bottomNavigationView` types, so the DSL mirrors them to stay faithful.
+// The navigation_bar example demonstrates the replacements.
+// ignore_for_file: deprecated_member_use
+
 import 'package:stac_core/stac_core.dart';
 
 @StacScreen(screenName: 'bottom_nav_bar')

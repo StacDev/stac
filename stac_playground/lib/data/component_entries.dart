@@ -5,7 +5,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'app_bar',
     title: 'Stac Appbar',
-    description: 'Displays information and actions relating to the current screen',
+    description:
+        'Displays information and actions relating to the current screen',
     jsonAsset: 'assets/json/app_bar_example.json',
     dartAsset: 'lib/dsl/app_bar.dart',
     icon: 'app_fill',
@@ -65,7 +66,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'card',
     title: 'Stac Card',
-    description: 'Card is a sheet of material used to represent some related information',
+    description:
+        'Card is a sheet of material used to represent some related information',
     jsonAsset: 'assets/json/card_example.json',
     dartAsset: 'lib/dsl/card.dart',
     icon: 'wallet_giftcard',
@@ -75,7 +77,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'carousel_view',
     title: 'Stac Carousel View',
-    description: 'The CarouselView presents a scrollable list of items, each of which can dynamically change size based on the chosen layout.',
+    description:
+        'The CarouselView presents a scrollable list of items, each of which can dynamically change size based on the chosen layout.',
     jsonAsset: 'assets/json/carousel_view_example.json',
     dartAsset: 'lib/dsl/carousel_view.dart',
     icon: 'view_carousel',
@@ -95,7 +98,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'drawer',
     title: 'Stac Drawer',
-    description: 'A Material Design panel that slides in horizontally from the edge of a Scaffold',
+    description:
+        'A Material Design panel that slides in horizontally from the edge of a Scaffold',
     jsonAsset: 'assets/json/drawer_example.json',
     dartAsset: 'lib/dsl/drawer.dart',
     icon: 'menu',
@@ -105,7 +109,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'align',
     title: 'Stac Align',
-    description: 'widget that is used to align its child within itself and optionally sizes itself based on the child\'s size',
+    description:
+        'widget that is used to align its child within itself and optionally sizes itself based on the child\'s size',
     jsonAsset: 'assets/json/align_example.json',
     dartAsset: 'lib/dsl/align.dart',
     icon: 'format_align_center',
@@ -125,7 +130,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'dialog',
     title: 'Stac Dialog',
-    description: 'Informs the user about situations that require acknowledgement',
+    description:
+        'Informs the user about situations that require acknowledgement',
     jsonAsset: 'assets/json/dialog_example.json',
     dartAsset: 'lib/dsl/dialog.dart',
     icon: 'add_alert',
@@ -145,7 +151,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'container',
     title: 'Stac Container',
-    description: 'Container combines common painting, positioning, and sizing widgets',
+    description:
+        'Container combines common painting, positioning, and sizing widgets',
     jsonAsset: 'assets/json/container_example.json',
     dartAsset: 'lib/dsl/container.dart',
     icon: 'apartment',
@@ -165,7 +172,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'floating_action_button',
     title: 'Stac Floating Action Button',
-    description: 'A floating action button is a circular icon button that hovers over content to promote a primary action in the application',
+    description:
+        'A floating action button is a circular icon button that hovers over content to promote a primary action in the application',
     jsonAsset: 'assets/json/floating_action_button_example.json',
     dartAsset: 'lib/dsl/floating_action_button.dart',
     icon: 'blur_circular_rounded',
@@ -175,7 +183,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'icon',
     title: 'Stac Icon',
-    description: 'An icon button is a picture printed on a Material widget that reacts to touches by filling with color',
+    description:
+        'An icon button is a picture printed on a Material widget that reacts to touches by filling with color',
     jsonAsset: 'assets/json/icon_example.json',
     dartAsset: 'lib/dsl/icon.dart',
     icon: 'radio_button_checked',
@@ -215,7 +224,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'list_tile',
     title: 'Stac List Tile',
-    description: 'A single fixed-height row that typically contains some text as well as a leading or trailing icon',
+    description:
+        'A single fixed-height row that typically contains some text as well as a leading or trailing icon',
     jsonAsset: 'assets/json/list_tile_example.json',
     dartAsset: 'lib/dsl/list_tile.dart',
     icon: 'table_rows_sharp',
@@ -235,7 +245,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'navigation',
     title: 'Stac Navigation',
-    description: 'Shows examples of different types of navigation types and styles in Stac',
+    description:
+        'Shows examples of different types of navigation types and styles in Stac',
     jsonAsset: 'assets/json/navigation_example.json',
     dartAsset: 'lib/dsl/navigation.dart',
     icon: 'navigation',
@@ -255,7 +266,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'outlined_button',
     title: 'Stac Outlined Button',
-    description: 'A Material Design outlined button, essentially a TextButton with an outlined border',
+    description:
+        'A Material Design outlined button, essentially a TextButton with an outlined border',
     jsonAsset: 'assets/json/outlined_button_example.json',
     dartAsset: 'lib/dsl/outlined_button.dart',
     icon: 'smart_button_outlined',
@@ -275,7 +287,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'page_view',
     title: 'Stac PageView',
-    description: 'A Material Design widget that displays a horizontal row of pages',
+    description:
+        'A Material Design widget that displays a horizontal row of pages',
     jsonAsset: 'assets/json/page_view_example.json',
     dartAsset: 'lib/dsl/page_view.dart',
     icon: 'table_chart',
@@ -285,7 +298,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'refresh_indicator',
     title: 'Stac Refresh Indicator',
-    description: 'A widget that supports the Material "swipe to refresh" idiom.',
+    description:
+        'A widget that supports the Material "swipe to refresh" idiom.',
     jsonAsset: 'assets/json/refresh_indicator_example.json',
     dartAsset: 'lib/dsl/refresh_indicator.dart',
     icon: 'refresh',
@@ -325,7 +339,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'sized_box',
     title: 'Stac Sizedbox',
-    description: 'A box with a specified size. If given a child, this widget forces its child to have a specific dimensions.',
+    description:
+        'A box with a specified size. If given a child, this widget forces its child to have a specific dimensions.',
     jsonAsset: 'assets/json/sized_box_example.json',
     dartAsset: 'lib/dsl/sized_box.dart',
     icon: 'space_bar',
@@ -335,7 +350,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'spacer',
     title: 'Stac Spacer',
-    description: 'Creates an adjustable, empty spacer that can be used to tune the spacing between widgets in a Flex container.',
+    description:
+        'Creates an adjustable, empty spacer that can be used to tune the spacing between widgets in a Flex container.',
     jsonAsset: 'assets/json/spacer_example.json',
     dartAsset: 'lib/dsl/spacer.dart',
     icon: 'space_dashboard',
@@ -345,7 +361,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'switch',
     title: 'Stac Switch',
-    description: 'A switch component that can be toggled via dragging or tapping on it.',
+    description:
+        'A switch component that can be toggled via dragging or tapping on it.',
     jsonAsset: 'assets/json/switch_example.json',
     dartAsset: 'lib/dsl/switch.dart',
     icon: 'toggle_on',
@@ -355,7 +372,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'fractionally_sized_box',
     title: 'Stac Fractionally Sizedbox',
-    description: 'A widget that sizes its child to a fraction of the total available space.',
+    description:
+        'A widget that sizes its child to a fraction of the total available space.',
     jsonAsset: 'assets/json/fractionally_sized_box_example.json',
     dartAsset: 'lib/dsl/fractionally_sized_box.dart',
     icon: 'space_bar',
@@ -365,7 +383,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'grid_view',
     title: 'Stac GridView',
-    description: 'A scrollable, 2D array of widgets that are created on demand.',
+    description:
+        'A scrollable, 2D array of widgets that are created on demand.',
     jsonAsset: 'assets/json/grid_view_example.json',
     dartAsset: 'lib/dsl/grid_view.dart',
     icon: 'grid_view',
@@ -375,7 +394,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'tab_bar',
     title: 'Stac Tabbar',
-    description: 'A Material Design widget that displays a horizontal row of tabs',
+    description:
+        'A Material Design widget that displays a horizontal row of tabs',
     jsonAsset: 'assets/json/tab_bar_example.json',
     dartAsset: 'lib/dsl/tab_bar.dart',
     icon: 'table_chart',
@@ -405,7 +425,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'text_button',
     title: 'Stac Text Button',
-    description: 'Text button displays an ink splash on press but does not lift',
+    description:
+        'Text button displays an ink splash on press but does not lift',
     jsonAsset: 'assets/json/text_button_example.json',
     dartAsset: 'lib/dsl/text_button.dart',
     icon: 'textbox',
@@ -445,7 +466,8 @@ const List<PlaygroundEntry> componentEntries = [
   PlaygroundEntry(
     id: 'chip',
     title: 'Chip',
-    description: 'Chips are compact elements that represent an attribute, text, entity, or action',
+    description:
+        'Chips are compact elements that represent an attribute, text, entity, or action',
     jsonAsset: 'assets/json/chip_example.json',
     dartAsset: 'lib/dsl/chip.dart',
     icon: 'check_box_outline_blank',

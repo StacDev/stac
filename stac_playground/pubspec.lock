@@ -588,20 +588,18 @@ packages:
     source: path
     version: "1.5.0"
   stac_framework:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: stac_framework
-      sha256: e75d1a1b2fd46c65acbc6ce174c7272aef4eb4020722f09c35fce2b3dadf858e
-      url: "https://pub.dev"
-    source: hosted
+      path: "../packages/stac_framework"
+      relative: true
+    source: path
     version: "1.0.0"
   stac_logger:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: stac_logger
-      sha256: bc3c1cc486d59d2378c1e18bfd9bfa078be564b58d4ae2b3898633c05a02df26
-      url: "https://pub.dev"
-    source: hosted
+      path: "../packages/stac_logger"
+      relative: true
+    source: path
     version: "1.1.0"
   stack_trace:
     dependency: transitive

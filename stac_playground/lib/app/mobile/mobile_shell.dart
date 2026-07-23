@@ -654,8 +654,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                             ? PhosphorIcons.sunDim
                             : PhosphorIcons.moonStars,
                         colors: colors,
-                        onTap: () =>
-                            context.read<HomeCubit>().toggleDarkMode(),
+                        onTap: () => context.read<HomeCubit>().toggleDarkMode(),
                       ),
                       const SizedBox(width: 4),
                       _HeaderIcon(

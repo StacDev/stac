@@ -70,11 +70,9 @@ class AppTheme {
         onPrimary: appColors.onPrimary,
         secondary: appColors.secondary,
         onSecondary: appColors.onSecondary,
-        background: appColors.background,
-        onBackground: appColors.onBackground,
         surface: appColors.surface,
         onSurface: appColors.onSurface,
-        surfaceVariant: appColors.surfaceVariant,
+        surfaceContainerHighest: appColors.surfaceVariant,
         onSurfaceVariant: appColors.onSurfaceVariant,
         error: appColors.error,
         onError: appColors.onError,
@@ -84,11 +82,11 @@ class AppTheme {
 
       /// Component Theme
       appBarTheme: const AppBarTheme(
-        color: Colors.transparent,
+        backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       tooltipTheme: const TooltipThemeData(
-        height: 24,
+        constraints: BoxConstraints(minHeight: 24),
         textStyle: TextStyle(
           fontSize: 12,
           height: 1.3,
