@@ -1,0 +1,199 @@
+---
+title: "Navigation in Stac"
+description: "How to navigate between screens in Stac: push, pop, replace, and clear the stack using Stac screens, Flutter routes, JSON, assets, or network."
+---
+
+Stac uses the same idea as Flutter's Navigator: you push new screens, pop back, or replace the current one. The difference is you can drive it from JSON (e.g. from your backend) or from Dart, and the next screen can be a Stac screen, a Flutter route, or a screen loaded from inline JSON, an asset, or the network.
+
+## Where you can go
+
+When you're pushing a new screen, you pick **one** way to say where to go:
+
+| Destination    | Good for | In Dart | In JSON |
+|----------------|-----------|---------|---------|
+| **Stac screen** | Screens from your `/stac` folder or Stac Cloud | `pushStac('screen_name')` | `routeName` + push-style |
+| **Flutter route** | Your app’s own named routes (e.g. settings) | `pushFlutter('/path')` | `routeName` + `pushNamed` etc. |
+| **Inline JSON**  | Screen defined right in the action | `pushJson({ ... })` | `widgetJson` |
+| **Asset**        | Bundled or offline JSON screens | `pushAsset('assets/screen.json')` | `assetPath` |
+| **Network**      | Screen fetched from an API | `pushNetwork(StacNetworkRequest(...))` | `request` |
+
+Going *back* is simpler: use **pop** or **popAll** with `navigationStyle` (and optionally `result` when popping).
+
+## Using StacNavigator in Dart
+
+In Dart, `StacNavigator` gives you clear, type-safe helpers so you don’t hand-build action objects yourself.
+
+**Going back:** `StacNavigator.pop({ result })` pops the current route (and can pass `result` to the previous one). `StacNavigator.popAll()` pops back to the root.
+
+**Stac screens:** `pushStac(routeName)`, `pushReplacementStac(routeName)`, `pushAndRemoveAllStac(routeName)`. Optional `arguments` on push, optional `result` on replacement.
+
+**Flutter routes:** Same pattern with `pushFlutter`, `pushReplacementFlutter`, `pushAndRemoveAllFlutter`—use your app’s route names.
+
+**Inline JSON, assets, network:** `pushJson`, `pushAsset`, `pushNetwork` (and their `pushReplacement*` and `pushAndRemoveAll*` variants) do what the names say. Handy when the screen comes from a blob of JSON, a local file, or an API call.
+
+## Navigation styles at a glance
+
+| Style | What it does |
+|-------|----------------|
+| `push` | New screen on top of the stack |
+| `pop` | Dismiss current screen (optional `result`) |
+| `pushReplacement` | Swap current screen for a new one |
+| `pushAndRemoveAll` | New screen and clear the stack (e.g. new root) |
+| `popAll` | Pop back to the root |
+| `pushNamed` / `pushReplacementNamed` / `pushNamedAndRemoveAll` | Same as above but for Flutter named routes |
+
+## Examples
+
+Each example shows the Dart form (e.g. on a button’s `onPressed`) and the equivalent JSON you’d use in a Stac action.
+
+### Pop and popAll
+
+<CodeGroup>
+```dart Dart
+// Pop current route
+onPressed: StacNavigator.pop()
+
+// Pop with a result for the previous screen
+onPressed: StacNavigator.pop(result: {'saved': true})
+
+// Pop back to root
+onPressed: StacNavigator.popAll()
+```
+
+```json JSON
+// Pop
+{ "actionType": "navigate", "navigationStyle": "pop" }
+
+// Pop with result
+{ "actionType": "navigate", "navigationStyle": "pop", "result": { "saved": true } }
+
+// Pop to root
+{ "actionType": "navigate", "navigationStyle": "popAll" }
+```
+</CodeGroup>
+
+### Push a Stac screen
+
+<CodeGroup>
+```dart Dart
+StacNavigator.pushStac('detail_screen', arguments: {'id': '123'})
+```
+
+```json JSON
+{
+  "actionType": "navigate",
+  "routeName": "detail_screen",
+  "navigationStyle": "push",
+  "arguments": { "id": "123" }
+}
+```
+</CodeGroup>
+
+### Push a Flutter named route
+
+<CodeGroup>
+```dart Dart
+StacNavigator.pushFlutter('/settings', arguments: {'tab': 'profile'})
+```
+
+```json JSON
+{
+  "actionType": "navigate",
+  "routeName": "/settings",
+  "navigationStyle": "pushNamed",
+  "arguments": { "tab": "profile" }
+}
+```
+</CodeGroup>
+
+### Push a screen from inline JSON
+
+<CodeGroup>
+```dart Dart
+StacNavigator.pushJson({
+  "type": "scaffold",
+  "appBar": { "type": "appBar", "title": { "type": "text", "data": "Detail" } },
+  "body": { "type": "text", "data": "Hello" }
+})
+```
+
+```json JSON
+{
+  "actionType": "navigate",
+  "navigationStyle": "push",
+  "widgetJson": {
+    "type": "scaffold",
+    "appBar": { "type": "appBar", "title": { "type": "text", "data": "Detail" } },
+    "body": { "type": "text", "data": "Hello" }
+  }
+}
+```
+</CodeGroup>
+
+### Push a screen from an asset
+
+<CodeGroup>
+```dart Dart
+StacNavigator.pushAsset('assets/screens/detail.json')
+```
+
+```json JSON
+{
+  "actionType": "navigate",
+  "navigationStyle": "push",
+  "assetPath": "assets/screens/detail.json"
+}
+```
+</CodeGroup>
+
+### Push a screen from the network
+
+<CodeGroup>
+```dart Dart
+StacNavigator.pushNetwork(
+  StacNetworkRequest(url: 'https://api.example.com/screen', method: Method.get),
+)
+```
+
+```json JSON
+{
+  "actionType": "navigate",
+  "navigationStyle": "push",
+  "request": {
+    "url": "https://api.example.com/screen",
+    "method": "get"
+  }
+}
+```
+</CodeGroup>
+
+### Replace and clear stack
+
+<CodeGroup>
+```dart Dart
+// Replace current screen with a Stac screen (e.g. after login)
+StacNavigator.pushReplacementStac('home_screen', result: {'loggedIn': true})
+
+// New root: push and remove everything below
+StacNavigator.pushAndRemoveAllStac('home_screen')
+```
+
+```json JSON
+// Replace
+{
+  "actionType": "navigate",
+  "routeName": "home_screen",
+  "navigationStyle": "pushReplacement",
+  "result": { "loggedIn": true }
+}
+
+// New root
+{
+  "actionType": "navigate",
+  "routeName": "home_screen",
+  "navigationStyle": "pushAndRemoveAll"
+}
+```
+</CodeGroup>
+
+For full property details, see the [Navigate Action](/actions/navigate) reference.

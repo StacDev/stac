@@ -1,0 +1,42 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "FittedBox"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "top": 12,
+      "left": 12,
+      "right": 12
+    },
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "start",
+      "crossAxisAlignment": "start",
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 12
+        },
+        {
+          "type": "fittedBox",
+          "fit": "contain",
+          "alignment": "center",
+          "child": {
+            "type": "text",
+            "data": "Hello, World!",
+            "style": {
+              "fontSize": 20,
+              "color": "#000000"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

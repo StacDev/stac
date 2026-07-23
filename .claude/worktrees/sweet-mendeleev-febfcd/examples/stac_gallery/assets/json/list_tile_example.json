@@ -1,0 +1,103 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Tiles"
+    }
+  },
+  "body": {
+    "type": "column",
+    "mainAxisAlignment": "start",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 12
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "icon",
+          "icon": "person"
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Andrew Symonds",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Andrew Symonds was an Australian international cricketer, who played all three formats as a batting all-rounder. Commonly nicknamed \"Roy\", he was a key member of two World Cup winning squads. Symonds played as a right-handed, middle order batsman and alternated between medium pace and off-spin",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "sizedBox",
+        "height": 12
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "icon",
+          "icon": "person"
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Adam Gilchrist",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Adam Craig Gilchrist is an Australian cricket commentator and former international cricketer and captain of the Australia national cricket team. He was an attacking left-handed batsman and record-breaking wicket-keeper",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      }
+    ]
+  }
+}

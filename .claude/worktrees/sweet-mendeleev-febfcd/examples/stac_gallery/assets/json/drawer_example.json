@@ -1,0 +1,133 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Drawer Example",
+            "style": {
+                "color": "#ffffff",
+                "fontSize": 21
+            }
+        },
+        "backgroundColor": "#4D00E9"
+    },
+    "drawerEnableOpenDragGesture": true,
+    "drawerEdgeDragWidth": 20.0,
+    "drawer": {
+        "type": "drawer",
+        "backgroundColor": "#f5f5f5",
+        "elevation": 16.0,
+        "width": 280.0,
+        "child": {
+            "type": "column",
+            "children": [
+                {
+                    "type": "container",
+                    "height": 120,
+                    "color": "#4D00E9",
+                    "child": {
+                        "type": "center",
+                        "child": {
+                            "type": "text",
+                            "data": "Drawer Header",
+                            "style": {
+                                "color": "#ffffff",
+                                "fontSize": 20,
+                                "fontWeight": "bold"
+                            }
+                        }
+                    }
+                },
+                {
+                    "type": "expanded",
+                    "child": {
+                        "type": "listView",
+                        "children": [
+                            {
+                                "type": "listTile",
+                                "leading": {
+                                    "type": "icon",
+                                    "iconType": "material",
+                                    "icon": "home",
+                                    "size": 24
+                                },
+                                "title": {
+                                    "type": "text",
+                                    "data": "Home"
+                                },
+                                "onTap": {
+                                    "actionType": "snackBar",
+                                    "content": "Home tapped!"
+                                }
+                            },
+                            {
+                                "type": "listTile",
+                                "leading": {
+                                    "type": "icon",
+                                    "iconType": "material",
+                                    "icon": "settings",
+                                    "size": 24
+                                },
+                                "title": {
+                                    "type": "text",
+                                    "data": "Settings"
+                                },
+                                "onTap": {
+                                    "actionType": "snackBar",
+                                    "content": "Settings tapped!"
+                                }
+                            },
+                            {
+                                "type": "listTile",
+                                "leading": {
+                                    "type": "icon",
+                                    "iconType": "material",
+                                    "icon": "info",
+                                    "size": 24
+                                },
+                                "title": {
+                                    "type": "text",
+                                    "data": "About"
+                                },
+                                "onTap": {
+                                    "actionType": "snackBar",
+                                    "content": "About tapped!"
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "body": {
+        "type": "center",
+        "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "children": [
+                {
+                    "type": "text",
+                    "data": "Welcome to Drawer Example",
+                    "style": {
+                        "fontSize": 24,
+                        "fontWeight": "bold"
+                    }
+                },
+                {
+                    "type": "sizedBox",
+                    "height": 16
+                },
+                {
+                    "type": "text",
+                    "data": "Swipe from left edge or tap the menu icon to open the drawer",
+                    "style": {
+                        "fontSize": 16,
+                        "color": "#666666"
+                    }
+                }
+            ]
+        }
+    }
+}

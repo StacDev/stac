@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stac/stac.dart';
+import 'package:stac_playground/app/cubit/home_cubit.dart';
+import 'package:stac_playground/app/embed/embed_screen.dart';
+import 'package:stac_playground/app/home_screen.dart';
+import 'package:stac_playground/theme/app_theme.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Stac.initialize();
+
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final initialRoute = Uri.base.path;
+
+    return MaterialApp(
+      title: 'Stac Playground',
+      theme: AppTheme.darkTheme,
+      initialRoute: initialRoute,
+      routes: {
+        '/': (_) => BlocProvider(
+              create: (_) => HomeCubit(),
+              child: const HomeScreen(),
+            ),
+        '/embed': (_) => const EmbedScreen(),
+      },
+    );
+  }
+}

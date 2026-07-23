@@ -1,0 +1,98 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Floating Action Button"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "floatingActionButton",
+                "buttonType": "extended",
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                },
+                "child": {
+                  "type": "text",
+                  "data": "Create"
+                },
+                "onPressed": {}
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "floatingActionButton",
+                "buttonType": "large",
+                "child": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                },
+                "onPressed": {}
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 52
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "floatingActionButton",
+                "buttonType": "extended",
+                "disabledElevation": 0,
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                },
+                "child": {
+                  "type": "text",
+                  "data": "Create"
+                }
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "floatingActionButton",
+                "buttonType": "large",
+                "disabledElevation": 0,
+                "child": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

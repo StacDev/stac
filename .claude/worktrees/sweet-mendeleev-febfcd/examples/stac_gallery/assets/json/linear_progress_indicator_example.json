@@ -1,0 +1,51 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Linear Progress Indicator"
+        }
+    },
+    "body": {
+        "type": "padding",
+        "padding": {
+            "left": 10,
+            "right": 10
+        },
+        "child": {
+            "type": "column",
+            "crossAxisAlignment": "center",
+            "spacing": 52,
+            "children": [
+                {
+                    "type": "sizedBox",
+                    "height": 1
+                },
+                {
+                    "type": "linearProgressIndicator",
+                    "color": "#672BFF",
+                    "minHeight": 3
+                },
+                {
+                    "type": "linearProgressIndicator",
+                    "color": "#541204",
+                    "minHeight": 6,
+                    "backgroundColor": "#FFD700",
+                    "borderRadius": {
+                        "topLeft": 10,
+                        "topRight": 10,
+                        "bottomLeft": 10,
+                        "bottomRight": 10
+                    }
+                },
+                {
+                    "type": "linearProgressIndicator",
+                    "color": "#bd3ed3",
+                    "minHeight": 3,
+                    "value": 0.5
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,304 @@
+{
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "mint",
+    "name": "Stac",
+    "colors": {
+        "primary": "#15803d",
+        "light": "#50D59D",
+        "dark": "#15803D"
+    },
+    "background": {
+        "color": {
+            "light": "#ffffff",
+            "dark": "#0B0B0D"
+        }
+    },
+    "favicon": "/favicon.ico",
+    "icons": {
+        "library": "lucide"
+    },
+    "navigation": {
+        "tabs": [
+            {
+                "tab": "Overview",
+                "groups": [
+                    {
+                        "group": "Get Started",
+                        "icon": "rocket",
+                        "pages": [
+                            "introduction",
+                            "quickstart",
+                            "sdui",
+                            "dsl",
+                            "cli",
+                            "project_structure",
+                            "skills",
+                            "changelog"
+                        ]
+                    },
+                    {
+                        "group": "Concepts",
+                        "icon": "book",
+                        "pages": [
+                            "concepts/rendering_stac_widgets",
+                            "concepts/navigation_in_stac",
+                            "concepts/caching",
+                            "concepts/custom_widgets",
+                            "concepts/custom_actions",
+                            "concepts/theming"
+                        ]
+                    },
+                    {
+                        "group": "Guides",
+                        "icon": "map",
+                        "pages": [
+                            "guides/migration",
+                            "guides/troubleshooting"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Widgets",
+                "groups": [
+                    {
+                        "group": "Layout Widgets",
+                        "pages": [
+                            "widgets/align",
+                            "widgets/aspect_ratio",
+                            "widgets/center",
+                            "widgets/column",
+                            "widgets/container",
+                            "widgets/expanded",
+                            "widgets/flexible",
+                            "widgets/fitted_box",
+                            "widgets/fractionally_sized_box",
+                            "widgets/limited_box",
+                            "widgets/padding",
+                            "widgets/positioned",
+                            "widgets/row",
+                            "widgets/safe_area",
+                            "widgets/sized_box",
+                            "widgets/sliver_padding",
+                            "widgets/sliver_to_box_adapter",
+                            "widgets/spacer",
+                            "widgets/stack",
+                            "widgets/wrap",
+                            "widgets/tool_tip"
+                        ]
+                    },
+                    {
+                        "group": "Display Widgets",
+                        "pages": [
+                            "widgets/backdrop_filter",
+                            "widgets/badge",
+                            "widgets/card",
+                            "widgets/carousel_view",
+                            "widgets/circle_avatar",
+                            "widgets/clip_oval",
+                            "widgets/clip_rrect",
+                            "widgets/colored_box",
+                            "widgets/conditional",
+                            "widgets/divider",
+                            "widgets/hero",
+                            "widgets/icon",
+                            "widgets/image",
+                            "widgets/opacity",
+                            "widgets/placeholder",
+                            "widgets/set_value",
+                            "widgets/visibility"
+                        ]
+                    },
+                    {
+                        "group": "Interactive Widgets",
+                        "pages": [
+                            "widgets/alert_dialog",
+                            "widgets/app_bar",
+                            "widgets/auto_complete",
+                            "widgets/bottom_navigation_bar",
+                            "widgets/check_box",
+                            "widgets/chip",
+                            "widgets/circular_progress_indicator",
+                            "widgets/drawer",
+                            "widgets/dropdown_menu",
+                            "widgets/dynamic_view",
+                            "widgets/elevated_button",
+                            "widgets/filled_button",
+                            "widgets/floating_action_button",
+                            "widgets/form",
+                            "widgets/gesture_detector",
+                            "widgets/icon_button",
+                            "widgets/ink_well",
+                            "widgets/linear_progress_indicator",
+                            "widgets/list_tile",
+                            "widgets/listview",
+                            "widgets/network_widget",
+                            "widgets/outlined_button",
+                            "widgets/page_view",
+                            "widgets/radio_group",
+                            "widgets/refresh_indicator",
+                            "widgets/scaffold",
+                            "widgets/single_child_scroll_view",
+                            "widgets/slider",
+                            "widgets/sliver_app_bar",
+                            "widgets/sliver_grid",
+                            "widgets/sliver_fill_remaining",
+                            "widgets/sliver_list",
+                            "widgets/sliver_visibility",
+                            "widgets/sliver_opacity",
+                            "widgets/sliver_safe_area",
+                            "widgets/switch",
+                            "widgets/tab_bar",
+                            "widgets/text_button",
+                            "widgets/text_field",
+                            "widgets/text_form_field",
+                            "widgets/webview"
+                        ]
+                    },
+                    {
+                        "group": "Data Widgets",
+                        "pages": [
+                            "widgets/custom_scroll_view",
+                            "widgets/grid_view",
+                            "widgets/selectable_text",
+                            "widgets/table",
+                            "widgets/table_cell",
+                            "widgets/table_row",
+                            "widgets/text",
+                            "widgets/vertical_divider"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Actions",
+                "groups": [
+                    {
+                        "group": "Navigation Actions",
+                        "pages": [
+                            "actions/navigate"
+                        ]
+                    },
+                    {
+                        "group": "UI Actions",
+                        "pages": [
+                            "actions/dialog",
+                            "actions/modal_bottom_sheet",
+                            "actions/snack_bar"
+                        ]
+                    },
+                    {
+                        "group": "Form Actions",
+                        "pages": [
+                            "actions/form_validate",
+                            "actions/get_form_value"
+                        ]
+                    },
+                    {
+                        "group": "Network Actions",
+                        "pages": [
+                            "actions/network_request"
+                        ]
+                    },
+                    {
+                        "group": "State Actions",
+                        "pages": [
+                            "actions/set_value"
+                        ]
+                    },
+                    {
+                        "group": "Utility Actions",
+                        "pages": [
+                            "actions/delay_action",
+                            "actions/multi_action",
+                            "actions/none"
+                        ]
+                    }
+                ]
+            },
+            {
+                "tab": "Styles",
+                "groups": [
+                    {
+                        "group": "Layout Styles",
+                        "pages": [
+                            "styles/edge_insets",
+                            "styles/alignment",
+                            "styles/stac_alignment_directional",
+                            "styles/box_constraints",
+                            "styles/box_fit",
+                            "styles/clip_behavior"
+                        ]
+                    },
+                    {
+                        "group": "Decoration Styles",
+                        "pages": [
+                            "styles/box_decoration",
+                            "styles/gradient",
+                            "styles/box_shadow",
+                            "styles/colors"
+                        ]
+                    },
+                    {
+                        "group": "Border Styles",
+                        "pages": [
+                            "styles/border",
+                            "styles/border_radius",
+                            "styles/border_side",
+                            "styles/shape_borders"
+                        ]
+                    },
+                    {
+                        "group": "Text Styles",
+                        "pages": [
+                            "styles/text_style"
+                        ]
+                    },
+                    {
+                        "group": "Table Styles",
+                        "pages": [
+                            "styles/table_border",
+                            "styles/table_column_width"
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "logo": {
+        "light": "/logo/light.svg",
+        "dark": "/logo/dark.svg"
+    },
+    "navbar": {
+        "links": [
+            {
+                "label": "Support",
+                "href": "https://discord.gg/vTGsVRK86V"
+            }
+        ],
+        "primary": {
+            "type": "button",
+            "label": "Go to Console",
+            "href": "https://console.stac.dev/"
+        }
+    },
+    "contextual": {
+        "options": [
+            "copy",
+            "view",
+            "chatgpt",
+            "claude",
+            "perplexity",
+            "mcp",
+            "cursor",
+            "vscode"
+        ]
+    },
+    "footer": {
+        "socials": {
+            "x": "https://x.com/stac_dev",
+            "github": "https://github.com/StacDev/stac",
+            "linkedin": "https://www.linkedin.com/company/stacdev"
+        }
+    }
+}

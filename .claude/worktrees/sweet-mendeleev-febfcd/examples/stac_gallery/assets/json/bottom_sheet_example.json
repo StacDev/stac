@@ -1,0 +1,93 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "BottomSheet"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "elevatedButton",
+            "child": {
+              "type": "text",
+              "data": "Modal Bottom Sheet"
+            },
+            "style": {
+              "padding": {
+                "top": 8,
+                "left": 12,
+                "right": 12,
+                "bottom": 8
+              }
+            },
+            "onPressed": {
+              "actionType": "showModalBottomSheet",
+              "widget": {
+                "type": "container",
+                "height": 200,
+                "padding": {
+                  "top": 16,
+                  "left": 16,
+                  "right": 16,
+                  "bottom": 16
+                },
+                "child": {
+                  "type": "column",
+                  "children": [
+                    {
+                      "type": "row",
+                      "mainAxisAlignment": "spaceBetween",
+                      "children": [
+                        {
+                          "type": "text",
+                          "data": "Modal Bottom Sheet",
+                          "style": {
+                            "fontSize": 18,
+                            "fontWeight": "bold"
+                          }
+                        },
+                        {
+                          "type": "iconButton",
+                          "icon": {
+                            "type": "icon",
+                            "iconType": "material",
+                            "icon": "close"
+                          },
+                          "onPressed": {
+                            "actionType": "navigate",
+                            "navigationStyle": "pop"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "padding",
+                      "padding": {
+                        "top": 16
+                      },
+                      "child": {
+                        "type": "text",
+                        "data": "This is a simple modal bottom sheet example."
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Dialogs"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "elevatedButton",
+            "child": {
+              "type": "text",
+              "data": "SIMPLE ALERT"
+            },
+            "style": {
+              "padding": {
+                "top": 8,
+                "left": 12,
+                "right": 12,
+                "bottom": 8
+              }
+            },
+            "onPressed": {
+              "actionType": "showDialog",
+              "widget": {
+                "type": "alertDialog",
+                "content": {
+                  "type": "padding",
+                  "padding": {
+                    "top": 0,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "child": {
+                    "type": "text",
+                    "data": "Discard draft?",
+                    "align": "center",
+                    "style": {
+                      "fontSize": 14
+                    }
+                  }
+                },
+                "actions": [
+                  {
+                    "type": "textButton",
+                    "child": {
+                      "type": "text",
+                      "data": "CANCEL"
+                    },
+                    "onPressed": {
+                      "actionType": "navigate",
+                      "navigationStyle": "pop"
+                    }
+                  },
+                  {
+                    "type": "sizedBox",
+                    "width": 8
+                  },
+                  {
+                    "type": "textButton",
+                    "child": {
+                      "type": "text",
+                      "data": "DISCARD"
+                    },
+                    "onPressed": {
+                      "actionType": "navigate",
+                      "navigationStyle": "pop"
+                    }
+                  },
+                  {
+                    "type": "sizedBox",
+                    "width": 12
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 12
+          },
+          {
+            "type": "elevatedButton",
+            "child": {
+              "type": "text",
+              "data": "ALERT WITH TITLE"
+            },
+            "style": {
+              "padding": {
+                "top": 8,
+                "left": 12,
+                "right": 12,
+                "bottom": 8
+              }
+            },
+            "onPressed": {
+              "actionType": "showDialog",
+              "widget": {
+                "type": "alertDialog",
+                "title": {
+                  "type": "text",
+                  "data": "Use Google's Location Services?",
+                  "align": "center",
+                  "style": {
+                    "fontSize": 21
+                  }
+                },
+                "content": {
+                  "type": "padding",
+                  "padding": {
+                    "top": 24,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "child": {
+                    "type": "text",
+                    "data": "Let Google help apps determine location.",
+                    "align": "center",
+                    "style": {
+                      "fontSize": 14
+                    }
+                  }
+                },
+                "actions": [
+                  {
+                    "type": "textButton",
+                    "child": {
+                      "type": "text",
+                      "data": "DISAGREE"
+                    },
+                    "onPressed": {
+                      "actionType": "navigate",
+                      "navigationStyle": "pop"
+                    }
+                  },
+                  {
+                    "type": "sizedBox",
+                    "width": 8
+                  },
+                  {
+                    "type": "textButton",
+                    "child": {
+                      "type": "text",
+                      "data": "AGREE"
+                    },
+                    "onPressed": {
+                      "actionType": "navigate",
+                      "navigationStyle": "pop"
+                    }
+                  },
+                  {
+                    "type": "sizedBox",
+                    "width": 12
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Autocomplete Basic"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "children": [
+        {
+          "type": "text",
+          "data": "Type below to autocomplete the following possible results: [aardvark, bobcat, chameleon]."
+        },
+        {
+          "type": "autocomplete",
+          "options": [
+            "aardvark", "bobcat", "chameleon"
+          ],
+          "onSelected": {}
+        }
+      ]
+    }
+  }
+}

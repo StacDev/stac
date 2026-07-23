@@ -1,0 +1,79 @@
+---
+title: "Drawer"
+description: "Documentation for Drawer"
+---
+
+The Stac Drawer allows you to build a Flutter Drawer widget using JSON.
+To know more about the Drawer widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Drawer-class.html).
+
+## Properties
+
+| Property         | Type                | Description                                                        |
+|------------------|---------------------|--------------------------------------------------------------------|
+| backgroundColor  | `StacColor`         | The background color of the drawer.                                |
+| elevation        | `double`            | The z-coordinate at which to place this drawer.                    |
+| shadowColor      | `StacColor`         | The color of the drawer's shadow.                                  |
+| surfaceTintColor | `StacColor`         | The surface tint color of the drawer.                              |
+| shape            | `StacShapeBorder`   | The shape of the drawer.                                           |
+| width            | `double`            | The width of the drawer.                                           |
+| child            | `StacWidget`        | The widget below this widget in the tree.                          |
+| semanticLabel    | `String`            | The semantic label for the drawer.                                 |
+| clipBehavior     | `StacClip`          | The clip behavior of the drawer.                                   |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacDrawer(
+  backgroundColor: StacColors.white,
+  elevation: 16.0,
+  shadowColor: StacColors.black,
+  surfaceTintColor: '#F2F2F2',
+  shape: StacRoundedRectangleBorder(borderRadius: 16),
+  width: 304.0,
+  semanticLabel: 'Navigation Drawer',
+  clipBehavior: StacClip.antiAlias,
+  child: StacColumn(
+    children: [
+      StacText(data: 'Drawer Header'),
+      StacText(data: 'Item 1'),
+      StacText(data: 'Item 2'),
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "drawer",
+  "backgroundColor": "#FFFFFF",
+  "elevation": 16.0,
+  "shadowColor": "#000000",
+  "surfaceTintColor": "#F2F2F2",
+  "shape": {
+    "type": "roundedRectangleBorder",
+    "borderRadius": 16
+  },
+  "width": 304.0,
+  "semanticLabel": "Navigation Drawer",
+  "clipBehavior": "antiAlias",
+  "child": {
+    "type": "column",
+    "children": [
+      {
+        "type": "text",
+        "data": "Drawer Header"
+      },
+      {
+        "type": "text",
+        "data": "Item 1"
+      },
+      {
+        "type": "text",
+        "data": "Item 2"
+      }
+    ]
+  }
+}
+```
+</CodeGroup> 

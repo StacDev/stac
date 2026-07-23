@@ -1,0 +1,30 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Fractionally SizedBox"
+    }
+  },
+  "body": {
+    "type": "container",
+    "height": 400,
+    "width": 350,
+    "color": "#A9A9D9",
+    "child": {
+      "type": "fractionallySizedBox",
+      "heightFactor": 0.3,
+      "widthFactor": 0.8,
+      "alignment": "bottomRight",
+      "child": {
+        "type": "elevatedButton",
+        "child": {
+          "type": "text",
+          "data": "FLUTTER"
+        },
+        "onPressed": {}
+      }
+    }
+  }
+}

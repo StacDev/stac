@@ -1,0 +1,240 @@
+---
+title: "Stac CLI"
+description: "Build, deploy, and manage Server-Driven UI projects with the Stac CLI."
+---
+
+## Installation
+
+<Tabs>
+  <Tab title="macOS / Linux">
+    ```bash
+    curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+    ```
+
+    Verify installation:
+
+    ```bash
+    stac --version
+    ```
+  </Tab>
+  <Tab title="Windows">
+    ```powershell
+    irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+    ```
+
+    Verify installation:
+
+    ```powershell
+    stac --version
+    ```
+  </Tab>
+</Tabs>
+
+## Available Commands
+
+| Command          | Description                        | Requires Auth |
+| ---------------- | ---------------------------------- | ------------- |
+| `login`          | Authenticate with Google OAuth     | No            |
+| `logout`         | Clear stored authentication tokens | No            |
+| `status`         | Show authentication status         | No            |
+| `init`           | Initialize Stac in project         | Yes           |
+| `build`          | Convert Dart widgets to JSON       | No            |
+| `deploy`         | Build and deploy to Stac Cloud     | Yes           |
+| `project list`   | List all cloud projects            | Yes           |
+| `project create` | Create new cloud project           | Yes           |
+
+## Authentication
+
+Before using most CLI commands, you'll need to authenticate with Stac Cloud.
+
+### Login
+
+This opens your browser for OAuth authentication. Your credentials are securely stored locally.
+
+```bash
+stac login
+```
+
+### Check Status
+
+```bash
+stac status
+```
+
+### Logout
+
+```bash
+stac logout
+```
+
+## Initialize Stac
+
+Use this to set up Stac in an existing Flutter/Dart project. It links your local app to a Stac Cloud project and scaffolds required files.
+
+```bash
+stac init
+```
+
+#### What it does
+
+- Creates `stac/` folder for Stac DSL widgets
+- Adds `lib/default_stac_options.dart` with your `StacOptions` (e.g., `projectId`)
+- Updates `pubspec.yaml` with `stac` and related dependencies
+- Optionally links to an existing Stac Cloud project
+
+#### Generated files
+
+```bash
+|- Flutter project
+├── lib/
+│   ├── default_stac_options.dart
+│   └── main.dart
+├── stac/
+│   └── stac_widget.dart
+└── pubspec.yaml
+```
+
+### Convert Dart to JSON
+
+Build all widgets in current project:
+
+```bash
+stac build
+```
+
+Build specific project directory:
+
+```bash
+stac build --project /path/to/project
+```
+
+Build with validation (enabled by default):
+
+```bash
+stac build --validate
+```
+
+Build with verbose output:
+
+```bash
+stac build --verbose
+```
+
+#### Build Options
+
+| Option          | Description                | Default           |
+| --------------- | -------------------------- | ----------------- |
+| `-p, --project` | Project directory path     | Current directory |
+| `--validate`    | Validate generated JSON    | `true`            |
+| `-v, --verbose` | Show detailed build output | `false`           |
+
+The build command converts Stac widget definitions from the `stac/` folder into JSON format in the `build/` folder.
+
+### Deploy to Stac Cloud
+
+Build and deploy to Stac Cloud:
+
+```bash
+stac deploy
+```
+
+Deploy specific project directory:
+
+```bash
+stac deploy --project /path/to/project
+```
+
+Skip build and deploy existing files:
+
+```bash
+stac deploy --skip-build
+```
+
+Deploy with verbose output:
+
+```bash
+stac deploy --verbose
+```
+
+### Deployment Options
+
+| Option          | Description                     | Default           |
+| --------------- | ------------------------------- | ----------------- |
+| `-p, --project` | Project directory path          | Current directory |
+| `--skip-build`  | Skip building before deployment | `false`           |
+| `-v, --verbose` | Show detailed deployment output | `false`           |
+
+<Note>
+  By default, `stac deploy` automatically runs `stac build` before deploying. Use `--skip-build` to deploy existing build files without rebuilding.
+</Note>
+
+### List Projects
+
+List all your Stac Cloud projects:
+
+```bash
+stac project list
+```
+
+Output as JSON format:
+
+```bash
+stac project list --json
+```
+
+The list command shows:
+
+- Project name and ID
+- Project description
+- Created and updated timestamps
+
+### Create New Project
+
+```bash
+stac project create --name "My App" --description "My SDUI app"
+```
+
+Short form:
+
+```bash
+stac project create -n "My App" -d "My SDUI app"
+```
+
+After creating a project, run `stac init` to initialize it locally.
+
+### Typical Workflow
+
+1. Authenticate with Stac Cloud (one-time):
+
+```bash
+stac login
+```
+
+2. List available projects:
+
+```bash
+stac project list
+```
+
+3. Initialize a project in your Flutter/Dart app:
+
+```bash
+cd your-flutter-project
+stac init
+```
+
+4. Create your widget definitions in the `stac/` folder, then deploy:
+
+```bash
+stac deploy
+```
+
+## Command Reference
+
+### Global Options
+
+| Option          | Description                    |
+| --------------- | ------------------------------ |
+| `-v, --verbose` | Show additional command output |
+| `--version`     | Print tool version             |
+| `--help`        | Print usage information        |

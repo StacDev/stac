@@ -1,0 +1,121 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Sign in Form"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "left": 12,
+      "right": 12,
+      "top": 12,
+      "bottom": 12
+    },
+    "child": {
+      "type": "singleChildScrollView",
+      "child": {
+        "type": "form",
+        "child": {
+          "type": "column",
+          "children": [
+            {
+              "type": "textFormField",
+              "id": "username",
+              "initialValue": "kminchelle",
+              "keyboardType": "text",
+              "textInputAction": "next",
+              "maxLines": 1,
+              "decoration": {
+                "hintText": "Username"
+              },
+              "validatorRules": [
+                {
+                  "rule": "^(?=[a-zA-Z0-9._]{8,20}$)(?!.*[_.]{2})[^_.].*[^_.]$",
+                  "message": "Add a valid username"
+                }
+              ]
+            },
+            {
+              "type": "textFormField",
+              "id": "password",
+              "keyboardType": "visiblePassword",
+              "initialValue": "0lelplR",
+              "textInputAction": "done",
+              "maxLines": 1,
+              "decoration": {
+                "hintText": "Password"
+              },
+              "autovalidateMode": "onUserInteraction"
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "elevatedButton",
+              "child": {
+                "type": "text",
+                "data": "Sign in"
+              },
+              "style": {
+                "backgroundColor": "primary",
+                "foregroundColor": "#ffffff"
+              },
+              "onPressed": {
+                "actionType": "validateForm",
+                "isValid": {
+                  "actionType": "networkRequest",
+                  "url": "https://dummyjson.com/auth/login",
+                  "method": "post",
+                  "contentType": "application/json",
+                  "body": {
+                    "username": {
+                      "actionType": "getFormValue",
+                      "id": "username"
+                    },
+                    "password": {
+                      "actionType": "getFormValue",
+                      "id": "password"
+                    }
+                  },
+                  "results": [
+                    {
+                      "statusCode": 200,
+                      "action": {
+                        "actionType": "showDialog",
+                        "widget": {
+                          "type": "alertDialog",
+                          "title": {
+                            "type": "text",
+                            "data": "Successful"
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "statusCode": 400,
+                      "action": {
+                        "actionType": "showDialog",
+                        "widget": {
+                          "type": "alertDialog",
+                          "title": {
+                            "type": "text",
+                            "data": "Error"
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

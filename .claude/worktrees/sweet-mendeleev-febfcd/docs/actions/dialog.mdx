@@ -1,0 +1,81 @@
+---
+title: "Dialog Action"
+description: "Documentation for Dialog Action"
+---
+
+The `StacDialogAction` class is used to display a dialog in Stac applications.
+
+## Properties
+
+| Property               | Type                           | Description                                                                 |
+|------------------------|--------------------------------|-----------------------------------------------------------------------------|
+| widget                 | `Map<String, dynamic>`         | The widget to display inside the dialog.                                    |
+| request                | `StacNetworkRequest`           | The network request to perform before displaying the dialog.                |
+| assetPath              | `String`                       | The asset path of the widget to display inside the dialog.                  |
+| barrierDismissible     | `bool`                         | Whether the dialog is dismissible by tapping outside. Defaults to `true`.   |
+| barrierColor           | `StacColor`                    | The color of the modal barrier.                                             |
+| barrierLabel           | `String`                       | The semantic label for the modal barrier.                                   |
+| useSafeArea            | `bool`                         | Whether to use the safe area. Defaults to `true`.                           |
+| traversalEdgeBehavior  | `StacTraversalEdgeBehavior`    | The traversal edge behavior of the dialog.                                  |
+
+## Examples
+
+### Dialog with a Widget
+
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  widget: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
+{
+  "actionType": "showDialog",
+  "widget": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```
+</CodeGroup>
+
+### Dialog with a Request
+
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  request: StacNetworkRequest(
+    url: 'https://example.com/api',
+    method: Method.get,
+  ),
+)
+```
+
+```json JSON
+{
+  "actionType": "showDialog",
+  "request": {
+    "url": "https://example.com/api",
+    "method": "get"
+  }
+}
+```
+</CodeGroup>
+
+### Dialog with an Asset
+
+<CodeGroup>
+```dart Dart
+StacDialogAction(
+  assetPath: 'assets/dialog.json',
+)
+```
+
+```json JSON
+{
+  "actionType": "showDialog",
+  "assetPath": "assets/dialog.json"
+}
+```
+</CodeGroup>

@@ -1,0 +1,284 @@
+---
+title: "Troubleshooting"
+description: "Common issues and solutions when working with Stac"
+---
+
+This guide covers common issues you might encounter while working with Stac and how to resolve them.
+
+## CLI Issues
+
+### `stac: command not found`
+
+**Problem:** The Stac CLI is not installed or not in your PATH.
+
+**Solution:**
+
+1. Reinstall the CLI:
+
+<Tabs>
+<Tab title="macOS / Linux">
+```bash
+curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | bash
+```
+</Tab>
+<Tab title="Windows">
+```bash
+irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+```
+</Tab>
+</Tabs>
+
+2. Restart your terminal
+3. Verify installation: `stac --version`
+
+### `stac login` fails
+
+**Problem:** Authentication fails or browser doesn't open.
+
+**Solutions:**
+- Ensure you have a stable internet connection
+- Try running with `stac login --verbose` for more details
+- Clear cached credentials: `stac logout` then `stac login`
+- Check if your firewall is blocking the authentication callback
+
+### `stac build` shows no files
+
+**Problem:** Running `stac build` finds no Dart files to process.
+
+**Solutions:**
+- Ensure your files are in the `stac/` folder
+- Check that files have the `.dart` extension
+- Verify functions have the `@StacScreen` annotation:
+
+```dart
+@StacScreen(screenName: 'my_screen')
+StacWidget myScreen() {
+  return StacText(data: 'Hello');
+}
+```
+
+### `stac deploy` permission denied
+
+**Problem:** Deployment fails with permission errors.
+
+**Solutions:**
+- Run `stac login` to refresh credentials
+- Verify you have write access to the project in Stac Cloud
+- Check your project configuration in `default_stac_options.dart`
+
+---
+
+## Runtime Issues
+
+### Widget not rendering
+
+**Problem:** A widget appears blank or doesn't show.
+
+**Common causes:**
+1. **Missing required property**: Check the widget documentation for required properties
+2. **Invalid JSON syntax**: Validate your JSON structure
+3. **Type mismatch**: Ensure property types match (e.g., `double` vs `int`)
+
+**Debug steps:**
+```dart
+// Add a visible fallback to identify the issue
+StacContainer(
+  color: StacColors.red, // Visible background
+  width: 100.0,
+  height: 100.0,
+  child: yourWidget,
+)
+```
+
+### "Unknown widget type" error
+
+**Problem:** Stac doesn't recognize a widget type.
+
+**Solutions:**
+1. Check spelling of the `type` field
+2. Verify the widget is supported (see [Widgets](/widgets/align))
+3. If using a custom widget, ensure the parser is registered:
+
+```dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  parsers: [
+    MyCustomWidgetParser(), // Register your parser
+  ],
+);
+```
+
+### Actions not firing
+
+**Problem:** Button presses or gestures don't trigger actions.
+
+**Solutions:**
+1. **Check action type spelling:**
+```json
+// Correct
+"actionType": "navigate"
+
+// Wrong
+"type": "navigate"
+"action": "navigate"
+```
+
+2. **Verify action structure:**
+```dart
+StacElevatedButton(
+  child: StacText(data: 'Click'),
+  onPressed: StacNavigateAction(routeName: '/next'), // Action object, not string
+)
+```
+
+3. **Check if the widget supports the action property:**
+   Not all widgets support `onPressed`, `onTap`, etc.
+
+### State not updating
+
+**Problem:** `StacSetValueAction` doesn't update the UI.
+
+**Solutions:**
+1. **Verify key names match:**
+```dart
+// Setting
+StacSetValueAction(values: [{'key': 'userName', 'value': 'John'}])
+
+// Reading - must match exactly
+StacText(data: 'Hello, {{userName}}!') // Correct
+StacText(data: 'Hello, {{username}}!') // Wrong - case sensitive
+```
+
+2. **Check placeholder syntax:**
+```dart
+'{{key}}'     // Correct
+'{ {key} }'   // Wrong - no spaces
+'{key}'       // Wrong - need double braces
+```
+
+---
+
+## Network Issues
+
+### Network request fails
+
+**Problem:** `StacNetworkRequest` returns errors.
+
+**Debug checklist:**
+1. **Check URL format:**
+```dart
+StacNetworkRequest(
+  url: 'https://api.example.com/data', // Full URL with protocol
+  method: Method.get,
+)
+```
+
+2. **Verify headers:**
+```dart
+StacNetworkRequest(
+  url: 'https://api.example.com/data',
+  headers: {
+    'Authorization': 'Bearer {{token}}',
+    'Content-Type': 'application/json',
+  },
+)
+```
+
+3. **Handle all status codes:**
+```dart
+results: [
+  StacNetworkResult(statusCode: 200, action: successAction),
+  StacNetworkResult(statusCode: 401, action: unauthorizedAction),
+  StacNetworkResult(statusCode: 500, action: errorAction),
+]
+```
+
+### CORS errors (web)
+
+**Problem:** Network requests fail on Flutter web due to CORS.
+
+**Solutions:**
+- Configure your API server to allow CORS
+- Use a proxy server during development
+- For Stac Cloud, requests are proxied automatically
+
+---
+
+## Build Issues
+
+### Dart compile errors
+
+**Problem:** `stac build` fails with Dart errors.
+
+**Common fixes:**
+
+1. **Missing imports:**
+```dart
+import 'package:stac_core/stac_core.dart'; // Add this
+```
+
+2. **Trailing commas:** Dart benefits from trailing commas:
+```dart
+StacColumn(
+  children: [
+    StacText(data: 'Item 1'), // Trailing comma
+    StacText(data: 'Item 2'), // Trailing comma
+  ], // Trailing comma
+)
+```
+
+3. **Run `flutter pub get`** to ensure dependencies are resolved
+
+### Generated JSON differs from expected
+
+**Problem:** The JSON output doesn't match what you expected.
+
+**Debug steps:**
+1. Check `stac/.build/` for generated files
+2. Compare with expected JSON structure
+3. Verify property names (Dart uses camelCase, JSON may differ)
+
+---
+
+## Stac Cloud Issues
+
+### Screen not updating after deploy
+
+**Problem:** App shows old content after `stac deploy`.
+
+**Solutions:**
+1. **Force refresh in app:** Restart the app completely
+2. **Check deployment success:** Look for success message in CLI
+3. **Verify project ID:** Ensure `default_stac_options.dart` has correct project ID
+4. **Check cache config:** If using caching, try using `StacCacheStrategy.networkFirst` to ensure latest content is fetched
+
+### "Project not found" error
+
+**Problem:** CLI can't find your Stac Cloud project.
+
+**Solutions:**
+1. Run `stac init` to reinitialize
+2. Verify project exists in [console.stac.dev](https://console.stac.dev)
+3. Check `default_stac_options.dart` for correct project ID
+
+---
+
+## Getting Help
+
+If you're still stuck:
+
+1. **Search existing issues:** [GitHub Issues](https://github.com/StacDev/stac/issues)
+2. **Ask the community:** [Discord](https://discord.com/invite/vTGsVRK86V)
+3. **Report a bug:** Create a new issue with:
+   - Stac version (`stac --version`)
+   - Flutter version (`flutter --version`)
+   - Minimal reproduction code
+   - Error messages/stack traces
+
+---
+
+## Related
+
+- [Quickstart Guide](/quickstart)
+- [CLI Reference](/cli)
+- [Project Structure](/project_structure)

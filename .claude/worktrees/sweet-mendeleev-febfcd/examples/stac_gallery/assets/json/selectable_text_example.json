@@ -1,0 +1,117 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Selectable Text"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "padding",
+      "padding": {
+        "top": 12,
+        "left": 12,
+        "right": 12,
+        "bottom": 12
+      },
+      "child": {
+        "type": "column",
+        "crossAxisAlignment": "start",
+        "children": [
+          {
+            "type": "text",
+            "data": "Standard Selectable Text",
+            "style": {
+              "fontSize": 18,
+              "fontWeight": "w600"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 10
+          },
+          {
+            "type": "selectableText",
+            "data": "You can select this text. Long press or double tap to select."
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          },
+          {
+            "type": "text",
+            "data": "Rich Selectable Text",
+            "style": {
+              "fontSize": 18,
+              "fontWeight": "w600"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 10
+          },
+          {
+            "type": "selectableText",
+            "data": "This is a ",
+            "children": [
+              {
+                "text": "selectable rich text.",
+                "style": {
+                  "fontWeight": "w800",
+                  "color": "#6700A4"
+                }
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          },
+          {
+            "type": "text",
+            "data": "Custom Cursor Selectable Text",
+            "style": {
+              "fontSize": 18,
+              "fontWeight": "w600"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 10
+          },
+          {
+            "type": "selectableText",
+            "data": "This text has a red cursor.",
+            "showCursor": true,
+            "cursorColor": "#FF0000",
+            "cursorWidth": 5.0
+          },
+          {
+            "type": "sizedBox",
+            "height": 32
+          },
+          {
+            "type": "text",
+            "data": "Interactive Selection Disabled",
+            "style": {
+              "fontSize": 18,
+              "fontWeight": "w600"
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 10
+          },
+          {
+            "type": "selectableText",
+            "data": "You cannot select this text (interactive selection disabled).",
+            "enableInteractiveSelection": false
+          }
+        ]
+      }
+    }
+  }
+}

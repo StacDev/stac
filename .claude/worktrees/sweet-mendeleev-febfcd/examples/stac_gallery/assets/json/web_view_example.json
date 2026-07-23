@@ -1,0 +1,14 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "WebView"
+    }
+  },
+  "body": {
+    "type": "webView",
+    "url": "https://github.com/StacDev/stac"
+  }
+}

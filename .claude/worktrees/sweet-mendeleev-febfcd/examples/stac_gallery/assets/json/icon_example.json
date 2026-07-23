@@ -1,0 +1,80 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Icon"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "icon",
+                "iconType": "material",
+                "icon": "add",
+                "size": 32
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "icon",
+                "iconType": "material",
+                "icon": "remove",
+                "size": 32
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "container",
+                "child": {
+                  "type": "icon",
+                  "iconType": "cupertino",
+                  "icon": "add",
+                  "size": 32
+                }
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "container",
+                "child": {
+                  "type": "icon",
+                  "iconType": "cupertino",
+                  "icon": "minus",
+                  "size": 32
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

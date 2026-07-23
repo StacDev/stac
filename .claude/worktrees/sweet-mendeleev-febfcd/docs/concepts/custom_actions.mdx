@@ -1,0 +1,267 @@
+---
+title: "Building Custom Actions"
+description: "Learn how to create custom StacAction classes that extend Stac functionality and enable custom behaviors in your server-driven UI"
+---
+
+While Stac provides various built-in actions (navigation, dialogs, network requests, etc.), you may need to create custom actions for your specific use cases. This guide walks you through creating custom StacAction classes that work seamlessly with Stac's JSON serialization and parser system.
+
+## What is a Custom StacAction?
+
+A custom StacAction is a Dart class that:
+- Extends the `StacAction` base class
+- Can be serialized to and deserialized from JSON
+- Works with Stac's action parser system to execute behaviors
+- Can be triggered from widgets in your JSON definitions
+
+Custom actions enable you to:
+- Integrate third-party services and APIs
+- Implement business-specific logic
+- Extend Stac's action functionality beyond built-in actions
+- Create reusable behaviors for your application
+
+## Prerequisites
+
+Before creating a custom action, ensure you have:
+
+1. **Dependencies**: `stac_core` and `json_annotation` packages
+2. **Code Generation**: `build_runner` for generating JSON serialization code
+3. **Parser**: A corresponding action parser to execute your action.
+
+## Step-by-Step Guide
+
+### Step 1: Define Your Action Class
+
+Create a new file (e.g., `lib/actions/stac_share_action.dart`) and define your action class:
+
+```dart
+import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/core/stac_action.dart';
+import 'package:stac_core/foundation/specifications/action_type.dart';
+
+part 'stac_share_action.g.dart';
+
+@JsonSerializable()
+class StacShareAction extends StacAction {
+  const StacShareAction({
+    required this.text,
+    this.subject,
+    this.title,
+  });
+
+  final String text;
+  final String? subject;
+  final String? title;
+
+  @override
+  String get actionType => 'share';
+
+  factory StacShareAction.fromJson(Map<String, dynamic> json) =>
+      _$StacShareActionFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$StacShareActionToJson(this);
+}
+```
+
+### Step 2: Required Components
+
+Every custom StacAction must include:
+
+#### 1. **Part File Declaration**
+
+```dart
+part 'stac_share_action.g.dart';
+```
+
+This enables code generation for JSON serialization.
+
+#### 2. **JsonSerializable Annotation**
+
+```dart
+@JsonSerializable()
+```
+
+For nested actions or complex types, use `explicitToJson: true`:
+
+```dart
+@JsonSerializable(explicitToJson: true)
+```
+
+#### 3. **Action Type Getter**
+
+```dart
+@override
+String get actionType => 'share';
+```
+
+This unique identifier is used in JSON: `{"actionType": "share"}`.
+
+#### 4. **Constructor**
+
+```dart
+const StacShareAction({
+  required this.text,
+  this.subject,
+});
+```
+
+The base `StacAction` constructor handles JSON data internally.
+
+#### 5. **fromJson Factory Constructor**
+
+```dart
+factory StacShareAction.fromJson(Map<String, dynamic> json) =>
+    _$StacShareActionFromJson(json);
+```
+
+#### 6. **toJson Method**
+
+```dart
+@override
+Map<String, dynamic> toJson() => _$StacShareActionToJson(this);
+```
+
+### Step 3: Generate Code
+
+Run code generation to create the `*.g.dart` file:
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+This generates `stac_share_action.g.dart` with the serialization logic.
+
+### Step 4: Create an Action Parser
+
+To execute your action, create an action parser:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac_framework/stac_framework.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:your_app/actions/stac_share_action.dart';
+
+class StacShareActionParser implements StacActionParser<StacShareAction> {
+  const StacShareActionParser();
+
+  @override
+  String get actionType => 'share';
+
+  @override
+  StacShareAction getModel(Map<String, dynamic> json) =>
+      StacShareAction.fromJson(json);
+
+  @override
+  FutureOr<dynamic> onCall(BuildContext context, StacShareAction model) async {
+    return await Share.share(
+      model.text,
+      subject: model.subject,
+    );
+  }
+}
+```
+
+### Step 5: Register the Action Parser
+
+Register your action parser during Stac initialization:
+
+```dart
+void main() async {
+  await Stac.initialize(
+    options: defaultStacOptions,
+    actionParsers: const [
+      StacShareActionParser(),
+    ],
+  );
+  runApp(const MyApp());
+}
+```
+
+## Advanced Patterns
+
+### Using Converters
+
+Similar to widgets, actions can use converters for special types:
+
+#### DoubleConverter
+
+For `double` fields that may come as integers in JSON:
+
+```dart
+import 'package:stac_core/core/converters/double_converter.dart';
+
+@JsonSerializable()
+class StacCustomAction extends StacAction {
+  const StacCustomAction({
+    this.duration,
+  });
+
+  @DoubleConverter()
+  final double? duration;
+
+  @override
+  String get actionType => 'customAction';
+
+  // ... fromJson and toJson
+}
+```
+
+## Using Custom Actions
+
+**In Dart (stac/ folder)**
+
+```dart
+import 'package:stac_core/stac_core.dart';
+import 'package:your_app/actions/stac_share_action.dart';
+
+@StacScreen(screenName: 'article')
+StacWidget articleScreen() {
+  return StacScaffold(
+    body: StacColumn(
+      children: [
+        StacText(data: 'Article Title'),
+        StacElevatedButton(
+          onPressed: StacShareAction(
+            text: 'Check out this article!',
+            subject: 'Article',
+          ).toJson(),
+          child: StacText(data: 'Share'),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+After `stac build` or `stac deploy`, your generated json looks like this:
+
+```json
+{
+  "type": "elevatedButton",
+  "onPressed": {
+    "actionType": "share",
+    "text": "Check out this article!",
+    "subject": "Article"
+  },
+  "child": {
+    "type": "text",
+    "data": "Share"
+  }
+}
+```
+
+Actions are commonly used in widget `onPressed`, `onTap`, and other callback properties. For example:
+
+```json
+{
+  "type": "gestureDetector",
+  "onTap": {
+    "actionType": "share",
+    "text": "Shared content"
+  },
+  "child": {
+    "type": "text",
+    "data": "Tap to share"
+  }
+}
+```

@@ -1,0 +1,60 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "PageView"
+    }
+  },
+  "body": {
+    "type": "pageView",
+    "children": [
+      {
+        "type": "container",
+        "color": "#D9D9D9",
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Page 1",
+            "style": {
+              "fontSize": 23,
+              "fontWeight": "w400"
+            }
+          }
+        }
+      },
+      {
+        "type": "container",
+        "color": "#FC3F1B",
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Page 2",
+            "style": {
+              "fontSize": 23,
+              "fontWeight": "w400"
+            }
+          }
+        }
+      },
+      {
+        "type": "container",
+        "color": "#D9D9D9",
+        "child": {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Page 3",
+            "style": {
+              "fontSize": 23,
+              "fontWeight": "w400"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

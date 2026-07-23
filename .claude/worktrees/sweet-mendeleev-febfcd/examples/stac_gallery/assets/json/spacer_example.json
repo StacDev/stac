@@ -1,0 +1,84 @@
+{
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Spacer"
+      }
+    },
+    "body": {
+        "type": "padding",
+        "padding": {
+            "left": 20,
+            "right": 20,
+            "top": 20,
+            "bottom": 20
+          },
+        "child": {
+            "type": "column",
+            "children": [
+                {
+                    "type": "textField",
+                    "keyboardType": "text",
+                    "maxLines": 1,
+                    "decoration": {
+                      "hintText": "Enter your pin"
+                    }
+                },
+                {
+                    "type": "spacer"
+                },
+                {
+                    "type": "row",
+                    "children": [
+                        {
+                            "type": "row",
+                            "children": [
+                                {
+                                    "type": "text",
+                                    "data": "Forgot Pin",
+                                    "style": {
+                                        "fontSize": 17
+                                    }
+                                },
+                                {
+                                    "type": "icon",
+                                    "iconType": "material",
+                                    "icon": "keyboard_arrow_right",
+                                    "size": 24
+                                }
+                            ]
+                        },
+                        {
+                            "type": "spacer"
+                        },
+                        {
+                            "type": "text",
+                            "data": "Need help?",
+                            "style": {
+                                "fontSize": 17
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "spacer",
+                    "flex": 2
+                },
+                {
+                    "type": "elevatedButton",
+                    "child": {
+                      "type": "text",
+                      "data": "Submit"
+                    },
+                    "style": {
+                      "backgroundColor": "primary",
+                      "foregroundColor": "#ffffff"
+                    },
+                    "onPressed": {}
+                }
+            ]
+        }
+    }
+  }

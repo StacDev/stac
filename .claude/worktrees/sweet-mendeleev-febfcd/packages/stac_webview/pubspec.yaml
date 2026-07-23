@@ -1,0 +1,30 @@
+name: stac_webview
+description: A comprehensive WebView parser for Stac, serving as a wrapper for the `webview_flutter` package to seamlessly integrate web content within Stac applications.
+version: 1.0.0
+homepage: https://github.com/StacDev/stac
+
+environment:
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=1.17.0"
+
+topics:
+  - ui
+  - widget
+  - server-driven-ui
+  - dynamic-widgets
+  - webview-flutter
+
+dependencies:
+  flutter:
+    sdk: flutter
+  webview_flutter: ^4.13.0
+  json_annotation: ^4.9.0
+  stac_core: ^1.0.0
+  stac_framework: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  build_runner: ^2.10.1
+  json_serializable: ^6.11.1

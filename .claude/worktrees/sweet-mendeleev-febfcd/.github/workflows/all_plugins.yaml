@@ -1,0 +1,67 @@
+name: all_plugins
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - 'website/**'
+      - '**.md'
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'docs/**'
+      - 'website/**'
+      - '**.md'
+
+jobs:
+  analyze:
+    timeout-minutes: 45
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
+        with:
+          channel: 'stable'
+          cache: true
+      - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
+        with:
+          melos-version: '3.0.1'
+      - name: 'Run Analyze'
+        run: melos run analyze
+
+  pub_get_check:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
+        with:
+          channel: 'stable'
+          cache: true
+      - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
+        with:
+          melos-version: '3.0.1'
+      - name: 'Flutter Pub Get'
+        run: melos run get
+
+  format:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
+        with:
+          channel: 'stable'
+          cache: true
+      - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
+        with:
+          melos-version: '3.0.1'
+      - name: 'Dart format'
+        run: |
+          melos run format
+          ./.github/workflows/scripts/validate-formatting.sh

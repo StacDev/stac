@@ -1,0 +1,227 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Grid View Example"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "left": 10,
+      "top": 10,
+      "right": 10,
+      "bottom": 10
+    },
+    "child": {
+      "type": "gridView",
+      "crossAxisCount": 2,
+      "crossAxisSpacing": 10.0,
+      "mainAxisSpacing": 10.0,
+      "children": [
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#FFCDD2",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 1",
+              "style": {
+                "color": "#B71C1C"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#C8E6C9",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 2",
+              "style": {
+                "color": "#1B5E20"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#BBDEFB",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 3",
+              "style": {
+                "color": "#0D47A1"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#FFF9C4",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 4",
+              "style": {
+                "color": "#F57F17"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#FFCCBC",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 5",
+              "style": {
+                "color": "#BF360C"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#B2EBF2",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 6",
+              "style": {
+                "color": "#006064"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#F8BBD0",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 7",
+              "style": {
+                "color": "#880E4F"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#D1C4E9",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 8",
+              "style": {
+                "color": "#311B92"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#C5CAE9",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 9",
+              "style": {
+                "color": "#1A237E"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "decoration": {
+            "type": "boxDecoration",
+            "color": "#FFE0B2",
+            "borderRadius": {
+              "all": 8.0
+            }
+          },
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Item 10",
+              "style": {
+                "color": "#E65100"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

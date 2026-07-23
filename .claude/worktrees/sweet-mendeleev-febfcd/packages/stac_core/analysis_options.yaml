@@ -1,0 +1,14 @@
+include: package:flutter_lints/flutter.yaml
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
+
+linter:
+  rules:
+    # Documentation rules
+    public_member_api_docs: true
+
+analyzer:
+  exclude:
+    # Exclude generated files from documentation requirements
+    - "lib/widgets/icon/stac_icons.dart"

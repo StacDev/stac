@@ -1,0 +1,378 @@
+---
+title: "Rendering Stac Widgets"
+description: "Learn different ways to render Stac widgets: from Stac Cloud, local JSON, assets, and network requests"
+---
+
+Stac provides multiple ways to render widgets from JSON, each suitable for different scenarios. This guide covers all available rendering methods and when to use them.
+
+## Prerequisites
+
+Before rendering any Stac widgets, you must initialize Stac in your application:
+
+```dart
+import 'package:stac/stac.dart';
+import 'package:your_app/default_stac_options.dart';
+
+void main() async {
+  await Stac.initialize(options: defaultStacOptions);
+  runApp(const MyApp());
+}
+```
+
+## Rendering Methods
+
+### 1. From Stac Cloud (`Stac` Widget)
+
+The most common approach for server-driven UI is fetching screens from Stac Cloud using the `Stac` widget.
+
+#### Usage
+
+```dart
+Stac(routeName: 'home_screen')
+```
+
+This widget automatically fetches the screen JSON from Stac Cloud based on the `routeName` and renders it.
+
+#### Dart Source Code
+
+The `home_screen` is defined in your `/stac` folder as a Dart file. Here's an example:
+
+**`stac/home_screen.dart`:**
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'home_screen')
+StacWidget homeScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(title: StacText(data: 'Home')),
+    body: StacColumn(
+      children: [
+        StacText(data: 'Welcome to Stac!'),
+        StacElevatedButton(
+          onPressed: {
+            'actionType': 'navigate',
+            'routeName': 'details'
+          },
+          child: StacText(data: 'Go to Details'),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+After running `stac deploy`, this Dart code is converted to JSON and uploaded to Stac Cloud, making it available via `Stac(routeName: 'home_screen')`.
+
+#### Properties
+
+| Property       | Type     | Description                                    |
+|----------------|----------|------------------------------------------------|
+| `routeName`    | `String` | The screen name registered in Stac Cloud      |
+| `loadingWidget`| `Widget?`| Custom widget shown while fetching (optional)  |
+| `errorWidget`  | `Widget?`| Custom widget shown on error (optional)        |
+
+#### Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Stac Demo',
+      home: Stac(
+        routeName: 'hello_world',
+        loadingWidget: const Center(child: CircularProgressIndicator()),
+        errorWidget: const Center(child: Text('Failed to load screen')),
+      ),
+    );
+  }
+}
+```
+
+#### When to Use
+
+- ✅ Production apps using Stac Cloud
+- ✅ Dynamic content that changes server-side
+- ✅ A/B testing and experimentation
+- ✅ Apps that need instant updates without app store approval
+
+### 2. From JSON (`Stac.fromJson`)
+
+Render a widget directly from a JSON map. Useful for testing, prototyping, or when you have JSON in memory.
+
+#### Usage
+
+```dart
+Stac.fromJson(jsonMap, context)
+```
+
+#### Properties
+
+| Parameter      | Type                     | Description                            |
+|----------------|--------------------------|----------------------------------------|
+| `json`         | `Map<String, dynamic>?`  | The JSON object representing the widget|
+| `context`      | `BuildContext`           | The build context                      |
+
+#### Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final json = {
+      'type': 'scaffold',
+      'body': {
+        'type': 'center',
+        'child': {
+          'type': 'text',
+          'data': 'Hello from JSON!'
+        }
+      }
+    };
+
+    return Stac.fromJson(json, context) ?? const SizedBox();
+  }
+}
+```
+
+#### When to Use
+
+- ✅ Testing and development
+- ✅ Prototyping with hardcoded JSON
+- ✅ Rendering widgets from local variables
+- ✅ Converting existing JSON data to widgets
+
+### 3. From Assets (`Stac.fromAssets`)
+
+Load and render widgets from JSON files bundled with your app. Perfect for static content or offline-first scenarios.
+
+#### Usage
+
+```dart
+Stac.fromAssets(
+  'assets/screens/home.json',
+  loadingWidget: (context) => const CircularProgressIndicator(),
+  errorWidget: (context, error) => Text('Error: $error'),
+)
+```
+
+#### Properties
+
+| Parameter       | Type                      | Description                                    |
+|-----------------|---------------------------|------------------------------------------------|
+| `assetPath`     | `String`                  | Path to the JSON file in your assets folder    |
+| `loadingWidget` | `LoadingWidgetBuilder?`   | Widget shown while loading (optional)          |
+| `errorWidget`   | `ErrorWidgetBuilder?`     | Widget shown on error (optional)               |
+
+#### Setup
+
+First, add your JSON file to `pubspec.yaml`:
+
+```yaml
+flutter:
+  assets:
+    - assets/screens/home.json
+```
+
+#### Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+class OfflineScreen extends StatelessWidget {
+  const OfflineScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stac.fromAssets(
+      'assets/screens/home.json',
+      loadingWidget: (context) => const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      ),
+      errorWidget: (context, error) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, size: 48),
+              const SizedBox(height: 16),
+              Text('Failed to load: $error'),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+#### When to Use
+
+- ✅ Static content that doesn't change
+- ✅ Offline-first applications
+- ✅ Fallback screens when network fails
+- ✅ Demo apps and prototypes
+
+### 4. From Network (`Stac.fromNetwork`)
+
+Fetch and render widgets from any HTTP endpoint. Provides more control than Stac Cloud and works with your own API.
+
+#### Usage
+
+```dart
+Stac.fromNetwork(
+  context: context,
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/ui/screen',
+    method: Method.get,
+  ),
+  loadingWidget: (context) => const CircularProgressIndicator(),
+  errorWidget: (context, error) => Text('Error: $error'),
+)
+```
+
+#### Properties
+
+| Parameter       | Type                      | Description                                    |
+|-----------------|---------------------------|------------------------------------------------|
+| `context`       | `BuildContext`            | The build context                              |
+| `request`       | `StacNetworkRequest`      | Network request configuration                  |
+| `loadingWidget` | `LoadingWidgetBuilder?`  | Widget shown while loading (optional)          |
+| `errorWidget`   | `ErrorWidgetBuilder?`     | Widget shown on error (optional)               |
+
+#### StacNetworkRequest Properties
+
+| Property         | Type                       | Description                                    |
+|------------------|----------------------------|------------------------------------------------|
+| `url`            | `String`                   | The URL to fetch JSON from                     |
+| `method`         | `Method`                   | HTTP method (get, post, put, delete)          |
+| `headers`        | `Map<String, dynamic>?`    | HTTP headers (e.g., Authorization)            |
+| `queryParameters`| `Map<String, dynamic>?`     | URL query parameters                          |
+| `body`           | `dynamic`                  | Request body for POST/PUT                      |
+| `contentType`    | `String?`                  | Content-Type header (e.g., application/json)   |
+
+#### Example
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+import 'package:stac_core/actions/network_request/stac_network_request.dart';
+
+class ApiDrivenScreen extends StatelessWidget {
+  const ApiDrivenScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stac.fromNetwork(
+      context: context,
+      request: StacNetworkRequest(
+        url: 'https://api.example.com/ui/home',
+        method: Method.get,
+        headers: {
+          'Authorization': 'Bearer your-token-here',
+          'Accept': 'application/json',
+        },
+      ),
+      loadingWidget: (context) => const Scaffold(
+        body: Center(child: CircularProgressIndicator()),
+      ),
+      errorWidget: (context, error) => Scaffold(
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.cloud_off, size: 48),
+              const SizedBox(height: 16),
+              Text('Network error: $error'),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  // Retry logic
+                },
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+```
+
+#### POST Request Example
+
+```dart
+Stac.fromNetwork(
+  context: context,
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/ui/dynamic',
+    method: Method.post,
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer token',
+    },
+    body: {
+      'userId': '123',
+      'featureFlags': ['new-ui', 'experiments'],
+    },
+  ),
+)
+```
+
+#### When to Use
+
+- ✅ Custom API endpoints
+- ✅ Server-side rendering
+- ✅ Dynamic content based on user data
+- ✅ Multi-tenant applications
+
+## Comparison
+
+| Method              | Source              | Best For                              | Network Required |
+|---------------------|---------------------|---------------------------------------|------------------|
+| `Stac(routeName:)`  | Stac Cloud          | Production SDUI apps                  | ✅ Yes           |
+| `Stac.fromJson()`   | In-memory JSON      | Testing, prototyping                  | ❌ No            |
+| `Stac.fromAssets()` | Bundled JSON file   | Offline, static content               | ❌ No            |
+| `Stac.fromNetwork()`| Custom API endpoint | Custom backends, advanced use cases   | ✅ Yes           |
+
+## Best Practices
+
+1. **Always provide loading states**: Users should know content is loading.
+2. **Handle errors gracefully**: Show meaningful error messages and retry options.
+3. **Use appropriate method**: Choose the rendering method that fits your use case.
+4. **Validate JSON**: Ensure your JSON follows Stac schema before rendering.
+
+### Hybrid Approach
+
+```dart
+class HybridScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Try cloud first, fallback to assets
+    return FutureBuilder<bool>(
+      future: checkNetworkConnection(),
+      builder: (context, snapshot) {
+        if (snapshot.data == true) {
+          return Stac(routeName: 'home_screen');
+        } else {
+          return Stac.fromAssets('assets/screens/home.json');
+        }
+      },
+    );
+  }
+}
+```
+

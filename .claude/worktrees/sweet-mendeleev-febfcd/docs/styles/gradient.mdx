@@ -1,0 +1,187 @@
+---
+title: "Gradient"
+description: "Documentation for Gradient"
+---
+
+The Stac Gradient class allows you to create gradients for backgrounds. It supports linear, radial, and sweep gradients.
+
+## Properties
+
+| Property      | Type               | Description                                                |
+|---------------|--------------------|------------------------------------------------------------|
+| gradientType  | `String?`          | Type of gradient: `linear`, `radial`, or `sweep`.          |
+| colors        | `List<String>?`    | List of colors in the gradient.                            |
+| stops         | `List<double>?`    | Stop positions for each color (0.0 to 1.0).                |
+| begin         | `String?`          | Starting alignment (for linear gradients).                 |
+| end           | `String?`          | Ending alignment (for linear gradients).                   |
+| center        | `String?`          | Center alignment (for radial/sweep gradients).             |
+| radius        | `double?`          | Radius (for radial gradients).                             |
+| focal         | `String?`          | Focal point alignment (for radial gradients).              |
+| focalRadius   | `double?`          | Radius of focal point (for radial gradients).              |
+| startAngle    | `double?`          | Starting angle in radians (for sweep gradients).           |
+| endAngle      | `double?`          | Ending angle in radians (for sweep gradients).             |
+| tileMode      | `String?`          | Tile mode: `clamp`, `repeated`, `mirror`, or `decal`.      |
+
+## Linear Gradient
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.blue, StacColors.purple],
+      begin: StacAlignment.topLeft,
+      end: StacAlignment.bottomRight,
+    ),
+  ),
+  child: StacText(data: 'Linear Gradient'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#2196F3", "#9C27B0"],
+      "begin": "topLeft",
+      "end": "bottomRight"
+    }
+  },
+  "child": {
+    "type": "text",
+    "data": "Linear Gradient"
+  }
+}
+```
+</CodeGroup>
+
+## Linear Gradient with Stops
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.red, StacColors.yellow, StacColors.green],
+      stops: [0.0, 0.5, 1.0],
+      begin: StacAlignment.topCenter,
+      end: StacAlignment.bottomCenter,
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#F44336", "#FFEB3B", "#4CAF50"],
+      "stops": [0.0, 0.5, 1.0],
+      "begin": "topCenter",
+      "end": "bottomCenter"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Radial Gradient
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.radial(
+      colors: [StacColors.white, StacColors.blue],
+      center: StacAlignment.center,
+      radius: 0.8,
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "radial",
+      "colors": ["#FFFFFF", "#2196F3"],
+      "center": "center",
+      "radius": 0.8
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Sweep Gradient
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.sweep(
+      colors: [StacColors.red, StacColors.green, StacColors.blue, StacColors.red],
+      center: StacAlignment.center,
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "sweep",
+      "colors": ["#F44336", "#4CAF50", "#2196F3", "#F44336"],
+      "center": "center"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Tile Modes
+
+| Mode       | Description                                      |
+|------------|--------------------------------------------------|
+| `clamp`    | Edge colors extend to fill remaining area.       |
+| `repeated` | Gradient repeats from start.                     |
+| `mirror`   | Gradient mirrors back and forth.                 |
+| `decal`    | Transparent outside gradient bounds.             |
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    gradient: StacGradient.linear(
+      colors: [StacColors.blue, StacColors.white],
+      begin: StacAlignment.centerLeft,
+      end: StacAlignment.center,
+      tileMode: StacTileMode.mirror,
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "decoration": {
+    "gradient": {
+      "gradientType": "linear",
+      "colors": ["#2196F3", "#FFFFFF"],
+      "begin": "centerLeft",
+      "end": "center",
+      "tileMode": "mirror"
+    }
+  }
+}
+```
+</CodeGroup>

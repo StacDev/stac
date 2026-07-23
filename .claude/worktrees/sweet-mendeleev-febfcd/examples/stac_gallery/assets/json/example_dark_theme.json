@@ -1,0 +1,21 @@
+{
+  "brightness": "dark",
+  "disabledColor": "#60FFFFFF",
+  "colorScheme": {
+    "brightness": "dark",
+    "primary": "#CCBDFA",
+    "onPrimary": "#341F6E",
+    "secondary": "#C9C2D9",
+    "onSecondary": "#322D40",
+    "surface": "#1C1B1E",
+    "onSurface": "#E5E1E6",
+    "background": "#1C1B1E",
+    "onBackground": "#E5E1E6",
+    "surfaceVariant": "#48454D",
+    "onSurfaceVariant": "#C9C4CE",
+    "error": "#F4B7AE",
+    "onError": "#600F0C",
+    "success": "#27BA62",
+    "onSuccess": "#FFFFFF"
+  }
+}

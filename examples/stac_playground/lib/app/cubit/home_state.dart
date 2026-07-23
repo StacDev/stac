@@ -1,0 +1,89 @@
+import 'package:flutter/widgets.dart';
+import 'package:stac_playground/data/playground_entry.dart';
+import 'package:stac_playground/widget/stac_json_editor/json_editor_model.dart';
+
+enum PreviewDevice {
+  mobile(Size(390, 844)),
+  tablet(Size(768, 1024)),
+  desktop(Size(1280, 800));
+
+  const PreviewDevice(this.frameSize);
+
+  final Size frameSize;
+}
+
+/// The language shown in the code editor. Dart is the Stac DSL source that
+/// `stac build` compiles to the deployed JSON.
+enum CodeLanguage { dart, json }
+
+/// Top-level playground layout: editor + live preview, or Dart and JSON
+/// editors side by side with no preview.
+enum PlaygroundView { preview, codeDiff }
+
+class HomeState {
+  HomeState({
+    required this.jsonElement,
+    required this.selectedEntry,
+    this.dartCode = '',
+    this.showCodeView = true,
+    this.scale = 1.0,
+    this.darkMode = false,
+    this.device = PreviewDevice.mobile,
+    this.edited = false,
+    this.codeLanguage = CodeLanguage.json,
+    this.view = PlaygroundView.preview,
+    this.query = '',
+    this.mobileDark = true,
+  });
+
+  final JsonElement jsonElement;
+  final PlaygroundEntry selectedEntry;
+
+  /// Dart DSL source for [selectedEntry] (inline or loaded from assets).
+  final String dartCode;
+  final bool showCodeView;
+  final double scale;
+  final bool darkMode;
+  final PreviewDevice device;
+  final CodeLanguage codeLanguage;
+  final PlaygroundView view;
+
+  /// Search query filtering the entry index.
+  final String query;
+
+  /// Whether the mobile UI renders in dark theme.
+  final bool mobileDark;
+
+  /// Whether the JSON has been modified since the entry was loaded.
+  final bool edited;
+
+  HomeState copyWith({
+    JsonElement? jsonElement,
+    PlaygroundEntry? selectedEntry,
+    String? dartCode,
+    bool? showCodeView,
+    double? scale,
+    bool? darkMode,
+    PreviewDevice? device,
+    bool? edited,
+    CodeLanguage? codeLanguage,
+    PlaygroundView? view,
+    String? query,
+    bool? mobileDark,
+  }) {
+    return HomeState(
+      jsonElement: jsonElement ?? this.jsonElement,
+      selectedEntry: selectedEntry ?? this.selectedEntry,
+      dartCode: dartCode ?? this.dartCode,
+      showCodeView: showCodeView ?? this.showCodeView,
+      scale: scale ?? this.scale,
+      darkMode: darkMode ?? this.darkMode,
+      device: device ?? this.device,
+      edited: edited ?? this.edited,
+      codeLanguage: codeLanguage ?? this.codeLanguage,
+      view: view ?? this.view,
+      query: query ?? this.query,
+      mobileDark: mobileDark ?? this.mobileDark,
+    );
+  }
+}

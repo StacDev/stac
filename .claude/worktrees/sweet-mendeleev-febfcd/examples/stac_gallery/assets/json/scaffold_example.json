@@ -1,0 +1,82 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Scaffold"
+    },
+    "leading": {
+      "type": "iconButton",
+      "icon": {
+        "type": "icon",
+        "iconType": "material",
+        "icon": "menu"
+      },
+      "onPressed": {}
+    },
+    "actions": [
+      {
+        "type": "iconButton",
+        "icon": {
+          "type": "icon",
+          "iconType": "cupertino",
+          "icon": "heart_solid"
+        },
+        "onPressed": {}
+      },
+      {
+        "type": "iconButton",
+        "icon": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "search"
+        },
+        "onPressed": {}
+      },
+      {
+        "type": "iconButton",
+        "icon": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_horiz"
+        },
+        "onPressed": {}
+      }
+    ]
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 17
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "floatingActionButton": {
+    "type": "floatingActionButton",
+    "backgroundColor": "#FC3F1B",
+    "foregroundColor": "#ffffff",
+    "buttonType": "medium",
+    "child": {
+      "type": "icon",
+      "iconType": "material",
+      "icon": "add",
+      "size": 32
+    },
+    "onPressed": {}
+  }
+}

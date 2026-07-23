@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'package:stac_framework/stac_framework.dart';
+import '__FILE_BASENAME__.dart';
+
+class __PARSER_CLASS__ implements StacActionParser<__CLASS_NAME__> {
+  const __PARSER_CLASS__();
+
+  @override
+  String get actionType => '__ACTION_TYPE__';
+
+  @override
+  __CLASS_NAME__ getModel(Map<String, dynamic> json) =>
+      __CLASS_NAME__.fromJson(json);
+
+  @override
+  FutureOr<dynamic> onCall(BuildContext context, __CLASS_NAME__ model) {
+    debugPrint(model.message ?? '__CLASS_NAME__ called');
+    // TODO: Implement action logic
+    return null;
+  }
+}

@@ -1,0 +1,159 @@
+---
+title: "Edge Insets"
+description: "Documentation for Edge Insets (Padding/Margin)"
+---
+
+The Stac EdgeInsets class represents padding or margin values. It specifies offsets in each of the four directions (left, top, right, bottom) in logical pixels.
+
+## Properties
+
+| Property | Type      | Description                              |
+|----------|-----------|------------------------------------------|
+| left     | `double?` | Left edge inset in logical pixels.       |
+| top      | `double?` | Top edge inset in logical pixels.        |
+| right    | `double?` | Right edge inset in logical pixels.      |
+| bottom   | `double?` | Bottom edge inset in logical pixels.     |
+
+## Constructors
+
+### All Edges Equal
+
+<CodeGroup>
+```dart Dart
+StacEdgeInsets.all(16.0)
+```
+
+```json JSON
+16.0
+```
+</CodeGroup>
+
+### Symmetric (Horizontal/Vertical)
+
+<CodeGroup>
+```dart Dart
+StacEdgeInsets.symmetric(
+  horizontal: 16.0,
+  vertical: 8.0,
+)
+```
+
+```json JSON
+{
+  "left": 16.0,
+  "top": 8.0,
+  "right": 16.0,
+  "bottom": 8.0
+}
+```
+</CodeGroup>
+
+### Only Specific Edges
+
+<CodeGroup>
+```dart Dart
+StacEdgeInsets.only(
+  left: 8.0,
+  top: 16.0,
+  right: 8.0,
+  bottom: 24.0,
+)
+```
+
+```json JSON
+{
+  "left": 8.0,
+  "top": 16.0,
+  "right": 8.0,
+  "bottom": 24.0
+}
+```
+</CodeGroup>
+
+### Horizontal Only
+
+<CodeGroup>
+```dart Dart
+StacEdgeInsets.horizontal(16.0)
+```
+
+```json JSON
+{
+  "left": 16.0,
+  "right": 16.0
+}
+```
+</CodeGroup>
+
+### Vertical Only
+
+<CodeGroup>
+```dart Dart
+StacEdgeInsets.vertical(16.0)
+```
+
+```json JSON
+{
+  "top": 16.0,
+  "bottom": 16.0
+}
+```
+</CodeGroup>
+
+## Example Usage
+
+### With Padding Widget
+
+<CodeGroup>
+```dart Dart
+StacPadding(
+  padding: StacEdgeInsets.all(16.0),
+  child: StacText(data: 'Padded content'),
+)
+```
+
+```json JSON
+{
+  "type": "padding",
+  "padding": 16.0,
+  "child": {
+    "type": "text",
+    "data": "Padded content"
+  }
+}
+```
+</CodeGroup>
+
+### With Container
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  padding: StacEdgeInsets.symmetric(
+    horizontal: 24.0,
+    vertical: 16.0,
+  ),
+  margin: StacEdgeInsets.only(bottom: 8.0),
+  child: StacText(data: 'Container content'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "padding": {
+    "left": 24.0,
+    "top": 16.0,
+    "right": 24.0,
+    "bottom": 16.0
+  },
+  "margin": {
+    "bottom": 8.0
+  },
+  "child": {
+    "type": "text",
+    "data": "Container content"
+  }
+}
+```
+</CodeGroup>

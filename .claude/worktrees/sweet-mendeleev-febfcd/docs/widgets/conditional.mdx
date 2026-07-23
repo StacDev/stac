@@ -1,0 +1,120 @@
+---
+title: "Conditional"
+description: "Documentation for Conditional"
+---
+
+The Stac Conditional allows you to conditionally render widgets based on a boolean expression. It evaluates the condition at runtime and renders either the `ifTrue` or `ifFalse` widget.
+
+## Properties
+
+| Property  | Type                   | Description                                                                 |
+|-----------|------------------------|-----------------------------------------------------------------------------|
+| condition | `String`               | **Required.** The boolean expression to evaluate at runtime.                |
+| ifTrue    | `StacWidget`           | **Required.** The widget to render when condition evaluates to true.        |
+| ifFalse   | `StacWidget`           | The widget to render when condition evaluates to false. Renders empty if null. |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: 'user.isLoggedIn == true',
+  ifTrue: StacText(data: 'Welcome back!'),
+  ifFalse: StacText(data: 'Please sign in'),
+)
+```
+
+```json JSON
+{
+  "type": "conditional",
+  "condition": "user.isLoggedIn == true",
+  "ifTrue": {
+    "type": "text",
+    "data": "Welcome back!"
+  },
+  "ifFalse": {
+    "type": "text",
+    "data": "Please sign in"
+  }
+}
+```
+</CodeGroup>
+
+## Conditional with Complex Widgets
+
+<CodeGroup>
+```dart Dart
+StacConditional(
+  condition: 'items.length > 0',
+  ifTrue: StacListView(
+    children: [
+      StacText(data: 'Your items:'),
+      // ... list items
+    ],
+  ),
+  ifFalse: StacCenter(
+    child: StacColumn(
+      mainAxisAlignment: StacMainAxisAlignment.center,
+      children: [
+        StacIcon(icon: 'empty_box', size: 64.0),
+        StacSizedBox(height: 16.0),
+        StacText(data: 'No items found'),
+        StacSizedBox(height: 8.0),
+        StacElevatedButton(
+          child: StacText(data: 'Add Item'),
+          onPressed: StacNavigateAction(routeName: '/add-item'),
+        ),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "conditional",
+  "condition": "items.length > 0",
+  "ifTrue": {
+    "type": "listView",
+    "children": [
+      { "type": "text", "data": "Your items:" }
+    ]
+  },
+  "ifFalse": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "children": [
+        { "type": "icon", "icon": "empty_box", "size": 64.0 },
+        { "type": "sizedBox", "height": 16.0 },
+        { "type": "text", "data": "No items found" },
+        { "type": "sizedBox", "height": 8.0 },
+        {
+          "type": "elevatedButton",
+          "child": { "type": "text", "data": "Add Item" },
+          "onPressed": {
+            "actionType": "navigate",
+            "routeName": "/add-item"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Condition Expression Syntax
+
+The `condition` property accepts expressions that are evaluated against the current state. Common patterns include:
+
+- **Equality**: `user.role == 'admin'`
+- **Boolean check**: `user.isVerified == true`
+- **Comparison**: `cart.total > 100`
+- **Length check**: `items.length > 0`
+- **Null check**: `user.name != null`
+
+<Note>
+The condition is evaluated at runtime by Stac's expression resolver against the current application state.
+</Note>

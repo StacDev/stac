@@ -1,0 +1,232 @@
+---
+title: "Theming"
+description: "Learn how to implement and manage themes in Stac applications using DSL + Cloud (recommended), network, or JSON sources"
+---
+
+Theming is an essential part of any application, ensuring a consistent look and feel across the entire app. Stac offers flexible theming options that allow you to fetch themes from Stac Cloud (recommended), load them over the network, or parse them from JSON.
+
+## Overview
+
+Stac theming works similarly to Flutter's built-in theming system. You define themes using `StacTheme` objects and apply them to your application using `StacApp`. The framework supports multiple ways to load themes:
+
+1. **Cloud Themes (Recommended)** - Fetch themes from Stac Cloud by name
+2. **Network Themes** - Load themes over HTTP using `StacNetworkRequest`
+3. **JSON Themes** - Parse themes from JSON data
+
+## Using StacApp with Themes
+
+To use themes in your Stac application, replace `MaterialApp` with `StacApp` and pass your theme using the `StacAppTheme` wrapper:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac/stac.dart';
+
+void main() async {
+  await Stac.initialize();
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return StacApp(
+      title: 'My App',
+      theme: StacAppTheme(name: "light_theme"),  // Cloud theme (recommended)
+      darkTheme: StacAppTheme(name: "dark_theme"),  // Cloud theme (recommended)
+      homeBuilder: (context) => const HomeScreen(),
+    );
+  }
+}
+```
+
+## Theme Sources
+
+### 1. Cloud Themes (Recommended)
+
+Fetch themes from Stac Cloud by name. This is the recommended approach as it allows themes to be managed server-side and updated without app updates. Themes are cached locally for offline access and performance.
+
+#### Workflow: Generate and Deploy Themes
+
+To use Cloud themes, you first need to:
+
+1. **Define your themes** in your `stac/` directory using `@StacThemeRef` annotation
+2. **Generate JSON** from your DSL themes using the Stac CLI
+3. **Deploy to Stac Cloud** using `stac deploy`
+
+Here's the complete workflow:
+
+**Step 1: Define your theme** in `stac/app_theme.dart`:
+
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacThemeRef(name: "movie_app_dark")
+StacTheme get darkTheme => _buildTheme(
+  brightness: StacBrightness.dark,
+  colorScheme: StacColorScheme(
+    brightness: StacBrightness.dark,
+    primary: '#95E183',
+    // ... other properties
+  ),
+);
+```
+
+**Step 2: Generate and deploy** using the CLI:
+
+```bash
+stac deploy
+```
+
+This command will:
+- Build your project
+- Process all `@StacScreen` annotated screens and `@StacThemeRef` annotated themes
+- Generate JSON files for each screen and theme
+- Upload all generated files to Stac Cloud
+
+Example output:
+```
+[INFO] Building project before deployment...
+[INFO] Found 4 @StacScreen annotated function(s)
+[SUCCESS] ✓ Generated screen: onboarding_screen.json
+[SUCCESS] ✓ Generated screen: home_screen.json
+[SUCCESS] ✓ Generated screen: detail_screen.json
+[INFO] Found 1 @StacThemeRef definition(s) in stac\app_theme.dart
+[SUCCESS] ✓ Generated theme: movie_app_dark.json
+[SUCCESS] Build completed successfully!
+[INFO] Deploying screens/themes to cloud...
+[SUCCESS] Uploaded screen: onboarding_screen.json
+[SUCCESS] Uploaded screen: home_screen.json
+[SUCCESS] Uploaded screen: detail_screen.json
+[SUCCESS] Uploaded theme: movie_app_dark.json
+[SUCCESS] Deployment completed successfully!
+```
+
+**Step 3: Use in your app**:
+
+```dart
+StacApp(
+  theme: StacAppTheme(name: "movie_app_light"),
+  darkTheme: StacAppTheme(name: "movie_app_dark"),
+  // ...
+)
+```
+
+The `StacAppTheme` wrapper automatically fetches the theme from Stac Cloud using the provided name. Themes are cached intelligently to minimize network requests.
+
+> You can also use DSL themes directly by passing a `StacTheme` object to `StacAppTheme.dsl(theme: myTheme)`. When using themes directly, the `@StacThemeRef` annotation is not needed. The annotation is only required when you want to deploy themes to Stac Cloud using `stac deploy`.
+
+### 2. Network Themes
+
+Load themes over HTTP using a `StacNetworkRequest`. This allows you to fetch themes from any API endpoint:
+
+```dart
+StacApp(
+  theme: StacAppTheme.network(
+    context: context,
+    request: StacNetworkRequest(
+      url: 'https://api.example.com/themes/light',
+      method: Method.get,
+    ),
+  ),
+  // ...
+)
+```
+
+### 3. JSON Themes
+
+Parse themes directly from JSON data. Useful when themes are stored locally or received from other sources:
+
+```dart
+final themeJson = {
+  "brightness": "dark",
+  "colorScheme": {
+    "brightness": "dark",
+    "primary": "#95E183",
+    "onPrimary": "#050608",
+    // ... other color scheme properties
+  },
+  "textTheme": {
+    // ... text theme properties
+  }
+};
+
+StacApp(
+  theme: StacAppTheme.json(payload: themeJson),
+  // ...
+)
+```
+
+## Theme Structure
+
+A `StacTheme` consists of several components:
+
+### Color Scheme
+
+The color scheme defines the primary colors used throughout your app:
+
+```dart
+StacColorScheme(
+  brightness: StacBrightness.dark,
+  primary: '#95E183',
+  onPrimary: '#050608',
+  secondary: '#95E183',
+  onSecondary: '#FFFFFF',
+  surface: '#050608',
+  onSurface: '#FFFFFF',
+  onSurfaceVariant: '#65FFFFFF',
+  error: '#FF6565',
+  onError: '#050608',
+  outline: '#08FFFFFF',
+)
+```
+
+### Text Theme
+
+Define typography styles for different text elements:
+
+```dart
+StacTextTheme(
+  displayLarge: StacCustomTextStyle(
+    fontSize: 48,
+    fontWeight: StacFontWeight.w700,
+    height: 1.1,
+  ),
+  headlineLarge: StacCustomTextStyle(
+    fontSize: 30,
+    fontWeight: StacFontWeight.w700,
+    height: 1.3,
+  ),
+  bodyLarge: StacCustomTextStyle(
+    fontSize: 18,
+    fontWeight: StacFontWeight.w400,
+    height: 1.5,
+  ),
+  // ... other text styles
+)
+```
+
+### Button Themes
+
+Customize button appearances:
+
+```dart
+// Filled button theme
+StacButtonStyle(
+  minimumSize: StacSize(120, 40),
+  textStyle: StacCustomTextStyle(
+    fontSize: 16,
+    fontWeight: StacFontWeight.w500,
+  ),
+  padding: StacEdgeInsets.only(left: 10, right: 10, top: 8, bottom: 8),
+  shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
+)
+
+// Outlined button theme
+StacButtonStyle(
+  minimumSize: StacSize(120, 40),
+  side: StacBorderSide(color: '#95E183', width: 1.0),
+  shape: StacRoundedRectangleBorder(borderRadius: StacBorderRadius.all(8)),
+)
+```

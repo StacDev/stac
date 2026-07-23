@@ -1,0 +1,21 @@
+name: stac
+
+packages:
+  - packages/*
+  - examples/*
+
+scripts:
+  analyze:
+    exec: dart analyze .
+  format:
+    exec: dart format .
+  get:
+    exec: flutter pub get
+  build:
+    exec: dart run build_runner build --delete-conflicting-outputs
+    packageFilters:
+      ignore: [stac_framework, movie_app, stac_logger]
+  watch:
+    exec: dart run build_runner watch --delete-conflicting-outputs
+    packageFilters:
+      ignore: [stac_framework, movie_app, stac_logger]

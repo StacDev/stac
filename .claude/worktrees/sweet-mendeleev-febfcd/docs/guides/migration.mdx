@@ -1,0 +1,307 @@
+---
+title: "Migration Guide: JSON to Dart"
+description: "Step-by-step guide to migrate from JSON to Stac Dart "
+---
+
+This guide helps you migrate existing Stac JSON configurations to the new Dart  format. The Dart  provides type safety, IDE autocompletion, and a more natural development experience.
+
+## Why Migrate to Dart?
+
+| Feature | JSON | Dart |
+|---------|------|----------|
+| Type Safety | No | Yes |
+| IDE Autocompletion | Limited | Full |
+| Compile-time Checks | No | Yes |
+| Refactoring Support | Manual | Automatic |
+| Code Organization | Files | Functions & Classes |
+
+## Basic Conversion Rules
+
+### Widget Types
+
+JSON `type` fields map to `Stac` + PascalCase class names:
+
+| JSON Type | Dart  Class |
+|-----------|----------------|
+| `text` | `StacText` |
+| `container` | `StacContainer` |
+| `column` | `StacColumn` |
+| `row` | `StacRow` |
+| `elevatedButton` | `StacElevatedButton` |
+| `scaffold` | `StacScaffold` |
+
+### Action Types
+
+JSON `actionType` fields map to `Stac` + PascalCase + `Action`:
+
+| JSON actionType | Dart Class |
+|-----------------|----------------|
+| `navigate` | `StacNavigateAction` |
+| `showDialog` | `StacDialogAction` |
+| `showSnackBar` | `StacSnackBarAction` |
+| `networkRequest` | `StacNetworkRequest` |
+| `setValue` | `StacSetValueAction` |
+
+## Step-by-Step Migration
+
+### Step 1: Simple Widget
+
+**Before (JSON):**
+```json
+{
+  "type": "text",
+  "data": "Hello, World!"
+}
+```
+
+**After (Dart):**
+```dart
+StacText(data: 'Hello, World!')
+```
+
+### Step 2: Widget with Properties
+
+**Before (JSON):**
+```json
+{
+  "type": "container",
+  "width": 200.0,
+  "height": 100.0,
+  "color": "#2196F3",
+  "child": {
+    "type": "text",
+    "data": "Content"
+  }
+}
+```
+
+**After (Dart):**
+```dart
+StacContainer(
+  width: 200.0,
+  height: 100.0,
+  color: StacColors.blue,
+  child: StacText(data: 'Content'),
+)
+```
+
+### Step 3: Nested Widgets
+
+**Before (JSON):**
+```json
+{
+  "type": "column",
+  "mainAxisAlignment": "center",
+  "children": [
+    { "type": "text", "data": "Title" },
+    { "type": "sizedBox", "height": 16.0 },
+    { "type": "text", "data": "Subtitle" }
+  ]
+}
+```
+
+**After (Dart):**
+```dart
+StacColumn(
+  mainAxisAlignment: StacMainAxisAlignment.center,
+  children: [
+    StacText(data: 'Title'),
+    StacSizedBox(height: 16.0),
+    StacText(data: 'Subtitle'),
+  ],
+)
+```
+
+### Step 4: Actions
+
+**Before (JSON):**
+```json
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Click Me" },
+  "onPressed": {
+    "actionType": "navigate",
+    "routeName": "/details"
+  }
+}
+```
+
+**After (Dart):**
+```dart
+StacElevatedButton(
+  child: StacText(data: 'Click Me'),
+  onPressed: StacNavigateAction(routeName: '/details'),
+)
+```
+
+### Step 5: Complex Styles
+
+**Before (JSON):**
+```json
+{
+  "type": "container",
+  "decoration": {
+    "color": "#FFFFFF",
+    "borderRadius": 16.0,
+    "boxShadow": [
+      {
+        "color": "#000000",
+        "blurRadius": 10.0,
+        "offset": { "x": 0.0, "y": 4.0 }
+      }
+    ]
+  }
+}
+```
+
+**After (Dart):**
+```dart
+StacContainer(
+  decoration: StacBoxDecoration(
+    color: StacColors.white,
+    borderRadius: StacBorderRadius.all(16.0),
+    boxShadow: [
+      StacBoxShadow(
+        color: StacColors.black,
+        blurRadius: 10.0,
+        offset: StacOffset(dx: 0.0, dy: 4.0),
+      ),
+    ],
+  ),
+)
+```
+
+## Common Patterns
+
+### Padding/Margin
+
+**JSON:**
+```json
+{
+  "padding": { "horizontal": 16.0, "vertical": 8.0 }
+}
+```
+
+**Dart:**
+```dart
+padding: StacEdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)
+```
+
+### Colors
+
+| JSON | Dart |
+|------|----------|
+| `"#FFFFFF"` | `StacColors.white` |
+| `"#000000"` | `StacColors.black` |
+| `"#2196F3"` | `StacColors.blue` |
+| `"#4CAF50"` | `StacColors.green` |
+| `"#F44336"` | `StacColors.red` |
+| `"primary"` | `'primary'` (theme color) |
+
+### Enums
+
+**JSON string values become Dart enums:**
+
+| JSON | Dart |
+|------|----------|
+| `"center"` | `StacMainAxisAlignment.center` |
+| `"spaceBetween"` | `StacMainAxisAlignment.spaceBetween` |
+| `"contain"` | `StacBoxFit.contain` |
+| `"cover"` | `StacBoxFit.cover` |
+
+## Full Screen Migration Example
+
+**Before (JSON file: `home_screen.json`):**
+```json
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": { "type": "text", "data": "Home" }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "children": [
+        {
+          "type": "text",
+          "data": "Welcome!",
+          "style": { "fontSize": 24.0, "fontWeight": "bold" }
+        },
+        { "type": "sizedBox", "height": 16.0 },
+        {
+          "type": "elevatedButton",
+          "child": { "type": "text", "data": "Get Started" },
+          "onPressed": {
+            "actionType": "navigate",
+            "routeName": "/onboarding"
+          }
+        }
+      ]
+    }
+  }
+}
+```
+
+**After (Dart file: `stac/home_screen.dart`):**
+```dart
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'home_screen')
+StacWidget homeScreen() {
+  return StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Home'),
+    ),
+    body: StacCenter(
+      child: StacColumn(
+        mainAxisAlignment: StacMainAxisAlignment.center,
+        children: [
+          StacText(
+            data: 'Welcome!',
+            style: StacTextStyle(
+              fontSize: 24.0,
+              fontWeight: StacFontWeight.bold,
+            ),
+          ),
+          StacSizedBox(height: 16.0),
+          StacElevatedButton(
+            child: StacText(data: 'Get Started'),
+            onPressed: StacNavigateAction(routeName: '/onboarding'),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+```
+
+## Build and Deploy
+
+After migrating, build your Dart to JSON:
+
+```bash
+# Build all screens
+stac build
+
+# Deploy to Stac Cloud
+stac deploy
+```
+
+The generated JSON will be placed in `stac/.build/`.
+
+## Tips
+
+1. **Start small**: Migrate one screen at a time
+2. **Use IDE features**: Leverage autocompletion and error checking
+3. **Run `stac build` often**: Catch errors early
+4. **Compare output**: Verify generated JSON matches your expectations
+5. **Keep JSON backups**: Until you're confident in your migration
+
+## Related
+
+- [DSL Overview](/dsl)
+- [CLI Commands](/cli)
+- [Project Structure](/project_structure)

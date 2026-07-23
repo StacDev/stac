@@ -1,0 +1,71 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Text"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": {
+      "top": 12,
+      "left": 12,
+      "right": 12
+    },
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "start",
+      "crossAxisAlignment": "start",
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 12
+        },
+        {
+          "type": "text",
+          "data": "Flutter",
+          "align": "center",
+          "style": {
+            "fontSize": 23,
+            "fontWeight": "w600"
+          }
+        },
+        {
+          "type": "sizedBox",
+          "height": 32
+        },
+        {
+          "type": "text",
+          "data": "This is a normal Text."
+        },
+        {
+          "type": "sizedBox",
+          "height": 16
+        },
+        {
+          "type": "text",
+          "data": "This is a ",
+          "children": [
+            {
+              "text": "Rich Text.",
+              "style": {
+                "fontWeight": "w800",
+                "color": "#6750A4"
+              },
+              "onTap": {
+                "actionType": "navigate",
+                "navigationStyle": "push",
+                "widgetJson": {
+                  "type": "exampleScreen",
+                  "assetPath": "assets/json/web_view_example.json"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

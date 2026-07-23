@@ -1,0 +1,84 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Icon Button"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "iconButton",
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                },
+                "onPressed": {}
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "iconButton",
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "remove"
+                },
+                "onPressed": {}
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 52
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "iconButton",
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "add"
+                }
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "iconButton",
+                "icon": {
+                  "type": "icon",
+                  "iconType": "material",
+                  "icon": "remove"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

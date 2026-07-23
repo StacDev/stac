@@ -1,0 +1,5 @@
+interface:
+  display_name: "Stac Screen Builder"
+  short_description: "Design and scaffold Stac DSL screens fast"
+  brand_color: "#15803D"
+  default_prompt: "Use $stac-screen-builder to turn product requirements into Stac DSL screens and themes."

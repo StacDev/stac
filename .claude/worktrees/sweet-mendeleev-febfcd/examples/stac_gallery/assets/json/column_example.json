@@ -1,0 +1,69 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Column"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "column",
+      "mainAxisAlignment": "center",
+      "crossAxisAlignment": "center",
+      "spacing": 12,
+      "children": [
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#FFCDD2",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Red Container",
+              "style": {
+                "color": "#B71C1C"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#C8E6C9",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Green Container",
+              "style": {
+                "color": "#1B5E20"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "width": 2000,
+          "height": 200,
+          "color": "#BBDEFB",
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "Blue Container",
+              "style": {
+                "color": "#0D47A1"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

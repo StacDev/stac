@@ -1,0 +1,70 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of 'stac_bottom_nav_bar_theme_data.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+StacBottomNavBarThemeData _$StacBottomNavBarThemeDataFromJson(
+  Map<String, dynamic> json,
+) => StacBottomNavBarThemeData(
+  backgroundColor: json['backgroundColor'] as String?,
+  elevation: (json['elevation'] as num?)?.toDouble(),
+  selectedIconTheme: json['selectedIconTheme'] == null
+      ? null
+      : StacIconThemeData.fromJson(
+          json['selectedIconTheme'] as Map<String, dynamic>,
+        ),
+  unselectedIconTheme: json['unselectedIconTheme'] == null
+      ? null
+      : StacIconThemeData.fromJson(
+          json['unselectedIconTheme'] as Map<String, dynamic>,
+        ),
+  selectedItemColor: json['selectedItemColor'] as String?,
+  unselectedItemColor: json['unselectedItemColor'] as String?,
+  selectedLabelStyle: json['selectedLabelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['selectedLabelStyle']),
+  unselectedLabelStyle: json['unselectedLabelStyle'] == null
+      ? null
+      : StacTextStyle.fromJson(json['unselectedLabelStyle']),
+  showSelectedLabels: json['showSelectedLabels'] as bool?,
+  showUnselectedLabels: json['showUnselectedLabels'] as bool?,
+  type: $enumDecodeNullable(_$StacBottomNavigationBarTypeEnumMap, json['type']),
+  enableFeedback: json['enableFeedback'] as bool?,
+  landscapeLayout: $enumDecodeNullable(
+    _$StacBottomNavigationBarLandscapeLayoutEnumMap,
+    json['landscapeLayout'],
+  ),
+);
+
+Map<String, dynamic> _$StacBottomNavBarThemeDataToJson(
+  StacBottomNavBarThemeData instance,
+) => <String, dynamic>{
+  'backgroundColor': instance.backgroundColor,
+  'elevation': instance.elevation,
+  'selectedIconTheme': instance.selectedIconTheme?.toJson(),
+  'unselectedIconTheme': instance.unselectedIconTheme?.toJson(),
+  'selectedItemColor': instance.selectedItemColor,
+  'unselectedItemColor': instance.unselectedItemColor,
+  'selectedLabelStyle': instance.selectedLabelStyle?.toJson(),
+  'unselectedLabelStyle': instance.unselectedLabelStyle?.toJson(),
+  'showSelectedLabels': instance.showSelectedLabels,
+  'showUnselectedLabels': instance.showUnselectedLabels,
+  'type': _$StacBottomNavigationBarTypeEnumMap[instance.type],
+  'enableFeedback': instance.enableFeedback,
+  'landscapeLayout':
+      _$StacBottomNavigationBarLandscapeLayoutEnumMap[instance.landscapeLayout],
+};
+
+const _$StacBottomNavigationBarTypeEnumMap = {
+  StacBottomNavigationBarType.fixed: 'fixed',
+  StacBottomNavigationBarType.shifting: 'shifting',
+};
+
+const _$StacBottomNavigationBarLandscapeLayoutEnumMap = {
+  StacBottomNavigationBarLandscapeLayout.spread: 'spread',
+  StacBottomNavigationBarLandscapeLayout.centered: 'centered',
+  StacBottomNavigationBarLandscapeLayout.linear: 'linear',
+};

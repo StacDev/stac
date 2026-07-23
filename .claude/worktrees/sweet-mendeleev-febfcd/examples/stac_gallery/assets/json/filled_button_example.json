@@ -1,0 +1,310 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Filled Button"
+    }
+  },
+  "body": {
+    "type": "row",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "text",
+                  "data": "BUTTON"
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  }
+                },
+                "onPressed": {}
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "iconType": "material",
+                      "icon": "add",
+                      "size": 18
+                    },
+                    {
+                      "type": "sizedBox",
+                      "width": 4
+                    },
+                    {
+                      "type": "text",
+                      "data": "BUTTON"
+                    }
+                  ]
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  }
+                },
+                "onPressed": {}
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 12
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "text",
+                  "data": "BUTTON"
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "shape": {
+                    "borderRadius": {
+                      "topLeft": 8,
+                      "topRight": 8,
+                      "bottomLeft": 8,
+                      "bottomRight": 8
+                    }
+                  }
+                },
+                "onPressed": {}
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "iconType": "material",
+                      "icon": "add",
+                      "size": 18
+                    },
+                    {
+                      "type": "sizedBox",
+                      "width": 4
+                    },
+                    {
+                      "type": "text",
+                      "data": "BUTTON"
+                    }
+                  ]
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "shape": {
+                    "borderRadius": {
+                      "topLeft": 8,
+                      "topRight": 8,
+                      "bottomLeft": 8,
+                      "bottomRight": 8
+                    }
+                  }
+                },
+                "onPressed": {}
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 12
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "text",
+                  "data": "BUTTON"
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  }
+                }
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "iconType": "material",
+                      "icon": "add",
+                      "size": 18
+                    },
+                    {
+                      "type": "sizedBox",
+                      "width": 4
+                    },
+                    {
+                      "type": "text",
+                      "data": "BUTTON"
+                    }
+                  ]
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "type": "sizedBox",
+            "height": 12
+          },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "text",
+                  "data": "BUTTON"
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "shape": {
+                    "side": {
+                      "color": "#ff5454",
+                      "width": 1,
+                      "strokeAlign": 0,
+                      "borderStyle": "solid"
+                    },
+                    "borderRadius": {
+                      "topLeft": 8,
+                      "topRight": 8,
+                      "bottomLeft": 8,
+                      "bottomRight": 8
+                    }
+                  }
+                },
+                "onPressed": {}
+              },
+              {
+                "type": "sizedBox",
+                "width": 20
+              },
+              {
+                "type": "filledButton",
+                "child": {
+                  "type": "row",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "iconType": "material",
+                      "icon": "add",
+                      "size": 18
+                    },
+                    {
+                      "type": "sizedBox",
+                      "width": 4
+                    },
+                    {
+                      "type": "text",
+                      "data": "BUTTON"
+                    }
+                  ]
+                },
+                "style": {
+                  "padding": {
+                    "top": 8,
+                    "left": 12,
+                    "right": 12,
+                    "bottom": 8
+                  },
+                  "shape": {
+                    "side": {
+                      "color": "#ff5454",
+                      "width": 1,
+                      "strokeAlign": 0,
+                      "borderStyle": "solid"
+                    },
+                    "borderRadius": {
+                      "topLeft": 8,
+                      "topRight": 8,
+                      "bottomLeft": 8,
+                      "bottomRight": 8
+                    }
+                  }
+                },
+                "onPressed": {}
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Stac Troubleshooter"
+  short_description: "Diagnose Stac build, deploy, and runtime issues"
+  brand_color: "#15803D"
+  default_prompt: "Use $stac-troubleshooter to diagnose why my Stac screen is not building, deploying, or rendering."

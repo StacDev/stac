@@ -1,0 +1,81 @@
+{
+  "type": "defaultBottomNavigationController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Bottom Navigation Screen"
+      }
+    },
+    "body": {
+      "type": "bottomNavigationView",
+      "children": [
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Home",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Search",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        },
+        {
+          "type": "center",
+          "child": {
+            "type": "text",
+            "data": "Profile",
+            "style": {
+              "fontSize": 24
+            }
+          }
+        }
+      ]
+    },
+    "bottomNavigationBar": {
+      "type": "bottomNavigationBar",
+      "items": [
+        {
+          "type": "navigationBarItem",
+          "label": "Home",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "home"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Search",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "search"
+          }
+        },
+        {
+          "type": "navigationBarItem",
+          "label": "Profile",
+          "icon": {
+            "type": "icon",
+            "iconType": "material",
+            "icon": "account_circle"
+          }
+        }
+      ]
+    }
+  }
+}

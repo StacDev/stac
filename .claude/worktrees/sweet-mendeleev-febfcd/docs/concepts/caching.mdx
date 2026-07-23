@@ -1,0 +1,219 @@
+---
+title: "Caching & Offline Support"
+description: "Learn how Stac intelligently caches screens for offline access, faster loading, and smarter network usage"
+---
+
+Stac includes a powerful caching system that stores screens locally, enabling offline access, instant loading, and more efficient network usage. The caching layer works automatically with the `Stac` widget and is configured globally during initialization.
+
+## How Caching Works
+
+When you use the `Stac` widget to fetch screens from Stac Cloud:
+
+1. **First Load**: The screen is fetched from the network and stored in local cache
+2. **Subsequent Loads**: Based on your cache strategy, Stac returns cached data and/or fetches fresh data
+3. **Version Tracking**: Each cached screen stores its version number, enabling smart updates
+4. **Background Updates**: Fresh data can be fetched in the background without blocking the UI
+
+## Global Configuration
+
+Configure caching once during app initialization. This applies to all `Stac` widgets and `StacAppTheme`:
+
+```dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  cacheConfig: StacCacheConfig(
+    strategy: StacCacheStrategy.networkFirst, // default
+    maxAge: Duration(days: 30),
+  ),
+);
+```
+
+## Cache Strategies
+
+Stac provides five caching strategies to fit different use cases:
+
+### 1. Network First (Default)
+
+Always tries the network first, falls back to cache if network fails. **This is the default strategy.**
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.networkFirst,
+)
+```
+
+**Behavior:**
+- ✅ Always fetches fresh data first
+- ✅ Falls back to cache on network error
+- ✅ Ensures latest content when online
+- 🌐 Requires network for best experience
+
+**Best for:** Server-driven UI where users should see the latest content, real-time data, frequently changing screens.
+
+### 2. Optimistic
+
+Returns cached data immediately while fetching updates in the background.
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.optimistic,
+)
+```
+
+**Behavior:**
+- ✅ Returns cached data instantly
+- ✅ Fetches fresh data in background
+- ✅ Updates cache for next load
+- ⚡ Fastest perceived loading
+
+**Best for:** UI layouts, content screens, any screen where instant loading matters more than showing the absolute latest data.
+
+<Warning>
+  With optimistic caching, users see outdated content until the next app launch after you deploy updates. Consider using `networkFirst` if immediate updates are important.
+</Warning>
+
+### 3. Cache First
+
+Uses cached data if available and valid, only fetches from network when cache is invalid or missing.
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheFirst,
+  maxAge: Duration(hours: 24),
+)
+```
+
+**Behavior:**
+- ✅ Uses cache if valid (not expired)
+- ✅ Fetches from network only when cache is invalid
+- ✅ Optionally refreshes in background
+- 📱 Great for offline-first apps
+
+**Best for:** Offline-first apps, content that doesn't change frequently, reducing network usage.
+
+### 4. Cache Only
+
+Only uses cached data, never makes network requests. Throws an error if no cache exists.
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheOnly,
+)
+```
+
+**Behavior:**
+- ✅ Never makes network requests
+- ✅ Instant loading from cache
+- ❌ Fails if no cached data exists
+- 📴 Perfect for offline mode
+
+**Best for:** Offline-only mode, airplane mode, when you've pre-cached screens.
+
+### 5. Network Only
+
+Always fetches from network, never uses or updates cache.
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.networkOnly,
+)
+```
+
+**Behavior:**
+- ✅ Always fresh data
+- ❌ Fails without network
+- ❌ No offline support
+- 🔒 Good for sensitive data
+
+**Best for:** Sensitive data that shouldn't be cached, real-time dashboards, authentication screens.
+
+## Configuration Options
+
+### StacCacheConfig Properties
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `strategy` | `StacCacheStrategy` | `networkFirst` | The caching strategy to use |
+| `maxAge` | `Duration?` | `null` | Maximum age before cache is considered stale. `null` means no time-based expiration |
+| `refreshInBackground` | `bool` | `true` | Whether to fetch fresh data in background when showing cached content |
+
+### Setting Cache Duration
+
+Control how long cached data remains valid:
+
+```dart
+// Cache valid for 1 hour
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheFirst,
+  maxAge: Duration(hours: 1),
+)
+
+// Cache valid for 7 days
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheFirst,
+  maxAge: Duration(days: 7),
+)
+
+// Cache never expires (only version-based updates)
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheFirst,
+  maxAge: null, // No time-based expiration
+)
+```
+
+### Background Refresh
+
+Keep cache fresh without blocking the UI:
+
+```dart
+cacheConfig: StacCacheConfig(
+  strategy: StacCacheStrategy.cacheFirst,
+  maxAge: Duration(hours: 1),
+  refreshInBackground: true, // Fetch updates silently
+)
+```
+
+When `refreshInBackground` is `true`:
+- Valid cache is returned immediately
+- Fresh data is fetched in background
+- Cache is updated for next load
+- User sees instant loading with eventual consistency
+
+## Strategy Comparison
+
+| Strategy | Initial Load | Subsequent Load | Offline Support | Best For |
+|----------|--------------|-----------------|-----------------|----------|
+| `networkFirst` | Network | Network (cache fallback) | ⚠️ Fallback only | Fresh data (default) |
+| `optimistic` | Cache or Network | Cache (bg update) | ✅ Yes | Fast UX |
+| `cacheFirst` | Cache or Network | Cache | ✅ Yes | Offline apps |
+| `cacheOnly` | Cache only | Cache only | ✅ Yes | Offline mode |
+| `networkOnly` | Network only | Network only | ❌ No | Sensitive data |
+
+## Version-Based Updates
+
+Stac tracks version numbers for each cached screen. When you deploy updates to Stac Cloud:
+
+1. The server assigns a new version number
+2. Background fetches detect the new version
+3. Cache is updated with new content
+4. Next load shows updated screen
+
+This ensures users get updates without manual intervention while maintaining fast loading times.
+
+## Clearing Cache
+
+Clear cached screens programmatically:
+
+```dart
+// Clear a specific screen
+await StacCloud.clearScreenCache('/home');
+
+// Clear all cached screens
+await StacCloud.clearAllCache();
+
+// Clear a specific theme
+await StacCloud.clearThemeCache('dark');
+
+// Clear all cached themes
+await StacCloud.clearAllThemeCache();
+```

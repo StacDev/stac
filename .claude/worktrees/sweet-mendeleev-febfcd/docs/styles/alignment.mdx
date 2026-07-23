@@ -1,0 +1,160 @@
+---
+title: "Alignment"
+description: "Documentation for Alignment"
+---
+
+The Stac Alignment class represents a point within a rectangle. It's used to align child widgets within their parent.
+
+## Available Values
+
+| Value          | Description                                |
+|----------------|--------------------------------------------|
+| `topLeft`      | Top-left corner of the rectangle.          |
+| `topCenter`    | Center of the top edge.                    |
+| `topRight`     | Top-right corner of the rectangle.         |
+| `centerLeft`   | Center of the left edge.                   |
+| `center`       | Center of the rectangle.                   |
+| `centerRight`  | Center of the right edge.                  |
+| `bottomLeft`   | Bottom-left corner of the rectangle.       |
+| `bottomCenter` | Center of the bottom edge.                 |
+| `bottomRight`  | Bottom-right corner of the rectangle.      |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacAlign(
+  alignment: StacAlignment.center,
+  child: StacText(data: 'Centered'),
+)
+```
+
+```json JSON
+{
+  "type": "align",
+  "alignment": "center",
+  "child": {
+    "type": "text",
+    "data": "Centered"
+  }
+}
+```
+</CodeGroup>
+
+## Alignment Examples
+
+### Top Alignments
+
+<CodeGroup>
+```dart Dart
+// Top Left
+StacAlign(
+  alignment: StacAlignment.topLeft,
+  child: StacText(data: 'Top Left'),
+)
+
+// Top Center
+StacAlign(
+  alignment: StacAlignment.topCenter,
+  child: StacText(data: 'Top Center'),
+)
+
+// Top Right
+StacAlign(
+  alignment: StacAlignment.topRight,
+  child: StacText(data: 'Top Right'),
+)
+```
+
+```json JSON
+// Top Left
+{
+  "type": "align",
+  "alignment": "topLeft",
+  "child": { "type": "text", "data": "Top Left" }
+}
+
+// Top Center
+{
+  "type": "align",
+  "alignment": "topCenter",
+  "child": { "type": "text", "data": "Top Center" }
+}
+
+// Top Right
+{
+  "type": "align",
+  "alignment": "topRight",
+  "child": { "type": "text", "data": "Top Right" }
+}
+```
+</CodeGroup>
+
+### With Container
+
+<CodeGroup>
+```dart Dart
+StacContainer(
+  width: 200.0,
+  height: 200.0,
+  color: StacColors.grey,
+  alignment: StacAlignment.bottomRight,
+  child: StacText(data: 'Bottom Right'),
+)
+```
+
+```json JSON
+{
+  "type": "container",
+  "width": 200.0,
+  "height": 200.0,
+  "color": "#E0E0E0",
+  "alignment": "bottomRight",
+  "child": {
+    "type": "text",
+    "data": "Bottom Right"
+  }
+}
+```
+</CodeGroup>
+
+### With Stack Positioned
+
+<CodeGroup>
+```dart Dart
+StacStack(
+  children: [
+    StacContainer(color: StacColors.blue),
+    StacAlign(
+      alignment: StacAlignment.center,
+      child: StacText(
+        data: 'Overlay Text',
+        style: StacTextStyle(color: StacColors.white),
+      ),
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "stack",
+  "children": [
+    { "type": "container", "color": "#2196F3" },
+    {
+      "type": "align",
+      "alignment": "center",
+      "child": {
+        "type": "text",
+        "data": "Overlay Text",
+        "style": { "color": "#FFFFFF" }
+      }
+    }
+  ]
+}
+```
+</CodeGroup>
+
+<Note>
+For text-direction-aware alignment (RTL support), use [StacAlignmentDirectional](/styles/stac_alignment_directional) instead.
+</Note>

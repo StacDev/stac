@@ -1,0 +1,70 @@
+{
+    "type": "setValue",
+    "values": [
+        {
+            "key": "name",
+            "value": "John Doe"
+        },
+        {
+            "key": "age",
+            "value": 30
+        },
+        {
+            "key": "city",
+            "value": "New York"
+        },
+        {
+            "key": "country",
+            "value": "USA"
+        }
+    ],
+    "child": {
+        "type": "scaffold",
+        "body": {
+            "type": "center",
+            "child": {
+                "type": "column",
+                "mainAxisAlignment": "center",
+                "children": [
+                    {
+                        "type": "text",
+                        "data": "{{name}}"
+                    },
+                    {
+                        "type": "text",
+                        "data": "{{age}}"
+                    },
+                    {
+                        "type": "text",
+                        "data": "{{city}}",
+                        "children": [
+                            {
+                                "data": "{{country}}"
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "floatingActionButton": {
+            "type": "floatingActionButton",
+            "child": {
+                "type": "icon",
+                "icon": "add"
+            },
+            "onPressed": {
+                "actionType": "setValue",
+                "values": [
+                    {
+                        "key": "phone",
+                        "value": "1234567890"
+                    }
+                ],
+                "action": {
+                    "actionType": "navigate",
+                    "assetPath": "assets/json/variable_navigate_example.json"
+                }
+            }
+        }
+    }
+}

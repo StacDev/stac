@@ -1,0 +1,35 @@
+---
+title: "Center"
+description: "Documentation for Center"
+---
+
+The Stac Center allows you to build a Flutter center widget using JSON.
+To know more about the center widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/Center-class.html).
+
+## Properties
+
+| Property     | Type                    | Description                                         |
+|--------------|-------------------------|-----------------------------------------------------|
+| widthFactor  | `double`                | The factor by which to multiply the child's width.  |
+| heightFactor | `double`                | The factor by which to multiply the child's height. |
+| child        | `StacWidget`            | The widget to display inside the center.            |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacCenter(
+  child: StacText(data: 'Hello, World!'),
+)
+```
+
+```json JSON
+{
+  "type": "center",
+  "child": {
+    "type": "text",
+    "data": "Hello, World!"
+  }
+}
+```
+</CodeGroup>

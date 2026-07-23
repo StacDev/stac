@@ -1,0 +1,42 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Circular Progress Indicator"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "column",
+      "crossAxisAlignment": "center",
+      "spacing": 52,
+      "children": [
+        {
+          "type": "sizedBox",
+          "height": 1
+        },
+        {
+          "type": "circularProgressIndicator",
+          "color": "#672BFF",
+          "strokeWidth": 3
+        },
+        {
+          "type": "circularProgressIndicator",
+          "color": "#541204",
+          "strokeWidth": 6,
+          "backgroundColor": "#FFD700",
+          "strokeCap": "round"
+        },
+        {
+          "type": "circularProgressIndicator",
+          "color": "#bd3ed3",
+          "strokeWidth": 3,
+          "value": 0.5
+        }
+      ]
+    }
+  }
+}

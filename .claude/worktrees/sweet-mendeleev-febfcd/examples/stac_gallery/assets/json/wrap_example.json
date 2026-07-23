@@ -1,0 +1,180 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Wrap Demo"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "wrap",
+      "spacing": 8.0,
+      "runSpacing": 4.0,
+      "children": [
+        {
+          "type": "container",
+          "color": "#FFCDD2",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "1",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#F8BBD0",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "2",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#E1BEE7",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "3",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#D1C4E9",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "4",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#C5CAE9",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "5",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#BBDEFB",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "6",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#B3E5FC",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "7",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#B2EBF2",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "8",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#B2DFDB",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "9",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        },
+        {
+          "type": "container",
+          "color": "#C8E6C9",
+          "width": 100,
+          "height": 100,
+          "child": {
+            "type": "center",
+            "child": {
+              "type": "text",
+              "data": "10",
+              "style": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

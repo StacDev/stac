@@ -1,0 +1,266 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Text Field"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "container",
+      "padding": {
+        "left": 12,
+        "right": 12,
+        "top": 12,
+        "bottom": 12
+      },
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": false,
+            "decoration": {
+              "hintText": "What do people call you?",
+              "filled": true,
+              "icon": {
+                "type": "icon",
+                "iconType": "cupertino",
+                "icon": "person_solid",
+                "size": 24
+              },
+              "labelText": "Name*"
+            },
+            "inputFormatters": [
+              {
+                "type": "allow",
+                "rule": "[a-zA-Z]"
+              }
+            ],
+            "readOnly": false,
+            "enabled": true
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": false,
+            "decoration": {
+              "hintText": "Where can we reach you?",
+              "filled": true,
+              "icon": {
+                "type": "icon",
+                "iconType": "cupertino",
+                "icon": "phone_solid",
+                "size": 24
+              },
+              "labelText": "Phone number*"
+            },
+            "inputFormatters": [
+              {
+                "type": "deny",
+                "rule": "[a-zA-Z]"
+              }
+            ],
+            "readOnly": false,
+            "enabled": true
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": false,
+            "decoration": {
+              "hintText": "Your email address",
+              "filled": true,
+              "icon": {
+                "type": "icon",
+                "iconType": "material",
+                "icon": "email",
+                "size": 24
+              },
+              "labelText": "Email"
+            },
+            "autovalidateMode": "onUserInteraction",
+            "readOnly": false,
+            "enabled": true
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": false,
+            "decoration": {
+              "filled": true,
+              "icon": {
+                "type": "icon",
+                "iconType": "material",
+                "icon": "credit_card",
+                "size": 24
+              },
+              "hintText": "XXXX XXXX XXXX XXXX",
+              "labelText": "Credit Card"
+            },
+            "inputFormatters": [
+              {
+                "type": "deny",
+                "rule": "[a-zA-Z]"
+              }
+            ],
+            "readOnly": false,
+            "enabled": true
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "sizedBox",
+            "height": 100,
+            "child": {
+              "type": "textField",
+              "expands": true,
+              "decoration": {
+                "filled": true,
+                "labelText": "Life story"
+              },
+              "readOnly": false,
+              "enabled": true
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": true,
+            "decoration": {
+              "filled": true,
+              "suffixIcon": {
+                "type": "icon",
+                "iconType": "cupertino",
+                "icon": "eye",
+                "size": 24
+              },
+              "labelText": "Password*"
+            },
+            "autovalidateMode": "onUserInteraction",
+            "readOnly": false,
+            "enabled": true
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": true,
+            "decoration": {
+              "filled": true,
+              "suffixIcon": {
+                "type": "icon",
+                "iconType": "cupertino",
+                "icon": "eye",
+                "size": 24
+              },
+              "labelText": "Re-type password*"
+            },
+            "readOnly": false,
+            "enabled": true,
+            "autovalidateMode": "onUserInteraction"
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "textField",
+            "maxLines": 1,
+            "keyboardType": "text",
+            "textInputAction": "done",
+            "textAlign": "start",
+            "textCapitalization": "none",
+            "textDirection": "ltr",
+            "textAlignVertical": "top",
+            "obscureText": true,
+            "decoration": {
+              "filled": true,
+              "labelText": "Gradient TextField",
+              "border": {
+                "type": "outlineInputBorder",
+                "borderRadius": 80,
+                "gradient": {
+                  "colors": [
+                    "#FF0000",
+                    "#0000FF"
+                  ]
+                }
+              }
+            },
+            "readOnly": false,
+            "enabled": true,
+            "autovalidateMode": "onUserInteraction"
+          }
+        ]
+      }
+    }
+  }
+}

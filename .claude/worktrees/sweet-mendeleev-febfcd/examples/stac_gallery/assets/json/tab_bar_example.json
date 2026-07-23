@@ -1,0 +1,48 @@
+{
+  "type": "defaultTabController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Tabbar"
+      },
+      "bottom": {
+        "type": "tabBar",
+        "tabs": [
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          }
+        ]
+      }
+    },
+    "body": {
+      "type": "tabBarView",
+      "children": [
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        },
+        {
+          "type": "container",
+          "color": "#FC3F1B"
+        },
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        }
+      ]
+    }
+  }
+}

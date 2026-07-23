@@ -1,0 +1,3 @@
+bricks:
+  stac_parser:
+    path: bricks/stac_parser

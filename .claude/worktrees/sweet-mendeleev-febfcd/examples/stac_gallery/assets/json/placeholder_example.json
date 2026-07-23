@@ -1,0 +1,37 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Placeholder"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+      {
+        "type": "placeholder",
+        "color": "#455A64",
+        "strokeWidth": 2.0,
+        "fallbackHeight": 400.0,
+        "fallbackWidth": 400.0
+      },
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+      {
+        "color": "#672BFF",
+        "type": "placeholder",
+        "strokeWidth": 5.0,
+        "fallbackHeight": 100.0
+      }
+    ]
+  }
+}

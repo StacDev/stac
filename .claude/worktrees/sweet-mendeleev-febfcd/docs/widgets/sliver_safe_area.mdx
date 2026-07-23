@@ -1,0 +1,46 @@
+---
+title: "SliverSafeArea"
+description: "Documentation for SliverSafeArea"
+---
+
+The Stac SliverSafeArea allows you to build a Flutter sliver safe area widget using JSON.  
+To know more about the safe area widget in Flutter, refer to  
+the [official documentation](https://api.flutter.dev/flutter/widgets/SliverSafeArea-class.html).
+
+## Properties
+
+| Property | Type                    | Description                                                                 |
+|--------|-------------------------|-----------------------------------------------------------------------------|
+| left   | `bool?`                 | Whether to avoid intrusions on the left. Defaults to `true`.                |
+| top    | `bool?`                 | Whether to avoid intrusions at the top. Defaults to `true`.                 |
+| right  | `bool?`                 | Whether to avoid intrusions on the right. Defaults to `true`.               |
+| bottom | `bool?`                 | Whether to avoid intrusions at the bottom. Defaults to `true`.              |
+| minimum| `Map<String, dynamic>?` | Minimum padding to apply as edge insets.                                    |
+| sliver | `Map<String, dynamic>`  | The sliver widget below this widget in the tree. **(Required)**             |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacSliverSafeArea(
+  top: true,
+  sliver: StacSliverToBoxAdapter(
+    child: StacText(data: 'Hello World'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "sliverSafeArea",
+  "top": true,
+  "sliver": {
+    "type": "sliverToBoxAdapter",
+    "child": {
+      "type": "text",
+      "data": "Hello World"
+    }
+  }
+}
+```
+</CodeGroup>

@@ -1,0 +1,131 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Padding"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "container",
+      "padding": {
+        "left": 12,
+        "right": 12,
+        "top": 12,
+        "bottom": 12
+      },
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 0,
+              "right": 0
+            },
+            "child": {
+              "type": "container",
+              "color": "#672BFF",
+              "height": 75,
+              "width": 700
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 24,
+              "right": 24
+            },
+            "child": {
+              "type": "container",
+              "color": "#FC5632",
+              "height": 75,
+              "width": 700
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 48,
+              "right": 48
+            },
+            "child": {
+              "type": "container",
+              "color": "#D9D9D9",
+              "height": 75,
+              "width": 700
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 96,
+              "right": 96
+            },
+            "child": {
+              "type": "container",
+              "color": "#672BFF",
+              "height": 75,
+              "width": 700
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 120,
+              "right": 120
+            },
+            "child": {
+              "type": "container",
+              "color": "#FC5632",
+              "height": 75,
+              "width": 700
+            }
+          },
+          {
+            "type": "sizedBox",
+            "height": 24
+          },
+          {
+            "type": "padding",
+            "padding": {
+              "left": 144,
+              "right": 144
+            },
+            "child": {
+              "type": "container",
+              "color": "#D9D9D9",
+              "height": 75,
+              "width": 700
+            }
+          }
+        ]
+      }
+    }
+  }
+}

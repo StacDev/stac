@@ -1,0 +1,24 @@
+{
+    "type": "scaffold",
+    "appBar": {
+        "type": "appBar",
+        "title": {
+            "type": "text",
+            "data": "Stac Slider"
+        }
+    },
+    "body": {
+        "type": "form",
+        "child": {
+            "type": "center",
+            "child": {
+                "id": "example_slider",
+                "type": "slider",
+                "sliderType": "material",
+                "value": 20,
+                "max": 100,
+                "divisions": 5
+            }
+        }
+    }
+}

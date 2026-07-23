@@ -1,0 +1,70 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Sizedbox"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "shrinkWrap": true,
+    "children": [
+      {
+        "type": "sizedBox",
+        "height": 25
+      },
+      {
+        "type": "container",
+        "color": "#672BFF",
+        "height": 75
+      },
+      {
+        "type": "sizedBox",
+        "height": 50
+      },
+      {
+        "type": "container",
+        "color": "#FC5632",
+        "height": 75
+      },
+      {
+        "type": "sizedBox",
+        "height": 75
+      },
+      {
+        "type": "container",
+        "color": "#D9D9D9",
+        "height": 75
+      },
+      {
+        "type": "sizedBox",
+        "height": 100
+      },
+      {
+        "type": "container",
+        "color": "#672BFF",
+        "height": 75
+      },
+      {
+        "type": "sizedBox",
+        "height": 125
+      },
+      {
+        "type": "container",
+        "color": "#FC5632",
+        "height": 75
+      },
+      {
+        "type": "sizedBox",
+        "height": 150
+      },
+      {
+        "type": "container",
+        "color": "#D9D9D9",
+        "height": 75
+      }
+    ]
+  }
+}

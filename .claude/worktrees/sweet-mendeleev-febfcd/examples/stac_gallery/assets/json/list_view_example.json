@@ -1,0 +1,570 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Listview"
+    }
+  },
+  "body": {
+    "type": "listView",
+    "shrinkWrap": true,
+    "separator": {
+      "type": "container",
+      "height": 10
+    },
+    "children": [
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "1",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 1",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "2",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 2",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "3",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 3",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "4",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 4",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "5",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 5",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "6",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 6",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "7",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 7",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "8",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 8",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "9",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 9",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      },
+      {
+        "type": "listTile",
+        "leading": {
+          "type": "container",
+          "height": 50,
+          "width": 50,
+          "color": "#165FC7",
+          "child": {
+            "type": "column",
+            "mainAxisAlignment": "center",
+            "crossAxisAlignment": "center",
+            "children": [
+              {
+                "type": "text",
+                "data": "10",
+                "style": {
+                  "fontSize": 21
+                }
+              }
+            ]
+          }
+        },
+        "title": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item 10",
+            "style": {
+              "fontSize": 18
+            }
+          }
+        },
+        "subtitle": {
+          "type": "padding",
+          "padding": {
+            "top": 10
+          },
+          "child": {
+            "type": "text",
+            "data": "Item description",
+            "style": {
+              "fontSize": 14
+            }
+          }
+        },
+        "trailing": {
+          "type": "icon",
+          "iconType": "material",
+          "icon": "more_vert",
+          "size": 24
+        }
+      }
+    ]
+  }
+}

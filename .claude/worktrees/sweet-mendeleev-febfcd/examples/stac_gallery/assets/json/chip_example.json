@@ -1,0 +1,190 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Chip"
+    }
+  },
+  "body": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "crossAxisAlignment": "center",
+    "children": [
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "chip",
+            "avatar": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "tune"
+            },
+            "label": {
+              "type": "text",
+              "data": "Chip",
+              "align": "center",
+              "style": {
+                "fontSize": 21
+              }
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 20
+          },
+          {
+            "type": "chip",
+            "autofocus": true,
+            "deleteIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "close",
+              "size": 20
+            },
+            "label": {
+              "type": "text",
+              "data": "Chip",
+              "align": "center",
+              "style": {
+                "fontSize": 21
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "chip",
+            "avatar": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "tune"
+            },
+            "label": {
+              "type": "text",
+              "data": "Round Chip",
+              "align": "center",
+              "style": {
+                "fontSize": 21
+              }
+            },
+            "shape": {
+              "borderRadius": {
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
+              }
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 20
+          },
+          {
+            "type": "chip",
+            "autofocus": true,
+            "deleteIcon": {
+              "type": "icon",
+              "iconType": "material",
+              "icon": "close",
+              "size": 20
+            },
+            "label": {
+              "type": "text",
+              "data": "Round Chip",
+              "align": "center",
+              "style": {
+                "fontSize": 21
+              }
+            },
+            "elevation": 8,
+            "shape": {
+              "borderRadius": {
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
+              }
+            }
+          }
+        ]
+      },
+      {
+        "type": "row",
+        "mainAxisAlignment": "center",
+        "crossAxisAlignment": "center",
+        "children": [
+          {
+            "type": "chip",
+            "color": "#6d81b3",
+            "avatar": {
+              "type": "icon",
+              "color": "#ffffff",
+              "iconType": "material",
+              "icon": "tune"
+            },
+            "label": {
+              "type": "text",
+              "data": "Color Chip",
+              "align": "center",
+              "style": {
+                "fontSize": 21,
+                "color": "#ffffff"
+              }
+            },
+            "shape": {
+              "borderRadius": {
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
+              }
+            }
+          },
+          {
+            "type": "sizedBox",
+            "width": 20
+          },
+          {
+            "type": "chip",
+            "color": "#6d81b3",
+            "deleteIcon": {
+              "type": "icon",
+              "color": "#ffffff",
+              "iconType": "material",
+              "icon": "close",
+              "size": 20
+            },
+            "label": {
+              "type": "text",
+              "data": "Color Chip",
+              "align": "center",
+              "style": {
+                "color": "#ffffff",
+                "fontSize": 21
+              }
+            },
+            "shape": {
+              "borderRadius": {
+                "topLeft": 8,
+                "topRight": 8,
+                "bottomLeft": 8,
+                "bottomRight": 8
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

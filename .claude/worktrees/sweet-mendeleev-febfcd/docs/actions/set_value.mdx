@@ -1,0 +1,182 @@
+---
+title: "Set Value Action"
+description: "Documentation for Set Value Action"
+---
+
+The `StacSetValueAction` allows you to set or update values in the application state. It's useful for updating state in response to user interactions like button presses.
+
+## Properties
+
+| Property | Type                          | Description                                                      |
+|----------|-------------------------------|------------------------------------------------------------------|
+| values   | `List<Map<String, dynamic>>`  | List of key-value pairs to write to the application state.       |
+| action   | `StacAction`                  | Optional action to execute after the values are set.             |
+
+Each item in `values` should contain:
+- `key`: The state key to set
+- `value`: The value to assign
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacSetValueAction(
+  values: [
+    {'key': 'isLoggedIn', 'value': true},
+    {'key': 'token', 'value': 'abc123'},
+  ],
+  action: StacNavigateAction(routeName: '/home'),
+)
+```
+
+```json JSON
+{
+  "actionType": "setValue",
+  "values": [
+    { "key": "isLoggedIn", "value": true },
+    { "key": "token", "value": "abc123" }
+  ],
+  "action": {
+    "actionType": "navigate",
+    "routeName": "/home"
+  }
+}
+```
+</CodeGroup>
+
+## Toggle Value on Button Press
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  child: StacText(data: 'Toggle Dark Mode'),
+  onPressed: StacSetValueAction(
+    values: [
+      {'key': 'isDarkMode', 'value': true},
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Toggle Dark Mode" },
+  "onPressed": {
+    "actionType": "setValue",
+    "values": [
+      { "key": "isDarkMode", "value": true }
+    ]
+  }
+}
+```
+</CodeGroup>
+
+## Update Multiple Values with Follow-up Action
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  child: StacText(data: 'Complete Order'),
+  onPressed: StacSetValueAction(
+    values: [
+      {'key': 'order.status', 'value': 'completed'},
+      {'key': 'order.completedAt', 'value': '2024-01-15T10:30:00Z'},
+      {'key': 'cart.items', 'value': []},
+    ],
+    action: StacSnackBarAction(
+      content: StacText(data: 'Order completed successfully!'),
+      behavior: SnackBarBehavior.floating,
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Complete Order" },
+  "onPressed": {
+    "actionType": "setValue",
+    "values": [
+      { "key": "order.status", "value": "completed" },
+      { "key": "order.completedAt", "value": "2024-01-15T10:30:00Z" },
+      { "key": "cart.items", "value": [] }
+    ],
+    "action": {
+      "actionType": "showSnackBar",
+      "content": { "type": "text", "data": "Order completed successfully!" },
+      "behavior": "floating"
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Chaining with Network Request
+
+<CodeGroup>
+```dart Dart
+StacMultiAction(
+  sync: true,
+  actions: [
+    StacSetValueAction(
+      values: [
+        {'key': 'isLoading', 'value': true},
+      ],
+    ),
+    StacNetworkRequestAction(
+      url: 'https://api.example.com/data',
+      method: Method.get,
+      results: [
+        StacNetworkResult(
+          statusCode: 200,
+          action: StacSetValueAction(
+            values: [
+              {'key': 'isLoading', 'value': false},
+              {'key': 'data', 'value': '{{response}}'},
+            ],
+          ),
+        ),
+      ],
+    ),
+  ],
+)
+```
+
+```json JSON
+{
+  "actionType": "multiAction",
+  "sync": true,
+  "actions": [
+    {
+      "actionType": "setValue",
+      "values": [
+        { "key": "isLoading", "value": true }
+      ]
+    },
+    {
+      "actionType": "networkRequest",
+      "url": "https://api.example.com/data",
+      "method": "get",
+      "results": [
+        {
+          "statusCode": 200,
+          "action": {
+            "actionType": "setValue",
+            "values": [
+              { "key": "isLoading", "value": false },
+              { "key": "data", "value": "{{response}}" }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+</CodeGroup>
+
+<Note>
+For setting initial state when a screen loads (without an action trigger), use the [StacSetValue widget](/widgets/set_value) instead.
+</Note>

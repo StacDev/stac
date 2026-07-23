@@ -1,0 +1,294 @@
+---
+title: "Building Custom Widgets"
+description: "Learn how to create custom StacWidget classes that extend Stac functionality and integrate seamlessly with the Stac ecosystem"
+---
+
+While Stac provides 70+ built-in widgets, you may need to create custom widgets for your specific use cases. This guide walks you through creating custom StacWidget classes that work seamlessly with Stac's JSON serialization and parser system.
+
+## What is a Custom StacWidget?
+
+A custom StacWidget is a Dart class that:
+- Extends the `StacWidget` base class
+- Can be serialized to and deserialized from JSON
+- Works with Stac's parser system to render Flutter widgets
+- Can be used in your `/stac` folder and deployed to Stac Cloud
+
+Custom widgets enable you to:
+- Wrap third-party Flutter packages
+- Create reusable UI components specific to your app
+- Extend Stac's functionality beyond built-in widgets
+- Build domain-specific widgets for your business logic
+
+## Prerequisites
+
+Before creating a custom widget, ensure you have:
+
+1. **Dependencies**: `stac_core` and `json_annotation` packages
+2. **Code Generation**: `build_runner` for generating JSON serialization code
+3. **Parser**: A corresponding parser to render your widget.
+
+## Step-by-Step Guide
+
+### Step 1: Define Your Widget Class
+
+Create a new file (e.g., `lib/widgets/stac_custom_badge.dart`) and define your widget class:
+
+```dart
+import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/core/stac_widget.dart';
+import 'package:stac_core/foundation/foundation.dart';
+
+part 'stac_custom_badge.g.dart';
+
+@JsonSerializable()
+class StacCustomBadge extends StacWidget {
+  const StacCustomBadge({
+    required this.text,
+    this.color,
+    this.size,
+    this.child,
+  });
+
+  final String text;
+  final StacColor? color;
+  final double? size;
+  final StacWidget? child;
+
+  @override
+  String get type => 'customBadge';
+
+  factory StacCustomBadge.fromJson(Map<String, dynamic> json) =>
+      _$StacCustomBadgeFromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$StacCustomBadgeToJson(this);
+}
+```
+
+### Step 2: Required Components
+
+Every custom StacWidget must include:
+
+#### 1. **Part File Declaration**
+
+```dart
+part 'stac_custom_badge.g.dart';
+```
+
+This enables code generation for JSON serialization.
+
+#### 2. **JsonSerializable Annotation**
+
+```dart
+@JsonSerializable()
+```
+
+For nested widgets, use `explicitToJson: true`:
+
+```dart
+@JsonSerializable(explicitToJson: true)
+```
+
+#### 3. **Type Getter**
+
+```dart
+@override
+String get type => 'customBadge';
+```
+
+This unique identifier is used in JSON: `{"type": "customBadge"}`.
+
+#### 4. **fromJson Factory Constructor**
+
+```dart
+factory StacCustomBadge.fromJson(Map<String, dynamic> json) =>
+    _$StacCustomBadgeFromJson(json);
+```
+
+#### 5. **toJson Method**
+
+```dart
+@override
+Map<String, dynamic> toJson() => _$StacCustomBadgeToJson(this);
+```
+
+### Step 3: Generate Code
+
+Run code generation to create the `*.g.dart` file:
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+This generates `stac_custom_badge.g.dart` with the serialization logic.
+
+### Step 4: Create a Parser
+
+To render your widget, create a parser:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:stac_framework/stac_framework.dart';
+import 'package:your_app/widgets/stac_custom_badge.dart';
+
+class StacCustomBadgeParser extends StacParser<StacCustomBadge> {
+  const StacCustomBadgeParser();
+
+  @override
+  String get type => 'customBadge';
+
+  @override
+  StacCustomBadge getModel(Map<String, dynamic> json) =>
+      StacCustomBadge.fromJson(json);
+
+  @override
+  Widget parse(BuildContext context, StacCustomBadge model) {
+    return Container(
+      padding: EdgeInsets.all(model.size ?? 8),
+      decoration: BoxDecoration(
+        color: model.color?.toColor() ?? Colors.blue,
+        borderRadius: BorderRadius.circular(4),
+      ),
+      child: Text(model.text),
+    );
+  }
+}
+```
+
+### Step 5: Register the Parser
+
+Register your parser during Stac initialization:
+
+```dart
+void main() async {
+  await Stac.initialize(
+    options: defaultStacOptions,
+    parsers: const [
+      StacCustomBadgeParser(),
+    ],
+  );
+  runApp(const MyApp());
+}
+```
+
+## Advanced Patterns
+
+### Using Converters
+
+Stac provides converters for special types. Use them when needed:
+
+#### DoubleConverter
+
+For `double` fields that may come as integers in JSON:
+
+```dart
+import 'package:stac_core/core/converters/double_converter.dart';
+
+@JsonSerializable()
+class StacCustomWidget extends StacWidget {
+  const StacCustomWidget({
+    this.elevation,
+  });
+
+  @DoubleConverter()
+  final double? elevation;
+
+  @override
+  String get type => 'customWidget';
+
+  // ... fromJson and toJson
+}
+```
+
+#### StacWidgetConverter
+
+For child widgets in your custom widget:
+
+```dart
+import 'package:stac_core/core/converters/stac_widget_converter.dart';
+
+@JsonSerializable(explicitToJson: true)
+class StacCustomContainer extends StacWidget {
+  const StacCustomContainer({
+    this.child,
+  });
+
+  @StacWidgetConverter()
+  final StacWidget? child;
+
+  @override
+  String get type => 'customContainer';
+
+  // ... fromJson and toJson
+}
+```
+
+### Using Stac Types
+
+Prefer Stac types over primitive Dart types for consistency:
+
+```dart
+@JsonSerializable()
+class StacCustomWidget extends StacWidget {
+  const StacCustomWidget({
+    this.color,           // StacColor, not Color
+    this.padding,         // StacEdgeInsets, not EdgeInsets
+    this.alignment,       // StacAlignment, not Alignment
+  });
+
+  final StacColor? color;
+  final StacEdgeInsets? padding;
+  final StacAlignment? alignment;
+
+  // ...
+}
+```
+
+## Using Custom Widgets
+
+**In Dart (stac/ folder)**
+
+```dart
+import 'package:stac_core/stac_core.dart';
+import 'package:your_app/widgets/stac_custom_badge.dart';
+
+@StacScreen(screenName: 'profile')
+StacWidget profileScreen() {
+  return StacScaffold(
+    body: StacColumn(
+      children: [
+        StacCustomBadge(
+          text: 'New',
+          color: StacColors.red,
+          size: 12.0,
+        ),
+        StacText(data: 'User Profile'),
+      ],
+    ),
+  );
+}
+```
+
+After `stac build` or `stac deploy`, your generated json looks like this:
+
+```json
+{
+  "type": "scaffold",
+  "body": {
+    "type": "column",
+    "children": [
+      {
+        "type": "customBadge",
+        "text": "New",
+        "color": "#FFFF0000",
+        "size": 12.0
+      },
+      {
+        "type": "text",
+        "data": "User Profile"
+      }
+    ]
+  }
+}
+```
+

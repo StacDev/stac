@@ -1,0 +1,21 @@
+{
+  "brightness": "light",
+  "disabledColor": "#60FEF7FF",
+  "colorScheme": {
+    "brightness": "light",
+    "primary": "#6750a4",
+    "onPrimary": "#FFFFFF",
+    "secondary": "#615B6F",
+    "onSecondary": "#FFFFFF",
+    "surface": "#FEFBFF",
+    "onSurface": "#1C1B1E",
+    "background": "#FEFBFF",
+    "onBackground": "#1C1B1E",
+    "surfaceVariant": "#E6E0EA",
+    "onSurfaceVariant": "#48454D",
+    "error": "#AB2D25",
+    "onError": "#FFFFFF",
+    "success": "#27BA62",
+    "onSuccess": "#FFFFFF"
+  }
+}

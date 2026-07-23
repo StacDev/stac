@@ -1,0 +1,19 @@
+import 'package:flutter/material.dart';
+import 'package:stac_framework/stac_framework.dart';
+import '__FILE_BASENAME__.dart';
+
+class __PARSER_CLASS__ extends StacParser<__CLASS_NAME__> {
+  const __PARSER_CLASS__();
+
+  @override
+  String get type => '__WIDGET_TYPE__';
+
+  @override
+  __CLASS_NAME__ getModel(Map<String, dynamic> json) =>
+      __CLASS_NAME__.fromJson(json);
+
+  @override
+  Widget parse(BuildContext context, __CLASS_NAME__ model) {
+    return Text(model.label ?? '__CLASS_NAME__');
+  }
+}

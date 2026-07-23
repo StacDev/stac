@@ -1,0 +1,157 @@
+---
+title: "TabBar"
+description: "Documentation for TabBar"
+---
+
+The Stac TabBar allows you to build a Flutter TabBar widget using JSON.
+To know more about the TabBar widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TabBar-class.html).
+
+## Properties
+
+| Property                             | Type                          | Description                                                                 |
+|--------------------------------------|-------------------------------|-----------------------------------------------------------------------------|
+| tabs                                 | `List<StacWidget>`            | The tabs to display in the tab bar.                                         |
+| initialIndex                         | `int`                         | The initial index of the selected tab. Defaults to `0`.                     |
+| isScrollable                         | `bool`                        | Whether the tab bar is scrollable. Defaults to `false`.                     |
+| padding                              | `StacEdgeInsets`              | The padding for the tab bar.                                                |
+| indicatorColor                       | `StacColor`                   | The color of the tab indicator.                                             |
+| automaticIndicatorColorAdjustment    | `bool`                        | Whether to automatically adjust the indicator color. Defaults to `true`.    |
+| indicatorWeight                      | `double`                      | The thickness of the tab indicator. Defaults to `2.0`.                      |
+| indicatorPadding                     | `StacEdgeInsets`              | The padding for the tab indicator.                                          |
+| indicator                            | `StacBoxDecoration`           | The decoration for the tab indicator.                                       |
+| indicatorSize                        | `StacTabBarIndicatorSize`     | The size of the tab indicator.                                              |
+| labelColor                           | `StacColor`                   | The color of the selected tab label.                                        |
+| labelStyle                           | `StacTextStyle`               | The text style of the selected tab label.                                   |
+| labelPadding                         | `StacEdgeInsets`              | The padding for the selected tab label.                                     |
+| unselectedLabelColor                 | `StacColor`                   | The color of the unselected tab labels.                                     |
+| unselectedLabelStyle                 | `StacTextStyle`               | The text style of the unselected tab labels.                                |
+| dragStartBehavior                    | `StacDragStartBehavior`       | The drag start behavior. Defaults to `DragStartBehavior.start`.             |
+| enableFeedback                       | `bool`                        | Whether to enable feedback for taps.                                        |
+| physics                              | `StacScrollPhysics`           | The scroll physics for the tab bar.                                         |
+| tabAlignment                         | `StacTabAlignment`            | The alignment of the tabs.                                                  |
+
+## DefaultTabController
+
+The Stac DefaultTabController allows you to build a Flutter DefaultTabController widget using JSON.
+To know more about the DefaultTabController widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/DefaultTabController-class.html).
+
+## Properties
+
+| Property     | Type                   | Description                                             |
+|--------------|------------------------|---------------------------------------------------------|
+| length       | `int`                  | The number of tabs.                                     |
+| initialIndex | `int`                  | The initial index of the selected tab. Defaults to `0`. |
+| child        | `StacWidget`           | The widget below this widget in the tree.               |
+
+## Tab
+
+The Stac Tab allows you to build a Flutter Tab widget using JSON.
+To know more about the Tab widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/Tab-class.html).
+
+## Properties
+
+| Property    | Type                    | Description                                      |
+|-------------|-------------------------|--------------------------------------------------|
+| text        | `String`                | The text to display in the tab.                  |
+| icon        | `StacWidget`            | The icon to display in the tab.                  |
+| iconMargin  | `StacEdgeInsets`        | The margin around the icon.                      |
+| height      | `double`                | The height of the tab.                           |
+| child       | `StacWidget`            | The widget below this widget in the tree.        |
+
+
+## TabBarView
+
+The Stac TabBarView allows you to build a Flutter TabBarView widget using JSON.
+To know more about the TabBarView widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/material/TabBarView-class.html).
+
+## Properties
+
+| Property          | Type                         | Description                                                                   |
+|-------------------|------------------------------|-------------------------------------------------------------------------------|
+| children          | `List<StacWidget>`           | The widgets to display in each tab.                                           |
+| initialIndex      | `int`                        | The initial index of the selected tab. Defaults to `0`.                       |
+| dragStartBehavior | `StacDragStartBehavior`      | The drag start behavior. Defaults to `DragStartBehavior.start`.               |
+| physics           | `StacScrollPhysics`          | The scroll physics for the tab bar view.                                      |
+| viewportFraction  | `double`                     | The fraction of the viewport that each page should occupy. Defaults to `1.0`. |
+| clipBehavior      | `StacClip`                   | The clip behavior. Defaults to `Clip.hardEdge`.                               |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacDefaultTabController(
+  length: 3,
+  child: StacScaffold(
+    appBar: StacAppBar(
+      title: StacText(data: 'Tabbar'),
+      bottom: StacTabBar(
+        tabs: [
+          StacTab(text: 'Red'),
+          StacTab(text: 'Red'),
+          StacTab(text: 'Red'),
+        ],
+      ),
+    ),
+    body: StacTabBarView(
+      children: [
+        StacContainer(color: StacColors.grey),
+        StacContainer(color: StacColors.orange),
+        StacContainer(color: StacColors.grey),
+      ],
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "defaultTabController",
+  "length": 3,
+  "child": {
+    "type": "scaffold",
+    "appBar": {
+      "type": "appBar",
+      "title": {
+        "type": "text",
+        "data": "Tabbar"
+      },
+      "bottom": {
+        "type": "tabBar",
+        "tabs": [
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          },
+          {
+            "type": "tab",
+            "text": "Red"
+          }
+        ]
+      }
+    },
+    "body": {
+      "type": "tabBarView",
+      "children": [
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        },
+        {
+          "type": "container",
+          "color": "#FC3F1B"
+        },
+        {
+          "type": "container",
+          "color": "#D9D9D9"
+        }
+      ]
+    }
+  }
+}
+```
+</CodeGroup>
+
