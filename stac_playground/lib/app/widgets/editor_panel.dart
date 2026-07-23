@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -160,6 +161,11 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
   /// preview is showing the last good tree rather than the current text.
   String? _dslError;
 
+  /// Reparsing the whole tree and rebuilding the preview on every keystroke is
+  /// wasted work on the larger examples, so coalesce bursts of typing.
+  Timer? _previewDebounce;
+  static const _previewDelay = Duration(milliseconds: 200);
+
   bool get _isDart => widget.language == CodeLanguage.dart;
 
   static String _formatJson(Map<String, dynamic> json) {
@@ -199,12 +205,20 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
     } else if (text != _baselineText) {
       cubit.setEdited(true);
     }
-    // Dart goes through the DSL subset parser, JSON is decoded directly; either
-    // way the preview renders from the resulting widget map. When the source
-    // can't be converted the last good preview stays put.
+    // The dirty indicator above stays immediate; only the parse and re-render
+    // wait for typing to settle.
+    _previewDebounce?.cancel();
+    _previewDebounce = Timer(_previewDelay, () => _refreshPreview(text));
+  }
+
+  /// Dart goes through the DSL subset parser, JSON is decoded directly; either
+  /// way the preview renders from the resulting widget map. When the source
+  /// can't be converted the last good preview stays put.
+  void _refreshPreview(String text) {
+    if (!mounted) return;
     final result = parseEditorSource(text, isDart: _isDart);
     final json = result.json;
-    if (json != null) cubit.updateJsonData(json);
+    if (json != null) context.read<HomeCubit>().updateJsonData(json);
     _setDslError(result.message);
   }
 
@@ -215,6 +229,7 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
 
   @override
   void dispose() {
+    _previewDebounce?.cancel();
     _controller.removeListener(_onEditorChanged);
     _controller.dispose();
     super.dispose();
