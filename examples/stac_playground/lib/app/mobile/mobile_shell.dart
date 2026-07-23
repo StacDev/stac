@@ -14,45 +14,53 @@ import 'package:stac_playground/app/widgets/code_preview.dart';
 import 'package:stac_playground/data/playground_entry.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-/// Palette for the mobile UI, following the Console mobile designs in both
-/// dark and light themes.
+/// Console mobile design tokens, mirrored for dark and light themes.
 class MobileColors {
   const MobileColors({
-    required this.background,
-    required this.card,
-    required this.tile,
-    required this.textPrimary,
-    required this.textSecondary,
+    required this.surface,
+    required this.surfaceBright,
+    required this.container,
     required this.outline,
+    required this.outlineVariant,
+    required this.onSurface,
+    required this.onSurfaceVariant,
+    required this.onSurfaceVariantII,
   });
 
   factory MobileColors.of(bool dark) => dark
       ? const MobileColors(
-          background: Color(0xFF0B0B0D),
-          card: Color(0xFF17181A),
-          tile: Color(0xFF2A2B2E),
-          textPrimary: Colors.white,
-          textSecondary: Color(0x99FFFFFF),
-          outline: Color(0x1AFFFFFF),
+          surface: Color(0xFF0B0B0D),
+          surfaceBright: Color(0xFF101112),
+          container: Color(0x0AFFFFFF),
+          outline: Color(0x0FFFFFFF),
+          outlineVariant: Color(0x1AFFFFFF),
+          onSurface: Colors.white,
+          onSurfaceVariant: Color(0xB3FFFFFF),
+          onSurfaceVariantII: Color(0x80FFFFFF),
         )
       : const MobileColors(
-          background: Colors.white,
-          card: Color(0xFFEFEFEF),
-          tile: Color(0xFFD9D9D9),
-          textPrimary: Color(0xFF111111),
-          textSecondary: Color(0x99111111),
-          outline: Color(0x1A000000),
+          surface: Colors.white,
+          surfaceBright: Color(0xFFF7F7F8),
+          container: Color(0x0A000000),
+          outline: Color(0x0F000000),
+          outlineVariant: Color(0x1A000000),
+          onSurface: Color(0xFF0B0B0D),
+          onSurfaceVariant: Color(0xB30B0B0D),
+          onSurfaceVariantII: Color(0x800B0B0D),
         );
 
-  final Color background;
-  final Color card;
-  final Color tile;
-  final Color textPrimary;
-  final Color textSecondary;
+  final Color surface;
+  final Color surfaceBright;
+  final Color container;
   final Color outline;
+  final Color outlineVariant;
+  final Color onSurface;
+  final Color onSurfaceVariant;
+  final Color onSurfaceVariantII;
 }
 
-const Color _accent = Color(0xFF27BA68);
+/// Accent green shared by both themes (Console `secondary` token).
+const Color _secondary = Color(0xFF50D59D);
 
 /// Root of the mobile experience: the explore list.
 class MobileShell extends StatelessWidget {
@@ -81,76 +89,75 @@ class MobileExploreScreen extends StatelessWidget {
                 e.title.toLowerCase().contains(query))
             .toList();
         return Scaffold(
-          backgroundColor: colors.background,
+          backgroundColor: colors.surface,
           endDrawer: _MobileDrawer(colors: colors, dark: state.mobileDark),
           body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 12),
-                  _ExploreHeader(colors: colors),
-                  const SizedBox(height: 28),
-                  Text(
-                    'Explore Screens,',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600,
-                      height: 1.2,
-                      fontVariations: const [FontVariation('wght', 600)],
-                      color: colors.textPrimary,
-                    ),
-                  ),
-                  Text(
-                    'Components, Code, etc',
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.w600,
-                      height: 1.2,
-                      fontVariations: const [FontVariation('wght', 600)],
-                      color: colors.textSecondary,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  _MobileSearchField(colors: colors),
-                  const SizedBox(height: 20),
-                  Text(
-                    '${entries.length} COMPONENTS',
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: FontWeight.w500,
-                      letterSpacing: 0.88,
-                      fontVariations: const [FontVariation('wght', 500)],
-                      color: colors.textSecondary,
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-                  Expanded(
-                    child: ListView.separated(
-                      padding: const EdgeInsets.only(bottom: 16),
-                      itemCount: entries.length,
-                      separatorBuilder: (_, __) => const SizedBox(height: 10),
-                      itemBuilder: (context, i) => _EntryCard(
-                        entry: entries[i],
-                        colors: colors,
-                        onTap: () {
-                          final cubit = context.read<HomeCubit>();
-                          cubit.selectEntry(entries[i]);
-                          Navigator.of(context).push(
-                            MaterialPageRoute<void>(
-                              builder: (_) => BlocProvider.value(
-                                value: cubit,
-                                child: const MobileDetailScreen(),
-                              ),
-                            ),
-                          );
-                        },
+            child: Column(
+              children: [
+                _ExploreTopBar(colors: colors),
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(16, 24, 16, 40),
+                    children: [
+                      // Hero: Title Large, medium weight, 1.3 line height.
+                      Text(
+                        'Explore Screens,',
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.w500,
+                          height: 1.3,
+                          fontVariations: const [FontVariation('wght', 500)],
+                          color: colors.onSurface,
+                        ),
                       ),
-                    ),
+                      Text(
+                        'Components, Code, etc',
+                        style: TextStyle(
+                          fontSize: 23,
+                          fontWeight: FontWeight.w500,
+                          height: 1.3,
+                          fontVariations: const [FontVariation('wght', 500)],
+                          color: colors.onSurfaceVariant,
+                        ),
+                      ),
+                      const SizedBox(height: 24),
+                      _MobileSearchField(colors: colors),
+                      const SizedBox(height: 24),
+                      Text(
+                        '${entries.length} COMPONENTS',
+                        style: TextStyle(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w500,
+                          height: 1.3,
+                          letterSpacing: 1.04,
+                          fontVariations: const [FontVariation('wght', 500)],
+                          color: colors.onSurfaceVariantII,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      for (final entry in entries) ...[
+                        _EntryCard(
+                          entry: entry,
+                          colors: colors,
+                          onTap: () {
+                            final cubit = context.read<HomeCubit>();
+                            cubit.selectEntry(entry);
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (_) => BlocProvider.value(
+                                  value: cubit,
+                                  child: const MobileDetailScreen(),
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 10),
+                      ],
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         );
@@ -159,60 +166,68 @@ class MobileExploreScreen extends StatelessWidget {
   }
 }
 
-class _ExploreHeader extends StatelessWidget {
-  const _ExploreHeader({required this.colors});
+/// 56px top bar: circular logo, "Stac Playground" wordmark, menu icon.
+class _ExploreTopBar extends StatelessWidget {
+  const _ExploreTopBar({required this.colors});
 
   final MobileColors colors;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(6),
-          child: Image.asset(
-            'assets/images/logo_console.png',
-            width: 26,
-            height: 26,
-            fit: BoxFit.cover,
-          ),
-        ),
-        const SizedBox(width: 8),
-        Text(
-          'Stac',
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w700,
-            fontVariations: const [FontVariation('wght', 700)],
-            color: colors.textPrimary,
-          ),
-        ),
-        const SizedBox(width: 5),
-        const Text(
-          'Playground',
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w500,
-            fontVariations: [FontVariation('wght', 500)],
-            color: _accent,
-          ),
-        ),
-        const Spacer(),
-        Builder(
-          builder: (context) => InkWell(
-            onTap: () => Scaffold.of(context).openEndDrawer(),
-            child: PhosphorIcon(
-              PhosphorIcons.list(),
-              size: 22,
-              color: colors.textPrimary,
+    return SizedBox(
+      height: 56,
+      child: Row(
+        children: [
+          const SizedBox(width: 16),
+          Container(
+            width: 28,
+            height: 28,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: colors.outline),
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                'assets/images/logo_console.png',
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-      ],
+          const SizedBox(width: 8),
+          Text(
+            'Stac',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+              height: 1.3,
+              fontVariations: const [FontVariation('wght', 500)],
+              color: colors.onSurface,
+            ),
+          ),
+          const SizedBox(width: 7),
+          const Text(
+            'Playground',
+            style: TextStyle(fontSize: 16, height: 1.5, color: _secondary),
+          ),
+          const Spacer(),
+          Builder(
+            builder: (context) => InkWell(
+              onTap: () => Scaffold.of(context).openEndDrawer(),
+              child: PhosphorIcon(
+                PhosphorIcons.list(),
+                size: 20,
+                color: colors.onSurface,
+              ),
+            ),
+          ),
+          const SizedBox(width: 18),
+        ],
+      ),
     );
   }
 }
 
+/// 48px search input: container fill, hairline border, 8px radius.
 class _MobileSearchField extends StatelessWidget {
   const _MobileSearchField({required this.colors});
 
@@ -221,39 +236,49 @@ class _MobileSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46,
+      height: 48,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.circular(10),
+        color: colors.container,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: colors.outlineVariant, width: 0.5),
       ),
       child: Row(
         children: [
-          const SizedBox(width: 14),
           PhosphorIcon(
             PhosphorIcons.magnifyingGlass(),
-            size: 18,
-            color: colors.textSecondary,
+            size: 20,
+            color: colors.onSurfaceVariantII,
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 12),
           Expanded(
             child: TextField(
               onChanged: (v) => context.read<HomeCubit>().setQuery(v),
-              style: TextStyle(fontSize: 15, color: colors.textPrimary),
+              style: TextStyle(
+                fontSize: 16,
+                height: 1.5,
+                color: colors.onSurface,
+              ),
               decoration: InputDecoration(
                 isCollapsed: true,
                 border: InputBorder.none,
                 hintText: 'Search..',
-                hintStyle: TextStyle(fontSize: 15, color: colors.textSecondary),
+                hintStyle: TextStyle(
+                  fontSize: 16,
+                  height: 1.5,
+                  color: colors.onSurfaceVariantII,
+                ),
               ),
             ),
           ),
-          const SizedBox(width: 14),
         ],
       ),
     );
   }
 }
 
+/// Component card: 8px radius container, circular icon chip, title and
+/// description per the Console mobile design.
 class _EntryCard extends StatelessWidget {
   const _EntryCard({
     required this.entry,
@@ -269,29 +294,28 @@ class _EntryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(8),
       child: Container(
-        padding: const EdgeInsets.all(14),
+        constraints: const BoxConstraints(minHeight: 94),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
         decoration: BoxDecoration(
-          color: colors.card,
-          borderRadius: BorderRadius.circular(12),
+          color: colors.container,
+          borderRadius: BorderRadius.circular(8),
+          border: Border.all(color: colors.outlineVariant, width: 0.5),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 34,
-              height: 34,
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
-                color: colors.tile,
-                borderRadius: BorderRadius.circular(8),
+                color: colors.container,
+                shape: BoxShape.circle,
               ),
-              child: Center(
-                child: PhosphorIcon(
-                  PhosphorIcons.bracketsAngle(),
-                  size: 14,
-                  color: colors.textSecondary,
-                ),
+              child: PhosphorIcon(
+                PhosphorIcons.square(),
+                size: 16,
+                color: colors.onSurfaceVariant,
               ),
             ),
             const SizedBox(width: 12),
@@ -302,23 +326,23 @@ class _EntryCard extends StatelessWidget {
                   Text(
                     entry.title,
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: 16,
                       fontWeight: FontWeight.w600,
+                      height: 1.5,
                       fontVariations: const [FontVariation('wght', 600)],
-                      color: colors.textPrimary,
+                      color: colors.onSurface,
                     ),
                   ),
-                  if (entry.description.isNotEmpty) ...[
-                    const SizedBox(height: 3),
-                    Text(
-                      entry.description,
-                      style: TextStyle(
-                        fontSize: 13,
-                        height: 1.4,
-                        color: colors.textSecondary,
-                      ),
+                  Text(
+                    entry.description.isEmpty
+                        ? 'Stac ${entry.id} example'
+                        : entry.description,
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.5,
+                      color: colors.onSurfaceVariant,
                     ),
-                  ],
+                  ),
                 ],
               ),
             ),
@@ -338,12 +362,13 @@ class _MobileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ListTile link(IconData icon, String label, String url) => ListTile(
-          leading: PhosphorIcon(icon, size: 20, color: colors.textSecondary),
-          title: Text(label, style: TextStyle(color: colors.textPrimary)),
+          leading:
+              PhosphorIcon(icon, size: 20, color: colors.onSurfaceVariant),
+          title: Text(label, style: TextStyle(color: colors.onSurface)),
           onTap: () => launchUrl(Uri.parse(url)),
         );
     return Drawer(
-      backgroundColor: colors.background,
+      backgroundColor: colors.surface,
       child: SafeArea(
         child: ListView(
           children: [
@@ -351,17 +376,17 @@ class _MobileDrawer extends StatelessWidget {
               secondary: PhosphorIcon(
                 dark ? PhosphorIcons.moonStars() : PhosphorIcons.sunDim(),
                 size: 20,
-                color: colors.textSecondary,
+                color: colors.onSurfaceVariant,
               ),
               title: Text(
                 'Dark theme',
-                style: TextStyle(color: colors.textPrimary),
+                style: TextStyle(color: colors.onSurface),
               ),
               value: dark,
-              activeColor: _accent,
+              activeColor: _secondary,
               onChanged: (v) => context.read<HomeCubit>().setMobileDark(v),
             ),
-            Divider(color: colors.outline),
+            Divider(color: colors.outlineVariant),
             link(PhosphorIcons.fileText(), 'Documentation',
                 'https://docs.stac.dev'),
             link(PhosphorIcons.githubLogo(), 'GitHub',
@@ -393,48 +418,58 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
       builder: (context, state) {
         final colors = MobileColors.of(state.mobileDark);
         return Scaffold(
-          backgroundColor: colors.background,
+          backgroundColor: colors.surface,
           body: SafeArea(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
+                // Header on surface-bright with hairline bottom border.
+                Container(
+                  height: 56,
+                  decoration: BoxDecoration(
+                    color: colors.surfaceBright,
+                    border: Border(bottom: BorderSide(color: colors.outline)),
+                  ),
                   child: Row(
                     children: [
-                      IconButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        icon: PhosphorIcon(
-                          PhosphorIcons.caretLeft(),
-                          size: 20,
-                          color: colors.textPrimary,
+                      const SizedBox(width: 8),
+                      InkWell(
+                        onTap: () => Navigator.of(context).pop(),
+                        child: Padding(
+                          padding: const EdgeInsets.all(6),
+                          child: PhosphorIcon(
+                            PhosphorIcons.caretLeft(),
+                            size: 20,
+                            color: colors.onSurface,
+                          ),
                         ),
                       ),
+                      const SizedBox(width: 4),
                       Expanded(
                         child: Text(
                           state.selectedEntry.title,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: 17,
-                            fontWeight: FontWeight.w600,
-                            fontVariations: const [FontVariation('wght', 600)],
-                            color: colors.textPrimary,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            height: 1.3,
+                            fontVariations: const [FontVariation('wght', 500)],
+                            color: colors.onSurface,
                           ),
                         ),
                       ),
-                      InkWell(
+                      _HeaderIcon(
+                        icon: state.mobileDark
+                            ? PhosphorIcons.sunDim()
+                            : PhosphorIcons.moonStars(),
+                        colors: colors,
                         onTap: () => context
                             .read<HomeCubit>()
                             .setMobileDark(!state.mobileDark),
-                        child: PhosphorIcon(
-                          state.mobileDark
-                              ? PhosphorIcons.sun()
-                              : PhosphorIcons.moonStars(),
-                          size: 20,
-                          color: colors.textPrimary,
-                        ),
                       ),
-                      const SizedBox(width: 16),
-                      InkWell(
+                      const SizedBox(width: 4),
+                      _HeaderIcon(
+                        icon: PhosphorIcons.frameCorners(),
+                        colors: colors,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
                             builder: (_) => BlocProvider.value(
@@ -443,20 +478,20 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                             ),
                           ),
                         ),
-                        child: PhosphorIcon(
-                          PhosphorIcons.cornersOut(),
-                          size: 20,
-                          color: colors.textPrimary,
-                        ),
                       ),
+                      const SizedBox(width: 12),
                     ],
                   ),
                 ),
+                // Centered tab bar with the accent underline on the active tab.
                 Container(
+                  height: 48,
                   decoration: BoxDecoration(
+                    color: colors.surfaceBright,
                     border: Border(bottom: BorderSide(color: colors.outline)),
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _MobileTab(
                         icon: PhosphorIcons.crop(),
@@ -465,6 +500,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                         colors: colors,
                         onTap: () => setState(() => _tab = 0),
                       ),
+                      const SizedBox(width: 64),
                       _MobileTab(
                         icon: PhosphorIcons.code(),
                         label: 'Dart',
@@ -472,8 +508,9 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                         colors: colors,
                         onTap: () => setState(() => _tab = 1),
                       ),
+                      const SizedBox(width: 64),
                       _MobileTab(
-                        icon: PhosphorIcons.bracketsCurly(),
+                        icon: PhosphorIcons.fileCode(),
                         label: 'JSON',
                         active: _tab == 2,
                         colors: colors,
@@ -513,6 +550,34 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
   }
 }
 
+/// 36px tappable header icon with 24px glyph.
+class _HeaderIcon extends StatelessWidget {
+  const _HeaderIcon({
+    required this.icon,
+    required this.colors,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final MobileColors colors;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(6),
+      child: SizedBox(
+        width: 36,
+        height: 36,
+        child: Center(
+          child: PhosphorIcon(icon, size: 24, color: colors.onSurface),
+        ),
+      ),
+    );
+  }
+}
+
 class _MobileTab extends StatelessWidget {
   const _MobileTab({
     required this.icon,
@@ -530,38 +595,27 @@ class _MobileTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = active ? colors.textPrimary : colors.textSecondary;
-    return Expanded(
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          decoration: BoxDecoration(
-            border: Border(
-              bottom: BorderSide(
-                color: active ? colors.textPrimary : Colors.transparent,
-                width: 2,
-              ),
+    final color = active ? colors.onSurface : colors.onSurfaceVariant;
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        height: 48,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: active ? _secondary : Colors.transparent,
             ),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              PhosphorIcon(icon, size: 15, color: color),
-              const SizedBox(width: 6),
-              Text(
-                label,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: active ? FontWeight.w600 : FontWeight.w400,
-                  fontVariations: [
-                    FontVariation('wght', active ? 600 : 400),
-                  ],
-                  color: color,
-                ),
-              ),
-            ],
-          ),
+        ),
+        child: Row(
+          children: [
+            PhosphorIcon(icon, size: 16, color: color),
+            const SizedBox(width: 4),
+            Text(
+              label,
+              style: TextStyle(fontSize: 14, height: 1.5, color: color),
+            ),
+          ],
         ),
       ),
     );
@@ -595,7 +649,7 @@ class _FullScreenPreview extends StatelessWidget {
       builder: (context, state) {
         final colors = MobileColors.of(state.mobileDark);
         return Scaffold(
-          backgroundColor: colors.background,
+          backgroundColor: colors.surface,
           body: Stack(
             children: [
               Positioned.fill(child: _MobilePreview(state: state)),
@@ -607,13 +661,14 @@ class _FullScreenPreview extends StatelessWidget {
                   child: Container(
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
-                      color: colors.card.withValues(alpha: 0.85),
-                      borderRadius: BorderRadius.circular(20),
+                      color: colors.surfaceBright.withValues(alpha: 0.9),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: colors.outlineVariant),
                     ),
                     child: PhosphorIcon(
                       PhosphorIcons.x(),
                       size: 16,
-                      color: colors.textPrimary,
+                      color: colors.onSurface,
                     ),
                   ),
                 ),

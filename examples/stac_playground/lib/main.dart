@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
-import 'package:stac_playground/app/embed/embed_screen.dart';
+import 'package:stac_playground/app/embed/embed_screen_stub.dart'
+    if (dart.library.js_interop) 'package:stac_playground/app/embed/embed_screen.dart';
 import 'package:stac_playground/app/home_screen.dart';
 import 'package:stac_playground/theme/app_theme.dart';
 
