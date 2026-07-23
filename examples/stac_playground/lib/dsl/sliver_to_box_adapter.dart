@@ -1,2 +1,29 @@
-// TODO(stac): DSL source for 'sliver_to_box_adapter' is being migrated from JSON.
-// Until then, the JSON tab is the source of truth for this example.
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'sliver_to_box_adapter')
+StacWidget sliverToBoxAdapterExample() {
+  return StacScaffold(
+    body: StacCustomScrollView(
+      slivers: [
+        StacSliverPadding(
+          padding: StacEdgeInsets.all(16.0),
+          sliver: StacSliverToBoxAdapter(
+            child: StacContainer(
+              height: 150,
+              color: '#4CAF50',
+              child: StacCenter(
+                child: StacText(
+                  data: 'I am a Box inside a SliverToBoxAdapter!',
+                  style: StacTextStyle(
+                    color: '#FFFFFF',
+                    fontWeight: StacFontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
+}

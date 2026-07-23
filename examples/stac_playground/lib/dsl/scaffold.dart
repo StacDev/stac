@@ -1,2 +1,42 @@
-// TODO(stac): DSL source for 'scaffold' is being migrated from JSON.
-// Until then, the JSON tab is the source of truth for this example.
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'scaffold')
+StacWidget scaffoldExample() {
+  return StacScaffold(
+      appBar: StacAppBar(
+          title: StacText(data: 'Scaffold'),
+          leading: StacIconButton(
+              icon: StacIcon(iconType: StacIconType.material, icon: 'menu'),
+              onPressed: null /* TODO: {} */),
+          actions: [
+            StacIconButton(
+                icon: StacIcon(
+                    iconType: StacIconType.cupertino, icon: 'heart_solid'),
+                onPressed: null /* TODO: {} */),
+            StacIconButton(
+                icon: StacIcon(iconType: StacIconType.material, icon: 'search'),
+                onPressed: null /* TODO: {} */),
+            StacIconButton(
+                icon: StacIcon(
+                    iconType: StacIconType.material, icon: 'more_horiz'),
+                onPressed: null /* TODO: {} */)
+          ]),
+      body: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.center,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacColumn(
+                mainAxisAlignment: StacMainAxisAlignment.center,
+                crossAxisAlignment: StacCrossAxisAlignment.center,
+                children: [
+                  StacText(data: 'Home', style: StacTextStyle(fontSize: 17))
+                ])
+          ]),
+      floatingActionButton: StacFloatingActionButton(
+          backgroundColor: '#FC3F1B',
+          foregroundColor: '#ffffff',
+          buttonType: StacFloatingActionButtonType.medium,
+          child:
+              StacIcon(iconType: StacIconType.material, icon: 'add', size: 32),
+          onPressed: null /* TODO: {} */));
+}

@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
@@ -61,8 +61,8 @@ class _PreviewNav extends StatelessWidget {
                 hoverColor: context.colors.surfaceVariant,
                 child: PhosphorIcon(
                   state.showCodeView
-                      ? PhosphorIcons.caretLineLeft()
-                      : PhosphorIcons.caretLineRight(),
+                      ? PhosphorIcons.caretLineLeft
+                      : PhosphorIcons.caretLineRight,
                   size: 18,
                   color: context.colors.onBackground2,
                 ),
@@ -81,7 +81,7 @@ class _PreviewNav extends StatelessWidget {
           const SizedBox(width: 12),
           Center(
             child: _NavIconButton(
-              icon: PhosphorIcons.magnifyingGlassPlus(),
+              icon: PhosphorIcons.magnifyingGlassPlus,
               tooltip: 'Zoom in',
               onTap: () => context.read<HomeCubit>().increaseScale(),
             ),
@@ -89,7 +89,7 @@ class _PreviewNav extends StatelessWidget {
           const SizedBox(width: 12),
           Center(
             child: _NavIconButton(
-              icon: PhosphorIcons.magnifyingGlassMinus(),
+              icon: PhosphorIcons.magnifyingGlassMinus,
               tooltip: 'Zoom out (${(state.scale * 100).toInt()}%)',
               onTap: () => context.read<HomeCubit>().reduceScale(),
             ),
@@ -156,7 +156,7 @@ class _ThemeSelector extends StatelessWidget {
                 ),
                 const SizedBox(width: 4),
                 PhosphorIcon(
-                  PhosphorIcons.caretDown(),
+                  PhosphorIcons.caretDown,
                   size: 10,
                   color: context.colors.onBackground,
                 ),
@@ -176,9 +176,9 @@ class _DeviceToggle extends StatelessWidget {
   final bool active;
 
   IconData get _icon => switch (device) {
-        PreviewDevice.mobile => PhosphorIcons.deviceMobileCamera(),
-        PreviewDevice.tablet => PhosphorIcons.deviceTablet(),
-        PreviewDevice.desktop => PhosphorIcons.monitor(),
+        PreviewDevice.mobile => PhosphorIcons.deviceMobileCamera,
+        PreviewDevice.tablet => PhosphorIcons.deviceTablet,
+        PreviewDevice.desktop => PhosphorIcons.monitor,
       };
 
   @override
@@ -314,7 +314,7 @@ class _EmptyPreview extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         PhosphorIcon(
-          PhosphorIcons.swatches(PhosphorIconsStyle.thin),
+          PhosphorIcons.swatchesThin,
           size: 96,
           color: context.colors.onBackground.withValues(alpha: 0.24),
         ),

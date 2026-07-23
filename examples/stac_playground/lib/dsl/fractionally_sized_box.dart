@@ -1,2 +1,22 @@
-// TODO(stac): DSL source for 'fractionally_sized_box' is being migrated from JSON.
-// Until then, the JSON tab is the source of truth for this example.
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'fractionally_sized_box')
+StacWidget fractionallySizedBoxExample() {
+  return StacScaffold(
+    appBar: StacAppBar(title: StacText(data: 'Fractionally SizedBox')),
+    body: StacContainer(
+      height: 400,
+      width: 350,
+      color: '#A9A9D9',
+      child: StacFractionallySizedBox(
+        heightFactor: 0.3,
+        widthFactor: 0.8,
+        alignment: StacAlignment.bottomRight,
+        child: StacElevatedButton(
+          child: StacText(data: 'FLUTTER'),
+          onPressed: null /* TODO: {} */,
+        ),
+      ),
+    ),
+  );
+}

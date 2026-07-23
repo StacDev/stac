@@ -4,7 +4,7 @@ import 'dart:ui' show ImageFilter;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:re_editor/re_editor.dart';
 import 'package:re_highlight/languages/dart.dart';
 import 'package:re_highlight/languages/json.dart';
@@ -231,7 +231,7 @@ class _ExploreTopBar extends StatelessWidget {
           InkWell(
             onTap: () => _openMenu(context),
             child: PhosphorIcon(
-              PhosphorIcons.list(),
+              PhosphorIcons.list,
               size: 20,
               color: colors.onSurface,
             ),
@@ -262,7 +262,7 @@ class _MobileSearchField extends StatelessWidget {
       child: Row(
         children: [
           PhosphorIcon(
-            PhosphorIcons.magnifyingGlass(),
+            PhosphorIcons.magnifyingGlass,
             size: 20,
             color: colors.onSurfaceVariantII,
           ),
@@ -330,7 +330,7 @@ class _EntryCard extends StatelessWidget {
               ),
               child: entry.icon == null
                   ? PhosphorIcon(
-                      PhosphorIcons.square(),
+                      PhosphorIcons.square,
                       size: 16,
                       color: colors.onSurfaceVariant,
                     )
@@ -486,7 +486,7 @@ class _MobileMenuOverlay extends StatelessWidget {
                               height: 36,
                               child: Center(
                                 child: PhosphorIcon(
-                                  PhosphorIcons.x(),
+                                  PhosphorIcons.x,
                                   size: 24,
                                   color: colors.onSurface,
                                 ),
@@ -569,8 +569,8 @@ class _MobileMenuOverlay extends StatelessWidget {
                                 const SizedBox(width: 6),
                                 PhosphorIcon(
                                   state.mobileDark
-                                      ? PhosphorIcons.moonStars()
-                                      : PhosphorIcons.sunDim(),
+                                      ? PhosphorIcons.moonStars
+                                      : PhosphorIcons.sunDim,
                                   size: 20,
                                   color: colors.onSurface,
                                 ),
@@ -627,7 +627,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(6),
                           child: PhosphorIcon(
-                            PhosphorIcons.caretLeft(),
+                            PhosphorIcons.caretLeft,
                             size: 20,
                             color: colors.onSurface,
                           ),
@@ -651,15 +651,15 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                       // theme is switched from the explore drawer.
                       _HeaderIcon(
                         icon: state.darkMode
-                            ? PhosphorIcons.sunDim()
-                            : PhosphorIcons.moonStars(),
+                            ? PhosphorIcons.sunDim
+                            : PhosphorIcons.moonStars,
                         colors: colors,
                         onTap: () =>
                             context.read<HomeCubit>().toggleDarkMode(),
                       ),
                       const SizedBox(width: 4),
                       _HeaderIcon(
-                        icon: PhosphorIcons.frameCorners(),
+                        icon: PhosphorIcons.frameCorners,
                         colors: colors,
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute<void>(
@@ -685,7 +685,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _MobileTab(
-                        icon: PhosphorIcons.crop(),
+                        icon: PhosphorIcons.crop,
                         label: 'Preview',
                         active: _tab == 0,
                         colors: colors,
@@ -709,7 +709,7 @@ class _MobileDetailScreenState extends State<MobileDetailScreen> {
                       ),
                       const SizedBox(width: 64),
                       _MobileTab(
-                        icon: PhosphorIcons.fileCode(),
+                        icon: PhosphorIcons.fileCode,
                         label: 'JSON',
                         active: _tab == 2,
                         colors: colors,
@@ -871,7 +871,7 @@ class _FullScreenPreview extends StatelessWidget {
                       border: Border.all(color: colors.outlineVariant),
                     ),
                     child: PhosphorIcon(
-                      PhosphorIcons.x(),
+                      PhosphorIcons.x,
                       size: 16,
                       color: colors.onSurface,
                     ),

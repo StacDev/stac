@@ -4,15 +4,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:re_editor/re_editor.dart';
 import 'package:re_highlight/languages/dart.dart';
 import 'package:re_highlight/languages/json.dart';
+import 'package:re_highlight/re_highlight.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/app/widgets/find_panel.dart';
 import 'package:stac_playground/app/widgets/section_nav.dart';
+import 'package:stac_playground/data/dsl_to_json.dart';
 import 'package:stac_playground/theme/app_theme.dart';
+
+/// re_highlight's Dart grammar is purely regex-based, so it only tags a few
+/// things (class definitions, annotations, strings, numbers, keywords) and
+/// leaves most identifiers as plain foreground text — which reads as washed
+/// out next to VS Code. VS Code colors the rest with the analysis server's
+/// semantic tokens, which we can't run here; instead we approximate them from
+/// Dart's rigid naming conventions with a handful of extra match rules,
+/// injected at the front of the grammar so they win over plain-text fallback.
+/// Patched once, before the grammar is compiled on first use.
+final Mode _dartHighlightMode = _patchDartMode();
+
+// Lowercase words that must stay keyword-blue even when followed by `(`, so the
+// call-expression rule below doesn't repaint control flow as a function name.
+const String _dartKeywordGuard =
+    r'(?!(?:if|for|while|switch|return|new|await|yield|assert|is|as|in|else|do'
+    r'|try|catch|finally|throw|rethrow|break|continue|case|default|void|true'
+    r'|false|null|var|final|const|late|required|super|this|typedef|extends'
+    r'|implements|with|mixin|enum|class|import|export|part|library|show|hide'
+    r'|get|set|factory|operator|async|sync)\b)';
+
+Mode _patchDartMode() {
+  langDart.contains?.insertAll(0, [
+    // Named-argument labels — `fontSize:`, `child:` → parameter light-blue.
+    Mode(className: 'property', begin: r'\b[a-z_][A-Za-z0-9_]*(?=\s*:)'),
+    // Call expressions — `helloStac(`, `.only(`, `.all(` → function yellow.
+    Mode(
+      className: 'title.function',
+      begin: '\\b$_dartKeywordGuard[a-z_][A-Za-z0-9_]*(?=\\s*\\()',
+    ),
+    // Member access after a dot — `.w600`, `.start`, `.maxFinite` → light-blue.
+    Mode(className: 'property', begin: r'(?<=\.)[a-z_][A-Za-z0-9_]*'),
+    // Type / constructor usages (UpperCamelCase) — `StacText` → class teal.
+    Mode(className: 'title.class', begin: r'\b[A-Z][A-Za-z0-9_]*'),
+  ]);
+  return langDart;
+}
 
 /// Minimal context menu for the code editor, mirroring the Stac Console.
 class _EditorContextMenuController implements SelectionToolbarController {
@@ -118,6 +156,10 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
   late final CodeFindController _findController;
   String _lastText = '';
 
+  /// Set when the Dart source falls outside the parseable subset, so the
+  /// preview is showing the last good tree rather than the current text.
+  String? _dslError;
+
   bool get _isDart => widget.language == CodeLanguage.dart;
 
   static String _formatJson(Map<String, dynamic> json) {
@@ -151,7 +193,6 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
   }
 
   void _onEditorChanged() {
-    if (_isDart) return;
     final text = _controller.text;
     if (text == _lastText) return;
     _lastText = text;
@@ -161,14 +202,18 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
     } else if (text != _baselineText) {
       cubit.setEdited(true);
     }
-    try {
-      final decoded = jsonDecode(text);
-      if (decoded is Map<String, dynamic>) {
-        cubit.updateJsonData(decoded);
-      }
-    } catch (_) {
-      // Mid-edit invalid JSON; the preview keeps the last valid state.
-    }
+    // Dart goes through the DSL subset parser, JSON is decoded directly; either
+    // way the preview renders from the resulting widget map. When the source
+    // can't be converted the last good preview stays put.
+    final result = parseEditorSource(text, isDart: _isDart);
+    final json = result.json;
+    if (json != null) cubit.updateJsonData(json);
+    _setDslError(result.message);
+  }
+
+  void _setDslError(String? message) {
+    if (!mounted || _dslError == message) return;
+    setState(() => _dslError = message);
   }
 
   @override
@@ -229,7 +274,7 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
                       buildWhen: (previous, current) =>
                           previous.edited != current.edited,
                       builder: (context, state) => PhosphorIcon(
-                        PhosphorIcons.bracketsAngle(),
+                        PhosphorIcons.bracketsAngle,
                         size: 14,
                         color: state.edited && !_isDart
                             ? context.colors.warning
@@ -257,7 +302,7 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
               ),
               const SizedBox(width: 12),
               _NavIcon(
-                icon: PhosphorIcons.magnifyingGlass(),
+                icon: PhosphorIcons.magnifyingGlass,
                 tooltip: 'Search',
                 onTap: () {
                   _findController.findMode();
@@ -269,13 +314,13 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
                 const NavDivider(),
                 const SizedBox(width: 12),
                 _NavIcon(
-                  icon: PhosphorIcons.arrowCounterClockwise(),
+                  icon: PhosphorIcons.arrowCounterClockwise,
                   tooltip: 'Undo',
                   onTap: () => _controller.undo(),
                 ),
                 const SizedBox(width: 12),
                 _NavIcon(
-                  icon: PhosphorIcons.arrowClockwise(),
+                  icon: PhosphorIcons.arrowClockwise,
                   tooltip: 'Redo',
                   onTap: () => _controller.redo(),
                 ),
@@ -296,14 +341,14 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
           child: CodeEditor(
             controller: _controller,
             findController: _findController,
-            readOnly: _isDart,
+            readOnly: false,
             style: CodeEditorStyle(
               fontFamily: 'JetBrainsMono',
               fontSize: 13,
               fontHeight: 1.5,
               codeTheme: CodeHighlightTheme(
                 languages: _isDart
-                    ? {'dart': CodeHighlightThemeMode(mode: langDart)}
+                    ? {'dart': CodeHighlightThemeMode(mode: _dartHighlightMode)}
                     : {'json': CodeHighlightThemeMode(mode: langJson)},
                 theme: _editorTheme(),
               ),
@@ -342,7 +387,38 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
             toolbarController: const _EditorContextMenuController(),
           ),
         ),
+        if (_isDart && _dslError != null) _dslNotice(context, _dslError!),
       ],
+    );
+  }
+
+  /// Status strip shown when the Dart source can't be turned into JSON, so it's
+  /// obvious the preview has stopped following the editor.
+  Widget _dslNotice(BuildContext context, String message) {
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      color: const Color(0xFF3A2D00),
+      child: Row(
+        children: [
+          const PhosphorIcon(
+            PhosphorIcons.warningDiamond,
+            size: 14,
+            color: Color(0xFFE2C08D),
+          ),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              'Preview not updated — $message',
+              style: const TextStyle(
+                fontSize: 11,
+                height: 1.4,
+                color: Color(0xFFE2C08D),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

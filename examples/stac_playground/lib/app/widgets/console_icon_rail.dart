@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:stac_playground/theme/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -33,7 +33,7 @@ class ConsoleIconRail extends StatelessWidget {
           ),
           const Spacer(),
           _RailIcon(
-            icon: PhosphorIcons.fileText(),
+            icon: PhosphorIcons.fileText,
             tooltip: 'Documentation',
             onTap: () => launchUrl(Uri.parse('https://docs.stac.dev')),
           ),
@@ -48,20 +48,20 @@ class ConsoleIconRail extends StatelessWidget {
             ),
           ),
           _RailIcon(
-            icon: PhosphorIcons.githubLogo(),
+            icon: PhosphorIcons.githubLogo,
             tooltip: 'GitHub',
             onTap: () =>
                 launchUrl(Uri.parse('https://github.com/StacDev/stac')),
           ),
           _RailIcon(
-            icon: PhosphorIcons.linkedinLogo(),
+            icon: PhosphorIcons.linkedinLogo,
             tooltip: 'LinkedIn',
             onTap: () => launchUrl(
               Uri.parse('https://www.linkedin.com/company/stacdev'),
             ),
           ),
           _RailIcon(
-            icon: PhosphorIcons.xLogo(),
+            icon: PhosphorIcons.xLogo,
             tooltip: 'X',
             onTap: () => launchUrl(Uri.parse('https://x.com/stac_dev')),
           ),

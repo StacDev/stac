@@ -30,7 +30,7 @@ class HomeState {
     this.darkMode = false,
     this.device = PreviewDevice.mobile,
     this.edited = false,
-    this.codeLanguage = CodeLanguage.json,
+    this.codeLanguage = CodeLanguage.dart,
     this.view = PlaygroundView.preview,
     this.query = '',
     this.mobileDark = true,

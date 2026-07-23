@@ -1,2 +1,15 @@
-// TODO(stac): DSL source for 'center' is being migrated from JSON.
-// Until then, the JSON tab is the source of truth for this example.
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'center')
+StacWidget centerExample() {
+  return StacScaffold(
+      appBar: StacAppBar(title: StacText(data: 'Center')),
+      body: StacCenter(
+          child: StacContainer(
+              alignment: StacAlignment.center,
+              height: 200,
+              width: 150,
+              color: '#FC5632',
+              child: StacText(
+                  data: 'Flutter', style: StacTextStyle(fontSize: 23)))));
+}

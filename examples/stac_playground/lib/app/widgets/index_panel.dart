@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/data/playground_entry.dart';
@@ -21,7 +21,7 @@ class _IndexSearchField extends StatelessWidget {
         children: [
           const SizedBox(width: 8),
           PhosphorIcon(
-            PhosphorIcons.magnifyingGlass(),
+            PhosphorIcons.magnifyingGlass,
             size: 12,
             color: context.colors.onSurfaceVariant,
           ),
@@ -138,7 +138,7 @@ class IndexPanel extends StatelessWidget {
                     .where(matches)
                     .toList();
                 Widget row(PlaygroundEntry e) => _IndexRow(
-                      icon: PhosphorIcons.bracketsAngle(),
+                      icon: PhosphorIcons.bracketsAngle,
                       label: e.id,
                       selected: state.selectedEntry.id == e.id,
                       showChangeDot:
@@ -149,11 +149,11 @@ class IndexPanel extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 12),
                   children: [
                     if (screens.isNotEmpty) ...[
-                      const _GroupLabel('SCREENS'),
+                      const _GroupLabel('EXAMPLES'),
                       ...screens.map(row),
                     ],
                     if (components.isNotEmpty) ...[
-                      const _GroupLabel('COMPONENTS'),
+                      const _GroupLabel('WIDGETS'),
                       ...components.map(row),
                     ],
                   ],
@@ -183,10 +183,13 @@ class _ViewToggle extends StatelessWidget {
         border: Border.all(color: context.colors.outline2),
       ),
       child: Row(
+        // Stretch segments to the toggle's full height so the selected
+        // segment's background fills it instead of leaving bars top and bottom.
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _segment(
             context,
-            icon: PhosphorIcons.eye(),
+            icon: PhosphorIcons.eye,
             label: 'Preview',
             value: PlaygroundView.preview,
             tooltip: 'Code editor with live preview',
@@ -194,7 +197,7 @@ class _ViewToggle extends StatelessWidget {
           Container(width: 1, color: context.colors.outline2),
           _segment(
             context,
-            icon: PhosphorIcons.columns(),
+            icon: PhosphorIcons.columns,
             label: 'Code Diff',
             value: PlaygroundView.codeDiff,
             tooltip: 'Dart DSL and JSON side by side',
