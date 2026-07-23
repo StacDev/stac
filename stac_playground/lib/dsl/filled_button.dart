@@ -21,7 +21,7 @@ StacWidget filledButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacFilledButton(
                             child: StacRow(children: [
@@ -35,7 +35,7 @@ StacWidget filledButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 12),
                   StacRow(
@@ -53,7 +53,7 @@ StacWidget filledButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacFilledButton(
                             child: StacRow(children: [
@@ -73,7 +73,7 @@ StacWidget filledButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 12),
                   StacRow(
@@ -115,7 +115,7 @@ StacWidget filledButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacFilledButton(
                             child: StacRow(children: [
@@ -135,7 +135,7 @@ StacWidget filledButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ])
                 ])
           ]));

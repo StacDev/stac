@@ -86,7 +86,7 @@ StacWidget toolTipExample() {
                 icon: StacIcon(icon: 'notifications', size: 24),
                 padding:
                     StacEdgeInsets.only(left: 0, top: 0, right: 0, bottom: 0),
-                onPressed: null /* TODO: {actionType: none} */,
+                onPressed: StacAction(jsonData: {'actionType': 'none'}),
               ),
             ),
           ],

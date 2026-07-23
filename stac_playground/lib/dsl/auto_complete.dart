@@ -11,6 +11,6 @@ StacWidget autoCompleteExample() {
                 'Type below to autocomplete the following possible results: [aardvark, bobcat, chameleon].'),
         StacAutoComplete(
             options: ['aardvark', 'bobcat', 'chameleon'],
-            onSelected: null /* TODO: {} */)
+            onSelected: StacAction())
       ])));
 }

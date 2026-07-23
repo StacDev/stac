@@ -14,7 +14,7 @@ StacWidget fractionallySizedBoxExample() {
         alignment: StacAlignment.bottomRight,
         child: StacElevatedButton(
           child: StacText(data: 'FLUTTER'),
-          onPressed: null /* TODO: {} */,
+          onPressed: StacAction(),
         ),
       ),
     ),

@@ -42,8 +42,12 @@ StacWidget drawerExample() {
                     size: 24,
                   ),
                   title: StacText(data: 'Home'),
-                  onTap:
-                      null /* TODO: {actionType: snackBar, content: 'Home tapped!'} */,
+                  onTap: StacAction(
+                    jsonData: {
+                      'actionType': 'snackBar',
+                      'content': 'Home tapped!'
+                    },
+                  ),
                 ),
                 StacListTile(
                   leading: StacIcon(
@@ -52,8 +56,12 @@ StacWidget drawerExample() {
                     size: 24,
                   ),
                   title: StacText(data: 'Settings'),
-                  onTap:
-                      null /* TODO: {actionType: snackBar, content: 'Settings tapped!'} */,
+                  onTap: StacAction(
+                    jsonData: {
+                      'actionType': 'snackBar',
+                      'content': 'Settings tapped!'
+                    },
+                  ),
                 ),
                 StacListTile(
                   leading: StacIcon(
@@ -62,8 +70,12 @@ StacWidget drawerExample() {
                     size: 24,
                   ),
                   title: StacText(data: 'About'),
-                  onTap:
-                      null /* TODO: {actionType: snackBar, content: 'About tapped!'} */,
+                  onTap: StacAction(
+                    jsonData: {
+                      'actionType': 'snackBar',
+                      'content': 'About tapped!'
+                    },
+                  ),
                 ),
               ],
             ),

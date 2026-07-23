@@ -21,7 +21,7 @@ StacWidget elevatedButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacElevatedButton(
                             child: StacRow(children: [
@@ -35,7 +35,7 @@ StacWidget elevatedButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 12),
                   StacRow(
@@ -77,7 +77,7 @@ StacWidget elevatedButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacElevatedButton(
                             child: StacRow(children: [
@@ -97,7 +97,7 @@ StacWidget elevatedButtonExample() {
                                         topRight: 8,
                                         bottomLeft: 8,
                                         bottomRight: 8))),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ])
                 ])
           ]));

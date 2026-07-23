@@ -8,20 +8,20 @@ StacWidget sliverAppBarExample() {
         title: StacText(data: 'SliverAppBar'),
         leading: StacIconButton(
             icon: StacIcon(iconType: StacIconType.material, icon: 'menu'),
-            onPressed: null /* TODO: {} */),
+            onPressed: StacAction()),
         backgroundColor: 'primary',
         actions: [
           StacIconButton(
               icon: StacIcon(
                   iconType: StacIconType.cupertino, icon: 'heart_solid'),
-              onPressed: null /* TODO: {} */),
+              onPressed: StacAction()),
           StacIconButton(
               icon: StacIcon(iconType: StacIconType.material, icon: 'search'),
-              onPressed: null /* TODO: {} */),
+              onPressed: StacAction()),
           StacIconButton(
               icon:
                   StacIcon(iconType: StacIconType.material, icon: 'more_horiz'),
-              onPressed: null /* TODO: {} */)
+              onPressed: StacAction())
         ])
   ]));
 }

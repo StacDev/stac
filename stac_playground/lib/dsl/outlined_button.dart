@@ -21,7 +21,7 @@ StacWidget outlinedButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacOutlinedButton(
                             child: StacRow(children: [
@@ -35,7 +35,7 @@ StacWidget outlinedButtonExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 12),
                   StacRow(

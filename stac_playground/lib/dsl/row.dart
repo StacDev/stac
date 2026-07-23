@@ -49,14 +49,14 @@ StacWidget rowExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 12),
                         StacElevatedButton(
                             child: StacText(data: 'BUTTON'),
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 12),
                         StacOutlinedButton(
                             child: StacRow(children: [
@@ -70,7 +70,7 @@ StacWidget rowExample() {
                             style: StacButtonStyle(
                                 padding: StacEdgeInsets.only(
                                     top: 8, left: 12, right: 12, bottom: 8)),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 32),
                   StacRow(
@@ -82,7 +82,7 @@ StacWidget rowExample() {
                                 iconType: StacIconType.material,
                                 icon: 'add',
                                 size: 32),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 12),
                         StacFloatingActionButton(
                             buttonType: StacFloatingActionButtonType.large,
@@ -90,7 +90,7 @@ StacWidget rowExample() {
                                 iconType: StacIconType.material,
                                 icon: 'add',
                                 size: 32),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 12),
                         StacFloatingActionButton(
                             buttonType: StacFloatingActionButtonType.extended,
@@ -99,7 +99,7 @@ StacWidget rowExample() {
                                 icon: 'add',
                                 size: 32),
                             child: StacText(data: 'Create'),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ])
                 ])
           ])));

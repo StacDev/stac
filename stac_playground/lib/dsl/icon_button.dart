@@ -19,13 +19,13 @@ StacWidget iconButtonExample() {
                         StacIconButton(
                             icon: StacIcon(
                                 iconType: StacIconType.material, icon: 'add'),
-                            onPressed: null /* TODO: {} */),
+                            onPressed: StacAction()),
                         StacSizedBox(width: 20),
                         StacIconButton(
                             icon: StacIcon(
                                 iconType: StacIconType.material,
                                 icon: 'remove'),
-                            onPressed: null /* TODO: {} */)
+                            onPressed: StacAction())
                       ]),
                   StacSizedBox(height: 52),
                   StacRow(

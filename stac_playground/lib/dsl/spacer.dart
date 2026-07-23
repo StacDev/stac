@@ -30,6 +30,6 @@ StacWidget spacerExample() {
                 child: StacText(data: 'Submit'),
                 style: StacButtonStyle(
                     backgroundColor: 'primary', foregroundColor: '#ffffff'),
-                onPressed: null /* TODO: {} */)
+                onPressed: StacAction())
           ])));
 }

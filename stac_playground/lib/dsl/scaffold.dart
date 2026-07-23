@@ -7,19 +7,19 @@ StacWidget scaffoldExample() {
           title: StacText(data: 'Scaffold'),
           leading: StacIconButton(
               icon: StacIcon(iconType: StacIconType.material, icon: 'menu'),
-              onPressed: null /* TODO: {} */),
+              onPressed: StacAction()),
           actions: [
             StacIconButton(
                 icon: StacIcon(
                     iconType: StacIconType.cupertino, icon: 'heart_solid'),
-                onPressed: null /* TODO: {} */),
+                onPressed: StacAction()),
             StacIconButton(
                 icon: StacIcon(iconType: StacIconType.material, icon: 'search'),
-                onPressed: null /* TODO: {} */),
+                onPressed: StacAction()),
             StacIconButton(
                 icon: StacIcon(
                     iconType: StacIconType.material, icon: 'more_horiz'),
-                onPressed: null /* TODO: {} */)
+                onPressed: StacAction())
           ]),
       body: StacRow(
           mainAxisAlignment: StacMainAxisAlignment.center,
@@ -38,5 +38,5 @@ StacWidget scaffoldExample() {
           buttonType: StacFloatingActionButtonType.medium,
           child:
               StacIcon(iconType: StacIconType.material, icon: 'add', size: 32),
-          onPressed: null /* TODO: {} */));
+          onPressed: StacAction()));
 }

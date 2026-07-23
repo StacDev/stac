@@ -766,6 +766,13 @@ class _DslParser {
       };
     }
 
+    // `StacAction(jsonData: {...})` is the escape hatch for a raw action map,
+    // and it serializes as that map rather than as a wrapper around it.
+    if (className == 'StacAction') {
+      final raw = args.named['jsonData'];
+      return raw is Map<String, dynamic> ? raw : <String, dynamic>{};
+    }
+
     if (args.positional.isNotEmpty) {
       throw DslParseException(
         '$className${constructor == null ? '' : '.$constructor'}() uses '
