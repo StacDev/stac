@@ -27,15 +27,12 @@ void main() {
         failures.add('$id: unexpected ${e.runtimeType}: $e');
       }
     }
-    // navigation and table use private helper functions, which need evaluation.
-    const expectedUnparseable = {'navigation', 'table'};
-    final unexpected = failures
-        .where((f) => !expectedUnparseable.any((id) => f.startsWith('$id:')))
-        .toList();
+    // Every example must parse, including the ones built from private helper
+    // functions (navigation, table) — those are inlined by the parser.
     expect(
-      unexpected,
+      failures,
       isEmpty,
-      reason: 'These should parse but did not:\n${unexpected.join('\n')}',
+      reason: 'These should parse but did not:\n${failures.join('\n')}',
     );
   });
 

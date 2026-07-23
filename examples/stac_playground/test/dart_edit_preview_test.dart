@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/data/dsl_to_json.dart';
 
 /// `parseEditorSource` is what the editor calls on every keystroke, so it
@@ -28,22 +29,56 @@ StacWidget demo() {
     expect(text['data'], 'edited from Dart');
   });
 
-  test('Dart needing evaluation reports why the preview stopped', () {
+  test('single-expression helpers are inlined, not rejected', () {
     const withHelper = '''
 import 'package:stac_core/stac_core.dart';
 
 @StacScreen(screenName: 'demo')
 StacWidget demo() {
-  return StacScaffold(body: _helper());
+  return StacScaffold(body: _row(label: 'from helper'));
 }
 
-StacWidget _helper() => StacText(data: 'nope');
+StacWidget _row({required String label}) {
+  return StacRow(children: [StacText(data: label)]);
+}
 ''';
 
     final result = parseEditorSource(withHelper, isDart: true);
 
+    expect(result.message, isNull);
+    final row = (result.json!['body'] as Map);
+    expect(row['type'], 'row');
+    expect(((row['children'] as List).first as Map)['data'], 'from helper');
+  });
+
+  test('the built-in screens preview too', () {
+    // hello_stac and form_screen carry their DSL inline on the cubit rather
+    // than in lib/dsl, and both lean on helpers (_socialRow, _fieldDecoration)
+    // — they're the first screens anyone opens, so they must stay previewable.
+    for (final entry in {
+      'hello_stac': helloStacDartCode,
+      'form_screen': formDartCode,
+    }.entries) {
+      final result = parseEditorSource(entry.value, isDart: true);
+      expect(result.message, isNull, reason: '${entry.key}: ${result.message}');
+      expect(result.json?['type'], 'scaffold', reason: entry.key);
+    }
+  });
+
+  test('Dart needing evaluation reports why the preview stopped', () {
+    const withVariable = '''
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'demo')
+StacWidget demo() {
+  return StacScaffold(body: someRuntimeWidget);
+}
+''';
+
+    final result = parseEditorSource(withVariable, isDart: true);
+
     expect(result.json, isNull, reason: 'preview must keep the last good tree');
-    expect(result.message, contains('_helper'));
+    expect(result.message, contains('someRuntimeWidget'));
     expect(result.message, contains('cannot be previewed'));
   });
 

@@ -8,9 +8,13 @@
 /// references. That subset covers the playground's examples and maps to JSON
 /// structurally, with no Dart evaluation.
 ///
-/// Anything that would need evaluation — helper functions, variables,
-/// conditionals, string interpolation — throws [DslParseException] so callers
-/// can keep showing the last good preview.
+/// Calls to single-expression top-level helpers (`_socialRow(icon: …)`) are
+/// inlined by binding the arguments and parsing the helper's returned
+/// expression, since the examples lean on them heavily.
+///
+/// What genuinely needs a Dart runtime — variables, conditionals, loops,
+/// string interpolation, methods on non-Stac values — throws
+/// [DslParseException] so callers can keep showing the last good preview.
 library;
 
 import 'dart:convert';
@@ -168,10 +172,24 @@ String _typeForClass(String className) {
   return name[0].toLowerCase() + name.substring(1);
 }
 
+/// A top-level helper function the screen can call, e.g.
+/// `StacWidget _socialRow({required String icon}) { return StacRow(…); }`.
+class _FunctionDef {
+  const _FunctionDef(this.positional, this.named, this.body);
+
+  /// Parameter names, in declaration order.
+  final List<String> positional;
+  final List<String> named;
+
+  /// Source of the single returned expression.
+  final String body;
+}
+
 /// Parses [source] (a full DSL file) and returns the widget JSON tree.
 Map<String, dynamic> dslToJson(String source) {
-  final expression = _extractReturnExpression(source);
-  final parser = _DslParser(expression);
+  final stripped = _stripComments(source);
+  final expression = _returnExpressionOf(stripped);
+  final parser = _DslParser(expression, functions: _extractFunctions(stripped));
   final value = parser.parseValue();
   parser.skipTrivia();
   if (value is! Map<String, dynamic>) {
@@ -180,11 +198,9 @@ Map<String, dynamic> dslToJson(String source) {
   return value;
 }
 
-/// Pulls the expression out of the `return …;` inside the `@StacScreen`
-/// function, ignoring any helper functions defined below it.
-String _extractReturnExpression(String source) {
-  final stripped = _stripComments(source);
-  final returnIndex = stripped.indexOf(RegExp(r'\breturn\b'));
+/// Pulls the expression out of the first `return …;` in [block].
+String _returnExpressionOf(String block) {
+  final returnIndex = block.indexOf(RegExp(r'\breturn\b'));
   if (returnIndex == -1) {
     throw const DslParseException('No `return` found in the screen function.');
   }
@@ -192,17 +208,119 @@ String _extractReturnExpression(String source) {
   // Walk to the `;` that closes the return, ignoring ones nested in
   // brackets or strings.
   var depth = 0;
-  for (var i = start; i < stripped.length; i++) {
-    final ch = stripped[i];
+  for (var i = start; i < block.length; i++) {
+    final ch = block[i];
     if (ch == "'" || ch == '"') {
-      i = _skipString(stripped, i);
+      i = _skipString(block, i);
       continue;
     }
     if (ch == '(' || ch == '[' || ch == '{') depth++;
     if (ch == ')' || ch == ']' || ch == '}') depth--;
-    if (ch == ';' && depth == 0) return stripped.substring(start, i);
+    if (ch == ';' && depth == 0) return block.substring(start, i);
   }
   throw const DslParseException('Unterminated `return` statement.');
+}
+
+/// Collects top-level functions so calls to them can be inlined. Only
+/// single-expression helpers are usable; anything else is simply not recorded
+/// and calling it reports that it needs evaluation.
+Map<String, _FunctionDef> _extractFunctions(String stripped) {
+  final defs = <String, _FunctionDef>{};
+  // Top-level declarations start at column 0 in formatted source:
+  // `StacWidget _socialRow({required String icon}) {`
+  final signature = RegExp(
+    r'^[A-Za-z_][A-Za-z0-9_<>,\s?]*?\s+([A-Za-z_][A-Za-z0-9_]*)\s*\(',
+    multiLine: true,
+  );
+  for (final match in signature.allMatches(stripped)) {
+    final name = match.group(1)!;
+    final open = match.end - 1;
+    final close = _matchBracket(stripped, open, '(', ')');
+    if (close == -1) continue;
+    final params = stripped.substring(open + 1, close);
+
+    var i = close + 1;
+    while (i < stripped.length && stripped[i].trim().isEmpty) {
+      i++;
+    }
+    String? body;
+    if (i < stripped.length && stripped[i] == '{') {
+      final end = _matchBracket(stripped, i, '{', '}');
+      if (end == -1) continue;
+      try {
+        body = _returnExpressionOf(stripped.substring(i + 1, end));
+      } catch (_) {
+        continue; // not a single-return helper
+      }
+    } else if (stripped.startsWith('=>', i)) {
+      var depth = 0;
+      for (var j = i + 2; j < stripped.length; j++) {
+        final ch = stripped[j];
+        if (ch == "'" || ch == '"') {
+          j = _skipString(stripped, j);
+          continue;
+        }
+        if (ch == '(' || ch == '[' || ch == '{') depth++;
+        if (ch == ')' || ch == ']' || ch == '}') depth--;
+        if (ch == ';' && depth == 0) {
+          body = stripped.substring(i + 2, j);
+          break;
+        }
+      }
+    }
+    if (body == null) continue;
+    final parsed = _parseParameterNames(params);
+    defs[name] = _FunctionDef(parsed.$1, parsed.$2, body);
+  }
+  return defs;
+}
+
+/// Returns (positional, named) parameter names from a parameter list source.
+(List<String>, List<String>) _parseParameterNames(String params) {
+  final positional = <String>[];
+  final named = <String>[];
+  final braceStart = params.indexOf('{');
+  final positionalSrc =
+      braceStart == -1 ? params : params.substring(0, braceStart);
+  final namedSrc = braceStart == -1
+      ? ''
+      : params.substring(
+          braceStart + 1,
+          params.lastIndexOf('}') == -1
+              ? params.length
+              : params.lastIndexOf('}'));
+
+  void collect(String src, List<String> into) {
+    for (final part in src.split(',')) {
+      final trimmed = part.trim();
+      if (trimmed.isEmpty) continue;
+      // The parameter name is the final identifier: `required String icon`.
+      final ident = RegExp(r'([A-Za-z_][A-Za-z0-9_]*)\s*$').firstMatch(trimmed);
+      if (ident != null) into.add(ident.group(1)!);
+    }
+  }
+
+  collect(positionalSrc, positional);
+  collect(namedSrc, named);
+  return (positional, named);
+}
+
+/// Index of the bracket closing the one at [start], or -1.
+int _matchBracket(String s, int start, String open, String close) {
+  var depth = 0;
+  for (var i = start; i < s.length; i++) {
+    final ch = s[i];
+    if (ch == "'" || ch == '"') {
+      i = _skipString(s, i);
+      continue;
+    }
+    if (ch == open) depth++;
+    if (ch == close) {
+      depth--;
+      if (depth == 0) return i;
+    }
+  }
+  return -1;
 }
 
 /// Returns the index of the closing quote of the string starting at [start].
@@ -250,9 +368,24 @@ String _stripComments(String s) {
 }
 
 class _DslParser {
-  _DslParser(this.src);
+  _DslParser(
+    this.src, {
+    this.functions = const {},
+    this.bindings = const {},
+    this.depth = 0,
+  });
 
   final String src;
+
+  /// Top-level helpers available to inline.
+  final Map<String, _FunctionDef> functions;
+
+  /// Parameter values bound while inlining a helper body.
+  final Map<String, dynamic> bindings;
+
+  /// Guards against helpers that call themselves.
+  final int depth;
+
   int pos = 0;
 
   bool get _atEnd => pos >= src.length;
@@ -504,13 +637,22 @@ class _DslParser {
     final hasArgs = !_atEnd && src[pos] == '(';
     if (!hasArgs) {
       if (memberName == null) {
-        // A bare identifier is a variable or helper reference.
+        // A helper parameter bound while inlining, e.g. `icon` inside
+        // `_socialRow`'s body.
+        if (bindings.containsKey(name)) return bindings[name];
         throw DslParseException(
           "'$name' needs evaluation and cannot be previewed.",
         );
       }
       // Enum or static constant: `StacFontWeight.w600`, `double.maxFinite`.
       return memberName;
+    }
+
+    final helper = memberName == null ? functions[name] : null;
+    if (helper != null) {
+      final args = _parseArguments();
+      _consumeTrailingToJson();
+      return _inlineHelper(name, helper, args);
     }
 
     if (!name.startsWith('Stac')) {
@@ -522,6 +664,31 @@ class _DslParser {
     final args = _parseArguments();
     _consumeTrailingToJson();
     return _buildJson(name, memberName, args);
+  }
+
+  /// Inlines a single-expression helper by binding its parameters to the call
+  /// arguments and parsing its body in that scope.
+  dynamic _inlineHelper(String name, _FunctionDef def, _Arguments args) {
+    if (depth > 8) {
+      throw DslParseException("'$name(...)' recurses too deeply to preview.");
+    }
+    final scope = <String, dynamic>{};
+    for (var i = 0;
+        i < def.positional.length && i < args.positional.length;
+        i++) {
+      scope[def.positional[i]] = args.positional[i];
+    }
+    for (final param in def.named) {
+      if (args.named.containsKey(param)) scope[param] = args.named[param];
+    }
+    final inner = _DslParser(
+      def.body,
+      functions: functions,
+      bindings: scope,
+      depth: depth + 1,
+    );
+    final value = inner.parseValue();
+    return value;
   }
 
   void _consumeTrailingToJson() {
