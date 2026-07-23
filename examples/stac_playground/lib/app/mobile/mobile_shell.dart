@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,9 +26,12 @@ class MobileColors {
     required this.onSurface,
     required this.onSurfaceVariant,
     required this.onSurfaceVariantII,
+    required this.secondary,
     required this.iconHex,
   });
 
+  /// Values come from the Console Figma file's theme variables
+  /// (Surface, On Surface, Outline, Secondary, ...) for each mode.
   factory MobileColors.of(bool dark) => dark
       ? const MobileColors(
           surface: Color(0xFF0B0B0D),
@@ -36,20 +40,22 @@ class MobileColors {
           outline: Color(0x0FFFFFFF),
           outlineVariant: Color(0x1AFFFFFF),
           onSurface: Colors.white,
-          onSurfaceVariant: Color(0xB3FFFFFF),
+          onSurfaceVariant: Color(0xB2FFFFFF),
           onSurfaceVariantII: Color(0x80FFFFFF),
-          iconHex: '#B3FFFFFF',
+          secondary: Color(0xFF50D59D),
+          iconHex: '#B2FFFFFF',
         )
       : const MobileColors(
-          surface: Colors.white,
-          surfaceBright: Color(0xFFF7F7F8),
-          container: Color(0x0A000000),
-          outline: Color(0x0F000000),
-          outlineVariant: Color(0x1A000000),
-          onSurface: Color(0xFF0B0B0D),
-          onSurfaceVariant: Color(0xB30B0B0D),
-          onSurfaceVariantII: Color(0x800B0B0D),
-          iconHex: '#B30B0B0D',
+          surface: Color(0xFFF3F3F3),
+          surfaceBright: Colors.white,
+          container: Color(0x0A07090A),
+          outline: Color(0x1407090A),
+          outlineVariant: Color(0x1F07090A),
+          onSurface: Color(0xFF07090A),
+          onSurfaceVariant: Color(0xB207090A),
+          onSurfaceVariantII: Color(0x8007090A),
+          secondary: Color(0xFF15803D),
+          iconHex: '#B207090A',
         );
 
   final Color surface;
@@ -61,12 +67,12 @@ class MobileColors {
   final Color onSurfaceVariant;
   final Color onSurfaceVariantII;
 
+  /// Accent green (Console `Secondary` token, darker in light mode).
+  final Color secondary;
+
   /// [onSurfaceVariant] as a hex string for Stac-rendered icons.
   final String iconHex;
 }
-
-/// Accent green shared by both themes (Console `secondary` token).
-const Color _secondary = Color(0xFF50D59D);
 
 /// Root of the mobile experience: the explore list.
 class MobileShell extends StatelessWidget {
@@ -96,7 +102,6 @@ class MobileExploreScreen extends StatelessWidget {
             .toList();
         return Scaffold(
           backgroundColor: colors.surface,
-          endDrawer: _MobileDrawer(colors: colors, dark: state.mobileDark),
           body: SafeArea(
             child: Column(
               children: [
@@ -214,19 +219,21 @@ class _ExploreTopBar extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 7),
-          const Text(
+          Text(
             'Playground',
-            style: TextStyle(fontSize: 16, height: 1.5, color: _secondary),
+            style: TextStyle(
+              fontSize: 16,
+              height: 1.5,
+              color: colors.secondary,
+            ),
           ),
           const Spacer(),
-          Builder(
-            builder: (context) => InkWell(
-              onTap: () => Scaffold.of(context).openEndDrawer(),
-              child: PhosphorIcon(
-                PhosphorIcons.list(),
-                size: 20,
-                color: colors.onSurface,
-              ),
+          InkWell(
+            onTap: () => _openMenu(context),
+            child: PhosphorIcon(
+              PhosphorIcons.list(),
+              size: 20,
+              color: colors.onSurface,
             ),
           ),
           const SizedBox(width: 18),
@@ -377,50 +384,209 @@ class _EntryCard extends StatelessWidget {
   }
 }
 
-class _MobileDrawer extends StatelessWidget {
-  const _MobileDrawer({required this.colors, required this.dark});
+/// Opens the full-screen menu overlay, per the Console mobile design.
+void _openMenu(BuildContext context) {
+  final cubit = context.read<HomeCubit>();
+  showGeneralDialog<void>(
+    context: context,
+    barrierDismissible: false,
+    barrierColor: Colors.transparent,
+    transitionDuration: const Duration(milliseconds: 150),
+    transitionBuilder: (_, animation, __, child) =>
+        FadeTransition(opacity: animation, child: child),
+    pageBuilder: (_, __, ___) => BlocProvider.value(
+      value: cubit,
+      child: const _MobileMenuOverlay(),
+    ),
+  );
+}
 
-  final MobileColors colors;
-  final bool dark;
+/// Blurred surface overlay with plain link rows and the theme row.
+class _MobileMenuOverlay extends StatelessWidget {
+  const _MobileMenuOverlay();
 
   @override
   Widget build(BuildContext context) {
-    ListTile link(IconData icon, String label, String url) => ListTile(
-          leading:
-              PhosphorIcon(icon, size: 20, color: colors.onSurfaceVariant),
-          title: Text(label, style: TextStyle(color: colors.onSurface)),
-          onTap: () => launchUrl(Uri.parse(url)),
-        );
-    return Drawer(
-      backgroundColor: colors.surface,
-      child: SafeArea(
-        child: ListView(
-          children: [
-            link(PhosphorIcons.fileText(), 'Documentation',
-                'https://docs.stac.dev'),
-            link(PhosphorIcons.githubLogo(), 'GitHub',
-                'https://github.com/StacDev/stac'),
-            link(PhosphorIcons.linkedinLogo(), 'LinkedIn',
-                'https://www.linkedin.com/company/stacdev'),
-            link(PhosphorIcons.xLogo(), 'X', 'https://x.com/stac_dev'),
-            Divider(color: colors.outlineVariant),
-            SwitchListTile(
-              secondary: PhosphorIcon(
-                dark ? PhosphorIcons.moonStars() : PhosphorIcons.sunDim(),
-                size: 20,
-                color: colors.onSurfaceVariant,
+    return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen: (p, c) => p.mobileDark != c.mobileDark,
+      builder: (context, state) {
+        final colors = MobileColors.of(state.mobileDark);
+        Widget row({required String label, required VoidCallback onTap}) =>
+            InkWell(
+              onTap: onTap,
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  label,
+                  style: TextStyle(
+                    fontSize: 16,
+                    height: 1.5,
+                    color: colors.onSurface,
+                  ),
+                ),
               ),
-              title: Text(
-                'Dark theme',
-                style: TextStyle(color: colors.onSurface),
+            );
+        final divider = Container(height: 1, color: colors.outline);
+        return Material(
+          color: Colors.transparent,
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 12, sigmaY: 12),
+            child: Container(
+              color: colors.surface.withValues(alpha: 0.95),
+              child: SafeArea(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 56,
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 16),
+                          Container(
+                            width: 28,
+                            height: 28,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              border: Border.all(color: colors.outline),
+                            ),
+                            child: ClipOval(
+                              child: Image.asset(
+                                'assets/images/logo_console.png',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            'Stac',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                              height: 1.3,
+                              fontVariations: const [
+                                FontVariation('wght', 500),
+                              ],
+                              color: colors.onSurface,
+                            ),
+                          ),
+                          const SizedBox(width: 7),
+                          Text(
+                            'Playground',
+                            style: TextStyle(
+                              fontSize: 16,
+                              height: 1.5,
+                              color: colors.secondary,
+                            ),
+                          ),
+                          const Spacer(),
+                          InkWell(
+                            onTap: () => Navigator.of(context).pop(),
+                            child: SizedBox(
+                              width: 36,
+                              height: 36,
+                              child: Center(
+                                child: PhosphorIcon(
+                                  PhosphorIcons.x(),
+                                  size: 24,
+                                  color: colors.onSurface,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 56,
+                        vertical: 32,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          row(
+                            label: 'Documentation',
+                            onTap: () =>
+                                launchUrl(Uri.parse('https://docs.stac.dev')),
+                          ),
+                          const SizedBox(height: 16),
+                          divider,
+                          const SizedBox(height: 16),
+                          row(
+                            label: 'Github',
+                            onTap: () => launchUrl(
+                              Uri.parse('https://github.com/StacDev/stac'),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          divider,
+                          const SizedBox(height: 16),
+                          row(
+                            label: 'LinkedIn',
+                            onTap: () => launchUrl(
+                              Uri.parse(
+                                'https://www.linkedin.com/company/stacdev',
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          divider,
+                          const SizedBox(height: 16),
+                          row(
+                            label: 'X',
+                            onTap: () => launchUrl(
+                              Uri.parse('https://x.com/stac_dev'),
+                            ),
+                          ),
+                          const SizedBox(height: 16),
+                          divider,
+                          const SizedBox(height: 16),
+                          InkWell(
+                            onTap: () => context
+                                .read<HomeCubit>()
+                                .setMobileDark(!state.mobileDark),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    'Theme',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      height: 1.5,
+                                      color: colors.onSurface,
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  state.mobileDark ? 'Dark' : 'Light',
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    height: 1.5,
+                                    color: colors.onSurface,
+                                  ),
+                                ),
+                                const SizedBox(width: 6),
+                                PhosphorIcon(
+                                  state.mobileDark
+                                      ? PhosphorIcons.moonStars()
+                                      : PhosphorIcons.sunDim(),
+                                  size: 20,
+                                  color: colors.onSurface,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              value: dark,
-              activeColor: _secondary,
-              onChanged: (v) => context.read<HomeCubit>().setMobileDark(v),
             ),
-          ],
-        ),
-      ),
+          ),
+        );
+      },
     );
   }
 }
@@ -640,7 +806,7 @@ class _MobileTab extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border(
             bottom: BorderSide(
-              color: active ? _secondary : Colors.transparent,
+              color: active ? colors.secondary : Colors.transparent,
             ),
           ),
         ),
