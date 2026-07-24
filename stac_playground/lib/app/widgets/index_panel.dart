@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
+import 'package:stac/stac.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/data/playground_entry.dart';
@@ -138,7 +139,8 @@ class IndexPanel extends StatelessWidget {
                     .where(matches)
                     .toList();
                 Widget row(PlaygroundEntry e) => _IndexRow(
-                      icon: PhosphorIcons.bracketsAngle,
+                      iconName: e.icon,
+                      iconType: e.iconType,
                       label: e.id,
                       selected: state.selectedEntry.id == e.id,
                       showChangeDot:
@@ -252,16 +254,24 @@ class _ViewToggle extends StatelessWidget {
   }
 }
 
+/// `#AARRGGBB` string for Stac's color parser (the icon renderer takes a hex
+/// string, not a Flutter [Color]).
+String _hex(Color color) =>
+    '#${color.toARGB32().toRadixString(16).padLeft(8, '0')}';
+
 class _IndexRow extends StatelessWidget {
   const _IndexRow({
-    required this.icon,
+    required this.iconName,
+    required this.iconType,
     required this.label,
     this.selected = false,
     this.showChangeDot = false,
     this.onTap,
   });
 
-  final IconData icon;
+  /// Icon name resolved through Stac's icon parser, matching the mobile list.
+  final String? iconName;
+  final String iconType;
   final String label;
   final bool selected;
   final bool showChangeDot;
@@ -283,8 +293,24 @@ class _IndexRow extends StatelessWidget {
           color: selected ? context.colors.surfaceVariant : null,
           child: Row(
             children: [
-              PhosphorIcon(icon, size: 12, color: color),
-              const SizedBox(width: 6),
+              SizedBox(
+                width: 14,
+                height: 14,
+                child: iconName == null
+                    ? PhosphorIcon(
+                        PhosphorIcons.bracketsAngle,
+                        size: 12,
+                        color: color,
+                      )
+                    : Stac.fromJson({
+                        'type': 'icon',
+                        'iconType': iconType,
+                        'icon': iconName,
+                        'size': 14,
+                        'color': _hex(color),
+                      }, context),
+              ),
+              const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   label,
