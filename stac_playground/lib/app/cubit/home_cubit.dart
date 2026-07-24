@@ -27,11 +27,22 @@ final List<PlaygroundEntry> playgroundEntries = [
   ...componentEntries,
 ];
 
+/// Rebuilds [json] as a plain `Map<String, dynamic>` tree.
+///
+/// The inline samples ([helloStacSample], [formSample]) are `const` map
+/// literals, so on the web (and VM) their nested maps are typed
+/// `<dynamic, dynamic>` — Stac's generated `fromJson` does
+/// `json['child'] as Map<String, dynamic>`, which rejects them and surfaces as
+/// a "Stac Parse Error" (most visibly on buttons). Round-tripping through JSON
+/// yields real `Map<String, dynamic>`/`List<dynamic>` nodes throughout.
+Map<String, dynamic> asRenderableJson(Map<String, dynamic> json) =>
+    jsonDecode(jsonEncode(json)) as Map<String, dynamic>;
+
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit()
       : super(
           HomeState(
-            jsonData: helloStacSample,
+            jsonData: asRenderableJson(helloStacSample),
             selectedEntry: playgroundEntries.first,
             dartCode: helloStacDartCode,
             showCodeView: true,
@@ -53,7 +64,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(
       state.copyWith(
         selectedEntry: entry,
-        jsonData: json,
+        jsonData: asRenderableJson(json),
         dartCode: dart,
         edited: false,
       ),
