@@ -49,6 +49,28 @@ jobs:
       - name: 'Flutter Pub Get'
         run: melos run get
 
+  # Runs on Linux, so this is also what catches paths whose casing only works
+  # on a case-insensitive filesystem — the analyze and format jobs never touch
+  # the platform directories or the asset bundle.
+  build_playground:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
+      - uses: subosito/flutter-action@48cafc24713cca54bbe03cdc3a423187d413aafa
+        with:
+          channel: 'stable'
+          cache: true
+      - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
+        with:
+          melos-version: '3.0.1'
+      - name: 'Build web'
+        run: flutter build web
+        working-directory: stac_playground
+      - name: 'Test'
+        run: flutter test
+        working-directory: stac_playground
+
   format:
     runs-on: ubuntu-latest
     timeout-minutes: 20

@@ -1,0 +1,183 @@
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'text_field')
+StacWidget textFieldExample() {
+  return StacScaffold(
+    appBar: StacAppBar(title: StacText(data: 'Text Field')),
+    body: StacSingleChildScrollView(
+      child: StacContainer(
+        padding: StacEdgeInsets.all(12),
+        child: StacColumn(
+          mainAxisAlignment: StacMainAxisAlignment.center,
+          crossAxisAlignment: StacCrossAxisAlignment.center,
+          children: [
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: false,
+              decoration: StacInputDecoration(
+                hintText: 'What do people call you?',
+                filled: true,
+                icon: StacIcon(
+                  iconType: StacIconType.cupertino,
+                  icon: 'person_solid',
+                  size: 24,
+                ),
+                labelText: 'Name*',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: false,
+              decoration: StacInputDecoration(
+                hintText: 'Where can we reach you?',
+                filled: true,
+                icon: StacIcon(
+                  iconType: StacIconType.cupertino,
+                  icon: 'phone_solid',
+                  size: 24,
+                ),
+                labelText: 'Phone number*',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: false,
+              decoration: StacInputDecoration(
+                hintText: 'Your email address',
+                filled: true,
+                icon: StacIcon(
+                  iconType: StacIconType.material,
+                  icon: 'email',
+                  size: 24,
+                ),
+                labelText: 'Email',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: false,
+              decoration: StacInputDecoration(
+                filled: true,
+                icon: StacIcon(
+                  iconType: StacIconType.material,
+                  icon: 'credit_card',
+                  size: 24,
+                ),
+                hintText: 'XXXX XXXX XXXX XXXX',
+                labelText: 'Credit Card',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacSizedBox(
+              height: 100,
+              child: StacTextField(
+                expands: true,
+                decoration: StacInputDecoration(
+                  filled: true,
+                  labelText: 'Life story',
+                ),
+                readOnly: false,
+                enabled: true,
+              ),
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: true,
+              decoration: StacInputDecoration(
+                filled: true,
+                suffixIcon: StacIcon(
+                  iconType: StacIconType.cupertino,
+                  icon: 'eye',
+                  size: 24,
+                ),
+                labelText: 'Password*',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: true,
+              decoration: StacInputDecoration(
+                filled: true,
+                suffixIcon: StacIcon(
+                  iconType: StacIconType.cupertino,
+                  icon: 'eye',
+                  size: 24,
+                ),
+                labelText: 'Re-type password*',
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+            StacSizedBox(height: 24),
+            StacTextField(
+              maxLines: 1,
+              keyboardType: StacTextInputType.text,
+              textInputAction: StacTextInputAction.done,
+              textAlign: StacTextAlign.start,
+              textCapitalization: StacTextCapitalization.none,
+              textDirection: StacTextDirection.ltr,
+              obscureText: true,
+              decoration: StacInputDecoration(
+                filled: true,
+                labelText: 'Gradient TextField',
+                border: StacInputBorder(
+                  type: StacInputBorderType.outlineInputBorder,
+                  borderRadius: StacBorderRadius.all(80),
+                  gradient: StacGradient(colors: ['#FF0000', '#0000FF']),
+                ),
+              ),
+              readOnly: false,
+              enabled: true,
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}

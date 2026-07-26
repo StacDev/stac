@@ -87,7 +87,7 @@ StacForm(
       StacFilledButton(
         child: StacText(data: 'Submit'),
         onPressed: StacFormValidateAction(
-          isValid: StacNetworkRequestAction(
+          isValid: StacNetworkRequest(
             url: 'https://dummyjson.com/auth/login',
             method: Method.post,
             contentType: 'application/json',

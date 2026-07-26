@@ -1,0 +1,19 @@
+{
+  "type": "scaffold",
+  "body": {
+    "type": "refreshIndicator",
+    "onRefresh": {
+      "actionType": "networkRequest",
+      "url": "https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json",
+      "method": "get",
+      "contentType": "application/json"
+    },
+    "child": {
+      "type": "networkWidget",
+      "request": {
+        "url": "https://raw.githubusercontent.com/StacDev/stac/main/stac_playground/assets/json/list_view_example.json",
+        "method": "get"
+      }
+    }
+  }
+}

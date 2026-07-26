@@ -3,6 +3,7 @@ name: stac
 packages:
   - packages/*
   - examples/*
+  - stac_playground
 
 scripts:
   analyze:
@@ -18,7 +19,7 @@ scripts:
       - melos exec --scope="stac_core" -- "dart run build_runner build --delete-conflicting-outputs"
       - melos exec --scope="stac" -- "dart run build_runner build --delete-conflicting-outputs"
       - melos exec --scope="stac_cli" -- "dart run build_runner build --delete-conflicting-outputs"
-      - melos exec --scope="counter_example" --scope="stac_gallery" --scope="stac_webview" -- "dart run build_runner build --delete-conflicting-outputs"
+      - melos exec --scope="counter_example" --scope="stac_webview" -- "dart run build_runner build --delete-conflicting-outputs"
   watch:
     exec: dart run build_runner watch --delete-conflicting-outputs
     packageFilters:

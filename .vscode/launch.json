@@ -5,8 +5,8 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "stac_gallery",
-            "cwd": "examples/stac_gallery",
+            "name": "stac_playground",
+            "cwd": "stac_playground",
             "request": "launch",
             "type": "dart"
         },

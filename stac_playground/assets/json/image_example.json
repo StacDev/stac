@@ -1,0 +1,146 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "Image"
+    }
+  },
+  "body": {
+    "type": "singleChildScrollView",
+    "child": {
+      "type": "row",
+      "mainAxisAlignment": "center",
+      "crossAxisAlignment": "center",
+      "children": [
+        {
+          "type": "column",
+          "mainAxisAlignment": "center",
+          "crossAxisAlignment": "center",
+          "children": [
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "gestureDetector",
+                  "child": {
+                    "type": "image",
+                    "src": "https://images.pexels.com/photos/15113967/pexels-photo-15113967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                    "height": 150
+                  },
+                  "onTap": {
+                    "actionType": "navigate",
+                    "assetPath": "assets/json/form_example.json"
+                  }
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 20
+                },
+                {
+                  "type": "image",
+                  "src": "assets/images/logo_console.png",
+                  "imageType": "asset",
+                  "height": 150
+                }
+              ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "https://images.pexels.com/photos/15352100/pexels-photo-15352100.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                  "height": 150
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 20
+                },
+                {
+                  "type": "image",
+                  "src": "https://images.pexels.com/photos/15373031/pexels-photo-15373031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                  "height": 150
+                }
+              ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "https://images.pexels.com/photos/10041677/pexels-photo-10041677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                  "height": 150
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 20
+                },
+                {
+                  "type": "image",
+                  "src": "assets/images/dart_logo.png",
+                  "imageType": "asset",
+                  "height": 150,
+                  "width": 100,
+                  "fit": "fill"
+                }
+              ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            },
+            {
+              "type": "row",
+              "mainAxisAlignment": "center",
+              "crossAxisAlignment": "center",
+              "children": [
+                {
+                  "type": "image",
+                  "src": "http://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg",
+                  "height": 100,
+                  "width": 100
+                },
+                {
+                  "type": "sizedBox",
+                  "width": 20
+                },
+                {
+                  "type": "image",
+                  "imageType": "asset",
+                  "src": "assets/images/logo.svg",
+                  "color": "primary",
+                  "height": 100,
+                  "width": 100
+                }
+              ]
+            },
+            {
+              "type": "sizedBox",
+              "height": 24
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

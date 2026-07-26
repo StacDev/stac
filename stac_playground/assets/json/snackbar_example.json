@@ -1,0 +1,28 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "SnackBar"
+    }
+  },
+  "body": {
+    "type": "center",
+    "child": {
+      "type": "elevatedButton",
+      "child": {
+        "type": "text",
+        "data": "Show SnackBar"
+      },
+      "onPressed": {
+        "actionType": "snackBar",
+        "content": {
+          "type": "text",
+          "data": "This is a Snackbar"
+        },
+        "behavior": "floating"
+      }
+    }
+  }
+}
