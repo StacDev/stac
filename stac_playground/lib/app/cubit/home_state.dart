@@ -1,15 +1,4 @@
-import 'package:flutter/widgets.dart';
 import 'package:stac_playground/data/playground_entry.dart';
-
-enum PreviewDevice {
-  mobile(Size(390, 844)),
-  tablet(Size(768, 1024)),
-  desktop(Size(1280, 800));
-
-  const PreviewDevice(this.frameSize);
-
-  final Size frameSize;
-}
 
 /// The language shown in the code editor. Dart is the Stac DSL source that
 /// `stac build` compiles to the deployed JSON.
@@ -27,7 +16,6 @@ class HomeState {
     this.showCodeView = true,
     this.scale = 1.0,
     this.darkMode = false,
-    this.device = PreviewDevice.mobile,
     this.edited = false,
     this.codeLanguage = CodeLanguage.dart,
     this.view = PlaygroundView.preview,
@@ -44,7 +32,6 @@ class HomeState {
   final bool showCodeView;
   final double scale;
   final bool darkMode;
-  final PreviewDevice device;
   final CodeLanguage codeLanguage;
   final PlaygroundView view;
 
@@ -64,7 +51,6 @@ class HomeState {
     bool? showCodeView,
     double? scale,
     bool? darkMode,
-    PreviewDevice? device,
     bool? edited,
     CodeLanguage? codeLanguage,
     PlaygroundView? view,
@@ -78,7 +64,6 @@ class HomeState {
       showCodeView: showCodeView ?? this.showCodeView,
       scale: scale ?? this.scale,
       darkMode: darkMode ?? this.darkMode,
-      device: device ?? this.device,
       edited: edited ?? this.edited,
       codeLanguage: codeLanguage ?? this.codeLanguage,
       view: view ?? this.view,

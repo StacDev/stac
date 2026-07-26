@@ -106,10 +106,6 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(scale: 1.0));
   }
 
-  void setDevice(PreviewDevice device) {
-    emit(state.copyWith(device: device));
-  }
-
   void setCodeLanguage(CodeLanguage language) {
     emit(state.copyWith(codeLanguage: language));
   }

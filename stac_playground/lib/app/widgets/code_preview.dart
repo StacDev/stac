@@ -72,11 +72,6 @@ class _PreviewNav extends StatelessWidget {
           const SizedBox(width: 12),
           Center(child: _ThemeSelector(darkMode: state.darkMode)),
           const Spacer(),
-          for (final device in PreviewDevice.values)
-            _DeviceToggle(device: device, active: state.device == device),
-          const SizedBox(width: 12),
-          const Center(child: NavDivider()),
-          const SizedBox(width: 12),
           Center(
             child: _NavIconButton(
               icon: PhosphorIcons.magnifyingGlassPlus,
@@ -167,49 +162,6 @@ class _ThemeSelector extends StatelessWidget {
   }
 }
 
-class _DeviceToggle extends StatelessWidget {
-  const _DeviceToggle({required this.device, required this.active});
-
-  final PreviewDevice device;
-  final bool active;
-
-  IconData get _icon => switch (device) {
-        PreviewDevice.mobile => PhosphorIcons.deviceMobileCamera,
-        PreviewDevice.tablet => PhosphorIcons.deviceTablet,
-        PreviewDevice.desktop => PhosphorIcons.monitor,
-      };
-
-  @override
-  Widget build(BuildContext context) {
-    return Tooltip(
-      message: 'Preview on ${device.name}',
-      child: InkWell(
-        onTap: () => context.read<HomeCubit>().setDevice(device),
-        hoverColor: context.colors.surfaceVariant,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
-          decoration: active
-              ? BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: context.colors.secondary),
-                  ),
-                )
-              : null,
-          child: Center(
-            child: PhosphorIcon(
-              _icon,
-              size: 18,
-              color: active
-                  ? context.colors.onBackground
-                  : context.colors.onSurfaceVariant,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 class _NavIconButton extends StatelessWidget {
   const _NavIconButton({
     required this.icon,
@@ -246,12 +198,8 @@ class _DeviceFrame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final frameSize = state.device.frameSize;
-    final radius = switch (state.device) {
-      PreviewDevice.mobile => 40.0,
-      PreviewDevice.tablet => 24.0,
-      PreviewDevice.desktop => 12.0,
-    };
+    const frameSize = Size(390, 844);
+    const radius = 40.0;
 
     // Built outside the scroll/fit wrappers so the nested MaterialApp is
     // never (re)inflated during layout.
