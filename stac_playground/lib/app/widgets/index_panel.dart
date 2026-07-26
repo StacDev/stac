@@ -284,57 +284,57 @@ class _IndexRow extends StatelessWidget {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 2),
-      child: InkWell(
+      child: ListTile(
         onTap: onTap,
+        selected: selected,
+        selectedTileColor: context.colors.surfaceVariant,
         hoverColor: context.colors.surfaceVariant,
-        child: Container(
-          height: 24,
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          color: selected ? context.colors.surfaceVariant : null,
-          child: Row(
-            children: [
-              SizedBox(
-                width: 14,
-                height: 14,
-                child: iconName == null
-                    ? PhosphorIcon(
-                        PhosphorIcons.bracketsAngle,
-                        size: 12,
-                        color: color,
-                      )
-                    : Stac.fromJson({
-                        'type': 'icon',
-                        'iconType': iconType,
-                        'icon': iconName,
-                        'size': 14,
-                        'color': _hex(color),
-                      }, context),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  label,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                    height: 1.5,
-                    color: color,
-                  ),
-                ),
-              ),
-              if (showChangeDot)
-                Container(
-                  width: 5,
-                  height: 5,
-                  decoration: BoxDecoration(
-                    color: context.colors.warning,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-            ],
+        // The index is an IDE-style file list, so it sits far tighter than a
+        // stock tile: no vertical padding, and only as tall as the label.
+        dense: true,
+        visualDensity: VisualDensity.compact,
+        minTileHeight: 24,
+        minVerticalPadding: 0,
+        minLeadingWidth: 14,
+        horizontalTitleGap: 8,
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        leading: SizedBox(
+          width: 14,
+          height: 14,
+          child: iconName == null
+              ? PhosphorIcon(
+                  PhosphorIcons.bracketsAngle,
+                  size: 12,
+                  color: color,
+                )
+              : Stac.fromJson({
+                  'type': 'icon',
+                  'iconType': iconType,
+                  'icon': iconName,
+                  'size': 14,
+                  'color': _hex(color),
+                }, context),
+        ),
+        title: Text(
+          label,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w400,
+            height: 1.5,
+            color: color,
           ),
         ),
+        trailing: !showChangeDot
+            ? null
+            : Container(
+                width: 5,
+                height: 5,
+                decoration: BoxDecoration(
+                  color: context.colors.warning,
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
       ),
     );
   }
