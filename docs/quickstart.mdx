@@ -133,6 +133,30 @@ StacWidget helloWorld() {
 
 Stac follows Flutter's conventions for building widgets. For example, to use Flutter's `Scaffold`, use the `StacScaffold` widget.
 
+## Test Locally
+
+During development, you can test Stac screens in your running app without deploying to Stac Cloud:
+
+```bash
+stac dev
+```
+
+Then point debug builds at the local server:
+
+```dart
+import 'package:flutter/foundation.dart';
+
+await Stac.initialize(
+  options: defaultStacOptions.copyWith(
+    apiBaseUrl: kDebugMode
+        ? 'http://127.0.0.1:45700'
+        : defaultStacOptions.apiBaseUrl,
+  ),
+);
+```
+
+`stac dev` rebuilds local JSON when files in `stac/` are saved and prints ready-to-copy URLs for local/iOS Simulator/web, Android Emulator, and physical devices. For a physical device, start with `stac dev --host 0.0.0.0` and use the printed LAN URL.
+
 ## Deploy Stac widgets
 
 Now that we have our widget built, we can deploy it to Stac Cloud.
