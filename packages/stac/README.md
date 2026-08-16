@@ -1,5 +1,5 @@
 <p>
-  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/stac_banner.png" width="100%" alt="Stac: Server-Driven UI Framework for Flutter" />
 </p>
 
 <p align="center">
