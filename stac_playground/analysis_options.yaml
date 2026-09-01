@@ -14,6 +14,12 @@ analyzer:
     # `lib/dsl` ships as an asset bundle, so Flutter copies every example into
     # build/. Without this, `dart analyze .` reports each one several times over.
     - build/**
+    - android/**
+    - ios/**
+    - web/**
+    - windows/**
+    - macos/**
+    - linux/**
 
 linter:
   # The lint rules applied to this project can be customized in the

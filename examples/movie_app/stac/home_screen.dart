@@ -4,11 +4,11 @@ import 'package:stac/stac_core.dart';
 
 @StacScreen(screenName: 'home_screen')
 StacWidget homeScreen() {
-  return StacDefaultBottomNavigationController(
+  return StacDefaultNavigationController(
     length: 3,
     child: StacScaffold(
       extendBodyBehindAppBar: true,
-      body: StacBottomNavigationView(
+      body: StacNavigationView(
         children: [
           StacListView(
             padding: StacEdgeInsets.all(0),

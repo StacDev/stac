@@ -372,7 +372,7 @@ class UpgradeService {
           await response.drain<void>();
           final nextUri = uri.resolve(redirectUrl);
           _validateDownloadUri(nextUri);
-          return _downloadFile(nextUri.toString(), destPath);
+          return await _downloadFile(nextUri.toString(), destPath);
         }
       }
 
