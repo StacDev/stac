@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:stac/src/models/stac_cache.dart';
 import 'package:stac/src/models/stac_artifact_type.dart';
+import 'package:stac/src/models/stac_cache.dart';
 import 'package:stac_logger/stac_logger.dart';
 
 /// Service for managing cached Stac artifacts (screens, themes, etc.).
@@ -75,7 +75,7 @@ class StacCacheService {
         cachedAt: DateTime.now(),
       );
 
-      return prefs.setString(cacheKey, artifactCache.toJsonString());
+      return await prefs.setString(cacheKey, artifactCache.toJsonString());
     } catch (e) {
       return false;
     }
@@ -90,7 +90,7 @@ class StacCacheService {
       final prefs = await _sharedPrefs;
       final cachePrefix = _getCachePrefix(artifactType);
       final cacheKey = '$cachePrefix$artifactName';
-      return prefs.remove(cacheKey);
+      return await prefs.remove(cacheKey);
     } catch (e) {
       return false;
     }

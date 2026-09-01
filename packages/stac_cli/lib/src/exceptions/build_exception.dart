@@ -7,8 +7,8 @@ class BuildException extends StacException {
 
 /// Exception thrown when Dart to JSON conversion fails
 class ConversionException extends BuildException {
-  const ConversionException(String message, {dynamic cause})
-    : super('Dart to JSON conversion failed: $message', cause: cause);
+  const ConversionException(String message, {super.cause})
+    : super('Dart to JSON conversion failed: $message');
 }
 
 /// Exception thrown when SDUI validation fails
