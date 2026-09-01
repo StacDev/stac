@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
@@ -35,7 +36,9 @@ class StacListViewParser extends StacParser<StacListView> {
       addAutomaticKeepAlives: model.addAutomaticKeepAlives ?? true,
       addRepaintBoundaries: model.addRepaintBoundaries ?? true,
       addSemanticIndexes: model.addSemanticIndexes ?? true,
-      cacheExtent: model.cacheExtent,
+      scrollCacheExtent: model.cacheExtent == null
+          ? null
+          : ScrollCacheExtent.pixels(model.cacheExtent!),
       dragStartBehavior:
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,
       keyboardDismissBehavior:
