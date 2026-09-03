@@ -327,7 +327,7 @@ const Map<String, dynamic> helloStacSample = {
         {
           "type": "image",
           "src":
-              "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/Welcome%20to.png",
+              "https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/Welcome%20to.png",
         },
         {
           "type": "text",
@@ -396,7 +396,7 @@ const Map<String, dynamic> helloStacSample = {
                   "child": {
                     "type": "image",
                     "src":
-                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/github.png"
+                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/github.png"
                   }
                 },
                 {
@@ -425,7 +425,7 @@ const Map<String, dynamic> helloStacSample = {
                   "child": {
                     "type": "image",
                     "src":
-                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/x.png"
+                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/x.png"
                   }
                 },
                 {
@@ -454,7 +454,7 @@ const Map<String, dynamic> helloStacSample = {
                   "child": {
                     "type": "image",
                     "src":
-                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/linkedin.png"
+                        "https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/linkedin.png"
                   }
                 },
                 {
@@ -503,7 +503,7 @@ StacWidget helloStac() {
           StacSizedBox(height: 40),
           StacImage(
             src:
-                'https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/Welcome%20to.png',
+                'https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/Welcome%20to.png',
           ),
           StacText(
             data: 'Stac Playground',
@@ -541,17 +541,17 @@ StacWidget helloStac() {
             children: [
               _socialRow(
                 icon:
-                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/github.png',
+                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/github.png',
                 handle: 'github.com/StacDev',
               ),
               _socialRow(
                 icon:
-                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/x.png',
+                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/x.png',
                 handle: 'x.com/stac_dev',
               ),
               _socialRow(
                 icon:
-                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/linkedin.png',
+                    'https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/linkedin.png',
                 handle: '/company/StacDev',
               ),
             ],
