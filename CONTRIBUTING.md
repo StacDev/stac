@@ -8,7 +8,7 @@ Thank you for your interest in contributing to **Stac**! We value your time and 
 
 ### 1. **Understand Stac**
 If you are new to Stac, we recommend you:
-- Check out the [README](./README.md) for an overview of the framework.
+- Check out the [README](./packages/stac/README.md) for an overview of the framework.
 - Explore the [documentation](https://docs.stac.dev/).
 - Familiarize yourself with the codebase by browsing the repository.
 

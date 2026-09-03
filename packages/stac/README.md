@@ -178,7 +178,7 @@ StacWidget primaryButton({
 ```
 </td>
 <td width="30%" align="center" valign="top">
-  <img src="https://github.com/StacDev/stac/blob/dev/assets/login.png" alt="Stac Form Screen" height="840" />
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/login.png" alt="Stac Form Screen" height="840" />
 </td>
 </tr>
 </table>
@@ -189,7 +189,7 @@ StacWidget primaryButton({
 - 🚀 **[Quick Start](https://docs.stac.dev/quickstart)** – Get up and running in minutes
 - 🛠️ **[Stac CLI](https://docs.stac.dev/cli)** – Command-line tools for development
 - 🎛️ **[Stac Console](https://console.stac.dev/)** – Web interface for managing your app
-- 🤝 **[Contributing](https://github.com/StacDev/stac/blob/dev/CONTRIBUTING.md)** – Help build Stac
+- 🤝 **[Contributing](https://github.com/StacDev/stac/blob/main/CONTRIBUTING.md)** – Help build Stac
 
 ## License
 
@@ -207,7 +207,7 @@ This project is licensed under the MIT License - see the [LICENSE](/LICENSE) fil
 
 <p align="center">
 <a href="https://github.com/StacDev/stac/graphs/contributors">
-  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/dev/assets/contributor_banner.png" alt="Stac Contributors"/>
+  <img src="https://raw.githubusercontent.com/StacDev/stac/refs/heads/main/assets/contributor_banner.png" alt="Stac Contributors"/>
 </a>
 </p>
 
