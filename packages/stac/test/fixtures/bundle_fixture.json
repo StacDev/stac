@@ -1,0 +1,13 @@
+{
+  "projectId": "fixture-project",
+  "version": 7,
+  "etag": "\"7\"",
+  "checksum": "abc123def456",
+  "screens": {
+    "home": "{\"type\":\"scaffold\",\"body\":{\"type\":\"text\",\"data\":\"Héllo — ünïcode ✓ \\\"quoted\\\"\"}}",
+    "settings": "{\"type\":\"scaffold\",\"body\":{\"type\":\"column\",\"children\":[{\"type\":\"text\",\"data\":\"emoji 🎬🍿\"}]}}"
+  },
+  "themes": {
+    "dark": "{\"colorScheme\":{\"brightness\":\"dark\",\"primary\":\"#FFB300\"}}"
+  }
+}

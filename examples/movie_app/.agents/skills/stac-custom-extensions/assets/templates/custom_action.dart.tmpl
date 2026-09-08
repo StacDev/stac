@@ -1,0 +1,22 @@
+import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/stac_core.dart';
+
+part '__FILE_BASENAME__.g.dart';
+
+@JsonSerializable()
+class __CLASS_NAME__ extends StacAction {
+  const __CLASS_NAME__({
+    this.message,
+  });
+
+  final String? message;
+
+  @override
+  String get actionType => '__ACTION_TYPE__';
+
+  factory __CLASS_NAME__.fromJson(Map<String, dynamic> json) =>
+      _$__CLASS_NAME__FromJson(json);
+
+  @override
+  Map<String, dynamic> toJson() => _$__CLASS_NAME__ToJson(this);
+}

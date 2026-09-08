@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac.dart';
 import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_registry.dart';
+import 'package:stac/src/models/stac_bundle_config.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/parsers/actions/stac_form_validate/stac_form_validate_parser.dart';
 import 'package:stac/src/parsers/actions/stac_get_form_value/stac_get_form_value_parser.dart';
@@ -18,6 +19,8 @@ import 'package:stac/src/parsers/widgets/stac_inkwell/stac_inkwell_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_tool_tip/stac_tool_tip_parser.dart';
+import 'package:stac/src/services/stac_bundle_service.dart';
+import 'package:stac/src/services/stac_bundle_updater.dart';
 import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac_core/stac_core.dart';
@@ -173,6 +176,10 @@ class StacService {
   );
   static StacCacheConfig get defaultCacheConfig => _defaultCacheConfig;
 
+  // Bundle configuration for bundle mode (opt-in, disabled by default).
+  static StacBundleConfig _bundleConfig = const StacBundleConfig();
+  static StacBundleConfig get bundleConfig => _bundleConfig;
+
   static Future<void> initialize({
     StacOptions? options,
     List<StacParser> parsers = const [],
@@ -183,10 +190,36 @@ class StacService {
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
     StacCacheConfig? cacheConfig,
+    StacBundleConfig? bundleConfig,
   }) async {
+    // Bundle mode fetches a project's bundle, so it cannot do anything
+    // without a projectId. Reject the misconfiguration here — before any
+    // state is mutated — instead of starting an updater that can only warn
+    // on every resume and poll tick.
+    if ((bundleConfig ?? _bundleConfig).enabled && options == null) {
+      throw ArgumentError(
+        'Bundle mode is enabled but StacOptions is null. Pass options with '
+        'the projectId whose bundle should be fetched to Stac.initialize.',
+      );
+    }
+
     _options = options;
     if (cacheConfig != null) {
       _defaultCacheConfig = cacheConfig;
+    }
+    if (bundleConfig != null) {
+      _bundleConfig = bundleConfig;
+    }
+    if (_bundleConfig.enabled) {
+      // Options are guaranteed non-null here by the validation above.
+      StacBundleUpdater.start();
+      if (_bundleConfig.prefetchOnInit) {
+        unawaited(StacBundleService.sync());
+      }
+    } else {
+      // A re-initialize can turn bundle mode off; make sure a previously
+      // started updater stops observing and polling.
+      StacBundleUpdater.stop();
     }
     _parsers.addAll(parsers);
     _actionParsers.addAll(actionParsers);

@@ -30,10 +30,13 @@ class BuildService {
     final outputDirPath = path.join(projectDir, options.outputDir);
     await Directory(outputDirPath).create(recursive: true);
 
-    // Clear the output directory before generating new files
-    await _clearOutputDirectory(outputDirPath);
+    // Clear previous screen/theme outputs before generating new files so a
+    // deleted DSL screen or theme can't leave a stale JSON behind that gets
+    // re-deployed with every bundle. Only these two directories are cleared.
     final screensOutputDir = path.join(outputDirPath, 'screens');
     final themesOutputDir = path.join(outputDirPath, 'themes');
+    await _clearOutputDirectory(screensOutputDir);
+    await _clearOutputDirectory(themesOutputDir);
     await Directory(screensOutputDir).create(recursive: true);
     await Directory(themesOutputDir).create(recursive: true);
 

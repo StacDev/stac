@@ -1,0 +1,5 @@
+interface:
+  display_name: "Stac Quickstart"
+  short_description: "Set up and ship your first Stac screen"
+  brand_color: "#15803D"
+  default_prompt: "Use $stac-quickstart to initialize my Flutter app with Stac and deploy a first screen."

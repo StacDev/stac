@@ -1,0 +1,5 @@
+interface:
+  display_name: "Stac Custom Extensions"
+  short_description: "Build custom Stac widgets/actions with parsers"
+  brand_color: "#15803D"
+  default_prompt: "Use $stac-custom-extensions to scaffold a custom widget or action parser for my Stac app."
