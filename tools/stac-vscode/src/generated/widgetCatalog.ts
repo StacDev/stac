@@ -273,6 +273,18 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "supportsChildren": false
   },
   {
+    "className": "StacIntrinsicHeight",
+    "slug": "intrinsic_height",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacIntrinsicWidth",
+    "slug": "intrinsic_width",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
     "className": "StacLimitedBox",
     "slug": "limited_box",
     "supportsChild": true,

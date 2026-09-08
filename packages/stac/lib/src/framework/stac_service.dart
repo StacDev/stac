@@ -130,6 +130,8 @@ class StacService {
     const StacAspectRatioParser(),
     const StacFittedBoxParser(),
     const StacLimitedBoxParser(),
+    const StacIntrinsicHeightParser(),
+    const StacIntrinsicWidthParser(),
     const StacDynamicViewParser(),
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),

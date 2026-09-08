@@ -1,0 +1,50 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "IntrinsicWidth"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": 16,
+    "child": {
+      "type": "intrinsicWidth",
+      "child": {
+        "type": "column",
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "type": "container",
+            "height": 40,
+            "margin": { "bottom": 12 },
+            "padding": 12,
+            "decoration": {
+              "color": "#FFE0B2",
+              "borderRadius": 8
+            },
+            "child": {
+              "type": "text",
+              "data": "Short"
+            }
+          },
+          {
+            "type": "container",
+            "height": 40,
+            "padding": 12,
+            "decoration": {
+              "color": "#B2DFDB",
+              "borderRadius": 8
+            },
+            "child": {
+              "type": "text",
+              "data": "A much longer piece of text"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

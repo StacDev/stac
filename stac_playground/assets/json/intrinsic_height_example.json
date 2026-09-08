@@ -1,0 +1,68 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": {
+      "type": "text",
+      "data": "IntrinsicHeight"
+    }
+  },
+  "body": {
+    "type": "padding",
+    "padding": 16,
+    "child": {
+      "type": "singleChildScrollView",
+      "scrollDirection": "horizontal",
+      "child": {
+        "type": "intrinsicHeight",
+        "child": {
+          "type": "row",
+          "crossAxisAlignment": "stretch",
+          "children": [
+            {
+              "type": "container",
+              "width": 120,
+              "margin": { "right": 12 },
+              "padding": 12,
+              "decoration": {
+                "color": "#FFE0B2",
+                "borderRadius": 8
+              },
+              "child": {
+                "type": "text",
+                "data": "Short label"
+              }
+            },
+            {
+              "type": "container",
+              "width": 120,
+              "margin": { "right": 12 },
+              "padding": 12,
+              "decoration": {
+                "color": "#B2DFDB",
+                "borderRadius": 8
+              },
+              "child": {
+                "type": "text",
+                "data": "A card with a lot more text in it, so it grows much taller than its neighbours"
+              }
+            },
+            {
+              "type": "container",
+              "width": 120,
+              "padding": 12,
+              "decoration": {
+                "color": "#C5CAE9",
+                "borderRadius": 8
+              },
+              "child": {
+                "type": "text",
+                "data": "Medium length label here"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

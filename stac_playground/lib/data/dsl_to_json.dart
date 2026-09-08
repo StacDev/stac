@@ -107,6 +107,8 @@ const Set<String> _widgetClasses = {
   'StacIconButton',
   'StacImage',
   'StacInkWell',
+  'StacIntrinsicHeight',
+  'StacIntrinsicWidth',
   'StacLimitedBox',
   'StacLinearProgressIndicator',
   'StacListTile',

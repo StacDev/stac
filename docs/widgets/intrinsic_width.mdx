@@ -1,0 +1,150 @@
+---
+title: "IntrinsicWidth"
+description: "Documentation for IntrinsicWidth"
+---
+
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const intrinsicWidthPreviewJson = {
+  "type": "intrinsicWidth",
+  "child": {
+    "type": "column",
+    "crossAxisAlignment": "stretch",
+    "children": [
+      {
+        "type": "container",
+        "height": 40,
+        "color": "#FF5733",
+        "child": {
+          "type": "text",
+          "data": "Short"
+        }
+      },
+      {
+        "type": "container",
+        "height": 40,
+        "color": "#33A1FF",
+        "child": {
+          "type": "text",
+          "data": "A much longer piece of text"
+        }
+      }
+    ]
+  }
+};
+export const intrinsicWidthPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
+The Stac IntrinsicWidth allows you to build a Flutter intrinsic width widget using JSON.
+To know more about the intrinsic width widget in Flutter, refer to the [official documentation](https://api.flutter.dev/flutter/widgets/IntrinsicWidth-class.html).
+
+`IntrinsicWidth` sizes its child to the child's maximum intrinsic width. It is the
+horizontal counterpart of [IntrinsicHeight](/widgets/intrinsic_height) and solves the same
+problem along the other axis — for example a `column` using `crossAxisAlignment: stretch`
+that sits somewhere with an unbounded width.
+
+<Warning>
+`intrinsicWidth` is relatively expensive because it performs a speculative extra layout
+pass before the final layout. Prefer giving the child a fixed width where you can, and
+reach for `intrinsicWidth` only when the width genuinely needs to be computed from the
+content.
+</Warning>
+
+## Properties
+
+| Property   | Type         | Description                                                          |
+|------------|--------------|-----------------------------------------------------------------------|
+| stepWidth  | `double`     | If set, forces the child's width to be a multiple of this value.      |
+| stepHeight | `double`     | If set, forces the child's height to be a multiple of this value.     |
+| child      | `StacWidget` | The widget to size to its own maximum intrinsic width.                |
+
+## Example
+
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+StacIntrinsicWidth(
+  child: StacColumn(
+    crossAxisAlignment: StacCrossAxisAlignment.stretch,
+    children: [
+      StacContainer(
+        height: 40,
+        color: StacColors.deepOrange,
+        child: StacText(data: 'Short'),
+      ),
+      StacContainer(
+        height: 40,
+        color: StacColors.blue,
+        child: StacText(data: 'A much longer piece of text'),
+      ),
+    ],
+  ),
+)
+```
+
+  </Tab>
+  <Tab title="JSON">
+
+```json
+{
+  "type": "intrinsicWidth",
+  "child": {
+    "type": "column",
+    "crossAxisAlignment": "stretch",
+    "children": [
+      {
+        "type": "container",
+        "height": 40,
+        "color": "#FF5733",
+        "child": {
+          "type": "text",
+          "data": "Short"
+        }
+      },
+      {
+        "type": "container",
+        "height": 40,
+        "color": "#33A1FF",
+        "child": {
+          "type": "text",
+          "data": "A much longer piece of text"
+        }
+      }
+    ]
+  }
+}
+```
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={intrinsicWidthPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: intrinsicWidthPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
