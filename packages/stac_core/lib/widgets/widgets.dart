@@ -46,6 +46,8 @@ export 'icon/stac_icons.dart';
 export 'icon_button/stac_icon_button.dart';
 export 'image/stac_image.dart';
 export 'ink_well/stac_ink_well.dart';
+export 'intrinsic_height/stac_intrinsic_height.dart';
+export 'intrinsic_width/stac_intrinsic_width.dart';
 export 'limited_box/stac_limited_box.dart';
 export 'linear_progress_indicator/stac_linear_progress_indicator.dart';
 export 'list_tile/stac_list_tile.dart';

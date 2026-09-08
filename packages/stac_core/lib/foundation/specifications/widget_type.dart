@@ -142,6 +142,12 @@ enum WidgetType {
   /// Ink well widget
   inkWell,
 
+  /// Intrinsic height widget
+  intrinsicHeight,
+
+  /// Intrinsic width widget
+  intrinsicWidth,
+
   /// Limited box widget
   limitedBox,
 

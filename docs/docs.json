@@ -74,6 +74,8 @@
                             "widgets/flexible",
                             "widgets/fitted_box",
                             "widgets/fractionally_sized_box",
+                            "widgets/intrinsic_height",
+                            "widgets/intrinsic_width",
                             "widgets/limited_box",
                             "widgets/padding",
                             "widgets/positioned",
