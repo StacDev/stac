@@ -37,7 +37,7 @@ dependencies:
   logger: ^2.5.0
   stac:
     path: ../packages/stac
-  stac_core: ^1.5.0
+  stac_core: ^1.6.0
   stac_webview:
     path: ../packages/stac_webview
   re_editor: ^0.10.0

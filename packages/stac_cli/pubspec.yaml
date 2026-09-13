@@ -5,20 +5,20 @@ repository: https://github.com/StacDev/stac
 homepage: https://stac.dev/
 
 environment:
-  sdk: ^3.8.1
+  sdk: ^3.9.0
 
 # Add regular dependencies here.
 dependencies:
   args: ^2.7.0
-  dio: ^5.9.1
-  yaml: ^3.1.3
+  dio: ^5.11.1
+  yaml: ^3.1.4
   path: ^1.9.1
   interact: ^2.2.0
-  stac_core: ^1.4.0
-  json_annotation: ^4.11.0
+  stac_core: ^1.6.0
+  json_annotation: ^4.12.0
   dotenv: ^4.2.0
   cryptography: ^2.9.0
-  archive: ^4.0.9
+  archive: ^4.2.0
 
 # Executables that can be run globally
 executables:
@@ -26,9 +26,9 @@ executables:
 
 dev_dependencies:
   lints: ^6.1.0
-  test: ^1.30.0
-  build_runner: ^2.11.1
-  json_serializable: ^6.13.0
+  test: ^1.32.0
+  build_runner: ^2.16.1
+  json_serializable: ^6.14.1
   build_version: ^2.0.0
 
 # stac_cli/pubspec_overrides.yaml

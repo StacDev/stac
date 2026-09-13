@@ -1,3 +1,12 @@
+## 1.6.0
+
+- **BREAKING**: Requires Flutter `>=3.44.0` (Dart `^3.12.0`).
+- feat: add `StacIntrinsicHeight` and `StacIntrinsicWidth` widgets.
+- fix: map `cacheExtent` on `ListView`, `GridView`, and `CustomScrollView` to Flutter's `ScrollCacheExtent`.
+- fix: await cache write and remove futures in `StacCacheService`.
+- chore: upgrade `cached_network_image` to `^4.0.0`, `dio` to `^5.11.1`, `flutter_svg` to `^2.3.0`, `json_annotation` to `^4.12.0`, and `shared_preferences` to `^2.5.5`.
+- docs: point README links and banners at the `main` branch.
+
 ## 1.5.0
 
 - feat: add Material 3 navigation bar, navigation view, and generic navigation controller parsers.

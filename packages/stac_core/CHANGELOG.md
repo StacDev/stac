@@ -1,3 +1,8 @@
+## 1.6.0
+
+- Added `StacIntrinsicHeight` and `StacIntrinsicWidth` widget models.
+- Upgraded `json_annotation` to `^4.12.0`.
+
 ## 1.5.0
 
 - Added `StacDefaultNavigationController`, `StacNavigationBar`, `StacNavigationView`, and `StacNavigationDestination` models for Material 3 navigation.

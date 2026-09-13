@@ -45,12 +45,10 @@ class StacAppTheme {
 
   /// Creates a [StacAppTheme] wrapper for fetching a theme from network.
   const StacAppTheme.network({
-    required BuildContext context,
-    required StacNetworkRequest request,
+    required BuildContext this._context,
+    required StacNetworkRequest this._request,
   }) : _source = _ThemeSource.network,
        name = null,
-       _context = context,
-       _request = request,
        _jsonPayload = null,
        _dslTheme = null;
 

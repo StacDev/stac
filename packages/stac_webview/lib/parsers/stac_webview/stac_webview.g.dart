@@ -7,15 +7,19 @@ part of 'stac_webview.dart';
 // **************************************************************************
 
 StacWebView _$StacWebViewFromJson(Map<String, dynamic> json) => StacWebView(
-      url: json['url'] as String,
-      javaScriptMode:
-          $enumDecodeNullable(_$JavaScriptModeEnumMap, json['javaScriptMode']),
-      backgroundColor: json['backgroundColor'] as String?,
-      userAgent: json['userAgent'] as String?,
-      enableZoom: json['enableZoom'] as bool?,
-      layoutDirection:
-          $enumDecodeNullable(_$TextDirectionEnumMap, json['layoutDirection']),
-    );
+  url: json['url'] as String,
+  javaScriptMode: $enumDecodeNullable(
+    _$JavaScriptModeEnumMap,
+    json['javaScriptMode'],
+  ),
+  backgroundColor: json['backgroundColor'] as String?,
+  userAgent: json['userAgent'] as String?,
+  enableZoom: json['enableZoom'] as bool?,
+  layoutDirection: $enumDecodeNullable(
+    _$TextDirectionEnumMap,
+    json['layoutDirection'],
+  ),
+);
 
 Map<String, dynamic> _$StacWebViewToJson(StacWebView instance) =>
     <String, dynamic>{

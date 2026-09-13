@@ -47,23 +47,18 @@ class _WebViewState extends State<_WebView> {
 
     /// [_controller] is the controller for the webview.
     _controller = WebViewController()
-
       /// Loads the request.
       ..loadRequest(Uri.parse(widget.model.url))
-
       /// Sets the JavaScript mode.
       ..setJavaScriptMode(
         widget.model.javaScriptMode ?? JavaScriptMode.unrestricted,
       )
-
       /// Sets the background color.
       ..setBackgroundColor(
         widget.model.backgroundColor?.toColor ?? Colors.white,
       )
-
       /// Sets the user agent.
       ..setUserAgent(widget.model.userAgent)
-
       /// Enables or disables zoom.
       ..enableZoom(widget.model.enableZoom ?? false);
   }
