@@ -86,6 +86,7 @@ class StacTextField extends StacWidget {
     this.onChanged,
     this.onEditingComplete,
     this.onSubmitted,
+    this.bind,
   });
 
   /// Initial text to display in the field.
@@ -211,6 +212,14 @@ class StacTextField extends StacWidget {
   /// Called when the user indicates that they are done editing the text in the
   /// field submitted through the IME action.
   final StacAction? onSubmitted;
+
+  /// The state path this input reads its value from and writes changes to,
+  /// such as `query`, `$app.settings.darkMode` or `$form.email`.
+  ///
+  /// The input shows the value at the path and updates it as the user
+  /// changes the input. When the path has no value yet and the input has an
+  /// initial value, the input writes that value to the path.
+  final String? bind;
 
   /// Widget type identifier.
   ///

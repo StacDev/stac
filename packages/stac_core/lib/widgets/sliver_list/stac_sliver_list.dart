@@ -78,6 +78,10 @@ class StacSliverList extends StacWidget {
   /// Creates a [StacSliverList] with the given properties.
   const StacSliverList({
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
     this.addAutomaticKeepAlives,
     this.addRepaintBoundaries,
     this.addSemanticIndexes,
@@ -88,6 +92,20 @@ class StacSliverList extends StacWidget {
   ///
   /// Each child is rendered as a list item.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Whether to add automatic keep-alives for the children.
   ///

@@ -24,7 +24,11 @@ export const setValuePreviewJson = {
 };
 export const setValuePreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
 
-The Stac SetValue widget allows you to set multiple key-value pairs in the application's state and optionally render a child widget. It's useful for managing application state through JSON configuration.
+The Stac SetValue widget writes key-value pairs to app state when it is created and removes them when it is disposed, and renders an optional child.
+
+<Note>
+Values set with `key` are app-wide, so they are visible on every screen. For state that belongs to one screen or part of it, use a [State Scope](/widgets/state_scope).
+</Note>
 
 ## Properties
 
@@ -35,7 +39,7 @@ The Stac SetValue widget allows you to set multiple key-value pairs in the appli
 
 Each item in `values` should contain:
 - `key`: The state key to set
-- `value`: The value to assign
+- `value`: The value to assign. It can be an [expression](/concepts/expressions), and entries are written in order, so a value can read the entries before it.
 
 ## Example
 

@@ -19,6 +19,7 @@ StacAutoComplete _$StacAutoCompleteFromJson(
     json['optionsViewOpenDirection'],
   ),
   initialValue: json['initialValue'] as String?,
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacAutoCompleteToJson(
@@ -30,6 +31,7 @@ Map<String, dynamic> _$StacAutoCompleteToJson(
   'optionsViewOpenDirection':
       _$StacOptionsViewOpenDirectionEnumMap[instance.optionsViewOpenDirection],
   'initialValue': instance.initialValue,
+  'bind': instance.bind,
   'type': instance.type,
 };
 

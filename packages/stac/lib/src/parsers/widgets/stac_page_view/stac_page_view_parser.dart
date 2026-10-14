@@ -1,7 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/expressions/stac_action_scope.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
-import 'package:stac/src/parsers/core/stac_widget_parser.dart';
+import 'package:stac/src/parsers/core/stac_children.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_scroll_physics_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_axis_parser.dart';
@@ -50,6 +51,17 @@ class _StacPageViewWidgetState extends State<_StacPageViewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final model = widget.model;
+    final children = StacChildren(
+      context,
+      children: model.children,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      keyPath: model.keyPath,
+    );
+    final empty = children.emptyReplacement(context, model.emptyWidget);
+    if (empty != null) return empty;
+
     return PageView.builder(
       scrollDirection: widget.model.scrollDirection?.parse ?? Axis.horizontal,
       reverse: widget.model.reverse ?? false,
@@ -57,13 +69,14 @@ class _StacPageViewWidgetState extends State<_StacPageViewWidget> {
       physics: widget.model.physics?.parse,
       pageSnapping: widget.model.pageSnapping ?? true,
       onPageChanged: (int index) {
-        widget.model.onPageChanged?.parse(context);
+        StacActionScope.run(
+          children.actionValues(index),
+          () => model.onPageChanged.parse(context),
+        );
       },
-      itemBuilder: (context, index) {
-        final child = widget.model.children?[index];
-        return child?.parse(context) ?? const SizedBox();
-      },
-      itemCount: widget.model.children?.length,
+      itemBuilder: children.build,
+      findChildIndexCallback: children.hasKeys ? children.indexOfKey : null,
+      itemCount: children.length,
       dragStartBehavior:
           widget.model.dragStartBehavior?.parse ?? DragStartBehavior.start,
       allowImplicitScrolling: widget.model.allowImplicitScrolling ?? false,

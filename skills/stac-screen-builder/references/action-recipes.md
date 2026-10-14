@@ -10,13 +10,24 @@
 ## Forms
 
 - Validate before submit: `StacFormValidate`
-- Read values: `StacGetFormValue`
-- Update state: `StacSetValueAction`
+- Field values: `{{$form.<id>}}` for fields with an `id`
+- Read values (older screens): `StacGetFormValue`
+
+## State
+
+- Update state: `StacSetValueAction` with `path` and `op` (`set`, `toggle`,
+  `increment`, `decrement`, `append`, `remove`, `merge`, `delete`).
+- Keep an input and a value in sync: `bind` on the input.
+- See `state-recipes.md`.
 
 ## Network
 
-- Request API data: `StacNetworkRequest`
-- Pair with `StacDynamicView` for templated list rendering.
+- Show remote data: `StacDataProvider` with a list's `items`.
+- Load it again: `StacRefetchAction(id: ...)`, for example in a
+  `StacRefreshIndicator`'s `onRefresh`.
+- Send a request on a tap: `StacNetworkRequest`, with `saveTo` to store the
+  body and `onSuccess`/`onError` reading `{{$result.status}}`,
+  `{{$result.body}}`.
 
 ## Utilities
 

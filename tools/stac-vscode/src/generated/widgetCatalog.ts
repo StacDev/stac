@@ -147,8 +147,20 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "supportsChildren": false
   },
   {
+    "className": "StacDataProvider",
+    "slug": "data_provider",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
     "className": "StacDefaultBottomNavigationController",
     "slug": "default_bottom_navigation_controller",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacDefaultNavigationController",
+    "slug": "default_navigation_controller",
     "supportsChild": true,
     "supportsChildren": false
   },
@@ -216,6 +228,12 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "className": "StacFloatingActionButton",
     "slug": "floating_action_button",
     "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacForEach",
+    "slug": "for_each",
+    "supportsChild": false,
     "supportsChildren": false
   },
   {
@@ -305,6 +323,18 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
   {
     "className": "StacListView",
     "slug": "list_view",
+    "supportsChild": false,
+    "supportsChildren": true
+  },
+  {
+    "className": "StacNavigationBar",
+    "slug": "navigation_bar",
+    "supportsChild": false,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacNavigationView",
+    "slug": "navigation_view",
     "supportsChild": false,
     "supportsChildren": true
   },
@@ -481,6 +511,12 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "slug": "stack",
     "supportsChild": false,
     "supportsChildren": true
+  },
+  {
+    "className": "StacStateScope",
+    "slug": "state_scope",
+    "supportsChild": true,
+    "supportsChildren": false
   },
   {
     "className": "StacSwitch",

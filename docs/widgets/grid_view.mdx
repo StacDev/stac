@@ -76,6 +76,10 @@ To know more about the GridView widget in Flutter, refer to the [official docume
 | keyboardDismissBehavior | `StacScrollViewKeyboardDismissBehavior` | The keyboard dismiss behavior. Defaults to `ScrollViewKeyboardDismissBehavior.manual`.                                               |
 | restorationId           | `String`                                | The restoration ID to save and restore the scroll offset.                                                                            |
 | clipBehavior            | `StacClip`                              | The clip behavior of the grid. Defaults to `Clip.hardEdge`.                                                                          |
+| items                   | `List` or `String`                      | Data to build `itemTemplate` for: a list, or a placeholder that reads one, such as `"{{todos}}"`. Items follow `children`. See [Lists](/concepts/state#lists). |
+| itemTemplate            | `StacWidget`                            | The widget built for each item. It reads the item as `$item` and its position as `$index`.                                           |
+| emptyWidget             | `StacWidget`                            | Shown instead of this widget while `items` is an empty list.                                                                         |
+| keyPath                 | `String`                                | A path inside each item that identifies it, such as `id`, so item widgets keep their state when items move.                          |
 
 ## Example
 
@@ -191,3 +195,17 @@ StacGridView(
     </Frame>
   </Tab>
 </Tabs>
+
+## Children From Data
+
+`items` and `itemTemplate` build one child per item, after the widgets in `children`. See [Lists](/concepts/state#lists).
+
+```json
+{
+  "type": "gridView",
+  "items": "{{todos}}",
+  "keyPath": "id",
+  "itemTemplate": { "type": "text", "data": "{{$index + 1}}. {{$item.title}}" },
+  "emptyWidget": { "type": "text", "data": "Nothing to do" }
+}
+```

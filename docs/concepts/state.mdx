@@ -1,0 +1,440 @@
+---
+title: "State"
+description: "Store values, update them from actions, and have the widgets that read them rebuild"
+---
+
+Stac screens can hold state: values that actions write and widgets read. When a value changes, the widgets that read it rebuild, and nothing else does.
+
+```json
+{
+  "type": "stateScope",
+  "state": { "count": 0 },
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "text", "data": "Count: {{count}}" },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Add" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "count", "op": "increment" }]
+        }
+      }
+    ]
+  }
+}
+```
+
+Tapping **Add** increments `count`, and only the text that reads it rebuilds.
+
+## Where state lives
+
+State lives at three levels. Widgets read a plain name such as `count` from the innermost level that has it.
+
+| Level | Created by | Lifetime | Read explicitly as |
+|-------|------------|----------|--------------------|
+| Local | A [`stateScope`](/widgets/state_scope) widget | While the widget is on screen | (by name only) |
+| Screen | Every Stac screen | While the screen is open | `$screen` |
+| App | Shared by the whole app | While the app runs | `$app` |
+
+A [form](/widgets/form) also has its own state, holding its fields' values by `id`. It is read only as `$form`, so field ids never hide other variables.
+
+Some values are read-only:
+
+| Name | Value |
+|------|-------|
+| `$args` | The arguments the screen was opened with. See [Navigation](#navigation). |
+| `$device` | `width`, `height`, `orientation` (`portrait`, `landscape`), `breakpoint` (`compact` below 600, `medium` below 840, `expanded`), `isTablet`, `brightness` (`light`, `dark`), `platform` and `textScale`. Widgets that read it rebuild when the screen size or brightness changes. |
+| `$value` | Inside an input's callback, the value it reported. See [Expressions](/concepts/expressions#input-values). |
+| `$result` | Inside a network request's result actions, the response. See [Loading data](#loading-data). |
+| `$item`, `$index` | Inside an item template, the current item and its position. See [Lists](#lists). |
+
+## Reading state
+
+Read state with [expressions](/concepts/expressions): in `{{ }}` placeholders, in a `conditional` condition, and in `setValue` values.
+
+```json
+{ "type": "text", "data": "Hello {{$app.user.name ?? 'guest'}}, you have {{cart.length}} items" }
+```
+
+A property that is a single placeholder gets the type its field expects, so state can drive any property:
+
+```json
+{ "type": "visibility", "visible": "{{cart.isNotEmpty}}", "child": { "type": "text", "data": "Checkout" } }
+{ "type": "switch", "value": "{{settings.darkMode}}" }
+{ "type": "sizedBox", "width": "{{$device.width / 2}}" }
+```
+
+A property that mixes text and placeholders is text.
+
+<Note>
+The Dart DSL's typed fields only accept values of their type, so `StacSwitch(value: '{{darkMode}}')` does not compile. For inputs, use [`bind`](#inputs), which works in the DSL. For other fields, write the binding in JSON, or with `StacWidget(jsonData: {...})` in the DSL.
+</Note>
+
+## Writing state
+
+The [`setValue`](/actions/set_value) action writes state. Each entry names a target with `path`, and optionally an `op`:
+
+```json
+{
+  "actionType": "setValue",
+  "values": [
+    { "path": "count", "op": "increment" },
+    { "path": "cart", "op": "append", "value": "{{product}}" },
+    { "path": "filters", "op": "merge", "value": { "sort": "price" } },
+    { "path": "$app.theme", "value": "dark" }
+  ]
+}
+```
+
+A plain `path` writes to the nearest level that already has its first name: a `stateScope` that declares it, then the screen, then the app. If no level has it, the value goes to the screen. Start a path with `$screen` or `$app` to choose the level yourself.
+
+| `op` | Effect |
+|------|--------|
+| `set` | Stores `value` (the default). `null` removes the value. |
+| `toggle` | Flips a boolean. |
+| `increment`, `decrement` | Adds or subtracts `value`, or 1. |
+| `append` | Adds `value` to the end of a list. |
+| `remove` | Removes every list item equal to `value`. |
+| `merge` | Copies the keys of `value` into a map. |
+| `delete` | Removes the value. |
+
+Entries are applied in order, and each value is evaluated just before it is written, so an entry can read the ones before it.
+
+<Note>
+Entries that use `key` instead of `path` keep their original meaning: the whole string is the variable's name, even if it contains dots, and it is written to the app unless a nearer level already has it. Values set this way stay readable after navigating to another screen.
+</Note>
+
+## Inputs
+
+Inputs connect to state with `bind`. The input shows the value at the path and writes the user's changes back, and a change made elsewhere updates the input:
+
+```json
+{
+  "type": "column",
+  "children": [
+    { "type": "textField", "bind": "query" },
+    { "type": "switch", "bind": "$app.settings.notifications", "value": true },
+    { "type": "text", "data": "Searching for {{query}}" }
+  ]
+}
+```
+
+`bind` takes the same paths as `setValue`. When the path has no value yet, an input with an initial value (`value`, `initialValue`, `groupValue` or `initialSelection`) writes it, so others can read where the input starts.
+
+| Widget | Bound value |
+|--------|-------------|
+| `textField`, `textFormField` | The text |
+| `switch`, `checkBox` | `true` or `false` |
+| `slider` | The slider value |
+| `radioGroup` | The selected value |
+| `dropdownMenu` | The selected entry's value |
+| `autocomplete` | The selected option. The field starts from the bound value but does not follow later changes. |
+
+## Forms
+
+Inside a [form](/widgets/form), fields with an `id` are bound to `$form.<id>`:
+
+```json
+{
+  "type": "form",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "textFormField", "id": "email" },
+      { "type": "checkBox", "id": "subscribe", "value": false },
+      { "type": "text", "data": "Sending to {{$form.email}}" },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Sign up" },
+        "onPressed": {
+          "actionType": "validateForm",
+          "isValid": {
+            "actionType": "networkRequest",
+            "url": "https://api.example.com/signup",
+            "method": "post",
+            "body": { "email": "{{$form.email}}", "subscribe": "{{$form.subscribe}}" }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+Writing `$form.<id>` with `setValue` changes the field.
+
+## Loading data
+
+A [`dataProvider`](/widgets/data_provider) loads data with a request and keeps it in a variable named by its `id`, for the widgets inside it:
+
+```json
+{
+  "type": "dataProvider",
+  "id": "movies",
+  "request": { "url": "https://api.example.com/movies", "method": "get" },
+  "targetPath": "results",
+  "loaderWidget": { "type": "circularProgressIndicator" },
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "text", "data": "{{movies.data.length}} movies" },
+      {
+        "type": "listView",
+        "items": "{{movies.data}}",
+        "itemTemplate": { "type": "text", "data": "{{$item.title}}" }
+      }
+    ]
+  }
+}
+```
+
+The variable holds `data`, `isLoading`, `status` and `error`. The request is sent once, again when a value one of its placeholders reads changes, and when a [`refetch`](/actions/refetch) action names the provider:
+
+```json
+{
+  "type": "refreshIndicator",
+  "onRefresh": { "actionType": "refetch", "id": "movies" },
+  "child": { "...": "..." }
+}
+```
+
+To load data in response to a tap, a [`networkRequest`](/actions/network_request) can store a successful response with `saveTo`, and run `onSuccess` or `onError`, which read the response as `$result`:
+
+```json
+{
+  "actionType": "networkRequest",
+  "url": "https://api.example.com/me",
+  "method": "get",
+  "saveTo": "user",
+  "targetPath": "data",
+  "onError": {
+    "actionType": "showSnackBar",
+    "content": { "type": "text", "data": "Could not load ({{$result.status}})" }
+  }
+}
+```
+
+Widgets that read `user` update when the data arrives.
+
+## Lists
+
+Layout widgets build children from data with `items` and `itemTemplate`. The template is built once per item, and reads the item as `$item` and its position as `$index`:
+
+```json
+{
+  "type": "listView",
+  "items": "{{cart}}",
+  "keyPath": "id",
+  "itemTemplate": {
+    "type": "listTile",
+    "title": { "type": "text", "data": "{{$index + 1}}. {{$item.name}}" },
+    "trailing": {
+      "type": "iconButton",
+      "icon": { "type": "icon", "icon": "delete" },
+      "onPressed": {
+        "actionType": "setValue",
+        "values": [{ "path": "cart", "op": "remove", "value": "{{$item}}" }]
+      }
+    }
+  },
+  "emptyWidget": { "type": "text", "data": "Your cart is empty" }
+}
+```
+
+| Property | Description |
+|----------|-------------|
+| `items` | A list, or a placeholder that reads one. |
+| `itemTemplate` | The widget built for each item. |
+| `emptyWidget` | Shown instead of the widget while `items` is an empty list. |
+| `keyPath` | A path inside each item that identifies it, such as `id`. Item widgets then keep their state, such as text typed into a field, when items are added, removed or reordered. |
+
+`column`, `row`, `wrap`, `listView`, `gridView`, `sliverList`, `sliverGrid`, `pageView`, `carouselView` and `tabBarView` accept them. Items follow the widgets in `children`. Scrolling widgets build items as they scroll into view.
+
+When an item changes, only the widgets that read it rebuild. Actions in a template read the item they were started from, including follow-up actions and dialogs they open.
+
+A [`forEach`](/widgets/for_each) builds items in any list of widgets, such as a stack's `children`, a custom scroll view's `slivers` or a tab bar's `tabs`, in between the other widgets:
+
+```json
+{
+  "type": "column",
+  "children": [
+    { "type": "text", "data": "Tags" },
+    { "type": "forEach", "items": "{{tags}}", "itemTemplate": { "type": "chip", "label": { "type": "text", "data": "{{$item}}" } } },
+    { "type": "text", "data": "End of tags" }
+  ]
+}
+```
+
+In a list inside an item template, `$item` is the inner list's item, and the outer item cannot be read in the inner template.
+
+## Local state
+
+A [`stateScope`](/widgets/state_scope) declares variables for part of a screen. Widgets inside read them by name, and `setValue` entries inside write to them. Each copy of the widget has its own values, which makes it a good fit for repeated pieces such as cards with their own expanded or selected state. In an item template, each item gets its own copy.
+
+## Navigation
+
+Every Stac screen opened with `navigate` gets its own screen state, and receives the action's `arguments` as `$args`:
+
+```json
+{
+  "actionType": "navigate",
+  "routeName": "product_screen",
+  "arguments": { "productId": "{{product.id}}" }
+}
+```
+
+The product screen reads `{{$args.productId}}`. To open a screen from Dart with arguments, pass them to the `Stac` widget:
+
+```dart
+Stac(routeName: 'product_screen', arguments: {'productId': 42})
+```
+
+Dialogs, bottom sheets and snack bars shown with an action share the state of the screen that opened them, so a dialog can read and change that screen's values.
+
+## Using state from Dart
+
+App state is available as `Stac.state`:
+
+```dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  initialState: {'user': {'name': 'Ann'}},
+);
+
+Stac.state.set('cart.count', 3);      // Screens that read cart.count rebuild.
+Stac.state.get('user.name');          // 'Ann'
+Stac.state.listenable('cart.count').addListener(() {
+  // Called when cart.count changes.
+});
+```
+
+`StacRegistry.instance.setValue` and `getValue` read and write the same app state.
+
+Custom parsers can read and write the state visible where they are built with `StacScope`:
+
+```dart
+@override
+Widget parse(BuildContext context, RatingModel model) {
+  final scope = StacScope.of(context);
+  // Rebuilds this widget when `rating` changes.
+  final rating = (scope.watch('rating ?? 0') as num).toDouble();
+  return RatingBar(
+    value: rating,
+    onChanged: (value) => scope.write('rating', value),
+  );
+}
+```
+
+To give placeholders in a custom widget's fields the right types, register them:
+
+```dart
+StacFieldType.registerWidget(
+  'ratingBar',
+  model: 'RatingModel',
+  fields: {'value': 'double', 'readOnly': 'bool'},
+);
+```
+
+## Keeping state between launches
+
+List app state paths in `persist` to keep them when the app restarts:
+
+```dart
+await Stac.initialize(
+  options: defaultStacOptions,
+  initialState: {'settings': {'notifications': true}},
+  persist: ['settings', 'cart.items'],
+);
+```
+
+Saved values are restored before `initialize` completes, replacing the ones in `initialState`. After that, a persisted path is saved whenever it changes, and deleted when its value is removed. Values are stored as JSON in shared preferences, under `stac.state.` followed by the path.
+
+Only app state can be persisted: screen, local and form state belong to the widgets that create them. Screens write persisted values like any other, for example with `"bind": "$app.settings.notifications"`.
+
+To keep the values somewhere else, such as secure storage, pass a `stateStorage`:
+
+```dart
+class SecureStateStorage extends StacStateStorage {
+  const SecureStateStorage(this.storage);
+
+  final FlutterSecureStorage storage;
+
+  @override
+  Future<String?> read(String key) => storage.read(key: key);
+
+  @override
+  Future<void> write(String key, String value) =>
+      storage.write(key: key, value: value);
+
+  @override
+  Future<void> delete(String key) => storage.delete(key: key);
+}
+
+await Stac.initialize(
+  persist: ['session'],
+  stateStorage: SecureStateStorage(const FlutterSecureStorage()),
+);
+```
+
+## Connecting other state
+
+State kept elsewhere in the app, such as in a Bloc, a Riverpod provider or a `ValueNotifier`, can be shown in Stac screens. `Stac.state.bind` copies each value of a stream into an app state path:
+
+```dart
+final binding = Stac.state.bind(
+  'auth',
+  authCubit.stream.map((state) => state.toJson()),
+  initial: authCubit.state.toJson(),
+);
+
+// Screens read {{auth.user.name}} and update when the cubit emits.
+// When it is no longer needed:
+binding.cancel();
+```
+
+`Stac.state.bindListenable` does the same for a `ValueListenable`, starting with its current value. Values should be JSON-like: maps, lists, strings, numbers and booleans. To react in Dart when a screen changes a value, listen to `Stac.state.listenable(path)`.
+
+## Watching changes
+
+A `StacStateObserver` is told about every change to state, at every level, which helps with logging, analytics and debugging:
+
+```dart
+class StateLogger extends StacStateObserver {
+  @override
+  void onChange(StacStateChange change) {
+    debugPrint('${change.level?.kind.name} ${change.path}: '
+        '${change.previous} -> ${change.value}');
+  }
+}
+
+await Stac.initialize(stateObservers: [StateLogger()]);
+```
+
+| Method | Called when |
+|--------|-------------|
+| `onChange` | A value changed. The change has the `level` it happened in, the `path` within it, and the `previous` and new `value`. |
+| `onLevelCreated` | A screen opened, or a `stateScope`, `dataProvider` or `form` was built. |
+| `onLevelDisposed` | That screen closed or widget was removed. |
+
+Observers are called right after the change, sometimes while widgets are building, so schedule work such as `setState` for later. Add and remove observers at any time with `Stac.stateObservers`. Tools that show state can list the levels that exist with `Stac.stateLevels`; each level has its `kind`, its `store`, its `parent` and, for screens, its `arguments`.
+
+To see everything that is in state at a moment, call `debugDumpStacState()`. It prints each level below the level around it:
+
+```text
+app: {"theme":"dark"}
+  screen home_screen: {"query":"dune"}
+    local dataProvider movies: {"movies":{"data":[...],"isLoading":false,"status":200,"error":null}}
+```
+
+The [playground](https://playground.stac.dev) shows the same view next to the preview: open it with the state button above the device.
+
+## How updates work
+
+- A widget whose own properties contain a placeholder, or a `conditional`, resolves them when it builds and remembers which values it read. When one of them changes, that widget rebuilds alone.
+- Widgets without placeholders are not rebuilt by state changes, unless a bound widget around them rebuilds.
+- When `items` changes, the list rebuilds, and among its items only those whose item changed rebuild their readers.
+- Actions read state when they run, so they always use current values.
+- Stored maps and lists are copies that cannot be modified. Change them with `setValue` or `Stac.state`.
+- State is kept in memory. App state lasts until the app restarts.

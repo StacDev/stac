@@ -42,6 +42,8 @@
                         "pages": [
                             "concepts/rendering_stac_widgets",
                             "concepts/stac_registry",
+                            "concepts/expressions",
+                            "concepts/state",
                             "concepts/navigation_in_stac",
                             "concepts/caching",
                             "concepts/custom_widgets",
@@ -73,6 +75,7 @@
                             "widgets/expanded",
                             "widgets/flexible",
                             "widgets/fitted_box",
+                            "widgets/for_each",
                             "widgets/fractionally_sized_box",
                             "widgets/intrinsic_height",
                             "widgets/intrinsic_width",
@@ -109,6 +112,7 @@
                             "widgets/opacity",
                             "widgets/placeholder",
                             "widgets/set_value",
+                            "widgets/state_scope",
                             "widgets/visibility"
                         ]
                     },
@@ -122,6 +126,7 @@
                             "widgets/check_box",
                             "widgets/chip",
                             "widgets/circular_progress_indicator",
+                            "widgets/data_provider",
                             "widgets/drawer",
                             "widgets/dropdown_menu",
                             "widgets/dynamic_view",
@@ -201,7 +206,8 @@
                     {
                         "group": "Network Actions",
                         "pages": [
-                            "actions/network_request"
+                            "actions/network_request",
+                            "actions/refetch"
                         ]
                     },
                     {

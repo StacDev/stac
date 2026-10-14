@@ -20,6 +20,7 @@ export 'package:stac/src/parsers/widgets/stac_column/stac_column_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_conditional/stac_conditional_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_container/stac_container_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_custom_scroll_view/stac_custom_scroll_view_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_data_provider/stac_data_provider_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_default_bottom_navigation_controller/stac_default_bottom_navigation_controller_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_default_navigation_controller/stac_default_navigation_controller_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_default_tab_controller/stac_default_tab_controller_parser.dart';
@@ -33,6 +34,7 @@ export 'package:stac/src/parsers/widgets/stac_filled_button/stac_filled_button_p
 export 'package:stac/src/parsers/widgets/stac_fitted_box/stac_fitted_box_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_flexible/stac_flexible_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_floating_action_button/stac_floating_action_button_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_for_each/stac_for_each_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_form/stac_form_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 export 'package:stac/src/parsers/widgets/stac_fractionally_sized_box/stac_fractionally_sized_box_parser.dart';
@@ -78,6 +80,7 @@ export 'package:stac/src/parsers/widgets/stac_sliver_to_box_adapter/stac_sliver_
 export 'package:stac/src/parsers/widgets/stac_sliver_visibility/stac_sliver_visibility_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_spacer/stac_spacer_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_stack/stac_stack_parser.dart';
+export 'package:stac/src/parsers/widgets/stac_state_scope/stac_state_scope_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_switch/stac_switch_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_tab/stac_tab_parser.dart';
 export 'package:stac/src/parsers/widgets/stac_tab_bar/stac_tab_bar_parser.dart';

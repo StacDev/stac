@@ -83,6 +83,10 @@ class StacNetworkRequest extends StacAction {
     this.contentType,
     this.body,
     this.results = const [],
+    this.saveTo,
+    this.targetPath,
+    this.onSuccess,
+    this.onError,
   });
 
   /// The absolute or relative URL to request.
@@ -105,6 +109,26 @@ class StacNetworkRequest extends StacAction {
 
   /// List of conditional results that map a response status code to an action.
   final List<StacNetworkResult> results;
+
+  /// The state path to store the response body at when the request succeeds
+  /// (status 2xx), such as `user` or `$app.session`.
+  ///
+  /// Widgets that read the path rebuild with the new data.
+  final String? saveTo;
+
+  /// The part of the response body to store with [saveTo], as a path such
+  /// as `data.items` or `results[0]`. Stores the whole body when omitted.
+  final String? targetPath;
+
+  /// Action to run when the request succeeds (status 2xx) and no entry of
+  /// [results] matches the status code. It can read the response as
+  /// `$result`, with `status`, `ok`, `body` and `headers`.
+  final StacAction? onSuccess;
+
+  /// Action to run when the request fails, either with a status outside 2xx
+  /// that no entry of [results] matches or without a response. It can read
+  /// `$result`, which also has an `error` message.
+  final StacAction? onError;
 
   /// Action type identifier.
   @override

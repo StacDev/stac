@@ -65,6 +65,7 @@ class StacSwitch extends StacWidget {
     this.activeThumbImage,
     this.applyTheme,
     this.applyCupertinoTheme,
+    this.bind,
   });
 
   /// Which platform style of switch to render.
@@ -174,6 +175,14 @@ class StacSwitch extends StacWidget {
 
   /// Whether to apply the current Cupertino theme when using an adaptive switch.
   final bool? applyCupertinoTheme;
+
+  /// The state path this input reads its value from and writes changes to,
+  /// such as `query`, `$app.settings.darkMode` or `$form.email`.
+  ///
+  /// The input shows the value at the path and updates it as the user
+  /// changes the input. When the path has no value yet and the input has an
+  /// initial value, the input writes that value to the path.
+  final String? bind;
 
   /// Widget type identifier.
   @override

@@ -5,6 +5,7 @@ import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_border_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_box_constraints_parser.dart';
+import 'package:stac/src/state/stac_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -22,35 +23,29 @@ class StacModalBottomSheetActionParser
 
   @override
   FutureOr onCall(BuildContext context, model) {
+    final WidgetBuilder content;
     if (model.widget != null) {
-      return _showModalBottomSheet(
-        context,
-        model,
-        model.widget?.parse(context) ?? const SizedBox(),
-      );
+      content = (scoped) => model.widget.parse(scoped) ?? const SizedBox();
     } else if (model.assetPath?.isNotEmpty ?? false) {
-      return _showModalBottomSheet(
-        context,
-        model,
-        Stac.fromAssets(model.assetPath!),
-      );
+      content = (_) => Stac.fromAssets(model.assetPath!);
     } else if (model.request != null) {
-      return _showModalBottomSheet(
-        context,
-        model,
-        Stac.fromNetwork(context: context, request: model.request!),
-      );
+      content = (scoped) =>
+          Stac.fromNetwork(context: scoped, request: model.request!);
+    } else {
+      return null;
     }
+    // The sheet is built in its own route; it keeps the opener's state.
+    return _showModalBottomSheet(context, model, content);
   }
 
   Future _showModalBottomSheet(
     BuildContext context,
     StacModalBottomSheetAction model,
-    Widget widget,
+    WidgetBuilder content,
   ) {
     return showModalBottomSheet(
       context: context,
-      builder: (context) => widget,
+      builder: (_) => stacScopedContent(context, content),
       backgroundColor: model.backgroundColor.toColor(context),
       barrierLabel: model.barrierLabel,
       elevation: model.elevation,

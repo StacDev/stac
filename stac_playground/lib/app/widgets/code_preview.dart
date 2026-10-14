@@ -1,11 +1,13 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_playground/app/cubit/home_cubit.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/app/widgets/section_nav.dart';
+import 'package:stac_playground/app/widgets/state_inspector.dart';
 import 'package:stac_playground/theme/app_theme.dart';
 
 /// The right-hand preview pane: theme/device/zoom controls on top of a
@@ -31,6 +33,13 @@ class CodePreview extends StatelessWidget {
                     ? const _EmptyPreview()
                     : _DeviceFrame(state: state, jsonData: jsonData),
               ),
+              if (state.showStateInspector)
+                SizedBox(
+                  height: 280,
+                  child: StateInspector(
+                    codeStyle: GoogleFonts.jetBrainsMono(),
+                  ),
+                ),
             ],
           ),
         );
@@ -72,6 +81,17 @@ class _PreviewNav extends StatelessWidget {
           const SizedBox(width: 12),
           Center(child: _ThemeSelector(darkMode: state.darkMode)),
           const Spacer(),
+          Center(
+            child: _NavIconButton(
+              icon: PhosphorIcons.database,
+              tooltip: state.showStateInspector ? 'Hide state' : 'Show state',
+              selected: state.showStateInspector,
+              onTap: () => context.read<HomeCubit>().toggleStateInspector(),
+            ),
+          ),
+          const SizedBox(width: 12),
+          const Center(child: NavDivider()),
+          const SizedBox(width: 12),
           Center(
             child: _NavIconButton(
               icon: PhosphorIcons.magnifyingGlassPlus,
@@ -167,11 +187,13 @@ class _NavIconButton extends StatelessWidget {
     required this.icon,
     required this.tooltip,
     required this.onTap,
+    this.selected = false,
   });
 
   final IconData icon;
   final String tooltip;
   final VoidCallback onTap;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
@@ -183,7 +205,9 @@ class _NavIconButton extends StatelessWidget {
         child: PhosphorIcon(
           icon,
           size: 18,
-          color: context.colors.onBackground2,
+          color: selected
+              ? context.colors.onBackground
+              : context.colors.onBackground2,
         ),
       ),
     );
@@ -220,6 +244,9 @@ class _DeviceFrame extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(radius),
         child: MaterialApp(
+          // A new example gets a new app, so no screen state or pushed
+          // route carries over from the previous one.
+          key: ValueKey(state.selectedEntry.id),
           debugShowCheckedModeBanner: false,
           scrollBehavior: const AppScrollBehavior(),
           theme: state.darkMode ? ThemeData.dark() : ThemeData.light(),

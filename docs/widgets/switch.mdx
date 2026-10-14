@@ -43,6 +43,7 @@ To know more about the Switch widget in Flutter, refer to the [official document
 | activeThumbImage      | `String`                    | An image to use on the thumb of this switch when the switch is on.                                              |
 | applyTheme            | `bool`                      | Whether to apply the ambient theme data.                                                                        |
 | applyCupertinoTheme   | `bool`                      | Whether to apply the ambient theme data.                                                                        |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## Example
 
@@ -140,3 +141,16 @@ StacSwitch(
 ```
 </CodeGroup>
 
+## Bind to State
+
+With `bind`, the switch shows a [state](/concepts/state) value and updates it when toggled. When nothing is stored yet, the switch writes its `value`.
+
+<CodeGroup>
+```dart Dart
+StacSwitch(bind: '\$app.settings.darkMode', value: false)
+```
+
+```json JSON
+{ "type": "switch", "bind": "$app.settings.darkMode", "value": false }
+```
+</CodeGroup>

@@ -65,6 +65,8 @@ Store a value in the Registry and reference it in your SDUI screens.
 StacRegistry.instance.setValue('userName', 'Alex Smith');
 ```
 
+These variables are app [state](/concepts/state), also available as `Stac.state`. Widgets that read one rebuild when it changes.
+
 **JSON Usage:**
 ```json
 {
@@ -74,7 +76,7 @@ StacRegistry.instance.setValue('userName', 'Alex Smith');
 ```
 
 > [!TIP]
-> **Variable Resolution is Recursive.** If you store a complex Map in the Registry, you can access nested properties in your JSON using dot notation (e.g., `{{user.profile.name}}`).
+> **Nested values.** If you store a Map or List in the Registry, read nested values with dot and index notation, such as `{{user.profile.name}}` or `{{items[0].title}}`. Keys that contain dots, such as `user.name`, can be read the same way. Placeholders can also hold full [expressions](/concepts/expressions), such as `{{user.name ?? 'Guest'}}`.
 
 ### 5. Overriding Core Behavior (Global Styling)
 If you want to change how a standard widget like `StacText` behaves globally (e.g., to force all text to be uppercase or add a custom logging interceptor), you can override the default parser.

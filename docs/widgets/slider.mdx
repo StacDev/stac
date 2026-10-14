@@ -57,6 +57,7 @@ To know more about the Slider widget in Flutter, refer to the [official document
 | mouseCursor          | `StacMouseCursor`      | The cursor for a mouse pointer when it enters or is hovering over the widget.                                   |
 | autofocus            | `bool`                 | True if this widget will be selected as the initial focus when no other node in its scope is currently focused. |
 | allowedInteraction   | `StacSliderInteraction`| Allowed way for the user to interact with the slider.                                                           |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## Example
 
@@ -145,3 +146,28 @@ StacScaffold(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+With `bind`, the slider shows a [state](/concepts/state) value and updates it while dragged.
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacSlider(bind: 'volume', value: 0.5),
+    StacText(data: 'Volume {{(volume * 100).round()}}%'),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    { "type": "slider", "bind": "volume", "value": 0.5 },
+    { "type": "text", "data": "Volume {{(volume * 100).round()}}%" }
+  ]
+}
+```
+</CodeGroup>

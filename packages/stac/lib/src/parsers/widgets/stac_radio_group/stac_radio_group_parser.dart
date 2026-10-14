@@ -4,6 +4,7 @@ import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac/src/state/stac_input_binding.dart';
 
 class StacRadioGroupParser extends StacParser<StacRadioGroup> {
   const StacRadioGroupParser();
@@ -17,7 +18,7 @@ class StacRadioGroupParser extends StacParser<StacRadioGroup> {
 
   @override
   Widget parse(BuildContext context, StacRadioGroup model) {
-    return _RadioGroupWidget(model, StacFormScope.of(context));
+    return _RadioGroupWidget(model, StacFormScope.maybeOf(context));
   }
 }
 
@@ -31,15 +32,29 @@ class _RadioGroupWidget extends StatefulWidget {
   State<_RadioGroupWidget> createState() => _RadioGroupWidgetState();
 }
 
-class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
+class _RadioGroupWidgetState extends State<_RadioGroupWidget>
+    with StacBoundInput<_RadioGroupWidget, Object> {
   dynamic _groupValue;
+
+  @override
+  String? get bindPath => widget.model.bind;
+
+  @override
+  String? get formFieldId => widget.model.id;
+
+  @override
+  Object? get initialValue => widget.model.groupValue;
+
+  @override
+  Object? convertBound(Object? value) => value;
+
+  @override
+  void showBound(Object? value) => _groupValue = value;
 
   @override
   void initState() {
     super.initState();
-    setState(() {
-      _groupValue = widget.model.groupValue;
-    });
+    _groupValue = widget.model.groupValue;
 
     // Initialize form data if id is provided
     if (widget.model.id != null && widget.formScope != null) {
@@ -69,11 +84,10 @@ class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
     if (widget.model.id != null && widget.formScope != null) {
       widget.formScope!.formData[widget.model.id!] = value;
     }
+    writeBound(value);
 
     // Call the onChanged action if provided
-    if (widget.model.onChanged != null) {
-      widget.model.onChanged!.parse(context);
-    }
+    widget.model.onChanged.parseWithValue(context, value);
   }
 
   @override

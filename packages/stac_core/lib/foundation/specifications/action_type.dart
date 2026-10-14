@@ -35,4 +35,7 @@ enum ActionType {
 
   /// Wait for a specified duration before proceeding.
   delay,
+
+  /// Send a data provider's request again.
+  refetch,
 }

@@ -30,6 +30,7 @@ StacCheckBox _$StacCheckBoxFromJson(Map<String, dynamic> json) => StacCheckBox(
   ),
   autofocus: json['autofocus'] as bool?,
   isError: json['isError'] as bool?,
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacCheckBoxToJson(StacCheckBox instance) =>
@@ -50,6 +51,7 @@ Map<String, dynamic> _$StacCheckBoxToJson(StacCheckBox instance) =>
           _$StacMaterialTapTargetSizeEnumMap[instance.materialTapTargetSize],
       'autofocus': instance.autofocus,
       'isError': instance.isError,
+      'bind': instance.bind,
       'type': instance.type,
     };
 

@@ -1,0 +1,180 @@
+---
+title: "For Each"
+description: "Documentation for For Each"
+---
+
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const forEachPreviewJson = {
+  "type": "stateScope",
+  "state": { "tags": ["Flutter", "Dart", "Stac"] },
+  "child": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "children": [
+      { "type": "text", "data": "Tags" },
+      {
+        "type": "forEach",
+        "items": "{{tags}}",
+        "itemTemplate": { "type": "text", "data": "{{$index + 1}}. {{$item}}" }
+      },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Add a tag" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "tags", "op": "append", "value": "Tag {{tags.length + 1}}" }]
+        }
+      }
+    ]
+  }
+};
+export const forEachPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
+The Stac For Each builds a widget for each item of a list. In a list of widgets, such as a column's `children`, a stack's `children`, a custom scroll view's `slivers` or a tab bar's `tabs`, the built widgets take the For Each's place, in between the widgets around it. Anywhere else, they are shown in a column.
+
+Inside the template, `$item` is the current item and `$index` its position, starting at 0. When an item changes, only the widgets that read it rebuild. See [Lists](/concepts/state#lists).
+
+<Note>
+Layout widgets such as `column`, `listView` and `gridView` take `items` and `itemTemplate` themselves. Use For Each to mix items with other widgets, or in lists of widgets that do not take `items`.
+</Note>
+
+## Properties
+
+| Property     | Type         | Description |
+|--------------|--------------|-------------|
+| items        | `List` or `String` | The items: a list, or a placeholder that reads one, such as `"{{cart}}"`. |
+| itemTemplate | `StacWidget` | The widget built for each item. |
+| emptyWidget  | `StacWidget` | Shown instead when `items` is an empty list. |
+| keyPath      | `String`     | A path inside each item that identifies it, such as `id`, so item widgets keep their state when items move. |
+
+## Example
+
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+StacStateScope(
+  state: {
+    'tags': ['Flutter', 'Dart', 'Stac'],
+  },
+  child: StacColumn(
+    mainAxisAlignment: StacMainAxisAlignment.center,
+    children: [
+      StacText(data: 'Tags'),
+      StacForEach(
+        items: '{{tags}}',
+        itemTemplate: StacText(data: '{{\$index + 1}}. {{\$item}}'),
+      ),
+      StacElevatedButton(
+        child: StacText(data: 'Add a tag'),
+        onPressed: StacSetValueAction(
+          values: [
+            {'path': 'tags', 'op': 'append', 'value': 'Tag {{tags.length + 1}}'},
+          ],
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+  </Tab>
+  <Tab title="JSON">
+
+```json
+{
+  "type": "stateScope",
+  "state": { "tags": ["Flutter", "Dart", "Stac"] },
+  "child": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "children": [
+      { "type": "text", "data": "Tags" },
+      {
+        "type": "forEach",
+        "items": "{{tags}}",
+        "itemTemplate": { "type": "text", "data": "{{$index + 1}}. {{$item}}" }
+      },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Add a tag" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "tags", "op": "append", "value": "Tag {{tags.length + 1}}" }]
+        }
+      }
+    ]
+  }
+}
+```
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={forEachPreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: forEachPreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
+
+## Sections in a Scroll View
+
+In `slivers`, each item can be a sliver of its own, for example a header and a grid per category:
+
+```json
+{
+  "type": "customScrollView",
+  "slivers": [
+    { "type": "sliverAppBar", "title": { "type": "text", "data": "Shop" } },
+    {
+      "type": "forEach",
+      "items": "{{categories}}",
+      "keyPath": "id",
+      "itemTemplate": {
+        "type": "sliverToBoxAdapter",
+        "child": {
+          "type": "column",
+          "crossAxisAlignment": "start",
+          "children": [
+            { "type": "text", "data": "{{$item.name}}" },
+            {
+              "type": "wrap",
+              "spacing": 8,
+              "items": "{{$item.products}}",
+              "itemTemplate": { "type": "chip", "label": { "type": "text", "data": "{{$item.title}}" } }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+In the inner `wrap`, `$item` is a product: an inner list's template reads its own items.

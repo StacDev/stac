@@ -18,18 +18,22 @@ StacWidget detailScreen() {
         ),
       ),
     ),
-    body: StacDynamicView(
+    // The movie id is the argument the home screen opened this screen with.
+    body: StacDataProvider(
+      id: 'movie',
       request: StacNetworkRequest(
-        url: '${AppApi.baseUrl}/movie/{{movie_id}}?language=${AppApi.language}',
+        url:
+            '${AppApi.baseUrl}/movie/{{\$args.movieId}}?language=${AppApi.language}',
         method: Method.get,
       ),
-      template: StacSingleChildScrollView(
+      loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
+      child: StacSingleChildScrollView(
         child: StacColumn(
           children: [
             StacStack(
               children: [
                 StacImage(
-                  src: '${AppApi.imageBaseUrl}/{{poster_path}}',
+                  src: '${AppApi.imageBaseUrl}/{{movie.data.poster_path}}',
                   width: double.maxFinite,
                   height: 480,
                   fit: StacBoxFit.cover,
@@ -62,7 +66,7 @@ StacWidget detailScreen() {
                     children: [
                       StacExpanded(
                         child: StacText(
-                          data: '{{title}}',
+                          data: '{{movie.data.title}}',
                           style: StacThemeData.textTheme.headlineMedium,
                           overflow: StacTextOverflow.ellipsis,
                         ),
@@ -83,7 +87,7 @@ StacWidget detailScreen() {
                             ),
                             StacSizedBox(width: 2),
                             StacText(
-                              data: '{{vote_average}}',
+                              data: '{{movie.data.vote_average}}',
                               style: StacCustomTextStyle(
                                 color: 'onPrimary',
                                 fontSize: 14,
@@ -97,7 +101,8 @@ StacWidget detailScreen() {
                   ),
                   StacDivider(),
                   StacText(
-                    data: '{{release_date}} · {{runtime}} mins',
+                    data:
+                        '{{movie.data.release_date}} · {{movie.data.runtime}} mins',
                     style: StacThemeData.textTheme.bodySmall,
                     textAlign: StacTextAlign.left,
                   ),
@@ -145,7 +150,7 @@ StacWidget detailScreen() {
                   ),
                   StacSizedBox(height: 20),
                   StacText(
-                    data: '{{overview}}',
+                    data: '{{movie.data.overview}}',
                     style: StacThemeData.textTheme.bodyMedium,
                   ),
                   StacSizedBox(height: 24),
@@ -164,14 +169,22 @@ StacWidget detailScreen() {
                       StacSizedBox(height: 10),
                       StacSizedBox(
                         height: 146,
-                        child: StacDynamicView(
+                        child: StacDataProvider(
+                          id: 'credits',
                           request: StacNetworkRequest(
                             url:
-                                '${AppApi.baseUrl}/movie/{{movie_id}}/credits?language=${AppApi.language}',
+                                '${AppApi.baseUrl}/movie/{{\$args.movieId}}/credits?language=${AppApi.language}',
                             method: Method.get,
                           ),
                           targetPath: 'cast',
-                          template: _buildCastListViewTemplate(),
+                          child: StacListView(
+                            scrollDirection: StacAxis.horizontal,
+                            shrinkWrap: true,
+                            separator: StacSizedBox(width: 16),
+                            items: '{{credits.data}}',
+                            keyPath: 'id',
+                            itemTemplate: _castMember(),
+                          ),
                         ),
                       ),
                     ],
@@ -192,15 +205,22 @@ StacWidget detailScreen() {
                       StacSizedBox(height: 10),
                       StacSizedBox(
                         height: 164,
-                        child: StacDynamicView(
+                        child: StacDataProvider(
+                          id: 'similar',
                           request: StacNetworkRequest(
                             url:
-                                '${AppApi.baseUrl}/movie/{{movie_id}}/similar?language=${AppApi.language}&page=1',
+                                '${AppApi.baseUrl}/movie/{{\$args.movieId}}/similar?language=${AppApi.language}&page=1',
                             method: Method.get,
                           ),
                           targetPath: 'results',
-                          resultTarget: 'data',
-                          template: _buildSimilarMoviesListViewTemplate(),
+                          child: StacListView(
+                            scrollDirection: StacAxis.horizontal,
+                            shrinkWrap: true,
+                            separator: StacSizedBox(width: 8),
+                            items: '{{similar.data}}',
+                            keyPath: 'id',
+                            itemTemplate: _similarMovie(),
+                          ),
                         ),
                       ),
                     ],
@@ -216,71 +236,53 @@ StacWidget detailScreen() {
   );
 }
 
-/// Helper function to build a ListView template with itemTemplate for cast list.
-StacWidget _buildCastListViewTemplate() {
-  final templateJson = {
-    'type': 'listView',
-    'scrollDirection': 'horizontal',
-    'shrinkWrap': true,
-    'separator': StacSizedBox(width: 16).toJson(),
-    'itemTemplate': StacSizedBox(
-      width: 80,
-      child: StacColumn(
-        crossAxisAlignment: StacCrossAxisAlignment.start,
-        children: [
-          StacClipRRect(
-            borderRadius: StacBorderRadius.all(6),
-            child: StacImage(
-              src: '${AppApi.imageBaseUrl}/{{profile_path}}',
-              fit: StacBoxFit.cover,
-              width: 80,
-              height: 96,
-            ),
+/// A cast member's photo, name and character.
+StacWidget _castMember() {
+  return StacSizedBox(
+    width: 80,
+    child: StacColumn(
+      crossAxisAlignment: StacCrossAxisAlignment.start,
+      children: [
+        StacClipRRect(
+          borderRadius: StacBorderRadius.all(6),
+          child: StacImage(
+            src: '${AppApi.imageBaseUrl}/{{\$item.profile_path}}',
+            fit: StacBoxFit.cover,
+            width: 80,
+            height: 96,
           ),
-          StacSizedBox(height: 8),
-          StacText(
-            data: '{{name}}',
-            style: StacThemeData.textTheme.titleSmall,
-            overflow: StacTextOverflow.ellipsis,
-          ),
-          StacText(
-            data: '{{character}}',
-            style: StacThemeData.textTheme.bodySmall,
-            overflow: StacTextOverflow.ellipsis,
-          ),
-        ],
-      ),
-    ).toJson(),
-  };
-
-  return StacWidget(jsonData: templateJson);
+        ),
+        StacSizedBox(height: 8),
+        StacText(
+          data: '{{\$item.name}}',
+          style: StacThemeData.textTheme.titleSmall,
+          overflow: StacTextOverflow.ellipsis,
+        ),
+        StacText(
+          data: '{{\$item.character}}',
+          style: StacThemeData.textTheme.bodySmall,
+          overflow: StacTextOverflow.ellipsis,
+        ),
+      ],
+    ),
+  );
 }
 
-/// Helper function to build a ListView template with itemTemplate for similar movies.
-StacWidget _buildSimilarMoviesListViewTemplate() {
-  final templateJson = {
-    'type': 'listView',
-    'scrollDirection': 'horizontal',
-    'shrinkWrap': true,
-    'separator': StacSizedBox(width: 8).toJson(),
-    'itemTemplate': StacGestureDetector(
-      onTap: StacSetValueAction(
-        values: [
-          {'key': 'movie_id', 'value': '{{data.id}}'},
-        ],
-        action: StacNavigator.pushStac('detail_screen'),
+/// A similar movie's poster that opens its detail screen.
+StacWidget _similarMovie() {
+  return StacGestureDetector(
+    onTap: StacNavigator.pushStac(
+      'detail_screen',
+      arguments: {'movieId': '{{\$item.id}}'},
+    ),
+    child: StacClipRRect(
+      borderRadius: StacBorderRadius.all(6),
+      child: StacImage(
+        imageType: StacImageType.network,
+        src: '${AppApi.imageBaseUrl}/{{\$item.poster_path}}',
+        width: 108,
+        height: 164,
       ),
-      child: StacClipRRect(
-        borderRadius: StacBorderRadius.all(6),
-        child: StacImage(
-          imageType: StacImageType.network,
-          src: '${AppApi.imageBaseUrl}/{{data.poster_path}}',
-          width: 108,
-          height: 164,
-        ),
-      ),
-    ).toJson(),
-  };
-
-  return StacWidget(jsonData: templateJson);
+    ),
+  );
 }

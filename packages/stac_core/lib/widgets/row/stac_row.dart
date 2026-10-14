@@ -49,6 +49,10 @@ class StacRow extends StacWidget {
     this.textBaseline,
     this.spacing,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
   });
 
   /// How the children should be placed along the main axis (horizontal).
@@ -75,6 +79,20 @@ class StacRow extends StacWidget {
 
   /// The widgets to display in this row.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   @override
   String get type => WidgetType.row.name;

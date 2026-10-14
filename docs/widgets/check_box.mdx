@@ -48,6 +48,7 @@ To know more about the CheckBox widget in Flutter, refer to the [official docume
 | materialTapTargetSize | `StacMaterialTapTargetSize` | Configures the minimum size of the tap target.                                                     |
 | autofocus             | `bool`                      | Whether this checkbox should focus itself if nothing else is already focused. Defaults to `false`. |
 | isError               | `bool`                      | Whether this checkbox is in an error state. Defaults to `false`.                                   |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## Example
 
@@ -130,3 +131,28 @@ StacCheckBox(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+With `bind`, the checkbox shows a [state](/concepts/state) value and updates it when tapped.
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacCheckBox(bind: 'agreed', value: false),
+    StacText(data: "{{agreed ? 'Thanks!' : 'Please agree'}}"),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    { "type": "checkBox", "bind": "agreed", "value": false },
+    { "type": "text", "data": "{{agreed ? 'Thanks!' : 'Please agree'}}" }
+  ]
+}
+```
+</CodeGroup>

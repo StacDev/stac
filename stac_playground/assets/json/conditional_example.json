@@ -125,7 +125,7 @@
                 },
                 {
                     "type": "conditional",
-                    "condition": "Flutter == Flutter",
+                    "condition": "'Flutter' == 'Flutter'",
                     "ifTrue": {
                         "type": "container",
                         "padding": 16,

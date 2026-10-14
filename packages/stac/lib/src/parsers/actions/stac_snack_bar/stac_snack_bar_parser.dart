@@ -10,6 +10,7 @@ import 'package:stac/src/parsers/foundation/interaction/stac_hit_test_behavior_p
 import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
 import 'package:stac/src/parsers/foundation/ui_components/stac_dismiss_direction_parser.dart';
 import 'package:stac/src/parsers/foundation/ui_components/stac_snack_bar_behavior_parser.dart';
+import 'package:stac/src/state/stac_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -31,7 +32,12 @@ class StacSnackBarParser extends StacActionParser<StacSnackBar> {
 
     scaffoldMessenger.showSnackBar(
       SnackBar(
-        content: Stac.fromJson(model.content, context) ?? SizedBox.shrink(),
+        // Snack bars show in the messenger's overlay; keep the opener's state.
+        content: stacScopedContent(
+          context,
+          (scoped) =>
+              Stac.fromJson(model.content, scoped) ?? const SizedBox.shrink(),
+        ),
         backgroundColor: model.backgroundColor?.toColor(context),
         elevation: model.elevation,
         margin: model.margin?.parse,

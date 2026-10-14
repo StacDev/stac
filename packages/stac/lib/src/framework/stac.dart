@@ -7,6 +7,10 @@ import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/services/stac_cloud.dart';
+import 'package:stac/src/state/stac_scope.dart';
+import 'package:stac/src/state/stac_state_observer.dart';
+import 'package:stac/src/state/stac_state_persistence.dart';
+import 'package:stac/src/state/stac_store.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
 import 'package:stac_core/core/stac_options.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -110,6 +114,7 @@ class Stac extends StatelessWidget {
   const Stac({
     super.key,
     required this.routeName,
+    this.arguments = const {},
     this.loadingWidget,
     this.errorWidget,
   });
@@ -119,6 +124,39 @@ class Stac extends StatelessWidget {
   /// This should match the screen name configured in your Stac Cloud project.
   /// For example: `/home`, `/profile`, `/settings`.
   final String routeName;
+
+  /// Arguments for the screen, readable in it as `$args`, such as
+  /// `{{$args.productId}}`.
+  final Map<String, dynamic> arguments;
+
+  /// App-wide state, readable in every screen by name or as `$app`.
+  ///
+  /// Write to it to update every screen that reads a value:
+  ///
+  /// ```dart
+  /// Stac.state.set('user.name', 'Ann');
+  /// ```
+  static StacStore get state => stacAppStore;
+
+  /// The observers told about every change to Stac state, and about levels
+  /// of state as they are created and discarded.
+  ///
+  /// Set them with [initialize], or add and remove them here at any time,
+  /// for example from a debugging tool.
+  static List<StacStateObserver> get stateObservers =>
+      StacStateEvents.observers;
+
+  /// The levels of state that exist now: the app level, then screens, local
+  /// levels and forms in the order they were created. Each level's
+  /// [StacStateLevel.parent] is the level around it.
+  ///
+  /// For debugging tools. To print them, call `debugDumpStacState()`.
+  static List<StacStateLevel> get stateLevels {
+    final app = StacScopeNode.app; // Created on first use.
+    final levels = StacStateEvents.levels;
+    assert(levels.contains(app));
+    return levels;
+  }
 
   /// Widget to display while the screen is loading.
   ///
@@ -165,6 +203,20 @@ class Stac extends StatelessWidget {
   /// - [cacheConfig]: Global cache configuration for all Stac widgets and
   ///   StacCloud calls. Defaults to networkFirst strategy if not provided.
   ///
+  /// - [initialState]: Values to add to app state ([Stac.state]), readable
+  ///   in every screen.
+  ///
+  /// - [persist]: App state paths to keep between launches, such as
+  ///   `settings` or `cart.items`. Their saved values are restored before
+  ///   [initialize] completes, replacing those in [initialState], and are
+  ///   saved again whenever they change.
+  ///
+  /// - [stateStorage]: Where [persist] keeps values. Defaults to shared
+  ///   preferences.
+  ///
+  /// - [stateObservers]: Observers told about every change to Stac state.
+  ///   Replaces [stateObservers] when given.
+  ///
   /// ## Example
   ///
   /// ```dart
@@ -188,7 +240,22 @@ class Stac extends StatelessWidget {
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
     StacCacheConfig? cacheConfig,
+    Map<String, dynamic>? initialState,
+    List<String> persist = const [],
+    StacStateStorage? stateStorage,
+    List<StacStateObserver>? stateObservers,
   }) async {
+    if (stateObservers != null) {
+      StacStateEvents.observers
+        ..clear()
+        ..addAll(stateObservers);
+    }
+    initialState?.forEach(stacAppStore.setKey);
+    await StacStatePersistence.start(
+      stacAppStore,
+      persist,
+      stateStorage ?? const StacSharedPreferencesStorage(),
+    );
     return StacService.initialize(
       options: options,
       parsers: parsers,
@@ -204,10 +271,15 @@ class Stac extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _StacView(
-      routeName: routeName,
-      loadingWidget: loadingWidget,
-      errorWidget: errorWidget,
+    // Each Stac screen has its own screen state and arguments.
+    return StacScreenScope(
+      arguments: arguments,
+      debugLabel: routeName,
+      child: _StacView(
+        routeName: routeName,
+        loadingWidget: loadingWidget,
+        errorWidget: errorWidget,
+      ),
     );
   }
 
@@ -315,8 +387,11 @@ class Stac extends StatelessWidget {
   }
 }
 
-/// Internal stateless widget that handles fetching and rendering Stac screens.
-class _StacView extends StatelessWidget {
+/// Internal widget that fetches and renders a Stac Cloud screen.
+///
+/// The screen is fetched once and kept across rebuilds; it is fetched again
+/// only when [routeName] changes.
+class _StacView extends StatefulWidget {
   const _StacView({
     required this.routeName,
     this.loadingWidget,
@@ -328,25 +403,55 @@ class _StacView extends StatelessWidget {
   final Widget? errorWidget;
 
   @override
+  State<_StacView> createState() => _StacViewState();
+}
+
+class _StacViewState extends State<_StacView> {
+  Future<Map<String, dynamic>?>? _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = _load();
+  }
+
+  @override
+  void didUpdateWidget(covariant _StacView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.routeName != widget.routeName) {
+      _future = _load();
+    }
+  }
+
+  Future<Map<String, dynamic>?>? _load() {
+    if (StacService.options == null) return null;
+    return StacCloud.fetchScreen(routeName: widget.routeName).then((response) {
+      if (response == null) return null;
+      final jsonString = response.data['stacJson'];
+      return jsonDecode(jsonString) as Map<String, dynamic>;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final options = StacService.options;
     if (options == null) {
       throw Exception('StacOptions is not set');
     }
+    _future ??= _load();
 
-    return FutureBuilder<Response?>(
-      future: StacCloud.fetchScreen(routeName: routeName),
+    return FutureBuilder<Map<String, dynamic>?>(
+      future: _future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return loadingWidget ?? const _LoadingWidget();
+          return widget.loadingWidget ?? const _LoadingWidget();
         }
         if (snapshot.hasError) {
-          return errorWidget ?? const SizedBox();
+          return widget.errorWidget ?? const SizedBox();
         }
-        if (snapshot.hasData) {
-          final jsonString = snapshot.data!.data['stacJson'];
-          return StacService.fromJson(jsonDecode(jsonString), context) ??
-              const SizedBox();
+        final json = snapshot.data;
+        if (json != null) {
+          return StacService.fromJson(json, context) ?? const SizedBox();
         }
         return const SizedBox();
       },

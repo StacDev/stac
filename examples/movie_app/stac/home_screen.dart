@@ -19,165 +19,30 @@ StacWidget homeScreen() {
                   method: Method.get,
                 ),
               ),
-              StacColumn(
-                children: [
-                  StacPadding(
-                    padding: StacEdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 24,
-                      bottom: 10,
-                    ),
-                    child: StacRow(
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: AppStrings.nowPlaying,
-                          style: StacThemeData.textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  StacSizedBox(
-                    height: 164,
-                    child: StacDynamicView(
-                      request: StacNetworkRequest(
-                        url: AppApi.getNowPlayingMoviesUrl(),
-                        method: Method.get,
-                      ),
-                      targetPath: 'results',
-                      template: _buildMovieListViewTemplate(),
-                    ),
-                  ),
-                ],
+              _movieSection(
+                id: 'nowPlaying',
+                title: AppStrings.nowPlaying,
+                url: AppApi.getNowPlayingMoviesUrl(),
               ),
-              StacColumn(
-                children: [
-                  StacPadding(
-                    padding: StacEdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 24,
-                      bottom: 10,
-                    ),
-                    child: StacRow(
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: AppStrings.popularMovies,
-                          style: StacThemeData.textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  StacSizedBox(
-                    height: 164,
-                    child: StacDynamicView(
-                      request: StacNetworkRequest(
-                        url: AppApi.getPopularMoviesUrl(),
-                        method: Method.get,
-                      ),
-                      targetPath: 'results',
-                      template: _buildMovieListViewTemplate(),
-                    ),
-                  ),
-                ],
+              _movieSection(
+                id: 'popular',
+                title: AppStrings.popularMovies,
+                url: AppApi.getPopularMoviesUrl(),
               ),
-              StacColumn(
-                children: [
-                  StacPadding(
-                    padding: StacEdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 24,
-                      bottom: 10,
-                    ),
-                    child: StacRow(
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: AppStrings.trendingMovies,
-                          style: StacThemeData.textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  StacSizedBox(
-                    height: 164,
-                    child: StacDynamicView(
-                      request: StacNetworkRequest(
-                        url: AppApi.getTrendingMoviesUrl(),
-                        method: Method.get,
-                      ),
-                      targetPath: 'results',
-                      template: _buildMovieListViewTemplate(),
-                    ),
-                  ),
-                ],
+              _movieSection(
+                id: 'trending',
+                title: AppStrings.trendingMovies,
+                url: AppApi.getTrendingMoviesUrl(),
               ),
-              StacColumn(
-                children: [
-                  StacPadding(
-                    padding: StacEdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 24,
-                      bottom: 10,
-                    ),
-                    child: StacRow(
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: AppStrings.topRated,
-                          style: StacThemeData.textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  StacSizedBox(
-                    height: 164,
-                    child: StacDynamicView(
-                      request: StacNetworkRequest(
-                        url: AppApi.getTopRatedMoviesUrl(),
-                        method: Method.get,
-                      ),
-                      targetPath: 'results',
-                      template: _buildMovieListViewTemplate(),
-                    ),
-                  ),
-                ],
+              _movieSection(
+                id: 'topRated',
+                title: AppStrings.topRated,
+                url: AppApi.getTopRatedMoviesUrl(),
               ),
-              StacColumn(
-                children: [
-                  StacPadding(
-                    padding: StacEdgeInsets.only(
-                      left: 16,
-                      right: 16,
-                      top: 24,
-                      bottom: 10,
-                    ),
-                    child: StacRow(
-                      mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
-                      children: [
-                        StacText(
-                          data: AppStrings.upcomingMovies,
-                          style: StacThemeData.textTheme.labelLarge,
-                        ),
-                      ],
-                    ),
-                  ),
-                  StacSizedBox(
-                    height: 164,
-                    child: StacDynamicView(
-                      request: StacNetworkRequest(
-                        url: AppApi.getUpcomingMoviesUrl(),
-                        method: Method.get,
-                      ),
-                      targetPath: 'results',
-                      template: _buildMovieListViewTemplate(),
-                    ),
-                  ),
-                ],
+              _movieSection(
+                id: 'upcoming',
+                title: AppStrings.upcomingMovies,
+                url: AppApi.getUpcomingMoviesUrl(),
               ),
               StacSizedBox(height: 80),
             ],
@@ -206,36 +71,64 @@ StacWidget homeScreen() {
   );
 }
 
-/// Helper function to build a ListView template with itemTemplate for movie lists.
-/// Note: itemTemplate is a parser-specific feature handled by the dynamicView parser.
-/// We construct the template as JSON to include itemTemplate.
-StacWidget _buildMovieListViewTemplate() {
-  // Create template JSON with itemTemplate (parser-specific feature)
-  final templateJson = {
-    'type': 'listView',
-    'scrollDirection': 'horizontal',
-    'shrinkWrap': true,
-    'separator': StacSizedBox(width: 8).toJson(),
-    'padding': StacEdgeInsets.only(left: 16).toJson(),
-    'itemTemplate': StacGestureDetector(
-      onTap: StacSetValueAction(
-        values: [
-          {'key': 'movie_id', 'value': '{{id}}'},
-        ],
-        action: StacNavigator.pushStac('detail_screen'),
-      ),
-      child: StacClipRRect(
-        borderRadius: StacBorderRadius.all(6),
-        child: StacImage(
-          imageType: StacImageType.network,
-          src: '${AppApi.imageBaseUrl}/{{poster_path}}',
-          width: 108,
-          height: 164,
+/// A titled row of posters for the movies at [url].
+///
+/// A data provider named [id] loads the movies, and the list builds one
+/// poster per movie. Tapping a poster opens the detail screen with the
+/// movie's id as an argument.
+StacWidget _movieSection({
+  required String id,
+  required String title,
+  required String url,
+}) {
+  return StacColumn(
+    children: [
+      StacPadding(
+        padding: StacEdgeInsets.only(left: 16, right: 16, top: 24, bottom: 10),
+        child: StacRow(
+          mainAxisAlignment: StacMainAxisAlignment.spaceBetween,
+          children: [
+            StacText(data: title, style: StacThemeData.textTheme.labelLarge),
+          ],
         ),
       ),
-    ).toJson(),
-  };
+      StacSizedBox(
+        height: 164,
+        child: StacDataProvider(
+          id: id,
+          request: StacNetworkRequest(url: url, method: Method.get),
+          targetPath: 'results',
+          loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
+          child: StacListView(
+            scrollDirection: StacAxis.horizontal,
+            shrinkWrap: true,
+            separator: StacSizedBox(width: 8),
+            padding: StacEdgeInsets.only(left: 16),
+            items: '{{$id.data}}',
+            keyPath: 'id',
+            itemTemplate: _moviePoster(),
+          ),
+        ),
+      ),
+    ],
+  );
+}
 
-  // Create a StacWidget with the JSON data
-  return StacWidget(jsonData: templateJson);
+/// A movie poster that opens the movie's detail screen.
+StacWidget _moviePoster() {
+  return StacGestureDetector(
+    onTap: StacNavigator.pushStac(
+      'detail_screen',
+      arguments: {'movieId': '{{\$item.id}}'},
+    ),
+    child: StacClipRRect(
+      borderRadius: StacBorderRadius.all(6),
+      child: StacImage(
+        imageType: StacImageType.network,
+        src: '${AppApi.imageBaseUrl}/{{\$item.poster_path}}',
+        width: 108,
+        height: 164,
+      ),
+    ),
+  );
 }

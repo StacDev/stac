@@ -20,6 +20,14 @@ StacNetworkRequest _$StacNetworkRequestFromJson(
           ?.map((e) => StacNetworkResult.fromJson(e as Map<String, dynamic>))
           .toList() ??
       const [],
+  saveTo: json['saveTo'] as String?,
+  targetPath: json['targetPath'] as String?,
+  onSuccess: json['onSuccess'] == null
+      ? null
+      : StacAction.fromJson(json['onSuccess'] as Map<String, dynamic>),
+  onError: json['onError'] == null
+      ? null
+      : StacAction.fromJson(json['onError'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacNetworkRequestToJson(StacNetworkRequest instance) =>
@@ -31,6 +39,10 @@ Map<String, dynamic> _$StacNetworkRequestToJson(StacNetworkRequest instance) =>
       'contentType': instance.contentType,
       'body': instance.body,
       'results': instance.results.map((e) => e.toJson()).toList(),
+      'saveTo': instance.saveTo,
+      'targetPath': instance.targetPath,
+      'onSuccess': instance.onSuccess?.toJson(),
+      'onError': instance.onError?.toJson(),
       'actionType': instance.actionType,
     };
 

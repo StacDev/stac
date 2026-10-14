@@ -88,6 +88,10 @@ class StacSliverGrid extends StacWidget {
     this.addRepaintBoundaries,
     this.addSemanticIndexes,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
   });
 
   /// The number of children in the cross axis.
@@ -140,6 +144,20 @@ class StacSliverGrid extends StacWidget {
   ///
   /// Each child is rendered as a grid item.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Widget type identifier used by the Stac parser system.
   @override

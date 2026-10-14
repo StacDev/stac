@@ -65,6 +65,7 @@ class StacSlider extends StacWidget {
     this.mouseCursor,
     this.autofocus,
     this.allowedInteraction,
+    this.bind,
   });
 
   /// Identifier used with form scope to store/read this slider's value.
@@ -143,6 +144,14 @@ class StacSlider extends StacWidget {
 
   /// How the slider responds to user interaction.
   final StacSliderInteraction? allowedInteraction;
+
+  /// The state path this input reads its value from and writes changes to,
+  /// such as `query`, `$app.settings.darkMode` or `$form.email`.
+  ///
+  /// The input shows the value at the path and updates it as the user
+  /// changes the input. When the path has no value yet and the input has an
+  /// initial value, the input writes that value to the path.
+  final String? bind;
 
   /// Widget type identifier.
   @override

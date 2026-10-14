@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:stac/src/parsers/core/stac_widget_parser.dart';
+import 'package:stac/src/parsers/core/stac_children.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_scroll_physics_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
@@ -21,6 +21,16 @@ class StacTabBarViewParser extends StacParser<StacTabBarView> {
 
   @override
   Widget parse(BuildContext context, StacTabBarView model) {
+    final children = StacChildren(
+      context,
+      children: model.children,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      keyPath: model.keyPath,
+    );
+    final empty = children.emptyReplacement(context, model.emptyWidget);
+    if (empty != null) return empty;
+
     return TabBarView(
       controller: controller,
       physics: model.physics?.parse,
@@ -28,9 +38,7 @@ class StacTabBarViewParser extends StacParser<StacTabBarView> {
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,
       viewportFraction: model.viewportFraction ?? 1.0,
       clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
-      children: model.children
-          .map((c) => c.parse(context) ?? const SizedBox())
-          .toList(),
+      children: children.buildAll(context),
     );
   }
 }

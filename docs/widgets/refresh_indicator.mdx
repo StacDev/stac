@@ -67,6 +67,27 @@ To know more about the RefreshIndicator widget in Flutter, refer to the [officia
 | strokeWidth     | `double`                          | The width of the refresh indicator's stroke. Defaults to `RefreshProgressIndicator.defaultStrokeWidth`.                                  |
 | triggerMode     | `StacRefreshIndicatorTriggerMode` | The mode that controls when the refresh indicator will be triggered. Defaults to `RefreshIndicatorTriggerMode.onEdge`.                   |
 
+When `onRefresh` is a network request that returns widget JSON, the JSON replaces the child. To refresh data instead, load it with a [Data Provider](/widgets/data_provider) and refresh it with [`refetch`](/actions/refetch). The indicator spins until the new data arrives:
+
+```json
+{
+  "type": "dataProvider",
+  "id": "news",
+  "request": { "url": "https://api.example.com/news", "method": "get" },
+  "child": {
+    "type": "refreshIndicator",
+    "onRefresh": { "actionType": "refetch", "id": "news" },
+    "child": {
+      "type": "listView",
+      "items": "{{news.data}}",
+      "itemTemplate": { "type": "listTile", "title": { "type": "text", "data": "{{$item.title}}" } }
+    }
+  }
+}
+```
+
+A network request with [`saveTo`](/actions/network_request#save-the-response-to-state) works too: every widget that reads the saved value updates.
+
 ## Example
 
 <Tabs sync={false}>

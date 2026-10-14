@@ -9,9 +9,19 @@ part of 'stac_tab_bar_view.dart';
 StacTabBarView _$StacTabBarViewFromJson(
   Map<String, dynamic> json,
 ) => StacTabBarView(
-  children: (json['children'] as List<dynamic>)
-      .map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
-      .toList(),
+  children:
+      (json['children'] as List<dynamic>?)
+          ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
+          .toList() ??
+      const [],
+  items: json['items'],
+  itemTemplate: json['itemTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['itemTemplate'] as Map<String, dynamic>),
+  emptyWidget: json['emptyWidget'] == null
+      ? null
+      : StacWidget.fromJson(json['emptyWidget'] as Map<String, dynamic>),
+  keyPath: json['keyPath'] as String?,
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
     json['dragStartBehavior'],
@@ -25,6 +35,10 @@ Map<String, dynamic> _$StacTabBarViewToJson(
   StacTabBarView instance,
 ) => <String, dynamic>{
   'children': instance.children.map((e) => e.toJson()).toList(),
+  'items': instance.items,
+  'itemTemplate': instance.itemTemplate?.toJson(),
+  'emptyWidget': instance.emptyWidget?.toJson(),
+  'keyPath': instance.keyPath,
   'dragStartBehavior':
       _$StacDragStartBehaviorEnumMap[instance.dragStartBehavior],
   'physics': _$StacScrollPhysicsEnumMap[instance.physics],

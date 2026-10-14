@@ -1,3 +1,4 @@
+import 'package:stac/src/state/stac_scope.dart';
 import 'package:stac_logger/stac_logger.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -13,8 +14,6 @@ class StacRegistry {
   static final _stacParsers = <String, StacParser>{};
 
   static final _stacActionParsers = <String, StacActionParser>{};
-
-  static final Map<String, dynamic> _variables = {};
 
   bool register(StacParser parser, [bool override = false]) {
     final String type = parser.type;
@@ -76,19 +75,19 @@ class StacRegistry {
     return _stacActionParsers[type];
   }
 
+  /// Sets the app state variable [key] (see `Stac.state`). Screens that read
+  /// it rebuild. `null` removes it.
   dynamic setValue(String key, dynamic value) {
-    if (value == null) {
-      removeValue(key);
-    } else {
-      _variables[key] = value;
-    }
+    stacAppStore.setKey(key, value);
   }
 
+  /// Removes the app state variable [key] and returns its value.
   dynamic removeValue(String key) {
-    return _variables.remove(key);
+    return stacAppStore.removeKey(key);
   }
 
+  /// The app state variable [key], or `null`.
   dynamic getValue(String key) {
-    return _variables[key];
+    return stacAppStore.data[key];
   }
 }

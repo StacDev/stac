@@ -1,0 +1,159 @@
+---
+title: "Data Provider"
+description: "Documentation for Data Provider"
+---
+
+The Stac Data Provider loads data with a network request and keeps it in a variable for the widgets inside it. The variable is named by `id` and holds:
+
+| Key | Value |
+|-----|-------|
+| `data` | The response body, or the part of it at `targetPath`, from the last successful response. |
+| `isLoading` | `true` while a request is in flight. |
+| `status` | The status code of the last response. |
+| `error` | A short description of the last failure, or `null` after a success. |
+
+The request is sent when the provider is first shown, again when a value read by a placeholder in the request changes, and when a [`refetch`](/actions/refetch) action names the provider. While a new request is in flight, `data` keeps its previous value.
+
+See [Loading data](/concepts/state#loading-data) and [Lists](/concepts/state#lists).
+
+## Properties
+
+| Property     | Type                 | Required | Description |
+|--------------|----------------------|----------|-------------|
+| id           | `String`             | Yes      | The name of the variable holding the data, and the name `refetch` uses. |
+| request      | `StacNetworkRequest` | Yes      | The request that loads the data. Its URL, headers, query parameters and body can contain placeholders. |
+| child        | `StacWidget`         | Yes      | The widgets that read the data. |
+| targetPath   | `String`             | No       | A path inside the response body to keep as `data`, such as `results` or `data.items`. |
+| loaderWidget | `StacWidget`         | No       | Shown instead of `child` while loading, until data has loaded. |
+| errorWidget  | `StacWidget`         | No       | Shown instead of `child` when the request fails and no data has loaded. |
+
+`loaderWidget` and `errorWidget` are inside the provider, so they can read its variable and refetch it.
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacDataProvider(
+  id: 'movies',
+  request: StacNetworkRequest(
+    url: 'https://api.example.com/movies',
+    method: Method.get,
+  ),
+  targetPath: 'results',
+  loaderWidget: StacCenter(child: StacCircularProgressIndicator()),
+  errorWidget: StacColumn(
+    children: [
+      StacText(data: 'Could not load movies: {{movies.error}}'),
+      StacTextButton(
+        child: StacText(data: 'Try again'),
+        onPressed: StacRefetchAction(id: 'movies'),
+      ),
+    ],
+  ),
+  child: StacRefreshIndicator(
+    onRefresh: StacRefetchAction(id: 'movies'),
+    child: StacListView(
+      items: '{{movies.data}}',
+      keyPath: 'id',
+      itemTemplate: StacListTile(
+        title: StacText(data: '{{\$item.title}}'),
+        subtitle: StacText(data: '{{\$item.release_date}}'),
+      ),
+      emptyWidget: StacCenter(child: StacText(data: 'No movies')),
+    ),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "dataProvider",
+  "id": "movies",
+  "request": { "url": "https://api.example.com/movies", "method": "get" },
+  "targetPath": "results",
+  "loaderWidget": { "type": "center", "child": { "type": "circularProgressIndicator" } },
+  "errorWidget": {
+    "type": "column",
+    "children": [
+      { "type": "text", "data": "Could not load movies: {{movies.error}}" },
+      {
+        "type": "textButton",
+        "child": { "type": "text", "data": "Try again" },
+        "onPressed": { "actionType": "refetch", "id": "movies" }
+      }
+    ]
+  },
+  "child": {
+    "type": "refreshIndicator",
+    "onRefresh": { "actionType": "refetch", "id": "movies" },
+    "child": {
+      "type": "listView",
+      "items": "{{movies.data}}",
+      "keyPath": "id",
+      "itemTemplate": {
+        "type": "listTile",
+        "title": { "type": "text", "data": "{{$item.title}}" },
+        "subtitle": { "type": "text", "data": "{{$item.release_date}}" }
+      },
+      "emptyWidget": { "type": "center", "child": { "type": "text", "data": "No movies" } }
+    }
+  }
+}
+```
+</CodeGroup>
+
+## Requests That Follow State
+
+A placeholder in the request sends it again when the value it reads changes. A search field bound to `query` loads new results as the user types:
+
+```json
+{
+  "type": "column",
+  "children": [
+    { "type": "textField", "bind": "query" },
+    {
+      "type": "dataProvider",
+      "id": "results",
+      "request": {
+        "url": "https://api.example.com/search",
+        "method": "get",
+        "queryParameters": { "q": "{{query ?? ''}}" }
+      },
+      "child": {
+        "type": "column",
+        "children": [
+          {
+            "type": "visibility",
+            "visible": "{{results.isLoading}}",
+            "child": { "type": "linearProgressIndicator" }
+          },
+          {
+            "type": "column",
+            "items": "{{results.data.items}}",
+            "itemTemplate": { "type": "text", "data": "{{$item.name}}" }
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+Placeholders in the request read the state around the provider, not its own variable.
+
+## Changing the Data
+
+The provider's variable is state like any other, so `setValue` can change it, for example to show a change before the server confirms it:
+
+```json
+{
+  "actionType": "setValue",
+  "values": [{ "path": "todos.data[0].done", "value": true }]
+}
+```
+
+The next response replaces it.
+
+## Where the Data Is Visible
+
+The variable belongs to the provider: widgets inside it can read it, and widgets elsewhere on the screen cannot. Wrap the part of the screen that needs the data, such as the whole `scaffold`, so the app bar can read it too. Providers in different places can use the same `id`, and each widget reads the nearest one.

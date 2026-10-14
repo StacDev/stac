@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/ui_components/stac_refresh_indicator_trigger_mode_parser.dart';
@@ -49,20 +50,27 @@ class _RefreshIndicatorWidgetState extends State<_RefreshIndicatorWidget> {
       displacement: widget.model.displacement ?? 40.0,
       edgeOffset: widget.model.edgeOffset ?? 0.0,
       onRefresh: () async {
-        Response result = await widget.model.onRefresh?.parse(context);
+        // A networkRequest without a matching result returns its Response;
+        // a response body that is widget JSON replaces the child.
+        final result = await widget.model.onRefresh?.parse(context);
+        if (!mounted || result is! Response) return;
 
-        if (context.mounted) {
-          if (result.data != null) {
-            if (result.data is Map<String, dynamic>) {
-              setState(() {
-                childWidget = result.data;
-              });
-            } else if (result.data is String) {
-              setState(() {
-                childWidget = jsonDecode(result.data);
-              });
-            }
+        // Only widget JSON replaces the child; other data, such as a body
+        // saved to state with `saveTo`, is left to the widgets that read it.
+        final data = result.data;
+        Object? json = data;
+        if (data is String) {
+          try {
+            json = jsonDecode(data);
+          } on FormatException {
+            return;
           }
+        }
+        final type = json is Map<String, dynamic> ? json['type'] : null;
+        if (type is String && StacRegistry.instance.getParser(type) != null) {
+          setState(() {
+            childWidget = StacWidget.fromJson(json as Map<String, dynamic>);
+          });
         }
       },
       color: widget.model.color?.toColor(context),

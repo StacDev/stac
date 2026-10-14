@@ -36,6 +36,14 @@ StacCarouselView _$StacCarouselViewFromJson(Map<String, dynamic> json) =>
       children: (json['children'] as List<dynamic>?)
           ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
           .toList(),
+      items: json['items'],
+      itemTemplate: json['itemTemplate'] == null
+          ? null
+          : StacWidget.fromJson(json['itemTemplate'] as Map<String, dynamic>),
+      emptyWidget: json['emptyWidget'] == null
+          ? null
+          : StacWidget.fromJson(json['emptyWidget'] as Map<String, dynamic>),
+      keyPath: json['keyPath'] as String?,
     );
 
 Map<String, dynamic> _$StacCarouselViewToJson(StacCarouselView instance) =>
@@ -54,6 +62,10 @@ Map<String, dynamic> _$StacCarouselViewToJson(StacCarouselView instance) =>
       'itemExtent': const DoubleConverter().toJson(instance.itemExtent),
       'flexWeights': instance.flexWeights,
       'children': instance.children?.map((e) => e.toJson()).toList(),
+      'items': instance.items,
+      'itemTemplate': instance.itemTemplate?.toJson(),
+      'emptyWidget': instance.emptyWidget?.toJson(),
+      'keyPath': instance.keyPath,
       'type': instance.type,
     };
 

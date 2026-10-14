@@ -12,6 +12,12 @@ class StacFormScope extends InheritedWidget {
   final Map<String, dynamic> formData;
   final GlobalKey<FormState> formKey;
 
+  /// The nearest form scope, or `null` outside a form. Unlike [of], this
+  /// does not log when there is none.
+  static StacFormScope? maybeOf(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<StacFormScope>();
+  }
+
   static StacFormScope? of(BuildContext context) {
     final StacFormScope? result = context
         .dependOnInheritedWidgetOfExactType<StacFormScope>();

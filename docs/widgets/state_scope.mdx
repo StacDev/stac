@@ -1,0 +1,141 @@
+---
+title: "State Scope"
+description: "Documentation for State Scope"
+---
+
+import { PLAYGROUND_BASE_URL } from "/snippets/playground_base.mdx";
+
+export const stateScopePreviewJson = {
+  "type": "stateScope",
+  "state": { "count": 0 },
+  "child": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "children": [
+      { "type": "text", "data": "Count: {{count}}" },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Add" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "count", "op": "increment" }]
+        }
+      }
+    ]
+  }
+};
+export const stateScopePreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
+
+The Stac State Scope gives part of a screen its own state. The variables in `state` are created when the widget is first built and live as long as it does. Widgets inside read them by name, `setValue` actions inside write to them, and widgets that read a variable rebuild when it changes.
+
+See [State](/concepts/state) for how state works across screens and the app.
+
+## Properties
+
+| Property | Type                   | Description                                                                 |
+|----------|------------------------|-----------------------------------------------------------------------------|
+| state    | `Map<String, dynamic>` | The variables this scope declares, with their initial values. Values can be [expressions](/concepts/expressions), evaluated once when the scope is created. |
+| child    | `StacWidget`           | The widget that can read and write the state.                               |
+
+## Example
+
+<Tabs sync={false}>
+  <Tab title="Dart">
+
+```dart
+StacStateScope(
+  state: {'count': 0},
+  child: StacColumn(
+    mainAxisAlignment: StacMainAxisAlignment.center,
+    children: [
+      StacText(data: 'Count: {{count}}'),
+      StacElevatedButton(
+        child: StacText(data: 'Add'),
+        onPressed: StacSetValueAction(
+          values: [
+            {'path': 'count', 'op': 'increment'},
+          ],
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+  </Tab>
+  <Tab title="JSON">
+
+```json
+{
+  "type": "stateScope",
+  "state": { "count": 0 },
+  "child": {
+    "type": "column",
+    "mainAxisAlignment": "center",
+    "children": [
+      { "type": "text", "data": "Count: {{count}}" },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Add" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "count", "op": "increment" }]
+        }
+      }
+    ]
+  }
+}
+```
+
+  </Tab>
+  <Tab title="Preview">
+    <Frame>
+      <iframe
+        id="stac"
+        src={stateScopePreviewSrc}
+        title="Stac Playground"
+        className="w-full rounded-xl border-0"
+        style={{ height: "640px" }}
+        loading="lazy"
+        onLoad={(event) => {
+          const iframe = event.currentTarget;
+          const targetOrigin = PLAYGROUND_BASE_URL;
+          const message = {
+            type: "stac-preview-json",
+            payload: stateScopePreviewJson
+          };
+
+          let attempts = 0;
+          const maxAttempts = 12;
+          const interval = setInterval(() => {
+            iframe.contentWindow?.postMessage(message, targetOrigin);
+            attempts += 1;
+
+            if (attempts >= maxAttempts) {
+              clearInterval(interval);
+            }
+          }, 250);
+        }}
+      />
+    </Frame>
+  </Tab>
+</Tabs>
+
+## Initial Values From Other State
+
+Initial values can read the state around the scope. They are evaluated once, when the scope is created:
+
+```json
+{
+  "type": "stateScope",
+  "state": {
+    "draft": "{{$app.user.name ?? ''}}",
+    "editing": false
+  },
+  "child": { "type": "text", "data": "Editing {{draft}}" }
+}
+```
+
+## Nested Scopes
+
+Scopes can be nested. A name is read from the innermost scope that declares it, and a `setValue` entry writes to the innermost scope that declares its first name. Names no scope declares are read from, and written to, the screen.

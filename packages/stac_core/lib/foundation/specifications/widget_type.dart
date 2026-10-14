@@ -78,6 +78,9 @@ enum WidgetType {
   /// Custom scroll view widget
   customScrollView,
 
+  /// Data provider widget
+  dataProvider,
+
   /// Default bottom navigation controller widget.
   defaultBottomNavigationController,
 
@@ -111,6 +114,9 @@ enum WidgetType {
 
   /// Floating action button widget
   floatingActionButton,
+
+  /// For each widget
+  forEach,
 
   /// Form widget
   form,
@@ -256,6 +262,9 @@ enum WidgetType {
 
   /// Stack widget
   stack,
+
+  /// State scope widget
+  stateScope,
 
   /// Tab widget
   tab,

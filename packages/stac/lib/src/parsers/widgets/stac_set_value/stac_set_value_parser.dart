@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:stac/src/framework/framework.dart';
-import 'package:stac/src/utils/variable_resolver.dart';
+import 'package:stac/src/parsers/core/stac_widget_parser.dart';
+import 'package:stac/src/state/stac_state_writer.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -20,6 +20,10 @@ class StacSetValueParser extends StacParser<StacSetValue> {
   }
 }
 
+/// Writes its values when created and removes them when disposed.
+///
+/// Entries with `key` write app state, as they always have. For state that
+/// belongs to part of a screen, `stateScope` is the better fit.
 class _SetValueWidget extends StatefulWidget {
   const _SetValueWidget({required this.model});
 
@@ -30,36 +34,24 @@ class _SetValueWidget extends StatefulWidget {
 }
 
 class _SetValueWidgetState extends State<_SetValueWidget> {
-  final StacRegistry _stacRegistry = StacRegistry.instance;
+  List<StacStateWrite>? _written;
 
   @override
-  void initState() {
-    super.initState();
-
-    for (final value in widget.model.values) {
-      _stacRegistry.setValue(value['key'] as String, value['value']);
-    }
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _written ??= StacStateWriter.apply(context, widget.model.values);
   }
 
   @override
   void dispose() {
-    for (final value in widget.model.values) {
-      _stacRegistry.removeValue(value['key'] as String);
+    for (final write in _written ?? const <StacStateWrite>[]) {
+      write.undo();
     }
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    if (widget.model.child == null) {
-      return const SizedBox();
-    }
-
-    // Convert the StacWidget to JSON, resolve variables, then parse it back
-    final childJson = widget.model.child!.toJson();
-
-    final resolvedJson = resolveVariablesInJson(childJson, _stacRegistry);
-
-    return Stac.fromJson(resolvedJson, context) ?? const SizedBox();
+    return widget.model.child.parse(context) ?? const SizedBox();
   }
 }

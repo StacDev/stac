@@ -61,6 +61,10 @@ class StacPageView extends StacWidget {
     this.keepPage,
     this.viewportFraction,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
   });
 
   /// The axis along which the page view scrolls.
@@ -105,6 +109,20 @@ class StacPageView extends StacWidget {
 
   /// The list of pages to display.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Widget type identifier.
   @override

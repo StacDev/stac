@@ -22,11 +22,7 @@ class StacCustomScrollViewParser extends StacParser<StacCustomScrollView> {
   @override
   Widget parse(BuildContext context, StacCustomScrollView model) {
     return CustomScrollView(
-      slivers:
-          model.slivers
-              ?.map((e) => e.parse(context) ?? const SizedBox())
-              .toList() ??
-          const [],
+      slivers: model.slivers?.parseList(context) ?? const [],
       scrollDirection: (model.scrollDirection ?? StacAxis.vertical).parse,
       reverse: model.reverse ?? false,
       primary: model.primary,

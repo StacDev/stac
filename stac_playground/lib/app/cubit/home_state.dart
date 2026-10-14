@@ -21,6 +21,7 @@ class HomeState {
     this.view = PlaygroundView.preview,
     this.query = '',
     this.mobileDark = true,
+    this.showStateInspector = false,
   });
 
   /// The widget tree currently rendered by the preview.
@@ -44,6 +45,9 @@ class HomeState {
   /// Whether the JSON has been modified since the entry was loaded.
   final bool edited;
 
+  /// Whether the preview shows the state inspector below the device.
+  final bool showStateInspector;
+
   HomeState copyWith({
     Map<String, dynamic>? jsonData,
     PlaygroundEntry? selectedEntry,
@@ -56,6 +60,7 @@ class HomeState {
     PlaygroundView? view,
     String? query,
     bool? mobileDark,
+    bool? showStateInspector,
   }) {
     return HomeState(
       jsonData: jsonData ?? this.jsonData,
@@ -69,6 +74,7 @@ class HomeState {
       view: view ?? this.view,
       query: query ?? this.query,
       mobileDark: mobileDark ?? this.mobileDark,
+      showStateInspector: showStateInspector ?? this.showStateInspector,
     );
   }
 }

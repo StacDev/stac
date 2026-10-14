@@ -14,9 +14,10 @@ Use this skill to convert feature requirements into maintainable Stac DSL screen
 1. Translate user requirements into route names, states, and actions.
 2. Select widgets using `references/widget-selector.md`.
 3. Select actions using `references/action-recipes.md`.
-4. Apply style patterns from `references/style-recipes.md`.
-5. Apply route semantics from `references/navigation-patterns.md`.
-6. Scaffold files using scripts when requested.
+4. Decide where each changing value lives using `references/state-recipes.md`.
+5. Apply style patterns from `references/style-recipes.md`.
+6. Apply route semantics from `references/navigation-patterns.md`.
+7. Scaffold files using scripts when requested.
 
 ## Required Inputs
 
@@ -34,6 +35,7 @@ Use this skill to convert feature requirements into maintainable Stac DSL screen
 
 - Read `references/widget-selector.md` to choose layout and interactive widgets.
 - Read `references/action-recipes.md` for navigation/form/network/state actions.
+- Read `references/state-recipes.md` for state, inputs, lists, loading data and conditions.
 - Read `references/style-recipes.md` for color, spacing, and text style patterns.
 - Read `references/navigation-patterns.md` for stack-safe navigation actions.
 

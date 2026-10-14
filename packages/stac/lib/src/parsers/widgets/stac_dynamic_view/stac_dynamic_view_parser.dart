@@ -1,14 +1,23 @@
-import 'dart:convert';
+import 'dart:async';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:stac/src/expressions/stac_expression_runtime.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
-import 'package:stac/src/services/stac_network_service.dart';
+import 'package:stac/src/services/stac_data_loader.dart';
+import 'package:stac/src/state/stac_state_reader.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
 
+/// Loads data with a request and renders a template with it.
+///
+/// Loading is shared with `dataProvider`. The template pass is kept for
+/// existing screens: item fields are read by their bare names, and the root
+/// widget's `itemTemplate` is repeated into its `children`. A template whose
+/// root has `items` is rendered like any layout with items instead, reading
+/// `$item` and `$index`.
 class StacDynamicViewParser extends StacParser<StacDynamicView> {
   const StacDynamicViewParser();
 
@@ -22,207 +31,181 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   @override
   Widget parse(BuildContext context, StacDynamicView model) {
-    return FutureBuilder<Response?>(
-      future: _fetchData(context, model),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return model.loaderWidget.parse(context) ??
-              const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          Log.e(snapshot.error);
-          return model.errorWidget.parse(context) ?? const SizedBox();
-        } else if (snapshot.hasData) {
-          final response = snapshot.data;
-          if (response != null) {
-            try {
-              // Handle the response data based on its type
-              dynamic responseData;
-              if (response.data is String) {
-                responseData = jsonDecode(response.data);
-              } else if (response.data is Map) {
-                responseData = response.data;
-              } else {
-                responseData = response.data;
-              }
+    return _DynamicView(model: model);
+  }
+}
 
-              final data = model.targetPath?.isEmpty ?? true
-                  ? responseData
-                  : _extractNestedData(
-                      responseData,
-                      model.targetPath?.split('.') ?? [],
-                    );
+/// Fetches once and keeps the data across rebuilds. A new request is sent
+/// only when the request itself changes.
+class _DynamicView extends StatefulWidget {
+  const _DynamicView({required this.model});
 
-              Log.d("data: $data");
+  final StacDynamicView model;
 
-              if (data != null) {
-                // Check if data is an empty list and we have an empty template
-                if (_isEmptyList(data) && model.emptyTemplate != null) {
-                  Log.d("Data is empty list, using empty template");
-                  return model.emptyTemplate.parse(context) ?? const SizedBox();
-                }
+  @override
+  State<_DynamicView> createState() => _DynamicViewState();
+}
 
-                // Prepare data for template based on resultTarget
-                final dataForTemplate =
-                    (model.resultTarget?.isNotEmpty ?? false)
-                    ? {model.resultTarget: data}
-                    : data;
+class _DynamicViewState extends State<_DynamicView> {
+  late final StacDataLoader _loader = StacDataLoader(onChange: _onChange);
+  Map<String, dynamic>? _request;
+  bool _rebuildScheduled = false;
 
-                // Apply the data to the template
-                final renderedTemplate = _applyDataToTemplate(
-                  model.template ?? StacSizedBox(),
-                  dataForTemplate,
-                  model.resultTarget ?? "",
-                );
-                return Stac.fromJson(renderedTemplate, context) ??
-                    const SizedBox();
-              }
-            } catch (e) {
-              Log.e('Error parsing API response: $e');
-              return model.errorWidget.parse(context) ?? const SizedBox();
-            }
-          }
-          return const SizedBox();
-        } else {
-          return const SizedBox();
-        }
-      },
-    );
+  // The template rendered for the last data. Reusing it keeps the rendered
+  // widgets' JSON identical across rebuilds, so they are not rebuilt. It is
+  // dropped when the model or the state it read changes.
+  Object? _renderedFor;
+  Map<String, dynamic>? _rendered;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _rendered = null;
+    if (_request == null) _load();
   }
 
-  Future<Response?> _fetchData(
+  @override
+  void didUpdateWidget(covariant _DynamicView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.model, widget.model)) _rendered = null;
+    if (!stacDeepEquals(_request, widget.model.request.toJson())) _load();
+  }
+
+  @override
+  void dispose() {
+    _loader.dispose();
+    super.dispose();
+  }
+
+  void _load() {
+    _request = widget.model.request.toJson();
+    unawaited(_loader.load(context, widget.model.request));
+  }
+
+  void _onChange(StacDataState state) {
+    if (!mounted) return;
+    final binding = SchedulerBinding.instance;
+    if (binding.schedulerPhase != SchedulerPhase.persistentCallbacks) {
+      setState(() {});
+      return;
+    }
+    if (_rebuildScheduled) return;
+    _rebuildScheduled = true;
+    binding.addPostFrameCallback((_) {
+      _rebuildScheduled = false;
+      if (mounted) setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final model = widget.model;
+    final state = _loader.state;
+    if (state.isLoading) {
+      return model.loaderWidget.parse(context) ??
+          const Center(child: CircularProgressIndicator());
+    }
+    if (state.error != null) {
+      return model.errorWidget.parse(context) ?? const SizedBox();
+    }
+    if (!state.hasData) return const SizedBox();
+    return _buildFromData(context, model, state.data);
+  }
+
+  Widget _buildFromData(
     BuildContext context,
     StacDynamicView model,
-  ) async {
+    Object? body,
+  ) {
     try {
-      return await StacNetworkService.request(context, model.request);
-    } catch (e) {
-      Log.e('Error fetching dynamic content: $e');
-      rethrow;
-    }
-  }
+      final found = readStacTargetPath(body, model.targetPath);
+      final data = identical(found, stacUnbound) ? null : found;
 
-  dynamic _extractNestedData(dynamic data, List<String> keys) {
-    dynamic current = data;
-    final RegExp arrayKeyRegex = RegExp(r'(\w+)\[(\d+)\]');
+      if (data == null) return const SizedBox();
 
-    for (final key in keys) {
-      Match? arrayMatch = arrayKeyRegex.firstMatch(key);
-
-      if (arrayMatch != null) {
-        final String actualKey = arrayMatch.group(1)!;
-        final int index = int.parse(arrayMatch.group(2)!);
-
-        if (current is Map && current.containsKey(actualKey)) {
-          dynamic potentialList = current[actualKey];
-          if (potentialList is List) {
-            if (index >= 0 && index < potentialList.length) {
-              current = potentialList[index];
-            } else {
-              return null;
-            }
-          } else {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      } else {
-        if (current is Map && current.containsKey(key)) {
-          current = current[key];
-        } else if (current is List) {
-          try {
-            int index = int.parse(key);
-            if (index >= 0 && index < current.length) {
-              current = current[index];
-            } else {
-              return null;
-            }
-          } catch (e) {
-            return null;
-          }
-        } else {
-          return null;
-        }
+      // An empty list, or data holding one, shows the empty template.
+      if (_isEmptyList(data) && model.emptyTemplate != null) {
+        return model.emptyTemplate.parse(context) ?? const SizedBox();
       }
-    }
-    if (current == null) {
-      return "null";
-    } else {
-      return current;
+
+      final resultTarget = model.resultTarget ?? '';
+      final dataForTemplate = resultTarget.isNotEmpty
+          ? {resultTarget: data}
+          : data;
+
+      if (_rendered == null || !identical(_renderedFor, body)) {
+        _renderedFor = body;
+        _rendered = _applyDataToTemplate(
+          model.template ?? StacSizedBox(),
+          dataForTemplate,
+          resultTarget,
+        );
+      }
+      return Stac.fromJson(_rendered, context) ?? const SizedBox();
+    } catch (e) {
+      Log.e('Error parsing API response: $e');
+      return model.errorWidget.parse(context) ?? const SizedBox();
     }
   }
 
+  /// Renders [currentTemplate] with [data] without modifying the template.
+  ///
+  /// With an `itemTemplate` on the root and a list, one child is rendered
+  /// per item; each reads its fields by name, and also `$item` and
+  /// `$index`. A root with `items` renders its items itself. Placeholders
+  /// are then resolved against the whole data when it is a map.
   Map<String, dynamic> _applyDataToTemplate(
     StacWidget currentTemplate,
-    dynamic data,
+    Object? data,
     String resultTarget,
   ) {
-    // Deep copy template to avoid modifying the original
-    Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
+    final templateJson =
+        _deepCopy(currentTemplate.toJson()) as Map<String, dynamic>;
 
-    // Check for list processing with itemTemplate
-    if (resolvedTemplateJson.containsKey('itemTemplate')) {
-      dynamic listForIteration;
-      final String itemTemplateKey = 'itemTemplate';
-      // Ensure itemTemplateActual is correctly typed.
-      final itemTemplateActual =
-          resolvedTemplateJson[itemTemplateKey] as Map<String, dynamic>;
-
+    const itemTemplateKey = 'itemTemplate';
+    final itemTemplate = templateJson[itemTemplateKey];
+    if (itemTemplate is Map && !templateJson.containsKey('items')) {
+      List<dynamic>? items;
       if (resultTarget.isNotEmpty &&
           data is Map &&
-          data.containsKey(resultTarget) &&
           data[resultTarget] is List) {
-        listForIteration = data[resultTarget];
+        items = data[resultTarget] as List;
       } else if (resultTarget.isEmpty && data is List) {
-        listForIteration = data;
+        items = data;
       }
 
-      if (listForIteration != null) {
-        // Check if the list is empty
-        if (listForIteration is List && listForIteration.isEmpty) {
-          Log.d(
-            "List for iteration is empty, removing itemTemplate and children",
-          );
-          resolvedTemplateJson.remove(itemTemplateKey);
-          // Clear children or set to empty list
-          resolvedTemplateJson['children'] = [];
-          return resolvedTemplateJson;
+      if (items != null) {
+        templateJson.remove(itemTemplateKey);
+        if (items.isEmpty) {
+          templateJson['children'] = <dynamic>[];
+          return templateJson;
         }
 
-        resolvedTemplateJson.remove(
-          itemTemplateKey,
-        ); // Remove from outer template structure
-        final processedChildItems = <Map<String, dynamic>>[];
-
-        for (final singleRawItem in listForIteration) {
-          // Removed unnecessary cast
-          if (singleRawItem is Map) {
-            final itemSpecificDataContext = resultTarget.isNotEmpty
-                ? {resultTarget: singleRawItem}
-                : singleRawItem;
-
-            final processedChild = _applyDataToItem(
-              itemTemplateActual,
-              itemSpecificDataContext,
-            );
-            processedChildItems.add(processedChild);
-          } else {
-            Log.w("Item in list is not a Map, skipping: $singleRawItem");
-          }
+        final children = <dynamic>[];
+        for (var index = 0; index < items.length; index++) {
+          final item = items[index];
+          final itemData = <String, Object?>{
+            if (resultTarget.isNotEmpty)
+              resultTarget: item
+            else if (item is Map)
+              for (final entry in item.entries)
+                entry.key.toString(): entry.value,
+            r'$item': item,
+            r'$index': index,
+          };
+          children.add(_resolveWithData(itemTemplate, itemData));
         }
 
-        if (!resolvedTemplateJson.containsKey('children')) {
-          resolvedTemplateJson['children'] = [];
-        }
-        if (resolvedTemplateJson['children'] is List) {
-          (resolvedTemplateJson['children'] as List).addAll(
-            processedChildItems,
-          );
+        final existing = templateJson['children'];
+        if (existing is List) {
+          templateJson['children'] = <dynamic>[...existing, ...children];
         } else {
-          Log.w(
-            "Template has 'children' but it's not a List. Overwriting with processed items.",
-          );
-          resolvedTemplateJson['children'] = processedChildItems;
+          if (existing != null) {
+            Log.w(
+              "Template has 'children' but it's not a List. Overwriting with processed items.",
+            );
+          }
+          templateJson['children'] = children;
         }
       } else {
         Log.d(
@@ -231,107 +214,52 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
     }
 
-    // Process the (potentially modified) resolvedTemplate itself for any placeholders
-    // using the original overall dataContext.
     if (data is Map) {
-      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
-      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
-        data,
-      );
-      _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
-    } else {
-      Log.d(
-        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
-      );
+      return _resolveWithData(templateJson, data) as Map<String, dynamic>;
     }
-
-    return resolvedTemplateJson;
+    return templateJson;
   }
 
-  Map<String, dynamic> _applyDataToItem(
-    Map<String, dynamic> template,
-    Map<dynamic, dynamic> item,
-  ) {
-    final result = jsonDecode(jsonEncode(template)) as Map<String, dynamic>;
-
-    // Process each key in the template
-    _processTemplateRecursively(result, item);
-
-    return result;
+  /// Resolves placeholders in [json] with [data] first, then Stac state.
+  ///
+  /// Reading state here makes this view render again when that state
+  /// changes.
+  Object? _resolveWithData(Object? json, Map<dynamic, dynamic> data) {
+    final values = <String, Object?>{
+      for (final entry in data.entries) entry.key.toString(): entry.value,
+    };
+    return stacJsonResolver.resolveTemplate(
+      json,
+      data: StacMapScopeReader(values),
+      scope: StacMapScopeReader(
+        values,
+        parent: StacStateReader.watching(context),
+      ),
+    );
   }
 
-  dynamic _processTemplateRecursively(
-    dynamic template,
-    Map<dynamic, dynamic> data,
-  ) {
-    if (template is Map) {
-      for (final key in template.keys.toList()) {
-        final value = template[key];
-
-        if (value is String) {
-          // Check if the string contains any placeholders
-          if (value.contains('{{') && value.contains('}}')) {
-            // Process multiple placeholders in a single string
-            String processedValue = value;
-            final regex = RegExp(r'\{\{([^}]+)\}\}');
-            final matches = regex.allMatches(value);
-
-            for (final match in matches) {
-              final placeholder = match.group(0)!;
-              final dataKey = match.group(1)!.trim();
-              final keys = dataKey.split('.');
-
-              // Extract the value from the data
-              final dataValue = _extractNestedData(data, keys);
-
-              if (dataValue != null) {
-                processedValue = processedValue.replaceAll(
-                  placeholder,
-                  dataValue.toString(),
-                );
-              }
-            }
-
-            template[key] = processedValue;
-          }
-        } else if (value is Map || value is List) {
-          // Recursively process nested maps and lists
-          _processTemplateRecursively(value, data);
-        }
-      }
-    } else if (template is List) {
-      for (int i = 0; i < template.length; i++) {
-        _processTemplateRecursively(template[i], data);
-      }
+  static Object? _deepCopy(Object? value) {
+    if (value is Map) {
+      return <String, dynamic>{
+        for (final entry in value.entries)
+          entry.key.toString(): _deepCopy(entry.value),
+      };
     }
-    return template;
+    if (value is List) {
+      return <dynamic>[for (final item in value) _deepCopy(item)];
+    }
+    return value;
   }
 
-  /// Helper method to check if the data represents an empty list.
-  /// This method checks various scenarios:
-  /// 1. Direct empty list
-  /// 2. Empty list at the target path (if resultTarget is specified)
-  /// 3. Empty list in nested data structures
-  bool _isEmptyList(dynamic data) {
-    // Direct empty list check
-    if (data is List && data.isEmpty) {
-      return true;
-    }
-
-    // If data is a Map, check if it contains empty lists
+  /// Whether [data] is an empty list or a map holding one at any depth.
+  bool _isEmptyList(Object? data) {
+    if (data is List) return data.isEmpty;
     if (data is Map) {
-      // Check all values in the map for empty lists
       for (final value in data.values) {
-        if (value is List && value.isEmpty) {
-          return true;
-        }
-        // Recursively check nested maps
-        if (value is Map && _isEmptyList(value)) {
-          return true;
-        }
+        if (value is List && value.isEmpty) return true;
+        if (value is Map && _isEmptyList(value)) return true;
       }
     }
-
     return false;
   }
 }

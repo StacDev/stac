@@ -34,6 +34,7 @@ To know more about the AutoComplete widget in Flutter, refer to the [official do
 | optionsMaxHeight         | `double`                       | The maximum height of the options list. Defaults to `200`.                                  |
 | optionsViewOpenDirection | `StacOptionsViewOpenDirection` | The direction in which the options view opens. Defaults to `OptionsViewOpenDirection.down`. |
 | initialValue             | `String`                       | The initial value of the autocomplete field.                                                |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## Example
 
@@ -104,3 +105,24 @@ StacAutoComplete(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+With `bind`, the selected option is written to [state](/concepts/state). The field starts from the bound value but does not follow later changes to it.
+
+<CodeGroup>
+```dart Dart
+StacAutoComplete(
+  bind: 'fruit',
+  options: ['apple', 'apricot', 'banana'],
+)
+```
+
+```json JSON
+{
+  "type": "autocomplete",
+  "bind": "fruit",
+  "options": ["apple", "apricot", "banana"]
+}
+```
+</CodeGroup>

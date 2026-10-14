@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import 'package:stac/src/state/stac_input_binding.dart';
 
 class StacSwitchParser extends StacParser<StacSwitch> {
   const StacSwitchParser();
@@ -27,13 +28,36 @@ class _SwitchWidget extends StatefulWidget {
   State<_SwitchWidget> createState() => _SwitchWidgetState();
 }
 
-class _SwitchWidgetState extends State<_SwitchWidget> {
+class _SwitchWidgetState extends State<_SwitchWidget>
+    with StacBoundInput<_SwitchWidget, bool> {
   bool isSelected = false;
+
+  @override
+  String? get bindPath => widget.model.bind;
+
+  @override
+  bool? get initialValue => widget.model.value;
+
+  @override
+  bool? convertBound(Object? value) =>
+      value is bool ? value : stacIsTruthy(value);
+
+  @override
+  void showBound(bool? value) => isSelected = value ?? false;
 
   @override
   void initState() {
     super.initState();
     isSelected = widget.model.value ?? false;
+  }
+
+  @override
+  void didUpdateWidget(covariant _SwitchWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // A bound value, such as "{{darkMode}}", changed.
+    if (oldWidget.model.value != widget.model.value) {
+      isSelected = widget.model.value ?? false;
+    }
   }
 
   @override
@@ -54,14 +78,15 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
   /// Change the value of the switch as the user toggles it.
   void _onChanged(bool value) {
     isSelected = value;
-    widget.model.onChanged?.parse(context);
+    writeBound(value);
+    widget.model.onChanged.parseWithValue(context, value);
     setState(() {});
   }
 
   Icon? thumbIconWidget(BuildContext context, Map<String, dynamic>? thumbIcon) {
     if (thumbIcon == null) return null;
 
-    final Widget? widget = Stac.fromJson(thumbIcon, context);
+    final Widget? widget = StacService.fromJsonInline(thumbIcon, context);
     if (widget != null && widget is Icon) {
       return widget;
     }
@@ -108,7 +133,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       ),
       trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
       thumbIcon: WidgetStateProperty.all(
-        model.thumbIcon?.parse(context) as Icon?,
+        model.thumbIcon?.parseInline(context) as Icon?,
       ),
       dragStartBehavior:
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,
@@ -144,7 +169,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
       ),
       trackOutlineWidth: WidgetStateProperty.all(model.trackOutlineWidth),
       thumbIcon: WidgetStateProperty.all(
-        model.thumbIcon?.parse(context) as Icon?,
+        model.thumbIcon?.parseInline(context) as Icon?,
       ),
       materialTapTargetSize: model.materialTapTargetSize?.parse,
       dragStartBehavior:

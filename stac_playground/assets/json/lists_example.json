@@ -1,0 +1,118 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": { "type": "text", "data": "Lists" }
+  },
+  "body": {
+    "type": "stateScope",
+    "state": {
+      "todos": [
+        { "id": 1, "title": "Read about state", "done": true },
+        { "id": 2, "title": "Build a list from items", "done": false }
+      ],
+      "nextId": 3,
+      "tags": ["layout", "state", "lists"]
+    },
+    "child": {
+      "type": "padding",
+      "padding": 16,
+      "child": {
+        "type": "column",
+        "crossAxisAlignment": "stretch",
+        "children": [
+          {
+            "type": "row",
+            "children": [
+              {
+                "type": "expanded",
+                "child": {
+                  "type": "textField",
+                  "bind": "draft",
+                  "decoration": { "hintText": "New todo" }
+                }
+              },
+              { "type": "sizedBox", "width": 12 },
+              {
+                "type": "filledButton",
+                "child": { "type": "text", "data": "Add" },
+                "onPressed": {
+                  "actionType": "setValue",
+                  "values": [
+                    {
+                      "path": "todos",
+                      "op": "append",
+                      "value": {
+                        "id": "{{nextId}}",
+                        "title": "{{draft ?? 'Untitled'}}",
+                        "done": false
+                      }
+                    },
+                    { "path": "nextId", "op": "increment" },
+                    { "path": "draft", "value": "" }
+                  ]
+                }
+              }
+            ]
+          },
+          { "type": "sizedBox", "height": 12 },
+          {
+            "type": "wrap",
+            "spacing": 8,
+            "children": [
+              {
+                "type": "forEach",
+                "items": "{{tags}}",
+                "itemTemplate": {
+                  "type": "chip",
+                  "label": { "type": "text", "data": "#{{$item}}" }
+                }
+              }
+            ]
+          },
+          { "type": "sizedBox", "height": 12 },
+          {
+            "type": "text",
+            "data": "{{todos.length}} todos"
+          },
+          {
+            "type": "expanded",
+            "child": {
+              "type": "listView",
+              "items": "{{todos}}",
+              "keyPath": "id",
+              "itemTemplate": {
+                "type": "listTile",
+                "leading": {
+                  "type": "checkBox",
+                  "value": "{{$item.done}}",
+                  "onChanged": {
+                    "actionType": "setValue",
+                    "values": [
+                      { "path": "todos[{{$index}}].done", "value": "{{$value}}" }
+                    ]
+                  }
+                },
+                "title": { "type": "text", "data": "{{$item.title}}" },
+                "trailing": {
+                  "type": "iconButton",
+                  "icon": { "type": "icon", "icon": "delete_outline" },
+                  "onPressed": {
+                    "actionType": "setValue",
+                    "values": [
+                      { "path": "todos", "op": "remove", "value": "{{$item}}" }
+                    ]
+                  }
+                }
+              },
+              "emptyWidget": {
+                "type": "center",
+                "child": { "type": "text", "data": "Nothing to do" }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -25,6 +25,14 @@ StacListView _$StacListViewFromJson(Map<String, dynamic> json) => StacListView(
   children: (json['children'] as List<dynamic>?)
       ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
       .toList(),
+  items: json['items'],
+  itemTemplate: json['itemTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['itemTemplate'] as Map<String, dynamic>),
+  emptyWidget: json['emptyWidget'] == null
+      ? null
+      : StacWidget.fromJson(json['emptyWidget'] as Map<String, dynamic>),
+  keyPath: json['keyPath'] as String?,
   separator: json['separator'] == null
       ? null
       : StacWidget.fromJson(json['separator'] as Map<String, dynamic>),
@@ -54,6 +62,10 @@ Map<String, dynamic> _$StacListViewToJson(StacListView instance) =>
       'addSemanticIndexes': instance.addSemanticIndexes,
       'cacheExtent': const DoubleConverter().toJson(instance.cacheExtent),
       'children': instance.children?.map((e) => e.toJson()).toList(),
+      'items': instance.items,
+      'itemTemplate': instance.itemTemplate?.toJson(),
+      'emptyWidget': instance.emptyWidget?.toJson(),
+      'keyPath': instance.keyPath,
       'separator': instance.separator?.toJson(),
       'semanticChildCount': instance.semanticChildCount,
       'dragStartBehavior':

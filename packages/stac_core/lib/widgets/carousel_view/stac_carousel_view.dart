@@ -84,6 +84,10 @@ class StacCarouselView extends StacWidget {
     this.itemExtent,
     this.flexWeights,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
   });
 
   /// The type of the carousel.
@@ -136,6 +140,20 @@ class StacCarouselView extends StacWidget {
 
   /// The widgets below this widget in the tree.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Widget type identifier.
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:stac/src/parsers/core/stac_widget_parser.dart';
+import 'package:stac/src/parsers/core/stac_children.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -20,11 +20,21 @@ class StacSliverListParser extends StacParser<StacSliverList> {
   /// Builds the Flutter [SliverList] widget.
   @override
   Widget parse(BuildContext context, StacSliverList model) {
-    final children = model.children?.parseList(context) ?? const <Widget>[];
+    final children = StacChildren(
+      context,
+      children: model.children,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      keyPath: model.keyPath,
+    );
+    final empty = children.emptyReplacement(context, model.emptyWidget);
+    if (empty != null) return empty;
 
     return SliverList(
-      delegate: SliverChildListDelegate(
-        children,
+      delegate: SliverChildBuilderDelegate(
+        children.build,
+        childCount: children.length,
+        findChildIndexCallback: children.hasKeys ? children.indexOfKey : null,
         addAutomaticKeepAlives: model.addAutomaticKeepAlives ?? true,
         addRepaintBoundaries: model.addRepaintBoundaries ?? true,
         addSemanticIndexes: model.addSemanticIndexes ?? true,

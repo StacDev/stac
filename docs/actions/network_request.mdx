@@ -16,6 +16,10 @@ The `StacNetworkRequest` class is used to make network requests in Stac applicat
 | contentType     | `String?`                  | The content type of the request.                                                 |
 | body            | `dynamic`                  | The body of the request.                                                         |
 | results         | `List<StacNetworkResult>` | The list of results to handle different status codes. Defaults to an empty list. |
+| saveTo          | `String?`                  | A [state](/concepts/state) path to store the response body at when the request succeeds (status 2xx). |
+| targetPath      | `String?`                  | The part of the body to store with `saveTo`, such as `data.items`. |
+| onSuccess       | `StacAction?`              | Action to run on a 2xx status when no entry of `results` matches. |
+| onError         | `StacAction?`              | Action to run on any other status, or when there is no response, when no entry of `results` matches. |
 
 ### Method
 
@@ -94,3 +98,81 @@ StacNetworkRequest(
 ```
 </CodeGroup>
 
+## Save the Response to State
+
+`saveTo` stores the body of a successful response in [state](/concepts/state), and widgets that read it update. `targetPath` picks part of the body.
+
+<CodeGroup>
+```dart Dart
+StacNetworkRequest(
+  url: 'https://api.example.com/me',
+  saveTo: 'user',
+  targetPath: 'data',
+)
+```
+
+```json JSON
+{
+  "actionType": "networkRequest",
+  "url": "https://api.example.com/me",
+  "method": "get",
+  "saveTo": "user",
+  "targetPath": "data"
+}
+```
+</CodeGroup>
+
+A text such as `{{user.name}}` then shows the loaded name.
+
+To load data when a screen opens rather than on a tap, use a [Data Provider](/widgets/data_provider). It also tracks loading and errors, and a [`refetch`](/actions/refetch) action loads it again.
+
+## Handle Success and Errors
+
+`onSuccess` runs for a 2xx status and `onError` for anything else, including a failed connection, unless an entry of `results` matches the status code. Both can read the response as `$result`:
+
+| Field | Value |
+|-------|-------|
+| `$result.status` | The status code, or `null` without a response |
+| `$result.ok` | Whether the status is 2xx |
+| `$result.body` | The response body, decoded from JSON when possible |
+| `$result.headers` | The response headers |
+| `$result.error` | Why there was no response, when there was none |
+
+<CodeGroup>
+```dart Dart
+StacNetworkRequest(
+  url: 'https://api.example.com/orders',
+  method: Method.post,
+  body: {'items': '{{cart}}'},
+  onSuccess: StacNavigator.pushStac('order_confirmed'),
+  onError: StacSnackBar(
+    content: StacText(
+      data: 'Could not order: {{\$result.body.message ?? \$result.error}}',
+    ).toJson(),
+  ),
+)
+```
+
+```json JSON
+{
+  "actionType": "networkRequest",
+  "url": "https://api.example.com/orders",
+  "method": "post",
+  "body": { "items": "{{cart}}" },
+  "onSuccess": {
+    "actionType": "navigate",
+    "routeName": "order_confirmed",
+    "navigationStyle": "push"
+  },
+  "onError": {
+    "actionType": "showSnackBar",
+    "content": {
+      "type": "text",
+      "data": "Could not order: {{$result.body.message ?? $result.error}}"
+    }
+  }
+}
+```
+</CodeGroup>
+
+The URL, headers, query parameters and body can contain [expressions](/concepts/expressions), evaluated when the request is sent. A body value that is a single placeholder keeps its type, so `"{{cart}}"` sends a list.

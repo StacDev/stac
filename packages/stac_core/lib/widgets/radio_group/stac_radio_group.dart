@@ -48,7 +48,13 @@ part 'stac_radio_group.g.dart';
 @JsonSerializable()
 class StacRadioGroup extends StacWidget {
   /// Creates a [StacRadioGroup].
-  const StacRadioGroup({this.id, this.groupValue, this.child, this.onChanged});
+  const StacRadioGroup({
+    this.id,
+    this.groupValue,
+    this.child,
+    this.onChanged,
+    this.bind,
+  });
 
   /// The identifier under which the selected value will be saved in a [StacFormScope]'s form data.
   final String? id;
@@ -61,6 +67,14 @@ class StacRadioGroup extends StacWidget {
 
   /// The function to call when the group value changes.
   final StacAction? onChanged;
+
+  /// The state path this input reads its value from and writes changes to,
+  /// such as `query`, `$app.settings.darkMode` or `$form.email`.
+  ///
+  /// The input shows the value at the path and updates it as the user
+  /// changes the input. When the path has no value yet and the input has an
+  /// initial value, the input writes that value to the path.
+  final String? bind;
 
   /// Widget type identifier.
   @override

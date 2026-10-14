@@ -83,7 +83,7 @@ StacWidget conditionalExample() {
             ),
           ),
           StacConditional(
-            condition: 'Flutter == Flutter',
+            condition: "'Flutter' == 'Flutter'",
             ifTrue: StacContainer(
               padding: StacEdgeInsets.all(16),
               decoration: StacBoxDecoration(

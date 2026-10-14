@@ -76,6 +76,7 @@ To know more about the Radio widget in Flutter, refer to the [official documenta
 | id         | `String`               | The id will be used to save the selected value of radio.   |
 | groupValue | `String`               | The currently selected value for a group of radio buttons. |
 | child      | `StacWidget`           | The child of radioGroup.                                   |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## Radio Properties
 
@@ -251,3 +252,36 @@ StacRadioGroup(
   </Tab>
 </Tabs>
 
+## Bind to State
+
+With `bind`, the radio group shows the selected value from [state](/concepts/state) and updates it when another option is chosen.
+
+<CodeGroup>
+```dart Dart
+StacRadioGroup(
+  bind: 'size',
+  child: StacRow(
+    children: [
+      StacRadio(value: 's'),
+      StacRadio(value: 'm'),
+      StacRadio(value: 'l'),
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "radioGroup",
+  "bind": "size",
+  "child": {
+    "type": "row",
+    "children": [
+      { "type": "radio", "value": "s" },
+      { "type": "radio", "value": "m" },
+      { "type": "radio", "value": "l" }
+    ]
+  }
+}
+```
+</CodeGroup>

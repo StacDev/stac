@@ -62,6 +62,10 @@ StacDropdownMenu _$StacDropdownMenuFromJson(
     _$StacDropdownMenuCloseBehaviorEnumMap,
     json['closeBehavior'],
   ),
+  onSelected: json['onSelected'] == null
+      ? null
+      : StacAction.fromJson(json['onSelected'] as Map<String, dynamic>),
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacDropdownMenuToJson(
@@ -93,6 +97,8 @@ Map<String, dynamic> _$StacDropdownMenuToJson(
       .toList(),
   'closeBehavior':
       _$StacDropdownMenuCloseBehaviorEnumMap[instance.closeBehavior],
+  'onSelected': instance.onSelected?.toJson(),
+  'bind': instance.bind,
   'type': instance.type,
 };
 

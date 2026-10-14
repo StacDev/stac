@@ -51,6 +51,7 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
 | cursorHeight       | `double`                    | The height of the cursor.                                                      |
 | cursorColor        | `StacColor`                 | The color of the cursor.                                                       |
 | hintText           | `String`                    | The hint text to display when the text field is empty.                         |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## StacInputDecoration
 
@@ -129,3 +130,28 @@ StacTextField(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+With `bind`, the field shows a [state](/concepts/state) value and updates it as the user types, so other widgets can show it live. A change to the value from elsewhere updates the field.
+
+<CodeGroup>
+```dart Dart
+StacColumn(
+  children: [
+    StacTextField(bind: 'query'),
+    StacText(data: 'Searching for {{query}}'),
+  ],
+)
+```
+
+```json JSON
+{
+  "type": "column",
+  "children": [
+    { "type": "textField", "bind": "query" },
+    { "type": "text", "data": "Searching for {{query}}" }
+  ]
+}
+```
+</CodeGroup>

@@ -22,6 +22,10 @@ export const dynamicViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
 
 The `dynamicView` widget allows you to fetch data from an API and render it using a template. This powerful feature enables dynamic content rendering based on remote data sources, making it perfect for creating data-driven UIs without writing custom code.
 
+<Tip>
+For new screens, use a [Data Provider](/widgets/data_provider) with a list's [`items`](/concepts/state#lists). The data becomes state that any widget inside the provider can read, a [`refetch`](/actions/refetch) action loads it again, and changing one item rebuilds only that item. `dynamicView` keeps working as described here.
+</Tip>
+
 ## Features
 
 - Fetch data from any REST API endpoint
@@ -117,6 +121,7 @@ Use double curly braces `{{placeholder}}` to insert data from the API response i
 - For nested data, use dot notation: `{{user.address.city}}`
 - For array elements, use index notation: `{{users[0].name}}` or combined path: `{{items.0.title}}`
 - For array elements within objects, use combined notation: `{{data.users[2].profile.name}}`
+- Placeholders can be full [expressions](/concepts/expressions), such as `{{price * qty}}` or `{{nickname ?? name}}`, and can read app variables as well as item data
 
 ## Examples
 
@@ -253,7 +258,7 @@ StacDynamicView(
 
 ### List Example with itemTemplate
 
-When the API returns a list of items, use the `itemTemplate` property to define how each item should be rendered:
+When the API returns a list of items, use the `itemTemplate` property to define how each item should be rendered. Inside it, an item's fields are read by name, the whole item as `$item` and its position as `$index`, so lists of plain values work too, as in `{{$index + 1}}. {{$item}}`:
 
 <CodeGroup>
 ```dart Dart
@@ -666,4 +671,5 @@ StacDynamicView(
 - For very large datasets, consider pagination or limiting the number of items to avoid performance issues
 - Complex data transformations may require custom code outside of the template system
 - Nested array access in placeholder syntax is limited to the formats shown in the examples
+- A `dynamicView` cannot be loaded again on demand. Use a [Data Provider](/widgets/data_provider) with [`refetch`](/actions/refetch) for pull-to-refresh and retry buttons
 

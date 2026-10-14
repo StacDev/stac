@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:stac/src/parsers/core/stac_children.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
@@ -25,6 +26,16 @@ class StacListViewParser extends StacParser<StacListView> {
 
   @override
   Widget parse(BuildContext context, StacListView model) {
+    final children = StacChildren(
+      context,
+      children: model.children,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      keyPath: model.keyPath,
+    );
+    final empty = children.emptyReplacement(context, model.emptyWidget);
+    if (empty != null) return empty;
+
     return ListView.separated(
       scrollDirection: model.scrollDirection?.parse ?? Axis.vertical,
       reverse: model.reverse ?? false,
@@ -46,13 +57,9 @@ class StacListViewParser extends StacParser<StacListView> {
           ScrollViewKeyboardDismissBehavior.manual,
       restorationId: model.restorationId,
       clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
-      itemCount: model.children?.length ?? 0,
-      itemBuilder: (context, index) {
-        if (model.children == null || model.children!.isEmpty) {
-          return const SizedBox();
-        }
-        return model.children![index].parse(context);
-      },
+      itemCount: children.length,
+      itemBuilder: children.build,
+      findItemIndexCallback: children.hasKeys ? children.indexOfKey : null,
       separatorBuilder: (context, _) =>
           model.separator.parse(context) ?? const SizedBox(),
     );

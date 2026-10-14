@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/expressions/stac_expression_runtime.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/state/stac_state_reader.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
 
 class StacNetworkService {
@@ -10,10 +12,14 @@ class StacNetworkService {
 
   static void initialize(Dio dio) => _dio = dio;
 
+  /// Sends [request]. Placeholders in its URL, headers, query and body are
+  /// resolved first, unless [resolve] is false because they already are.
   static Future<Response?> request(
     BuildContext context,
-    StacNetworkRequest request,
-  ) async {
+    StacNetworkRequest request, {
+    bool resolve = true,
+  }) async {
+    if (resolve) request = _resolve(context, request);
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
     );
@@ -30,6 +36,20 @@ class StacNetworkService {
       case Method.delete:
         return deleteRequest(request);
     }
+  }
+
+  /// Resolves placeholders in the URL, headers, query and body with the
+  /// values current when the request is sent.
+  static StacNetworkRequest _resolve(
+    BuildContext context,
+    StacNetworkRequest request,
+  ) {
+    final json = request.toJson();
+    final resolved = stacJsonResolver.resolveAction(
+      json,
+      StacStateReader.forAction(context),
+    );
+    return StacNetworkRequest.fromJson(resolved);
   }
 
   static Future<Response?> getRequest(StacNetworkRequest request) async {

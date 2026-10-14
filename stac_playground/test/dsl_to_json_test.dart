@@ -65,6 +65,29 @@ void main() {
     expect(problems, isEmpty, reason: problems.join('\n'));
   });
 
+  test('typed actions carry their actionType', () {
+    const source = '''
+import 'package:stac_core/stac_core.dart';
+
+@StacScreen(screenName: 'demo')
+StacWidget demo() {
+  return StacElevatedButton(
+    child: StacText(data: 'Add'),
+    onPressed: StacSetValueAction(
+      values: [
+        {'path': 'count', 'op': 'increment'},
+      ],
+      action: StacRefetchAction(id: 'feed'),
+    ),
+  );
+}
+''';
+    final json = dslToJson(source);
+    final action = json['onPressed'] as Map<String, dynamic>;
+    expect(action['actionType'], 'setValue');
+    expect((action['action'] as Map)['actionType'], 'refetch');
+  });
+
   test('examples that round-trip exactly keep doing so', () {
     // These DSL files reproduce their JSON asset byte-for-byte (structurally),
     // so they're the tightest correctness gate on the parser. The rest differ

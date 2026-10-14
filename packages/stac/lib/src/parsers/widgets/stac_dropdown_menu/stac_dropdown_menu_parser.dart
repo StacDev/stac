@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_offset_parser.dart';
@@ -8,6 +9,7 @@ import 'package:stac/src/parsers/foundation/text/stac_text_input_type_parser.dar
 import 'package:stac/src/parsers/foundation/text/stac_text_style_parser.dart';
 import 'package:stac/src/parsers/foundation/theme/stac_input_decoration_theme_parser.dart';
 import 'package:stac/src/parsers/foundation/ui_components/stac_dropdown_menu_entry_parser.dart';
+import 'package:stac/src/state/stac_input_binding.dart';
 import 'package:stac/src/utils/input_formatters.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -37,21 +39,58 @@ class _DropDownMenuWidget extends StatefulWidget {
   State<_DropDownMenuWidget> createState() => _DropDownMenuWidgetState();
 }
 
-class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
+class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
+    with StacBoundInput<_DropDownMenuWidget, Object> {
   final TextEditingController _controller = TextEditingController();
   final _focusNode = FocusNode();
-  late final StacDropdownMenu model;
+  Object? _selection;
+
+  @override
+  String? get bindPath => widget.model.bind;
+
+  @override
+  Object? get initialValue => widget.model.initialSelection;
+
+  @override
+  Object? convertBound(Object? value) => value;
+
+  @override
+  void showBound(Object? value) => _selection = value;
 
   @override
   void initState() {
-    model = widget.model;
     super.initState();
+    _selection = widget.model.initialSelection;
+  }
+
+  @override
+  void didUpdateWidget(covariant _DropDownMenuWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (binding == null &&
+        oldWidget.model.initialSelection != widget.model.initialSelection) {
+      _selection = widget.model.initialSelection;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _onSelected(Object? value) {
+    setState(() => _selection = value);
+    writeBound(value);
+    widget.model.onSelected.parseWithValue(context, value);
   }
 
   @override
   Widget build(BuildContext context) {
+    final model = widget.model;
     return DropdownMenu(
-      initialSelection: model.initialSelection,
+      initialSelection: _selection,
+      onSelected: _onSelected,
       focusNode: _focusNode,
       controller: _controller,
       dropdownMenuEntries:

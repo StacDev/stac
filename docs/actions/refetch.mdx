@@ -1,0 +1,58 @@
+---
+title: "Refetch"
+description: "Documentation for Refetch"
+---
+
+The `StacRefetchAction` sends the request of a [Data Provider](/widgets/data_provider) again. The action completes when the response has been handled, so a `refreshIndicator` keeps spinning until the new data is shown.
+
+The provider is found by its `id`:
+
+1. The nearest provider with that `id` that encloses the action, including from a dialog opened inside it.
+2. Otherwise, every provider with that `id` on the same screen.
+3. Otherwise, every provider with that `id` that is showing, for example on the screen below the current one.
+
+## Properties
+
+| Property | Type     | Description |
+|----------|----------|-------------|
+| id       | `String` | The `id` of the data provider to load again. |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacRefreshIndicator(
+  onRefresh: StacRefetchAction(id: 'movies'),
+  child: StacListView(
+    items: '{{movies.data}}',
+    itemTemplate: StacText(data: '{{\$item.title}}'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "refreshIndicator",
+  "onRefresh": { "actionType": "refetch", "id": "movies" },
+  "child": {
+    "type": "listView",
+    "items": "{{movies.data}}",
+    "itemTemplate": { "type": "text", "data": "{{$item.title}}" }
+  }
+}
+```
+</CodeGroup>
+
+## Refresh After a Change
+
+Refetch after a request that changes the data on the server:
+
+```json
+{
+  "actionType": "networkRequest",
+  "url": "https://api.example.com/todos",
+  "method": "post",
+  "body": { "title": "{{draft}}" },
+  "onSuccess": { "actionType": "refetch", "id": "todos" }
+}
+```

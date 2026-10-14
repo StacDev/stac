@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:stac/src/state/stac_state_writer.dart';
 import 'package:stac/stac.dart';
 
 class StacSetValueActionParser extends StacActionParser<StacSetValueAction> {
@@ -14,13 +15,8 @@ class StacSetValueActionParser extends StacActionParser<StacSetValueAction> {
       StacSetValueAction.fromJson(json);
 
   @override
-  FutureOr<dynamic> onCall(
-    BuildContext context,
-    StacSetValueAction model,
-  ) async {
-    for (final value in model.values ?? []) {
-      StacRegistry.instance.setValue(value['key'] as String, value['value']);
-    }
+  FutureOr<dynamic> onCall(BuildContext context, StacSetValueAction model) {
+    StacStateWriter.apply(context, model.values);
     return model.action.parse(context);
   }
 }

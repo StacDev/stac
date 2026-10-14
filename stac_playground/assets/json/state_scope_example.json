@@ -1,0 +1,69 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": { "type": "text", "data": "State Scope" }
+  },
+  "body": {
+    "type": "stateScope",
+    "state": { "count": 0, "liked": false },
+    "child": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "mainAxisAlignment": "center",
+        "children": [
+          { "type": "text", "data": "Count: {{count}}" },
+          { "type": "sizedBox", "height": 12 },
+          {
+            "type": "row",
+            "mainAxisAlignment": "center",
+            "children": [
+              {
+                "type": "outlinedButton",
+                "child": { "type": "text", "data": "Remove" },
+                "onPressed": {
+                  "actionType": "setValue",
+                  "values": [{ "path": "count", "op": "decrement" }]
+                }
+              },
+              { "type": "sizedBox", "width": 12 },
+              {
+                "type": "filledButton",
+                "child": { "type": "text", "data": "Add" },
+                "onPressed": {
+                  "actionType": "setValue",
+                  "values": [{ "path": "count", "op": "increment" }]
+                }
+              }
+            ]
+          },
+          { "type": "sizedBox", "height": 24 },
+          {
+            "type": "conditional",
+            "condition": "count >= 5",
+            "ifTrue": { "type": "text", "data": "High five!" },
+            "ifFalse": { "type": "text", "data": "{{5 - count}} more to go" }
+          },
+          { "type": "sizedBox", "height": 24 },
+          {
+            "type": "switch",
+            "value": false,
+            "onChanged": {
+              "actionType": "setValue",
+              "values": [{ "path": "liked", "value": "{{$value}}" }]
+            }
+          },
+          { "type": "text", "data": "{{liked ? 'Liked' : 'Not liked yet'}}" },
+          { "type": "sizedBox", "height": 24 },
+          {
+            "type": "sizedBox",
+            "width": 240,
+            "child": { "type": "textField", "bind": "name" }
+          },
+          { "type": "text", "data": "Hello {{name ?? 'there'}}" }
+        ]
+      }
+    }
+  }
+}

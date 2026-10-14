@@ -3,18 +3,35 @@ title: "Set Value Action"
 description: "Documentation for Set Value Action"
 ---
 
-The `StacSetValueAction` allows you to set or update values in the application state. It's useful for updating state in response to user interactions like button presses.
+The `StacSetValueAction` sets or updates [state](/concepts/state) in response to user interactions like button presses. Widgets that read a value it changes rebuild.
 
 ## Properties
 
 | Property | Type                          | Description                                                      |
 |----------|-------------------------------|------------------------------------------------------------------|
-| values   | `List<Map<String, dynamic>>`  | List of key-value pairs to write to the application state.       |
+| values   | `List<Map<String, dynamic>>`  | The changes to make, applied in order.                           |
 | action   | `StacAction`                  | Optional action to execute after the values are set.             |
 
-Each item in `values` should contain:
-- `key`: The state key to set
-- `value`: The value to assign
+Each item in `values` contains:
+
+| Field   | Description |
+|---------|-------------|
+| `path`  | Where to write, such as `count`, `user.name`, `items[0]` or `$app.theme`. A plain path writes to the nearest level that already has its first name (a [`stateScope`](/widgets/state_scope), the screen, then the app), and otherwise to the screen. Start with `$screen` or `$app` to choose the level. |
+| `key`   | The original form of `path`: the whole string is the variable's name, even if it contains dots, and it is written to the app unless a nearer level already has it. Use `path` or `key`, not both. |
+| `op`    | How to combine `value` with what is stored. Defaults to `set`. |
+| `value` | The value to use. It can be an [expression](/concepts/expressions), such as `"{{count + 1}}"`. |
+
+| `op` | Effect |
+|------|--------|
+| `set` | Stores `value`. `null` removes the value. |
+| `toggle` | Flips a boolean. |
+| `increment`, `decrement` | Adds or subtracts `value`, or 1. |
+| `append` | Adds `value` to the end of a list. |
+| `remove` | Removes every list item equal to `value`. |
+| `merge` | Copies the keys of `value` into a map. |
+| `delete` | Removes the value. |
+
+Values are evaluated when the action runs, one entry at a time, so an entry can read the entries written before it. A value that is a single placeholder keeps its type: `"{{count + 1}}"` stores a number and `"{{!isDarkMode}}"` stores a boolean.
 
 ## Example
 
@@ -52,7 +69,7 @@ StacElevatedButton(
   child: StacText(data: 'Toggle Dark Mode'),
   onPressed: StacSetValueAction(
     values: [
-      {'key': 'isDarkMode', 'value': true},
+      {'path': '\$app.isDarkMode', 'op': 'toggle'},
     ],
   ),
 )
@@ -65,9 +82,62 @@ StacElevatedButton(
   "onPressed": {
     "actionType": "setValue",
     "values": [
-      { "key": "isDarkMode", "value": true }
+      { "path": "$app.isDarkMode", "op": "toggle" }
     ]
   }
+}
+```
+</CodeGroup>
+
+## Increment a Counter
+
+`increment` starts from 0 when `count` is not set yet. Any text that reads `{{count}}` updates on each tap:
+
+<CodeGroup>
+```dart Dart
+StacElevatedButton(
+  child: StacText(data: 'Add'),
+  onPressed: StacSetValueAction(
+    values: [
+      {'path': 'count', 'op': 'increment'},
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "elevatedButton",
+  "child": { "type": "text", "data": "Add" },
+  "onPressed": {
+    "actionType": "setValue",
+    "values": [
+      { "path": "count", "op": "increment" }
+    ]
+  }
+}
+```
+</CodeGroup>
+
+## Add to a List
+
+<CodeGroup>
+```dart Dart
+StacSetValueAction(
+  values: [
+    {'path': 'cart', 'op': 'append', 'value': '{{product}}'},
+    {'path': 'cartCount', 'value': '{{cart.length}}'},
+  ],
+)
+```
+
+```json JSON
+{
+  "actionType": "setValue",
+  "values": [
+    { "path": "cart", "op": "append", "value": "{{product}}" },
+    { "path": "cartCount", "value": "{{cart.length}}" }
+  ]
 }
 ```
 </CodeGroup>
@@ -115,6 +185,8 @@ StacElevatedButton(
 
 ## Chaining with Network Request
 
+Set a loading flag, send the request, store its body and clear the flag whichever way it ends:
+
 <CodeGroup>
 ```dart Dart
 StacMultiAction(
@@ -122,23 +194,24 @@ StacMultiAction(
   actions: [
     StacSetValueAction(
       values: [
-        {'key': 'isLoading', 'value': true},
+        {'path': 'isLoading', 'value': true},
       ],
     ),
     StacNetworkRequest(
       url: 'https://api.example.com/data',
       method: Method.get,
-      results: [
-        StacNetworkResult(
-          statusCode: 200,
-          action: StacSetValueAction(
-            values: [
-              {'key': 'isLoading', 'value': false},
-              {'key': 'data', 'value': '{{response}}'},
-            ],
-          ),
-        ),
-      ],
+      saveTo: 'data',
+      onSuccess: StacSetValueAction(
+        values: [
+          {'path': 'isLoading', 'value': false},
+        ],
+      ),
+      onError: StacSetValueAction(
+        values: [
+          {'path': 'isLoading', 'value': false},
+          {'path': 'error', 'value': '{{\$result.status}}'},
+        ],
+      ),
     ),
   ],
 )
@@ -152,31 +225,35 @@ StacMultiAction(
     {
       "actionType": "setValue",
       "values": [
-        { "key": "isLoading", "value": true }
+        { "path": "isLoading", "value": true }
       ]
     },
     {
       "actionType": "networkRequest",
       "url": "https://api.example.com/data",
       "method": "get",
-      "results": [
-        {
-          "statusCode": 200,
-          "action": {
-            "actionType": "setValue",
-            "values": [
-              { "key": "isLoading", "value": false },
-              { "key": "data", "value": "{{response}}" }
-            ]
-          }
-        }
-      ]
+      "saveTo": "data",
+      "onSuccess": {
+        "actionType": "setValue",
+        "values": [
+          { "path": "isLoading", "value": false }
+        ]
+      },
+      "onError": {
+        "actionType": "setValue",
+        "values": [
+          { "path": "isLoading", "value": false },
+          { "path": "error", "value": "{{$result.status}}" }
+        ]
+      }
     }
   ]
 }
 ```
 </CodeGroup>
 
+Result actions can read the response as `$result`, and `saveTo` stores the body in state. To show fetched data, a [Data Provider](/widgets/data_provider) is simpler. See [Loading data](/concepts/state#loading-data).
+
 <Note>
-For setting initial state when a screen loads (without an action trigger), use the [StacSetValue widget](/widgets/set_value) instead.
+To declare state when a screen or part of it loads, use a [State Scope](/widgets/state_scope).
 </Note>

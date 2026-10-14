@@ -25,21 +25,35 @@ class BuildCommand extends BaseCommand {
 
     argParser.addFlag(
       'validate',
-      help: 'Validate generated JSON (enabled by default)',
+      help:
+          'Check {{ }} expressions and conditions in the generated JSON '
+          '(enabled by default)',
       defaultsTo: true,
+    );
+
+    argParser.addFlag(
+      'strict',
+      help: 'Fail the build when an expression or condition is invalid',
+      negatable: false,
     );
   }
 
   @override
   Future<int> execute() async {
     final projectPath = argResults?['project'] as String?;
+    final validate = argResults?['validate'] as bool? ?? true;
+    final strict = argResults?['strict'] as bool? ?? false;
 
     if (verbose) {
       ConsoleLogger.debug('Starting build process...');
     }
 
     try {
-      await _buildService.build(projectPath: projectPath);
+      await _buildService.build(
+        projectPath: projectPath,
+        validate: validate,
+        strict: strict,
+      );
       return 0;
     } catch (e) {
       ConsoleLogger.error('Build failed: $e');

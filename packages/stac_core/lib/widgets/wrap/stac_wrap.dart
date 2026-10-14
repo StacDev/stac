@@ -55,6 +55,10 @@ class StacWrap extends StacWidget {
     this.verticalDirection,
     this.clipBehavior,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
   });
 
   /// The direction to lay out the children.
@@ -100,6 +104,20 @@ class StacWrap extends StacWidget {
 
   /// The widgets below this widget in the tree.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Widget type identifier.
   @override

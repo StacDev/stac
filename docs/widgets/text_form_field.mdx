@@ -80,6 +80,7 @@ To know more about the TextFormField widget in Flutter, refer to the [official d
 | autovalidateMode              | `StacAutovalidateMode`          | The mode to use for autovalidation.                                                                                                                |
 | inputFormatters               | `List<StacInputFormatter>`      | The list of input formatters to apply to the text. Defaults to an empty list.                                                                      |
 | validatorRules                | `List<StacFormFieldValidator>`  | The list of validator rules to apply to the text. Defaults to an empty list.                                                                       |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## StacInputDecoration
 
@@ -265,3 +266,33 @@ StacTextFormField(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+Inside a [form](/widgets/form), a field with an `id` is bound to `$form.<id>`, so `{{$form.email}}` shows what the user typed. Add `bind` to also keep another [state](/concepts/state) value up to date.
+
+<CodeGroup>
+```dart Dart
+StacForm(
+  child: StacColumn(
+    children: [
+      StacTextFormField(id: 'email'),
+      StacText(data: 'Sending to {{\$form.email}}'),
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "form",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "textFormField", "id": "email" },
+      { "type": "text", "data": "Sending to {{$form.email}}" }
+    ]
+  }
+}
+```
+</CodeGroup>

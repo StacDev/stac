@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:path/path.dart' as path;
 import 'package:stac_cli/src/utils/string_utils.dart';
 import 'package:stac_core/core/stac_options.dart';
+import 'package:stac_core/expressions/expressions.dart';
 
 import '../exceptions/build_exception.dart';
 import '../models/stac_dsl_artifact.dart';
@@ -12,8 +13,17 @@ import '../utils/file_utils.dart';
 
 /// Service for building Dart widget definitions to JSON for Stac SDUI
 class BuildService {
-  /// Build the project from Dart to JSON using analyzer + isolate execution
-  Future<void> build({String? projectPath}) async {
+  /// Build the project from Dart to JSON using analyzer + isolate execution.
+  ///
+  /// When [validate] is true, every `{{ }}` expression and `conditional`
+  /// condition in the generated JSON is checked for syntax errors and each
+  /// problem is printed as a warning. With [strict], a screen or theme with
+  /// problems fails the build.
+  Future<void> build({
+    String? projectPath,
+    bool validate = true,
+    bool strict = false,
+  }) async {
     // Determine project root (directory containing pubspec.yaml)
     final projectDir =
         projectPath ?? _findProjectRoot() ?? Directory.current.path;
@@ -88,6 +98,8 @@ class BuildService {
             artifacts: stacScreenArtifacts,
             outputDir: screensOutputDir,
             generatedResults: generatedResults,
+            validate: validate,
+            strict: strict,
             onSuccess: () => functionsProcessed++,
             onFailure: () {
               functionsFailed++;
@@ -108,6 +120,8 @@ class BuildService {
             artifacts: stacThemeArtifacts,
             outputDir: themesOutputDir,
             generatedResults: generatedResults,
+            validate: validate,
+            strict: strict,
             onSuccess: () => themesProcessed++,
             onFailure: () {
               themesFailed++;
@@ -478,6 +492,8 @@ Future<void> main(List<String> args) async {
     required List<StacDslArtifact> artifacts,
     required String outputDir,
     required Map<String, Map<String, dynamic>> generatedResults,
+    required bool validate,
+    required bool strict,
     required void Function() onSuccess,
     required void Function() onFailure,
   }) async {
@@ -495,6 +511,13 @@ Future<void> main(List<String> args) async {
         if (cleaned == null) continue;
 
         final fileName = artifact.artifactName;
+        if (validate) {
+          _reportExpressionIssues(
+            validateStacExpressions(cleaned),
+            label: '${artifact.logLabel} $fileName ($relativePath)',
+            strict: strict,
+          );
+        }
         final outputFilePath = path.join(outputDir, '$fileName.json');
         final jsonString = const JsonEncoder.withIndent('  ').convert(cleaned);
         await FileUtils.writeFile(outputFilePath, jsonString);
@@ -587,6 +610,25 @@ Future<void> main(List<String> args) async {
     } catch (e) {
       ConsoleLogger.debug('Error executing script: $e');
       rethrow;
+    }
+  }
+
+  /// Prints each expression problem as a warning. With [strict], throws a
+  /// [BuildException] when there is at least one.
+  void _reportExpressionIssues(
+    List<StacExpressionIssue> issues, {
+    required String label,
+    required bool strict,
+  }) {
+    if (issues.isEmpty) return;
+    for (final issue in issues) {
+      ConsoleLogger.warning('$label: $issue');
+    }
+    if (strict) {
+      throw BuildException(
+        '${issues.length} invalid expression(s) in $label '
+        '(failing because of --strict)',
+      );
     }
   }
 

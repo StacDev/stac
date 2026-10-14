@@ -72,6 +72,8 @@ the [official documentation](https://api.flutter.dev/flutter/material/DropdownMe
 | enableSearch         | `bool`                          | Whether to enable search. Defaults to `true`.             |
 | requestFocusOnTap    | `bool`                          | Whether to request focus on tap. Defaults to `true`.      |
 | inputFormatters      | `List<StacInputFormatter>`      | Input formatters for editable dropdown text. Supports `allow`, `deny`, and `mask`. |
+| onSelected | `StacAction` | Action to run when an entry is selected. It can read the entry's value as `$value`. |
+| bind | `String` | A [state](/concepts/state) path the input reads its value from and writes changes to, such as `query` or `$app.settings.darkMode`. |
 
 ## DropdownMenuEntry
 
@@ -203,3 +205,37 @@ StacDropdownMenu(
     </Frame>
   </Tab>
 </Tabs>
+
+## Bind to State
+
+With `bind`, the menu shows the selected value from [state](/concepts/state) and updates it when an entry is chosen. `onSelected` runs afterwards and can read the value as `$value`.
+
+<CodeGroup>
+```dart Dart
+StacDropdownMenu(
+  bind: 'country',
+  dropdownMenuEntries: [
+    StacDropdownMenuEntry(value: 'in', label: 'India'),
+    StacDropdownMenuEntry(value: 'us', label: 'United States'),
+  ],
+  onSelected: StacSnackBar(
+    content: StacText(data: 'Selected {{\$value}}').toJson(),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "dropdownMenu",
+  "bind": "country",
+  "dropdownMenuEntries": [
+    { "value": "in", "label": "India" },
+    { "value": "us", "label": "United States" }
+  ],
+  "onSelected": {
+    "actionType": "showSnackBar",
+    "content": { "type": "text", "data": "Selected {{$value}}" }
+  }
+}
+```
+</CodeGroup>

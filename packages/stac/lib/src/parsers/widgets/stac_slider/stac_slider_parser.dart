@@ -7,6 +7,7 @@ import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
+import 'package:stac/src/state/stac_input_binding.dart';
 
 class StacSliderParser extends StacParser<StacSlider> {
   const StacSliderParser();
@@ -19,7 +20,7 @@ class StacSliderParser extends StacParser<StacSlider> {
 
   @override
   Widget parse(BuildContext context, StacSlider model) {
-    return _StacSlider(model, StacFormScope.of(context));
+    return _StacSlider(model, StacFormScope.maybeOf(context));
   }
 }
 
@@ -33,8 +34,24 @@ class _StacSlider extends StatefulWidget {
   State<_StacSlider> createState() => __StacSliderState();
 }
 
-class __StacSliderState extends State<_StacSlider> {
+class __StacSliderState extends State<_StacSlider>
+    with StacBoundInput<_StacSlider, double> {
   late double selectedValue;
+
+  @override
+  String? get bindPath => widget.model.bind;
+
+  @override
+  String? get formFieldId => widget.model.id;
+
+  @override
+  double? get initialValue => widget.model.value;
+
+  @override
+  double? convertBound(Object? value) => stacToNum(value)?.toDouble();
+
+  @override
+  void showBound(double? value) => selectedValue = value ?? widget.model.value;
 
   @override
   void initState() {
@@ -45,22 +62,35 @@ class __StacSliderState extends State<_StacSlider> {
     super.initState();
   }
 
+  @override
+  void didUpdateWidget(covariant _StacSlider oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // A bound value, such as "{{volume}}", changed.
+    if (oldWidget.model.value != widget.model.value) {
+      selectedValue = widget.model.value;
+      if (widget.model.id != null) {
+        widget.formScope?.formData[widget.model.id!] = selectedValue;
+      }
+    }
+  }
+
   void _onChanged(double value) {
     selectedValue = value;
     if (widget.model.id != null) {
       widget.formScope?.formData[widget.model.id!] = value;
     }
-    widget.model.onChanged?.parse(context);
+    writeBound(value);
+    widget.model.onChanged.parseWithValue(context, value);
 
     setState(() {});
   }
 
   void _onChangeStart(double value) {
-    widget.model.onChangeStart?.parse(context);
+    widget.model.onChangeStart.parseWithValue(context, value);
   }
 
   void _onChangeEnd(double value) {
-    widget.model.onChangeEnd?.parse(context);
+    widget.model.onChangeEnd.parseWithValue(context, value);
   }
 
   @override

@@ -66,6 +66,10 @@ class StacGridView extends StacWidget {
     this.addSemanticIndexes,
     this.cacheExtent,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
     this.semanticChildCount,
     this.dragStartBehavior,
     this.keyboardDismissBehavior,
@@ -137,6 +141,20 @@ class StacGridView extends StacWidget {
 
   /// The widgets below this widget in the tree.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// The number of children for semantics purposes.
   final int? semanticChildCount;

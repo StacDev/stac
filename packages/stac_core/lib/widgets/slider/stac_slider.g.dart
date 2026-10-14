@@ -40,6 +40,7 @@ StacSlider _$StacSliderFromJson(Map<String, dynamic> json) => StacSlider(
     _$StacSliderInteractionEnumMap,
     json['allowedInteraction'],
   ),
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacSliderToJson(StacSlider instance) =>
@@ -66,6 +67,7 @@ Map<String, dynamic> _$StacSliderToJson(StacSlider instance) =>
       'autofocus': instance.autofocus,
       'allowedInteraction':
           _$StacSliderInteractionEnumMap[instance.allowedInteraction],
+      'bind': instance.bind,
       'type': instance.type,
     };
 

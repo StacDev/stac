@@ -1,0 +1,60 @@
+{
+  "type": "scaffold",
+  "appBar": {
+    "type": "appBar",
+    "title": { "type": "text", "data": "Data Provider" }
+  },
+  "body": {
+    "type": "dataProvider",
+    "id": "users",
+    "request": {
+      "url": "https://dummyjson.com/users?limit=20",
+      "method": "get"
+    },
+    "targetPath": "users",
+    "loaderWidget": {
+      "type": "center",
+      "child": { "type": "circularProgressIndicator" }
+    },
+    "errorWidget": {
+      "type": "center",
+      "child": {
+        "type": "column",
+        "mainAxisSize": "min",
+        "children": [
+          { "type": "text", "data": "Could not load users: {{users.error}}" },
+          {
+            "type": "textButton",
+            "child": { "type": "text", "data": "Try again" },
+            "onPressed": { "actionType": "refetch", "id": "users" }
+          }
+        ]
+      }
+    },
+    "child": {
+      "type": "refreshIndicator",
+      "onRefresh": { "actionType": "refetch", "id": "users" },
+      "child": {
+        "type": "listView",
+        "items": "{{users.data}}",
+        "keyPath": "id",
+        "itemTemplate": {
+          "type": "listTile",
+          "leading": {
+            "type": "circleAvatar",
+            "backgroundImage": "{{$item.image}}"
+          },
+          "title": {
+            "type": "text",
+            "data": "{{$item.firstName}} {{$item.lastName}}"
+          },
+          "subtitle": { "type": "text", "data": "{{$item.email}}" }
+        },
+        "emptyWidget": {
+          "type": "center",
+          "child": { "type": "text", "data": "No users" }
+        }
+      }
+    }
+  }
+}

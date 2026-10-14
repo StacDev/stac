@@ -56,6 +56,10 @@ class StacListView extends StacWidget {
     this.addSemanticIndexes,
     this.cacheExtent,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
     this.separator,
     this.semanticChildCount,
     this.dragStartBehavior,
@@ -99,6 +103,20 @@ class StacListView extends StacWidget {
 
   /// The StacWidgets to display in the list.
   final List<StacWidget>? children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// The StacWidget to display between list items as a separator.
   final StacWidget? separator;

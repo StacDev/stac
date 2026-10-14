@@ -139,7 +139,9 @@ StacElevatedButton(
 **Problem:** `StacSetValueAction` doesn't update the UI.
 
 **Solutions:**
-1. **Verify key names match:**
+1. **Check where the value was written.** A `setValue` entry with `path` writes to the screen unless a nearer level already has the name, so another screen will not see it. Write with `"path": "$app.name"` (or `key`) for values every screen should read. See [State](/concepts/state).
+
+2. **Verify key names match:**
 ```dart
 // Setting
 StacSetValueAction(values: [{'key': 'userName', 'value': 'John'}])
@@ -149,12 +151,17 @@ StacText(data: 'Hello, {{userName}}!') // Correct
 StacText(data: 'Hello, {{username}}!') // Wrong - case sensitive
 ```
 
-2. **Check placeholder syntax:**
+3. **Check placeholder syntax:**
 ```dart
 '{{key}}'     // Correct
-'{ {key} }'   // Wrong - no spaces
+'{{ key }}'   // Correct - spaces inside the braces are fine
+'{ {key} }'   // Wrong - no space between the braces
 '{key}'       // Wrong - need double braces
 ```
+
+4. **Check the logs for expression errors.** A placeholder whose expression fails, such as `{{price * }}`, stays as written and logs `Could not resolve`. Run `stac build` to find syntax errors before deploying. See [Expressions](/concepts/expressions).
+
+5. **Look at the state.** Call `debugDumpStacState()` to print every level of state and its values, or add a `StacStateObserver` to log each change as it happens. See [Watching changes](/concepts/state#watching-changes).
 
 ---
 

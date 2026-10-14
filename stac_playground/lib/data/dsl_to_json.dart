@@ -85,6 +85,7 @@ const Set<String> _widgetClasses = {
   'StacConditional',
   'StacContainer',
   'StacCustomScrollView',
+  'StacDataProvider',
   'StacDefaultBottomNavigationController',
   'StacDefaultNavigationController',
   'StacDefaultTabController',
@@ -98,6 +99,7 @@ const Set<String> _widgetClasses = {
   'StacFittedBox',
   'StacFlexible',
   'StacFloatingActionButton',
+  'StacForEach',
   'StacForm',
   'StacFractionallySizedBox',
   'StacGestureDetector',
@@ -144,6 +146,7 @@ const Set<String> _widgetClasses = {
   'StacSliverVisibility',
   'StacSpacer',
   'StacStack',
+  'StacStateScope',
   'StacSwitch',
   'StacTab',
   'StacTabBar',
@@ -161,6 +164,24 @@ const Set<String> _widgetClasses = {
   // From the stac_webview plugin rather than stac_core, but it is a StacWidget
   // and serializes the same way.
   'StacWebView',
+};
+
+/// Action classes and the `actionType` their `toJson` writes, so typed
+/// actions such as `StacSetValueAction(...)` run in the preview as they do
+/// after `stac build`. Generated from stac_core.
+const Map<String, String> _actionTypes = {
+  'StacDelayAction': 'delay',
+  'StacDialogAction': 'showDialog',
+  'StacFormValidate': 'validateForm',
+  'StacGetFormValue': 'getFormValue',
+  'StacModalBottomSheetAction': 'showModalBottomSheet',
+  'StacMultiAction': 'multiAction',
+  'StacNavigateAction': 'navigate',
+  'StacNetworkRequest': 'networkRequest',
+  'StacRefetchAction': 'refetch',
+  'StacSetValueAction': 'setValue',
+  'StacSnackBar': 'showSnackBar',
+  'StacSnackBarAction': 'showSnackBar',
 };
 
 /// Classes whose `fromJson` expands a bare number into all four sides, so
@@ -789,6 +810,8 @@ class _DslParser {
     if (_widgetClasses.contains(className)) {
       json['type'] = _typeForClass(className);
     }
+    final actionType = _actionTypes[className];
+    if (actionType != null) json['actionType'] = actionType;
     json.addAll(args.named);
     return json;
   }

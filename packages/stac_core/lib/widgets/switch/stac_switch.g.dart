@@ -44,6 +44,7 @@ StacSwitch _$StacSwitchFromJson(Map<String, dynamic> json) => StacSwitch(
   activeThumbImage: json['activeThumbImage'] as String?,
   applyTheme: json['applyTheme'] as bool?,
   applyCupertinoTheme: json['applyCupertinoTheme'] as bool?,
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacSwitchToJson(StacSwitch instance) =>
@@ -77,6 +78,7 @@ Map<String, dynamic> _$StacSwitchToJson(StacSwitch instance) =>
       'activeThumbImage': instance.activeThumbImage,
       'applyTheme': instance.applyTheme,
       'applyCupertinoTheme': instance.applyCupertinoTheme,
+      'bind': instance.bind,
       'type': instance.type,
     };
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
 import 'package:stac/src/parsers/foundation/forms/stac_autovalidate_mode_parser.dart';
@@ -19,6 +20,7 @@ import 'package:stac/src/utils/input_validations.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
+import 'package:stac/src/state/stac_input_binding.dart';
 
 class StacTextFormFieldParser extends StacParser<StacTextFormField> {
   const StacTextFormFieldParser();
@@ -32,7 +34,7 @@ class StacTextFormFieldParser extends StacParser<StacTextFormField> {
 
   @override
   Widget parse(BuildContext context, StacTextFormField model) {
-    return _TextFormFieldWidget(model, StacFormScope.of(context));
+    return _TextFormFieldWidget(model, StacFormScope.maybeOf(context));
   }
 }
 
@@ -46,10 +48,47 @@ class _TextFormFieldWidget extends StatefulWidget {
   State<_TextFormFieldWidget> createState() => _TextFormFieldWidgetState();
 }
 
-class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
+class _TextFormFieldWidgetState extends State<_TextFormFieldWidget>
+    with StacBoundInput<_TextFormFieldWidget, String> {
   late final TextEditingController _controller;
   final _focusNode = FocusNode();
   bool _obscureText = false;
+
+  @override
+  String? get bindPath => widget.model.bind;
+
+  @override
+  String? get formFieldId => widget.model.id;
+
+  @override
+  String? get initialValue => widget.model.initialValue;
+
+  @override
+  String? convertBound(Object? value) => stacStringify(value);
+
+  bool _built = false;
+
+  @override
+  void showBound(String? value) {
+    final text = value ?? '';
+    void apply() {
+      if (!mounted || text == _controller.text) return;
+      _controller.value = TextEditingValue(
+        text: text,
+        selection: TextSelection.collapsed(offset: text.length),
+      );
+    }
+
+    // Once built, the field listens to the controller and may rebuild its
+    // form, which is not allowed while the tree is building.
+    if (_built &&
+        SchedulerBinding.instance.schedulerPhase ==
+            SchedulerPhase.persistentCallbacks) {
+      SchedulerBinding.instance.addPostFrameCallback((_) => apply());
+    } else {
+      apply();
+    }
+  }
 
   @override
   void initState() {
@@ -73,6 +112,7 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    _built = true;
     return TextFormField(
       controller: _controller,
       focusNode: _focusNode,
@@ -80,6 +120,7 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
         if (widget.model.id != null) {
           widget.formScope?.formData[widget.model.id!] = value;
         }
+        writeBound(value);
       },
       keyboardType: widget.model.keyboardType?.parse,
       textInputAction: widget.model.textInputAction?.parse,
@@ -163,6 +204,7 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
   @override
   void dispose() {
     _controller.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 }

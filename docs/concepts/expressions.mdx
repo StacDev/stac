@@ -1,0 +1,194 @@
+---
+title: "Expressions"
+description: "Compute values, compare data and choose what to render with Stac's expression language"
+---
+
+Expressions let Stac JSON compute a value instead of only holding one. You can use them in three places:
+
+- Inside `{{ }}` placeholders in any string property, such as `"data": "Total: {{price * qty}}"`.
+- In the `condition` of a [`conditional`](/widgets/conditional) widget.
+- In the `value` of a [`setValue`](/actions/set_value) action or widget.
+
+```json
+{
+  "type": "text",
+  "data": "{{user.name ?? 'Guest'}} has {{items.length}} item{{items.length == 1 ? '' : 's'}}"
+}
+```
+
+## Where values come from
+
+Expressions read variables by name:
+
+| Source | Example | Notes |
+|--------|---------|-------|
+| [State](/concepts/state): local, screen and app variables | `{{count}}`, `{{$screen.step}}`, `{{$app.user}}` | A plain name is read from the innermost level that has it. |
+| Nested values inside a variable | `{{user.address.city}}`, `{{items[0].title}}` | Dot and index access into maps and lists. |
+| The screen's arguments and the device | `{{$args.id}}`, `{{$device.breakpoint}}` | See [State](/concepts/state#where-state-lives). |
+| The value an input just reported | `{{$value}}` | Only inside the input's callback. See [Input values](#input-values). |
+| The fields of the enclosing form | `{{$form.email}}` | See [State](/concepts/state#forms). |
+| A network request's response | `{{$result.status}}`, `{{$result.body}}` | Only inside its `onSuccess`, `onError` and `results` actions. |
+| The current item of a list and its position | `{{$item.title}}`, `{{$index}}` | Only inside an `itemTemplate`. See [Lists](/concepts/state#lists). |
+| Item data in a `dynamicView` template | `{{title}}` | See [Dynamic View](/widgets/dynamic_view). |
+
+A variable that was never set reads as `null`. Use `??` to fall back to a default: `{{nickname ?? 'friend'}}`.
+
+<Note>
+A placeholder that is only a variable name, such as `{{nickname}}`, stays as written when the variable is not set, as it always has. This lets `dynamicView` fill item placeholders after the screen loads. Any other expression treats unset variables as `null`.
+</Note>
+
+## Syntax
+
+### Values
+
+| Kind | Examples |
+|------|----------|
+| Numbers | `42`, `-3`, `2.5`, `1e3` |
+| Strings | `'single'`, `"double"`, `'it\'s'` |
+| Booleans and null | `true`, `false`, `null` |
+| Lists | `[1, 2, 3]`, `['a', name]` |
+| Paths | `user.name`, `items[0].title`, `items.0.title`, `user['first name']` |
+
+Lists, maps and strings have `length`, `isEmpty` and `isNotEmpty`. Lists also have `first` and `last`, and maps have `keys` and `values`.
+
+### Operators
+
+From the loosest to the tightest binding:
+
+| Operators | Meaning |
+|-----------|---------|
+| `a ? b : c` | `b` when `a` is true, otherwise `c` |
+| `a ?? b` | `a`, or `b` when `a` is `null` |
+| `\|\|` | Logical or |
+| `&&` | Logical and |
+| `==`, `!=` | Equality |
+| `<`, `<=`, `>`, `>=` | Comparison |
+| `+`, `-` | Addition and subtraction. `+` joins text when either side is text, and joins two lists |
+| `*`, `/`, `%` | Multiplication, division and remainder |
+| `!a`, `-a` | Not, negation |
+| `a.b`, `a[b]`, `f(x)` | Member access, indexing and function calls |
+
+Use parentheses to group: `(price + tax) * qty`.
+
+### Functions
+
+| Function | Result |
+|----------|--------|
+| `length(x)`, `isEmpty(x)`, `isNotEmpty(x)` | Size checks for text, lists and maps. `length(null)` is `0` |
+| `contains(x, item)` | Whether text contains a substring, a list contains an item, or a map contains a key |
+| `startsWith(text, prefix)`, `endsWith(text, suffix)` | Prefix and suffix checks |
+| `upper(text)`, `lower(text)`, `trim(text)` | Change case, remove surrounding spaces |
+| `replace(text, from, to)`, `substring(text, start, end?)`, `split(text, separator)` | Text editing |
+| `join(list, separator?)`, `concat(a, b, ...)` | Join values into text |
+| `first(list)`, `last(list)`, `keys(map)`, `values(map)` | Collection access |
+| `abs(n)`, `floor(n)`, `ceil(n)`, `round(n)` | Rounding |
+| `min(a, b, ...)`, `max(a, b, ...)`, `clamp(n, low, high)` | Bounds. `min` and `max` also accept a single list |
+| `toInt(x)`, `toDouble(x)`, `toString(x)`, `toFixed(n, digits)` | Conversions. `toFixed(3.14159, 2)` is `'3.14'` |
+| `coalesce(a, b, ...)` | The first value that is not `null` |
+| `typeOf(x)` | `'null'`, `'bool'`, `'number'`, `'string'`, `'list'` or `'map'` |
+
+Any function can also be called on its first argument: `name.upper()` is `upper(name)`, and `price.toFixed(2)` is `toFixed(price, 2)`.
+
+## How values behave
+
+- **Truthiness.** Conditions, `!`, `&&`, `||` and `? :` treat `null`, `false`, `0`, `''`, the text `'false'`, and empty lists and maps as false. Everything else is true.
+- **Numbers in text.** Values often arrive as text, so `==` and comparisons treat a numeric string like the number: `'5' == 5` and `'10' > 9` are both true. Arithmetic does too: `'2' * 3` is `6`.
+- **Joining text.** `'Total: ' + 5` is `'Total: 5'`, and `null` joins as empty text.
+- **Division.** `6 / 3` is `2`, and `7 / 2` is `3.5`.
+- **Errors.** An expression that fails, such as `'abc' - 1`, leaves its placeholder as written and logs a warning. A condition that fails counts as false.
+
+## Placeholders
+
+A string can hold any number of placeholders, and each one is replaced by its value as text:
+
+```json
+{ "type": "text", "data": "{{count}} of {{total}} done ({{(count / total * 100).round()}}%)" }
+```
+
+A property that is a single placeholder gets the type its field expects, so `"visible": "{{show}}"` gives a widget a boolean and `"maxLines": "{{lines}}"` an integer. A `setValue` value that is a single placeholder keeps its type, so `"{{count + 1}}"` stores a number and `"{{!isDarkMode}}"` stores a boolean.
+
+## Conditions
+
+A [`conditional`](/widgets/conditional) condition is an expression. Read variables directly and quote text:
+
+```json
+{
+  "type": "conditional",
+  "condition": "user.role == 'admin' && cart.items.length > 0",
+  "ifTrue": { "type": "text", "data": "Checkout" },
+  "ifFalse": { "type": "text", "data": "Nothing to do" }
+}
+```
+
+Placeholders work in conditions too. Their values are inserted as quoted values, so `"{{name}} == 'Ann Lee'"` compares text that contains spaces correctly, and `"{{token}} == null"` is true when `token` is not set.
+
+<Warning>
+Older screens compare against unquoted words, such as `status == active`. An unquoted word that is not a variable is still read as text, and a warning is logged. Quote text values instead: `status == 'active'`.
+</Warning>
+
+## When expressions are evaluated
+
+- **Widgets** evaluate their placeholders when they build, and rebuild when a value they read changes. See [State](/concepts/state).
+- **Actions** evaluate theirs when they run, so a button's action reads the values current at the time of the tap, not when the button was built.
+- **Network requests** evaluate the URL, headers, query parameters and body when the request is sent.
+
+## Input values
+
+While an input runs its callback action, `$value` holds the value it reported. The value is also visible to follow-up actions, such as the `action` of a `setValue`.
+
+| Widget | Callbacks | `$value` |
+|--------|-----------|----------|
+| `textField` | `onChanged`, `onSubmitted`, `onEditingComplete` | The current text |
+| `switch`, `checkBox` | `onChanged` | `true` or `false` |
+| `slider` | `onChanged`, `onChangeStart`, `onChangeEnd` | The slider value |
+| `radioGroup` | `onChanged` | The selected value |
+| `pageView` | `onPageChanged` | The page index. With `items`, the page's item is also `$item`. |
+| `carouselView` | `onTap` | The tapped item's index. With `items`, the item is also `$item`. |
+| `autoComplete` | `onSelected` | The selected option |
+
+To keep an input and a state value in sync, [`bind`](/concepts/state#inputs) is simpler. `$value` is for running other actions as the input changes. For example, a search field that stores its text and a button that sends it:
+
+```json
+{
+  "type": "column",
+  "children": [
+    {
+      "type": "textField",
+      "onChanged": {
+        "actionType": "setValue",
+        "values": [{ "key": "query", "value": "{{$value}}" }]
+      }
+    },
+    {
+      "type": "elevatedButton",
+      "child": { "type": "text", "data": "Search" },
+      "onPressed": {
+        "actionType": "networkRequest",
+        "url": "https://api.example.com/search?q={{query}}",
+        "method": "get"
+      }
+    }
+  ]
+}
+```
+
+## Checking expressions at build time
+
+`stac build` checks every placeholder and condition in the generated JSON and prints a warning for each syntax error, with its location. Add `--strict` to fail the build instead. See the [CLI reference](/cli).
+
+## Expressions in Dart
+
+The expression language lives in `stac_core`, so custom parsers and tools can use it directly:
+
+```dart
+final scope = StacMapScopeReader({'price': 9.5, 'qty': 2});
+StacExpression.parse('price * qty').evaluate(scope); // 19.0
+
+StacTemplate.parse('Total: {{price * qty}}').resolve(scope); // 'Total: 19.0'
+```
+
+To give a custom input's action access to `$value`, run it with `parseWithValue`:
+
+```dart
+onChanged: (value) => model.onChanged.parseWithValue(context, value),
+```

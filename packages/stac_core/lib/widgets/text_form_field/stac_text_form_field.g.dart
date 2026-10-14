@@ -80,6 +80,7 @@ StacTextFormField _$StacTextFormFieldFromJson(
   validatorRules: (json['validatorRules'] as List<dynamic>?)
       ?.map((e) => StacFormFieldValidator.fromJson(e as Map<String, dynamic>))
       .toList(),
+  bind: json['bind'] as String?,
 );
 
 Map<String, dynamic> _$StacTextFormFieldToJson(
@@ -121,6 +122,7 @@ Map<String, dynamic> _$StacTextFormFieldToJson(
   'autovalidateMode': _$StacAutovalidateModeEnumMap[instance.autovalidateMode],
   'inputFormatters': instance.inputFormatters?.map((e) => e.toJson()).toList(),
   'validatorRules': instance.validatorRules?.map((e) => e.toJson()).toList(),
+  'bind': instance.bind,
   'type': instance.type,
 };
 

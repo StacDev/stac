@@ -11,7 +11,8 @@
     "type": "dynamicView",
     "request": {
       "url": "https://dummyjson.com/users/1",
-      "method": "get"
+      "method": "get",
+      "actionType": "networkRequest"
     },
     "loaderWidget": {
       "type": "center",

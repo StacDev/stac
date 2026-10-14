@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:stac/stac.dart';
 import 'package:stac_playground/app/cubit/home_state.dart';
 import 'package:stac_playground/data/component_entries.dart';
 import 'package:stac_playground/data/playground_entry.dart';
@@ -61,6 +62,9 @@ class HomeCubit extends Cubit<HomeState> {
     } catch (_) {
       return;
     }
+    // Each example starts from empty app state. Its screen state starts
+    // fresh too, since the preview is keyed by the entry.
+    Stac.state.clear();
     emit(
       state.copyWith(
         selectedEntry: entry,
@@ -88,6 +92,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   void toggleDarkMode() {
     emit(state.copyWith(darkMode: !state.darkMode));
+  }
+
+  void toggleStateInspector() {
+    emit(state.copyWith(showStateInspector: !state.showStateInspector));
   }
 
   void toggleCodeView() {

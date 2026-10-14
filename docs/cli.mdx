@@ -108,10 +108,16 @@ Build specific project directory:
 stac build --project /path/to/project
 ```
 
-Build with validation (enabled by default):
+Build with validation (enabled by default). Every `{{ }}` [expression](/concepts/expressions) and `conditional` condition in the generated JSON is checked, and each syntax error is printed as a warning with its location:
 
 ```bash
 stac build --validate
+```
+
+Fail the build when an expression or condition is invalid:
+
+```bash
+stac build --strict
 ```
 
 Build with verbose output:
@@ -125,7 +131,8 @@ stac build --verbose
 | Option          | Description                | Default           |
 | --------------- | -------------------------- | ----------------- |
 | `-p, --project` | Project directory path     | Current directory |
-| `--validate`    | Validate generated JSON    | `true`            |
+| `--validate`    | Check expressions and conditions in the generated JSON (`--no-validate` to skip) | `true`  |
+| `--strict`      | Fail the build when an expression or condition is invalid | `false` |
 | `-v, --verbose` | Show detailed build output | `false`           |
 
 The build command converts Stac widget definitions from the `stac/` folder into JSON format in the `build/` folder.

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
+import 'package:stac/src/state/stac_scope.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 
@@ -17,21 +18,43 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
 
   @override
   FutureOr onCall(BuildContext context, StacNavigateAction model) {
-    Widget? widget;
+    // Stac destinations are built inside their new route, each with its own
+    // screen state, and receive `arguments` as `$args`.
+    final arguments = model.arguments ?? const <String, dynamic>{};
+    WidgetBuilder? builder;
     if (model.widgetJson != null) {
-      widget = Stac.fromJson(model.widgetJson, context);
+      final json = model.widgetJson;
+      builder = (_) => StacScreenScope(
+        arguments: arguments,
+        child: Builder(
+          builder: (screen) => Stac.fromJson(json, screen) ?? const SizedBox(),
+        ),
+      );
     } else if (model.request != null) {
-      widget = Stac.fromNetwork(context: context, request: model.request!);
+      final request = model.request!;
+      builder = (_) => StacScreenScope(
+        arguments: arguments,
+        debugLabel: request.url,
+        child: Builder(
+          builder: (screen) =>
+              Stac.fromNetwork(context: screen, request: request),
+        ),
+      );
     } else if (model.assetPath != null) {
-      widget = Stac.fromAssets(model.assetPath!);
+      final assetPath = model.assetPath!;
+      builder = (_) => StacScreenScope(
+        arguments: arguments,
+        debugLabel: assetPath,
+        child: Stac.fromAssets(assetPath),
+      );
     } else if (model.routeName != null &&
         (model.navigationStyle == null ||
             model.navigationStyle == NavigationStyle.push ||
             model.navigationStyle == NavigationStyle.pushReplacement ||
             model.navigationStyle == NavigationStyle.pushAndRemoveAll)) {
-      // If a routeName is provided and we're using a push-style navigation,
-      // render the remote screen using the Stac(routeName) widget.
-      widget = Stac(routeName: model.routeName!);
+      // A routeName with a push-style navigation renders the remote screen.
+      final routeName = model.routeName!;
+      builder = (_) => Stac(routeName: routeName, arguments: arguments);
     }
     return _navigate(
       context: context,
@@ -39,24 +62,22 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
       routeName: model.routeName,
       result: model.result,
       arguments: model.arguments,
-      widget: widget,
+      builder: builder,
     );
   }
 
   static Future<dynamic>? _navigate<T extends Object?>({
     required BuildContext context,
     NavigationStyle navigationStyle = NavigationStyle.push,
-    Widget? widget,
+    WidgetBuilder? builder,
     String? routeName,
     T? result,
     T? arguments,
   }) {
+    final pageBuilder = builder ?? (_) => const SizedBox();
     switch (navigationStyle) {
       case NavigationStyle.push:
-        return Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
-        );
+        return Navigator.push(context, MaterialPageRoute(builder: pageBuilder));
 
       case NavigationStyle.pop:
         Navigator.pop(context, result);
@@ -65,14 +86,14 @@ class StacNavigateActionParser extends StacActionParser<StacNavigateAction> {
       case NavigationStyle.pushReplacement:
         return Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
+          MaterialPageRoute(builder: pageBuilder),
           result: result,
         );
 
       case NavigationStyle.pushAndRemoveAll:
         return Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (_) => widget ?? const SizedBox()),
+          MaterialPageRoute(builder: pageBuilder),
           ModalRoute.withName('/'),
         );
 

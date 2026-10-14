@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:stac_core/core/stac_action.dart';
 import 'package:stac_core/core/converters/double_converter.dart';
 import 'package:stac_core/core/stac_widget.dart';
 import 'package:stac_core/foundation/foundation.dart';
@@ -66,6 +67,8 @@ class StacDropdownMenu extends StacWidget {
     this.initialSelection,
     this.dropdownMenuEntries,
     this.closeBehavior,
+    this.onSelected,
+    this.bind,
   });
 
   /// Whether the dropdown is interactive.
@@ -138,6 +141,18 @@ class StacDropdownMenu extends StacWidget {
 
   /// Close behavior for the menu.
   final StacDropdownMenuCloseBehavior? closeBehavior;
+
+  /// Action to run when the user selects an entry. The selected entry's
+  /// value is available to it as `$value`.
+  final StacAction? onSelected;
+
+  /// The state path this input reads its value from and writes changes to,
+  /// such as `query`, `$app.settings.darkMode` or `$form.email`.
+  ///
+  /// The input shows the value at the path and updates it as the user
+  /// changes the input. When the path has no value yet and the input has an
+  /// initial value, the input writes that value to the path.
+  final String? bind;
 
   /// Widget type identifier.
   @override

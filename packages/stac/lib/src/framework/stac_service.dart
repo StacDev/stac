@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
 import 'package:flutter/services.dart';
+import 'package:stac/src/expressions/stac_expression_runtime.dart';
 import 'package:stac/src/framework/stac.dart';
 import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_registry.dart';
@@ -19,7 +20,11 @@ import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_tool_tip/stac_tool_tip_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
-import 'package:stac/src/utils/variable_resolver.dart';
+import 'package:stac/src/expressions/stac_action_scope.dart';
+import 'package:stac/src/state/stac_bound_node.dart';
+import 'package:stac/src/state/stac_item_scope.dart';
+import 'package:stac/src/state/stac_scope.dart';
+import 'package:stac/src/state/stac_state_reader.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
@@ -133,11 +138,14 @@ class StacService {
     const StacIntrinsicHeightParser(),
     const StacIntrinsicWidthParser(),
     const StacDynamicViewParser(),
+    const StacDataProviderParser(),
+    const StacForEachParser(),
     const StacDropdownMenuParser(),
     const StacClipRRectParser(),
     const StacClipOvalParser(),
     const StacGestureDetectorParser(),
     const StacSetValueParser(),
+    const StacStateScopeParser(),
     const StacInkwellParser(),
     const StacConditionalParser(),
     const StacVisibilityParser(),
@@ -158,6 +166,7 @@ class StacService {
     const StacSetValueActionParser(),
     const StacMultiActionParser(),
     const StacDelayActionParser(),
+    const StacRefetchActionParser(),
   ];
 
   static StacOptions? _options;
@@ -235,13 +244,7 @@ class StacService {
         return null;
       }
 
-      // Resolve variables in JSON (skip for setValue to avoid recursion)
-      final resolvedJson = widgetType == WidgetType.setValue.name
-          ? json
-          : resolveVariablesInJson(json, StacRegistry.instance);
-
-      final model = stacParser.getModel(resolvedJson);
-      return stacParser.parse(context, model);
+      return _buildRootOrNode(json, stacParser, context);
     } catch (e, stackTrace) {
       // Log error with full context
       _logError(
@@ -292,13 +295,7 @@ class StacService {
         return null;
       }
 
-      // Resolve variables in JSON (skip for setValue to avoid recursion)
-      final resolvedJson = widgetType == WidgetType.setValue.name
-          ? widget.toJson()
-          : resolveVariablesInJson(widget.toJson(), StacRegistry.instance);
-
-      final model = stacParser.getModel(resolvedJson);
-      return stacParser.parse(context, model);
+      return _buildRootOrNode(widget.toJson(), stacParser, context);
     } catch (e, stackTrace) {
       _logError(
         category: 'Widget Parse Error',
@@ -321,6 +318,106 @@ class StacService {
       }
     }
     return null;
+  }
+
+  /// Builds [json] directly in [context] instead of as its own element.
+  ///
+  /// For slots that need a particular widget type, such as an app bar
+  /// (a [PreferredSizeWidget]). Placeholders are resolved against [context],
+  /// so [context] rebuilds when the values they read change.
+  static Widget? fromJsonInline(
+    Map<String, dynamic>? json,
+    BuildContext context,
+  ) {
+    if (json == null) return null;
+    final type = json['type'];
+    final parser = type is String
+        ? StacRegistry.instance.getParser(type)
+        : null;
+    if (parser == null || !stacJsonResolver.hasBindings(json)) {
+      return fromJson(json, context);
+    }
+    return buildBoundNode(context, json, parser);
+  }
+
+  /// Builds [json] with [parser]. A widget with no Stac scope above it is a
+  /// screen root and gets its own screen state.
+  static Widget _buildRootOrNode(
+    Map<String, dynamic> json,
+    StacParser<dynamic> parser,
+    BuildContext context,
+  ) {
+    if (StacScopeNode.isInScope(context)) {
+      return _buildNode(json, parser, context);
+    }
+    return StacScreenScope(
+      child: Builder(
+        builder: (scoped) {
+          try {
+            return _buildNode(json, parser, scoped);
+          } catch (e, stackTrace) {
+            return _parseFailure(scoped, json, e, stackTrace);
+          }
+        },
+      ),
+    );
+  }
+
+  /// Builds a widget node. Nodes with placeholders or a condition get their
+  /// own element, so they rebuild alone when the values they read change.
+  static Widget _buildNode(
+    Map<String, dynamic> json,
+    StacParser<dynamic> parser,
+    BuildContext context,
+  ) {
+    if (stacJsonResolver.hasBindings(json)) {
+      return StacBoundNode(json: json, parser: parser);
+    }
+    return parser.parse(context, parser.getModel(json));
+  }
+
+  /// Resolves the placeholders of a bound node against the state visible at
+  /// [context] and builds it. Used by [StacBoundNode].
+  static Widget buildBoundNode(
+    BuildContext context,
+    Map<String, dynamic> json,
+    StacParser<dynamic> parser,
+  ) {
+    try {
+      final resolved = stacJsonResolver.resolveNode(
+        json,
+        StacStateReader.watching(context),
+      );
+      return parser.parse(context, parser.getModel(resolved));
+    } catch (e, stackTrace) {
+      return _parseFailure(context, json, e, stackTrace);
+    }
+  }
+
+  static Widget _parseFailure(
+    BuildContext context,
+    Map<String, dynamic> json,
+    Object error,
+    StackTrace stackTrace,
+  ) {
+    _logError(
+      category: 'Widget Parse Error',
+      type: json['type']?.toString(),
+      error: error,
+      stackTrace: stackTrace,
+    );
+    if (_showErrorWidgets && kDebugMode) {
+      return _buildErrorWidget(
+        context: context,
+        error: StacError(
+          type: json['type']?.toString(),
+          error: error,
+          json: json,
+          stackTrace: stackTrace,
+        ),
+      );
+    }
+    return const SizedBox.shrink();
   }
 
   static FutureOr<dynamic> onCallFromJson(
@@ -361,8 +458,16 @@ class StacService {
         return null;
       }
 
-      final model = stacActionParser.getModel(json);
-      return stacActionParser.onCall(context, model);
+      // An action started inside a list item keeps reading that item, even
+      // in follow-up actions that run after the item has been rebuilt.
+      final item = context.mounted ? StacItemScope.maybeOf(context) : null;
+      if (item != null && !StacActionScope.current.containsKey(r'$item')) {
+        return StacActionScope.run({
+          r'$item': item.item,
+          r'$index': item.index,
+        }, () => _callAction(stacActionParser, json, context));
+      }
+      return _callAction(stacActionParser, json, context);
     } catch (e, stackTrace) {
       _logError(
         category: 'Action Parse Error',
@@ -374,54 +479,32 @@ class StacService {
     return null;
   }
 
+  /// Resolves the placeholders in [json] and runs it with [parser].
+  ///
+  /// Placeholders in actions resolve now, when the action runs, so they read
+  /// current values rather than values from when the widget built.
+  static FutureOr<dynamic> _callAction(
+    StacActionParser<dynamic> parser,
+    Map<String, dynamic> json,
+    BuildContext context,
+  ) {
+    final resolvedJson = stacJsonResolver.resolveAction(
+      json,
+      StacStateReader.forAction(context),
+    );
+    return parser.onCall(context, parser.getModel(resolvedJson));
+  }
+
   static Widget fromNetwork({
     required StacNetworkRequest request,
     required BuildContext context,
     LoadingWidgetBuilder? loadingWidget,
     ErrorWidgetBuilder? errorWidget,
   }) {
-    return FutureBuilder<Response?>(
-      future: StacNetworkService.request(context, request),
-      builder: (context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.waiting:
-            Widget? widget;
-            if (loadingWidget != null) {
-              widget = loadingWidget(context);
-              return widget;
-            }
-            break;
-          case ConnectionState.done:
-            if (snapshot.hasData) {
-              final json = jsonDecode(snapshot.data.toString());
-              return StacService.fromJson(json, context) ?? const SizedBox();
-            } else if (snapshot.hasError) {
-              _logError(
-                category: 'Network Request Error',
-                type: 'network',
-                error: snapshot.error ?? 'Unknown network error',
-                stackTrace: snapshot.stackTrace,
-              );
-
-              if (errorWidget != null) {
-                return errorWidget(context, snapshot.error);
-              } else if (_showErrorWidgets && kDebugMode) {
-                return _buildErrorWidget(
-                  context: context,
-                  error: StacError(
-                    type: 'network',
-                    error: snapshot.error ?? 'Unknown network error',
-                    stackTrace: snapshot.stackTrace,
-                  ),
-                );
-              }
-            }
-            break;
-          default:
-            break;
-        }
-        return const SizedBox();
-      },
+    return _StacNetworkView(
+      request: request,
+      loadingWidget: loadingWidget,
+      errorWidget: errorWidget,
     );
   }
 
@@ -430,49 +513,58 @@ class StacService {
     LoadingWidgetBuilder? loadingWidget,
     ErrorWidgetBuilder? errorWidget,
   }) {
-    return FutureBuilder<String>(
-      future: rootBundle.loadString(assetPath),
-      builder: (context, snapshot) {
-        switch (snapshot.connectionState) {
-          case ConnectionState.waiting:
-            Widget? widget;
-            if (loadingWidget != null) {
-              widget = loadingWidget(context);
-              return widget;
-            }
-            break;
-          case ConnectionState.done:
-            if (snapshot.hasData) {
-              final json = jsonDecode(snapshot.data.toString());
-              return StacService.fromJson(json, context) ?? const SizedBox();
-            } else if (snapshot.hasError) {
-              _logError(
-                category: 'Asset Load Error',
-                type: 'asset',
-                error: snapshot.error ?? 'Unknown asset load error',
-                stackTrace: snapshot.stackTrace,
-              );
-
-              if (errorWidget != null) {
-                return errorWidget(context, snapshot.error);
-              } else if (_showErrorWidgets && kDebugMode) {
-                return _buildErrorWidget(
-                  context: context,
-                  error: StacError(
-                    type: 'asset',
-                    error: snapshot.error ?? 'Unknown asset load error',
-                    stackTrace: snapshot.stackTrace,
-                  ),
-                );
-              }
-            }
-            break;
-          default:
-            break;
-        }
-        return const SizedBox();
-      },
+    return _StacAssetView(
+      assetPath: assetPath,
+      loadingWidget: loadingWidget,
+      errorWidget: errorWidget,
     );
+  }
+
+  /// Builds the widget for a snapshot of loaded screen JSON text.
+  static Widget _buildLoadedJson({
+    required BuildContext context,
+    required AsyncSnapshot<Object?> snapshot,
+    required String category,
+    required String type,
+    LoadingWidgetBuilder? loadingWidget,
+    ErrorWidgetBuilder? errorWidget,
+  }) {
+    switch (snapshot.connectionState) {
+      case ConnectionState.waiting:
+        if (loadingWidget != null) {
+          return loadingWidget(context);
+        }
+        break;
+      case ConnectionState.done:
+        if (snapshot.hasData) {
+          final json = jsonDecode(snapshot.data.toString());
+          return StacService.fromJson(json, context) ?? const SizedBox();
+        } else if (snapshot.hasError) {
+          _logError(
+            category: category,
+            type: type,
+            error: snapshot.error ?? 'Unknown $type error',
+            stackTrace: snapshot.stackTrace,
+          );
+
+          if (errorWidget != null) {
+            return errorWidget(context, snapshot.error);
+          } else if (_showErrorWidgets && kDebugMode) {
+            return _buildErrorWidget(
+              context: context,
+              error: StacError(
+                type: type,
+                error: snapshot.error ?? 'Unknown $type error',
+                stackTrace: snapshot.stackTrace,
+              ),
+            );
+          }
+        }
+        break;
+      default:
+        break;
+    }
+    return const SizedBox();
   }
 
   /// Centralized error logging with consistent formatting.
@@ -515,5 +607,106 @@ class StacService {
     }
 
     return StacErrorWidget(errorDetails: error);
+  }
+}
+
+/// Renders screen JSON fetched with a network request.
+///
+/// The request is sent once and the response kept across rebuilds; it is
+/// sent again only when the request changes.
+class _StacNetworkView extends StatefulWidget {
+  const _StacNetworkView({
+    required this.request,
+    this.loadingWidget,
+    this.errorWidget,
+  });
+
+  final StacNetworkRequest request;
+  final LoadingWidgetBuilder? loadingWidget;
+  final ErrorWidgetBuilder? errorWidget;
+
+  @override
+  State<_StacNetworkView> createState() => _StacNetworkViewState();
+}
+
+class _StacNetworkViewState extends State<_StacNetworkView> {
+  Future<Response?>? _future;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _future ??= StacNetworkService.request(context, widget.request);
+  }
+
+  @override
+  void didUpdateWidget(covariant _StacNetworkView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!stacDeepEquals(oldWidget.request.toJson(), widget.request.toJson())) {
+      _future = StacNetworkService.request(context, widget.request);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<Response?>(
+      future: _future,
+      builder: (context, snapshot) => StacService._buildLoadedJson(
+        context: context,
+        snapshot: snapshot,
+        category: 'Network Request Error',
+        type: 'network',
+        loadingWidget: widget.loadingWidget,
+        errorWidget: widget.errorWidget,
+      ),
+    );
+  }
+}
+
+/// Renders screen JSON loaded from an asset, loading it once per path.
+class _StacAssetView extends StatefulWidget {
+  const _StacAssetView({
+    required this.assetPath,
+    this.loadingWidget,
+    this.errorWidget,
+  });
+
+  final String assetPath;
+  final LoadingWidgetBuilder? loadingWidget;
+  final ErrorWidgetBuilder? errorWidget;
+
+  @override
+  State<_StacAssetView> createState() => _StacAssetViewState();
+}
+
+class _StacAssetViewState extends State<_StacAssetView> {
+  late Future<String> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = rootBundle.loadString(widget.assetPath);
+  }
+
+  @override
+  void didUpdateWidget(covariant _StacAssetView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.assetPath != widget.assetPath) {
+      _future = rootBundle.loadString(widget.assetPath);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<String>(
+      future: _future,
+      builder: (context, snapshot) => StacService._buildLoadedJson(
+        context: context,
+        snapshot: snapshot,
+        category: 'Asset Load Error',
+        type: 'asset',
+        loadingWidget: widget.loadingWidget,
+        errorWidget: widget.errorWidget,
+      ),
+    );
   }
 }

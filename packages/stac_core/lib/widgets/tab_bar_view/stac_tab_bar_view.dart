@@ -49,7 +49,11 @@ part 'stac_tab_bar_view.g.dart';
 class StacTabBarView extends StacWidget {
   /// Creates a [StacTabBarView].
   const StacTabBarView({
-    required this.children,
+    this.children = const [],
+    this.items,
+    this.itemTemplate,
+    this.emptyWidget,
+    this.keyPath,
     this.dragStartBehavior,
     this.physics,
     this.viewportFraction,
@@ -58,6 +62,20 @@ class StacTabBarView extends StacWidget {
 
   /// The pages to display; typically one per tab.
   final List<StacWidget> children;
+
+  /// {@macro stac.items.items}
+  ///
+  /// The built items follow [children]. {@macro stac.items}
+  final Object? items;
+
+  /// {@macro stac.items.itemTemplate}
+  final StacWidget? itemTemplate;
+
+  /// Shown instead of this widget when [items] is an empty list.
+  final StacWidget? emptyWidget;
+
+  /// {@macro stac.items.keyPath}
+  final String? keyPath;
 
   /// Drag start behavior for horizontal drags.
   final StacDragStartBehavior? dragStartBehavior;

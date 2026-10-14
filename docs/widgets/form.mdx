@@ -191,3 +191,51 @@ StacForm(
     </Frame>
   </Tab>
 </Tabs>
+
+## Read Field Values
+
+Fields with an `id` store their values in the form's state, readable inside the form as `$form`. Writing `$form.<id>` with [`setValue`](/actions/set_value) changes the field.
+
+<CodeGroup>
+```dart Dart
+StacForm(
+  child: StacColumn(
+    children: [
+      StacTextFormField(id: 'name'),
+      StacText(data: "Hello {{\$form.name ?? ''}}"),
+      StacElevatedButton(
+        child: StacText(data: 'Clear'),
+        onPressed: StacSetValueAction(
+          values: [
+            {'path': '\$form.name', 'value': ''},
+          ],
+        ),
+      ),
+    ],
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "form",
+  "child": {
+    "type": "column",
+    "children": [
+      { "type": "textFormField", "id": "name" },
+      { "type": "text", "data": "Hello {{$form.name ?? ''}}" },
+      {
+        "type": "elevatedButton",
+        "child": { "type": "text", "data": "Clear" },
+        "onPressed": {
+          "actionType": "setValue",
+          "values": [{ "path": "$form.name", "value": "" }]
+        }
+      }
+    ]
+  }
+}
+```
+</CodeGroup>
+
+Request bodies can send the values directly, for example `"body": { "name": "{{$form.name}}" }`. [`getFormValue`](/actions/get_form_value) still works.

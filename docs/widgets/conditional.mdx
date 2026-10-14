@@ -160,14 +160,23 @@ StacConditional(
 
 ## Condition Expression Syntax
 
-The `condition` property accepts expressions that are evaluated against the current state. Common patterns include:
+The `condition` is an [expression](/concepts/expressions) evaluated against the current variables when the widget builds. Common patterns include:
 
 - **Equality**: `user.role == 'admin'`
-- **Boolean check**: `user.isVerified == true`
+- **Boolean check**: `user.isVerified == true`, or just `user.isVerified`
 - **Comparison**: `cart.total > 100`
 - **Length check**: `items.length > 0`
 - **Null check**: `user.name != null`
+- **Combined**: `(cart.total > 100 || user.isPremium) && !cart.isEmpty`
+
+Conditions can also contain `{{ }}` placeholders. Each placeholder's value is inserted as a quoted value, so text with spaces compares correctly:
+
+```json
+{ "condition": "{{user.name}} == 'Ann Lee'" }
+```
+
+Quote text values. An unquoted word that is not a variable, such as `active` in `status == active`, is still read as text for older screens, but Stac logs a warning.
 
 <Note>
-The condition is evaluated at runtime by Stac's expression resolver against the current application state.
+A condition that cannot be parsed or evaluated counts as `false`, so `ifFalse` renders and a warning is logged. `stac build` reports syntax errors in conditions before you deploy.
 </Note>

@@ -2,11 +2,16 @@
 
 ## Pattern: List to Detail
 
-- In list item tap:
+- In a list's `itemTemplate`, pass the item's id:
 
 ```dart
-StacNavigator.pushStac('detail_screen', arguments: {'id': '{{id}}'})
+StacNavigator.pushStac('detail_screen', arguments: {'id': '{{\$item.id}}'})
 ```
+
+- The detail screen reads it as `{{$args.id}}`, for example in its data
+  provider's URL: `'https://api.example.com/items/{{\$args.id}}'`.
+- Do not pass ids through app-wide variables; each screen has its own
+  `$args`.
 
 ## Pattern: Auth Redirect
 
