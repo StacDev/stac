@@ -45,6 +45,17 @@ class __StacSliderState extends State<_StacSlider> {
     super.initState();
   }
 
+  @override
+  void didUpdateWidget(covariant _StacSlider oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.model.value != widget.model.value) {
+      selectedValue = widget.model.value;
+      if (widget.model.id != null) {
+        widget.formScope?.formData[widget.model.id!] = selectedValue;
+      }
+    }
+  }
+
   void _onChanged(double value) {
     selectedValue = value;
     if (widget.model.id != null) {
