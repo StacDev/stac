@@ -37,6 +37,17 @@ The `StacNetworkResult` class is used to handle different status codes in the St
 | statusCode | `int`    | The status code to handle.                              |
 | action     | `Action` | The action to perform when the status code is received. |
 
+### Using the response
+
+A result's action can read the response body with `{{response}}` placeholders. They're filled in just before the action runs, for error status codes too:
+
+- `{{response}}` is the whole body.
+- `{{response.user.name}}` reads a nested field. Use `{{response.items[0].id}}` or `{{response.items.0.id}}` for list items.
+- A value that's only a placeholder keeps its type, such as a map or a number. A placeholder inside longer text, such as `"Hi {{response.user.name}}"`, is inserted as text.
+- A placeholder whose path isn't in the body is left unchanged.
+
+[Chaining with Network Request](/actions/set_value#chaining-with-network-request) shows how to store the response with `setValue`.
+
 ## Example
 
 <CodeGroup>

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -45,7 +46,76 @@ class StacNetworkRequestParser extends StacActionParser<StacNetworkRequest> {
     }
 
     if (context.mounted) {
-      return Stac.onCallFromJson(result.action, context);
+      return Stac.onCallFromJson(
+        _resolveResponse(result.action, response?.data),
+        context,
+      );
     }
+  }
+
+  /// Matches `{{response}}` and `{{response.<path>}}`, where the path uses dot
+  /// notation and list indexes, e.g. `{{response.items[0].id}}`.
+  static final _responsePlaceholder = RegExp(
+    r'\{\{\s*response((?:\.[^\s.\[\]{}]+|\[\d+\])*)\s*\}\}',
+  );
+
+  static const _notFound = Object();
+
+  /// Fills `{{response}}` placeholders in [json] from the response body.
+  ///
+  /// A string that is only a placeholder takes the value as is (a map, list,
+  /// number, ...); a placeholder inside longer text is inserted as text.
+  /// Placeholders whose path isn't in the body are left unchanged, and so are
+  /// the `results` of a nested `networkRequest`, which belong to its own
+  /// response.
+  dynamic _resolveResponse(dynamic json, dynamic data) {
+    if (json is String) {
+      final whole = _responsePlaceholder.matchAsPrefix(json);
+      if (whole != null && whole.end == json.length) {
+        final value = _valueAtPath(data, whole.group(1)!);
+        return identical(value, _notFound) ? json : value;
+      }
+      return json.replaceAllMapped(_responsePlaceholder, (match) {
+        final value = _valueAtPath(data, match.group(1)!);
+        if (identical(value, _notFound)) return match.group(0)!;
+        return value is Map || value is List ? jsonEncode(value) : '$value';
+      });
+    } else if (json is Map<String, dynamic>) {
+      final isNestedRequest = json['actionType'] == actionType;
+      return json.map(
+        (key, value) => MapEntry(
+          key,
+          isNestedRequest && key == 'results'
+              ? value
+              : _resolveResponse(value, data),
+        ),
+      );
+    } else if (json is List) {
+      return json.map((item) => _resolveResponse(item, data)).toList();
+    }
+    return json;
+  }
+
+  dynamic _valueAtPath(dynamic data, String path) {
+    final keys = path
+        .replaceAllMapped(RegExp(r'\[(\d+)\]'), (match) => '.${match[1]}')
+        .split('.')
+        .where((key) => key.isNotEmpty);
+
+    dynamic current = data;
+    for (final key in keys) {
+      if (current is Map && current.containsKey(key)) {
+        current = current[key];
+      } else if (current is List) {
+        final index = int.tryParse(key);
+        if (index == null || index < 0 || index >= current.length) {
+          return _notFound;
+        }
+        current = current[index];
+      } else {
+        return _notFound;
+      }
+    }
+    return current;
   }
 }
