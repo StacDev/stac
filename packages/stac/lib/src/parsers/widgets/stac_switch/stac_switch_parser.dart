@@ -37,6 +37,14 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
   }
 
   @override
+  void didUpdateWidget(covariant _SwitchWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.model.value != widget.model.value) {
+      isSelected = widget.model.value ?? false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final StacSwitch model = widget.model;
     final StacSwitchType type = model.switchType ?? StacSwitchType.material;

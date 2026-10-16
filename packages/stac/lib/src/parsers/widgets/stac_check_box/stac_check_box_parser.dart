@@ -46,6 +46,17 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
   }
 
   @override
+  void didUpdateWidget(covariant _StacCheckBox oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.model.value != widget.model.value) {
+      _currentValue = widget.model.value;
+      if (widget.model.id != null && widget.formScope != null) {
+        widget.formScope!.formData[widget.model.id!] = widget.model.value;
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Checkbox(
       value: _currentValue,
