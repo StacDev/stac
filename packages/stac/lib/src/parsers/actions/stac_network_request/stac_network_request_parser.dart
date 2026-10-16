@@ -29,14 +29,23 @@ class StacNetworkRequestParser extends StacActionParser<StacNetworkRequest> {
       Log.e(e.response);
     }
 
-    if (response?.statusCode != null) {
-      final result = model.results.firstWhere(
-        (element) => element.statusCode == response?.statusCode,
-      );
+    final statusCode = response?.statusCode;
+    if (statusCode == null) {
+      return null;
+    }
 
-      if (context.mounted) {
-        return Stac.onCallFromJson(result.action, context);
+    final result = model.results
+        .where((element) => element.statusCode == statusCode)
+        .firstOrNull;
+    if (result == null) {
+      if (model.results.isNotEmpty) {
+        Log.w('No networkRequest result for status $statusCode: ${model.url}');
       }
+      return null;
+    }
+
+    if (context.mounted) {
+      return Stac.onCallFromJson(result.action, context);
     }
   }
 }
