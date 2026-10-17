@@ -39,6 +39,7 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
 | `status`         | Show authentication status         | No            |
 | `init`           | Initialize Stac in project         | Yes           |
 | `build`          | Convert Dart widgets to JSON       | No            |
+| `dev`            | Run local widget development       | No            |
 | `deploy`         | Build and deploy to Stac Cloud     | Yes           |
 | `project list`   | List all cloud projects            | Yes           |
 | `project create` | Create new cloud project           | Yes           |
@@ -128,7 +129,59 @@ stac build --verbose
 | `--validate`    | Validate generated JSON    | `true`            |
 | `-v, --verbose` | Show detailed build output | `false`           |
 
-The build command converts Stac widget definitions from the `stac/` folder into JSON format in the `build/` folder.
+The build command converts Stac widget definitions from the `stac/` folder into JSON format in `stac/.build/`.
+
+### Develop Locally
+
+Use `stac dev` to test `Stac(routeName: ...)` screens in a running app without deploying to Stac Cloud. It builds your local Stac DSL, serves the generated `stac/.build` JSON through cloud-compatible `/screens` and `/themes` endpoints, and rebuilds when files are saved.
+
+```bash
+stac dev
+```
+
+Serve a specific project:
+
+```bash
+stac dev --project /path/to/project
+```
+
+Use a custom host and port:
+
+```bash
+stac dev --host 0.0.0.0 --port 45700
+```
+
+Skip the initial build and serve existing build files:
+
+```bash
+stac dev --skip-build
+```
+
+Then point your debug app at the local server:
+
+```dart
+import 'package:flutter/foundation.dart';
+
+await Stac.initialize(
+  options: defaultStacOptions.copyWith(
+    apiBaseUrl: kDebugMode
+        ? 'http://127.0.0.1:45700'
+        : defaultStacOptions.apiBaseUrl,
+  ),
+);
+```
+
+`stac dev` prints ready-to-copy URLs for local/iOS Simulator/web, Android Emulator, and physical devices. For a physical device, start with `stac dev --host 0.0.0.0` and use the printed LAN URL as `StacOptions.apiBaseUrl`.
+
+#### Dev Options
+
+| Option          | Description                              | Default           |
+| --------------- | ---------------------------------------- | ----------------- |
+| `-p, --project` | Project directory path                   | Current directory |
+| `--host`        | Host address for the local server        | `127.0.0.1`       |
+| `--port`        | Port for the local server                | `45700`           |
+| `--skip-build`  | Serve existing files without first build | `false`           |
+| `--watch`       | Rebuild local JSON when Stac files save  | `true`            |
 
 ### Deploy to Stac Cloud
 
