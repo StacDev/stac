@@ -86,6 +86,38 @@ class StacAppTheme {
     }
   }
 
+  /// Whether [other] reads its theme from the same source.
+  ///
+  /// [StacApp] uses this to resolve a theme again only when its source
+  /// changes. Cloud themes compare by [name] and network themes by their
+  /// request, so rebuilding with an equal theme doesn't fetch it again. DSL
+  /// and JSON themes compare by identity.
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! StacAppTheme || other._source != _source) return false;
+    return switch (_source) {
+      _ThemeSource.dsl => identical(other._dslTheme, _dslTheme),
+      _ThemeSource.cloud => other.name == name,
+      _ThemeSource.network => other._requestKey == _requestKey,
+      _ThemeSource.json => identical(other._jsonPayload, _jsonPayload),
+    };
+  }
+
+  @override
+  int get hashCode => switch (_source) {
+    _ThemeSource.dsl => Object.hash(_source, identityHashCode(_dslTheme)),
+    _ThemeSource.cloud => Object.hash(_source, name),
+    _ThemeSource.network => Object.hash(_source, _requestKey),
+    _ThemeSource.json => Object.hash(_source, identityHashCode(_jsonPayload)),
+  };
+
+  String? get _requestKey {
+    final request = _request;
+    if (request == null) return null;
+    return jsonEncode(request.toJson(), toEncodable: (value) => '$value');
+  }
+
   /// Fetches a theme from the `/themes` endpoint by [themeName].
   ///
   /// Returns `null` if the network call fails or the payload is malformed.
