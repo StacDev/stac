@@ -44,11 +44,16 @@ class StacGridViewParser extends StacParser<StacGridView> {
           ? null
           : ScrollCacheExtent.pixels(model.cacheExtent!),
       itemBuilder: (context, index) {
-        final List<Widget>? parsed = model.children?.parseList(context);
-        if (parsed == null || index >= parsed.length) {
+        final children = model.children;
+        if (children == null || index >= children.length) {
           return const SizedBox.shrink();
         }
-        return parsed[index];
+        // Parse in the item's own element, so theme colors and text styles
+        // resolved while parsing update when the theme changes.
+        return Builder(
+          builder: (context) =>
+              children[index].parse(context) ?? const SizedBox.shrink(),
+        );
       },
       itemCount: model.children?.length ?? 0,
       semanticChildCount: model.semanticChildCount,

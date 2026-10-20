@@ -59,10 +59,12 @@ class _StacPageViewWidgetState extends State<_StacPageViewWidget> {
       onPageChanged: (int index) {
         widget.model.onPageChanged?.parse(context);
       },
-      itemBuilder: (context, index) {
-        final child = widget.model.children?[index];
-        return child?.parse(context) ?? const SizedBox();
-      },
+      // Parse in the page's own element, so theme colors and text styles
+      // resolved while parsing update when the theme changes.
+      itemBuilder: (context, index) => Builder(
+        builder: (context) =>
+            widget.model.children?[index].parse(context) ?? const SizedBox(),
+      ),
       itemCount: widget.model.children?.length,
       dragStartBehavior:
           widget.model.dragStartBehavior?.parse ?? DragStartBehavior.start,
