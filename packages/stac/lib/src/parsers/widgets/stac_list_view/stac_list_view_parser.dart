@@ -51,10 +51,17 @@ class StacListViewParser extends StacParser<StacListView> {
         if (model.children == null || model.children!.isEmpty) {
           return const SizedBox();
         }
-        return model.children![index].parse(context);
+        // Parse in the item's own element, so theme colors and text styles
+        // resolved while parsing update when the theme changes.
+        return Builder(
+          builder: (context) =>
+              model.children![index].parse(context) ?? const SizedBox(),
+        );
       },
-      separatorBuilder: (context, _) =>
-          model.separator.parse(context) ?? const SizedBox(),
+      separatorBuilder: (context, _) => Builder(
+        builder: (context) =>
+            model.separator.parse(context) ?? const SizedBox(),
+      ),
     );
   }
 }
