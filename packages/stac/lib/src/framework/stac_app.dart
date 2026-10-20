@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/stac_app_theme.dart';
+import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
+import 'package:stac/src/utils/color_utils.dart';
 import 'package:stac_logger/stac_logger.dart';
 
 class StacApp extends StatefulWidget {
@@ -140,26 +142,44 @@ class StacApp extends StatefulWidget {
 }
 
 class _StacAppState extends State<StacApp> {
-  Future<_ResolvedStacThemes>? _themesFuture;
   _ResolvedStacThemes? _resolvedThemes;
+
+  // Counts theme loads, so an earlier load that finishes late can't replace
+  // the themes of a newer one.
+  int _themesGeneration = 0;
 
   @override
   void initState() {
     super.initState();
-    _themesFuture = _resolveThemes();
-    _themesFuture!
+    _loadThemes();
+  }
+
+  @override
+  void didUpdateWidget(covariant StacApp oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.theme != widget.theme ||
+        oldWidget.darkTheme != widget.darkTheme) {
+      _loadThemes();
+    }
+  }
+
+  /// Resolves [StacApp.theme] and [StacApp.darkTheme]. While new themes
+  /// resolve, the app keeps the ones it already has.
+  void _loadThemes() {
+    final generation = ++_themesGeneration;
+    _resolveThemes()
         .then((themes) {
-          if (mounted) {
+          if (mounted && generation == _themesGeneration) {
             setState(() {
               _resolvedThemes = themes;
             });
           }
         })
         .catchError((error) {
-          if (mounted) {
+          if (mounted && generation == _themesGeneration) {
             Log.w('Failed to resolve theme: $error');
             setState(() {
-              _resolvedThemes = (theme: null, darkTheme: null);
+              _resolvedThemes ??= (theme: null, darkTheme: null);
             });
           }
         });
@@ -167,17 +187,26 @@ class _StacAppState extends State<StacApp> {
 
   @override
   Widget build(BuildContext context) {
-    if (_resolvedThemes == null) {
+    final themes = _resolvedThemes;
+    if (themes == null) {
       return const _LoadingWidget();
     }
 
-    if (widget.routerDelegate != null || widget.routerConfig != null) {
-      return _buildMaterialAppRouter(context, _resolvedThemes!);
-    }
-    return _buildMaterialApp(context, _resolvedThemes!);
+    return _StacThemeScope(
+      theme: themes.theme,
+      builder: (theme) => _StacThemeScope(
+        theme: themes.darkTheme,
+        builder: (darkTheme) {
+          if (widget.routerDelegate != null || widget.routerConfig != null) {
+            return _buildMaterialAppRouter(theme, darkTheme);
+          }
+          return _buildMaterialApp(theme, darkTheme);
+        },
+      ),
+    );
   }
 
-  Widget _buildMaterialApp(BuildContext context, _ResolvedStacThemes themes) {
+  Widget _buildMaterialApp(ThemeData? theme, ThemeData? darkTheme) {
     return MaterialApp(
       navigatorKey: widget.navigatorKey,
       scaffoldMessengerKey: widget.scaffoldMessengerKey,
@@ -198,8 +227,8 @@ class _StacAppState extends State<StacApp> {
       builder: widget.builder,
       title: widget.title,
       onGenerateTitle: widget.onGenerateTitle,
-      theme: themes.theme?.parse(context),
-      darkTheme: themes.darkTheme?.parse(context),
+      theme: theme,
+      darkTheme: darkTheme,
       highContrastTheme: widget.highContrastTheme,
       highContrastDarkTheme: widget.highContrastDarkTheme,
       themeMode: widget.themeMode,
@@ -224,10 +253,7 @@ class _StacAppState extends State<StacApp> {
     );
   }
 
-  Widget _buildMaterialAppRouter(
-    BuildContext context,
-    _ResolvedStacThemes themes,
-  ) {
+  Widget _buildMaterialAppRouter(ThemeData? theme, ThemeData? darkTheme) {
     return MaterialApp.router(
       scaffoldMessengerKey: widget.scaffoldMessengerKey,
       routeInformationProvider: widget.routeInformationProvider,
@@ -239,8 +265,8 @@ class _StacAppState extends State<StacApp> {
       title: widget.title,
       onGenerateTitle: widget.onGenerateTitle,
       color: widget.color,
-      theme: themes.theme?.parse(context),
-      darkTheme: themes.darkTheme?.parse(context),
+      theme: theme,
+      darkTheme: darkTheme,
       highContrastTheme: widget.highContrastTheme,
       highContrastDarkTheme: widget.highContrastDarkTheme,
       themeMode: widget.themeMode,
@@ -289,6 +315,37 @@ class _StacAppState extends State<StacApp> {
 }
 
 typedef _ResolvedStacThemes = ({StacTheme? theme, StacTheme? darkTheme});
+
+/// Parses [theme] under a [Theme] built from its own colors, so theme color
+/// names inside it, such as `'primary'`, resolve against its color scheme
+/// rather than whatever theme sits above [StacApp].
+class _StacThemeScope extends StatelessWidget {
+  const _StacThemeScope({required this.theme, required this.builder});
+
+  final StacTheme? theme;
+  final Widget Function(ThemeData? themeData) builder;
+
+  // Used when there's no theme, so the widget tree keeps the same shape and
+  // the MaterialApp below keeps its state if a theme comes or goes.
+  static final ThemeData _noTheme = ThemeData();
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = this.theme;
+    return Theme(
+      data: theme == null
+          ? _noTheme
+          : ThemeData(
+              useMaterial3: theme.useMaterial3,
+              colorScheme: theme.colorScheme?.parse(context),
+              brightness: theme.brightness?.parse,
+              colorSchemeSeed: theme.colorSchemeSeed?.toColor(context),
+              primarySwatch: theme.primarySwatch?.parse(context),
+            ),
+      child: Builder(builder: (context) => builder(theme?.parse(context))),
+    );
+  }
+}
 
 class _LoadingWidget extends StatelessWidget {
   const _LoadingWidget();
