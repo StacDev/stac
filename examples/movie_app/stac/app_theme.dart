@@ -5,7 +5,7 @@ StacTheme get darkTheme => _buildTheme(
   brightness: StacBrightness.dark,
   colorScheme: StacColorScheme(
     brightness: StacBrightness.dark,
-    primary: '#95E183',
+    primary: '#212121',
     onPrimary: '#050608',
     secondary: '#95E183',
     onSecondary: '#FFFFFF',
