@@ -91,6 +91,7 @@ StacWidget stateExample() {
                   ),
                   StacSetValueAction(
                     values: <Map<String, dynamic>>[
+                      {'key': 'count', 'expression': 'count + 1'},
                       {'key': 'nextId', 'expression': 'nextId + 1'},
                     ],
                   ),
