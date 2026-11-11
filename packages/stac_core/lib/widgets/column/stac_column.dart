@@ -51,6 +51,9 @@ class StacColumn extends StacWidget {
     this.textBaseline,
     this.spacing,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyTemplate,
   });
 
   /// How the children should be placed along the vertical (main) axis.
@@ -91,6 +94,17 @@ class StacColumn extends StacWidget {
 
   /// The list of widgets arranged vertically.
   final List<StacWidget>? children;
+
+  /// The data to build the children from instead of [children]: a list, or a
+  /// `{{placeholder}}` for a state key, whose changes the column follows.
+  final dynamic items;
+
+  /// The widget built for each entry of [items], with placeholders filled
+  /// from the entry: `{{title}}` for a field, or `{{item}}` for a plain value.
+  final StacWidget? itemTemplate;
+
+  /// The widget shown instead when [items] is empty.
+  final StacWidget? emptyTemplate;
 
   @override
   String get type => WidgetType.column.name;

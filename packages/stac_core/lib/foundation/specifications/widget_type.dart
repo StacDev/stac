@@ -94,6 +94,12 @@ enum WidgetType {
   /// Dynamic view widget
   dynamicView,
 
+  /// Observer widget
+  observer,
+
+  /// Lifecycle widget
+  lifecycle,
+
   /// Elevated button widget
   elevatedButton,
 

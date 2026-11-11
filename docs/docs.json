@@ -44,6 +44,7 @@
                             "concepts/stac_registry",
                             "concepts/navigation_in_stac",
                             "concepts/caching",
+                            "concepts/state",
                             "concepts/custom_widgets",
                             "concepts/custom_actions",
                             "concepts/theming"
@@ -163,6 +164,8 @@
                         "group": "Data Widgets",
                         "pages": [
                             "widgets/custom_scroll_view",
+                            "widgets/observer",
+                            "widgets/lifecycle",
                             "widgets/grid_view",
                             "widgets/selectable_text",
                             "widgets/table",
@@ -207,7 +210,8 @@
                     {
                         "group": "State Actions",
                         "pages": [
-                            "actions/set_value"
+                            "actions/set_value",
+                            "actions/update_list"
                         ]
                     },
                     {

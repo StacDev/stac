@@ -9,6 +9,8 @@ import 'package:stac/src/framework/stac.dart';
 import 'package:stac/src/framework/stac_error.dart';
 import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
+import 'package:stac/src/models/stac_state_config.dart';
+import 'package:stac/src/services/stac_state_service.dart';
 import 'package:stac/src/parsers/actions/stac_form_validate/stac_form_validate_parser.dart';
 import 'package:stac/src/parsers/actions/stac_get_form_value/stac_get_form_value_parser.dart';
 import 'package:stac/src/parsers/actions/stac_network_request/stac_network_request_parser.dart';
@@ -140,6 +142,8 @@ class StacService {
     const StacSetValueParser(),
     const StacInkwellParser(),
     const StacConditionalParser(),
+    const StacObserverParser(),
+    const StacLifecycleParser(),
     const StacVisibilityParser(),
     const StacBackdropFilterParser(),
     const StacVerticalDividerParser(),
@@ -156,6 +160,7 @@ class StacService {
     const StacFormValidateParser(),
     const StacSnackBarParser(),
     const StacSetValueActionParser(),
+    const StacUpdateListActionParser(),
     const StacMultiActionParser(),
     const StacDelayActionParser(),
   ];
@@ -185,6 +190,7 @@ class StacService {
     bool logStackTraces = true,
     StacErrorWidgetBuilder? errorWidgetBuilder,
     StacCacheConfig? cacheConfig,
+    StacStateConfig? state,
   }) async {
     _options = options;
     if (cacheConfig != null) {
@@ -198,6 +204,30 @@ class StacService {
     _showErrorWidgets = showErrorWidgets;
     _logStackTraces = logStackTraces;
     _errorWidgetBuilder = errorWidgetBuilder;
+    if (state != null) {
+      await _loadState(state);
+    }
+  }
+
+  // Restores the persisted keys from the device and fills the rest from
+  // `initial`, so screens can read them from the start.
+  static Future<void> _loadState(StacStateConfig state) async {
+    if (state.persisted.isNotEmpty) {
+      // Reading the device needs Flutter's binding, which `runApp` would
+      // only set up later.
+      WidgetsFlutterBinding.ensureInitialized();
+    }
+    final registry = StacRegistry.instance;
+    registry.persistKeys(state.persisted);
+    final values = <String, dynamic>{...state.initial};
+    for (final key in state.persisted) {
+      final stored = await StacStateService.read(key);
+      if (stored != null) {
+        values[key] = stored;
+      }
+    }
+    registry.load(values);
+    registry.defineDerived(state.derived);
   }
 
   static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
@@ -345,6 +375,10 @@ class StacService {
       final stacActionParser = StacRegistry.instance.getActionParser(
         actionType,
       );
+
+      // Placeholders in actions are filled when the action runs, so they
+      // see current state and form values.
+      json = resolveActionJson(json, context);
 
       if (stacActionParser == null) {
         Log.w('Action type [$actionType] not supported');

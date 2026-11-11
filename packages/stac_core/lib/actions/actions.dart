@@ -4,6 +4,7 @@ export 'navigate/stac_navigate_action.dart';
 export 'navigate/stac_navigator.dart';
 export 'network_request/stac_network_request.dart';
 export 'set_value/stac_set_value_action.dart';
+export 'update_list/stac_update_list_action.dart';
 export 'delay/stac_delay_action.dart';
 export 'dialog/stac_dialog_action.dart';
 export 'snack_bar/stac_snack_bar.dart';

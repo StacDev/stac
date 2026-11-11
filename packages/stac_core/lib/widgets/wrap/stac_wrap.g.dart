@@ -31,6 +31,13 @@ StacWrap _$StacWrapFromJson(Map<String, dynamic> json) => StacWrap(
   children: (json['children'] as List<dynamic>?)
       ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
       .toList(),
+  items: json['items'],
+  itemTemplate: json['itemTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['itemTemplate'] as Map<String, dynamic>),
+  emptyTemplate: json['emptyTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['emptyTemplate'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$StacWrapToJson(StacWrap instance) => <String, dynamic>{
@@ -46,6 +53,9 @@ Map<String, dynamic> _$StacWrapToJson(StacWrap instance) => <String, dynamic>{
       _$StacVerticalDirectionEnumMap[instance.verticalDirection],
   'clipBehavior': _$StacClipEnumMap[instance.clipBehavior],
   'children': instance.children?.map((e) => e.toJson()).toList(),
+  'items': instance.items,
+  'itemTemplate': instance.itemTemplate?.toJson(),
+  'emptyTemplate': instance.emptyTemplate?.toJson(),
   'type': instance.type,
 };
 

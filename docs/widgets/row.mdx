@@ -45,6 +45,9 @@ To know more about the row widget in Flutter, refer to the [official documentati
 | textBaseline       | `StacTextBaseline`         | The baseline to use when aligning text.                                                                               |
 | spacing            | `double`                   | How much space to place between children in the main axis.                                                            |
 | children           | `List<StacWidget>`         | The widgets below this widget in the tree.                                                                            |
+| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. |
+| itemTemplate       | `StacWidget`               | The widget built for each entry of `items`, with placeholders filled from the entry: `{{title}}` for a field, or `{{item}}` for a plain value. |
+| emptyTemplate      | `StacWidget`               | The widget shown instead when `items` is empty.                                                  |
 
 ## Example
 

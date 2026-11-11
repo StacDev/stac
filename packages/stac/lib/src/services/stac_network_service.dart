@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
+import 'package:stac/src/utils/variable_resolver.dart';
 
 class StacNetworkService {
   const StacNetworkService._();
@@ -14,6 +15,11 @@ class StacNetworkService {
     BuildContext context,
     StacNetworkRequest request,
   ) async {
+    // Placeholders are filled now, so the request sees current state and
+    // form values.
+    request = StacNetworkRequest.fromJson(
+      resolveActionJson(request.toJson(), context),
+    );
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
     );

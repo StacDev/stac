@@ -1,0 +1,105 @@
+---
+title: "Update List Action"
+description: "Adds, changes or removes entries of a list kept in state"
+---
+
+The `updateList` action changes a list stored under a [state](/concepts/state) key: a cart, a feed, a set of favorites. Widgets built from the list with `items` and `itemTemplate`, and observers that read it, update with it.
+
+## Properties
+
+| Property | Type                   | Description                                                                                          |
+|----------|------------------------|------------------------------------------------------------------------------------------------------|
+| key      | `String`               | The state key of the list.                                                                           |
+| op       | `StacListOp`           | The change to make. See below.                                                                       |
+| item     | `dynamic`              | The entry to add, for `append`, `prepend`, `insert` and `upsert`.                                   |
+| items    | `List`                 | The entries to add, for `appendAll`, or the new list for `set`. A placeholder such as `{{response.posts}}` works too. |
+| index    | `int`                  | Where to add `item`, for `insert`. A placeholder such as `{{index}}` works too. Without it, `item` goes at the end. |
+| match    | `Map<String, dynamic>` | Fields an entry must have for `update`, `toggle` and `remove` to apply to it. Omit it to match all. |
+| set      | `Map<String, dynamic>` | Fields to overwrite on matching entries, for `update`.                                               |
+| add      | `Map<String, dynamic>` | Amounts to add to numeric fields of matching entries, for `update`.                                 |
+| field    | `String`               | The boolean field to flip, for `toggle`.                                                             |
+| counter  | `String`               | A numeric field that goes up by 1 when `field` turns true and down by 1 when it turns false.        |
+| persist  | `bool`                 | `true` keeps the list across app restarts from now on.                                               |
+
+The operations are `set`, `append`, `prepend`, `insert`, `appendAll`, `update`, `upsert` (update the matching entries, or append `item` when none matches), `toggle`, `remove` and `clear`. Matching compares fields as text, so `{"id": "{{id}}"}` matches an entry whose `id` is the number 5.
+
+## Add to a cart
+
+Inside an `itemTemplate`, `{{id}}` is the entry's own id, so each row's button updates its own entry.
+
+<CodeGroup>
+```dart Dart
+StacIconButton(
+  icon: StacIcon(icon: 'add'),
+  onPressed: StacUpdateListAction(
+    key: 'cart',
+    op: StacListOp.update,
+    match: {'id': '{{id}}'},
+    add: {'quantity': 1},
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "iconButton",
+  "icon": { "type": "icon", "icon": "add" },
+  "onPressed": {
+    "actionType": "updateList",
+    "key": "cart",
+    "op": "update",
+    "match": { "id": "{{id}}" },
+    "add": { "quantity": 1 }
+  }
+}
+```
+</CodeGroup>
+
+## Like a post
+
+`toggle` flips `liked` and keeps `likes` in step with it.
+
+<CodeGroup>
+```dart Dart
+StacUpdateListAction(
+  key: 'posts',
+  op: StacListOp.toggle,
+  match: {'id': '{{id}}'},
+  field: 'liked',
+  counter: 'likes',
+)
+```
+
+```json JSON
+{
+  "actionType": "updateList",
+  "key": "posts",
+  "op": "toggle",
+  "match": { "id": "{{id}}" },
+  "field": "liked",
+  "counter": "likes"
+}
+```
+</CodeGroup>
+
+## Remove and clear
+
+<CodeGroup>
+```dart Dart
+StacUpdateListAction(key: 'cart', op: StacListOp.remove, match: {'id': '{{id}}'})
+```
+
+```json JSON
+{ "actionType": "updateList", "key": "cart", "op": "remove", "match": { "id": "{{id}}" } }
+```
+</CodeGroup>
+
+<CodeGroup>
+```dart Dart
+StacUpdateListAction(key: 'cart', op: StacListOp.clear)
+```
+
+```json JSON
+{ "actionType": "updateList", "key": "cart", "op": "clear" }
+```
+</CodeGroup>

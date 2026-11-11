@@ -37,14 +37,22 @@ class _SetValueWidgetState extends State<_SetValueWidget> {
     super.initState();
 
     for (final value in widget.model.values) {
-      _stacRegistry.setValue(value['key'] as String, value['value']);
+      _stacRegistry.setValue(
+        value['key'] as String,
+        value['value'],
+        persist: value['persist'] == true,
+      );
     }
   }
 
   @override
   void dispose() {
     for (final value in widget.model.values) {
-      _stacRegistry.removeValue(value['key'] as String);
+      final key = value['key'] as String;
+      // Persisted values outlive the widget.
+      if (!_stacRegistry.isPersisted(key)) {
+        _stacRegistry.removeValue(key);
+      }
     }
     super.dispose();
   }

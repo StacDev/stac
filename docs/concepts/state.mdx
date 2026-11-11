@@ -1,0 +1,138 @@
+---
+title: "State"
+description: "Reading, changing and keeping app state from JSON"
+---
+
+Stac keeps app state in the [Stac Registry](/concepts/stac_registry): a key-value store that screens read with `{{placeholders}}` and change with actions. This page covers everything a screen can do with it.
+
+## Reading state
+
+A placeholder is filled from the registry when the screen is built. It can read into maps and lists with a dot path:
+
+```json
+{ "type": "text", "data": "{{user.name}} has {{items.0.title}} in the cart" }
+```
+
+A value that is exactly one placeholder for a list or map becomes that list or map, so `"body": "{{cart}}"` sends the cart as JSON. Numbers, booleans and text are inserted as text. A placeholder with no value is left as it is.
+
+## Changing state
+
+The [setValue](/actions/set_value) action writes values. An item can give a `value`, or an `expression` that is evaluated when the action runs:
+
+```json
+{
+  "actionType": "setValue",
+  "values": [
+    { "key": "count", "expression": "count + 1" },
+    { "key": "lastTab", "value": "home" }
+  ]
+}
+```
+
+The [updateList](/actions/update_list) action adds, changes and removes entries of a list.
+
+Placeholders inside an action are filled when the action runs, not when the screen is built, so an action always sees the current state. Inside a form, `{{form.email}}` is the current value of the field with the id `email`, which lets typed text reach a request URL, a query parameter, `setValue` or `navigate`.
+
+## Live values
+
+A screen is filled once. To show a value that changes while the screen is open, put the widget that shows it in an [observer](/widgets/observer):
+
+```json
+{
+  "type": "observer",
+  "child": { "type": "text", "data": "{{cartCount}} items" }
+}
+```
+
+The observer fills its child again whenever a key it reads changes. Conditionals inside it are evaluated again too.
+
+## Lists from state
+
+`listView`, `gridView`, `column`, `row` and `wrap` can build their children from a list in state instead of `children`:
+
+```json
+{
+  "type": "listView",
+  "items": "{{cart}}",
+  "itemTemplate": {
+    "type": "listTile",
+    "title": { "type": "text", "data": "{{title}}" },
+    "trailing": { "type": "text", "data": "{{quantity}} × {{currency}}{{price}}" }
+  },
+  "emptyTemplate": { "type": "text", "data": "Your cart is empty" }
+}
+```
+
+- `items` is a placeholder for a state key, or a list written in place.
+- `itemTemplate` is built once per entry. Inside it, `{{title}}` is a field of the entry, `{{item}}` is the entry itself (for a list of plain values), and other placeholders such as `{{currency}}` read state.
+- `emptyTemplate` is shown when the list is empty.
+
+A list whose `items` is a placeholder follows that key on its own; it needs no observer.
+
+## Derived values
+
+Values computed from other values are declared once, in `Stac.initialize`, and computed again whenever a key they read changes:
+
+```dart
+await Stac.initialize(
+  state: const StacStateConfig(
+    derived: {
+      'cartCount': 'sum(cart, item.quantity)',
+      'cartTotal': 'sum(cart, item.price * item.quantity)',
+    },
+  ),
+);
+```
+
+A derived key is read like any other, in placeholders and observers, and can't be set with `setValue`.
+
+## Expressions
+
+The same expressions are used by `conditional`, by derived values and by `expression` in `setValue`. They have numbers, quoted strings, `true`, `false` and `null`, names that read state (`count`, `user.name`, `items[0].price`), the operators `+ - * / %`, `== != < <= > >=`, `&& || !`, `a ? b : c`, parentheses, and the functions `length` (or `count`), `sum`, `avg`, `min`, `max`, `contains`, `round`, `abs`, `floor`, `ceil`, `sqrt`, `pow`, `sin`, `cos` and `tan`, plus `filter`, `sort`, `reverse` and `take` for lists. In `sum(cart, item.price * item.quantity)`, the second argument is evaluated once per entry with the entry as `item`. `filter` and `sort` work the same way, so `take(reverse(sort(transactions, item.date)), 5)` is the five newest transactions.
+
+A name that has no value is text, so `status == active` compares the value of `status` with the text `active`, and `status == null` is true. Quote text to be explicit. Numbers in text, such as form values, count as numbers. `- * / %` only calculate with numbers, so text such as `a-1` stays text, but text made of numbers and dashes, such as a date, is calculated unless it's quoted: `"{{date}}" == "2026-10-22"`.
+
+## Initial and persisted state
+
+Pass a `StacStateConfig` to `Stac.initialize` to give keys a value before the first screen is built, and to keep values across restarts:
+
+```dart
+await Stac.initialize(
+  state: const StacStateConfig(
+    initial: {'cart': [], 'currency': 'USD'},
+    persisted: ['cart', 'token', 'themeMode'],
+  ),
+);
+```
+
+`initial` only fills keys that have nothing stored, so it works as a set of defaults. Whenever a key in `persisted` changes, the new value is saved on the device, and `Stac.initialize` restores it on the next launch. Setting a persisted key to `null` deletes the stored value.
+
+A screen can also mark a value as persisted when it writes it, with `persist` on an item in `setValue` or on `updateList`:
+
+```json
+{
+  "actionType": "setValue",
+  "values": [
+    { "key": "token", "value": "{{response.token}}", "persist": true }
+  ]
+}
+```
+
+Values are stored with `shared_preferences`, one entry per key named `stac.state.<key>`, encoded as JSON. So a value must be JSON: a map, list, string, number, boolean or null. A value that can't be encoded stays in memory only, and a warning is logged.
+
+The [setValue widget](/widgets/set_value) removes its values when it leaves the screen. Persisted values are the exception: they stay.
+
+## Theme mode
+
+`StacApp` can follow a state key for its theme mode:
+
+```dart
+StacApp(
+  themeModeKey: 'themeMode',
+  theme: StacAppTheme.dsl(theme: lightTheme),
+  darkTheme: StacAppTheme.dsl(theme: darkTheme),
+  homeBuilder: ...,
+)
+```
+
+While the key holds `light`, `dark` or `system`, it overrides `themeMode`. A settings screen switches the theme with `setValue`, and `persist: true` remembers the choice.

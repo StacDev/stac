@@ -15,6 +15,8 @@ The `StacSetValueAction` allows you to set or update values in the application s
 Each item in `values` should contain:
 - `key`: The state key to set
 - `value`: The value to assign
+- `expression` (optional): an [expression](/concepts/state#expressions) evaluated when the action runs, instead of `value`: `{"key": "count", "expression": "count + 1"}`.
+- `persist` (optional): `true` keeps the value across app restarts. See [State](/concepts/state).
 
 ## Example
 
@@ -177,6 +179,34 @@ StacMultiAction(
 ```
 </CodeGroup>
 
+## Remember a Value Across Restarts
+
+A value marked with `persist` is saved on the device and restored by `Stac.initialize` on the next launch. Setting it to `null` later deletes it.
+
+<CodeGroup>
+```dart Dart
+StacSetValueAction(
+  values: [
+    {'key': 'token', 'value': '{{response.token}}', 'persist': true},
+  ],
+  action: StacNavigateAction(routeName: '/home'),
+)
+```
+
+```json JSON
+{
+  "actionType": "setValue",
+  "values": [
+    { "key": "token", "value": "{{response.token}}", "persist": true }
+  ],
+  "action": {
+    "actionType": "navigate",
+    "routeName": "/home"
+  }
+}
+```
+</CodeGroup>
+
 <Note>
-For setting initial state when a screen loads (without an action trigger), use the [StacSetValue widget](/widgets/set_value) instead.
+For setting initial state when a screen loads (without an action trigger), use the [StacSetValue widget](/widgets/set_value) instead. For values every screen should start with, see [State](/concepts/state).
 </Note>

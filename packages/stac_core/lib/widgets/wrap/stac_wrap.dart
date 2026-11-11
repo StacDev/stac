@@ -55,6 +55,9 @@ class StacWrap extends StacWidget {
     this.verticalDirection,
     this.clipBehavior,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyTemplate,
   });
 
   /// The direction to lay out the children.
@@ -100,6 +103,17 @@ class StacWrap extends StacWidget {
 
   /// The widgets below this widget in the tree.
   final List<StacWidget>? children;
+
+  /// The data to build the children from instead of [children]: a list, or a
+  /// `{{placeholder}}` for a state key, whose changes the wrap follows.
+  final dynamic items;
+
+  /// The widget built for each entry of [items], with placeholders filled
+  /// from the entry: `{{title}}` for a field, or `{{item}}` for a plain value.
+  final StacWidget? itemTemplate;
+
+  /// The widget shown instead when [items] is empty.
+  final StacWidget? emptyTemplate;
 
   /// Widget type identifier.
   @override
