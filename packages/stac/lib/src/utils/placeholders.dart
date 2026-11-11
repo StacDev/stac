@@ -99,16 +99,23 @@ dynamic resolvePlaceholders(
   return json;
 }
 
-/// The first segment of every placeholder path in [json], in order of first
-/// appearance: the keys a widget reads. `{{user.name}}` yields `user`.
+/// The registry keys a value at [path] depends on: [path] itself, which a
+/// key that contains a dot matches exactly, and its first segment.
+/// `user.name` yields `user.name` and `user`.
+List<String> watchedKeys(String path) {
+  final separator = path.indexOf(RegExp(r'[.\[]'));
+  return separator > 0 ? [path, path.substring(0, separator)] : [path];
+}
+
+/// The keys the placeholders in [json] read, in order of first appearance:
+/// the [watchedKeys] of each path. `{{user.name}}` yields `user.name` and
+/// `user`.
 List<String> placeholderKeys(dynamic json) {
   final keys = <String>{};
   void collect(dynamic node) {
     if (node is String) {
       for (final match in placeholderPattern.allMatches(node)) {
-        final path = match.group(1)!;
-        final separator = path.indexOf(RegExp(r'[.\[]'));
-        keys.add(separator > 0 ? path.substring(0, separator) : path);
+        keys.addAll(watchedKeys(match.group(1)!));
       }
     } else if (node is Map) {
       node.values.forEach(collect);

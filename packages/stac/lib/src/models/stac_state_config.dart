@@ -26,7 +26,9 @@ class StacStateConfig {
   final Map<String, dynamic> initial;
 
   /// Keys whose values are saved on the device whenever they change, and
-  /// restored by `Stac.initialize`.
+  /// restored by `Stac.initialize`. Values a screen saved with
+  /// `persist: true` are restored too, whether their keys are listed here or
+  /// not.
   ///
   /// Values must be JSON: maps, lists, strings, numbers, booleans or null.
   final List<String> persisted;

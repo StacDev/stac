@@ -37,19 +37,24 @@ class _LifecycleState extends State<_Lifecycle> {
     // After the first frame, so the action can use the screen it is on.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
-        widget.model.onLoad?.parse(context);
+        _run(widget.model.onLoad, 'onLoad');
       }
     });
   }
 
   @override
   void dispose() {
-    try {
-      widget.model.onDispose?.parse(context);
-    } catch (e) {
-      Log.w('onDispose failed: $e');
-    }
+    _run(widget.model.onDispose, 'onDispose');
     super.dispose();
+  }
+
+  // Starts [action] without waiting for it, and logs a failure whether the
+  // action throws right away or its future fails later.
+  void _run(StacAction? action, String hook) {
+    if (action == null) return;
+    Future<dynamic>.sync(() => action.parse(context)).catchError((Object e) {
+      Log.w('$hook failed: $e');
+    });
   }
 
   @override

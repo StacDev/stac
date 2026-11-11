@@ -20,7 +20,7 @@ StacObserver(
   child: StacConditional(
     condition: '{{cartCount}} > 0',
     ifTrue: StacBadge(
-      label: '{{cartCount}}',
+      label: StacText(data: '{{cartCount}}'),
       child: StacIcon(icon: 'shopping_cart'),
     ),
     ifFalse: StacIcon(icon: 'shopping_cart'),
@@ -36,7 +36,7 @@ StacObserver(
     "condition": "{{cartCount}} > 0",
     "ifTrue": {
       "type": "badge",
-      "label": "{{cartCount}}",
+      "label": { "type": "text", "data": "{{cartCount}}" },
       "child": { "type": "icon", "icon": "shopping_cart" }
     },
     "ifFalse": { "type": "icon", "icon": "shopping_cart" }

@@ -76,6 +76,10 @@ class StacNetworkService {
   }
 
   static Future<dynamic> _updateBody(BuildContext context, dynamic body) async {
+    // Only a map can hold actions. Any other body, such as a list from a
+    // `{{cart}}` placeholder, is sent as it is.
+    if (body != null && body is! Map) return body;
+
     Map<dynamic, dynamic> bodyMap = {};
 
     if (body is Map) {

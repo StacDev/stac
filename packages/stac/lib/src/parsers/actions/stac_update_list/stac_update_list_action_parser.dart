@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:stac/stac.dart';
+import 'package:stac_logger/stac_logger.dart';
 
 class StacUpdateListActionParser
     extends StacActionParser<StacUpdateListAction> {
@@ -20,6 +21,16 @@ class StacUpdateListActionParser
     final current = registry.getValue(model.key);
     final list = [if (current is List) ...current];
     final items = model.items;
+    if ((model.op == StacListOp.set || model.op == StacListOp.appendAll) &&
+        items is! List) {
+      // Such as a placeholder that had no value. Treating it as an empty
+      // list would wipe the stored one.
+      Log.w(
+        'updateList ${model.op.name} on ${model.key} needs a list of items, '
+        'not $items',
+      );
+      return null;
+    }
     final updated = switch (model.op) {
       StacListOp.set => [if (items is List) ...items],
       StacListOp.append => [...list, model.item],

@@ -5,6 +5,10 @@
             "value": 0
         },
         {
+            "key": "nextId",
+            "value": 1
+        },
+        {
             "key": "todos",
             "value": [
                 {
@@ -66,12 +70,16 @@
         },
         "backgroundColor": null,
         "body": {
+            "scrollDirection": null,
+            "reverse": null,
             "padding": {
                 "left": 16.0,
                 "top": 16.0,
                 "right": 16.0,
                 "bottom": 16.0
             },
+            "primary": null,
+            "physics": null,
             "child": {
                 "mainAxisAlignment": null,
                 "mainAxisSize": null,
@@ -417,8 +425,8 @@
                                     "key": "todos",
                                     "op": "append",
                                     "item": {
-                                        "id": "item-{{count}}",
-                                        "title": "Item {{count}}"
+                                        "id": "item-{{nextId}}",
+                                        "title": "Item {{nextId}}"
                                     },
                                     "items": null,
                                     "index": null,
@@ -433,8 +441,8 @@
                                 {
                                     "values": [
                                         {
-                                            "key": "count",
-                                            "expression": "count + 1"
+                                            "key": "nextId",
+                                            "expression": "nextId + 1"
                                         }
                                     ],
                                     "action": null,
@@ -474,7 +482,11 @@
                 "emptyTemplate": null,
                 "type": "column"
             },
-            "type": "padding"
+            "dragStartBehavior": null,
+            "clipBehavior": null,
+            "restorationId": null,
+            "keyboardDismissBehavior": null,
+            "type": "singleChildScrollView"
         },
         "bottomNavigationBar": null,
         "bottomSheet": null,

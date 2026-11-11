@@ -43,15 +43,23 @@ class ExpressionResolver {
   /// from the registry. Returns null when the expression can't be parsed.
   static dynamic evaluate(String expression, {ExpressionLookup? lookup}) {
     try {
-      return _parse(expression).eval(_Scope(lookup ?? _fromRegistry, const {}));
+      return evaluateOrThrow(expression, lookup: lookup);
     } catch (e) {
       Log.w('Could not evaluate "$expression": $e');
       return null;
     }
   }
 
+  /// Evaluates [expression] like [evaluate], but throws when it can't be
+  /// parsed or evaluated, so a failure can be told apart from a null result.
+  static dynamic evaluateOrThrow(
+    String expression, {
+    ExpressionLookup? lookup,
+  }) => _parse(expression).eval(_Scope(lookup ?? _fromRegistry, const {}));
+
   /// The state keys [expression] reads: the first segment of each name in
-  /// it, such as `cart` for `sum(cart, item.price)`.
+  /// it, such as `cart` for `sum(cart, item.price)`, and each dotted name
+  /// itself, such as `user.name`, which a key can match exactly.
   static List<String> dependencies(String expression) {
     try {
       final roots = <String>{};
@@ -168,7 +176,7 @@ class _Ref extends _Node {
 
   @override
   void collect(Set<String> roots, Set<String> bound) {
-    if (!bound.contains(root)) roots.add(root);
+    if (!bound.contains(root)) roots.addAll(watchedKeys(path));
   }
 }
 
@@ -205,6 +213,9 @@ class _Binary extends _Node {
       return op == '==' ? missing : !missing;
     }
     final l = left.eval(scope);
+    // The right side only counts when the left side doesn't decide.
+    if (op == '&&') return _truthy(l) && _truthy(right.eval(scope));
+    if (op == '||') return _truthy(l) || _truthy(right.eval(scope));
     final r = right.eval(scope);
     switch (op) {
       case '+':
@@ -230,10 +241,6 @@ class _Binary extends _Node {
         return _isNum(l) && _isNum(r) && _num(l) > _num(r);
       case '>=':
         return _isNum(l) && _isNum(r) && _num(l) >= _num(r);
-      case '&&':
-        return _truthy(l) && _truthy(r);
-      case '||':
-        return _truthy(l) || _truthy(r);
     }
     throw FormatException('Unknown operator $op');
   }

@@ -10,24 +10,29 @@ class StacStateService {
 
   static const _prefix = 'stac.state.';
 
-  /// The stored value for [key], or null when there is none or it can't be
-  /// read.
-  static Future<Object?> read(String key) async {
-    final String? text;
+  /// Every stored value, by key: those of keys listed in
+  /// `StacStateConfig.persisted` and of keys written with `persist: true`.
+  /// A value that can't be read is left out.
+  static Future<Map<String, Object?>> readAll() async {
+    final SharedPreferences prefs;
     try {
-      final prefs = await SharedPreferences.getInstance();
-      text = prefs.getString('$_prefix$key');
+      prefs = await SharedPreferences.getInstance();
     } catch (e) {
-      Log.w('Failed to read the stored value of $key: $e');
-      return null;
+      Log.w('Failed to read stored state: $e');
+      return const {};
     }
-    if (text == null) return null;
-    try {
-      return jsonDecode(text);
-    } catch (e) {
-      Log.w('Ignoring the stored value of $key, which is not JSON: $e');
-      return null;
+    final values = <String, Object?>{};
+    for (final name in prefs.getKeys()) {
+      if (!name.startsWith(_prefix)) continue;
+      final key = name.substring(_prefix.length);
+      try {
+        final text = prefs.getString(name);
+        if (text != null) values[key] = jsonDecode(text);
+      } catch (e) {
+        Log.w('Ignoring the stored value of $key, which is not JSON: $e');
+      }
     }
+    return values;
   }
 
   /// Saves [value] for [key], or deletes the stored value when [value] is

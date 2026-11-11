@@ -118,6 +118,8 @@ A screen can also mark a value as persisted when it writes it, with `persist` on
 }
 ```
 
+`Stac.initialize` restores these values on the next launch too, without the key being listed in `persisted`.
+
 Values are stored with `shared_preferences`, one entry per key named `stac.state.<key>`, encoded as JSON. So a value must be JSON: a map, list, string, number, boolean or null. A value that can't be encoded stays in memory only, and a warning is logged.
 
 The [setValue widget](/widgets/set_value) removes its values when it leaves the screen. Persisted values are the exception: they stay.

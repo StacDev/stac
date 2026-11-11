@@ -5,6 +5,7 @@ StacWidget stateExample() {
   return StacSetValue(
     values: <Map<String, dynamic>>[
       {'key': 'count', 'value': 0},
+      {'key': 'nextId', 'value': 1},
       {
         'key': 'todos',
         'value': <Map<String, dynamic>>[
@@ -15,7 +16,7 @@ StacWidget stateExample() {
     ],
     child: StacScaffold(
       appBar: StacAppBar(title: StacText(data: 'State Example')),
-      body: StacPadding(
+      body: StacSingleChildScrollView(
         padding: StacEdgeInsets.all(16),
         child: StacColumn(
           crossAxisAlignment: StacCrossAxisAlignment.stretch,
@@ -83,11 +84,14 @@ StacWidget stateExample() {
                   StacUpdateListAction(
                     key: 'todos',
                     op: StacListOp.append,
-                    item: {'id': 'item-{{count}}', 'title': 'Item {{count}}'},
+                    item: {
+                      'id': 'item-{{nextId}}',
+                      'title': 'Item {{nextId}}',
+                    },
                   ),
                   StacSetValueAction(
                     values: <Map<String, dynamic>>[
-                      {'key': 'count', 'expression': 'count + 1'},
+                      {'key': 'nextId', 'expression': 'nextId + 1'},
                     ],
                   ),
                 ],

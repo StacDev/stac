@@ -204,29 +204,20 @@ class StacService {
     _showErrorWidgets = showErrorWidgets;
     _logStackTraces = logStackTraces;
     _errorWidgetBuilder = errorWidgetBuilder;
-    if (state != null) {
-      await _loadState(state);
-    }
+    await _loadState(state ?? const StacStateConfig());
   }
 
-  // Restores the persisted keys from the device and fills the rest from
-  // `initial`, so screens can read them from the start.
+  // Restores the values saved on the device and fills the rest from
+  // `initial`, so screens can read them from the start. That includes keys a
+  // screen saved with `persist: true`, which keep being saved.
   static Future<void> _loadState(StacStateConfig state) async {
-    if (state.persisted.isNotEmpty) {
-      // Reading the device needs Flutter's binding, which `runApp` would
-      // only set up later.
-      WidgetsFlutterBinding.ensureInitialized();
-    }
+    // Reading the device needs Flutter's binding, which `runApp` would only
+    // set up later.
+    WidgetsFlutterBinding.ensureInitialized();
     final registry = StacRegistry.instance;
-    registry.persistKeys(state.persisted);
-    final values = <String, dynamic>{...state.initial};
-    for (final key in state.persisted) {
-      final stored = await StacStateService.read(key);
-      if (stored != null) {
-        values[key] = stored;
-      }
-    }
-    registry.load(values);
+    final stored = await StacStateService.readAll();
+    registry.persistKeys({...state.persisted, ...stored.keys});
+    registry.load({...state.initial, ...stored});
     registry.defineDerived(state.derived);
   }
 

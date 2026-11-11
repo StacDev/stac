@@ -49,13 +49,22 @@ List<StacWidget> templateChildren(
     for (final item in items)
       StacWidget.fromJson(
         resolveVariablesInJson(
-              resolvePlaceholders(template, (path) => _itemValue(item, path)),
+              resolvePlaceholders(
+                template,
+                (path) => _itemValue(item, path),
+                skipEntry: _isNestedTemplate,
+              ),
               registry,
             )
             as Map<String, dynamic>,
       ),
   ];
 }
+
+// A list inside the template fills its own itemTemplate from its own
+// entries. Its `items` are still read from this entry.
+bool _isNestedTemplate(Map<dynamic, dynamic> json, String key) =>
+    key == 'itemTemplate' && json.containsKey('items');
 
 // `{{item}}` is the entry itself; `{{item.x}}` and `{{x}}` read into it.
 Object? _itemValue(dynamic item, String path) {
@@ -86,7 +95,7 @@ class _ItemsBuilder extends StatefulWidget {
 
 class _ItemsBuilderState extends State<_ItemsBuilder> {
   final StacRegistry _registry = StacRegistry.instance;
-  String? _key;
+  List<String> _keys = const [];
 
   @override
   void initState() {
@@ -118,16 +127,17 @@ class _ItemsBuilderState extends State<_ItemsBuilder> {
   void _listen() {
     final path = _path;
     if (path == null) return;
-    _key = placeholderKeys('{{$path}}').first;
-    _registry.listen(_key!).addListener(_changed);
+    _keys = watchedKeys(path);
+    for (final key in _keys) {
+      _registry.listen(key).addListener(_changed);
+    }
   }
 
   void _unlisten() {
-    final key = _key;
-    if (key != null) {
+    for (final key in _keys) {
       _registry.listen(key).removeListener(_changed);
-      _key = null;
     }
+    _keys = const [];
   }
 
   void _changed() => scheduleRebuild(() {

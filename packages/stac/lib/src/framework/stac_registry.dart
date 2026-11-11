@@ -120,42 +120,61 @@ class StacRegistry {
   }
 
   // One notifier per key that something listens to.
-  static final Map<String, ValueNotifier<Object?>> _notifiers = {};
+  static final Map<String, _StateNotifier> _notifiers = {};
 
   /// Notifies whenever the value of [key] changes. The listenable's value is
   /// the current value, or null when the key is not set.
-  ValueListenable<Object?> listen(String key) => _notifiers.putIfAbsent(
-    key,
-    () => ValueNotifier<Object?>(_variables[key]),
-  );
+  ValueListenable<Object?> listen(String key) =>
+      _notifiers.putIfAbsent(key, () => _StateNotifier(_variables[key]));
 
   void _notify(String key) {
-    _notifiers[key]?.value = _variables[key];
+    _notifiers[key]?.write(_variables[key]);
   }
 
-  // Expressions by the key they compute, and what each one reads.
+  // Expressions by the key they compute.
   static final Map<String, String> _derived = {};
+
+  // The listeners each derived key added, by the key they listen to.
+  static final Map<String, Map<String, VoidCallback>> _derivedListeners = {};
+
+  // The derived keys being computed right now.
+  static final Set<String> _computing = {};
 
   /// Computes each value in [expressions] now, and again whenever a key its
   /// expression reads changes. Keys in [expressions] can't be set with
-  /// [setValue].
+  /// [setValue]. Defining a key again replaces its expression.
   void defineDerived(Map<String, String> expressions) {
-    for (final entry in expressions.entries) {
-      final key = entry.key;
-      _derived[key] = entry.value;
-      for (final dependency in ExpressionResolver.dependencies(entry.value)) {
-        if (dependency != key) {
-          listen(dependency).addListener(() => _compute(key));
-        }
-      }
-      _compute(key);
+    // Replace every expression before computing any, so no value is computed
+    // from a mix of old and new expressions.
+    for (final MapEntry(:key, value: expression) in expressions.entries) {
+      _derivedListeners.remove(key)?.forEach((dependency, listener) {
+        listen(dependency).removeListener(listener);
+      });
+      _derived[key] = expression;
     }
+    for (final MapEntry(:key, value: expression) in expressions.entries) {
+      final listeners = <String, VoidCallback>{
+        for (final dependency in ExpressionResolver.dependencies(expression))
+          if (dependency != key) dependency: () => _compute(key),
+      };
+      listeners.forEach((dependency, listener) {
+        listen(dependency).addListener(listener);
+      });
+      _derivedListeners[key] = listeners;
+    }
+    expressions.keys.forEach(_compute);
   }
 
   void _compute(String key) {
     final expression = _derived[key];
-    if (expression == null) return;
-    load({key: ExpressionResolver.evaluate(expression)});
+    // A key whose expression reads itself through other derived keys isn't
+    // computed again while it is being computed.
+    if (expression == null || !_computing.add(key)) return;
+    try {
+      load({key: ExpressionResolver.evaluate(expression)});
+    } finally {
+      _computing.remove(key);
+    }
   }
 
   /// Whether [key]'s value is saved on the device when it changes.
@@ -174,6 +193,22 @@ class StacRegistry {
         _variables[entry.key] = entry.value;
       }
       _notify(entry.key);
+    }
+  }
+}
+
+/// A key's value, for its listeners.
+class _StateNotifier extends ValueNotifier<Object?> {
+  _StateNotifier(super.value);
+
+  /// Sets the value. A list or map that was changed in place and written
+  /// back is the same object, which `value =` would take for no change, so
+  /// it notifies anyway.
+  void write(Object? newValue) {
+    if (identical(value, newValue) && (newValue is List || newValue is Map)) {
+      notifyListeners();
+    } else {
+      value = newValue;
     }
   }
 }
