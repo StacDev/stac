@@ -795,6 +795,16 @@ const List<PlaygroundEntry> componentEntries = [
     category: EntryCategory.component,
   ),
   PlaygroundEntry(
+    id: 'state',
+    title: 'State',
+    description: 'Live values, lists from state and list updates',
+    jsonAsset: 'assets/json/state_example.json',
+    dartAsset: 'lib/dsl/state.dart',
+    icon: 'sync',
+    iconType: 'material',
+    category: EntryCategory.component,
+  ),
+  PlaygroundEntry(
     id: 'backdrop_filter',
     title: 'Backdrop Filter',
     description: 'Use backdrop filters',

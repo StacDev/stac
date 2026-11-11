@@ -1,0 +1,69 @@
+---
+title: "Lifecycle"
+description: "Runs actions when a screen appears and when it goes away"
+---
+
+A `lifecycle` widget runs `onLoad` once, after the first frame that shows its child, and `onDispose` after the child has left the tree. Wrap a screen in it to load data into [state](/concepts/state) when the screen opens.
+
+## Properties
+
+| Property  | Type         | Description                                                                                              |
+|-----------|--------------|----------------------------------------------------------------------------------------------------------|
+| onLoad    | `StacAction` | Runs once, after the first frame that shows `child`.                                                     |
+| onDispose | `StacAction` | Runs after the widget has left the tree. It suits state updates such as `setValue`, not navigation.     |
+| child     | `StacWidget` | The widget to show.                                                                                      |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacLifecycle(
+  onLoad: StacNetworkRequest(
+    url: 'https://api.example.com/posts',
+    results: [
+      StacNetworkResult(
+        statusCode: 200,
+        action: StacSetValueAction(
+          values: [
+            {'key': 'posts', 'value': '{{response.posts}}'},
+          ],
+        ).toJson(),
+      ),
+    ],
+  ),
+  child: StacListView(
+    items: '{{posts}}',
+    itemTemplate: StacListTile(title: StacText(data: '{{title}}')),
+    emptyTemplate: StacText(data: 'Loading…'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "lifecycle",
+  "onLoad": {
+    "actionType": "networkRequest",
+    "url": "https://api.example.com/posts",
+    "results": [
+      {
+        "statusCode": 200,
+        "action": {
+          "actionType": "setValue",
+          "values": [{ "key": "posts", "value": "{{response.posts}}" }]
+        }
+      }
+    ]
+  },
+  "child": {
+    "type": "listView",
+    "items": "{{posts}}",
+    "itemTemplate": {
+      "type": "listTile",
+      "title": { "type": "text", "data": "{{title}}" }
+    },
+    "emptyTemplate": { "type": "text", "data": "Loading…" }
+  }
+}
+```
+</CodeGroup>

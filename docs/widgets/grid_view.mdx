@@ -71,6 +71,9 @@ To know more about the GridView widget in Flutter, refer to the [official docume
 | addSemanticIndexes      | `bool`                                  | Whether to add semantic indexes. Defaults to `true`.                                                                                 |
 | cacheExtent             | `double`                                | The extent to which the content is cached.                                                                                           |
 | children                | `List<StacWidget>`                      | The widgets below this widget in the tree. Defaults to an empty list.                                                                |
+| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. |
+| itemTemplate       | `StacWidget`               | The widget built for each entry of `items`, with placeholders filled from the entry: `{{title}}` for a field, or `{{item}}` for a plain value. |
+| emptyTemplate      | `StacWidget`               | The widget shown instead when `items` is empty.                                                  |
 | semanticChildCount      | `int`                                   | The number of children for semantics purposes.                                                                                       |
 | dragStartBehavior       | `StacDragStartBehavior`                 | The drag start behavior. Defaults to `DragStartBehavior.start`.                                                                      |
 | keyboardDismissBehavior | `StacScrollViewKeyboardDismissBehavior` | The keyboard dismiss behavior. Defaults to `ScrollViewKeyboardDismissBehavior.manual`.                                               |

@@ -5,4 +5,5 @@ export 'package:stac/src/parsers/actions/stac_multi_action/stac_multi_action_par
 export 'package:stac/src/parsers/actions/stac_navigate_action/stac_navigate_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_none_action/stac_none_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_set_value/stac_set_value_action_parser.dart';
+export 'package:stac/src/parsers/actions/stac_update_list/stac_update_list_action_parser.dart';
 export 'package:stac/src/parsers/actions/stac_snack_bar/stac_snack_bar_parser.dart';

@@ -200,6 +200,9 @@ To know more about the listview widget in Flutter, refer to the [official docume
 | addSemanticIndexes      | `bool`                                  | Determines whether semantic indexes are assigned to the children, enabling accessibility tools to understand the order and structure of the list items. |
 | cacheExtent             | `double`                                | The viewport has an area before and after the visible area to cache items that are about to become visible when the user scrolls.                       |
 | children                | `List<StacWidget>`                      | The widgets below this widget in the tree.                                                                                                              |
+| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. |
+| itemTemplate       | `StacWidget`               | The widget built for each entry of `items`, with placeholders filled from the entry: `{{title}}` for a field, or `{{item}}` for a plain value. |
+| emptyTemplate      | `StacWidget`               | The widget shown instead when `items` is empty.                                                  |
 | separator               | `StacWidget`                            | Defines a widget, to display between each pair of list items.                                                                                           |
 | semanticChildCount      | `int`                                   | The number of children that will contribute semantic information.                                                                                       |
 | dragStartBehavior       | `StacDragStartBehavior`                 | Determines the way that drag start behavior is handled.                                                                                                 |

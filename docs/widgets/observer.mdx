@@ -1,0 +1,52 @@
+---
+title: "Observer"
+description: "Rebuilds its child whenever a state value it reads changes"
+---
+
+An `observer` fills the placeholders in its child from the [state](/concepts/state) every time it builds, and builds again whenever one of the keys it reads changes. Everything else on a screen is filled once, when the screen is built, so an observer is how a badge, a total or a selected chip follows `setValue`.
+
+## Properties
+
+| Property | Type               | Description                                                                                                                               |
+|----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| keys     | `List<String>`     | The state keys to watch. When omitted, the first segment of every placeholder in `child` is watched, such as `user` for `{{user.name}}`, and so is every name read by the condition of a `conditional` in `child`, such as `items` in `length(items) > 0`. |
+| child    | `StacWidget`       | The widget to rebuild, with its placeholders filled.                                                                                      |
+
+## Example
+
+<CodeGroup>
+```dart Dart
+StacObserver(
+  child: StacConditional(
+    condition: '{{cartCount}} > 0',
+    ifTrue: StacBadge(
+      label: StacText(data: '{{cartCount}}'),
+      child: StacIcon(icon: 'shopping_cart'),
+    ),
+    ifFalse: StacIcon(icon: 'shopping_cart'),
+  ),
+)
+```
+
+```json JSON
+{
+  "type": "observer",
+  "child": {
+    "type": "conditional",
+    "condition": "{{cartCount}} > 0",
+    "ifTrue": {
+      "type": "badge",
+      "label": { "type": "text", "data": "{{cartCount}}" },
+      "child": { "type": "icon", "icon": "shopping_cart" }
+    },
+    "ifFalse": { "type": "icon", "icon": "shopping_cart" }
+  }
+}
+```
+</CodeGroup>
+
+Keep an observer around the part of the screen that changes. Each change parses the child again, and a `dynamicView` inside an observer would fetch its data again on every change.
+
+<Note>
+A list built from `items` and `itemTemplate` follows its state key on its own and needs no observer. See [State](/concepts/state#lists-from-state).
+</Note>

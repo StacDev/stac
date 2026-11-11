@@ -73,8 +73,20 @@ StacRegistry.instance.setValue('userName', 'Alex Smith');
 }
 ```
 
-> [!TIP]
-> **Variable Resolution is Recursive.** If you store a complex Map in the Registry, you can access nested properties in your JSON using dot notation (e.g., `{{user.profile.name}}`).
+**Maps and lists:** a placeholder can read into a stored map or list with a dot path. List items are reached by index, written either way:
+
+```json
+{"type": "text", "data": "{{user.profile.name}} lives in {{user.address.city}}"}
+{"type": "text", "data": "{{items.0.title}} and {{items[1].title}}"}
+```
+
+When a value is exactly one placeholder for a list or map, it becomes that list or map instead of text. That lets a stored list go into a request body as JSON:
+
+```json
+{"actionType": "networkRequest", "url": "https://api.example.com/cart", "method": "post", "body": "{{cart}}"}
+```
+
+Numbers, booleans and text are always inserted as text, and a placeholder with no value in the Registry is left as it is. A key that contains a dot is looked up as a whole before it is read as a path.
 
 ### 5. Overriding Core Behavior (Global Styling)
 If you want to change how a standard widget like `StacText` behaves globally (e.g., to force all text to be uppercase or add a custom logging interceptor), you can override the default parser.

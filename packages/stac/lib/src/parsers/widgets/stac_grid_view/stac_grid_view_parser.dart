@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:stac/src/parsers/core/stac_items_binding.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
@@ -23,6 +24,17 @@ class StacGridViewParser extends StacParser<StacGridView> {
 
   @override
   Widget parse(BuildContext context, StacGridView model) {
+    return buildWithItems(
+      context,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      emptyTemplate: model.emptyTemplate,
+      children: model.children,
+      builder: (context, children) => _gridView(model, children),
+    );
+  }
+
+  Widget _gridView(StacGridView model, List<StacWidget>? children) {
     return GridView.builder(
       scrollDirection: model.scrollDirection?.parse ?? Axis.vertical,
       reverse: model.reverse ?? false,
@@ -44,7 +56,6 @@ class StacGridViewParser extends StacParser<StacGridView> {
           ? null
           : ScrollCacheExtent.pixels(model.cacheExtent!),
       itemBuilder: (context, index) {
-        final children = model.children;
         if (children == null || index >= children.length) {
           return const SizedBox.shrink();
         }
@@ -55,7 +66,7 @@ class StacGridViewParser extends StacParser<StacGridView> {
               children[index].parse(context) ?? const SizedBox.shrink(),
         );
       },
-      itemCount: model.children?.length ?? 0,
+      itemCount: children?.length ?? 0,
       semanticChildCount: model.semanticChildCount,
       dragStartBehavior:
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,

@@ -30,6 +30,9 @@ enum ActionType {
   /// Set or update a value in state.
   setValue,
 
+  /// Update list action
+  updateList,
+
   /// Execute multiple actions in sequence.
   multiAction,
 

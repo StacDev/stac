@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/core/stac_items_binding.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_axis_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_clip_parser.dart';
@@ -20,19 +21,26 @@ class StacWrapParser extends StacParser<StacWrap> {
 
   @override
   Widget parse(BuildContext context, StacWrap model) {
-    return Wrap(
-      direction: model.direction?.parse ?? Axis.horizontal,
-      alignment: model.alignment?.parse ?? WrapAlignment.start,
-      spacing: model.spacing ?? 0.0,
-      runAlignment: model.runAlignment?.parse ?? WrapAlignment.start,
-      runSpacing: model.runSpacing ?? 0.0,
-      crossAxisAlignment:
-          model.crossAxisAlignment?.parse ?? WrapCrossAlignment.start,
-      textDirection: model.textDirection?.parse,
-      verticalDirection:
-          model.verticalDirection?.parse ?? VerticalDirection.down,
-      clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
-      children: model.children?.parseList(context) ?? const <Widget>[],
+    return buildWithItems(
+      context,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      emptyTemplate: model.emptyTemplate,
+      children: model.children,
+      builder: (context, children) => Wrap(
+        direction: model.direction?.parse ?? Axis.horizontal,
+        alignment: model.alignment?.parse ?? WrapAlignment.start,
+        spacing: model.spacing ?? 0.0,
+        runAlignment: model.runAlignment?.parse ?? WrapAlignment.start,
+        runSpacing: model.runSpacing ?? 0.0,
+        crossAxisAlignment:
+            model.crossAxisAlignment?.parse ?? WrapCrossAlignment.start,
+        textDirection: model.textDirection?.parse,
+        verticalDirection:
+            model.verticalDirection?.parse ?? VerticalDirection.down,
+        clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
+        children: children?.parseList(context) ?? const <Widget>[],
+      ),
     );
   }
 }

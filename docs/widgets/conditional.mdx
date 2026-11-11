@@ -98,7 +98,7 @@ StacConditional(
 <CodeGroup>
 ```dart Dart
 StacConditional(
-  condition: 'items.length > 0',
+  condition: 'length(items) > 0',
   ifTrue: StacListView(
     children: [
       StacText(data: 'Your items:'),
@@ -126,7 +126,7 @@ StacConditional(
 ```json JSON
 {
   "type": "conditional",
-  "condition": "items.length > 0",
+  "condition": "length(items) > 0",
   "ifTrue": {
     "type": "listView",
     "children": [
@@ -165,9 +165,13 @@ The `condition` property accepts expressions that are evaluated against the curr
 - **Equality**: `user.role == 'admin'`
 - **Boolean check**: `user.isVerified == true`
 - **Comparison**: `cart.total > 100`
-- **Length check**: `items.length > 0`
+- **Length check**: `length(items) > 0`
 - **Null check**: `user.name != null`
 
 <Note>
 The condition is evaluated at runtime by Stac's expression resolver against the current application state.
 </Note>
+
+## Expressions
+
+A condition is an [expression](/concepts/state#expressions): it can read state by name (`count > 0`, `user.role == "admin"`), combine comparisons with `&&`, `||` and `!`, and call functions such as `length(cart) == 0`. Inside an [observer](/widgets/observer), a conditional is evaluated again whenever a value it reads changes.
