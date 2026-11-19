@@ -32,14 +32,67 @@ class StacTextFieldParser extends StacParser<StacTextField> {
 
   @override
   Widget parse(BuildContext context, StacTextField model) {
-    if ((model.initialValue ?? '').isNotEmpty) {
-      controller?.text = model.initialValue!;
-    }
-
-    return TextField(
-      controller:
-          controller ?? TextEditingController(text: model.initialValue ?? ''),
+    return _StacTextField(
+      model: model,
+      controller: controller,
       focusNode: focusNode,
+    );
+  }
+}
+
+class _StacTextField extends StatefulWidget {
+  const _StacTextField({required this.model, this.controller, this.focusNode});
+
+  final StacTextField model;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
+
+  @override
+  State<_StacTextField> createState() => _StacTextFieldState();
+}
+
+class _StacTextFieldState extends State<_StacTextField> {
+  // Created once, so typed text survives rebuilds. Not used when the parser
+  // is given a controller.
+  TextEditingController? _ownController;
+
+  TextEditingController get _controller =>
+      widget.controller ?? (_ownController ??= _newController());
+
+  TextEditingController _newController() =>
+      TextEditingController(text: widget.model.initialValue ?? '');
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.controller != null &&
+        (widget.model.initialValue ?? '').isNotEmpty) {
+      widget.controller!.text = widget.model.initialValue!;
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant _StacTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // A new initialValue from the JSON replaces the text, as a new value does
+    // for the other inputs.
+    if (oldWidget.model.initialValue != widget.model.initialValue) {
+      _controller.text = widget.model.initialValue ?? '';
+    }
+  }
+
+  @override
+  void dispose() {
+    _ownController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final model = widget.model;
+    return TextField(
+      controller: _controller,
+      focusNode: widget.focusNode,
       keyboardType: model.keyboardType?.parse,
       textInputAction: model.textInputAction?.parse,
       textCapitalization:
