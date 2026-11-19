@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_offset_parser.dart';
@@ -37,7 +38,10 @@ class _DropDownMenuWidget extends StatefulWidget {
   State<_DropDownMenuWidget> createState() => _DropDownMenuWidgetState();
 }
 
-class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
+class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
+    with
+        AutomaticKeepAliveClientMixin<_DropDownMenuWidget>,
+        StacKeepAliveOnceChanged<_DropDownMenuWidget> {
   final TextEditingController _controller = TextEditingController();
   final _focusNode = FocusNode();
   late final StacDropdownMenu model;
@@ -50,10 +54,12 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
       focusNode: _focusNode,
       controller: _controller,
+      onSelected: (_) => markChangedByUser(),
       // Parsed entries are DropdownMenuEntry<dynamic> and values can be null,
       // so filter on Object?: a DropdownMenuEntry<Object> filter drops them all.
       dropdownMenuEntries:

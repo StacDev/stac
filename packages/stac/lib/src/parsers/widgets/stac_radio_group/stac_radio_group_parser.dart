@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
 import 'package:stac_core/stac_core.dart';
@@ -31,7 +32,10 @@ class _RadioGroupWidget extends StatefulWidget {
   State<_RadioGroupWidget> createState() => _RadioGroupWidgetState();
 }
 
-class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
+class _RadioGroupWidgetState extends State<_RadioGroupWidget>
+    with
+        AutomaticKeepAliveClientMixin<_RadioGroupWidget>,
+        StacKeepAliveOnceChanged<_RadioGroupWidget> {
   dynamic _groupValue;
 
   @override
@@ -61,6 +65,7 @@ class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
   }
 
   void _onChanged(dynamic value) {
+    markChangedByUser();
     setState(() {
       _groupValue = value;
     });
@@ -78,6 +83,7 @@ class _RadioGroupWidgetState extends State<_RadioGroupWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return RadioGroup<dynamic>(
       groupValue: _groupValue,
       onChanged: _onChanged,

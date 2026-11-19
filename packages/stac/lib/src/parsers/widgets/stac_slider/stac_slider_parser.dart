@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_mouse_cursor_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_slider_interaction_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
@@ -33,7 +34,10 @@ class _StacSlider extends StatefulWidget {
   State<_StacSlider> createState() => __StacSliderState();
 }
 
-class __StacSliderState extends State<_StacSlider> {
+class __StacSliderState extends State<_StacSlider>
+    with
+        AutomaticKeepAliveClientMixin<_StacSlider>,
+        StacKeepAliveOnceChanged<_StacSlider> {
   late double selectedValue;
 
   @override
@@ -58,6 +62,7 @@ class __StacSliderState extends State<_StacSlider> {
   }
 
   void _onChanged(double value) {
+    markChangedByUser();
     selectedValue = value;
     if (widget.model.id != null) {
       widget.formScope?.formData[widget.model.id!] = value;
@@ -77,6 +82,7 @@ class __StacSliderState extends State<_StacSlider> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final StacSlider model = widget.model;
     final FocusNode focusNode = FocusNode();
 
