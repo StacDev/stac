@@ -41,7 +41,7 @@ The Stac TextField allows you to build a Flutter text field widget using JSON. T
 | expands            | `bool`                      | Whether the text field should expand to fill its parent.                       |
 | autofocus          | `bool`                      | Whether the text field should focus itself if nothing else is already focused. |
 | obscuringCharacter | `String`                    | The character to use when obscuring text.                                      |
-| maxLines           | `int`                       | The maximum number of lines for the text to span.                              |
+| maxLines           | `int`                       | Maximum number of lines. Defaults to 1 unless `minLines` or `expands` is set.  |
 | minLines           | `int`                       | The minimum number of lines for the text to span.                              |
 | maxLength          | `int`                       | The maximum number of characters to allow in the text field.                   |
 | obscureText        | `bool`                      | Whether to hide the text being edited.                                         |
