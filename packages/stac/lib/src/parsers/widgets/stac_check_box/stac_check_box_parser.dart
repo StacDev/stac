@@ -54,7 +54,9 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
   void didUpdateWidget(covariant _StacCheckBox oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.model.value != widget.model.value ||
-        oldWidget.model.id != widget.model.id) {
+        oldWidget.model.id != widget.model.id ||
+        (oldWidget.model.tristate ?? false) !=
+            (widget.model.tristate ?? false)) {
       _currentValue = _modelValue;
       if (widget.model.id != null && widget.formScope != null) {
         widget.formScope!.formData[widget.model.id!] = _modelValue;
