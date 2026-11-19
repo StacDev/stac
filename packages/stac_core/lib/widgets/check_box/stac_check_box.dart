@@ -65,7 +65,8 @@ class StacCheckBox extends StacWidget {
   /// Identifier used with form scope to store/read this checkbox's value.
   final String? id;
 
-  /// Whether this checkbox is checked.
+  /// Whether this checkbox is checked. Defaults to false, or null when
+  /// [tristate] is true.
   final bool? value;
 
   /// Whether this checkbox supports three states (true, false, null).
