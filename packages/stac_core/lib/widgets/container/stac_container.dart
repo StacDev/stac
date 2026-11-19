@@ -50,7 +50,8 @@ class StacContainer extends StacWidget {
   /// Inner spacing around the [child].
   final StacEdgeInsets? padding;
 
-  /// Background color. Cannot be used with [decoration].
+  /// Background color. With a [decoration], it fills the decoration unless
+  /// the decoration sets its own color.
   final StacColor? color;
 
   /// Background decoration (borders, gradients, shadows).
