@@ -1,9 +1,11 @@
 #!/bin/bash
-if [[ $(git ls-files --modified) ]]; then
+# Only Dart files: dart format changes nothing else, while the pub get that
+# runs before it rewrites committed pubspec.lock files when Flutter stable moves.
+if [[ $(git ls-files --modified -- '*.dart') ]]; then
   echo ""
   echo ""
   echo "These files are not formatted correctly:"
-  for f in $(git ls-files --modified); do
+  for f in $(git ls-files --modified -- '*.dart'); do
     echo ""
     echo ""
     echo "-----------------------------------------------------------------"
