@@ -29,8 +29,11 @@ class StacInkwellParser extends StacParser<StacInkWell> {
       onTapCancel: model.onTapCancel != null
           ? () => model.onTapCancel!.parse(context)
           : null,
-      onSecondaryTap: model.onSecondaryTap != null
-          ? () => model.onSecondaryTap!.parse(context)
+      // InkWell runs onSecondaryTapCancel only while it has a secondary tap
+      // handler, so keep one when the JSON sets just the cancel action.
+      onSecondaryTap:
+          model.onSecondaryTap != null || model.onSecondaryTapCancel != null
+          ? () => model.onSecondaryTap?.parse(context)
           : null,
       onSecondaryTapCancel: model.onSecondaryTapCancel != null
           ? () => model.onSecondaryTapCancel!.parse(context)
