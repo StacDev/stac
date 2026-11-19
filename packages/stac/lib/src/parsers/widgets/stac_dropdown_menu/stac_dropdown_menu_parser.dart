@@ -50,16 +50,18 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownMenu(
+    return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
       focusNode: _focusNode,
       controller: _controller,
+      // Parsed entries are DropdownMenuEntry<dynamic> and values can be null,
+      // so filter on Object?: a DropdownMenuEntry<Object> filter drops them all.
       dropdownMenuEntries:
           model.dropdownMenuEntries
               ?.map((e) => e.parse(context))
-              .whereType<DropdownMenuEntry<Object>>()
+              .whereType<DropdownMenuEntry<Object?>>()
               .toList() ??
-          const <DropdownMenuEntry<Object>>[],
+          const <DropdownMenuEntry<Object?>>[],
       enabled: model.enabled ?? true,
       width: model.width,
       menuHeight: model.menuHeight,
