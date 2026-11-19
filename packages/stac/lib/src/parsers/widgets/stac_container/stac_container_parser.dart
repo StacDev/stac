@@ -13,11 +13,18 @@ class StacContainerParser extends StacParser<StacContainer> {
 
   @override
   Widget parse(BuildContext context, StacContainer model) {
+    final color = model.color.toColor(context);
+    var decoration = model.decoration?.parse(context);
+    // Container takes a color or a decoration, not both. Paint the color in the
+    // decoration unless the decoration sets its own.
+    if (color != null && decoration != null && decoration.color == null) {
+      decoration = decoration.copyWith(color: color);
+    }
     return Container(
       alignment: model.alignment?.parse,
       padding: model.padding?.parse,
-      color: model.color.toColor(context),
-      decoration: model.decoration?.parse(context),
+      color: decoration == null ? color : null,
+      decoration: decoration,
       foregroundDecoration: model.foregroundDecoration?.parse(context),
       width: model.width,
       height: model.height,
