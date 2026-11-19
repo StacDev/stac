@@ -31,7 +31,8 @@ class StacGridViewParser extends StacParser<StacGridView> {
       shrinkWrap: model.shrinkWrap ?? false,
       padding: model.padding?.parse,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: model.crossAxisCount ?? 0,
+        // Flutter needs at least one column; use two when the JSON sets none.
+        crossAxisCount: model.crossAxisCount ?? 2,
         mainAxisSpacing: model.mainAxisSpacing ?? 0.0,
         crossAxisSpacing: model.crossAxisSpacing ?? 0.0,
         childAspectRatio: model.childAspectRatio ?? 1.0,
