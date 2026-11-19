@@ -50,7 +50,11 @@ class StacTextFieldParser extends StacParser<StacTextField> {
       showCursor: model.showCursor,
       autofocus: model.autofocus ?? false,
       obscuringCharacter: model.obscuringCharacter ?? '•',
-      maxLines: model.maxLines,
+      // One line unless set, as in Flutter. expands needs null, and minLines
+      // alone means the field starts at minLines and grows.
+      maxLines:
+          model.maxLines ??
+          ((model.expands ?? false) || model.minLines != null ? null : 1),
       minLines: model.minLines,
       maxLength: model.maxLength,
       obscureText: model.obscureText ?? false,

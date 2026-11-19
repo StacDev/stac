@@ -36,12 +36,17 @@ class _StacCheckBox extends StatefulWidget {
 class _StacCheckBoxState extends State<_StacCheckBox> {
   bool? _currentValue;
 
+  // Without a value the checkBox starts unchecked. Only a tristate Checkbox
+  // accepts null.
+  bool? get _modelValue =>
+      widget.model.value ?? ((widget.model.tristate ?? false) ? null : false);
+
   @override
   void initState() {
     super.initState();
-    _currentValue = widget.model.value;
+    _currentValue = _modelValue;
     if (widget.model.id != null && widget.formScope != null) {
-      widget.formScope!.formData[widget.model.id!] = widget.model.value;
+      widget.formScope!.formData[widget.model.id!] = _modelValue;
     }
   }
 
@@ -49,10 +54,12 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
   void didUpdateWidget(covariant _StacCheckBox oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.model.value != widget.model.value ||
-        oldWidget.model.id != widget.model.id) {
-      _currentValue = widget.model.value;
+        oldWidget.model.id != widget.model.id ||
+        (oldWidget.model.tristate ?? false) !=
+            (widget.model.tristate ?? false)) {
+      _currentValue = _modelValue;
       if (widget.model.id != null && widget.formScope != null) {
-        widget.formScope!.formData[widget.model.id!] = widget.model.value;
+        widget.formScope!.formData[widget.model.id!] = _modelValue;
       }
     }
   }

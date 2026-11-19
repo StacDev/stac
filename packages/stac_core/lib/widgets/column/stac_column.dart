@@ -82,6 +82,7 @@ class StacColumn extends StacWidget {
   final StacVerticalDirection? verticalDirection;
 
   /// The baseline to use for aligning text.
+  /// Defaults to alphabetic when [crossAxisAlignment] is baseline.
   ///
   /// Type: [StacTextBaseline]
   final StacTextBaseline? textBaseline;

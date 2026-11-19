@@ -100,7 +100,7 @@ class StacGridView extends StacWidget {
   /// The amount of space by which to inset the grid.
   final StacEdgeInsets? padding;
 
-  /// The number of children in the cross axis.
+  /// The number of children in the cross axis. Defaults to 2.
   final int? crossAxisCount;
 
   /// The amount of space between the children in the main axis.

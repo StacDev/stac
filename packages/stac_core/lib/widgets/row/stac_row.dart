@@ -69,7 +69,8 @@ class StacRow extends StacWidget {
   /// The order to lay children out vertically.
   final StacVerticalDirection? verticalDirection;
 
-  /// The baseline to use when aligning text.
+  /// The baseline to use when aligning text. Defaults to alphabetic when
+  /// [crossAxisAlignment] is baseline.
   final StacTextBaseline? textBaseline;
 
   /// The amount of space between each child.
