@@ -44,17 +44,11 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
         StacKeepAliveOnceChanged<_DropDownMenuWidget> {
   final TextEditingController _controller = TextEditingController();
   final _focusNode = FocusNode();
-  late final StacDropdownMenu model;
-
-  @override
-  void initState() {
-    model = widget.model;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    final model = widget.model;
     return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
       focusNode: _focusNode,
