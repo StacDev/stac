@@ -14,8 +14,11 @@ mixin StacKeepAliveOnceChanged<T extends StatefulWidget>
   bool get wantKeepAlive => _changedByUser;
 
   /// Records that the user changed this input's value.
+  ///
+  /// Does nothing once the input is disposed: a menu, for example, can report
+  /// a selection after its input has gone.
   void markChangedByUser() {
-    if (_changedByUser) return;
+    if (_changedByUser || !mounted) return;
     _changedByUser = true;
     updateKeepAlive();
   }
