@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:stac/src/framework/stac_registry.dart';
@@ -366,6 +367,9 @@ class _Call extends _Node {
         return math.cos(_num(arg(0)));
       case 'tan':
         return math.tan(_num(arg(0)));
+      case '_json':
+        // A list or map that a placeholder put into the expression as JSON.
+        return jsonDecode(_text(arg(0)));
     }
     if (_aggregates.contains(name)) {
       final first = arg(0);
@@ -436,7 +440,8 @@ class _Lexer {
   int _i = 0;
 
   static final _name = RegExp(r'[A-Za-z_][A-Za-z0-9_]*');
-  static final _number = RegExp(r'\d+(\.\d+)?');
+  // `1e-7` too, which is how Dart writes very small and very large numbers.
+  static final _number = RegExp(r'\d+(\.\d+)?([eE][+-]?\d+)?');
   static final _segment = RegExp(r'^(\.[A-Za-z_][A-Za-z0-9_]*|\.\d+|\[\d+\])');
   static const _twoChar = ['==', '!=', '<=', '>=', '&&', '||'];
   static const _oneChar = '+-*/%<>!(),?:';

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 /// Matches one `{{path}}` placeholder. Group 1 is the path without the
 /// braces or surrounding spaces.
 final RegExp placeholderPattern = RegExp(r'\{\{\s*([^{}]+?)\s*\}\}');
@@ -120,9 +122,10 @@ dynamic resolvePlaceholders(
 /// Fills the placeholders in [expression], such as a `conditional`'s
 /// condition, so that each value is read as one value: text such as
 /// `Alex Smith` or `a@b.com` is quoted, numbers and booleans are written as
-/// they are, and inside a quoted string the text goes in with its quotes
-/// escaped. A list, a map or a path [lookup] has no value for is left as the
-/// placeholder, which the expression reads itself.
+/// they are, and a list or map goes in as JSON, so an item template's
+/// `sum({{prices}})` reads the entry's list. Inside a quoted string the text
+/// goes in with its quotes escaped. A path [lookup] has no value for is left
+/// as the placeholder, which the expression reads itself.
 String fillExpression(String expression, Object? Function(String path) lookup) {
   final buffer = StringBuffer();
   String? quote;
@@ -157,7 +160,13 @@ String _expressionValue(String placeholder, Object? value, String? quote) {
   String escape(String text, String quote) =>
       text.replaceAll(r'\', r'\\').replaceAll(quote, '\\$quote');
   if (quote != null) return escape('$value', quote);
-  if (value is List || value is Map) return placeholder;
+  if (value is List || value is Map) {
+    try {
+      return '_json("${escape(jsonEncode(value), '"')}")';
+    } catch (_) {
+      return placeholder;
+    }
+  }
   if (value is num || value is bool) return '$value';
   return '"${escape('$value', '"')}"';
 }

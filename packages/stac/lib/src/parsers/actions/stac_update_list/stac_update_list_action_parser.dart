@@ -31,8 +31,13 @@ class StacUpdateListActionParser
       );
       return null;
     }
-    // Such as a placeholder that had no value: adding it would add null.
-    if (_adds(model.op) && model.item == null) {
+    bool matches(dynamic entry) => _matches(entry, model);
+    // Such as a placeholder that had no value: adding it would add null. An
+    // upsert only adds when no entry matches.
+    final adds =
+        _adds(model.op) ||
+        (model.op == StacListOp.upsert && !list.any(matches));
+    if (adds && model.item == null) {
       Log.w('updateList ${model.op.name} on ${model.key} needs an item');
       return null;
     }
@@ -44,7 +49,6 @@ class StacUpdateListActionParser
       );
       return null;
     }
-    bool matches(dynamic entry) => _matches(entry, model);
     final updated = switch (model.op) {
       StacListOp.set => [if (items is List) ...items],
       StacListOp.append => [...list, model.item],
@@ -86,8 +90,7 @@ class StacUpdateListActionParser
   static bool _adds(StacListOp op) =>
       op == StacListOp.append ||
       op == StacListOp.prepend ||
-      op == StacListOp.insert ||
-      op == StacListOp.upsert;
+      op == StacListOp.insert;
 
   static bool _noMatch(StacUpdateListAction model) =>
       model.match == null || model.match!.isEmpty;

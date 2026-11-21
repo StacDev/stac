@@ -12,11 +12,12 @@ import 'package:stac_core/stac_core.dart';
 /// exactly one placeholder for a list or map becomes that list or map; other
 /// values are inserted as text, and unknown names are left as they are.
 ///
-/// Three things are left for later: actions, which [resolveActionJson]
+/// Four things are left for later: actions, which [resolveActionJson]
 /// fills when they run; `observer` widgets, which fill their own subtree
-/// whenever a value changes; and the `items` placeholder, `itemTemplate` and
+/// whenever a value changes; the `items` placeholder, `itemTemplate` and
 /// `emptyTemplate` of a widget with an `itemTemplate`, which the widget
-/// fills itself so it can follow changes.
+/// fills itself so it can follow changes; and a `dynamicView`'s `request`,
+/// which is filled when it's sent.
 ///
 /// In a condition or a `setValue` expression, each value goes in as one
 /// value (see [isExpressionEntry]).
@@ -25,7 +26,7 @@ dynamic resolveVariablesInJson(dynamic json, StacRegistry registry) =>
       json,
       (path) => registryValue(registry, path),
       skip: isFilledLater,
-      skipEntry: _isBoundItems,
+      skipEntry: _isFilledByWidget,
       expressionEntry: isExpressionEntry,
     );
 
@@ -63,7 +64,7 @@ Map<String, dynamic> resolveActionJson(
               entry.value,
               lookup,
               skip: isFilledLater,
-              skipEntry: _isBoundItems,
+              skipEntry: _isFilledByWidget,
               expressionEntry: isExpressionEntry,
             ),
   };
@@ -97,6 +98,13 @@ Object? registryValue(StacRegistry registry, String path) {
 
 bool _isObserver(Map<dynamic, dynamic> json) =>
     json['type'] == WidgetType.observer.name;
+
+// Entries a widget fills itself. A `dynamicView` fills its `request` when it
+// sends it; filling it earlier too would also fill placeholders inside the
+// values put in the first time.
+bool _isFilledByWidget(Map<dynamic, dynamic> json, String key) =>
+    _isBoundItems(json, key) ||
+    (key == 'request' && json['type'] == WidgetType.dynamicView.name);
 
 // A widget with `items` and `itemTemplate` fills the template itself, once
 // per entry, so entry fields come before state keys of the same name. Its

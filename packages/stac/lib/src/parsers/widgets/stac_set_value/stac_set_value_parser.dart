@@ -41,9 +41,12 @@ class _SetValueWidgetState extends State<_SetValueWidget> {
       final persist = value['persist'] == true;
       // A persisted key that has a value, such as one `Stac.initialize`
       // restored, keeps it: the widget's value is only its default.
-      if ((persist || _stacRegistry.isPersisted(key)) &&
-          _stacRegistry.getValue(key) != null) {
-        if (persist) _stacRegistry.persistKeys([key]);
+      final current = _stacRegistry.getValue(key);
+      if ((persist || _stacRegistry.isPersisted(key)) && current != null) {
+        // A key this widget starts persisting saves the value it has.
+        if (persist && !_stacRegistry.isPersisted(key)) {
+          _stacRegistry.setValue(key, current, persist: true);
+        }
         continue;
       }
       _stacRegistry.setValue(key, value['value'], persist: persist);
