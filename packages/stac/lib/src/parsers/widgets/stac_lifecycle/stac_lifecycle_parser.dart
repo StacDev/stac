@@ -35,6 +35,12 @@ class _Lifecycle extends StatefulWidget {
 class _LifecycleState extends State<_Lifecycle> {
   bool _loadScheduled = false;
 
+  // The child's key, replaced when another lifecycle takes this one's place.
+  // Actions run with the context under it, so a request the old onLoad
+  // started finds its context gone when it finishes, and its result doesn't
+  // overwrite the new screen's state.
+  GlobalKey _actionsKey = GlobalKey();
+
   @override
   void initState() {
     super.initState();
@@ -48,7 +54,12 @@ class _LifecycleState extends State<_Lifecycle> {
     // tab's, is another screen: the old one's onDispose runs, then the new
     // one's onLoad.
     if (!_sameActions(oldWidget.model, widget.model)) {
-      _run(oldWidget.model.onDispose, 'onDispose');
+      _run(
+        oldWidget.model.onDispose,
+        'onDispose',
+        _actionsKey.currentContext ?? context,
+      );
+      _actionsKey = GlobalKey();
       _scheduleLoad();
     }
   }
@@ -59,8 +70,9 @@ class _LifecycleState extends State<_Lifecycle> {
     _loadScheduled = true;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadScheduled = false;
-      if (mounted) {
-        _run(widget.model.onLoad, 'onLoad');
+      final actionsContext = _actionsKey.currentContext;
+      if (mounted && actionsContext != null) {
+        _run(widget.model.onLoad, 'onLoad', actionsContext);
       }
     });
   }
@@ -81,13 +93,13 @@ class _LifecycleState extends State<_Lifecycle> {
 
   @override
   void dispose() {
-    _run(widget.model.onDispose, 'onDispose');
+    _run(widget.model.onDispose, 'onDispose', context);
     super.dispose();
   }
 
-  // Starts [action] without waiting for it, and logs a failure whether the
-  // action throws right away or its future fails later.
-  void _run(StacAction? action, String hook) {
+  // Starts [action] with [context] without waiting for it, and logs a
+  // failure whether the action throws right away or its future fails later.
+  void _run(StacAction? action, String hook, BuildContext context) {
     if (action == null) return;
     Future<dynamic>.sync(() => action.parse(context)).catchError((Object e) {
       Log.w('$hook failed: $e');
@@ -96,6 +108,9 @@ class _LifecycleState extends State<_Lifecycle> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.model.child.parse(context) ?? const SizedBox();
+    return KeyedSubtree(
+      key: _actionsKey,
+      child: widget.model.child.parse(context) ?? const SizedBox(),
+    );
   }
 }

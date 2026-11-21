@@ -8,6 +8,7 @@ import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
+import 'package:stac/src/utils/placeholders.dart';
 
 class StacDynamicViewParser extends StacParser<StacDynamicView> {
   const StacDynamicViewParser();
@@ -269,7 +270,21 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       for (final key in template.keys.toList()) {
         final value = template[key];
 
+        // A list widget bound to `items` fills its itemTemplate from its own
+        // entries.
+        if (key == 'itemTemplate' && template['items'] != null) continue;
+
         if (value is String) {
+          // A value that is exactly one placeholder for a list or map, such
+          // as `"items": "{{users}}"`, takes that list or map.
+          final whole = singlePlaceholder(value);
+          if (whole != null) {
+            final dataValue = _extractNestedData(data, whole.split('.'));
+            if (dataValue is List || dataValue is Map) {
+              template[key] = dataValue;
+              continue;
+            }
+          }
           // Check if the string contains any placeholders
           if (value.contains('{{') && value.contains('}}')) {
             // Process multiple placeholders in a single string

@@ -17,7 +17,8 @@ import 'package:stac_core/stac_core.dart';
 /// whenever a value changes; the `items` placeholder, `itemTemplate` and
 /// `emptyTemplate` of a widget with an `itemTemplate`, which the widget
 /// fills itself so it can follow changes; and a `dynamicView`'s `request`,
-/// which is filled when it's sent.
+/// which is filled when it's sent, and its `template`, which takes the
+/// response's values first and state for the rest.
 ///
 /// In a condition or a `setValue` expression, each value goes in as one
 /// value (see [isExpressionEntry]).
@@ -101,10 +102,13 @@ bool _isObserver(Map<dynamic, dynamic> json) =>
 
 // Entries a widget fills itself. A `dynamicView` fills its `request` when it
 // sends it; filling it earlier too would also fill placeholders inside the
-// values put in the first time.
+// values put in the first time. It fills its `template` from the response,
+// and the template's placeholders the response has no value for are filled
+// from state when the result is built.
 bool _isFilledByWidget(Map<dynamic, dynamic> json, String key) =>
     _isBoundItems(json, key) ||
-    (key == 'request' && json['type'] == WidgetType.dynamicView.name);
+    ((key == 'request' || key == 'template') &&
+        json['type'] == WidgetType.dynamicView.name);
 
 // A widget with `items` and `itemTemplate` fills the template itself, once
 // per entry, so entry fields come before state keys of the same name. Its
