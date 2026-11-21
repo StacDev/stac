@@ -30,6 +30,8 @@ export 'divider/stac_divider.dart';
 export 'drawer/stac_drawer.dart';
 export 'dropdown_menu/stac_dropdown_menu.dart';
 export 'dynamic_view/stac_dynamic_view.dart';
+export 'observer/stac_observer.dart';
+export 'lifecycle/stac_lifecycle.dart';
 export 'elevated_button/stac_elevated_button.dart';
 export 'expanded/stac_expanded.dart';
 export 'filled_button/stac_filled_button.dart';

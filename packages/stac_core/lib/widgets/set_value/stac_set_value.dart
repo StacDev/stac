@@ -40,6 +40,9 @@ class StacSetValue extends StacWidget {
   const StacSetValue({this.values = const [], this.child});
 
   /// List of key-value pairs to set in the application state.
+  ///
+  /// Values are removed again when the widget leaves the screen, except an
+  /// item with `persist: true`, which keeps its value across app restarts.
   final List<Map<String, dynamic>> values;
 
   /// The child widget to render after the values are set.

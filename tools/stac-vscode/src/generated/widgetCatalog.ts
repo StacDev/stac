@@ -153,6 +153,12 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "supportsChildren": false
   },
   {
+    "className": "StacDefaultNavigationController",
+    "slug": "default_navigation_controller",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
     "className": "StacDefaultTabController",
     "slug": "default_tab_controller",
     "supportsChild": true,
@@ -285,6 +291,12 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "supportsChildren": false
   },
   {
+    "className": "StacLifecycle",
+    "slug": "lifecycle",
+    "supportsChild": true,
+    "supportsChildren": false
+  },
+  {
     "className": "StacLimitedBox",
     "slug": "limited_box",
     "supportsChild": true,
@@ -309,9 +321,27 @@ export const widgetCatalog: WidgetCatalogEntry[] = [
     "supportsChildren": true
   },
   {
+    "className": "StacNavigationBar",
+    "slug": "navigation_bar",
+    "supportsChild": false,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacNavigationView",
+    "slug": "navigation_view",
+    "supportsChild": false,
+    "supportsChildren": true
+  },
+  {
     "className": "StacNetworkWidget",
     "slug": "network_widget",
     "supportsChild": false,
+    "supportsChildren": false
+  },
+  {
+    "className": "StacObserver",
+    "slug": "observer",
+    "supportsChild": true,
     "supportsChildren": false
   },
   {

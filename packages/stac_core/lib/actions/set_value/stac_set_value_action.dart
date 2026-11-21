@@ -43,7 +43,8 @@ class StacSetValueAction extends StacAction {
 
   /// A list of maps representing key-value pairs to write to state.
   ///
-  /// Each item should include at least `key` and `value` fields.
+  /// Each item should include at least `key` and `value` fields. An item
+  /// with `persist: true` keeps its value across app restarts.
   final List<Map<String, dynamic>>? values;
 
   /// An optional action to execute after the values are written.

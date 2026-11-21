@@ -66,6 +66,9 @@ class StacGridView extends StacWidget {
     this.addSemanticIndexes,
     this.cacheExtent,
     this.children,
+    this.items,
+    this.itemTemplate,
+    this.emptyTemplate,
     this.semanticChildCount,
     this.dragStartBehavior,
     this.keyboardDismissBehavior,
@@ -137,6 +140,17 @@ class StacGridView extends StacWidget {
 
   /// The widgets below this widget in the tree.
   final List<StacWidget>? children;
+
+  /// The data to build the children from instead of [children]: a list, or a
+  /// `{{placeholder}}` for a state key, whose changes the grid follows.
+  final dynamic items;
+
+  /// The widget built for each entry of [items], with placeholders filled
+  /// from the entry: `{{title}}` for a field, or `{{item}}` for a plain value.
+  final StacWidget? itemTemplate;
+
+  /// The widget shown instead when [items] is empty.
+  final StacWidget? emptyTemplate;
 
   /// The number of children for semantics purposes.
   final int? semanticChildCount;

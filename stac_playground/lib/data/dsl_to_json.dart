@@ -130,6 +130,8 @@ const Set<String> _widgetClasses = {
   'StacScaffold',
   'StacSelectableText',
   'StacSetValue',
+  'StacObserver',
+  'StacLifecycle',
   'StacSingleChildScrollView',
   'StacSizedBox',
   'StacSlider',

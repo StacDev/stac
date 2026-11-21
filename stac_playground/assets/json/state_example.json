@@ -1,0 +1,518 @@
+{
+    "values": [
+        {
+            "key": "count",
+            "value": 0
+        },
+        {
+            "key": "nextId",
+            "value": 1
+        },
+        {
+            "key": "todos",
+            "value": [
+                {
+                    "id": "a",
+                    "title": "Read the state docs"
+                },
+                {
+                    "id": "b",
+                    "title": "Try the observer"
+                }
+            ]
+        }
+    ],
+    "child": {
+        "appBar": {
+            "leading": null,
+            "automaticallyImplyLeading": null,
+            "title": {
+                "data": "State Example",
+                "children": null,
+                "style": null,
+                "copyWithStyle": null,
+                "textAlign": null,
+                "textDirection": null,
+                "softWrap": null,
+                "overflow": null,
+                "textScaleFactor": null,
+                "maxLines": null,
+                "semanticsLabel": null,
+                "textWidthBasis": null,
+                "selectionColor": null,
+                "type": "text"
+            },
+            "actions": null,
+            "flexibleSpace": null,
+            "bottom": null,
+            "elevation": null,
+            "scrolledUnderElevation": null,
+            "shadowColor": null,
+            "surfaceTintColor": null,
+            "backgroundColor": null,
+            "foregroundColor": null,
+            "primary": null,
+            "centerTitle": null,
+            "excludeHeaderSemantics": null,
+            "titleSpacing": null,
+            "toolbarOpacity": null,
+            "bottomOpacity": null,
+            "toolbarHeight": null,
+            "leadingWidth": null,
+            "toolbarTextStyle": null,
+            "titleTextStyle": null,
+            "systemOverlayStyle": null,
+            "forceMaterialTransparency": null,
+            "useDefaultSemanticsOrder": null,
+            "clipBehavior": null,
+            "actionsPadding": null,
+            "type": "appBar"
+        },
+        "backgroundColor": null,
+        "body": {
+            "scrollDirection": null,
+            "reverse": null,
+            "padding": {
+                "left": 16.0,
+                "top": 16.0,
+                "right": 16.0,
+                "bottom": 16.0
+            },
+            "primary": null,
+            "physics": null,
+            "child": {
+                "mainAxisAlignment": null,
+                "mainAxisSize": null,
+                "crossAxisAlignment": "stretch",
+                "textDirection": null,
+                "verticalDirection": null,
+                "textBaseline": null,
+                "spacing": null,
+                "children": [
+                    {
+                        "data": "An observer rebuilds whenever a value it reads changes.",
+                        "children": null,
+                        "style": null,
+                        "copyWithStyle": null,
+                        "textAlign": null,
+                        "textDirection": null,
+                        "softWrap": null,
+                        "overflow": null,
+                        "textScaleFactor": null,
+                        "maxLines": null,
+                        "semanticsLabel": null,
+                        "textWidthBasis": null,
+                        "selectionColor": null,
+                        "type": "text"
+                    },
+                    {
+                        "width": null,
+                        "height": 8.0,
+                        "child": null,
+                        "type": "sizedBox"
+                    },
+                    {
+                        "keys": null,
+                        "child": {
+                            "data": "Count: {{count}}",
+                            "children": null,
+                            "style": {
+                                "type": "custom",
+                                "inherit": null,
+                                "color": null,
+                                "backgroundColor": null,
+                                "fontSize": 24.0,
+                                "fontWeight": "w700",
+                                "fontStyle": null,
+                                "letterSpacing": null,
+                                "wordSpacing": null,
+                                "textBaseline": null,
+                                "height": null,
+                                "leadingDistribution": null,
+                                "decoration": null,
+                                "decorationColor": null,
+                                "decorationStyle": null,
+                                "decorationThickness": null,
+                                "debugLabel": null,
+                                "fontFamily": null,
+                                "fontFamilyFallback": null,
+                                "package": null,
+                                "overflow": null
+                            },
+                            "copyWithStyle": null,
+                            "textAlign": null,
+                            "textDirection": null,
+                            "softWrap": null,
+                            "overflow": null,
+                            "textScaleFactor": null,
+                            "maxLines": null,
+                            "semanticsLabel": null,
+                            "textWidthBasis": null,
+                            "selectionColor": null,
+                            "type": "text"
+                        },
+                        "type": "observer"
+                    },
+                    {
+                        "width": null,
+                        "height": 8.0,
+                        "child": null,
+                        "type": "sizedBox"
+                    },
+                    {
+                        "mainAxisAlignment": null,
+                        "mainAxisSize": null,
+                        "crossAxisAlignment": null,
+                        "textDirection": null,
+                        "verticalDirection": null,
+                        "textBaseline": null,
+                        "spacing": null,
+                        "children": [
+                            {
+                                "onPressed": {
+                                    "values": [
+                                        {
+                                            "key": "count",
+                                            "expression": "count + 1"
+                                        }
+                                    ],
+                                    "action": null,
+                                    "actionType": "setValue"
+                                },
+                                "onLongPress": null,
+                                "onHover": null,
+                                "onFocusChange": null,
+                                "style": null,
+                                "autofocus": null,
+                                "clipBehavior": null,
+                                "child": {
+                                    "data": "+1",
+                                    "children": null,
+                                    "style": null,
+                                    "copyWithStyle": null,
+                                    "textAlign": null,
+                                    "textDirection": null,
+                                    "softWrap": null,
+                                    "overflow": null,
+                                    "textScaleFactor": null,
+                                    "maxLines": null,
+                                    "semanticsLabel": null,
+                                    "textWidthBasis": null,
+                                    "selectionColor": null,
+                                    "type": "text"
+                                },
+                                "type": "elevatedButton"
+                            },
+                            {
+                                "width": 8.0,
+                                "height": null,
+                                "child": null,
+                                "type": "sizedBox"
+                            },
+                            {
+                                "onPressed": {
+                                    "values": [
+                                        {
+                                            "key": "count",
+                                            "expression": "count - 1"
+                                        }
+                                    ],
+                                    "action": null,
+                                    "actionType": "setValue"
+                                },
+                                "onLongPress": null,
+                                "onHover": null,
+                                "onFocusChange": null,
+                                "style": null,
+                                "autofocus": null,
+                                "clipBehavior": null,
+                                "child": {
+                                    "data": "-1",
+                                    "children": null,
+                                    "style": null,
+                                    "copyWithStyle": null,
+                                    "textAlign": null,
+                                    "textDirection": null,
+                                    "softWrap": null,
+                                    "overflow": null,
+                                    "textScaleFactor": null,
+                                    "maxLines": null,
+                                    "semanticsLabel": null,
+                                    "textWidthBasis": null,
+                                    "selectionColor": null,
+                                    "type": "text"
+                                },
+                                "type": "elevatedButton"
+                            }
+                        ],
+                        "items": null,
+                        "itemTemplate": null,
+                        "emptyTemplate": null,
+                        "type": "row"
+                    },
+                    {
+                        "height": 32.0,
+                        "thickness": null,
+                        "indent": null,
+                        "endIndent": null,
+                        "color": null,
+                        "type": "divider"
+                    },
+                    {
+                        "data": "A list built from state follows it.",
+                        "children": null,
+                        "style": null,
+                        "copyWithStyle": null,
+                        "textAlign": null,
+                        "textDirection": null,
+                        "softWrap": null,
+                        "overflow": null,
+                        "textScaleFactor": null,
+                        "maxLines": null,
+                        "semanticsLabel": null,
+                        "textWidthBasis": null,
+                        "selectionColor": null,
+                        "type": "text"
+                    },
+                    {
+                        "mainAxisAlignment": null,
+                        "mainAxisSize": null,
+                        "crossAxisAlignment": null,
+                        "textDirection": null,
+                        "verticalDirection": null,
+                        "textBaseline": null,
+                        "spacing": null,
+                        "children": null,
+                        "items": "{{todos}}",
+                        "itemTemplate": {
+                            "leading": null,
+                            "title": {
+                                "data": "{{title}}",
+                                "children": null,
+                                "style": null,
+                                "copyWithStyle": null,
+                                "textAlign": null,
+                                "textDirection": null,
+                                "softWrap": null,
+                                "overflow": null,
+                                "textScaleFactor": null,
+                                "maxLines": null,
+                                "semanticsLabel": null,
+                                "textWidthBasis": null,
+                                "selectionColor": null,
+                                "type": "text"
+                            },
+                            "subtitle": null,
+                            "trailing": {
+                                "iconSize": null,
+                                "visualDensity": null,
+                                "padding": null,
+                                "alignment": null,
+                                "splashRadius": null,
+                                "color": null,
+                                "focusColor": null,
+                                "hoverColor": null,
+                                "highlightColor": null,
+                                "splashColor": null,
+                                "disabledColor": null,
+                                "onPressed": {
+                                    "key": "todos",
+                                    "op": "remove",
+                                    "item": null,
+                                    "items": null,
+                                    "index": null,
+                                    "match": {
+                                        "id": "{{id}}"
+                                    },
+                                    "set": null,
+                                    "add": null,
+                                    "field": null,
+                                    "counter": null,
+                                    "persist": null,
+                                    "actionType": "updateList"
+                                },
+                                "onHover": null,
+                                "onLongPress": null,
+                                "mouseCursor": null,
+                                "autofocus": null,
+                                "tooltip": null,
+                                "enableFeedback": null,
+                                "constraints": null,
+                                "style": null,
+                                "isSelected": null,
+                                "selectedIcon": null,
+                                "icon": {
+                                    "icon": "delete",
+                                    "iconType": "material",
+                                    "size": null,
+                                    "fill": null,
+                                    "weight": null,
+                                    "grade": null,
+                                    "opticalSize": null,
+                                    "color": null,
+                                    "shadows": null,
+                                    "semanticLabel": null,
+                                    "textDirection": null,
+                                    "applyTextScaling": null,
+                                    "blendMode": null,
+                                    "type": "icon"
+                                },
+                                "type": "iconButton"
+                            },
+                            "isThreeLine": null,
+                            "dense": null,
+                            "visualDensity": null,
+                            "shape": null,
+                            "style": null,
+                            "selectedColor": null,
+                            "iconColor": null,
+                            "textColor": null,
+                            "contentPadding": null,
+                            "enabled": null,
+                            "onTap": null,
+                            "onLongPress": null,
+                            "mouseCursor": null,
+                            "selected": null,
+                            "focusColor": null,
+                            "hoverColor": null,
+                            "autofocus": null,
+                            "tileColor": null,
+                            "selectedTileColor": null,
+                            "enableFeedback": null,
+                            "horizontalTitleGap": null,
+                            "minVerticalPadding": null,
+                            "minLeadingWidth": null,
+                            "titleAlignment": null,
+                            "type": "listTile"
+                        },
+                        "emptyTemplate": {
+                            "padding": {
+                                "left": 16.0,
+                                "top": 16.0,
+                                "right": 16.0,
+                                "bottom": 16.0
+                            },
+                            "child": {
+                                "data": "Nothing left. Add an item below.",
+                                "children": null,
+                                "style": null,
+                                "copyWithStyle": null,
+                                "textAlign": null,
+                                "textDirection": null,
+                                "softWrap": null,
+                                "overflow": null,
+                                "textScaleFactor": null,
+                                "maxLines": null,
+                                "semanticsLabel": null,
+                                "textWidthBasis": null,
+                                "selectionColor": null,
+                                "type": "text"
+                            },
+                            "type": "padding"
+                        },
+                        "type": "column"
+                    },
+                    {
+                        "width": null,
+                        "height": 8.0,
+                        "child": null,
+                        "type": "sizedBox"
+                    },
+                    {
+                        "onPressed": {
+                            "actions": [
+                                {
+                                    "key": "todos",
+                                    "op": "append",
+                                    "item": {
+                                        "id": "item-{{nextId}}",
+                                        "title": "Item {{nextId}}"
+                                    },
+                                    "items": null,
+                                    "index": null,
+                                    "match": null,
+                                    "set": null,
+                                    "add": null,
+                                    "field": null,
+                                    "counter": null,
+                                    "persist": null,
+                                    "actionType": "updateList"
+                                },
+                                {
+                                    "values": [
+                                        {
+                                            "key": "count",
+                                            "expression": "count + 1"
+                                        },
+                                        {
+                                            "key": "nextId",
+                                            "expression": "nextId + 1"
+                                        }
+                                    ],
+                                    "action": null,
+                                    "actionType": "setValue"
+                                }
+                            ],
+                            "sync": true,
+                            "actionType": "multiAction"
+                        },
+                        "onLongPress": null,
+                        "onHover": null,
+                        "onFocusChange": null,
+                        "style": null,
+                        "autofocus": null,
+                        "clipBehavior": null,
+                        "child": {
+                            "data": "Add item",
+                            "children": null,
+                            "style": null,
+                            "copyWithStyle": null,
+                            "textAlign": null,
+                            "textDirection": null,
+                            "softWrap": null,
+                            "overflow": null,
+                            "textScaleFactor": null,
+                            "maxLines": null,
+                            "semanticsLabel": null,
+                            "textWidthBasis": null,
+                            "selectionColor": null,
+                            "type": "text"
+                        },
+                        "type": "elevatedButton"
+                    }
+                ],
+                "items": null,
+                "itemTemplate": null,
+                "emptyTemplate": null,
+                "type": "column"
+            },
+            "dragStartBehavior": null,
+            "clipBehavior": null,
+            "restorationId": null,
+            "keyboardDismissBehavior": null,
+            "type": "singleChildScrollView"
+        },
+        "bottomNavigationBar": null,
+        "bottomSheet": null,
+        "drawer": null,
+        "drawerDragStartBehavior": null,
+        "drawerEdgeDragWidth": null,
+        "drawerEnableOpenDragGesture": null,
+        "drawerScrimColor": null,
+        "endDrawer": null,
+        "endDrawerEnableOpenDragGesture": null,
+        "extendBody": null,
+        "extendBodyBehindAppBar": null,
+        "floatingActionButton": null,
+        "floatingActionButtonLocation": null,
+        "onDrawerChanged": null,
+        "onEndDrawerChanged": null,
+        "persistentFooterAlignment": null,
+        "persistentFooterButtons": null,
+        "primary": null,
+        "resizeToAvoidBottomInset": null,
+        "restorationId": null,
+        "type": "scaffold"
+    },
+    "type": "setValue"
+}
