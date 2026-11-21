@@ -42,15 +42,12 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
     with
         AutomaticKeepAliveClientMixin<_DropDownMenuWidget>,
         StacKeepAliveOnceChanged<_DropDownMenuWidget> {
-  final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     super.build(context);
     final model = widget.model;
     return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
-      controller: _controller,
       onSelected: (_) => markChangedByUser(),
       // Parsed entries are DropdownMenuEntry<dynamic> and values can be null,
       // so filter on Object?: a DropdownMenuEntry<Object> filter drops them all.
