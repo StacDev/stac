@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
@@ -31,15 +33,50 @@ class _Lifecycle extends StatefulWidget {
 }
 
 class _LifecycleState extends State<_Lifecycle> {
+  bool _loadScheduled = false;
+
   @override
   void initState() {
     super.initState();
-    // After the first frame, so the action can use the screen it is on.
+    _scheduleLoad();
+  }
+
+  @override
+  void didUpdateWidget(covariant _Lifecycle oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // A lifecycle with other actions in the same place, such as the next
+    // tab's, is another screen: the old one's onDispose runs, then the new
+    // one's onLoad.
+    if (!_sameActions(oldWidget.model, widget.model)) {
+      _run(oldWidget.model.onDispose, 'onDispose');
+      _scheduleLoad();
+    }
+  }
+
+  // After the frame, so the action can use the screen it is on.
+  void _scheduleLoad() {
+    if (_loadScheduled) return;
+    _loadScheduled = true;
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadScheduled = false;
       if (mounted) {
         _run(widget.model.onLoad, 'onLoad');
       }
     });
+  }
+
+  static bool _sameActions(StacLifecycle a, StacLifecycle b) =>
+      _encode(a.onLoad) == _encode(b.onLoad) &&
+      _encode(a.onDispose) == _encode(b.onDispose);
+
+  static String? _encode(StacAction? action) {
+    if (action == null) return null;
+    final json = action.toJson();
+    try {
+      return jsonEncode(json);
+    } catch (_) {
+      return '$json';
+    }
   }
 
   @override

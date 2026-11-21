@@ -66,10 +66,14 @@ class StacGridViewParser extends StacParser<StacGridView> {
         // Parse in the item's own element, so theme colors and text styles
         // resolved while parsing update when the theme changes.
         return Builder(
+          key: itemKey(children[index]),
           builder: (context) =>
               children[index].parse(context) ?? const SizedBox.shrink(),
         );
       },
+      // A child built for an entry with an id keeps its state with it, also
+      // when the entry moves.
+      findChildIndexCallback: (key) => itemIndexOfKey(children, key),
       itemCount: children?.length ?? 0,
       semanticChildCount: model.semanticChildCount,
       dragStartBehavior:

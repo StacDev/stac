@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/widgets.dart';
 
 /// Runs [rebuild], which calls `setState`, now or, while Flutter is
 /// building, laying out or removing widgets, once the current frame is done.
@@ -10,14 +11,14 @@ import 'package:flutter/scheduler.dart';
 /// Flutter doesn't allow marking another widget for a rebuild then.
 void scheduleRebuild(VoidCallback rebuild) {
   final scheduler = SchedulerBinding.instance;
-  switch (scheduler.schedulerPhase) {
-    case SchedulerPhase.persistentCallbacks:
-      scheduler.addPostFrameCallback((_) => rebuild());
-    case SchedulerPhase.idle:
-      // `runApp` builds the first frame outside a frame, while the phase is
-      // still idle, so wait until the code running now has finished.
-      scheduleMicrotask(rebuild);
-    case _:
-      rebuild();
+  if (scheduler.schedulerPhase == SchedulerPhase.persistentCallbacks) {
+    scheduler.addPostFrameCallback((_) => rebuild());
+  } else if (scheduler.schedulerPhase == SchedulerPhase.idle &&
+      WidgetsBinding.instance.rootElement == null) {
+    // `runApp` builds the first frame outside a frame, before it sets the
+    // root element, so wait until that build is done.
+    scheduleMicrotask(rebuild);
+  } else {
+    rebuild();
   }
 }

@@ -103,10 +103,10 @@ bool _isObserver(Map<dynamic, dynamic> json) =>
 // `emptyTemplate` is filled when it's shown, so it reads current state.
 bool _isBoundItems(Map<dynamic, dynamic> json, String key) {
   if (key == 'itemTemplate' || key == 'emptyTemplate') {
-    return json.containsKey('items');
+    return json['items'] != null;
   }
   return key == 'items' &&
-      json.containsKey('itemTemplate') &&
+      json['itemTemplate'] != null &&
       json[key] is String &&
       singlePlaceholder(json[key] as String) != null;
 }

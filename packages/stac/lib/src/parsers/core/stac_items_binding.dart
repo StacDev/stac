@@ -39,8 +39,27 @@ Widget buildWithItems(
   );
 }
 
+// Children built for entries that each have a different `id`, by child, so
+// a child's widget state, such as typed text or a ticked box, stays with its
+// entry when entries are added, removed or moved.
+final Expando<Key> _itemKeys = Expando<Key>();
+
+/// The key of [child] when it was built for an entry with an `id` that no
+/// other entry has. List widgets put it on the child's widget.
+Key? itemKey(StacWidget child) => _itemKeys[child];
+
+/// The index in [children] of the child with [key], for a lazy list's
+/// `findItemIndexCallback`, so a keyed child keeps its state when it moves.
+int? itemIndexOfKey(List<StacWidget>? children, Key key) {
+  if (children == null) return null;
+  final index = children.indexWhere((child) => itemKey(child) == key);
+  return index < 0 ? null : index;
+}
+
 /// The children for [items]: [itemTemplate] filled once per entry, or
-/// [emptyTemplate] when there are no entries.
+/// [emptyTemplate] when there are no entries. When every entry is a map with
+/// an `id` that no other entry has, each child is keyed by it (see
+/// [itemKey]).
 List<StacWidget> templateChildren(
   List<dynamic> items,
   StacWidget itemTemplate,
@@ -51,27 +70,37 @@ List<StacWidget> templateChildren(
   }
   final registry = StacRegistry.instance;
   final template = itemTemplate.toJson();
+  final ids = [for (final item in items) item is Map ? item['id'] : null];
+  final keyed = !ids.contains(null) && ids.toSet().length == ids.length;
   return [
-    for (final item in items)
-      StacWidget.fromJson(
-        resolveVariablesInJson(
-              resolvePlaceholders(
-                template,
-                (path) => _itemValue(item, path),
-                skipEntry: _isNestedTemplate,
-                expressionEntry: isExpressionEntry,
-              ),
-              registry,
-            )
-            as Map<String, dynamic>,
+    for (var i = 0; i < items.length; i++)
+      _keyed(
+        keyed ? ValueKey<Object?>(ids[i]) : null,
+        StacWidget.fromJson(
+          resolveVariablesInJson(
+                resolvePlaceholders(
+                  template,
+                  (path) => _itemValue(items[i], path),
+                  skipEntry: _isNestedTemplate,
+                  expressionEntry: isExpressionEntry,
+                ),
+                registry,
+              )
+              as Map<String, dynamic>,
+        ),
       ),
   ];
+}
+
+StacWidget _keyed(Key? key, StacWidget child) {
+  if (key != null) _itemKeys[child] = key;
+  return child;
 }
 
 // A list inside the template fills its own itemTemplate from its own
 // entries. Its `items` are still read from this entry.
 bool _isNestedTemplate(Map<dynamic, dynamic> json, String key) =>
-    key == 'itemTemplate' && json.containsKey('items');
+    key == 'itemTemplate' && json['items'] != null;
 
 // `{{item}}` is the entry itself; `{{item.x}}` and `{{x}}` read into it. A
 // field whose name has a dot, such as `user.name`, matches before a path.

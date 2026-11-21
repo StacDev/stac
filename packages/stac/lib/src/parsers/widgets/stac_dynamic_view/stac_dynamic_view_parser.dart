@@ -160,8 +160,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     // Deep copy template to avoid modifying the original
     Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
 
-    // Check for list processing with itemTemplate
-    if (resolvedTemplateJson.containsKey('itemTemplate')) {
+    // Check for list processing with itemTemplate. A template built with the
+    // DSL's toJson has `"itemTemplate": null` when it has none.
+    if (resolvedTemplateJson['itemTemplate'] is Map) {
       dynamic listForIteration;
       final String itemTemplateKey = 'itemTemplate';
       // Ensure itemTemplateActual is correctly typed.

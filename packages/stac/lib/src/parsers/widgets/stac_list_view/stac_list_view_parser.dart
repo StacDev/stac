@@ -59,6 +59,9 @@ class StacListViewParser extends StacParser<StacListView> {
       restorationId: model.restorationId,
       clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,
       itemCount: children?.length ?? 0,
+      // A child built for an entry with an id keeps its state with it, also
+      // when the entry moves.
+      findItemIndexCallback: (key) => itemIndexOfKey(children, key),
       itemBuilder: (context, index) {
         if (children == null || children.isEmpty) {
           return const SizedBox();
@@ -66,6 +69,7 @@ class StacListViewParser extends StacParser<StacListView> {
         // Parse in the item's own element, so theme colors and text styles
         // resolved while parsing update when the theme changes.
         return Builder(
+          key: itemKey(children[index]),
           builder: (context) =>
               children[index].parse(context) ?? const SizedBox(),
         );

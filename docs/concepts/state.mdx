@@ -67,7 +67,7 @@ The observer fills its child again whenever a key it reads changes. Conditionals
 - `itemTemplate` is built once per entry. Inside it, `{{title}}` is a field of the entry, `{{item}}` is the entry itself (for a list of plain values), and other placeholders such as `{{currency}}` read state.
 - `emptyTemplate` is shown when the list is empty.
 
-A list whose `items` is a placeholder follows that key on its own; it needs no observer.
+A list whose `items` is a placeholder follows that key on its own; it needs no observer. When every entry has an `id` that no other entry has, each child keeps its own state, such as typed text or a ticked box, when entries are added, removed or moved.
 
 ## Derived values
 
