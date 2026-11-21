@@ -24,7 +24,12 @@ class StacNetworkRequestParser extends StacActionParser<StacNetworkRequest> {
     Response<dynamic>? response;
 
     try {
-      response = await StacNetworkService.request(context, model);
+      // `Stac.onCallFromJson` filled the placeholders when the action ran.
+      response = await StacNetworkService.request(
+        context,
+        model,
+        resolved: true,
+      );
     } on DioException catch (e) {
       response = e.response;
       Log.e(e.response);

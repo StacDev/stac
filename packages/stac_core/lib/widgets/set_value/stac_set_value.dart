@@ -42,7 +42,9 @@ class StacSetValue extends StacWidget {
   /// List of key-value pairs to set in the application state.
   ///
   /// Values are removed again when the widget leaves the screen, except an
-  /// item with `persist: true`, which keeps its value across app restarts.
+  /// item with `persist: true`, which keeps its value across app restarts. A
+  /// persisted key that already has a value keeps it, so the widget's value
+  /// only sets it the first time.
   final List<Map<String, dynamic>> values;
 
   /// The child widget to render after the values are set.

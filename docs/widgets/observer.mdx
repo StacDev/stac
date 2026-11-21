@@ -9,7 +9,7 @@ An `observer` fills the placeholders in its child from the [state](/concepts/sta
 
 | Property | Type               | Description                                                                                                                               |
 |----------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
-| keys     | `List<String>`     | The state keys to watch. When omitted, the first segment of every placeholder in `child` is watched, such as `user` for `{{user.name}}`, and so is every name read by the condition of a `conditional` in `child`, such as `items` in `length(items) > 0`. |
+| keys     | `List<String>`     | The state keys to watch. When omitted, every placeholder path in `child` and its first segment are watched, such as `user.name` and `user` for `{{user.name}}`, and so is every name read by the condition of a `conditional` in `child`, such as `items` in `length(items) > 0`. Placeholders in actions and in nested observers aren't watched. |
 | child    | `StacWidget`       | The widget to rebuild, with its placeholders filled.                                                                                      |
 
 ## Example

@@ -31,6 +31,20 @@ class StacUpdateListActionParser
       );
       return null;
     }
+    // Such as a placeholder that had no value: adding it would add null.
+    if (_adds(model.op) && model.item == null) {
+      Log.w('updateList ${model.op.name} on ${model.key} needs an item');
+      return null;
+    }
+    // Without them, remove would empty the list, which is what clear is for.
+    if (model.op == StacListOp.remove && _noMatch(model) && !_byItem(model)) {
+      Log.w(
+        'updateList remove on ${model.key} needs match, or an item to look '
+        'for; use clear to remove every entry',
+      );
+      return null;
+    }
+    bool matches(dynamic entry) => _matches(entry, model);
     final updated = switch (model.op) {
       StacListOp.set => [if (items is List) ...items],
       StacListOp.append => [...list, model.item],
@@ -41,24 +55,27 @@ class StacUpdateListActionParser
           model.item,
         ),
       StacListOp.appendAll => [...list, if (items is List) ...items],
+      // Fields can only be changed on entries that are maps.
       StacListOp.update => [
         for (final entry in list)
-          _matches(entry, model.match) ? _update(entry, model) : entry,
+          entry is Map && matches(entry) ? _update(entry, model) : entry,
       ],
       StacListOp.upsert =>
-        list.any((entry) => _matches(entry, model.match))
+        list.any(matches)
             ? [
                 for (final entry in list)
-                  _matches(entry, model.match) ? _update(entry, model) : entry,
+                  entry is Map && matches(entry)
+                      ? _update(entry, model)
+                      : entry,
               ]
             : [...list, model.item],
       StacListOp.toggle => [
         for (final entry in list)
-          _matches(entry, model.match) ? _toggle(entry, model) : entry,
+          entry is Map && matches(entry) ? _toggle(entry, model) : entry,
       ],
       StacListOp.remove => [
         for (final entry in list)
-          if (!_matches(entry, model.match)) entry,
+          if (!matches(entry)) entry,
       ],
       StacListOp.clear => <dynamic>[],
     };
@@ -66,20 +83,45 @@ class StacUpdateListActionParser
     return null;
   }
 
-  // Every field in [match] has to equal the entry's field, compared as text
-  // so that an id from a placeholder matches a number.
-  bool _matches(dynamic entry, Map<String, dynamic>? match) {
-    if (match == null || match.isEmpty) return true;
+  static bool _adds(StacListOp op) =>
+      op == StacListOp.append ||
+      op == StacListOp.prepend ||
+      op == StacListOp.insert ||
+      op == StacListOp.upsert;
+
+  static bool _noMatch(StacUpdateListAction model) =>
+      model.match == null || model.match!.isEmpty;
+
+  // Without `match`, remove and upsert look for entries equal to `item` when
+  // it's a plain value, as in a list of tags.
+  static bool _byItem(StacUpdateListAction model) {
+    final item = model.item;
+    return (model.op == StacListOp.remove || model.op == StacListOp.upsert) &&
+        _noMatch(model) &&
+        item != null &&
+        item is! Map &&
+        item is! List;
+  }
+
+  // Every field in `match` has to be on the entry and equal its value,
+  // compared as text so that an id from a placeholder matches a number.
+  // Without `match`, an entry matches when it equals a plain `item` (see
+  // [_byItem]), and otherwise every entry matches.
+  bool _matches(dynamic entry, StacUpdateListAction model) {
+    if (_noMatch(model)) {
+      if (!_byItem(model)) return true;
+      return entry is! Map && entry is! List && '$entry' == '${model.item}';
+    }
     if (entry is! Map) return false;
-    return match.entries.every(
-      (field) => '${entry[field.key]}' == '${field.value}',
+    return model.match!.entries.every(
+      (field) =>
+          entry.containsKey(field.key) &&
+          '${entry[field.key]}' == '${field.value}',
     );
   }
 
-  Map<String, dynamic> _update(dynamic entry, StacUpdateListAction model) {
-    final result = <String, dynamic>{
-      ...?(entry as Map?)?.cast<String, dynamic>(),
-    };
+  Map<String, dynamic> _update(Map entry, StacUpdateListAction model) {
+    final result = <String, dynamic>{...entry.cast<String, dynamic>()};
     model.set?.forEach((key, value) => result[key] = value);
     model.add?.forEach((key, amount) {
       result[key] = _number(result[key]) + _number(amount);
@@ -92,10 +134,8 @@ class StacUpdateListActionParser
   num _number(Object? value) =>
       value is num ? value : num.tryParse('$value') ?? 0;
 
-  Map<String, dynamic> _toggle(dynamic entry, StacUpdateListAction model) {
-    final result = <String, dynamic>{
-      ...?(entry as Map?)?.cast<String, dynamic>(),
-    };
+  Map<String, dynamic> _toggle(Map entry, StacUpdateListAction model) {
+    final result = <String, dynamic>{...entry.cast<String, dynamic>()};
     final field = model.field;
     if (field == null) return result;
     final on = result[field] != true;

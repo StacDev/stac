@@ -14,14 +14,19 @@ import 'package:stac_core/stac_core.dart';
 ///
 /// Three things are left for later: actions, which [resolveActionJson]
 /// fills when they run; `observer` widgets, which fill their own subtree
-/// whenever a value changes; and the `items` placeholder of a widget with an
-/// `itemTemplate`, which the widget reads itself so it can follow changes.
+/// whenever a value changes; and the `items` placeholder, `itemTemplate` and
+/// `emptyTemplate` of a widget with an `itemTemplate`, which the widget
+/// fills itself so it can follow changes.
+///
+/// In a condition or a `setValue` expression, each value goes in as one
+/// value (see [isExpressionEntry]).
 dynamic resolveVariablesInJson(dynamic json, StacRegistry registry) =>
     resolvePlaceholders(
       json,
       (path) => registryValue(registry, path),
-      skip: (json) => json.containsKey('actionType') || _isObserver(json),
+      skip: isFilledLater,
       skipEntry: _isBoundItems,
+      expressionEntry: isExpressionEntry,
     );
 
 /// Fills the placeholders in an action's [json] when the action runs, from
@@ -52,14 +57,30 @@ Map<String, dynamic> resolveActionJson(
   // `{"type": "expense", "amount": "{{form.amount}}"}`.
   return {
     for (final entry in json.entries)
-      entry.key: resolvePlaceholders(
-        entry.value,
-        lookup,
-        skip: (map) => map.containsKey('actionType') || _isObserver(map),
-        skipEntry: _isBoundItems,
-      ),
+      entry.key: isExpressionEntry(json, entry.key) && entry.value is String
+          ? fillExpression(entry.value as String, lookup)
+          : resolvePlaceholders(
+              entry.value,
+              lookup,
+              skip: isFilledLater,
+              skipEntry: _isBoundItems,
+              expressionEntry: isExpressionEntry,
+            ),
   };
 }
+
+/// Whether [json] is filled later than the JSON around it: an action, when it
+/// runs, or an `observer`, whenever it builds.
+bool isFilledLater(Map<dynamic, dynamic> json) =>
+    json.containsKey('actionType') || _isObserver(json);
+
+/// Whether [key] of [json] holds an expression: a `conditional`'s
+/// `condition`, or the `expression` of a `setValue` value. Placeholders in it
+/// are filled with [fillExpression], so a value such as `Alex Smith` is read
+/// as one value.
+bool isExpressionEntry(Map<dynamic, dynamic> json, String key) =>
+    (key == 'condition' && json['type'] == WidgetType.conditional.name) ||
+    (key == 'expression' && json['key'] is String);
 
 /// The value [path] refers to in [registry]: the value of the key [path]
 /// itself, or a path into the value of its first segment.
@@ -78,9 +99,12 @@ bool _isObserver(Map<dynamic, dynamic> json) =>
     json['type'] == WidgetType.observer.name;
 
 // A widget with `items` and `itemTemplate` fills the template itself, once
-// per entry, so entry fields come before state keys of the same name.
+// per entry, so entry fields come before state keys of the same name. Its
+// `emptyTemplate` is filled when it's shown, so it reads current state.
 bool _isBoundItems(Map<dynamic, dynamic> json, String key) {
-  if (key == 'itemTemplate') return json.containsKey('items');
+  if (key == 'itemTemplate' || key == 'emptyTemplate') {
+    return json.containsKey('items');
+  }
   return key == 'items' &&
       json.containsKey('itemTemplate') &&
       json[key] is String &&

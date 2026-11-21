@@ -64,8 +64,13 @@ class _ObserverState extends State<_Observer> {
   List<String> _keysOf(StacObserver model) {
     final keys = model.keys;
     if (keys != null) return keys;
+    // Placeholders in actions are filled when they run, and a nested
+    // observer watches its own keys.
     final json = model.child?.toJson();
-    return {...placeholderKeys(json), ..._conditionKeys(json)}.toList();
+    return {
+      ...placeholderKeys(json, skip: isFilledLater),
+      ..._conditionKeys(json),
+    }.toList();
   }
 
   void _listen(List<String> keys) {
@@ -103,6 +108,7 @@ List<String> _conditionKeys(dynamic json) {
   final keys = <String>[];
   void collect(dynamic node) {
     if (node is Map) {
+      if (isFilledLater(node)) return;
       final condition = node['condition'];
       if (node['type'] == WidgetType.conditional.name && condition is String) {
         keys.addAll(

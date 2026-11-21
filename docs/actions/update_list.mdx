@@ -11,10 +11,10 @@ The `updateList` action changes a list stored under a [state](/concepts/state) k
 |----------|------------------------|------------------------------------------------------------------------------------------------------|
 | key      | `String`               | The state key of the list.                                                                           |
 | op       | `StacListOp`           | The change to make. See below.                                                                       |
-| item     | `dynamic`              | The entry to add, for `append`, `prepend`, `insert` and `upsert`.                                   |
+| item     | `dynamic`              | The entry to add, for `append`, `prepend`, `insert` and `upsert`. Without `match`, `remove` and `upsert` look for entries equal to it when it's a plain value, such as a tag. |
 | items    | `List`                 | The entries to add, for `appendAll`, or the new list for `set`. A placeholder such as `{{response.posts}}` works too. |
 | index    | `int`                  | Where to add `item`, for `insert`. A placeholder such as `{{index}}` works too. Without it, `item` goes at the end. |
-| match    | `Map<String, dynamic>` | Fields an entry must have for `update`, `toggle` and `remove` to apply to it. Omit it to match all. |
+| match    | `Map<String, dynamic>` | Fields an entry must have for `update`, `toggle`, `upsert` and `remove` to apply to it. Without it, `update` and `toggle` apply to every entry, and `remove` needs a plain `item` to look for. |
 | set      | `Map<String, dynamic>` | Fields to overwrite on matching entries, for `update`.                                               |
 | add      | `Map<String, dynamic>` | Amounts to add to numeric fields of matching entries, for `update`.                                 |
 | field    | `String`               | The boolean field to flip, for `toggle`.                                                             |
@@ -93,6 +93,20 @@ StacUpdateListAction(key: 'cart', op: StacListOp.remove, match: {'id': '{{id}}'}
 { "actionType": "updateList", "key": "cart", "op": "remove", "match": { "id": "{{id}}" } }
 ```
 </CodeGroup>
+
+In a list of plain values, such as tags, `remove` takes the value as `item`, and `upsert` adds `item` only when it isn't in the list yet:
+
+<CodeGroup>
+```dart Dart
+StacUpdateListAction(key: 'tags', op: StacListOp.remove, item: 'dart')
+```
+
+```json JSON
+{ "actionType": "updateList", "key": "tags", "op": "remove", "item": "dart" }
+```
+</CodeGroup>
+
+`remove` with neither `match` nor `item` changes nothing, so a typo can't empty a list. `clear` removes every entry:
 
 <CodeGroup>
 ```dart Dart

@@ -93,7 +93,9 @@ class StacUpdateListAction extends StacAction {
   final StacListOp op;
 
   /// The entry to add, for [StacListOp.append], [StacListOp.prepend],
-  /// [StacListOp.insert] and [StacListOp.upsert].
+  /// [StacListOp.insert] and [StacListOp.upsert]. Without [match],
+  /// [StacListOp.remove] and [StacListOp.upsert] look for entries equal to
+  /// it when it's a plain value, such as a tag in a list of tags.
   final dynamic item;
 
   /// The entries to add, for [StacListOp.appendAll], or the new list for
@@ -106,7 +108,10 @@ class StacUpdateListAction extends StacAction {
   final int? index;
 
   /// Fields an entry must have for [StacListOp.update], [StacListOp.toggle]
-  /// and [StacListOp.remove] to apply to it. When null, every entry matches.
+  /// and [StacListOp.remove] to apply to it. When null, [StacListOp.update]
+  /// and [StacListOp.toggle] apply to every entry, and [StacListOp.remove]
+  /// needs a plain [item] to look for; [StacListOp.clear] removes every
+  /// entry.
   final Map<String, dynamic>? match;
 
   /// Fields to overwrite on matching entries, for [StacListOp.update].

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/scheduler.dart';
 
 /// Runs [rebuild], which calls `setState`, now or, while Flutter is
@@ -8,9 +10,14 @@ import 'package:flutter/scheduler.dart';
 /// Flutter doesn't allow marking another widget for a rebuild then.
 void scheduleRebuild(VoidCallback rebuild) {
   final scheduler = SchedulerBinding.instance;
-  if (scheduler.schedulerPhase == SchedulerPhase.persistentCallbacks) {
-    scheduler.addPostFrameCallback((_) => rebuild());
-  } else {
-    rebuild();
+  switch (scheduler.schedulerPhase) {
+    case SchedulerPhase.persistentCallbacks:
+      scheduler.addPostFrameCallback((_) => rebuild());
+    case SchedulerPhase.idle:
+      // `runApp` builds the first frame outside a frame, while the phase is
+      // still idle, so wait until the code running now has finished.
+      scheduleMicrotask(rebuild);
+    case _:
+      rebuild();
   }
 }

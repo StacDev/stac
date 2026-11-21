@@ -58,12 +58,15 @@ Iterable<String> _segments(String path) sync* {
 /// [lookup] returns null is left as it is.
 ///
 /// A map for which [skip] returns true is left as it is, with everything
-/// inside it, and so is an entry for which [skipEntry] returns true.
+/// inside it, and so is an entry for which [skipEntry] returns true. A text
+/// entry for which [expressionEntry] returns true holds an expression and is
+/// filled with [fillExpression].
 dynamic resolvePlaceholders(
   dynamic json,
   Object? Function(String path) lookup, {
   bool Function(Map<dynamic, dynamic> json)? skip,
   bool Function(Map<dynamic, dynamic> json, String key)? skipEntry,
+  bool Function(Map<dynamic, dynamic> json, String key)? expressionEntry,
 }) {
   if (json is String) {
     final path = singlePlaceholder(json);
@@ -78,25 +81,85 @@ dynamic resolvePlaceholders(
   }
   if (json is Map) {
     if (skip != null && skip(json)) return json;
+    dynamic fill(String key, dynamic value) {
+      if (skipEntry != null && skipEntry(json, key)) return value;
+      if (value is String &&
+          expressionEntry != null &&
+          expressionEntry(json, key)) {
+        return fillExpression(value, lookup);
+      }
+      return resolvePlaceholders(
+        value,
+        lookup,
+        skip: skip,
+        skipEntry: skipEntry,
+        expressionEntry: expressionEntry,
+      );
+    }
+
     return <String, dynamic>{
       for (final entry in json.entries)
-        '${entry.key}': skipEntry != null && skipEntry(json, '${entry.key}')
-            ? entry.value
-            : resolvePlaceholders(
-                entry.value,
-                lookup,
-                skip: skip,
-                skipEntry: skipEntry,
-              ),
+        '${entry.key}': fill('${entry.key}', entry.value),
     };
   }
   if (json is List) {
     return [
       for (final item in json)
-        resolvePlaceholders(item, lookup, skip: skip, skipEntry: skipEntry),
+        resolvePlaceholders(
+          item,
+          lookup,
+          skip: skip,
+          skipEntry: skipEntry,
+          expressionEntry: expressionEntry,
+        ),
     ];
   }
   return json;
+}
+
+/// Fills the placeholders in [expression], such as a `conditional`'s
+/// condition, so that each value is read as one value: text such as
+/// `Alex Smith` or `a@b.com` is quoted, numbers and booleans are written as
+/// they are, and inside a quoted string the text goes in with its quotes
+/// escaped. A list, a map or a path [lookup] has no value for is left as the
+/// placeholder, which the expression reads itself.
+String fillExpression(String expression, Object? Function(String path) lookup) {
+  final buffer = StringBuffer();
+  String? quote;
+  var i = 0;
+  while (i < expression.length) {
+    final match = placeholderPattern.matchAsPrefix(expression, i);
+    if (match != null) {
+      final value = lookup(match.group(1)!);
+      buffer.write(_expressionValue(match.group(0)!, value, quote));
+      i = match.end;
+      continue;
+    }
+    final char = expression[i];
+    if (quote != null && char == r'\' && i + 1 < expression.length) {
+      buffer.write(expression.substring(i, i + 2));
+      i += 2;
+      continue;
+    }
+    if (quote == null && (char == '"' || char == "'")) {
+      quote = char;
+    } else if (char == quote) {
+      quote = null;
+    }
+    buffer.write(char);
+    i++;
+  }
+  return buffer.toString();
+}
+
+String _expressionValue(String placeholder, Object? value, String? quote) {
+  if (value == null) return placeholder;
+  String escape(String text, String quote) =>
+      text.replaceAll(r'\', r'\\').replaceAll(quote, '\\$quote');
+  if (quote != null) return escape('$value', quote);
+  if (value is List || value is Map) return placeholder;
+  if (value is num || value is bool) return '$value';
+  return '"${escape('$value', '"')}"';
 }
 
 /// The registry keys a value at [path] depends on: [path] itself, which a
@@ -109,8 +172,11 @@ List<String> watchedKeys(String path) {
 
 /// The keys the placeholders in [json] read, in order of first appearance:
 /// the [watchedKeys] of each path. `{{user.name}}` yields `user.name` and
-/// `user`.
-List<String> placeholderKeys(dynamic json) {
+/// `user`. A map for which [skip] returns true is left out.
+List<String> placeholderKeys(
+  dynamic json, {
+  bool Function(Map<dynamic, dynamic> json)? skip,
+}) {
   final keys = <String>{};
   void collect(dynamic node) {
     if (node is String) {
@@ -118,6 +184,7 @@ List<String> placeholderKeys(dynamic json) {
         keys.addAll(watchedKeys(match.group(1)!));
       }
     } else if (node is Map) {
+      if (skip != null && skip(node)) return;
       node.values.forEach(collect);
     } else if (node is List) {
       node.forEach(collect);

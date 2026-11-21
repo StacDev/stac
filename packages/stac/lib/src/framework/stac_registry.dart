@@ -107,6 +107,10 @@ class StacRegistry {
   }
 
   dynamic removeValue(String key) {
+    if (_derived.containsKey(key)) {
+      Log.w('$key is computed from an expression and can\'t be removed');
+      return null;
+    }
     if (_persistedKeys.contains(key)) {
       StacStateService.write(key, null);
     }
@@ -140,6 +144,13 @@ class StacRegistry {
   // The derived keys being computed right now.
   static final Set<String> _computing = {};
 
+  // Derived keys asked to compute again while they were being computed.
+  static final Set<String> _recompute = {};
+
+  // How many times in a row a key is computed again before it's taken to be
+  // in a cycle that never settles.
+  static const _maxRecomputes = 100;
+
   /// Computes each value in [expressions] now, and again whenever a key its
   /// expression reads changes. Keys in [expressions] can't be set with
   /// [setValue]. Defining a key again replaces its expression.
@@ -166,14 +177,39 @@ class StacRegistry {
   }
 
   void _compute(String key) {
-    final expression = _derived[key];
-    // A key whose expression reads itself through other derived keys isn't
-    // computed again while it is being computed.
-    if (expression == null || !_computing.add(key)) return;
+    if (!_derived.containsKey(key)) return;
+    // Asked again while being computed, such as by a listener of this key
+    // that changed one of its inputs, or by keys that read each other: it's
+    // computed again once this computation is done.
+    if (!_computing.add(key)) {
+      _recompute.add(key);
+      return;
+    }
     try {
-      load({key: ExpressionResolver.evaluate(expression)});
+      var runs = 0;
+      do {
+        _recompute.remove(key);
+        final expression = _derived[key];
+        if (expression == null) break;
+        if (++runs > _maxRecomputes) {
+          Log.w(
+            'Stopped computing $key: its value keeps changing what it reads',
+          );
+          break;
+        }
+        final Object? value;
+        try {
+          value = ExpressionResolver.evaluateOrThrow(expression);
+        } catch (e) {
+          // Keep the last value rather than removing it.
+          Log.w('Could not compute $key from "$expression": $e');
+          continue;
+        }
+        load({key: value});
+      } while (_recompute.contains(key));
     } finally {
       _computing.remove(key);
+      _recompute.remove(key);
     }
   }
 

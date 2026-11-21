@@ -10,6 +10,7 @@
   "body": {
     "type": "dynamicView",
     "request": {
+      "actionType": "networkRequest",
       "url": "https://dummyjson.com/users/1",
       "method": "get"
     },

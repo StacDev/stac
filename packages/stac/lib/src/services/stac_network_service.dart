@@ -11,15 +11,21 @@ class StacNetworkService {
 
   static void initialize(Dio dio) => _dio = dio;
 
+  /// Sends [request]. Its placeholders are filled first, so it sees current
+  /// state and form values, unless [resolved] says that's done already, as
+  /// for a `networkRequest` action, which is filled when it runs. Filling
+  /// twice would also fill placeholders inside the values put in the first
+  /// time.
   static Future<Response?> request(
     BuildContext context,
-    StacNetworkRequest request,
-  ) async {
-    // Placeholders are filled now, so the request sees current state and
-    // form values.
-    request = StacNetworkRequest.fromJson(
-      resolveActionJson(request.toJson(), context),
-    );
+    StacNetworkRequest request, {
+    bool resolved = false,
+  }) async {
+    if (!resolved) {
+      request = StacNetworkRequest.fromJson(
+        resolveActionJson(request.toJson(), context),
+      );
+    }
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
     );

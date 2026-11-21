@@ -34,8 +34,10 @@ typedef ExpressionLookup = Object? Function(String path);
 /// value of `status` with the text `active`, and `status == null` is true.
 /// Quote text to be explicit. Numbers in text, such as form values, count as
 /// numbers. `- * / %` only calculate with numbers, so `a-1` stays text, but
-/// text made of numbers and dashes, such as a date, is calculated unless it's
-/// quoted: `"{{date}}" == "2026-10-22"`.
+/// numbers and dashes written in an expression, such as a date, are
+/// calculated unless they're quoted: `date == "2026-10-22"`. A
+/// `{{placeholder}}` is read as one value, so `{{name}} != null` holds for a
+/// name with spaces in it.
 class ExpressionResolver {
   ExpressionResolver._();
 
@@ -310,10 +312,13 @@ class _Call extends _Node {
           for (final item in list)
             (key: args.length > 1 ? perItem(item) : item, item: item),
         ];
+        // Numbers come first, in numeric order, then text in text order, so
+        // every pair of keys compares the same way.
         keyed.sort((a, b) {
-          if (_isNum(a.key) && _isNum(b.key)) {
-            return _num(a.key).compareTo(_num(b.key));
-          }
+          final aIsNum = _isNum(a.key);
+          final bIsNum = _isNum(b.key);
+          if (aIsNum && bIsNum) return _num(a.key).compareTo(_num(b.key));
+          if (aIsNum != bIsNum) return aIsNum ? -1 : 1;
           return _text(a.key).compareTo(_text(b.key));
         });
         return [for (final entry in keyed) entry.item];
@@ -323,7 +328,7 @@ class _Call extends _Node {
       case 'take':
         final list = arg(0);
         return list is List
-            ? list.take(_num(arg(1)).toInt()).toList()
+            ? list.take(math.max(0, _num(arg(1)).toInt())).toList()
             : const [];
       case 'length':
       case 'count':
@@ -341,6 +346,8 @@ class _Call extends _Node {
         return false;
       case 'round':
         final digits = args.length > 1 ? _num(arg(1)).toInt() : 0;
+        // A whole number stays an int, so it shows as `4`, not `4.0`.
+        if (digits == 0) return _num(arg(0)).round();
         final factor = math.pow(10, digits);
         return (_num(arg(0)) * factor).round() / factor;
       case 'abs':
@@ -400,10 +407,13 @@ class _Call extends _Node {
   @override
   void collect(Set<String> roots, Set<String> bound) {
     for (var i = 0; i < args.length; i++) {
-      final inner = i == 1 && _perItem.contains(name)
-          ? {...bound, 'item'}
-          : bound;
-      args[i].collect(roots, inner);
+      if (i == 1 && _perItem.contains(name)) {
+        args[i].collect(roots, {...bound, 'item'});
+        // `min(0, item)` with two numbers reads a state key named `item`.
+        if (_aggregates.contains(name)) args[i].collect(roots, bound);
+        continue;
+      }
+      args[i].collect(roots, bound);
     }
   }
 }

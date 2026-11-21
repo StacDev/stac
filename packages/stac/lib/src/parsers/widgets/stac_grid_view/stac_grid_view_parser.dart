@@ -31,6 +31,9 @@ class StacGridViewParser extends StacParser<StacGridView> {
       emptyTemplate: model.emptyTemplate,
       children: model.children,
       builder: (context, children) => _gridView(model, children),
+      // In place of the grid, rather than in its first cell.
+      emptyBuilder: (context, emptyTemplate) =>
+          emptyTemplate.parse(context) ?? const SizedBox(),
     );
   }
 

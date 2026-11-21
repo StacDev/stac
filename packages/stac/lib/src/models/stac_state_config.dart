@@ -6,7 +6,7 @@
 /// await Stac.initialize(
 ///   state: const StacStateConfig(
 ///     initial: {'cart': [], 'currency': 'USD'},
-///     persisted: ['cart', 'token'],
+///     persisted: ['cart', 'themeMode'],
 ///     derived: {'cartTotal': 'sum(cart, item.price * item.quantity)'},
 ///   ),
 /// );
@@ -31,6 +31,7 @@ class StacStateConfig {
   /// not.
   ///
   /// Values must be JSON: maps, lists, strings, numbers, booleans or null.
+  /// They're stored unencrypted, so keep tokens and other secrets out.
   final List<String> persisted;
 
   /// Values computed from an expression, by key: `{'cartCount':

@@ -11,6 +11,10 @@ import 'package:stac_core/stac_core.dart';
 /// one child is built per entry of [items], or [emptyTemplate] alone when
 /// there are none. An [items] value that is a `{{placeholder}}` is read from
 /// state, and the widget is rebuilt whenever that key changes.
+///
+/// With [emptyBuilder], an empty list shows [emptyTemplate] through it
+/// instead, for a widget such as a grid that would otherwise put it in one
+/// cell.
 Widget buildWithItems(
   BuildContext context, {
   required dynamic items,
@@ -19,6 +23,7 @@ Widget buildWithItems(
   required List<StacWidget>? children,
   required Widget Function(BuildContext context, List<StacWidget>? children)
   builder,
+  Widget Function(BuildContext context, StacWidget emptyTemplate)? emptyBuilder,
 }) {
   // A `dynamicView` fills an itemTemplate without `items`; that is not a
   // binding.
@@ -30,6 +35,7 @@ Widget buildWithItems(
     itemTemplate: itemTemplate,
     emptyTemplate: emptyTemplate,
     builder: builder,
+    emptyBuilder: emptyBuilder,
   );
 }
 
@@ -53,6 +59,7 @@ List<StacWidget> templateChildren(
                 template,
                 (path) => _itemValue(item, path),
                 skipEntry: _isNestedTemplate,
+                expressionEntry: isExpressionEntry,
               ),
               registry,
             )
@@ -66,13 +73,16 @@ List<StacWidget> templateChildren(
 bool _isNestedTemplate(Map<dynamic, dynamic> json, String key) =>
     key == 'itemTemplate' && json.containsKey('items');
 
-// `{{item}}` is the entry itself; `{{item.x}}` and `{{x}}` read into it.
+// `{{item}}` is the entry itself; `{{item.x}}` and `{{x}}` read into it. A
+// field whose name has a dot, such as `user.name`, matches before a path.
 Object? _itemValue(dynamic item, String path) {
   if (path == 'item') return item;
   if (path.startsWith('item.') || path.startsWith('item[')) {
     return readPath(item, path.substring(4));
   }
-  return item is Map ? readPath(item, path) : null;
+  if (item is! Map) return null;
+  if (item.containsKey(path)) return item[path];
+  return readPath(item, path);
 }
 
 class _ItemsBuilder extends StatefulWidget {
@@ -81,6 +91,7 @@ class _ItemsBuilder extends StatefulWidget {
     required this.itemTemplate,
     required this.emptyTemplate,
     required this.builder,
+    required this.emptyBuilder,
   });
 
   final dynamic items;
@@ -88,6 +99,8 @@ class _ItemsBuilder extends StatefulWidget {
   final StacWidget? emptyTemplate;
   final Widget Function(BuildContext context, List<StacWidget>? children)
   builder;
+  final Widget Function(BuildContext context, StacWidget emptyTemplate)?
+  emptyBuilder;
 
   @override
   State<_ItemsBuilder> createState() => _ItemsBuilderState();
@@ -154,9 +167,15 @@ class _ItemsBuilderState extends State<_ItemsBuilder> {
 
   @override
   Widget build(BuildContext context) {
+    final items = _items;
+    final emptyTemplate = widget.emptyTemplate;
+    final emptyBuilder = widget.emptyBuilder;
+    if (items.isEmpty && emptyTemplate != null && emptyBuilder != null) {
+      return emptyBuilder(context, emptyTemplate);
+    }
     return widget.builder(
       context,
-      templateChildren(_items, widget.itemTemplate, widget.emptyTemplate),
+      templateChildren(items, widget.itemTemplate, emptyTemplate),
     );
   }
 }

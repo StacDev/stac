@@ -187,9 +187,8 @@ A value marked with `persist` is saved on the device and restored by `Stac.initi
 ```dart Dart
 StacSetValueAction(
   values: [
-    {'key': 'token', 'value': '{{response.token}}', 'persist': true},
+    {'key': 'themeMode', 'value': 'dark', 'persist': true},
   ],
-  action: StacNavigateAction(routeName: '/home'),
 )
 ```
 
@@ -197,12 +196,8 @@ StacSetValueAction(
 {
   "actionType": "setValue",
   "values": [
-    { "key": "token", "value": "{{response.token}}", "persist": true }
-  ],
-  "action": {
-    "actionType": "navigate",
-    "routeName": "/home"
-  }
+    { "key": "themeMode", "value": "dark", "persist": true }
+  ]
 }
 ```
 </CodeGroup>

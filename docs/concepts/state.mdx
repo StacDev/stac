@@ -13,7 +13,7 @@ A placeholder is filled from the registry when the screen is built. It can read 
 { "type": "text", "data": "{{user.name}} has {{items.0.title}} in the cart" }
 ```
 
-A value that is exactly one placeholder for a list or map becomes that list or map, so `"body": "{{cart}}"` sends the cart as JSON. Numbers, booleans and text are inserted as text. A placeholder with no value is left as it is.
+A value that is exactly one placeholder for a list or map becomes that list or map, so `"body": "{{cart}}"` sends the cart as JSON. Numbers, booleans and text are inserted as text, so a property that takes a boolean or a number, such as the `value` of a `checkBox`, can't be a placeholder yet; use a `conditional` to choose between two widgets instead. A placeholder with no value is left as it is.
 
 ## Changing state
 
@@ -90,7 +90,7 @@ A derived key is read like any other, in placeholders and observers, and can't b
 
 The same expressions are used by `conditional`, by derived values and by `expression` in `setValue`. They have numbers, quoted strings, `true`, `false` and `null`, names that read state (`count`, `user.name`, `items[0].price`), the operators `+ - * / %`, `== != < <= > >=`, `&& || !`, `a ? b : c`, parentheses, and the functions `length` (or `count`), `sum`, `avg`, `min`, `max`, `contains`, `round`, `abs`, `floor`, `ceil`, `sqrt`, `pow`, `sin`, `cos` and `tan`, plus `filter`, `sort`, `reverse` and `take` for lists. In `sum(cart, item.price * item.quantity)`, the second argument is evaluated once per entry with the entry as `item`. `filter` and `sort` work the same way, so `take(reverse(sort(transactions, item.date)), 5)` is the five newest transactions.
 
-A name that has no value is text, so `status == active` compares the value of `status` with the text `active`, and `status == null` is true. Quote text to be explicit. Numbers in text, such as form values, count as numbers. `- * / %` only calculate with numbers, so text such as `a-1` stays text, but text made of numbers and dashes, such as a date, is calculated unless it's quoted: `"{{date}}" == "2026-10-22"`.
+A name that has no value is text, so `status == active` compares the value of `status` with the text `active`, and `status == null` is true. Quote text to be explicit. Numbers in text, such as form values, count as numbers. `- * / %` only calculate with numbers, so text such as `a-1` stays text, but numbers and dashes written in an expression, such as a date, are calculated unless they're quoted: `date == "2026-10-22"`. A `{{placeholder}}` in an expression is read as one value, so `{{name}} != null` holds for a name with spaces in it.
 
 ## Initial and persisted state
 
@@ -100,7 +100,7 @@ Pass a `StacStateConfig` to `Stac.initialize` to give keys a value before the fi
 await Stac.initialize(
   state: const StacStateConfig(
     initial: {'cart': [], 'currency': 'USD'},
-    persisted: ['cart', 'token', 'themeMode'],
+    persisted: ['cart', 'themeMode'],
   ),
 );
 ```
@@ -113,16 +113,16 @@ A screen can also mark a value as persisted when it writes it, with `persist` on
 {
   "actionType": "setValue",
   "values": [
-    { "key": "token", "value": "{{response.token}}", "persist": true }
+    { "key": "themeMode", "value": "dark", "persist": true }
   ]
 }
 ```
 
 `Stac.initialize` restores these values on the next launch too, without the key being listed in `persisted`.
 
-Values are stored with `shared_preferences`, one entry per key named `stac.state.<key>`, encoded as JSON. So a value must be JSON: a map, list, string, number, boolean or null. A value that can't be encoded stays in memory only, and a warning is logged.
+Values are stored with `shared_preferences`, one entry per key named `stac.state.<key>`, encoded as JSON. So a value must be JSON: a map, list, string, number, boolean or null. A value that can't be encoded stays in memory only, and a warning is logged. Values are stored unencrypted, so don't persist tokens, passwords or other secrets; keep those in secure storage.
 
-The [setValue widget](/widgets/set_value) removes its values when it leaves the screen. Persisted values are the exception: they stay.
+The [setValue widget](/widgets/set_value) removes its values when it leaves the screen. Persisted values are the exception: they stay. A persisted key that already has a value, such as one restored at launch, also keeps it when the widget is built, so the widget's value only sets it the first time.
 
 ## Theme mode
 
