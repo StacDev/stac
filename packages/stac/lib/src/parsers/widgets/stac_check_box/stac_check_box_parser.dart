@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/stac.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_mouse_cursor_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_material_tap_target_size_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_form/stac_form_scope.dart';
@@ -33,7 +34,10 @@ class _StacCheckBox extends StatefulWidget {
   State<_StacCheckBox> createState() => _StacCheckBoxState();
 }
 
-class _StacCheckBoxState extends State<_StacCheckBox> {
+class _StacCheckBoxState extends State<_StacCheckBox>
+    with
+        AutomaticKeepAliveClientMixin<_StacCheckBox>,
+        StacKeepAliveOnceChanged<_StacCheckBox> {
   bool? _currentValue;
 
   // Without a value the checkBox starts unchecked. Only a tristate Checkbox
@@ -66,10 +70,12 @@ class _StacCheckBoxState extends State<_StacCheckBox> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Checkbox(
       value: _currentValue,
       tristate: widget.model.tristate ?? false,
       onChanged: (bool? value) {
+        markChangedByUser();
         setState(() {
           _currentValue = value ?? false;
         });

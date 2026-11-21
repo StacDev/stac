@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_offset_parser.dart';
@@ -37,23 +38,17 @@ class _DropDownMenuWidget extends StatefulWidget {
   State<_DropDownMenuWidget> createState() => _DropDownMenuWidgetState();
 }
 
-class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
-  final TextEditingController _controller = TextEditingController();
-  final _focusNode = FocusNode();
-  late final StacDropdownMenu model;
-
-  @override
-  void initState() {
-    model = widget.model;
-    super.initState();
-  }
-
+class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
+    with
+        AutomaticKeepAliveClientMixin<_DropDownMenuWidget>,
+        StacKeepAliveOnceChanged<_DropDownMenuWidget> {
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+    final model = widget.model;
     return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
-      focusNode: _focusNode,
-      controller: _controller,
+      onSelected: (_) => markChangedByUser(),
       // Parsed entries are DropdownMenuEntry<dynamic> and values can be null,
       // so filter on Object?: a DropdownMenuEntry<Object> filter drops them all.
       dropdownMenuEntries:
@@ -78,7 +73,7 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget> {
       textStyle: model.textStyle?.parse(context),
       textAlign: model.textAlign?.parse ?? TextAlign.start,
       inputDecorationTheme: model.inputDecorationTheme?.parse(context),
-      requestFocusOnTap: model.requestFocusOnTap ?? false,
+      requestFocusOnTap: model.requestFocusOnTap,
       expandedInsets: model.expandedInsets?.parse,
       alignmentOffset: model.alignmentOffset?.parse,
       inputFormatters: (model.inputFormatters ?? const <StacInputFormatter>[])

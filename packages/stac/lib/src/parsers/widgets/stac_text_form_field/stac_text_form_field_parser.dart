@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';
 import 'package:stac/src/parsers/foundation/forms/stac_autovalidate_mode_parser.dart';
@@ -46,7 +47,10 @@ class _TextFormFieldWidget extends StatefulWidget {
   State<_TextFormFieldWidget> createState() => _TextFormFieldWidgetState();
 }
 
-class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
+class _TextFormFieldWidgetState extends State<_TextFormFieldWidget>
+    with
+        AutomaticKeepAliveClientMixin<_TextFormFieldWidget>,
+        StacKeepAliveOnceChanged<_TextFormFieldWidget> {
   late final TextEditingController _controller;
   final _focusNode = FocusNode();
   bool _obscureText = false;
@@ -73,10 +77,12 @@ class _TextFormFieldWidgetState extends State<_TextFormFieldWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return TextFormField(
       controller: _controller,
       focusNode: _focusNode,
       onChanged: (value) {
+        markChangedByUser();
         if (widget.model.id != null) {
           widget.formScope?.formData[widget.model.id!] = value;
         }

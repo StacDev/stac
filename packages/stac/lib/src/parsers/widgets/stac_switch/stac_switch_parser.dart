@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/stac.dart';
 
 class StacSwitchParser extends StacParser<StacSwitch> {
@@ -27,7 +28,10 @@ class _SwitchWidget extends StatefulWidget {
   State<_SwitchWidget> createState() => _SwitchWidgetState();
 }
 
-class _SwitchWidgetState extends State<_SwitchWidget> {
+class _SwitchWidgetState extends State<_SwitchWidget>
+    with
+        AutomaticKeepAliveClientMixin<_SwitchWidget>,
+        StacKeepAliveOnceChanged<_SwitchWidget> {
   bool isSelected = false;
 
   @override
@@ -46,6 +50,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final StacSwitch model = widget.model;
     final StacSwitchType type = model.switchType ?? StacSwitchType.material;
 
@@ -61,6 +66,7 @@ class _SwitchWidgetState extends State<_SwitchWidget> {
 
   /// Change the value of the switch as the user toggles it.
   void _onChanged(bool value) {
+    markChangedByUser();
     isSelected = value;
     widget.model.onChanged?.parse(context);
     setState(() {});
