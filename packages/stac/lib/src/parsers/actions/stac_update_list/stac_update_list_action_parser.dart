@@ -107,7 +107,8 @@ class StacUpdateListActionParser
   }
 
   // Every field in `match` has to be on the entry and equal its value,
-  // compared as text so that an id from a placeholder matches a number.
+  // compared as text so that an id from a placeholder matches a number. A
+  // null matches only null, not the text "null".
   // Without `match`, an entry matches when it equals a plain `item` (see
   // [_byItem]), and otherwise every entry matches.
   bool _matches(dynamic entry, StacUpdateListAction model) {
@@ -116,11 +117,12 @@ class StacUpdateListActionParser
       return entry is! Map && entry is! List && '$entry' == '${model.item}';
     }
     if (entry is! Map) return false;
-    return model.match!.entries.every(
-      (field) =>
-          entry.containsKey(field.key) &&
-          '${entry[field.key]}' == '${field.value}',
-    );
+    return model.match!.entries.every((field) {
+      if (!entry.containsKey(field.key)) return false;
+      final value = entry[field.key];
+      if (value == null || field.value == null) return value == field.value;
+      return '$value' == '${field.value}';
+    });
   }
 
   Map<String, dynamic> _update(Map entry, StacUpdateListAction model) {

@@ -13,7 +13,7 @@ A placeholder is filled from the registry when the screen is built. It can read 
 { "type": "text", "data": "{{user.name}} has {{items.0.title}} in the cart" }
 ```
 
-A value that is exactly one placeholder for a list or map becomes that list or map, so `"body": "{{cart}}"` sends the cart as JSON. Numbers, booleans and text are inserted as text. Decimal properties such as `width` read a number from text, but a boolean property such as the `value` of a `checkBox`, or a whole-number property such as `flex` or `maxLines`, can't be a placeholder yet; use a `conditional` to choose between two widgets instead. A placeholder with no value is left as it is.
+A value that is exactly one placeholder for a list or map becomes that list or map, so `"body": "{{cart}}"` sends the cart as JSON. Numbers, booleans and text are inserted as text. Some number properties, such as `width` and `height`, read a number from text and work with a placeholder. Others, such as `flex`, `maxLines` or the `value` of a `slider`, and boolean properties, such as the `value` of a `checkBox`, can't be a placeholder yet; use a `conditional` to choose between two widgets instead. A placeholder with no value is left as it is.
 
 ## Changing state
 
