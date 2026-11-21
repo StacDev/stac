@@ -43,7 +43,6 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
         AutomaticKeepAliveClientMixin<_DropDownMenuWidget>,
         StacKeepAliveOnceChanged<_DropDownMenuWidget> {
   final TextEditingController _controller = TextEditingController();
-  final _focusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +50,6 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
     final model = widget.model;
     return DropdownMenu<Object?>(
       initialSelection: model.initialSelection,
-      focusNode: _focusNode,
       controller: _controller,
       onSelected: (_) => markChangedByUser(),
       // Parsed entries are DropdownMenuEntry<dynamic> and values can be null,
@@ -78,7 +76,7 @@ class _DropDownMenuWidgetState extends State<_DropDownMenuWidget>
       textStyle: model.textStyle?.parse(context),
       textAlign: model.textAlign?.parse ?? TextAlign.start,
       inputDecorationTheme: model.inputDecorationTheme?.parse(context),
-      requestFocusOnTap: model.requestFocusOnTap ?? false,
+      requestFocusOnTap: model.requestFocusOnTap,
       expandedInsets: model.expandedInsets?.parse,
       alignmentOffset: model.alignmentOffset?.parse,
       inputFormatters: (model.inputFormatters ?? const <StacInputFormatter>[])

@@ -127,7 +127,10 @@ class StacDropdownMenu extends StacWidget {
   /// Insets to apply when expanded.
   final StacEdgeInsets? expandedInsets;
 
-  /// Whether the field should request focus on tap.
+  /// Whether tapping the field focuses it so the user can type.
+  ///
+  /// Defaults to false on iOS and Android, where a tap only opens the menu, and
+  /// true on desktop.
   final bool? requestFocusOnTap;
 
   /// The initial selected value.
