@@ -4,7 +4,7 @@ import '../../utils/console_logger.dart';
 
 /// Command for creating a new project on the cloud
 class CreateCommand extends BaseCommand {
-  final ProjectService _projectService = ProjectService();
+  late final ProjectService _projectService = ProjectService();
 
   @override
   String get name => 'create';

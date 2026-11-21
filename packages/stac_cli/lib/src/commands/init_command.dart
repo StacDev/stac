@@ -12,7 +12,7 @@ import 'skills/add_command.dart';
 
 /// Command for initializing a Stac project from cloud projects
 class InitCommand extends BaseCommand {
-  final ProjectService _projectService = ProjectService();
+  late final ProjectService _projectService = ProjectService();
 
   @override
   String get name => 'init';
