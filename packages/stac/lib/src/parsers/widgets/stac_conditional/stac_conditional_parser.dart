@@ -17,7 +17,7 @@ class StacConditionalParser extends StacParser<StacConditional> {
   @override
   Widget parse(BuildContext context, StacConditional model) {
     final result = ExpressionResolver.evaluate(model.condition);
-    if (result) {
+    if (result == true) {
       return model.ifTrue.parse(context) ?? const SizedBox();
     } else if (model.ifFalse != null) {
       return model.ifFalse.parse(context) ?? const SizedBox();

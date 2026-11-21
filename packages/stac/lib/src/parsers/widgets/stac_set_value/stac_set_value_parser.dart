@@ -37,14 +37,30 @@ class _SetValueWidgetState extends State<_SetValueWidget> {
     super.initState();
 
     for (final value in widget.model.values) {
-      _stacRegistry.setValue(value['key'] as String, value['value']);
+      final key = value['key'] as String;
+      final persist = value['persist'] == true;
+      // A persisted key that has a value, such as one `Stac.initialize`
+      // restored, keeps it: the widget's value is only its default.
+      final current = _stacRegistry.getValue(key);
+      if ((persist || _stacRegistry.isPersisted(key)) && current != null) {
+        // A key this widget starts persisting saves the value it has.
+        if (persist && !_stacRegistry.isPersisted(key)) {
+          _stacRegistry.setValue(key, current, persist: true);
+        }
+        continue;
+      }
+      _stacRegistry.setValue(key, value['value'], persist: persist);
     }
   }
 
   @override
   void dispose() {
     for (final value in widget.model.values) {
-      _stacRegistry.removeValue(value['key'] as String);
+      final key = value['key'] as String;
+      // Persisted values outlive the widget.
+      if (!_stacRegistry.isPersisted(key)) {
+        _stacRegistry.removeValue(key);
+      }
     }
     super.dispose();
   }

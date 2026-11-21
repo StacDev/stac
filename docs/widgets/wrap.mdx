@@ -95,6 +95,9 @@ To know more about the wrap widget in Flutter, refer to the [official documentat
 | verticalDirection  | `StacVerticalDirection`      | Determines the order to lay children out vertically and how to interpret start and end in the vertical direction.     |
 | clipBehavior       | `StacClip`                   | The content will be clipped (or not) according to this option.                                                        | 
 | children           | `List<StacWidget>`           | The widgets below this widget in the tree.                                                                            |
+| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. |
+| itemTemplate       | `StacWidget`               | The widget built for each entry of `items`, with placeholders filled from the entry: `{{title}}` for a field, or `{{item}}` for a plain value. |
+| emptyTemplate      | `StacWidget`               | The widget shown instead when `items` is empty.                                                  |
 
 ## Example
 

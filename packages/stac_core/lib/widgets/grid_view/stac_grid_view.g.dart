@@ -30,6 +30,13 @@ StacGridView _$StacGridViewFromJson(Map<String, dynamic> json) => StacGridView(
   children: (json['children'] as List<dynamic>?)
       ?.map((e) => StacWidget.fromJson(e as Map<String, dynamic>))
       .toList(),
+  items: json['items'],
+  itemTemplate: json['itemTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['itemTemplate'] as Map<String, dynamic>),
+  emptyTemplate: json['emptyTemplate'] == null
+      ? null
+      : StacWidget.fromJson(json['emptyTemplate'] as Map<String, dynamic>),
   semanticChildCount: (json['semanticChildCount'] as num?)?.toInt(),
   dragStartBehavior: $enumDecodeNullable(
     _$StacDragStartBehaviorEnumMap,
@@ -62,6 +69,9 @@ Map<String, dynamic> _$StacGridViewToJson(
   'addSemanticIndexes': instance.addSemanticIndexes,
   'cacheExtent': const DoubleConverter().toJson(instance.cacheExtent),
   'children': instance.children?.map((e) => e.toJson()).toList(),
+  'items': instance.items,
+  'itemTemplate': instance.itemTemplate?.toJson(),
+  'emptyTemplate': instance.emptyTemplate?.toJson(),
   'semanticChildCount': instance.semanticChildCount,
   'dragStartBehavior':
       _$StacDragStartBehaviorEnumMap[instance.dragStartBehavior],

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/stac_app_theme.dart';
+import 'package:stac/src/framework/stac_registry.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/theme/themes.dart';
 import 'package:stac/src/utils/color_utils.dart';
+import 'package:stac/src/utils/schedule_rebuild.dart';
 import 'package:stac_logger/stac_logger.dart';
 
 class StacApp extends StatefulWidget {
@@ -27,6 +29,7 @@ class StacApp extends StatefulWidget {
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.themeMode = ThemeMode.system,
+    this.themeModeKey,
     this.themeAnimationDuration = kThemeAnimationDuration,
     this.themeAnimationCurve = Curves.linear,
     this.locale,
@@ -68,6 +71,7 @@ class StacApp extends StatefulWidget {
     this.highContrastTheme,
     this.highContrastDarkTheme,
     this.themeMode = ThemeMode.system,
+    this.themeModeKey,
     this.themeAnimationDuration = kThemeAnimationDuration,
     this.themeAnimationCurve = Curves.linear,
     this.locale,
@@ -120,6 +124,11 @@ class StacApp extends StatefulWidget {
   final ThemeData? highContrastTheme;
   final ThemeData? highContrastDarkTheme;
   final ThemeMode? themeMode;
+
+  /// A state key that overrides [themeMode] while it holds `light`, `dark`
+  /// or `system`, so a screen can switch the theme with `setValue`. Persist
+  /// the key to remember the choice.
+  final String? themeModeKey;
   final Duration themeAnimationDuration;
   final Curve themeAnimationCurve;
   final Color? color;
@@ -152,6 +161,7 @@ class _StacAppState extends State<StacApp> {
   void initState() {
     super.initState();
     _loadThemes();
+    _listenToThemeMode(widget.themeModeKey);
   }
 
   @override
@@ -161,6 +171,47 @@ class _StacAppState extends State<StacApp> {
         oldWidget.darkTheme != widget.darkTheme) {
       _loadThemes();
     }
+    if (oldWidget.themeModeKey != widget.themeModeKey) {
+      _stopListeningToThemeMode(oldWidget.themeModeKey);
+      _listenToThemeMode(widget.themeModeKey);
+    }
+  }
+
+  @override
+  void dispose() {
+    _stopListeningToThemeMode(widget.themeModeKey);
+    super.dispose();
+  }
+
+  void _listenToThemeMode(String? key) {
+    if (key != null) {
+      StacRegistry.instance.listen(key).addListener(_themeModeChanged);
+    }
+  }
+
+  void _stopListeningToThemeMode(String? key) {
+    if (key != null) {
+      StacRegistry.instance.listen(key).removeListener(_themeModeChanged);
+    }
+  }
+
+  void _themeModeChanged() => scheduleRebuild(() {
+    if (mounted) {
+      setState(() {});
+    }
+  });
+
+  /// [StacApp.themeMode], unless the state key [StacApp.themeModeKey] holds
+  /// a mode.
+  ThemeMode? get _themeMode {
+    final key = widget.themeModeKey;
+    if (key == null) return widget.themeMode;
+    return switch (StacRegistry.instance.getValue(key)) {
+      'light' => ThemeMode.light,
+      'dark' => ThemeMode.dark,
+      'system' => ThemeMode.system,
+      _ => widget.themeMode,
+    };
   }
 
   /// Resolves [StacApp.theme] and [StacApp.darkTheme]. While new themes
@@ -231,7 +282,7 @@ class _StacAppState extends State<StacApp> {
       darkTheme: darkTheme,
       highContrastTheme: widget.highContrastTheme,
       highContrastDarkTheme: widget.highContrastDarkTheme,
-      themeMode: widget.themeMode,
+      themeMode: _themeMode,
       themeAnimationDuration: widget.themeAnimationDuration,
       themeAnimationCurve: widget.themeAnimationCurve,
       color: widget.color,
@@ -269,7 +320,7 @@ class _StacAppState extends State<StacApp> {
       darkTheme: darkTheme,
       highContrastTheme: widget.highContrastTheme,
       highContrastDarkTheme: widget.highContrastDarkTheme,
-      themeMode: widget.themeMode,
+      themeMode: _themeMode,
       themeAnimationDuration: widget.themeAnimationDuration,
       themeAnimationCurve: widget.themeAnimationCurve,
       locale: widget.locale,

@@ -8,6 +8,8 @@ import 'package:stac/src/services/stac_network_service.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
+import 'package:stac/src/utils/placeholders.dart';
+import 'package:stac/src/utils/variable_resolver.dart';
 
 class StacDynamicViewParser extends StacParser<StacDynamicView> {
   const StacDynamicViewParser();
@@ -160,8 +162,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     // Deep copy template to avoid modifying the original
     Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
 
-    // Check for list processing with itemTemplate
-    if (resolvedTemplateJson.containsKey('itemTemplate')) {
+    // Check for list processing with itemTemplate. A template built with the
+    // DSL's toJson has `"itemTemplate": null` when it has none.
+    if (resolvedTemplateJson['itemTemplate'] is Map) {
       dynamic listForIteration;
       final String itemTemplateKey = 'itemTemplate';
       // Ensure itemTemplateActual is correctly typed.
@@ -260,6 +263,11 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     return result;
   }
 
+  // The response value at [path]: a key that is [path] itself, or a path
+  // into the response such as `user.name` or `matrix[0][1]`.
+  static Object? _responseValue(Map<dynamic, dynamic> data, String path) =>
+      data.containsKey(path) ? data[path] : readPath(data, path);
+
   dynamic _processTemplateRecursively(
     dynamic template,
     Map<dynamic, dynamic> data,
@@ -268,7 +276,31 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       for (final key in template.keys.toList()) {
         final value = template[key];
 
+        // A list widget bound to `items` fills its itemTemplate from its own
+        // entries.
+        if (key == 'itemTemplate' && template['items'] != null) continue;
+
         if (value is String) {
+          // A condition reads each response value as one value, so text such
+          // as `in stock` can't break the expression. Placeholders the
+          // response has no value for are filled from state later.
+          if (isExpressionEntry(template, '$key')) {
+            template[key] = fillExpression(
+              value,
+              (path) => _responseValue(data, path),
+            );
+            continue;
+          }
+          // A value that is exactly one placeholder for a list or map, such
+          // as `"items": "{{users}}"`, takes that list or map.
+          final whole = singlePlaceholder(value);
+          if (whole != null) {
+            final dataValue = _responseValue(data, whole);
+            if (dataValue is List || dataValue is Map) {
+              template[key] = dataValue;
+              continue;
+            }
+          }
           // Check if the string contains any placeholders
           if (value.contains('{{') && value.contains('}}')) {
             // Process multiple placeholders in a single string

@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:stac/src/parsers/core/stac_items_binding.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_edge_insets_parser.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_drag_start_behavior_parser.dart';
@@ -23,6 +24,20 @@ class StacGridViewParser extends StacParser<StacGridView> {
 
   @override
   Widget parse(BuildContext context, StacGridView model) {
+    return buildWithItems(
+      context,
+      items: model.items,
+      itemTemplate: model.itemTemplate,
+      emptyTemplate: model.emptyTemplate,
+      children: model.children,
+      builder: (context, children) => _gridView(model, children),
+      // In place of the grid, rather than in its first cell.
+      emptyBuilder: (context, emptyTemplate) =>
+          emptyTemplate.parse(context) ?? const SizedBox(),
+    );
+  }
+
+  Widget _gridView(StacGridView model, List<StacWidget>? children) {
     return GridView.builder(
       scrollDirection: model.scrollDirection?.parse ?? Axis.vertical,
       reverse: model.reverse ?? false,
@@ -45,18 +60,21 @@ class StacGridViewParser extends StacParser<StacGridView> {
           ? null
           : ScrollCacheExtent.pixels(model.cacheExtent!),
       itemBuilder: (context, index) {
-        final children = model.children;
         if (children == null || index >= children.length) {
           return const SizedBox.shrink();
         }
         // Parse in the item's own element, so theme colors and text styles
         // resolved while parsing update when the theme changes.
         return Builder(
+          key: itemKey(children[index]),
           builder: (context) =>
               children[index].parse(context) ?? const SizedBox.shrink(),
         );
       },
-      itemCount: model.children?.length ?? 0,
+      // A child built for an entry with an id keeps its state with it, also
+      // when the entry moves.
+      findChildIndexCallback: (key) => itemIndexOfKey(children, key),
+      itemCount: children?.length ?? 0,
       semanticChildCount: model.semanticChildCount,
       dragStartBehavior:
           model.dragStartBehavior?.parse ?? DragStartBehavior.start,

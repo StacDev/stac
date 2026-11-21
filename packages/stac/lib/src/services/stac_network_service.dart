@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
+import 'package:stac/src/utils/variable_resolver.dart';
 
 class StacNetworkService {
   const StacNetworkService._();
@@ -10,10 +11,21 @@ class StacNetworkService {
 
   static void initialize(Dio dio) => _dio = dio;
 
+  /// Sends [request]. Its placeholders are filled first, so it sees current
+  /// state and form values, unless [resolved] says that's done already, as
+  /// for a `networkRequest` action, which is filled when it runs. Filling
+  /// twice would also fill placeholders inside the values put in the first
+  /// time.
   static Future<Response?> request(
     BuildContext context,
-    StacNetworkRequest request,
-  ) async {
+    StacNetworkRequest request, {
+    bool resolved = false,
+  }) async {
+    if (!resolved) {
+      request = StacNetworkRequest.fromJson(
+        resolveActionJson(request.toJson(), context),
+      );
+    }
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
     );
@@ -70,6 +82,10 @@ class StacNetworkService {
   }
 
   static Future<dynamic> _updateBody(BuildContext context, dynamic body) async {
+    // Only a map can hold actions. Any other body, such as a list from a
+    // `{{cart}}` placeholder, is sent as it is.
+    if (body != null && body is! Map) return body;
+
     Map<dynamic, dynamic> bodyMap = {};
 
     if (body is Map) {

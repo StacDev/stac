@@ -130,6 +130,8 @@ const Set<String> _widgetClasses = {
   'StacScaffold',
   'StacSelectableText',
   'StacSetValue',
+  'StacObserver',
+  'StacLifecycle',
   'StacSingleChildScrollView',
   'StacSizedBox',
   'StacSlider',
@@ -169,6 +171,22 @@ const Set<String> _scalarExpandable = {'StacEdgeInsets', 'StacBorderRadius'};
 
 /// The one class whose JSON type isn't the lower-camel form of its name.
 const Map<String, String> _typeOverrides = {'StacAutoComplete': 'autocomplete'};
+
+/// The `actionType` of each action class, as its `actionType` getter returns
+/// it. Without it, Stac can't run the action.
+const Map<String, String> _actionTypes = {
+  'StacDelayAction': 'delay',
+  'StacDialogAction': 'showDialog',
+  'StacFormValidate': 'validateForm',
+  'StacGetFormValue': 'getFormValue',
+  'StacModalBottomSheetAction': 'showModalBottomSheet',
+  'StacMultiAction': 'multiAction',
+  'StacNavigateAction': 'navigate',
+  'StacNetworkRequest': 'networkRequest',
+  'StacSetValueAction': 'setValue',
+  'StacSnackBar': 'showSnackBar',
+  'StacUpdateListAction': 'updateList',
+};
 
 String _typeForClass(String className) {
   final override = _typeOverrides[className];
@@ -789,6 +807,8 @@ class _DslParser {
     if (_widgetClasses.contains(className)) {
       json['type'] = _typeForClass(className);
     }
+    final actionType = _actionTypes[className];
+    if (actionType != null) json['actionType'] = actionType;
     json.addAll(args.named);
     return json;
   }
