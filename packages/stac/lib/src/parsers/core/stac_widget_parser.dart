@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stac/src/parsers/core/stac_items_binding.dart';
+import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac/stac.dart';
 
 extension StacWidgetParser on StacWidget? {
@@ -15,9 +16,9 @@ extension StacWidgetParser on StacWidget? {
   /// scaffold's `appBar` or an app bar's `bottom`.
   ///
   /// Any other widget, such as an `observer`, `conditional` or `container`
-  /// around an `appBar`, is wrapped in a [PreferredSize] with the size of the
-  /// app bar inside it. A widget that shows nothing, such as a `conditional`
-  /// with no branch for its result, leaves the slot empty.
+  /// around an `appBar`, is wrapped in a [PreferredSize] with the height the
+  /// app bar inside it needs. A widget that shows nothing, such as a
+  /// `conditional` with no branch for its result, leaves the slot empty.
   PreferredSizeWidget? parsePreferredSizeWidget(BuildContext context) {
     if (this == null) {
       return null;
@@ -29,7 +30,7 @@ extension StacWidgetParser on StacWidget? {
     if (widget == null || widget is PreferredSizeWidget) {
       return widget as PreferredSizeWidget?;
     }
-    if (widget is SizedBox && widget.child == null && widget.height == null) {
+    if (_showsNothing(widget)) {
       return null;
     }
     return PreferredSize(
@@ -39,19 +40,73 @@ extension StacWidgetParser on StacWidget? {
   }
 }
 
-// The preferred size of the first widget down [json]'s `child` chain that
-// has one, such as the `appBar` in an `observer` or `container`. Without
-// one, the slot gets a toolbar's height.
+// Whether [widget] shows nothing, such as a `conditional` with no branch for
+// its result.
+bool _showsNothing(Widget? widget) =>
+    widget is SizedBox && widget.child == null && widget.height == null;
+
+// The height a wrapper such as an `observer`, `conditional` or `container`
+// needs for the app bar inside it: the app bar's own height, found down the
+// widgets each wrapper shows, plus the padding and margin of the wrappers on
+// the way. A wrapper with a fixed height, such as a `sizedBox`, takes that
+// height. Around nothing it takes no height, and around no app bar a
+// toolbar's height.
 Size _preferredSizeInside(Map<String, dynamic> json, BuildContext context) {
-  Object? child = json['child'];
-  while (child is Map<String, dynamic>) {
-    final widget = Stac.fromJson(child, context);
-    if (widget is PreferredSizeWidget) {
-      return widget.preferredSize;
+  var extent = 0.0;
+  Map<String, dynamic>? current = json;
+  while (current != null) {
+    final margin = _verticalInsets(current['margin']);
+    final height = current['height'];
+    if (height is num) {
+      return Size.fromHeight(extent + margin + height);
     }
-    child = child['child'];
+    extent += margin + _verticalInsets(current['padding']);
+    final shown = _shownChild(current);
+    if (shown == null) {
+      break;
+    }
+    final widget = Stac.fromJson(shown, context);
+    if (widget is PreferredSizeWidget) {
+      return Size.fromHeight(
+        extent + AppBar.preferredHeightFor(context, widget.preferredSize),
+      );
+    }
+    if (_showsNothing(widget)) {
+      return Size.fromHeight(extent);
+    }
+    current = shown;
   }
-  return const Size.fromHeight(kToolbarHeight);
+  return Size.fromHeight(extent + kToolbarHeight);
+}
+
+// The JSON [json] shows: a `conditional`'s branch for its current result, or
+// the `child` of any other wrapper.
+Map<String, dynamic>? _shownChild(Map<String, dynamic> json) {
+  final Object? shown;
+  if (json['type'] == WidgetType.conditional.name) {
+    final resolved = resolveVariablesInJson(json, StacRegistry.instance);
+    final condition = resolved is Map ? resolved['condition'] : null;
+    final result = condition is String
+        ? ExpressionResolver.evaluate(condition)
+        : null;
+    shown = result == true ? json['ifTrue'] : json['ifFalse'];
+  } else {
+    shown = json['child'];
+  }
+  return shown is Map<String, dynamic> ? shown : null;
+}
+
+// The vertical size of [value] read as edge insets, such as a container's
+// padding, or 0 when there's none.
+double _verticalInsets(Object? value) {
+  if (value == null) {
+    return 0;
+  }
+  try {
+    return StacEdgeInsets.fromJson(value).parse.vertical;
+  } catch (_) {
+    return 0;
+  }
 }
 
 extension StacWidgetListParser on List<StacWidget>? {
