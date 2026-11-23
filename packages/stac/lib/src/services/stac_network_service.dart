@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
@@ -43,6 +45,26 @@ class StacNetworkService {
         return deleteRequest(request);
     }
   }
+
+  /// [request] as it would be sent now, as text: its JSON with the
+  /// placeholders filled as [StacNetworkService.request] fills them. A widget
+  /// that loads from a request sends it again only when this changes, not on
+  /// every rebuild.
+  static String requestKey(BuildContext context, StacNetworkRequest request) =>
+      encodeRequest(resolveActionJson(request.toJson(), context));
+
+  /// Encodes a request's [json] as text, with any model in it as that
+  /// model's JSON, so equal requests give equal text.
+  static String encodeRequest(Map<String, dynamic> json) => jsonEncode(
+    json,
+    toEncodable: (value) {
+      try {
+        return (value as dynamic).toJson();
+      } on NoSuchMethodError {
+        return '$value';
+      }
+    },
+  );
 
   static Future<Response?> getRequest(StacNetworkRequest request) async {
     return _dio.get(

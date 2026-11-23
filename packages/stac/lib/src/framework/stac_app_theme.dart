@@ -115,16 +115,7 @@ class StacAppTheme {
   String? get _requestKey {
     final request = _request;
     if (request == null) return null;
-    return jsonEncode(
-      request.toJson(),
-      toEncodable: (value) {
-        try {
-          return (value as dynamic).toJson();
-        } on NoSuchMethodError {
-          return '$value';
-        }
-      },
-    );
+    return StacNetworkService.encodeRequest(request.toJson());
   }
 
   /// Fetches a theme from the `/themes` endpoint by [themeName].

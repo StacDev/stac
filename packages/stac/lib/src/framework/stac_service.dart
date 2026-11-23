@@ -21,6 +21,7 @@ import 'package:stac/src/parsers/widgets/stac_row/stac_row_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_text/stac_text_parser.dart';
 import 'package:stac/src/parsers/widgets/stac_tool_tip/stac_tool_tip_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
+import 'package:stac/src/utils/keyed_future_builder.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -405,8 +406,9 @@ class StacService {
     LoadingWidgetBuilder? loadingWidget,
     ErrorWidgetBuilder? errorWidget,
   }) {
-    return FutureBuilder<Response?>(
-      future: StacNetworkService.request(context, request),
+    return KeyedFutureBuilder<Response?>(
+      futureKey: StacNetworkService.requestKey(context, request),
+      createFuture: () => StacNetworkService.request(context, request),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:
