@@ -13,20 +13,18 @@ class StacNetworkService {
 
   static void initialize(Dio dio) => _dio = dio;
 
-  /// Sends [request]. Its placeholders are filled first, so it sees current
-  /// state and form values, unless [resolved] says that's done already, as
-  /// for a `networkRequest` action, which is filled when it runs. Filling
-  /// twice would also fill placeholders inside the values put in the first
-  /// time.
+  /// Sends [request]. Its placeholders are filled first with [resolve], so it
+  /// sees current state and form values, unless [resolved] says that's done
+  /// already, as for a `networkRequest` action, which is filled when it runs.
+  /// Filling twice would also fill placeholders inside the values put in the
+  /// first time.
   static Future<Response?> request(
     BuildContext context,
     StacNetworkRequest request, {
     bool resolved = false,
   }) async {
     if (!resolved) {
-      request = StacNetworkRequest.fromJson(
-        resolveActionJson(request.toJson(), context),
-      );
+      request = resolve(context, request);
     }
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
@@ -46,12 +44,17 @@ class StacNetworkService {
     }
   }
 
-  /// [request] as it would be sent now, as text: its JSON with the
-  /// placeholders filled as [StacNetworkService.request] fills them. A widget
-  /// that loads from a request sends it again only when this changes, not on
-  /// every rebuild.
-  static String requestKey(BuildContext context, StacNetworkRequest request) =>
-      encodeRequest(resolveActionJson(request.toJson(), context));
+  /// [request] with its placeholders filled from current state and the form
+  /// around [context]. Actions in a POST body are left to run when the
+  /// request is sent, so the values they read aren't in the result.
+  ///
+  /// A widget that loads from a request fills it once when it's built, and
+  /// uses the result both to tell whether the request changed and to send it.
+  static StacNetworkRequest resolve(
+    BuildContext context,
+    StacNetworkRequest request,
+  ) =>
+      StacNetworkRequest.fromJson(resolveActionJson(request.toJson(), context));
 
   /// Encodes a request's [json] as text, with any model in it as that
   /// model's JSON, so equal requests give equal text.

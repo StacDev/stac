@@ -276,9 +276,11 @@ class Stac extends StatelessWidget {
   /// The [request] defines the network request configuration including
   /// URL, method, headers, and body.
   ///
-  /// The request is sent when the returned widget is first built. A rebuild
-  /// sends it again only when the request it would send changes, such as a
-  /// new URL or a new value for a placeholder in it.
+  /// Placeholders in the request are filled when this is called, and the
+  /// request is sent when the returned widget is first built. A rebuild sends
+  /// it again only when the filled request changes, such as a new URL or a
+  /// new value for a placeholder in it. Actions in a POST body run only when
+  /// the request is sent, so they don't make a rebuild send it again.
   ///
   /// ## Example
   ///
