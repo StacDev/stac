@@ -31,14 +31,17 @@ typedef ExpressionLookup = Object? Function(String path);
 ///   `pow(x, y)`, `sin(x)`, `cos(x)` and `tan(x)`, and `min` and `max` of
 ///   two numbers.
 ///
-/// A name that has no value is text, so `status == active` compares the
-/// value of `status` with the text `active`, and `status == null` is true.
-/// Quote text to be explicit. Numbers in text, such as form values, count as
-/// numbers. `- * / %` only calculate with numbers, so `a-1` stays text, but
-/// numbers and dashes written in an expression, such as a date, are
-/// calculated unless they're quoted: `date == "2026-10-22"`. A
-/// `{{placeholder}}` is read as one value, so `{{name}} != null` holds for a
-/// name with spaces in it.
+/// A name that has no value is text when it's compared or is the result, so
+/// `status == active` compares the value of `status` with the text `active`,
+/// and `status == null` is true. Quote text to be explicit. In a
+/// calculation, a name that has no value counts as nothing: 0 next to a
+/// number and empty text next to text. So `count + 1` is 1 until `count` is
+/// set, and `length(cart)` is 0 until there's a cart. Numbers in text, such
+/// as form values, count as numbers. `- * / %` only calculate with numbers,
+/// so words joined by a dash, such as `in-progress`, stay text. A dash next
+/// to a number is a calculation unless it's quoted: `date == "2026-10-22"`,
+/// `id == "abc-123"`. A `{{placeholder}}` is read as one value, so
+/// `{{name}} != null` holds for a name with spaces in it.
 class ExpressionResolver {
   ExpressionResolver._();
 
@@ -105,6 +108,13 @@ bool _truthy(Object? v) {
   return false;
 }
 
+// Whether [l] and [r] are calculated with: both are numbers, or one is and
+// the other has no value, which counts as 0.
+bool _calculable(Object? l, Object? r) =>
+    (_isNum(l) || l == null) &&
+    (_isNum(r) || r == null) &&
+    (l != null || r != null);
+
 bool _equal(Object? l, Object? r) {
   if (_isNum(l) && _isNum(r)) return _num(l) == _num(r);
   return '$l' == '$r';
@@ -139,7 +149,8 @@ class _Scope {
 abstract class _Node {
   Object? eval(_Scope scope);
 
-  // The value without a name's fallback to its own text, for `x == null`.
+  // The value without a name's fallback to its own text, for `x == null`,
+  // calculations, and functions that read a list, map or text.
   Object? valueOrNull(_Scope scope) => eval(scope);
 
   void collect(Set<String> roots, Set<String> bound);
@@ -191,9 +202,10 @@ class _Unary extends _Node {
 
   @override
   Object? eval(_Scope scope) {
-    final value = operand.eval(scope);
+    // A name with no value counts as 0, as in other calculations.
+    final value = operand.valueOrNull(scope);
     if (op == '!') return !_truthy(value);
-    return _isNum(value) ? -_num(value) : '-${_text(value)}';
+    return value == null || _isNum(value) ? -_num(value) : '-${_text(value)}';
   }
 
   @override
@@ -215,23 +227,13 @@ class _Binary extends _Node {
       final missing = (_isNull(left) ? right : left).valueOrNull(scope) == null;
       return op == '==' ? missing : !missing;
     }
+    if (_calculations.contains(op)) return _calculate(scope);
     final l = left.eval(scope);
     // The right side only counts when the left side doesn't decide.
     if (op == '&&') return _truthy(l) && _truthy(right.eval(scope));
     if (op == '||') return _truthy(l) || _truthy(right.eval(scope));
     final r = right.eval(scope);
     switch (op) {
-      case '+':
-        if (_isNum(l) && _isNum(r)) return _num(l) + _num(r);
-        return '${_text(l)}${_text(r)}';
-      case '-':
-        return _arithmetic(l, r, (a, b) => a - b);
-      case '*':
-        return _arithmetic(l, r, (a, b) => a * b);
-      case '/':
-        return _arithmetic(l, r, (a, b) => b == 0 ? 0 : a / b);
-      case '%':
-        return _arithmetic(l, r, (a, b) => b == 0 ? 0 : a % b);
       case '==':
         return _equal(l, r);
       case '!=':
@@ -248,14 +250,47 @@ class _Binary extends _Node {
     throw FormatException('Unknown operator $op');
   }
 
-  // Only numbers are calculated. Anything else, such as `a-1` or an id with
-  // dashes, stays text, so different values can't compare equal.
+  static const _calculations = {'+', '-', '*', '/', '%'};
+
+  // A name with no value counts as nothing in a calculation: 0 next to a
+  // number and empty text next to text, so `count + 1` is 1 before `count`
+  // is set. When neither side has a value, names keep their own text, so
+  // words joined by a dash, such as `in-progress`, stay text.
+  Object? _calculate(_Scope scope) {
+    var l = left.valueOrNull(scope);
+    var r = right.valueOrNull(scope);
+    if (l == null && r == null) {
+      l = _ownText(left);
+      r = _ownText(right);
+    }
+    switch (op) {
+      case '+':
+        if (_calculable(l, r)) return _num(l) + _num(r);
+        return '${_text(l)}${_text(r)}';
+      case '-':
+        return _arithmetic(l, r, (a, b) => a - b);
+      case '*':
+        return _arithmetic(l, r, (a, b) => a * b);
+      case '/':
+        return _arithmetic(l, r, (a, b) => b == 0 ? 0 : a / b);
+      case '%':
+        return _arithmetic(l, r, (a, b) => b == 0 ? 0 : a % b);
+    }
+    throw FormatException('Unknown operator $op');
+  }
+
+  // Only numbers are calculated, and a name with no value next to one counts
+  // as 0. Anything else, such as text with dashes, stays text, so different
+  // values can't compare equal.
   Object? _arithmetic(Object? l, Object? r, num Function(num, num) apply) {
-    if (!_isNum(l) || !_isNum(r)) return '${_text(l)}$op${_text(r)}';
+    if (!_calculable(l, r)) return '${_text(l)}$op${_text(r)}';
     return apply(_num(l), _num(r));
   }
 
   static bool _isNull(_Node node) => node is _Literal && node.value == null;
+
+  // What [node] evaluates to when it has no value: a name's own text.
+  static Object? _ownText(_Node node) => node is _Ref ? node.raw : null;
 
   @override
   void collect(Set<String> roots, Set<String> bound) {
@@ -297,6 +332,10 @@ class _Call extends _Node {
   @override
   Object? eval(_Scope scope) {
     Object? arg(int i) => i < args.length ? args[i].eval(scope) : null;
+    // An argument without a name's fallback to its own text, for functions
+    // that read a list, map or text from it.
+    Object? valueAt(int i) =>
+        i < args.length ? args[i].valueOrNull(scope) : null;
     Object? perItem(dynamic item) => args[1].eval(scope.bind('item', item));
     switch (name) {
       case 'filter':
@@ -333,13 +372,14 @@ class _Call extends _Node {
             : const [];
       case 'length':
       case 'count':
-        final value = arg(0);
+        final value = valueAt(0);
         if (value is List) return value.length;
         if (value is Map) return value.length;
         if (value is String) return value.length;
         return 0;
       case 'contains':
-        final value = arg(0);
+        // The value looked for can be a word, as in `contains(tags, featured)`.
+        final value = valueAt(0);
         final part = arg(1);
         if (value is List) return value.any((entry) => _equal(entry, part));
         if (value is Map) return value.containsKey('$part');
