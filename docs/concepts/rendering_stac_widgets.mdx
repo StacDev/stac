@@ -353,7 +353,7 @@ Stac.fromNetwork(
 2. **Handle errors gracefully**: Show meaningful error messages and retry options.
 3. **Use appropriate method**: Choose the rendering method that fits your use case.
 4. **Validate JSON**: Ensure your JSON follows Stac schema before rendering.
-5. **Reload with a new key**: `Stac(routeName:)` and `Stac.fromNetwork()` load when first built, and a rebuild with the same route name or request keeps the screen and its state. To load again, such as to retry after an error, give the widget a new `key`. For `Stac.fromNetwork()`, wrap it in a `KeyedSubtree` with a new key.
+5. **Reload with a new key**: `Stac(routeName:)` and `Stac.fromNetwork()` load when first built, and a rebuild with the same route name or request keeps the screen and its state. To load again, such as to retry after an error, give the widget a new `key`. For `Stac.fromNetwork()`, wrap it in a `KeyedSubtree` with a new key. Before 2.0.0-dev.1, every rebuild loaded it again.
 
 ### Hybrid Approach
 

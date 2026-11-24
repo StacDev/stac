@@ -22,7 +22,7 @@ export const dynamicViewPreviewSrc = `${PLAYGROUND_BASE_URL}/embed`;
 
 The `dynamicView` widget allows you to fetch data from an API and render it using a template. This powerful feature enables dynamic content rendering based on remote data sources, making it perfect for creating data-driven UIs without writing custom code.
 
-The request is sent when the view is first built. A rebuild, such as one from an `observer` around it, sends it again only if the request changes, for example when a placeholder in its URL gets a new value. Actions in a POST body, such as `getFormValue`, run only when the request is sent, so they don't make a rebuild send it again. A placeholder such as `{{form.email}}` does.
+The request is sent when the view is first built. A rebuild, such as one from an `observer` around it, sends it again only if the request changes, for example when a placeholder in its URL gets a new value. Actions in a POST body, such as `getFormValue`, run only when the request is sent, so they don't make a rebuild send it again. A placeholder such as `{{form.email}}` does. Before 2.0.0-dev.1, every rebuild sent it again.
 
 ## Features
 

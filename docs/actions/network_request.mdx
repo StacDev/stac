@@ -43,7 +43,7 @@ The `StacNetworkResult` class is used to handle different status codes in the St
 
 ### Using the response
 
-A result's action can read the response body with `{{response}}` placeholders. They're filled in just before the action runs, for error status codes too:
+A result's action can read the response body with `{{response}}` placeholders (2.0.0-dev.1 or later). They're filled in just before the action runs, for error status codes too:
 
 - `{{response}}` is the whole body.
 - `{{response.user.name}}` reads a nested field. Use `{{response.items[0].id}}` or `{{response.items.0.id}}` for list items.

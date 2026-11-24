@@ -73,7 +73,7 @@ StacRegistry.instance.setValue('userName', 'Alex Smith');
 }
 ```
 
-**Maps and lists:** a placeholder can read into a stored map or list with a dot path. List items are reached by index, written either way:
+**Maps and lists** (2.0.0-dev.1 or later): a placeholder can read into a stored map or list with a dot path. List items are reached by index, written either way:
 
 ```json
 {"type": "text", "data": "{{user.profile.name}} lives in {{user.address.city}}"}

@@ -30,6 +30,20 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
   </Tab>
 </Tabs>
 
+### Install a specific version
+
+Set `STAC_VERSION` to install a version other than the latest stable one, such as the `2.0.0-dev.1` pre-release:
+
+<CodeGroup>
+```bash macOS / Linux
+curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | STAC_VERSION=2.0.0-dev.1 bash
+```
+
+```powershell Windows
+$env:STAC_VERSION = "2.0.0-dev.1"; irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+```
+</CodeGroup>
+
 ## Available Commands
 
 | Command          | Description                        | Requires Auth |

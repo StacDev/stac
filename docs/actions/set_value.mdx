@@ -15,8 +15,8 @@ The `StacSetValueAction` allows you to set or update values in the application s
 Each item in `values` should contain:
 - `key`: The state key to set
 - `value`: The value to assign
-- `expression` (optional): an [expression](/concepts/state#expressions) evaluated when the action runs, instead of `value`: `{"key": "count", "expression": "count + 1"}`, which stores 1 the first time, before `count` has a value.
-- `persist` (optional): `true` keeps the value across app restarts. See [State](/concepts/state).
+- `expression` (optional, 2.0.0-dev.1 or later): an [expression](/concepts/state#expressions) evaluated when the action runs, instead of `value`: `{"key": "count", "expression": "count + 1"}`, which stores 1 the first time, before `count` has a value.
+- `persist` (optional, 2.0.0-dev.1 or later): `true` keeps the value across app restarts. See [State](/concepts/state).
 
 ## Example
 
@@ -181,7 +181,7 @@ StacMultiAction(
 
 ## Remember a Value Across Restarts
 
-A value marked with `persist` is saved on the device and restored by `Stac.initialize` on the next launch. Setting it to `null` later deletes it.
+A value marked with `persist` is saved on the device and restored by `Stac.initialize` on the next launch. Setting it to `null` later deletes it. Requires 2.0.0-dev.1 or later.
 
 <CodeGroup>
 ```dart Dart
