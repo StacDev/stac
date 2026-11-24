@@ -17,7 +17,7 @@ import 'package:stac_core/stac_core.dart';
 /// whenever a value changes; the `items` placeholder, `itemTemplate` and
 /// `emptyTemplate` of a widget with an `itemTemplate`, which the widget
 /// fills itself so it can follow changes; and a `dynamicView`'s `request`,
-/// which is filled when it's sent, and its `template`, which takes the
+/// which the view fills itself, and its `template`, which takes the
 /// response's values first and state for the rest.
 ///
 /// In a condition or a `setValue` expression, each value goes in as one
@@ -100,8 +100,8 @@ Object? registryValue(StacRegistry registry, String path) {
 bool _isObserver(Map<dynamic, dynamic> json) =>
     json['type'] == WidgetType.observer.name;
 
-// Entries a widget fills itself. A `dynamicView` fills its `request` when it
-// sends it; filling it earlier too would also fill placeholders inside the
+// Entries a widget fills itself. A `dynamicView` fills its `request` when
+// it's built; filling it here too would also fill placeholders inside the
 // values put in the first time. It fills its `template` from the response,
 // and the template's placeholders the response has no value for are filled
 // from state when the result is built.

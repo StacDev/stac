@@ -8,6 +8,7 @@ import 'package:stac/src/framework/stac_service.dart';
 import 'package:stac/src/models/stac_cache_config.dart';
 import 'package:stac/src/models/stac_state_config.dart';
 import 'package:stac/src/services/stac_cloud.dart';
+import 'package:stac/src/utils/keyed_future_builder.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
 import 'package:stac_core/core/stac_options.dart';
 import 'package:stac_framework/stac_framework.dart';
@@ -119,6 +120,10 @@ class Stac extends StatelessWidget {
   ///
   /// This should match the screen name configured in your Stac Cloud project.
   /// For example: `/home`, `/profile`, `/settings`.
+  ///
+  /// The screen is fetched when the widget is first built, and again only
+  /// when [routeName] changes, so a rebuild keeps the screen and its state.
+  /// To fetch it again, give the widget a new [key].
   final String routeName;
 
   /// Widget to display while the screen is loading.
@@ -271,6 +276,12 @@ class Stac extends StatelessWidget {
   /// The [request] defines the network request configuration including
   /// URL, method, headers, and body.
   ///
+  /// Placeholders in the request are filled when this is called, and the
+  /// request is sent when the returned widget is first built. A rebuild sends
+  /// it again only when the filled request changes, such as a new URL or a
+  /// new value for a placeholder in it. Actions in a POST body run only when
+  /// the request is sent, so they don't make a rebuild send it again.
+  ///
   /// ## Example
   ///
   /// ```dart
@@ -340,8 +351,9 @@ class _StacView extends StatelessWidget {
       throw Exception('StacOptions is not set');
     }
 
-    return FutureBuilder<Response?>(
-      future: StacCloud.fetchScreen(routeName: routeName),
+    return KeyedFutureBuilder<Response?>(
+      futureKey: routeName,
+      createFuture: () => StacCloud.fetchScreen(routeName: routeName),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return loadingWidget ?? const _LoadingWidget();

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
@@ -43,6 +45,45 @@ class StacNetworkService {
         return deleteRequest(request);
     }
   }
+
+  /// Fills [request]'s placeholders now, from current state and the form
+  /// around [context], for a widget that loads from it.
+  ///
+  /// The widget compares `key`, the filled request as text, to tell whether
+  /// a rebuild should send it again, and calls `send` to send that same
+  /// request. A request that isn't valid once filled, such as one whose
+  /// `url` placeholder was filled with a map, fails the future `send`
+  /// returns, as a failed request does. Actions in a POST body are left to
+  /// run when the request is sent, so the values they read aren't in `key`.
+  static ({String key, Future<Response?> Function() send}) prepare(
+    BuildContext context,
+    StacNetworkRequest request,
+  ) {
+    final json = resolveActionJson(request.toJson(), context);
+    return (
+      key: encodeRequest(json),
+      // Parsed in an async function, so an invalid request fails the future
+      // instead of the build.
+      send: () async => StacNetworkService.request(
+        context,
+        StacNetworkRequest.fromJson(json),
+        resolved: true,
+      ),
+    );
+  }
+
+  /// Encodes a request's [json] as text, with any model in it as that
+  /// model's JSON, so equal requests give equal text.
+  static String encodeRequest(Map<String, dynamic> json) => jsonEncode(
+    json,
+    toEncodable: (value) {
+      try {
+        return (value as dynamic).toJson();
+      } on NoSuchMethodError {
+        return '$value';
+      }
+    },
+  );
 
   static Future<Response?> getRequest(StacNetworkRequest request) async {
     return _dio.get(

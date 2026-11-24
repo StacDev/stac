@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/services/stac_network_service.dart';
+import 'package:stac/src/utils/keyed_future_builder.dart';
 import 'package:stac_core/stac_core.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_logger/stac_logger.dart';
@@ -24,8 +25,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   @override
   Widget parse(BuildContext context, StacDynamicView model) {
-    return FutureBuilder<Response?>(
-      future: _fetchData(context, model),
+    final prepared = StacNetworkService.prepare(context, model.request);
+    return KeyedFutureBuilder<Response?>(
+      futureKey: prepared.key,
+      createFuture: () => _fetchData(prepared.send),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return model.loaderWidget.parse(context) ??
@@ -91,12 +94,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     );
   }
 
-  Future<Response?> _fetchData(
-    BuildContext context,
-    StacDynamicView model,
-  ) async {
+  Future<Response?> _fetchData(Future<Response?> Function() send) async {
     try {
-      return await StacNetworkService.request(context, model.request);
+      return await send();
     } catch (e) {
       Log.e('Error fetching dynamic content: $e');
       rethrow;
