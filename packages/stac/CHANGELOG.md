@@ -1,3 +1,36 @@
+## 2.0.0-dev.1
+
+- **BREAKING**: `textField` is single-line by default. Set `maxLines` or `minLines` to keep a field multi-line.
+- **BREAKING**: `dropdownMenu` uses Flutter's default for `requestFocusOnTap`, so on iOS and Android a tap opens the menu without the keyboard unless `requestFocusOnTap` is `true`.
+- **BREAKING**: A rebuild no longer reloads a screen or retries a failed load in `Stac(routeName:)`, `Stac.fromNetwork`, `networkWidget` and `dynamicView`. A changed request or a new key loads it again.
+- **BREAKING**: Placeholders in actions are filled when the action runs, not when the screen was built. A custom parser that reads an action's fields while building now sees them unfilled.
+- **BREAKING**: A string that is exactly one placeholder for a list or map becomes that list or map instead of its text.
+- **BREAKING**: Bare names in conditions read state instead of being text, and a `conditional` whose condition isn't a bool shows `ifFalse` instead of an error. An id with a dash before digits, such as `abc-123`, is now calculated, so quote it.
+- **BREAKING**: A `dynamicView` template takes values from the response before state.
+- feat: add the `observer` widget, which rebuilds its child when a state key it reads changes.
+- feat: build `listView`, `gridView`, `column`, `row` and `wrap` children from state with `items`, `itemTemplate` and `emptyTemplate`.
+- feat: add the `updateList` action, and the `lifecycle` widget with `onLoad` and `onDispose`.
+- feat: support `&&`, `||`, `!`, `a ? b : c` and functions such as `length`, `sum`, `filter`, `sort`, `contains` and `round` in expressions, and let `setValue` set an `expression`.
+- feat: read into maps and lists with placeholders such as `{{user.name}}` and `{{items[0].title}}`, and into form fields with `{{form.<id>}}`.
+- feat: set initial, persisted and derived state with `Stac.initialize(state: StacStateConfig(...))`, and persist a key from a screen with `persist: true` on `setValue` and `updateList`.
+- feat: switch the theme mode from state with `StacApp(themeModeKey:)`.
+- feat: export `StacStateConfig`, `StacStateService`, `ExpressionResolver` and the placeholder helpers.
+- fix: render a `textField` with `obscureText`, and keep its typed text when it rebuilds.
+- fix: keep input values when they scroll out of view.
+- fix: sync `checkBox`, `switch` and `slider` with a new value or id.
+- fix: render a `checkBox` without a value, and recompute its starting value when `tristate` changes.
+- fix: show `dropdownMenu` entries, pick up a new model when it rebuilds, and let `DropdownMenu` own its text controller.
+- fix: stop `inkWell` delaying every tap by 300 ms, and keep `onSecondaryTapCancel` working on its own.
+- fix: give `gridView` two columns when `crossAxisCount` is missing.
+- fix: pass `textBaseline` to `row` and `column`.
+- fix: let `container` take both `color` and `decoration`.
+- fix: let an `appBar` sit inside an `observer`, `conditional` or `container`.
+- fix: stop `networkRequest` throwing when no result matches the status code, and fill `{{response}}` placeholders in its result actions.
+- fix: send each request's headers without changing the shared Dio, so they don't leak into other requests and the Dio passed to `Stac.initialize` keeps its own.
+- fix: resolve `StacApp` theme color names against each theme's own colors, and update `listView`, `gridView` and `pageView` items after a theme switch.
+- fix: reload a network theme when a model object in its request body changes.
+- fix: count an unset key as 0 or empty text in calculations, so `count + 1` gives `1` instead of `count1`.
+
 ## 1.6.0
 
 - **BREAKING**: Requires Flutter `>=3.44.0` (Dart `^3.12.0`).

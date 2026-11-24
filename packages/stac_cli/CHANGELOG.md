@@ -1,3 +1,10 @@
+## 2.0.0-dev.1
+
+- fix: keep empty lists and maps in `stac build` output.
+- fix: read pre-release versions such as `2.0.0-dev.1` in `stac upgrade`, so a dev build shows its own version and a stable build is never offered a pre-release.
+- chore: publish versions such as `2.0.0-dev.1` as GitHub pre-releases, so the install scripts and `stac upgrade` stay on the latest stable CLI.
+- chore: depend on `stac_core` `^2.0.0-dev.1`.
+
 ## 1.6.0
 
 - feat: Add console URL logging for successful deployments.
