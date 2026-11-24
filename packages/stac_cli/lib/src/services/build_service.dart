@@ -491,15 +491,15 @@ Future<void> main(List<String> args) async {
         );
 
         if (json == null) continue;
-        final cleaned = _cleanJson(json);
-        if (cleaned == null) continue;
+        final cleaned = _cleanJson(json) as Map<String, dynamic>;
+        if (cleaned.isEmpty) continue;
 
         final fileName = artifact.artifactName;
         final outputFilePath = path.join(outputDir, '$fileName.json');
         final jsonString = const JsonEncoder.withIndent('  ').convert(cleaned);
         await FileUtils.writeFile(outputFilePath, jsonString);
         generatedResults['${artifact.resultKeyPrefix}/$fileName.json'] =
-            cleaned as Map<String, dynamic>;
+            cleaned;
         ConsoleLogger.info('✓ Generated ${artifact.logLabel}: $fileName.json');
         onSuccess();
       } catch (e) {
@@ -590,23 +590,22 @@ Future<void> main(List<String> args) async {
     }
   }
 
-  /// Recursively removes null values, empty arrays, and empty objects from JSON
+  /// Removes map entries whose value is null, at every depth. stac_core
+  /// writes every unset field as null, so this keeps the output to what the
+  /// DSL sets.
+  ///
+  /// Everything else stays as written. An empty list or map is a value a
+  /// screen can depend on: a `setValue` that resets a key to `[]`, or
+  /// `items: []` that shows a list's `emptyTemplate`. A null inside a list
+  /// stays too, so the other items keep their positions.
   dynamic _cleanJson(dynamic json) {
     if (json is Map<String, dynamic>) {
-      final cleanedMap = <String, dynamic>{};
-      for (final entry in json.entries) {
-        final cleanedValue = _cleanJson(entry.value);
-        if (cleanedValue != null && cleanedValue != [] && cleanedValue != {}) {
-          cleanedMap[entry.key] = cleanedValue;
-        }
-      }
-      return cleanedMap.isEmpty ? null : cleanedMap;
+      return <String, dynamic>{
+        for (final entry in json.entries)
+          if (entry.value != null) entry.key: _cleanJson(entry.value),
+      };
     } else if (json is List) {
-      final cleanedList = json
-          .map(_cleanJson)
-          .where((item) => item != null && item != [] && item != {})
-          .toList();
-      return cleanedList.isEmpty ? null : cleanedList;
+      return json.map(_cleanJson).toList();
     } else if (json is String) {
       return StringUtils.fixCharacterEncoding(json);
     }
