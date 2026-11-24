@@ -154,7 +154,9 @@ class Stac extends StatelessWidget {
   ///   These are merged with the built-in action parsers.
   ///
   /// - [dio]: Custom Dio instance for network requests. If not provided,
-  ///   a default instance is used.
+  ///   a default instance is used. Its headers and interceptors apply to
+  ///   every request it sends, and a request's own `headers` are added on
+  ///   top, replacing any with the same name.
   ///
   /// - [override]: If `true`, allows re-initialization. Useful for testing.
   ///   Defaults to `false`.

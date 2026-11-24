@@ -28,6 +28,10 @@ The `Method` enum defines the different HTTP methods that can be used in the Sta
 | `put`    | Sends a PUT request.    |
 | `delete` | Sends a DELETE request. |
 
+### Headers
+
+A request's `headers` apply to that request only. They're added to the headers of the Dio passed to `Stac.initialize(dio:)`, and a header set in both uses the request's value. `contentType` takes precedence over a `Content-Type` in `headers`.
+
 ### StacNetworkResult
 
 The `StacNetworkResult` class is used to handle different status codes in the Stac Network Request Action.

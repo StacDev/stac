@@ -28,11 +28,6 @@ class StacNetworkService {
         resolveActionJson(request.toJson(), context),
       );
     }
-    Map<String, dynamic> headers = Map<String, dynamic>.from(
-      request.headers ?? {},
-    );
-    _dio.options.headers = headers;
-    _dio.options.contentType = request.contentType;
 
     switch (request.method) {
       case Method.get:
@@ -90,6 +85,7 @@ class StacNetworkService {
       request.url,
       data: request.body,
       queryParameters: request.queryParameters,
+      options: _optionsFor(request),
     );
   }
 
@@ -103,6 +99,7 @@ class StacNetworkService {
       request.url,
       data: body,
       queryParameters: request.queryParameters,
+      options: _optionsFor(request),
     );
   }
 
@@ -111,6 +108,7 @@ class StacNetworkService {
       request.url,
       data: request.body,
       queryParameters: request.queryParameters,
+      options: _optionsFor(request),
     );
   }
 
@@ -119,6 +117,7 @@ class StacNetworkService {
       request.url,
       data: request.body,
       queryParameters: request.queryParameters,
+      options: _optionsFor(request),
     );
   }
 
@@ -145,4 +144,11 @@ class StacNetworkService {
 
     return bodyMap;
   }
+
+  /// This request's headers and content type, as options for this call only.
+  /// Dio adds them over the headers of the shared Dio, and the request's
+  /// value wins where both set one. They're never written to the shared Dio,
+  /// which other requests and the app's own calls use at the same time.
+  static Options _optionsFor(StacNetworkRequest request) =>
+      Options(headers: request.headers, contentType: request.contentType);
 }
