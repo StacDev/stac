@@ -3,6 +3,10 @@ title: "Observer"
 description: "Rebuilds its child whenever a state value it reads changes"
 ---
 
+<Note>
+`observer` requires Stac 2.0.0-dev.1 or later.
+</Note>
+
 An `observer` fills the placeholders in its child from the [state](/concepts/state) every time it builds, and builds again whenever one of the keys it reads changes. Everything else on a screen is filled once, when the screen is built, so an observer is how a badge, a total or a selected chip follows `setValue`.
 
 ## Properties

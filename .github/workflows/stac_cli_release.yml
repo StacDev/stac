@@ -250,12 +250,21 @@ jobs:
           
           echo "Creating release: $TAG in $RELEASES_REPO"
 
+          # A version with a pre-release part, such as 2.0.0-dev.1, becomes a
+          # GitHub pre-release. releases/latest skips pre-releases, so the
+          # install scripts and `stac upgrade` stay on the latest stable CLI.
+          release_flags=()
+          if [[ "$VERSION" == *-* ]]; then
+            release_flags+=(--prerelease)
+          fi
+
           # Create release if it doesn't exist
           if ! gh release view "$TAG" --repo "$RELEASES_REPO" >/dev/null 2>&1; then
             gh release create "$TAG" \
               --repo "$RELEASES_REPO" \
               --title "stac_cli $VERSION" \
-              --notes "Automated release for stac_cli $VERSION"
+              --notes "Automated release for stac_cli $VERSION" \
+              "${release_flags[@]}"
             echo "✓ Created release $TAG"
           else
             echo "Release $TAG already exists, updating..."

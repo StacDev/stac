@@ -3,6 +3,10 @@ title: "Lifecycle"
 description: "Runs actions when a screen appears and when it goes away"
 ---
 
+<Note>
+`lifecycle` requires Stac 2.0.0-dev.1 or later.
+</Note>
+
 A `lifecycle` widget runs `onLoad` once, after the first frame that shows its child, and `onDispose` after the child has left the tree. Wrap a screen in it to load data into [state](/concepts/state) when the screen opens. When a lifecycle with other actions takes its place, such as the next tab's, the old one's `onDispose` runs and then the new one's `onLoad`.
 
 ## Properties

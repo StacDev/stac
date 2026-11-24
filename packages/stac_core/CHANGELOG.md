@@ -1,3 +1,10 @@
+## 2.0.0-dev.1
+
+- Added `StacObserver` and `StacLifecycle` widget models and the `StacUpdateListAction` action model.
+- Added `items`, `itemTemplate` and `emptyTemplate` to `StacListView`, `StacGridView`, `StacColumn`, `StacRow` and `StacWrap`.
+- Documented the `expression` and `persist` keys of `StacSetValue` and `StacSetValueAction` values.
+- Updated the doc comments of `StacCheckBox`, `StacGridView`, `StacRow`, `StacColumn`, `StacContainer` and `StacDropdownMenu` to match how they render.
+
 ## 1.6.0
 
 - Added `StacIntrinsicHeight` and `StacIntrinsicWidth` widget models.

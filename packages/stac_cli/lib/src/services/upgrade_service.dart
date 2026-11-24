@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:cryptography/cryptography.dart';
 import 'package:path/path.dart' as path;
+import 'package:pub_semver/pub_semver.dart' show Version;
 
 import '../exceptions/stac_exception.dart';
 import '../utils/console_logger.dart';
@@ -60,10 +61,11 @@ class UpgradeService {
       );
       if (result.exitCode == 0) {
         final output = result.stdout.toString().trim();
-        // Parse "stac_cli version: X.Y.Z" or "stac_cli version: X.Y.Z-dev"
+        // Parse "stac_cli version: X.Y.Z" or a pre-release such as
+        // "X.Y.Z-dev.1". A dev-environment build adds "-dev" at the end.
         final match = RegExp(r'version:\s*(\S+)').firstMatch(output);
         if (match != null) {
-          return match.group(1)!.replaceAll('-dev', '');
+          return match.group(1)!.replaceFirst(RegExp(r'-dev$'), '');
         }
       }
     } catch (_) {}
@@ -148,22 +150,20 @@ class UpgradeService {
     return {'os': os, 'arch': arch};
   }
 
-  /// Check if latest version is newer than current
+  /// Check if latest version is newer than current. Versions compare by
+  /// semantic versioning, so 2.0.0-dev.1 comes after 1.6.0 and before 2.0.0.
+  /// A stable install is never offered a pre-release.
   bool _isNewerVersion(String current, String latest) {
     if (current == 'unknown') return true;
 
     try {
-      final currentParts = current.split('.').map(int.parse).toList();
-      final latestParts = latest.split('.').map(int.parse).toList();
-
-      for (var i = 0; i < 3; i++) {
-        final c = i < currentParts.length ? currentParts[i] : 0;
-        final l = i < latestParts.length ? latestParts[i] : 0;
-        if (l > c) return true;
-        if (l < c) return false;
+      final currentVersion = Version.parse(current);
+      final latestVersion = Version.parse(latest);
+      if (latestVersion.isPreRelease && !currentVersion.isPreRelease) {
+        return false;
       }
-      return false;
-    } catch (_) {
+      return latestVersion > currentVersion;
+    } on FormatException {
       return true;
     }
   }

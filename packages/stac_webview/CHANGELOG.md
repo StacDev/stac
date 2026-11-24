@@ -1,3 +1,7 @@
+# 2.0.0-dev.1
+
+  - Requires `stac_core` `^2.0.0-dev.1`, so it works with the Stac 2.0 pre-releases.
+
 # 1.0.0
 
   - Converted `StacWebView` from Freezed to `StacWidget` base class

@@ -43,7 +43,7 @@ To know more about the column widget in Flutter, refer to the [official document
 | textBaseline       | `StacTextBaseline`         | The baseline to use for aligning text. Defaults to `alphabetic` with `baseline` alignment.       |
 | spacing            | `double`                   | The spacing between children. Defaults to `0`.                                                   |
 | children           | `List<StacWidget>`         | The list of widgets to display inside the column. Defaults to an empty list.                     |
-| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. |
+| items              | `dynamic`                  | The data to build the children from instead of `children`: a list, or a `{{placeholder}}` for a state key, whose changes the widget follows. Requires 2.0.0-dev.1 or later. |
 | itemTemplate       | `StacWidget`               | The widget built for each entry of `items`, with placeholders filled from the entry: `{{title}}` for a field, or `{{item}}` for a plain value. |
 | emptyTemplate      | `StacWidget`               | The widget shown instead when `items` is empty.                                                  |
 

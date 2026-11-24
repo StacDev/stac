@@ -832,14 +832,14 @@ packages:
       path: "../../packages/stac"
       relative: true
     source: path
-    version: "1.6.0"
+    version: "2.0.0-dev.1"
   stac_core:
     dependency: "direct overridden"
     description:
       path: "../../packages/stac_core"
       relative: true
     source: path
-    version: "1.6.0"
+    version: "2.0.0-dev.1"
   stac_framework:
     dependency: "direct overridden"
     description:

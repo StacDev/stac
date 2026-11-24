@@ -1,6 +1,6 @@
 name: stac_cli
 description: A CLI tool for managing Stac SDUI (Server-Driven UI) projects and converting Dart to JSON.
-version: 1.6.0
+version: 2.0.0-dev.1
 repository: https://github.com/StacDev/stac
 homepage: https://stac.dev/
 
@@ -14,11 +14,12 @@ dependencies:
   yaml: ^3.1.4
   path: ^1.9.1
   interact: ^2.2.0
-  stac_core: ^1.6.0
+  stac_core: ^2.0.0-dev.1
   json_annotation: ^4.12.0
   dotenv: ^4.2.0
   cryptography: ^2.9.0
   archive: ^4.2.0
+  pub_semver: ^2.2.1
 
 # Executables that can be run globally
 executables:

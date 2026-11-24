@@ -7,6 +7,38 @@ This page documents the version history of Stac, including new features, breakin
 
 ---
 
+## 2.0.0-dev.1
+
+<Note>
+2.0.0-dev.1 is a pre-release of Stac 2.0, and apps on 1.x aren't affected. To try it, depend on `stac: ^2.0.0-dev.1`, plus `stac_webview: ^2.0.0-dev.1` if you use it. To install the matching CLI, run `curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | STAC_VERSION=2.0.0-dev.1 bash`, or see [Install a specific version](/cli#install-a-specific-version) for Windows. Its `stac init` sets new projects up on `stac: ^2.0.0-dev.1`.
+</Note>
+
+- Added [state management](/concepts/state): the `observer` widget, lists from state with `items`, `itemTemplate` and `emptyTemplate`, the `updateList` action and the `lifecycle` widget
+- Added expressions with `&&`, `||`, `!`, `a ? b : c` and functions such as `length`, `sum`, `filter` and `sort`
+- Added initial, persisted and derived state with `StacStateConfig`, and theme mode from state with `StacApp(themeModeKey:)`
+- Placeholders read into maps, lists and form fields, such as `{{user.name}}`, `{{items[0].title}}` and `{{form.email}}`
+- Fixed `dropdownMenu` showing no entries, `textField` failing with `obscureText`, `inkWell` delaying taps, and `checkBox`, `gridView`, `row` and `container` failing on valid JSON
+- Fixed inputs losing their value when scrolled away or rebuilt
+- Fixed screens reloading on every rebuild, and requests overwriting each other's headers
+- Fixed `stac build` dropping empty lists and maps
+
+**Breaking changes**
+- `textField` is single-line by default. Set `maxLines` or `minLines` to keep a field multi-line
+- `dropdownMenu` uses Flutter's default for `requestFocusOnTap`, so on iOS and Android a tap no longer opens the keyboard
+- A rebuild no longer reloads a screen or retries a failed load. A changed request or a new key does
+- Placeholders in actions are filled when the action runs, not when the screen was built
+- A string that is exactly one placeholder for a list or map becomes that list or map instead of text
+- Bare names in conditions read state instead of being text
+- An id with a dash before digits, such as `abc-123`, is calculated in an expression, so quote it
+- A `conditional` whose condition isn't a bool shows `ifFalse` instead of an error
+- A `dynamicView` template takes values from the response before state
+
+**Known limitations**
+- The Stac Console preview can't render the new widgets yet
+- Stac Cloud serves the same screen to every app, so 1.x apps can't render a screen's 2.0 widgets
+
+---
+
 ## 1.6.0
 - Added `intrinsicHeight` and `intrinsicWidth` widgets
 - Mapped `cacheExtent` on `listView`, `gridView`, and `customScrollView` to Flutter's `ScrollCacheExtent`

@@ -7,6 +7,7 @@ import 'package:stac_cli/src/models/project/project.dart';
 import '../services/project_service.dart';
 import '../utils/console_logger.dart';
 import '../utils/file_utils.dart';
+import '../version.dart';
 import 'base_command.dart';
 import 'skills/add_command.dart';
 
@@ -124,6 +125,11 @@ class InitCommand extends BaseCommand {
 
   /// Add stac to pubspec.yaml
   Future<void> _addStacToPubspecYaml(String targetDir) async {
+    // A pre-release CLI, such as 2.0.0-dev.1, adds the matching pre-release of
+    // stac. `pub add stac` alone adds the latest stable release.
+    final stacPackage = packageVersion.contains('-')
+        ? 'stac:^$packageVersion'
+        : 'stac';
     final pubspecPath = path.join(targetDir, 'pubspec.yaml');
     if (!await File(pubspecPath).exists()) {
       ConsoleLogger.error(
@@ -133,12 +139,12 @@ class InitCommand extends BaseCommand {
     }
 
     try {
-      var code = await _run('flutter', ['pub', 'add', 'stac'], targetDir);
+      var code = await _run('flutter', ['pub', 'add', stacPackage], targetDir);
       if (code != 0) {
         ConsoleLogger.warning(
           'flutter pub add failed (exit $code). Trying dart pub add...',
         );
-        code = await _run('dart', ['pub', 'add', 'stac'], targetDir);
+        code = await _run('dart', ['pub', 'add', stacPackage], targetDir);
         if (code != 0) {
           throw Exception('dart pub add stac failed with exit $code');
         }
@@ -150,7 +156,7 @@ class InitCommand extends BaseCommand {
         'Failed to run flutter: ${e.message}. Trying dart.',
       );
       try {
-        final code = await _run('dart', ['pub', 'add', 'stac'], targetDir);
+        final code = await _run('dart', ['pub', 'add', stacPackage], targetDir);
         if (code != 0) {
           throw Exception('dart pub add stac failed with exit $code');
         }
