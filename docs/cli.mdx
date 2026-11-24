@@ -5,6 +5,8 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
 
 ## Installation
 
+The install scripts download a prebuilt binary for macOS (Apple silicon or Intel), Linux x64 or Windows x64. Linux and Windows on ARM64 aren't supported yet.
+
 <Tabs>
   <Tab title="macOS / Linux">
     ```bash
@@ -32,7 +34,7 @@ description: "Build, deploy, and manage Server-Driven UI projects with the Stac 
 
 ### Install a specific version
 
-Set `STAC_VERSION` to install a version other than the latest stable one, such as the `2.0.0-dev.1` pre-release:
+To install a version other than the latest stable one, such as the `2.0.0-dev.1` pre-release, pass it to the install script:
 
 <CodeGroup>
 ```bash macOS / Linux
@@ -40,7 +42,7 @@ curl -fsSL https://raw.githubusercontent.com/StacDev/install/main/install.sh | S
 ```
 
 ```powershell Windows
-$env:STAC_VERSION = "2.0.0-dev.1"; irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1 | iex
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/StacDev/install/main/install.ps1))) -Version 2.0.0-dev.1
 ```
 </CodeGroup>
 

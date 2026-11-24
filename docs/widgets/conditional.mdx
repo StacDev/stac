@@ -169,7 +169,7 @@ The `condition` property accepts expressions that are evaluated against the curr
 - **Null check**: `user.name != null`
 
 <Note>
-The condition is evaluated at runtime by Stac's expression resolver against the current application state. Reading state by name, as in these patterns, and the operators and functions below need 2.0.0-dev.1 or later. On 1.x, only `{{placeholders}}` in a condition are filled.
+The condition is evaluated at runtime by Stac's expression resolver against the current application state. Reading state by name, as in these patterns, needs 2.0.0-dev.1 or later, and so do `!` and functions such as `length`. On 1.x, fill values in with `{{placeholders}}` and compare them, as in `{{count}} > 0 && {{count}} < 10`.
 </Note>
 
 ## Expressions
