@@ -409,11 +409,10 @@ class StacService {
     // Filled now, so a request from an action uses the values from when the
     // action ran, though it's sent when its page, dialog or sheet first
     // builds.
-    final resolved = StacNetworkService.resolve(context, request);
+    final prepared = StacNetworkService.prepare(context, request);
     return KeyedFutureBuilder<Response?>(
-      futureKey: StacNetworkService.encodeRequest(resolved.toJson()),
-      createFuture: () =>
-          StacNetworkService.request(context, resolved, resolved: true),
+      futureKey: prepared.key,
+      createFuture: prepared.send,
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.waiting:

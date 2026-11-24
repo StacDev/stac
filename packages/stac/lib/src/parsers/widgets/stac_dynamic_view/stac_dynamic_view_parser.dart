@@ -25,10 +25,10 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   @override
   Widget parse(BuildContext context, StacDynamicView model) {
-    final request = StacNetworkService.resolve(context, model.request);
+    final prepared = StacNetworkService.prepare(context, model.request);
     return KeyedFutureBuilder<Response?>(
-      futureKey: StacNetworkService.encodeRequest(request.toJson()),
-      createFuture: () => _fetchData(context, request),
+      futureKey: prepared.key,
+      createFuture: () => _fetchData(prepared.send),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return model.loaderWidget.parse(context) ??
@@ -94,12 +94,9 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     );
   }
 
-  Future<Response?> _fetchData(
-    BuildContext context,
-    StacNetworkRequest request,
-  ) async {
+  Future<Response?> _fetchData(Future<Response?> Function() send) async {
     try {
-      return await StacNetworkService.request(context, request, resolved: true);
+      return await send();
     } catch (e) {
       Log.e('Error fetching dynamic content: $e');
       rethrow;

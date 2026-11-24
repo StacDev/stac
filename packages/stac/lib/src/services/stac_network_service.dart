@@ -13,18 +13,20 @@ class StacNetworkService {
 
   static void initialize(Dio dio) => _dio = dio;
 
-  /// Sends [request]. Its placeholders are filled first with [resolve], so it
-  /// sees current state and form values, unless [resolved] says that's done
-  /// already, as for a `networkRequest` action, which is filled when it runs.
-  /// Filling twice would also fill placeholders inside the values put in the
-  /// first time.
+  /// Sends [request]. Its placeholders are filled first, so it sees current
+  /// state and form values, unless [resolved] says that's done already, as
+  /// for a `networkRequest` action, which is filled when it runs. Filling
+  /// twice would also fill placeholders inside the values put in the first
+  /// time.
   static Future<Response?> request(
     BuildContext context,
     StacNetworkRequest request, {
     bool resolved = false,
   }) async {
     if (!resolved) {
-      request = resolve(context, request);
+      request = StacNetworkRequest.fromJson(
+        resolveActionJson(request.toJson(), context),
+      );
     }
     Map<String, dynamic> headers = Map<String, dynamic>.from(
       request.headers ?? {},
@@ -44,17 +46,31 @@ class StacNetworkService {
     }
   }
 
-  /// [request] with its placeholders filled from current state and the form
-  /// around [context]. Actions in a POST body are left to run when the
-  /// request is sent, so the values they read aren't in the result.
+  /// Fills [request]'s placeholders now, from current state and the form
+  /// around [context], for a widget that loads from it.
   ///
-  /// A widget that loads from a request fills it once when it's built, and
-  /// uses the result both to tell whether the request changed and to send it.
-  static StacNetworkRequest resolve(
+  /// The widget compares `key`, the filled request as text, to tell whether
+  /// a rebuild should send it again, and calls `send` to send that same
+  /// request. A request that isn't valid once filled, such as one whose
+  /// `url` placeholder was filled with a map, fails the future `send`
+  /// returns, as a failed request does. Actions in a POST body are left to
+  /// run when the request is sent, so the values they read aren't in `key`.
+  static ({String key, Future<Response?> Function() send}) prepare(
     BuildContext context,
     StacNetworkRequest request,
-  ) =>
-      StacNetworkRequest.fromJson(resolveActionJson(request.toJson(), context));
+  ) {
+    final json = resolveActionJson(request.toJson(), context);
+    return (
+      key: encodeRequest(json),
+      // Parsed in an async function, so an invalid request fails the future
+      // instead of the build.
+      send: () async => StacNetworkService.request(
+        context,
+        StacNetworkRequest.fromJson(json),
+        resolved: true,
+      ),
+    );
+  }
 
   /// Encodes a request's [json] as text, with any model in it as that
   /// model's JSON, so equal requests give equal text.
