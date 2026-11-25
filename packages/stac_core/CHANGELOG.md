@@ -4,6 +4,7 @@
 - Added `items`, `itemTemplate` and `emptyTemplate` to `StacListView`, `StacGridView`, `StacColumn`, `StacRow` and `StacWrap`.
 - Documented the `expression` and `persist` keys of `StacSetValue` and `StacSetValueAction` values.
 - Updated the doc comments of `StacCheckBox`, `StacGridView`, `StacRow`, `StacColumn`, `StacContainer` and `StacDropdownMenu` to match how they render.
+- Removed the unused `stac_logger` dependency, which required the Flutter SDK, so pure-Dart projects can depend on `stac_core`.
 
 ## 1.6.0
 
