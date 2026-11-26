@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac_core/actions/network_request/stac_network_request.dart';
 import 'package:stac/src/utils/variable_resolver.dart';

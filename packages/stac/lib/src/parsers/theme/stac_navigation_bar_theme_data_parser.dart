@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/foundation/foundation.dart';
 import 'package:stac/src/parsers/theme/stac_icon_theme_data_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';

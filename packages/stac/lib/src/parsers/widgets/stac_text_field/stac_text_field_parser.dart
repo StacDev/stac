@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/core/stac_keep_alive_once_changed.dart';
 import 'package:stac/src/parsers/foundation/decoration/stac_input_decoration_parser.dart';

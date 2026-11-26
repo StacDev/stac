@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:stac_framework/stac_framework.dart';
 import 'package:stac_webview/parsers/stac_webview/stac_webview.dart';
 import 'package:webview_flutter/webview_flutter.dart';
@@ -55,7 +55,7 @@ class _WebViewState extends State<_WebView> {
       )
       /// Sets the background color.
       ..setBackgroundColor(
-        widget.model.backgroundColor?.toColor ?? Colors.white,
+        widget.model.backgroundColor?.toColor ?? const Color(0xFFFFFFFF),
       )
       /// Sets the user agent.
       ..setUserAgent(widget.model.userAgent)

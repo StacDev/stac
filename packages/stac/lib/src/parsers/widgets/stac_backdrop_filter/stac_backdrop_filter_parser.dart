@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_blend_mode_parser.dart';
 import 'package:stac/src/parsers/foundation/effects/stac_image_filter_parsers.dart';

@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:movie_app/default_stac_options.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel_parser.dart';
 import 'package:stac/stac.dart';

@@ -3,7 +3,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
+import 'package:material_ui/material_ui.dart' hide ErrorWidgetBuilder;
 import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac.dart';
 import 'package:stac/src/framework/stac_error.dart';
@@ -181,6 +181,43 @@ class StacService {
   );
   static StacCacheConfig get defaultCacheConfig => _defaultCacheConfig;
 
+  // Whether the debug check for a material_ui MaterialApp has run.
+  static bool _debugCheckedMaterialApp = false;
+
+  // Stac's widgets come from package:material_ui, so they only get the theme
+  // and localizations of a MaterialApp from that package. Under any other
+  // app, such as a MaterialApp from package:flutter/material.dart, they
+  // ignore the app's theme, and widgets such as app bars and text fields
+  // throw. Warns once, in debug builds.
+  //
+  // A context above the app, as in `MaterialApp(home: Stac.fromJson(json,
+  // context))`, has no Localizations to check, so a later render checks
+  // instead. It reads the nearest Localizations without depending on it, so
+  // it's safe to run from initState too.
+  static void _debugCheckMaterialApp(BuildContext context) {
+    assert(() {
+      if (_debugCheckedMaterialApp) return true;
+      final localizations = context
+          .findAncestorWidgetOfExactType<Localizations>();
+      if (localizations == null) return true;
+      _debugCheckedMaterialApp = true;
+      final hasMaterialLocalizations = localizations.delegates.any(
+        (delegate) => delegate.type == MaterialLocalizations,
+      );
+      if (!hasMaterialLocalizations) {
+        Log.w(
+          'Stac builds its widgets with package:material_ui, but the app '
+          "above this widget isn't a MaterialApp from package:material_ui, so "
+          'they ignore your app theme, and widgets such as app bars and text '
+          'fields throw. If your app imports package:flutter/material.dart, '
+          'migrate it with `dart fix --apply --code=migrate_design_widgets`. '
+          'See https://docs.flutter.dev/release/breaking-changes/material-ui-and-cupertino-ui',
+        );
+      }
+      return true;
+    }());
+  }
+
   static Future<void> initialize({
     StacOptions? options,
     List<StacParser> parsers = const [],
@@ -223,6 +260,7 @@ class StacService {
   }
 
   static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
+    _debugCheckMaterialApp(context);
     try {
       if (json == null) {
         return null;
@@ -293,6 +331,7 @@ class StacService {
     required StacWidget widget,
     required BuildContext context,
   }) {
+    _debugCheckMaterialApp(context);
     try {
       final widgetType = widget.type;
       final stacParser = StacRegistry.instance.getParser(widgetType);

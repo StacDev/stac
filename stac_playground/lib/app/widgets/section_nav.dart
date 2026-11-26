@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac_playground/theme/app_theme.dart';
 
 /// 44px header bar used at the top of the editor and preview panes.

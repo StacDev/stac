@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac_core/stac_core.dart';
 
 /// Extends [StacSnackBarBehavior] to map to Flutter's [SnackBarBehavior].

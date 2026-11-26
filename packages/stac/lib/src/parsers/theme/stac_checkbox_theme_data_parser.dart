@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_border_side_parser.dart';
 import 'package:stac/src/parsers/foundation/borders/stac_shape_border_parser.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_visual_density_parser.dart';

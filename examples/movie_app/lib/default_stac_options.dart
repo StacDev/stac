@@ -8,7 +8,7 @@ import 'package:stac/stac_core.dart';
 ///
 /// Example:
 /// ```dart
-/// import 'package:flutter/material.dart';
+/// import 'package:material_ui/material_ui.dart';
 /// import 'package:stac/stac.dart';
 /// import 'default_stac_options.dart';
 ///

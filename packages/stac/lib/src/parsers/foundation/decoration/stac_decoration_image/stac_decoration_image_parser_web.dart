@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/foundation/alignment/stac_alignment_parser.dart';
 import 'package:stac/src/parsers/foundation/effects/stac_effects_parsers.dart';
 import 'package:stac/src/parsers/foundation/geometry/stac_rect_parser.dart';

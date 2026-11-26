@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/core/stac_items_binding.dart';
 import 'package:stac/src/utils/variable_resolver.dart';
 import 'package:stac/stac.dart';
