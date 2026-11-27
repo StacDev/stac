@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:stac/stac.dart';
 
-Map<String, dynamic> _dynamicView(Map<String, dynamic> template) => {
+Map<String, dynamic> _dynamicView(
+  Map<String, dynamic> template, {
+  String targetPath = '',
+}) => {
   'type': 'dynamicView',
   'request': {'url': 'https://example.com/user', 'method': 'get'},
+  'targetPath': targetPath,
   'template': template,
 };
 
@@ -13,20 +17,23 @@ Future<void> _pumpTemplate(
   WidgetTester tester,
   Map<String, dynamic> template, {
   Object? data = const {'name': 'Ada', 'nickname': null},
+  String targetPath = '',
 }) async {
   final dio = Dio();
   dio.interceptors.add(
     InterceptorsWrapper(
-      onRequest: (options, handler) => handler.resolve(
-        Response(requestOptions: options, data: data),
-      ),
+      onRequest: (options, handler) =>
+          handler.resolve(Response(requestOptions: options, data: data)),
     ),
   );
   await Stac.initialize(dio: dio, override: true, showErrorWidgets: false);
   await tester.pumpWidget(
     MaterialApp(
       home: Builder(
-        builder: (context) => Stac.fromJson(_dynamicView(template), context)!,
+        builder: (context) => Stac.fromJson(
+          _dynamicView(template, targetPath: targetPath),
+          context,
+        )!,
       ),
     ),
   );
@@ -64,10 +71,50 @@ void main() {
     await _pumpTemplate(
       tester,
       {'type': 'text', 'data': '{{user.name}} ({{user.nickname}})'},
-      data: {'user': {'name': 'Ada', 'nickname': null}},
+      data: {
+        'user': {'name': 'Ada', 'nickname': null},
+      },
     );
 
     expect(find.text('Ada ()'), findsOneWidget);
     expect(find.text('Ada (null)'), findsNothing);
+  });
+
+  testWidgets('selects a list item with targetPath', (tester) async {
+    await _pumpTemplate(
+      tester,
+      {'type': 'text', 'data': '{{name}} ({{nickname}})'},
+      data: [
+        {'name': 'Ada', 'nickname': null},
+      ],
+      targetPath: '0',
+    );
+
+    expect(find.text('Ada ()'), findsOneWidget);
+  });
+
+  testWidgets('keeps a missing field for the state pass', (tester) async {
+    StacRegistry.instance.setValue('testCurrency', 'USD');
+    addTearDown(() => StacRegistry.instance.removeValue('testCurrency'));
+
+    await _pumpTemplate(
+      tester,
+      {'type': 'text', 'data': '{{name}} / {{testCurrency}}'},
+      data: {'name': 'Ada'},
+    );
+
+    expect(find.text('Ada / USD'), findsOneWidget);
+  });
+
+  testWidgets('does not resolve placeholders inserted from response text', (
+    tester,
+  ) async {
+    await _pumpTemplate(
+      tester,
+      {'type': 'text', 'data': '{{message}} / {{other}}'},
+      data: {'message': 'Keep {{other}} literal', 'other': 'WRONG'},
+    );
+
+    expect(find.text('Keep {{other}} literal / WRONG'), findsOneWidget);
   });
 }

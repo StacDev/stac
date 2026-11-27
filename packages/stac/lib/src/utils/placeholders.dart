@@ -16,19 +16,22 @@ String? singlePlaceholder(String text) {
 
 /// Reads [path] from [data], where a path walks into maps by key and into
 /// lists by index: `user.address.city`, `items.0.title` or `items[0].title`.
-/// Returns null when any step is missing.
-Object? readPath(Object? data, String path) {
+/// Returns null when any step is missing, or [orElse] when a caller needs to
+/// tell a missing path from a value that is null.
+Object? readPath(Object? data, String path, {Object? orElse}) {
   Object? current = data;
   for (final segment in _segments(path)) {
     if (current is Map) {
-      if (!current.containsKey(segment)) return null;
+      if (!current.containsKey(segment)) return orElse;
       current = current[segment];
     } else if (current is List) {
       final index = int.tryParse(segment);
-      if (index == null || index < 0 || index >= current.length) return null;
+      if (index == null || index < 0 || index >= current.length) {
+        return orElse;
+      }
       current = current[index];
     } else {
-      return null;
+      return orElse;
     }
   }
   return current;

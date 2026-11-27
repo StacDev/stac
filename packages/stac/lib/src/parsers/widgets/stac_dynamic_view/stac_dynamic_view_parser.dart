@@ -209,10 +209,21 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     return result;
   }
 
-  // The response value at [path]: a key that is [path] itself, or a path
-  // into the response such as `user.name` or `matrix[0][1]`.
-  static Object? _responseValue(Map<dynamic, dynamic> data, String path) =>
-      data.containsKey(path) ? data[path] : readPath(data, path);
+  // A path the response doesn't have, as opposed to one whose value is null.
+  static const Object _missingPath = Object();
+
+  // The response value at [path]: a key that is [path] itself, or a path into
+  // the response such as `user.name` or `matrix[0][1]`. The response can be a
+  // list, so a numeric path selects its item at that index.
+  static Object? _responseValue(Object? data, String path) =>
+      data is Map && data.containsKey(path) ? data[path] : readPath(data, path);
+
+  // Like [_responseValue], but tells a missing path apart from a value that
+  // is null, so text can leave the latter's placeholder for the state pass.
+  static Object? _textValue(Object? data, String path) =>
+      data is Map && data.containsKey(path)
+      ? data[path]
+      : readPath(data, path, orElse: _missingPath);
 
   dynamic _processTemplateRecursively(
     dynamic template,
@@ -249,24 +260,16 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           }
           // Check if the string contains any placeholders
           if (value.contains('{{') && value.contains('}}')) {
-            // Process multiple placeholders in a single string. A response
-            // value that is null becomes empty text; conditions are filled
-            // above and keep the placeholder, so `{{field}} == null` still
-            // evaluates to true.
-            String processedValue = value;
-            final matches = placeholderPattern.allMatches(value);
-
-            for (final match in matches) {
-              final placeholder = match.group(0)!;
+            // Scan the original text once, so text inserted from the response
+            // isn't processed again. An explicit null becomes empty text; a
+            // missing path keeps its placeholder for the state pass. Conditions
+            // are filled above, so `{{field}} == null` still evaluates to true.
+            template[key] = value.replaceAllMapped(placeholderPattern, (match) {
               final path = match.group(1)!.trim();
-              final dataValue = _responseValue(data, path);
-              processedValue = processedValue.replaceAll(
-                placeholder,
-                dataValue?.toString() ?? '',
-              );
-            }
-
-            template[key] = processedValue;
+              final dataValue = _textValue(data, path);
+              if (identical(dataValue, _missingPath)) return match.group(0)!;
+              return dataValue?.toString() ?? '';
+            });
           }
         } else if (value is Map || value is List) {
           // Recursively process nested maps and lists
