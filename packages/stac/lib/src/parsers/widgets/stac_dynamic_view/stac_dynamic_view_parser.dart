@@ -133,7 +133,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       _processTemplateRecursively(
         resolvedTemplateJson,
         mapDataContext,
-        skipBoundItemTemplate: expandsItems,
+        skipItemTemplate: expandsItems,
       );
     } else {
       Log.d(
@@ -247,17 +247,17 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
   dynamic _processTemplateRecursively(
     dynamic template,
     Map<dynamic, dynamic> data, {
-    bool skipBoundItemTemplate = true,
+    bool? skipItemTemplate,
   }) {
     if (template is Map) {
       for (final key in template.keys.toList()) {
         final value = template[key];
 
-        // A list widget bound to `items` fills its itemTemplate from its own
-        // entries. Without a list to expand, the outer pass still resolves it.
+        // A response list fills this itemTemplate from each entry, so leave it
+        // for the item pass. Otherwise the outer pass still resolves it. For
+        // nested templates, a widget with `items` binds its own template.
         if (key == 'itemTemplate' &&
-            template['items'] != null &&
-            skipBoundItemTemplate) {
+            (skipItemTemplate ?? template['items'] != null)) {
           continue;
         }
 
@@ -297,20 +297,12 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           }
         } else if (value is Map || value is List) {
           // Recursively process nested maps and lists
-          _processTemplateRecursively(
-            value,
-            data,
-            skipBoundItemTemplate: skipBoundItemTemplate,
-          );
+          _processTemplateRecursively(value, data);
         }
       }
     } else if (template is List) {
       for (int i = 0; i < template.length; i++) {
-        _processTemplateRecursively(
-          template[i],
-          data,
-          skipBoundItemTemplate: skipBoundItemTemplate,
-        );
+        _processTemplateRecursively(template[i], data);
       }
     }
     return template;

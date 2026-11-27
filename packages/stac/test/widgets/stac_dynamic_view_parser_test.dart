@@ -189,4 +189,32 @@ void main() {
 
     expect(find.text('Hi Ada'), findsOneWidget);
   });
+
+  testWidgets('resolves item paths against each item, not the outer list', (
+    tester,
+  ) async {
+    await _pumpTemplate(
+      tester,
+      {
+        'type': 'column',
+        'children': [],
+        'itemTemplate': {'type': 'text', 'data': '{{rows.0.name}}'},
+      },
+      data: [
+        {
+          'name': 'outer',
+          '0': {'name': 'Ada'},
+        },
+        {
+          'name': 'other',
+          '0': {'name': 'Grace'},
+        },
+      ],
+      resultTarget: 'rows',
+    );
+
+    expect(find.text('Ada'), findsOneWidget);
+    expect(find.text('Grace'), findsOneWidget);
+    expect(find.text('outer'), findsNothing);
+  });
 }
