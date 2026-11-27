@@ -50,13 +50,21 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 responseData = response.data;
               }
 
-              final data = model.targetPath?.isEmpty ?? true
-                  ? responseData
-                  : _responseValue(responseData, model.targetPath!);
+              final targetPath = model.targetPath;
+              final hasTargetPath = targetPath?.isNotEmpty ?? false;
+              final data = hasTargetPath
+                  ? _textValue(responseData, targetPath!)
+                  : responseData;
+              // A target that selects an explicit null still gives the
+              // template a context, so `{resultTarget: null}` renders as empty
+              // text. A path that isn't in the response renders nothing.
+              final hasData = hasTargetPath
+                  ? !identical(data, _missingPath)
+                  : data != null;
 
               Log.d("data: $data");
 
-              if (data != null) {
+              if (hasData) {
                 // Check if data is an empty list and we have an empty template
                 if (_isEmptyList(data) && model.emptyTemplate != null) {
                   Log.d("Data is empty list, using empty template");
@@ -67,7 +75,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 final dataForTemplate =
                     (model.resultTarget?.isNotEmpty ?? false)
                     ? {model.resultTarget: data}
-                    : data;
+                    : (data ?? const <String, dynamic>{});
 
                 // Apply the data to the template
                 final renderedTemplate = _applyDataToTemplate(
@@ -107,6 +115,20 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
   ) {
     // Deep copy template to avoid modifying the original
     Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
+
+    // Process the outer template before rendered items are attached, so text
+    // inserted from the response isn't scanned a second time in those items.
+    if (data is Map) {
+      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
+      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
+        data,
+      );
+      _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
+    } else {
+      Log.d(
+        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
+      );
+    }
 
     // Check for list processing with itemTemplate. A template built with the
     // DSL's toJson has `"itemTemplate": null` when it has none.
@@ -178,20 +200,6 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           "itemTemplate found but no list to iterate in dataContext. Template: $currentTemplate, DataContext: $data",
         );
       }
-    }
-
-    // Process the (potentially modified) resolvedTemplate itself for any placeholders
-    // using the original overall dataContext.
-    if (data is Map) {
-      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
-      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
-        data,
-      );
-      _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
-    } else {
-      Log.d(
-        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
-      );
     }
 
     return resolvedTemplateJson;

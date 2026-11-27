@@ -6,10 +6,12 @@ import 'package:stac/stac.dart';
 Map<String, dynamic> _dynamicView(
   Map<String, dynamic> template, {
   String targetPath = '',
+  String resultTarget = '',
 }) => {
   'type': 'dynamicView',
   'request': {'url': 'https://example.com/user', 'method': 'get'},
   'targetPath': targetPath,
+  'resultTarget': resultTarget,
   'template': template,
 };
 
@@ -18,6 +20,7 @@ Future<void> _pumpTemplate(
   Map<String, dynamic> template, {
   Object? data = const {'name': 'Ada', 'nickname': null},
   String targetPath = '',
+  String resultTarget = '',
 }) async {
   final dio = Dio();
   dio.interceptors.add(
@@ -31,7 +34,11 @@ Future<void> _pumpTemplate(
     MaterialApp(
       home: Builder(
         builder: (context) => Stac.fromJson(
-          _dynamicView(template, targetPath: targetPath),
+          _dynamicView(
+            template,
+            targetPath: targetPath,
+            resultTarget: resultTarget,
+          ),
           context,
         )!,
       ),
@@ -116,5 +123,53 @@ void main() {
     );
 
     expect(find.text('Keep {{other}} literal / WRONG'), findsOneWidget);
+  });
+
+  testWidgets('renders a null target value in the named context', (
+    tester,
+  ) async {
+    await _pumpTemplate(
+      tester,
+      {'type': 'text', 'data': 'Nickname: {{value}}'},
+      data: {'nickname': null},
+      targetPath: 'nickname',
+      resultTarget: 'value',
+    );
+
+    expect(find.text('Nickname: '), findsOneWidget);
+  });
+
+  testWidgets('leaves the template unrendered for a missing target', (
+    tester,
+  ) async {
+    await _pumpTemplate(
+      tester,
+      {'type': 'text', 'data': 'Nickname: {{value}}'},
+      data: {},
+      targetPath: 'nickname',
+      resultTarget: 'value',
+    );
+
+    expect(find.text('Nickname: {{value}}'), findsNothing);
+  });
+
+  testWidgets('does not resolve placeholders in rendered item text again', (
+    tester,
+  ) async {
+    await _pumpTemplate(
+      tester,
+      {
+        'type': 'column',
+        'children': [],
+        'itemTemplate': {'type': 'text', 'data': '{{rows.message}}'},
+      },
+      data: [
+        {'message': 'Keep {{rows[0].other}} literal', 'other': 'WRONG'},
+      ],
+      resultTarget: 'rows',
+    );
+
+    expect(find.text('Keep {{rows[0].other}} literal'), findsOneWidget);
+    expect(find.text('Keep WRONG literal'), findsNothing);
   });
 }
