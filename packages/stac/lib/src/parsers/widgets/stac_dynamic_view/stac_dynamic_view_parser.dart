@@ -116,6 +116,13 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     // Deep copy template to avoid modifying the original
     Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
 
+    // Whether the response itself expands itemTemplate. Only then is that
+    // subtree left for the item pass; when no list is iterated it stays in
+    // the template and its placeholders need this pass.
+    final expandsItems = resultTarget.isNotEmpty
+        ? data is Map && data[resultTarget] is List
+        : data is List;
+
     // Process the outer template before rendered items are attached, so text
     // inserted from the response isn't scanned a second time in those items.
     if (data is Map) {
@@ -123,7 +130,11 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
         data,
       );
-      _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
+      _processTemplateRecursively(
+        resolvedTemplateJson,
+        mapDataContext,
+        skipBoundItemTemplate: expandsItems,
+      );
     } else {
       Log.d(
         "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
@@ -235,15 +246,20 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
   dynamic _processTemplateRecursively(
     dynamic template,
-    Map<dynamic, dynamic> data,
-  ) {
+    Map<dynamic, dynamic> data, {
+    bool skipBoundItemTemplate = true,
+  }) {
     if (template is Map) {
       for (final key in template.keys.toList()) {
         final value = template[key];
 
         // A list widget bound to `items` fills its itemTemplate from its own
-        // entries.
-        if (key == 'itemTemplate' && template['items'] != null) continue;
+        // entries. Without a list to expand, the outer pass still resolves it.
+        if (key == 'itemTemplate' &&
+            template['items'] != null &&
+            skipBoundItemTemplate) {
+          continue;
+        }
 
         if (value is String) {
           // A condition reads each response value as one value, so text such
@@ -281,12 +297,20 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           }
         } else if (value is Map || value is List) {
           // Recursively process nested maps and lists
-          _processTemplateRecursively(value, data);
+          _processTemplateRecursively(
+            value,
+            data,
+            skipBoundItemTemplate: skipBoundItemTemplate,
+          );
         }
       }
     } else if (template is List) {
       for (int i = 0; i < template.length; i++) {
-        _processTemplateRecursively(template[i], data);
+        _processTemplateRecursively(
+          template[i],
+          data,
+          skipBoundItemTemplate: skipBoundItemTemplate,
+        );
       }
     }
     return template;

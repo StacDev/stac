@@ -172,4 +172,21 @@ void main() {
     expect(find.text('Keep {{rows[0].other}} literal'), findsOneWidget);
     expect(find.text('Keep WRONG literal'), findsNothing);
   });
+
+  testWidgets('resolves itemTemplate when no list is expanded', (tester) async {
+    StacRegistry.instance.setValue('testExtra', [{}]);
+    addTearDown(() => StacRegistry.instance.removeValue('testExtra'));
+
+    await _pumpTemplate(
+      tester,
+      {
+        'type': 'column',
+        'items': '{{testExtra}}',
+        'itemTemplate': {'type': 'text', 'data': 'Hi {{name}}'},
+      },
+      data: {'name': 'Ada'},
+    );
+
+    expect(find.text('Hi Ada'), findsOneWidget);
+  });
 }
