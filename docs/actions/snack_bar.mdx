@@ -23,10 +23,13 @@ To know more about the SnackBar widget in Flutter, refer to the [official docume
 | actionOverflowThreshold | `double`               | The percentage threshold for action widget's width before it overflows to a new line. |
 | showCloseIcon           | `bool`                 | Whether to include a close icon widget.                                     |
 | closeIconColor          | `StacColor`            | An optional color for the close icon, if close icon visible.                |
-| duration                | `StacDuration`         | The duration for which the snack bar is visible.                            |
+| duration                | `StacDuration`         | The duration for which the snack bar is visible. Ignored when `persist` is true. |
+| persist                 | `bool`                 | Whether the snack bar stays on screen until it is dismissed. Defaults to `true` when `action` is provided, and `false` otherwise. |
 | onVisible               | `StacAction`           | Called the first time that the snackbar is visible.                         |
 | dismissDirection        | `StacDismissDirection` | The direction in which the SnackBar can be dismissed.                       |
 | clipBehavior            | `StacClip`             | The content will be clipped (or not) according to this option.              |
+
+When an `action` is provided, Flutter defaults `persist` to `true`, keeping the snack bar on screen until it is dismissed. Set `persist` to `false` to hide it automatically after `duration`.
 
 ## SnackBarAction Properties
 

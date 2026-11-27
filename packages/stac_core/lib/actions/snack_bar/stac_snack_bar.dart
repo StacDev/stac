@@ -51,6 +51,7 @@ class StacSnackBar extends StacAction {
     this.showCloseIcon,
     this.closeIconColor,
     this.duration,
+    this.persist,
     this.onVisible,
     this.dismissDirection,
     this.clipBehavior,
@@ -123,8 +124,17 @@ class StacSnackBar extends StacAction {
 
   /// Display duration.
   ///
+  /// Ignored when [persist] is true.
+  ///
   /// Type: `StacDuration?`.
   final StacDuration? duration;
+
+  /// Whether the SnackBar stays on screen until it is dismissed.
+  ///
+  /// Defaults to whether an [action] is provided when null.
+  ///
+  /// Type: `bool?`.
+  final bool? persist;
 
   /// Callback action when SnackBar becomes visible.
   ///
