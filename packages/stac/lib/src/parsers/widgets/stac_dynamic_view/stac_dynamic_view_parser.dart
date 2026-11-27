@@ -52,10 +52,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
 
               final data = model.targetPath?.isEmpty ?? true
                   ? responseData
-                  : _extractNestedData(
-                      responseData,
-                      model.targetPath?.split('.') ?? [],
-                    );
+                  : _responseValue(responseData, model.targetPath!);
 
               Log.d("data: $data");
 
@@ -100,57 +97,6 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     } catch (e) {
       Log.e('Error fetching dynamic content: $e');
       rethrow;
-    }
-  }
-
-  dynamic _extractNestedData(dynamic data, List<String> keys) {
-    dynamic current = data;
-    final RegExp arrayKeyRegex = RegExp(r'(\w+)\[(\d+)\]');
-
-    for (final key in keys) {
-      Match? arrayMatch = arrayKeyRegex.firstMatch(key);
-
-      if (arrayMatch != null) {
-        final String actualKey = arrayMatch.group(1)!;
-        final int index = int.parse(arrayMatch.group(2)!);
-
-        if (current is Map && current.containsKey(actualKey)) {
-          dynamic potentialList = current[actualKey];
-          if (potentialList is List) {
-            if (index >= 0 && index < potentialList.length) {
-              current = potentialList[index];
-            } else {
-              return null;
-            }
-          } else {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      } else {
-        if (current is Map && current.containsKey(key)) {
-          current = current[key];
-        } else if (current is List) {
-          try {
-            int index = int.parse(key);
-            if (index >= 0 && index < current.length) {
-              current = current[index];
-            } else {
-              return null;
-            }
-          } catch (e) {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      }
-    }
-    if (current == null) {
-      return "null";
-    } else {
-      return current;
     }
   }
 
@@ -303,25 +249,21 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           }
           // Check if the string contains any placeholders
           if (value.contains('{{') && value.contains('}}')) {
-            // Process multiple placeholders in a single string
+            // Process multiple placeholders in a single string. A response
+            // value that is null becomes empty text; conditions are filled
+            // above and keep the placeholder, so `{{field}} == null` still
+            // evaluates to true.
             String processedValue = value;
-            final regex = RegExp(r'\{\{([^}]+)\}\}');
-            final matches = regex.allMatches(value);
+            final matches = placeholderPattern.allMatches(value);
 
             for (final match in matches) {
               final placeholder = match.group(0)!;
-              final dataKey = match.group(1)!.trim();
-              final keys = dataKey.split('.');
-
-              // Extract the value from the data
-              final dataValue = _extractNestedData(data, keys);
-
-              if (dataValue != null) {
-                processedValue = processedValue.replaceAll(
-                  placeholder,
-                  dataValue.toString(),
-                );
-              }
+              final path = match.group(1)!.trim();
+              final dataValue = _responseValue(data, path);
+              processedValue = processedValue.replaceAll(
+                placeholder,
+                dataValue?.toString() ?? '',
+              );
             }
 
             template[key] = processedValue;
