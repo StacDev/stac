@@ -19,7 +19,7 @@ void main() async {
   );
 
   await Stac.initialize(
-    options: defaultStacOptions,
+    options: defaultStacOptions.copyWith(apiBaseUrl: 'http://127.0.0.1:45700'),
     dio: dio,
     parsers: [MovieCarouselParser()],
   );

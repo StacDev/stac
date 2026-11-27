@@ -15,11 +15,10 @@ class BuildService {
   /// Build the project from Dart to JSON using analyzer + isolate execution
   Future<void> build({String? projectPath}) async {
     // Determine project root (directory containing pubspec.yaml)
-    final projectDir =
-        projectPath ?? _findProjectRoot() ?? Directory.current.path;
+    final projectDir = resolveProjectDir(projectPath: projectPath);
 
     // Load build configuration from lib/default_stac_options.dart (with defaults)
-    final options = await _loadBuildConfigFromOptions(projectDir);
+    final options = await loadBuildConfigFromOptions(projectDir);
 
     ConsoleLogger.info('Building Stac project...');
     ConsoleLogger.debug('Project directory: $projectDir');
@@ -163,8 +162,14 @@ class BuildService {
 
     await for (final entity in dir.list(recursive: true, followLinks: false)) {
       if (entity is File && entity.path.endsWith('.dart')) {
-        // Skip hidden directories and build directories
-        if (!entity.path.contains('/.') && !entity.path.contains('.build')) {
+        final relativePath = path.relative(entity.path, from: sourceDir);
+        final pathSegments = path.split(relativePath);
+        final isHiddenOrBuildFile = pathSegments.any(
+          (segment) => segment.startsWith('.') || segment == 'build',
+        );
+
+        // Skip hidden/build directories inside the Stac source directory.
+        if (!isHiddenOrBuildFile) {
           dartFiles.add(entity.path);
         }
       }
@@ -174,7 +179,11 @@ class BuildService {
   }
 
   /// Load build configuration from lib/default_stac_options.dart with sensible defaults
-  Future<StacOptions> _loadBuildConfigFromOptions(String projectDir) async {
+  String resolveProjectDir({String? projectPath}) {
+    return projectPath ?? _findProjectRoot() ?? Directory.current.path;
+  }
+
+  Future<StacOptions> loadBuildConfigFromOptions(String projectDir) async {
     final optionsPath = path.join(
       projectDir,
       'lib',
