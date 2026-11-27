@@ -11,6 +11,7 @@ void main() {
         'data': <String, dynamic>{'text': 'Item deleted'},
       },
       persist: false,
+      action: const StacSnackBarAction(label: 'Undo', onPressed: null),
     );
 
     await tester.pumpWidget(
