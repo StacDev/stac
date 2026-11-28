@@ -45,6 +45,7 @@ class StacSnackBarParser extends StacActionParser<StacSnackBar> {
         showCloseIcon: model.showCloseIcon,
         closeIconColor: model.closeIconColor?.toColor(context),
         duration: model.duration?.parse ?? const Duration(milliseconds: 4000),
+        persist: model.persist,
         onVisible: () => Stac.onCallFromJson(model.onVisible, context),
         dismissDirection: model.dismissDirection?.parse,
         clipBehavior: model.clipBehavior?.parse ?? Clip.hardEdge,

@@ -38,6 +38,7 @@ StacSnackBar _$StacSnackBarFromJson(Map<String, dynamic> json) => StacSnackBar(
   duration: json['duration'] == null
       ? null
       : StacDuration.fromJson(json['duration'] as Map<String, dynamic>),
+  persist: json['persist'] as bool?,
   onVisible: json['onVisible'] as Map<String, dynamic>?,
   dismissDirection: $enumDecodeNullable(
     _$StacDismissDirectionEnumMap,
@@ -63,6 +64,7 @@ Map<String, dynamic> _$StacSnackBarToJson(
   'showCloseIcon': instance.showCloseIcon,
   'closeIconColor': instance.closeIconColor,
   'duration': instance.duration?.toJson(),
+  'persist': instance.persist,
   'onVisible': instance.onVisible,
   'dismissDirection': _$StacDismissDirectionEnumMap[instance.dismissDirection],
   'clipBehavior': _$StacClipEnumMap[instance.clipBehavior],
