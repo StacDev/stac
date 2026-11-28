@@ -50,10 +50,10 @@ Why use Stac?
 It's super easy to get started. You just need to initialize Stac and tell it which screen to load.
 
 ### 1. Initialize Stac
-Set up Stac in your app's `main.dart` and provide a `routeName` to fetch from your server.
+Set up Stac in your app's `main.dart` and provide a `routeName` to fetch from your server. Stac's widgets come from [`material_ui`](https://pub.dev/packages/material_ui), so add it next to `stac` with `flutter pub add material_ui`.
 
 ```dart
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/stac.dart';
 
 // import 'package:my_app/default_stac_options.dart';

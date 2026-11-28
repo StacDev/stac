@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:movie_app/widgets/movie_carousel/movie_carousel.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:stac/stac.dart';

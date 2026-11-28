@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/core/stac_action_parser.dart';
 import 'package:stac/src/parsers/foundation/ui_components/stac_options_view_open_direction_parser.dart';
 import 'package:stac_core/stac_core.dart';

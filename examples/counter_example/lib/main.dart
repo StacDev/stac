@@ -1,6 +1,6 @@
 import 'package:counter_example/counter/actions/counter_action_parser.dart';
 import 'package:counter_example/counter/widgets/counter_screen_parser.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/stac.dart';
 
 void main() async {

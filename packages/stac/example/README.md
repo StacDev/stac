@@ -269,8 +269,10 @@ Here is an example of a basic form screen build with Stac.
 
 ## Flutter
 
+Stac's widgets come from [`material_ui`](https://pub.dev/packages/material_ui), so add it next to `stac` with `flutter pub add material_ui`.
+
 ```dart
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/stac.dart';
 
 void main() {

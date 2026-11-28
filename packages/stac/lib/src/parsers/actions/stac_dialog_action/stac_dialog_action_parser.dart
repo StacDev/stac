@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/foundation/interaction/stac_traversal_edge_behavior_parser.dart';
 import 'package:stac/src/utils/color_utils.dart';

@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:cupertino_ui/cupertino_ui.dart' show CupertinoLocalizations;
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart' hide ErrorWidgetBuilder;
+import 'package:material_ui/material_ui.dart' hide ErrorWidgetBuilder;
 import 'package:flutter/services.dart';
 import 'package:stac/src/framework/stac.dart';
 import 'package:stac/src/framework/stac_error.dart';
@@ -181,6 +182,93 @@ class StacService {
   );
   static StacCacheConfig get defaultCacheConfig => _defaultCacheConfig;
 
+  // State of the debug check for an app from material_ui or cupertino_ui: the
+  // contexts it has checked, the contexts above an app that it checks after
+  // the frame, and whether it has warned.
+  static final Expando<bool> _debugCheckedContexts = Expando<bool>();
+  static final List<BuildContext> _debugContextsAboveApp = [];
+  static bool _debugWarnedAboutApp = false;
+
+  // Stac's widgets come from package:material_ui and package:cupertino_ui, so
+  // they only get the theme and localizations of an app from those packages.
+  // Under any other app, such as a MaterialApp from
+  // package:flutter/material.dart, they ignore the app's theme, and widgets
+  // such as app bars and text fields throw. Warns once, in debug builds.
+  //
+  // Each context is checked once, against its nearest Localizations. A
+  // context above the app, as in `MaterialApp(home: Stac.fromJson(json,
+  // context))`, has none, and a static screen parsed with it never parses
+  // again under the app. So the first Localizations below that context is
+  // checked once the frame is built. It reads Localizations without depending
+  // on them, so it's safe to run from initState too.
+  static void _debugCheckApp(BuildContext context) {
+    assert(() {
+      if (_debugWarnedAboutApp || _debugCheckedContexts[context] != null) {
+        return true;
+      }
+      _debugCheckedContexts[context] = true;
+      final localizations = context
+          .findAncestorWidgetOfExactType<Localizations>();
+      if (localizations != null) {
+        _debugCheckLocalizations(localizations);
+      } else {
+        if (_debugContextsAboveApp.isEmpty) {
+          WidgetsBinding.instance.addPostFrameCallback(
+            (_) => _debugCheckBelowContexts(),
+          );
+        }
+        _debugContextsAboveApp.add(context);
+      }
+      return true;
+    }());
+  }
+
+  static void _debugCheckBelowContexts() {
+    final contexts = List.of(_debugContextsAboveApp);
+    _debugContextsAboveApp.clear();
+    for (final context in contexts) {
+      if (_debugWarnedAboutApp) return;
+      if (!context.mounted) continue;
+      Localizations? below;
+      void visit(Element element) {
+        if (below != null) return;
+        final widget = element.widget;
+        if (widget is Localizations) {
+          below = widget;
+        } else {
+          element.visitChildren(visit);
+        }
+      }
+
+      context.visitChildElements(visit);
+      final localizations = below;
+      if (localizations != null) _debugCheckLocalizations(localizations);
+    }
+  }
+
+  // A MaterialApp from material_ui provides material_ui's
+  // MaterialLocalizations, which MaterialUiCompatibilityBridge keeps, and a
+  // CupertinoApp from cupertino_ui provides cupertino_ui's
+  // CupertinoLocalizations.
+  static void _debugCheckLocalizations(Localizations localizations) {
+    final types = localizations.delegates.map((delegate) => delegate.type);
+    if (types.contains(MaterialLocalizations) ||
+        types.contains(CupertinoLocalizations)) {
+      return;
+    }
+    _debugWarnedAboutApp = true;
+    Log.w(
+      'Stac builds its widgets with package:material_ui and '
+      "package:cupertino_ui, but the app above this widget isn't a "
+      'MaterialApp or CupertinoApp from those packages, so they ignore your '
+      'app theme, and widgets such as app bars and text fields throw. If your '
+      'app imports package:flutter/material.dart or '
+      'package:flutter/cupertino.dart, migrate it with '
+      '`dart fix --apply --code=migrate_design_widgets`. '
+      'See https://docs.flutter.dev/release/breaking-changes/material-ui-and-cupertino-ui',
+    );
+  }
+
   static Future<void> initialize({
     StacOptions? options,
     List<StacParser> parsers = const [],
@@ -223,6 +311,7 @@ class StacService {
   }
 
   static Widget? fromJson(Map<String, dynamic>? json, BuildContext context) {
+    _debugCheckApp(context);
     try {
       if (json == null) {
         return null;
@@ -293,6 +382,7 @@ class StacService {
     required StacWidget widget,
     required BuildContext context,
   }) {
+    _debugCheckApp(context);
     try {
       final widgetType = widget.type;
       final stacParser = StacRegistry.instance.getParser(widgetType);

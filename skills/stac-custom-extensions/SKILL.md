@@ -49,3 +49,5 @@ Use this skill to add custom widgets/actions that serialize cleanly and register
 - `assets/templates/custom_widget_parser.dart.tmpl`
 - `assets/templates/custom_action.dart.tmpl`
 - `assets/templates/custom_action_parser.dart.tmpl`
+
+The parser templates import `package:flutter/material.dart`, which is right for stac 1.x. If the app's `pubspec.lock` has stac 2.0.0-dev.2 or later, change that import in the generated parser to `package:material_ui/material_ui.dart`, and make sure the app depends on `material_ui`.

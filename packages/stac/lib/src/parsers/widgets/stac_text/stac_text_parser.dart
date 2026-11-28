@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/framework/framework.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_align_parser.dart';
 import 'package:stac/src/parsers/foundation/text/stac_text_direction_parser.dart';

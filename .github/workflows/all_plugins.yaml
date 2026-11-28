@@ -31,6 +31,16 @@ jobs:
       - uses: bluefireteam/melos-action@dd3c344d731938d2ab2567a261f54a19a68b5f6a
         with:
           melos-version: '3.0.1'
+      # Flutter 3.50 deprecates these libraries in favor of the material_ui and
+      # cupertino_ui packages. A deprecation is only an info, which doesn't fail
+      # analyze, so this step keeps the old imports and exports from coming
+      # back. tools/ isn't checked: stac-vscode's preview_host is on stac 1.x.
+      - name: 'Check for deprecated Material and Cupertino imports'
+        run: |
+          if git grep -nE "^[[:space:]]*(import|export)[[:space:]]+['\"]package:flutter/(material|cupertino)\.dart['\"]" -- ':(glob)packages/**/*.dart' ':(glob)examples/**/*.dart' ':(glob)stac_playground/**/*.dart'; then
+            echo "Import package:material_ui/material_ui.dart or package:cupertino_ui/cupertino_ui.dart instead."
+            exit 1
+          fi
       - name: 'Run Analyze'
         run: melos run analyze
 

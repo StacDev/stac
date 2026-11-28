@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/foundation/colors/stac_brightness_parser.dart';
 import 'package:stac/src/parsers/foundation/layout/stac_material_tap_target_size_parser.dart';
 import 'package:stac/src/parsers/foundation/theme/stac_input_decoration_theme_parser.dart';

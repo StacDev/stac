@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/src/parsers/core/stac_widget_parser.dart';
 import 'package:stac/src/parsers/foundation/navigation/stac_bottom_navigation_bar_landscape_layout_parser.dart';
 import 'package:stac/src/parsers/foundation/navigation/stac_bottom_navigation_bar_type_parser.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:stac/stac.dart';
 import 'package:stac_playground/app/embed/embed_message_channel.dart';
 

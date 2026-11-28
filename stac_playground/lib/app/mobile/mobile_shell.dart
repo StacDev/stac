@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:ui' show ImageFilter;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:phosphoricons_flutter/phosphoricons_flutter.dart';
@@ -956,38 +956,44 @@ class _MobileCodeViewState extends State<_MobileCodeView> {
         : Colors.black.withValues(alpha: 0.35);
     return Container(
       color: widget.dark ? const Color(0xFF101112) : const Color(0xFFF7F7F8),
-      child: CodeEditor(
-        controller: _controller,
-        readOnly: true,
-        style: CodeEditorStyle(
-          fontFamily: 'JetBrainsMono',
-          fontSize: 12,
-          fontHeight: 1.5,
-          textColor:
-              widget.dark ? const Color(0xFFD4D4D4) : const Color(0xFF1F1F1F),
-          codeTheme: CodeHighlightTheme(
-            languages: widget.isDart
-                ? {'dart': CodeHighlightThemeMode(mode: langDart)}
-                : {'json': CodeHighlightThemeMode(mode: langJson)},
-            theme: _theme(),
+      // re_editor 0.10.0 still uses package:flutter/material.dart, so the
+      // bridge gives it the theme and localizations it looks up. Remove the
+      // bridge once re_editor moves to material_ui.
+      // ignore: deprecated_member_use
+      child: MaterialUiCompatibilityBridge(
+        child: CodeEditor(
+          controller: _controller,
+          readOnly: true,
+          style: CodeEditorStyle(
+            fontFamily: 'JetBrainsMono',
+            fontSize: 12,
+            fontHeight: 1.5,
+            textColor:
+                widget.dark ? const Color(0xFFD4D4D4) : const Color(0xFF1F1F1F),
+            codeTheme: CodeHighlightTheme(
+              languages: widget.isDart
+                  ? {'dart': CodeHighlightThemeMode(mode: langDart)}
+                  : {'json': CodeHighlightThemeMode(mode: langJson)},
+              theme: _theme(),
+            ),
           ),
+          wordWrap: false,
+          indicatorBuilder:
+              (context, editingController, chunkController, notifier) {
+            return Row(
+              children: [
+                const SizedBox(width: 8),
+                DefaultCodeLineNumber(
+                  controller: editingController,
+                  notifier: notifier,
+                  textStyle: _font.copyWith(color: lineNumber),
+                  focusedTextStyle: _font,
+                ),
+                const SizedBox(width: 8),
+              ],
+            );
+          },
         ),
-        wordWrap: false,
-        indicatorBuilder:
-            (context, editingController, chunkController, notifier) {
-          return Row(
-            children: [
-              const SizedBox(width: 8),
-              DefaultCodeLineNumber(
-                controller: editingController,
-                notifier: notifier,
-                textStyle: _font.copyWith(color: lineNumber),
-                focusedTextStyle: _font,
-              ),
-              const SizedBox(width: 8),
-            ],
-          );
-        },
       ),
     );
   }

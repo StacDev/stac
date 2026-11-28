@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Non-web stand-in for the web-only embed screen, which relies on
 /// `dart:js_interop` and is compiled only for web builds.

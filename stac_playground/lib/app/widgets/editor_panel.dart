@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -350,53 +350,62 @@ class _CodeEditorContentState extends State<_CodeEditorContent> {
           ),
         ),
         Expanded(
-          child: CodeEditor(
-            controller: _controller,
-            findController: _findController,
-            readOnly: false,
-            style: CodeEditorStyle(
-              fontFamily: 'JetBrainsMono',
-              fontSize: 13,
-              fontHeight: 1.5,
-              codeTheme: CodeHighlightTheme(
-                languages: _isDart
-                    ? {'dart': CodeHighlightThemeMode(mode: _dartHighlightMode)}
-                    : {'json': CodeHighlightThemeMode(mode: langJson)},
-                theme: _editorTheme(),
+          // re_editor 0.10.0 still uses package:flutter/material.dart, so the
+          // bridge gives it the theme and localizations it looks up. Remove
+          // the bridge once re_editor moves to material_ui.
+          // ignore: deprecated_member_use
+          child: MaterialUiCompatibilityBridge(
+            child: CodeEditor(
+              controller: _controller,
+              findController: _findController,
+              readOnly: false,
+              style: CodeEditorStyle(
+                fontFamily: 'JetBrainsMono',
+                fontSize: 13,
+                fontHeight: 1.5,
+                codeTheme: CodeHighlightTheme(
+                  languages: _isDart
+                      ? {
+                          'dart':
+                              CodeHighlightThemeMode(mode: _dartHighlightMode)
+                        }
+                      : {'json': CodeHighlightThemeMode(mode: langJson)},
+                  theme: _editorTheme(),
+                ),
               ),
-            ),
-            wordWrap: false,
-            indicatorBuilder: (
-              context,
-              editingController,
-              chunkController,
-              notifier,
-            ) {
-              return Row(
-                children: [
-                  const SizedBox(width: 12),
-                  DefaultCodeLineNumber(
-                    controller: editingController,
-                    notifier: notifier,
-                    textStyle: _defaultFont.copyWith(
-                      color: Colors.white.withValues(alpha: 0.5),
+              wordWrap: false,
+              indicatorBuilder: (
+                context,
+                editingController,
+                chunkController,
+                notifier,
+              ) {
+                return Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    DefaultCodeLineNumber(
+                      controller: editingController,
+                      notifier: notifier,
+                      textStyle: _defaultFont.copyWith(
+                        color: Colors.white.withValues(alpha: 0.5),
+                      ),
+                      focusedTextStyle: _defaultFont,
                     ),
-                    focusedTextStyle: _defaultFont,
-                  ),
-                  const SizedBox(width: 2),
-                  DefaultCodeChunkIndicator(
-                    width: 20,
-                    controller: chunkController,
-                    notifier: notifier,
-                  ),
-                ],
-              );
-            },
-            findBuilder: (context, controller, readOnly) => CodeFindPanelView(
-              controller: controller,
-              readOnly: readOnly,
+                    const SizedBox(width: 2),
+                    DefaultCodeChunkIndicator(
+                      width: 20,
+                      controller: chunkController,
+                      notifier: notifier,
+                    ),
+                  ],
+                );
+              },
+              findBuilder: (context, controller, readOnly) => CodeFindPanelView(
+                controller: controller,
+                readOnly: readOnly,
+              ),
+              toolbarController: const _EditorContextMenuController(),
             ),
-            toolbarController: const _EditorContextMenuController(),
           ),
         ),
         if (_isDart && _dslError != null) _dslNotice(context, _dslError!),
