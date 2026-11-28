@@ -50,16 +50,21 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 responseData = response.data;
               }
 
-              final data = model.targetPath?.isEmpty ?? true
-                  ? responseData
-                  : _extractNestedData(
-                      responseData,
-                      model.targetPath?.split('.') ?? [],
-                    );
+              final targetPath = model.targetPath;
+              final hasTargetPath = targetPath?.isNotEmpty ?? false;
+              final data = hasTargetPath
+                  ? _textValue(responseData, targetPath!)
+                  : responseData;
+              // A target that selects an explicit null still gives the
+              // template a context, so `{resultTarget: null}` renders as empty
+              // text. A path that isn't in the response renders nothing.
+              final hasData = hasTargetPath
+                  ? !identical(data, _missingPath)
+                  : data != null;
 
               Log.d("data: $data");
 
-              if (data != null) {
+              if (hasData) {
                 // Check if data is an empty list and we have an empty template
                 if (_isEmptyList(data) && model.emptyTemplate != null) {
                   Log.d("Data is empty list, using empty template");
@@ -70,7 +75,7 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
                 final dataForTemplate =
                     (model.resultTarget?.isNotEmpty ?? false)
                     ? {model.resultTarget: data}
-                    : data;
+                    : (data ?? const <String, dynamic>{});
 
                 // Apply the data to the template
                 final renderedTemplate = _applyDataToTemplate(
@@ -103,57 +108,6 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     }
   }
 
-  dynamic _extractNestedData(dynamic data, List<String> keys) {
-    dynamic current = data;
-    final RegExp arrayKeyRegex = RegExp(r'(\w+)\[(\d+)\]');
-
-    for (final key in keys) {
-      Match? arrayMatch = arrayKeyRegex.firstMatch(key);
-
-      if (arrayMatch != null) {
-        final String actualKey = arrayMatch.group(1)!;
-        final int index = int.parse(arrayMatch.group(2)!);
-
-        if (current is Map && current.containsKey(actualKey)) {
-          dynamic potentialList = current[actualKey];
-          if (potentialList is List) {
-            if (index >= 0 && index < potentialList.length) {
-              current = potentialList[index];
-            } else {
-              return null;
-            }
-          } else {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      } else {
-        if (current is Map && current.containsKey(key)) {
-          current = current[key];
-        } else if (current is List) {
-          try {
-            int index = int.parse(key);
-            if (index >= 0 && index < current.length) {
-              current = current[index];
-            } else {
-              return null;
-            }
-          } catch (e) {
-            return null;
-          }
-        } else {
-          return null;
-        }
-      }
-    }
-    if (current == null) {
-      return "null";
-    } else {
-      return current;
-    }
-  }
-
   Map<String, dynamic> _applyDataToTemplate(
     StacWidget currentTemplate,
     dynamic data,
@@ -161,6 +115,31 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
   ) {
     // Deep copy template to avoid modifying the original
     Map<String, dynamic> resolvedTemplateJson = currentTemplate.toJson();
+
+    // Whether the response itself expands itemTemplate. Only then is that
+    // subtree left for the item pass; when no list is iterated it stays in
+    // the template and its placeholders need this pass.
+    final expandsItems = resultTarget.isNotEmpty
+        ? data is Map && data[resultTarget] is List
+        : data is List;
+
+    // Process the outer template before rendered items are attached, so text
+    // inserted from the response isn't scanned a second time in those items.
+    if (data is Map) {
+      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
+      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
+        data,
+      );
+      _processTemplateRecursively(
+        resolvedTemplateJson,
+        mapDataContext,
+        skipItemTemplate: expandsItems,
+      );
+    } else {
+      Log.d(
+        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
+      );
+    }
 
     // Check for list processing with itemTemplate. A template built with the
     // DSL's toJson has `"itemTemplate": null` when it has none.
@@ -234,20 +213,6 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
       }
     }
 
-    // Process the (potentially modified) resolvedTemplate itself for any placeholders
-    // using the original overall dataContext.
-    if (data is Map) {
-      // Ensure it's Map<dynamic, dynamic> for _processTemplateRecursively
-      final Map<dynamic, dynamic> mapDataContext = Map<dynamic, dynamic>.from(
-        data,
-      );
-      _processTemplateRecursively(resolvedTemplateJson, mapDataContext);
-    } else {
-      Log.d(
-        "Overall dataContext is not a Map, skipping final placeholder processing for the main template structure. DataContext: $data",
-      );
-    }
-
     return resolvedTemplateJson;
   }
 
@@ -263,22 +228,38 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
     return result;
   }
 
-  // The response value at [path]: a key that is [path] itself, or a path
-  // into the response such as `user.name` or `matrix[0][1]`.
-  static Object? _responseValue(Map<dynamic, dynamic> data, String path) =>
-      data.containsKey(path) ? data[path] : readPath(data, path);
+  // A path the response doesn't have, as opposed to one whose value is null.
+  static const Object _missingPath = Object();
+
+  // The response value at [path]: a key that is [path] itself, or a path into
+  // the response such as `user.name` or `matrix[0][1]`. The response can be a
+  // list, so a numeric path selects its item at that index.
+  static Object? _responseValue(Object? data, String path) =>
+      data is Map && data.containsKey(path) ? data[path] : readPath(data, path);
+
+  // Like [_responseValue], but tells a missing path apart from a value that
+  // is null, so text can leave the latter's placeholder for the state pass.
+  static Object? _textValue(Object? data, String path) =>
+      data is Map && data.containsKey(path)
+      ? data[path]
+      : readPath(data, path, orElse: _missingPath);
 
   dynamic _processTemplateRecursively(
     dynamic template,
-    Map<dynamic, dynamic> data,
-  ) {
+    Map<dynamic, dynamic> data, {
+    bool? skipItemTemplate,
+  }) {
     if (template is Map) {
       for (final key in template.keys.toList()) {
         final value = template[key];
 
-        // A list widget bound to `items` fills its itemTemplate from its own
-        // entries.
-        if (key == 'itemTemplate' && template['items'] != null) continue;
+        // A response list fills this itemTemplate from each entry, so leave it
+        // for the item pass. Otherwise the outer pass still resolves it. For
+        // nested templates, a widget with `items` binds its own template.
+        if (key == 'itemTemplate' &&
+            (skipItemTemplate ?? template['items'] != null)) {
+          continue;
+        }
 
         if (value is String) {
           // A condition reads each response value as one value, so text such
@@ -303,28 +284,16 @@ class StacDynamicViewParser extends StacParser<StacDynamicView> {
           }
           // Check if the string contains any placeholders
           if (value.contains('{{') && value.contains('}}')) {
-            // Process multiple placeholders in a single string
-            String processedValue = value;
-            final regex = RegExp(r'\{\{([^}]+)\}\}');
-            final matches = regex.allMatches(value);
-
-            for (final match in matches) {
-              final placeholder = match.group(0)!;
-              final dataKey = match.group(1)!.trim();
-              final keys = dataKey.split('.');
-
-              // Extract the value from the data
-              final dataValue = _extractNestedData(data, keys);
-
-              if (dataValue != null) {
-                processedValue = processedValue.replaceAll(
-                  placeholder,
-                  dataValue.toString(),
-                );
-              }
-            }
-
-            template[key] = processedValue;
+            // Scan the original text once, so text inserted from the response
+            // isn't processed again. An explicit null becomes empty text; a
+            // missing path keeps its placeholder for the state pass. Conditions
+            // are filled above, so `{{field}} == null` still evaluates to true.
+            template[key] = value.replaceAllMapped(placeholderPattern, (match) {
+              final path = match.group(1)!.trim();
+              final dataValue = _textValue(data, path);
+              if (identical(dataValue, _missingPath)) return match.group(0)!;
+              return dataValue?.toString() ?? '';
+            });
           }
         } else if (value is Map || value is List) {
           // Recursively process nested maps and lists

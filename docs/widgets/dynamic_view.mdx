@@ -120,6 +120,8 @@ Use double curly braces `{{placeholder}}` to insert data from the API response i
 - For array elements, use index notation: `{{users[0].name}}` or combined path: `{{items.0.title}}`
 - For array elements within objects, use combined notation: `{{data.users[2].profile.name}}`
 
+A field whose value is `null` is inserted as empty text. With `{"name": "Ada", "nickname": null}`, the template `{{name}} ({{nickname}})` renders `Ada ()`. A field the response doesn't contain keeps its placeholder, so it can be filled from state. To branch on a null field, use a `conditional` with `{{nickname}} == null`: it is true when the response has no value for that field.
+
 ## Examples
 
 ### User Profile Example with Loading and Error States
